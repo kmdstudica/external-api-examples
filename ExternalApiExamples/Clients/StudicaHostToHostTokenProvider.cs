@@ -12,7 +12,7 @@ namespace ExternalApiExamples.Clients
 {
     public class StudicaHostToHostTokenProvider : ITokenProvider
     {
-        private readonly String secret;
+        private readonly string secret;
 
         public StudicaHostToHostTokenProvider(string secret)
         {

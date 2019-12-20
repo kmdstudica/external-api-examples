@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalApiExamples", "ExternalApiExamples\ExternalApiExamples.csproj", "{537C1AA4-A3E1-4232-91E6-A877383E7501}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalApiExamples", "src\ExternalApiExamples\ExternalApiExamples.csproj", "{537C1AA4-A3E1-4232-91E6-A877383E7501}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

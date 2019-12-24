@@ -4,27 +4,29 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.Employees.Client.Models
+namespace Kmd.Studica.SchoolAdministration.Client.Models
 {
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class PagedResponse1
+    public partial class PagedResponse1SchoolHoursPlansResponse
     {
         /// <summary>
-        /// Initializes a new instance of the PagedResponse1 class.
+        /// Initializes a new instance of the
+        /// PagedResponse1SchoolHoursPlansResponse class.
         /// </summary>
-        public PagedResponse1()
+        public PagedResponse1SchoolHoursPlansResponse()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the PagedResponse1 class.
+        /// Initializes a new instance of the
+        /// PagedResponse1SchoolHoursPlansResponse class.
         /// </summary>
-        public PagedResponse1(IList<EmployeeResponse> items = default(IList<EmployeeResponse>), int? totalItems = default(int?))
+        public PagedResponse1SchoolHoursPlansResponse(IList<SchoolHoursPlansResponse> items = default(IList<SchoolHoursPlansResponse>), int? totalItems = default(int?))
         {
             Items = items;
             TotalItems = totalItems;
@@ -39,7 +41,7 @@ namespace Kmd.Studica.Employees.Client.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "items")]
-        public IList<EmployeeResponse> Items { get; private set; }
+        public IList<SchoolHoursPlansResponse> Items { get; private set; }
 
         /// <summary>
         /// </summary>

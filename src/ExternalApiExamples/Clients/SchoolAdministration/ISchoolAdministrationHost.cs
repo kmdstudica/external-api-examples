@@ -4,7 +4,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.Employees.Client
+namespace Kmd.Studica.SchoolAdministration.Client
 {
     using Microsoft.Rest;
     using Models;
@@ -40,6 +40,16 @@ namespace Kmd.Studica.Employees.Client
         /// Gets the IEmployees.
         /// </summary>
         IEmployees Employees { get; }
+
+        /// <summary>
+        /// Gets the IRooms.
+        /// </summary>
+        IRooms Rooms { get; }
+
+        /// <summary>
+        /// Gets the ISchoolHoursPlansExternal.
+        /// </summary>
+        ISchoolHoursPlansExternal SchoolHoursPlansExternal { get; }
 
     }
 }

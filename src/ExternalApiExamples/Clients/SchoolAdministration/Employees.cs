@@ -4,7 +4,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.Employees.Client
+namespace Kmd.Studica.SchoolAdministration.Client
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Serialization;
@@ -48,10 +48,13 @@ namespace Kmd.Studica.Employees.Client
         public SchoolAdministrationHost Client { get; private set; }
 
         /// <param name='pageNumber'>
+        /// The page number to return.
         /// </param>
         /// <param name='pageSize'>
+        /// Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
+        /// A flag indicating if include total number of items.
         /// </param>
         /// <param name='employmentStartDateFrom'>
         /// </param>
@@ -75,7 +78,7 @@ namespace Kmd.Studica.Employees.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponse1>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string institutionNumber = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponse1EmployeeResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string institutionNumber = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pageNumber > 2147483647)
             {
@@ -191,7 +194,7 @@ namespace Kmd.Studica.Employees.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponse1>();
+            var _result = new HttpOperationResponse<PagedResponse1EmployeeResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -200,7 +203,7 @@ namespace Kmd.Studica.Employees.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponse1>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponse1EmployeeResponse>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

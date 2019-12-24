@@ -4,7 +4,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.Employees.Client
+namespace Kmd.Studica.SchoolAdministration.Client
 {
     using Microsoft.Rest;
     using Models;
@@ -14,22 +14,21 @@ namespace Kmd.Studica.Employees.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Employees operations.
+    /// SchoolHoursPlansExternal operations.
     /// </summary>
-    public partial interface IEmployees
+    public partial interface ISchoolHoursPlansExternal
     {
         /// <param name='pageNumber'>
+        /// The page number to return.
         /// </param>
         /// <param name='pageSize'>
+        /// Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
-        /// </param>
-        /// <param name='employmentStartDateFrom'>
-        /// </param>
-        /// <param name='employmentStartDateTo'>
+        /// A flag indicating if include total number of items.
         /// </param>
         /// <param name='institutionNumber'>
-        /// Institution number the employee belongs to.
+        /// Institution number where plan belongs to.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -43,6 +42,6 @@ namespace Kmd.Studica.Employees.Client
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse1>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string institutionNumber = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse1SchoolHoursPlansResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string institutionNumber = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

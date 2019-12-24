@@ -4,7 +4,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.Employees.Client.Models
+namespace Kmd.Studica.SchoolAdministration.Client.Models
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Serialization;

@@ -4,7 +4,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.Employees.Client
+namespace Kmd.Studica.SchoolAdministration.Client
 {
     using Models;
     using System.Threading;
@@ -19,10 +19,13 @@ namespace Kmd.Studica.Employees.Client
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pageNumber'>
+            /// The page number to return.
             /// </param>
             /// <param name='pageSize'>
+            /// Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
+            /// A flag indicating if include total number of items.
             /// </param>
             /// <param name='employmentStartDateFrom'>
             /// </param>
@@ -31,7 +34,7 @@ namespace Kmd.Studica.Employees.Client
             /// <param name='institutionNumber'>
             /// Institution number the employee belongs to.
             /// </param>
-            public static PagedResponse1 Get(this IEmployees operations, int pageNumber, int pageSize, bool inlineCount, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string institutionNumber = default(string))
+            public static PagedResponse1EmployeeResponse Get(this IEmployees operations, int pageNumber, int pageSize, bool inlineCount, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string institutionNumber = default(string))
             {
                 return operations.GetAsync(pageNumber, pageSize, inlineCount, employmentStartDateFrom, employmentStartDateTo, institutionNumber).GetAwaiter().GetResult();
             }
@@ -40,10 +43,13 @@ namespace Kmd.Studica.Employees.Client
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pageNumber'>
+            /// The page number to return.
             /// </param>
             /// <param name='pageSize'>
+            /// Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
+            /// A flag indicating if include total number of items.
             /// </param>
             /// <param name='employmentStartDateFrom'>
             /// </param>
@@ -55,7 +61,7 @@ namespace Kmd.Studica.Employees.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponse1> GetAsync(this IEmployees operations, int pageNumber, int pageSize, bool inlineCount, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string institutionNumber = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponse1EmployeeResponse> GetAsync(this IEmployees operations, int pageNumber, int pageSize, bool inlineCount, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string institutionNumber = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(pageNumber, pageSize, inlineCount, employmentStartDateFrom, employmentStartDateTo, institutionNumber, null, cancellationToken).ConfigureAwait(false))
                 {

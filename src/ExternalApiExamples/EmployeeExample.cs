@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ConsoleTables;
-using Kmd.Studica.Employees.Client;
+using Kmd.Studica.SchoolAdministration.Client;
 using Microsoft.Rest;
 
 namespace ExternalApiExamples
@@ -12,27 +12,26 @@ namespace ExternalApiExamples
         public async Task Execute(ITokenProvider tokenProvider)
         {
             Console.WriteLine("Executing employee example");
-            
-            using (var employeeClient = new SchoolAdministrationHost(new TokenCredentials(tokenProvider)))
-            {
-                var result = await employeeClient.Employees.GetWithHttpMessagesAsync(
-                    1,
-                    10,
-                    true,
-                    DateTime.Now.AddYears(-1),
-                    DateTime.Now,
-                    "",
-                    new Dictionary<string, List<string>>
-                    {
-                        { "X-Host-To-Host", new List<string>{"true"} } 
-                    });
+
+            using var schoolAdministrationClient = new SchoolAdministrationHost(new TokenCredentials(tokenProvider));
+
+            var result = await schoolAdministrationClient.Employees.GetWithHttpMessagesAsync(
+                1,
+                10,
+                true,
+                DateTime.Now.AddYears(-1),
+                DateTime.Now,
+                "",
+                new Dictionary<string, List<string>>
+                {
+                    { "X-Host-To-Host", new List<string>{"true"} } 
+                });
                 
-                Console.WriteLine($"Got {result.Body.TotalItems} employees from API");
+            Console.WriteLine($"Got {result.Body.TotalItems} employees from API");
                 
-                ConsoleTable
-                    .From(result.Body.Items)
-                    .Write();
-            }
+            ConsoleTable
+                .From(result.Body.Items)
+                .Write();
         }
     }
 }

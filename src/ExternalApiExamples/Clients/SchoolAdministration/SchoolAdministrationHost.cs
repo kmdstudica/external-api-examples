@@ -48,6 +48,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         public virtual IRooms Rooms { get; private set; }
 
         /// <summary>
+        /// Gets the ISchoolHourEntryExternal.
+        /// </summary>
+        public virtual ISchoolHourEntryExternal SchoolHourEntryExternal { get; private set; }
+
+        /// <summary>
         /// Gets the ISchoolHoursPlansExternal.
         /// </summary>
         public virtual ISchoolHoursPlansExternal SchoolHoursPlansExternal { get; private set; }
@@ -295,6 +300,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         {
             Employees = new Employees(this);
             Rooms = new Rooms(this);
+            SchoolHourEntryExternal = new SchoolHourEntryExternal(this);
             SchoolHoursPlansExternal = new SchoolHoursPlansExternal(this);
             BaseUri = new System.Uri("http://localhost:5002");
             SerializationSettings = new JsonSerializerSettings

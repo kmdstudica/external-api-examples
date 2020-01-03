@@ -47,6 +47,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         IRooms Rooms { get; }
 
         /// <summary>
+        /// Gets the ISchoolHourEntryExternal.
+        /// </summary>
+        ISchoolHourEntryExternal SchoolHourEntryExternal { get; }
+
+        /// <summary>
         /// Gets the ISchoolHoursPlansExternal.
         /// </summary>
         ISchoolHoursPlansExternal SchoolHoursPlansExternal { get; }

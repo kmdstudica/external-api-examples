@@ -11,9 +11,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for SchoolHoursPlansExternal.
+    /// Extension methods for SchoolHourEntryExternal.
     /// </summary>
-    public static partial class SchoolHoursPlansExternalExtensions
+    public static partial class SchoolHourEntryExternalExtensions
     {
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -28,9 +28,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// A flag indicating if include total number of items.
             /// </param>
             /// <param name='institutionNumber'>
-            /// Institution number where plan belongs to.
+            /// Institution number where hour entry belongs to.
             /// </param>
-            public static PagedResponse1SchoolHoursPlanResponse Get(this ISchoolHoursPlansExternal operations, int pageNumber, int pageSize, bool inlineCount, string institutionNumber = default(string))
+            public static PagedResponse1SchoolHourEntryExternalResponse Get(this ISchoolHourEntryExternal operations, int pageNumber, int pageSize, bool inlineCount, string institutionNumber = default(string))
             {
                 return operations.GetAsync(pageNumber, pageSize, inlineCount, institutionNumber).GetAwaiter().GetResult();
             }
@@ -48,12 +48,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// A flag indicating if include total number of items.
             /// </param>
             /// <param name='institutionNumber'>
-            /// Institution number where plan belongs to.
+            /// Institution number where hour entry belongs to.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponse1SchoolHoursPlanResponse> GetAsync(this ISchoolHoursPlansExternal operations, int pageNumber, int pageSize, bool inlineCount, string institutionNumber = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponse1SchoolHourEntryExternalResponse> GetAsync(this ISchoolHourEntryExternal operations, int pageNumber, int pageSize, bool inlineCount, string institutionNumber = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(pageNumber, pageSize, inlineCount, institutionNumber, null, cancellationToken).ConfigureAwait(false))
                 {

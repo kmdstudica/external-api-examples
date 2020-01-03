@@ -14,9 +14,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// SchoolHoursPlansExternal operations.
+    /// SchoolHourEntryExternal operations.
     /// </summary>
-    public partial interface ISchoolHoursPlansExternal
+    public partial interface ISchoolHourEntryExternal
     {
         /// <param name='pageNumber'>
         /// The page number to return.
@@ -28,7 +28,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// A flag indicating if include total number of items.
         /// </param>
         /// <param name='institutionNumber'>
-        /// Institution number where plan belongs to.
+        /// Institution number where hour entry belongs to.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -42,6 +42,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse1SchoolHoursPlanResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string institutionNumber = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse1SchoolHourEntryExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string institutionNumber = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

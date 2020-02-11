@@ -15,14 +15,14 @@ namespace ExternalApiExamples
 
             using var schoolAdministrationClient = new SchoolAdministrationHost(new TokenCredentials(tokenProvider));
 
-            var result = await schoolAdministrationClient.Employees.GetWithHttpMessagesAsync(
-                1,
-                10,
-                true,
-                DateTime.Now.AddYears(-1),
-                DateTime.Now,
-                "",
-                new Dictionary<string, List<string>>
+            var result = await schoolAdministrationClient.EmployeesExternal.GetWithHttpMessagesAsync(
+                employmentStartDateFrom: DateTime.Now.AddYears(-1),
+                employmentStartDateTo: DateTime.Now,
+                schoolCode: Configuration.TestSchoolCode,
+                pageNumber: 1,
+                pageSize: 10,
+                inlineCount: true,
+                customHeaders: new Dictionary<string, List<string>>
                 {
                     { "X-Host-To-Host", new List<string>{"true"} } 
                 });

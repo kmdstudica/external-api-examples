@@ -15,12 +15,12 @@ namespace ExternalApiExamples
 
             using var programmesClient = new ProgrammesHost(new TokenCredentials(tokenProvider));
             var result = await programmesClient.EducationalProgrammesExternal.GetWithHttpMessagesAsync(
-                institutionNumber: Configuration.TestInstitutionNumber,
+                startDateFrom: DateTime.Now.AddMonths(-12),
+                startDateTo: DateTime.Now.AddMonths(6),
+                schoolCode: Configuration.TestSchoolCode,
                 pageNumber: 1,
                 pageSize: 10,
                 inlineCount: true,
-                startDateFrom: DateTime.Now.AddMonths(-12),
-                startDateTo: DateTime.Now.AddMonths(6),
                 new Dictionary<string, List<string>>
                 {
                     { "X-Host-To-Host", new List<string>{"true"} }

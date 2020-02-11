@@ -2,6 +2,6 @@
 {
     public static class Configuration
     {
-        public const string TestInstitutionNumber = "A00001";
+        public const string TestSchoolCode = "A00001";
     }
 }

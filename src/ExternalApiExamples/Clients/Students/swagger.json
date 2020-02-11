@@ -1,0 +1,185 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1",
+        "title": "Students.Host"
+    },
+    "host": "localhost:5018",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/StudentsExternal": {
+            "get": {
+                "tags": [
+                    "StudentsExternal"
+                ],
+                "operationId": "StudentsExternal_Get",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "text/plain",
+                    "application/json",
+                    "text/json"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization Header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "StudyStartDateFrom",
+                        "in": "query",
+                        "description": "Beginning of range for start date of the students study.",
+                        "required": true,
+                        "type": "string",
+                        "format": "date"
+                    },
+                    {
+                        "name": "StudyStartDateTo",
+                        "in": "query",
+                        "description": "End of range for start date of the students study.",
+                        "required": true,
+                        "type": "string",
+                        "format": "date"
+                    },
+                    {
+                        "name": "SchoolCode",
+                        "in": "query",
+                        "description": "The school code for which to get data.",
+                        "required": true,
+                        "type": "string",
+                        "maxLength": 6,
+                        "minLength": 6
+                    },
+                    {
+                        "name": "PageNumber",
+                        "in": "query",
+                        "description": "The number of the page to return (1 is the first page).",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32",
+                        "maximum": 2147483647.0,
+                        "minimum": 1.0
+                    },
+                    {
+                        "name": "PageSize",
+                        "in": "query",
+                        "description": "Number of objects per page.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32",
+                        "maximum": 1000.0,
+                        "minimum": 1.0
+                    },
+                    {
+                        "name": "InlineCount",
+                        "in": "query",
+                        "description": "A flag indicating if total number of items should be included.",
+                        "required": true,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/PagedResponse`1_StudentExternalResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "PagedResponse`1_StudentExternalResponse": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Page of items",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/StudentExternalResponse"
+                    },
+                    "readOnly": true
+                },
+                "totalItems": {
+                    "format": "int32",
+                    "description": "Total number of items",
+                    "type": "integer",
+                    "readOnly": true
+                }
+            }
+        },
+        "StudentExternalResponse": {
+            "title": "StudentExternalResponse",
+            "description": "Model of the student.",
+            "required": [
+                "id",
+                "civilRegistrationNumber",
+                "givenName",
+                "surname",
+                "email",
+                "studyStartDate"
+            ],
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "uuid",
+                    "description": "Student's identifier.",
+                    "type": "string",
+                    "x-nullable": false
+                },
+                "civilRegistrationNumber": {
+                    "description": "Student's civil registration number.",
+                    "type": "string"
+                },
+                "givenName": {
+                    "description": "Student's given name.",
+                    "type": "string"
+                },
+                "surname": {
+                    "description": "Student's surname.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "Student's e-mail address.",
+                    "type": "string"
+                },
+                "uniLoginUsername": {
+                    "description": "Student's Unilogin username.",
+                    "type": "string"
+                },
+                "studyStartDate": {
+                    "format": "date",
+                    "description": "Study date of start.",
+                    "type": "string",
+                    "x-nullable": false
+                },
+                "studyEndDate": {
+                    "format": "date",
+                    "description": "Study date of end.",
+                    "type": "string"
+                },
+                "studyEndCause": {
+                    "description": "Cause of study ending.",
+                    "type": "string"
+                },
+                "adUsername": {
+                    "description": "Student's Active Directory username.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

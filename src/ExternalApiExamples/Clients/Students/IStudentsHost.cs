@@ -39,7 +39,7 @@ namespace Kmd.Studica.Students.Client
         /// <summary>
         /// Gets the IStudentsExternal.
         /// </summary>
-        IStudents Students { get; }
+        IStudentsExternal StudentsExternal { get; }
 
     }
 }

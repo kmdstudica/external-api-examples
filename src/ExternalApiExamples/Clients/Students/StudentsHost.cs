@@ -40,7 +40,7 @@ namespace Kmd.Studica.Students.Client
         /// <summary>
         /// Gets the IStudentsExternal.
         /// </summary>
-        public virtual IStudents Students { get; private set; }
+        public virtual IStudentsExternal StudentsExternal { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the StudentsHost class.
@@ -283,7 +283,7 @@ namespace Kmd.Studica.Students.Client
         /// </summary>
         private void Initialize()
         {
-            Students = new Students(this);
+            StudentsExternal = new StudentsExternal(this);
             BaseUri = new System.Uri("http://localhost:5018");
             SerializationSettings = new JsonSerializerSettings
             {

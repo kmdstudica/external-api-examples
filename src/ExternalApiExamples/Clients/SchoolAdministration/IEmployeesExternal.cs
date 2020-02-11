@@ -14,10 +14,16 @@ namespace Kmd.Studica.SchoolAdministration.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// SchoolHoursPlansExternal operations.
+    /// EmployeesExternal operations.
     /// </summary>
-    public partial interface ISchoolHoursPlansExternal
+    public partial interface IEmployeesExternal
     {
+        /// <param name='employmentStartDateFrom'>
+        /// Beginning of range for start date employment.
+        /// </param>
+        /// <param name='employmentStartDateTo'>
+        /// End of range for start date employment.
+        /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
         /// </param>
@@ -45,6 +51,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse1SchoolHoursPlanExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse1EmployeeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

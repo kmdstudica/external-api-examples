@@ -19,12 +19,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// SchoolHoursPlansExternal operations.
+    /// SchoolHourEntriesExternal operations.
     /// </summary>
-    public partial class SchoolHoursPlansExternal : IServiceOperations<SchoolAdministrationHost>, ISchoolHoursPlansExternal
+    public partial class SchoolHourEntriesExternal : IServiceOperations<SchoolAdministrationHost>, ISchoolHourEntriesExternal
     {
         /// <summary>
-        /// Initializes a new instance of the SchoolHoursPlansExternal class.
+        /// Initializes a new instance of the SchoolHourEntriesExternal class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public SchoolHoursPlansExternal(SchoolAdministrationHost client)
+        public SchoolHourEntriesExternal(SchoolAdministrationHost client)
         {
             if (client == null)
             {
@@ -79,7 +79,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponse1SchoolHoursPlanExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponse1SchoolHourEntryExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (schoolCode == null)
             {
@@ -128,7 +128,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SchoolHoursPlansExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SchoolHourEntriesExternal").ToString();
             List<string> _queryParameters = new List<string>();
             if (schoolCode != null)
             {
@@ -206,7 +206,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponse1SchoolHoursPlanExternalResponse>();
+            var _result = new HttpOperationResponse<PagedResponse1SchoolHourEntryExternalResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -215,7 +215,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<PagedResponse1SchoolHoursPlanExternalResponse>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<PagedResponse1SchoolHourEntryExternalResponse>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

@@ -11,24 +11,24 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class PagedResponse1SchoolHourEntryExternalResponse
+    public partial class PagedResponse1SchoolHoursPlanExternalResponse
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// PagedResponse1SchoolHourEntryExternalResponse class.
+        /// PagedResponse1SchoolHoursPlanExternalResponse class.
         /// </summary>
-        public PagedResponse1SchoolHourEntryExternalResponse()
+        public PagedResponse1SchoolHoursPlanExternalResponse()
         {
             CustomInit();
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// PagedResponse1SchoolHourEntryExternalResponse class.
+        /// PagedResponse1SchoolHoursPlanExternalResponse class.
         /// </summary>
         /// <param name="items">Page of items</param>
         /// <param name="totalItems">Total number of items</param>
-        public PagedResponse1SchoolHourEntryExternalResponse(IList<SchoolHourEntryExternalResponse> items = default(IList<SchoolHourEntryExternalResponse>), int? totalItems = default(int?))
+        public PagedResponse1SchoolHoursPlanExternalResponse(IList<SchoolHoursPlanExternalResponse> items = default(IList<SchoolHoursPlanExternalResponse>), int? totalItems = default(int?))
         {
             Items = items;
             TotalItems = totalItems;
@@ -44,7 +44,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Gets page of items
         /// </summary>
         [JsonProperty(PropertyName = "items")]
-        public IList<SchoolHourEntryExternalResponse> Items { get; private set; }
+        public IList<SchoolHoursPlanExternalResponse> Items { get; private set; }
 
         /// <summary>
         /// Gets total number of items

@@ -14,8 +14,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
     /// SchoolHourEntryExternalResponse
     /// </summary>
     /// <remarks>
-    /// Model of the entity which is return by
-    /// SchoolAdministration.Host.ExternalApi.SchoolHours.Queries.SchoolHourEntryExternalService.
+    /// Model of the school hour entry.
     /// </remarks>
     public partial class SchoolHourEntryExternalResponse
     {

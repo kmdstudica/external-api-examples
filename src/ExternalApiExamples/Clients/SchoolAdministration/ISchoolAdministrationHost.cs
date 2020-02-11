@@ -37,19 +37,19 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
 
         /// <summary>
-        /// Gets the IEmployees.
+        /// Gets the IEmployeesExternal.
         /// </summary>
-        IEmployees Employees { get; }
+        IEmployeesExternal EmployeesExternal { get; }
 
         /// <summary>
-        /// Gets the IRooms.
+        /// Gets the IRoomsExternal.
         /// </summary>
-        IRooms Rooms { get; }
+        IRoomsExternal RoomsExternal { get; }
 
         /// <summary>
-        /// Gets the ISchoolHourEntryExternal.
+        /// Gets the ISchoolHourEntriesExternal.
         /// </summary>
-        ISchoolHourEntryExternal SchoolHourEntryExternal { get; }
+        ISchoolHourEntriesExternal SchoolHourEntriesExternal { get; }
 
         /// <summary>
         /// Gets the ISchoolHoursPlansExternal.

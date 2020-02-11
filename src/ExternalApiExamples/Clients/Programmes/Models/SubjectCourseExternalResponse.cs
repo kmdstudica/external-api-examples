@@ -15,8 +15,7 @@ namespace Kmd.Studica.Programmes.Client.Models
     /// SubjectCourseExternalResponse
     /// </summary>
     /// <remarks>
-    /// Model of the entity which is return by
-    /// Programmes.Host.ExternalApi.SubjectCourses.SubjectCoursesExternalService.
+    /// Model of the subject course.
     /// </remarks>
     public partial class SubjectCourseExternalResponse
     {
@@ -33,33 +32,28 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the SubjectCourseExternalResponse
         /// class.
         /// </summary>
-        /// <param name="id">Unique system generated code for
-        /// class/course.</param>
-        /// <param name="subject">Unique value of this course/class</param>
-        /// <param name="name">Full name of class/course</param>
-        /// <param name="startDate">Start date of the class/course</param>
-        /// <param name="endDate">End date for the class/course</param>
+        /// <param name="id">Id of the subject course.</param>
+        /// <param name="educationalProgrammeId">Id of the associated
+        /// educational programme.</param>
+        /// <param name="subject">Unique number of the subject course, e.g.
+        /// '4848' for English.</param>
+        /// <param name="name">Name of the subject course.</param>
+        /// <param name="startDate">Start date of the subject course.</param>
+        /// <param name="endDate">End date for the subject course.</param>
         /// <param name="lmsIndicator">Is the entity to be created in the
-        /// LMS</param>
-        /// <param name="subjectId">Unique system generated code for
-        /// class/course.</param>
-        /// <param name="subjectCode">Unique value for a given subject e.g.
-        /// "Ma" for Math</param>
-        /// <param name="level">The level the subject is thought at e.g.
-        /// "basic", "normal", "advanced".</param>
-        /// <param name="description">Subject Name eg. "Danish"</param>
-        public SubjectCourseExternalResponse(System.Guid id, string subject, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, System.Guid subjectId, string subjectCode = default(string), string level = default(string), string description = default(string))
+        /// LMS.</param>
+        /// <param name="level">The level of the subject course is taught at,
+        /// e.g. "basic", "normal", "advanced".</param>
+        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string subject, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, string level = default(string))
         {
             Id = id;
+            EducationalProgrammeId = educationalProgrammeId;
             Subject = subject;
             Name = name;
             StartDate = startDate;
             EndDate = endDate;
             LmsIndicator = lmsIndicator;
-            SubjectId = subjectId;
-            SubjectCode = subjectCode;
             Level = level;
-            Description = description;
             CustomInit();
         }
 
@@ -69,67 +63,56 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique system generated code for class/course.
+        /// Gets or sets id of the subject course.
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets unique value of this course/class
+        /// Gets or sets id of the associated educational programme.
+        /// </summary>
+        [JsonProperty(PropertyName = "educationalProgrammeId")]
+        public System.Guid EducationalProgrammeId { get; set; }
+
+        /// <summary>
+        /// Gets or sets unique number of the subject course, e.g. '4848' for
+        /// English.
         /// </summary>
         [JsonProperty(PropertyName = "subject")]
         public string Subject { get; set; }
 
         /// <summary>
-        /// Gets or sets full name of class/course
+        /// Gets or sets name of the subject course.
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets start date of the class/course
+        /// Gets or sets start date of the subject course.
         /// </summary>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "startDate")]
         public System.DateTime StartDate { get; set; }
 
         /// <summary>
-        /// Gets or sets end date for the class/course
+        /// Gets or sets end date for the subject course.
         /// </summary>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "endDate")]
         public System.DateTime EndDate { get; set; }
 
         /// <summary>
-        /// Gets or sets is the entity to be created in the LMS
+        /// Gets or sets is the entity to be created in the LMS.
         /// </summary>
         [JsonProperty(PropertyName = "lmsIndicator")]
         public bool LmsIndicator { get; set; }
 
         /// <summary>
-        /// Gets or sets unique system generated code for class/course.
-        /// </summary>
-        [JsonProperty(PropertyName = "subjectId")]
-        public System.Guid SubjectId { get; set; }
-
-        /// <summary>
-        /// Gets or sets unique value for a given subject e.g. "Ma" for Math
-        /// </summary>
-        [JsonProperty(PropertyName = "subjectCode")]
-        public string SubjectCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the level the subject is thought at e.g. "basic",
-        /// "normal", "advanced".
+        /// Gets or sets the level of the subject course is taught at, e.g.
+        /// "basic", "normal", "advanced".
         /// </summary>
         [JsonProperty(PropertyName = "level")]
         public string Level { get; set; }
-
-        /// <summary>
-        /// Gets or sets subject Name eg. "Danish"
-        /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
 
         /// <summary>
         /// Validate the object.

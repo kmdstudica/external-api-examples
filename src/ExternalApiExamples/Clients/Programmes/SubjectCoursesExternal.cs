@@ -47,21 +47,23 @@ namespace Kmd.Studica.Programmes.Client
         /// </summary>
         public ProgrammesHost Client { get; private set; }
 
-        /// <param name='institutionNumber'>
-        /// Institution number the subject courses belong to.
+        /// <param name='startDateFrom'>
+        /// Beginning of the range for start date subject courses.
+        /// </param>
+        /// <param name='startDateTo'>
+        /// End of the range for start date subject courses.
+        /// </param>
+        /// <param name='schoolCode'>
+        /// The school code for which to get data.
         /// </param>
         /// <param name='pageNumber'>
-        /// The page number to return.
+        /// The number of the page to return (1 is the first page).
         /// </param>
         /// <param name='pageSize'>
         /// Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
-        /// A flag indicating if include total number of items.
-        /// </param>
-        /// <param name='startDateFrom'>
-        /// </param>
-        /// <param name='startDateTo'>
+        /// A flag indicating if total number of items should be included.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -84,11 +86,22 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponse1SubjectCourseExternalResponse>> GetWithHttpMessagesAsync(string institutionNumber, int pageNumber, int pageSize, bool inlineCount, System.DateTime startDateFrom, System.DateTime startDateTo, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponse1SubjectCourseExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (institutionNumber == null)
+            if (schoolCode == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "institutionNumber");
+                throw new ValidationException(ValidationRules.CannotBeNull, "schoolCode");
+            }
+            if (schoolCode != null)
+            {
+                if (schoolCode.Length > 6)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "schoolCode", 6);
+                }
+                if (schoolCode.Length < 6)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
+                }
             }
             if (pageNumber > 2147483647)
             {
@@ -113,12 +126,12 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("institutionNumber", institutionNumber);
+                tracingParameters.Add("startDateFrom", startDateFrom);
+                tracingParameters.Add("startDateTo", startDateTo);
+                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("pageNumber", pageNumber);
                 tracingParameters.Add("pageSize", pageSize);
                 tracingParameters.Add("inlineCount", inlineCount);
-                tracingParameters.Add("startDateFrom", startDateFrom);
-                tracingParameters.Add("startDateTo", startDateTo);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
@@ -126,15 +139,15 @@ namespace Kmd.Studica.Programmes.Client
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SubjectCoursesExternal").ToString();
             List<string> _queryParameters = new List<string>();
-            if (institutionNumber != null)
+            _queryParameters.Add(string.Format("StartDateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateFrom, new DateJsonConverter()).Trim('"'))));
+            _queryParameters.Add(string.Format("StartDateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateTo, new DateJsonConverter()).Trim('"'))));
+            if (schoolCode != null)
             {
-                _queryParameters.Add(string.Format("InstitutionNumber={0}", System.Uri.EscapeDataString(institutionNumber)));
+                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
             }
             _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("StartDateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateFrom, new DateJsonConverter()).Trim('"'))));
-            _queryParameters.Add(string.Format("StartDateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateTo, new DateJsonConverter()).Trim('"'))));
             if (_queryParameters.Count > 0)
             {
                 _url += "?" + string.Join("&", _queryParameters);

@@ -18,52 +18,56 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='institutionNumber'>
-            /// Institution number the subject courses belong to.
+            /// <param name='startDateFrom'>
+            /// Beginning of the range for start date subject courses.
+            /// </param>
+            /// <param name='startDateTo'>
+            /// End of the range for start date subject courses.
+            /// </param>
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
             /// </param>
             /// <param name='pageNumber'>
-            /// The page number to return.
+            /// The number of the page to return (1 is the first page).
             /// </param>
             /// <param name='pageSize'>
             /// Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
-            /// A flag indicating if include total number of items.
+            /// A flag indicating if total number of items should be included.
             /// </param>
-            /// <param name='startDateFrom'>
-            /// </param>
-            /// <param name='startDateTo'>
-            /// </param>
-            public static PagedResponse1SubjectCourseExternalResponse Get(this ISubjectCoursesExternal operations, string institutionNumber, int pageNumber, int pageSize, bool inlineCount, System.DateTime startDateFrom, System.DateTime startDateTo)
+            public static PagedResponse1SubjectCourseExternalResponse Get(this ISubjectCoursesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount)
             {
-                return operations.GetAsync(institutionNumber, pageNumber, pageSize, inlineCount, startDateFrom, startDateTo).GetAwaiter().GetResult();
+                return operations.GetAsync(startDateFrom, startDateTo, schoolCode, pageNumber, pageSize, inlineCount).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='institutionNumber'>
-            /// Institution number the subject courses belong to.
+            /// <param name='startDateFrom'>
+            /// Beginning of the range for start date subject courses.
+            /// </param>
+            /// <param name='startDateTo'>
+            /// End of the range for start date subject courses.
+            /// </param>
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
             /// </param>
             /// <param name='pageNumber'>
-            /// The page number to return.
+            /// The number of the page to return (1 is the first page).
             /// </param>
             /// <param name='pageSize'>
             /// Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
-            /// A flag indicating if include total number of items.
-            /// </param>
-            /// <param name='startDateFrom'>
-            /// </param>
-            /// <param name='startDateTo'>
+            /// A flag indicating if total number of items should be included.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponse1SubjectCourseExternalResponse> GetAsync(this ISubjectCoursesExternal operations, string institutionNumber, int pageNumber, int pageSize, bool inlineCount, System.DateTime startDateFrom, System.DateTime startDateTo, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponse1SubjectCourseExternalResponse> GetAsync(this ISubjectCoursesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(institutionNumber, pageNumber, pageSize, inlineCount, startDateFrom, startDateTo, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(startDateFrom, startDateTo, schoolCode, pageNumber, pageSize, inlineCount, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

@@ -26,6 +26,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the
         /// PagedResponse1EducationalProgrammeExternalResponse class.
         /// </summary>
+        /// <param name="items">Page of items</param>
+        /// <param name="totalItems">Total number of items</param>
         public PagedResponse1EducationalProgrammeExternalResponse(IList<EducationalProgrammeExternalResponse> items = default(IList<EducationalProgrammeExternalResponse>), int? totalItems = default(int?))
         {
             Items = items;
@@ -39,11 +41,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets page of items
         /// </summary>
         [JsonProperty(PropertyName = "items")]
         public IList<EducationalProgrammeExternalResponse> Items { get; private set; }
 
         /// <summary>
+        /// Gets total number of items
         /// </summary>
         [JsonProperty(PropertyName = "totalItems")]
         public int? TotalItems { get; private set; }

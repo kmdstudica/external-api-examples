@@ -15,8 +15,7 @@ namespace Kmd.Studica.Programmes.Client.Models
     /// EducationalProgrammeExternalResponse
     /// </summary>
     /// <remarks>
-    /// Model of the entity which is return by
-    /// Programmes.Host.ExternalApi.EducationalProgrammes.EducationalProgrammesExternalService.
+    /// Model of the educational programme.
     /// </remarks>
     public partial class EducationalProgrammeExternalResponse
     {
@@ -33,12 +32,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the
         /// EducationalProgrammeExternalResponse class.
         /// </summary>
-        /// <param name="id">Unique system generated code for educational
-        /// programm.</param>
-        /// <param name="name">Name of educational programm</param>
+        /// <param name="id">Id of the educational programme.</param>
+        /// <param name="name">Name of the educational programme.</param>
         /// <param name="startDate">Start date of the educational
-        /// programm</param>
-        /// <param name="endDate">End date for the educational programm</param>
+        /// programme.</param>
+        /// <param name="endDate">End date for the educational
+        /// programme.</param>
         public EducationalProgrammeExternalResponse(System.Guid id, string name, System.DateTime startDate, System.DateTime endDate)
         {
             Id = id;
@@ -54,26 +53,26 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique system generated code for educational programm.
+        /// Gets or sets id of the educational programme.
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets name of educational programm
+        /// Gets or sets name of the educational programme.
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets start date of the educational programm
+        /// Gets or sets start date of the educational programme.
         /// </summary>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "startDate")]
         public System.DateTime StartDate { get; set; }
 
         /// <summary>
-        /// Gets or sets end date for the educational programm
+        /// Gets or sets end date for the educational programme.
         /// </summary>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "endDate")]

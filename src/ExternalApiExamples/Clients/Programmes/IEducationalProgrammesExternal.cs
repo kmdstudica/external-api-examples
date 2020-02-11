@@ -18,21 +18,24 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IEducationalProgrammesExternal
     {
-        /// <param name='institutionNumber'>
-        /// Institution number the educational programmes belong to.
+        /// <param name='startDateFrom'>
+        /// Beginning of the range for start date of the educational
+        /// programmes.
+        /// </param>
+        /// <param name='startDateTo'>
+        /// End of the range for start date of the educational programmes.
+        /// </param>
+        /// <param name='schoolCode'>
+        /// The school code for which to get data.
         /// </param>
         /// <param name='pageNumber'>
-        /// The page number to return.
+        /// The number of the page to return (1 is the first page).
         /// </param>
         /// <param name='pageSize'>
         /// Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
-        /// A flag indicating if include total number of items.
-        /// </param>
-        /// <param name='startDateFrom'>
-        /// </param>
-        /// <param name='startDateTo'>
+        /// A flag indicating if total number of items should be included.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -49,6 +52,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponse1EducationalProgrammeExternalResponse>> GetWithHttpMessagesAsync(string institutionNumber, int pageNumber, int pageSize, bool inlineCount, System.DateTime startDateFrom, System.DateTime startDateTo, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponse1EducationalProgrammeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

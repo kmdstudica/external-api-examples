@@ -33,19 +33,27 @@ namespace ExternalApiExamples
         {
             Console.WriteLine("KMD Studica Examples");
 
-            using var httpClient = new HttpClient { BaseAddress = configuration.StudicaExternalApiBaseAddress };
-            httpClient.DefaultRequestHeaders.Add("logic-api-key", configuration.StudicaExternalApiKey);
-
+            using var httpClient = new HttpClient();
             var tokenProvider = new LogicTokenProviderFactory(configuration.TokenProvider).GetProvider(httpClient);
 
-            await new StudentsExample().Execute(tokenProvider);
-            await new EmployeeExample().Execute(tokenProvider);
-            await new RoomsExample().Execute(tokenProvider);
-            await new SchoolHoursPlansExample().Execute(tokenProvider);
-            await new SchoolHourEntryExample().Execute(tokenProvider);
-            await new StudentsExample().Execute(tokenProvider);
-            await new EducationalProgrammesExample().Execute(tokenProvider);
-            await new SubjectCoursesExample().Execute(tokenProvider);
+            await new StudentsExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
+            await new EmployeeExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
+            await new RoomsExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
+            await new SchoolHoursPlansExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
+            await new SchoolHourEntryExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
+            await new EducationalProgrammesExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
+            await new SubjectCoursesExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
+        }
+
+        private static Func<HttpClient> GetStudicaExternalApiHttpClient(AppConfiguration appConfiguration)
+        {
+            return () =>
+            {
+                var httpClient = new HttpClient();
+                httpClient.BaseAddress = appConfiguration.StudicaExternalApiBaseAddress;
+                httpClient.DefaultRequestHeaders.Add("logic-api-key", appConfiguration.StudicaExternalApiKey);
+                return httpClient;
+            };
         }
     }
 }

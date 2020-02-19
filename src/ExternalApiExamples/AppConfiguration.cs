@@ -9,6 +9,6 @@ namespace ExternalApiExamples
 
         public Uri StudicaExternalApiBaseAddress { get; set; }
 
-        public Uri StudicaExternalApiKey { get; set; }
+        public string StudicaExternalApiKey { get; set; }
     }
 }

@@ -1,11 +1,12 @@
-﻿using ExternalApiExamples.Clients;
+﻿using Kmd.Logic.Identity.Authorization;
 using System;
 
 namespace ExternalApiExamples
 {
     internal class AppConfiguration
     {
-        public TokenProviderOptions TokenProviderOptions { get; set; }
+        public LogicTokenProviderOptions TokenProvider { get; set; }
+
         public Uri StudicaExternalApiBaseAddress { get; set; }
     }
 }

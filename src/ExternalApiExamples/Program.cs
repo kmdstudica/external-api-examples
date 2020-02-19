@@ -1,5 +1,4 @@
-﻿using ExternalApiExamples.Clients;
-using Kmd.Logic.Identity.Authorization;
+﻿using Kmd.Logic.Identity.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Rest;
 using System;
@@ -38,7 +37,7 @@ namespace ExternalApiExamples
             {
                 BaseAddress = configuration.StudicaExternalApiBaseAddress
             };
-            var tokenProvider = CreateLogicTokenProvider(configuration.TokenProviderOptions, httpClient);
+            var tokenProvider = CreateLogicTokenProvider(configuration.TokenProvider, httpClient);
             await new StudentsExample().Execute(tokenProvider);
             await new EmployeeExample().Execute(tokenProvider);
             await new RoomsExample().Execute(tokenProvider);
@@ -49,15 +48,8 @@ namespace ExternalApiExamples
             await new SubjectCoursesExample().Execute(tokenProvider);
         }
 
-        private static ITokenProvider CreateLogicTokenProvider(TokenProviderOptions tokenProviderOptions, HttpClient httpClient) =>
-            new LogicTokenProviderFactory(
-                new LogicTokenProviderOptions
-                {
-                    AuthorizationScope = tokenProviderOptions.AuthorizationScope,
-                    AuthorizationTokenIssuer = tokenProviderOptions.AuthorizationTokenIssuer,
-                    ClientId = tokenProviderOptions.ClientId,
-                    ClientSecret = tokenProviderOptions.ClientSecret
-                })
+        private static ITokenProvider CreateLogicTokenProvider(LogicTokenProviderOptions tokenProviderOptions, HttpClient httpClient) =>
+            new LogicTokenProviderFactory(tokenProviderOptions)
             .GetProvider(httpClient);
     }
 }

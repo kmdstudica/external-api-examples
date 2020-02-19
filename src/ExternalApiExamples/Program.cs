@@ -38,7 +38,7 @@ namespace ExternalApiExamples
                 BaseAddress = configuration.StudicaExternalApiBaseAddress
             };
             httpClient.DefaultRequestHeaders.Add("logic-api-key", configuration.StudicaExternalApiKey);
-            var tokenProvider = CreateLogicTokenProvider(configuration.TokenProvider, httpClient);
+            var tokenProvider = new LogicTokenProviderFactory(configuration.TokenProvider).GetProvider(httpClient);
             var apiKey = configuration.StudicaExternalApiKey;
             await new StudentsExample().Execute(tokenProvider);
             await new EmployeeExample().Execute(tokenProvider);
@@ -49,9 +49,5 @@ namespace ExternalApiExamples
             await new EducationalProgrammesExample().Execute(tokenProvider);
             await new SubjectCoursesExample().Execute(tokenProvider);
         }
-
-        private static ITokenProvider CreateLogicTokenProvider(LogicTokenProviderOptions tokenProviderOptions, HttpClient httpClient) =>
-            new LogicTokenProviderFactory(tokenProviderOptions)
-            .GetProvider(httpClient);
     }
 }

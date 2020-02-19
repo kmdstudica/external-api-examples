@@ -38,7 +38,7 @@ namespace ExternalApiExamples
 
             using var externalApiHttpClient = new HttpClient();
             externalApiHttpClient.BaseAddress = configuration.StudicaExternalApiBaseAddress;
-            externalApiHttpClient.DefaultRequestHeaders.Add("logic-api-key", configuration.StudicaExternalApiKey);
+            externalApiHttpClient.DefaultRequestHeaders.Add("Logic-Api-Key", configuration.StudicaExternalApiKey);
 
             await new StudentsExample().Execute(tokenProvider, externalApiHttpClient);
             await new EmployeeExample().Execute(tokenProvider, externalApiHttpClient);

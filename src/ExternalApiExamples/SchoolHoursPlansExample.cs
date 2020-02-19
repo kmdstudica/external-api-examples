@@ -2,17 +2,18 @@ using ConsoleTables;
 using Kmd.Studica.SchoolAdministration.Client;
 using Microsoft.Rest;
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace ExternalApiExamples
 {
     public class SchoolHoursPlansExample
     {
-        public async Task Execute(ITokenProvider tokenProvider)
+        public async Task Execute(ITokenProvider tokenProvider, Func<HttpClient> getHttpClient)
         {
             Console.WriteLine("Executing school hours plans example");
 
-            using var schoolAdministrationClient = new SchoolAdministrationHost(new TokenCredentials(tokenProvider));
+            using var schoolAdministrationClient = new SchoolAdministrationHost(new TokenCredentials(tokenProvider), getHttpClient(), true);
 
             var result = await schoolAdministrationClient.SchoolHoursPlansExternal.GetWithHttpMessagesAsync(
                 schoolCode: Configuration.TestSchoolCode,

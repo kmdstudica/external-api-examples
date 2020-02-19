@@ -2,17 +2,18 @@
 using Kmd.Studica.Programmes.Client;
 using Microsoft.Rest;
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace ExternalApiExamples
 {
     public class SubjectCoursesExample
     {
-        public async Task Execute(ITokenProvider tokenProvider)
+        public async Task Execute(ITokenProvider tokenProvider, Func<HttpClient> getHttpClient)
         {
             Console.WriteLine("Executing subject courses example");
 
-            using var programmesClient = new ProgrammesHost(new TokenCredentials(tokenProvider));
+            using var programmesClient = new ProgrammesHost(new TokenCredentials(tokenProvider), getHttpClient(), true);
             var result = await programmesClient.SubjectCoursesExternal.GetWithHttpMessagesAsync(
                 startDateFrom: DateTime.Now.AddMonths(-12),
                 startDateTo: DateTime.Now.AddMonths(6),

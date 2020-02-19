@@ -36,24 +36,17 @@ namespace ExternalApiExamples
             using var httpClient = new HttpClient();
             var tokenProvider = new LogicTokenProviderFactory(configuration.TokenProvider).GetProvider(httpClient);
 
-            await new StudentsExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
-            await new EmployeeExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
-            await new RoomsExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
-            await new SchoolHoursPlansExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
-            await new SchoolHourEntryExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
-            await new EducationalProgrammesExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
-            await new SubjectCoursesExample().Execute(tokenProvider, GetStudicaExternalApiHttpClient(configuration));
-        }
+            using var externalApiHttpClient = new HttpClient();
+            externalApiHttpClient.BaseAddress = configuration.StudicaExternalApiBaseAddress;
+            externalApiHttpClient.DefaultRequestHeaders.Add("logic-api-key", configuration.StudicaExternalApiKey);
 
-        private static Func<HttpClient> GetStudicaExternalApiHttpClient(AppConfiguration appConfiguration)
-        {
-            return () =>
-            {
-                var httpClient = new HttpClient();
-                httpClient.BaseAddress = appConfiguration.StudicaExternalApiBaseAddress;
-                httpClient.DefaultRequestHeaders.Add("logic-api-key", appConfiguration.StudicaExternalApiKey);
-                return httpClient;
-            };
+            await new StudentsExample().Execute(tokenProvider, externalApiHttpClient);
+            await new EmployeeExample().Execute(tokenProvider, externalApiHttpClient);
+            await new RoomsExample().Execute(tokenProvider, externalApiHttpClient);
+            await new SchoolHoursPlansExample().Execute(tokenProvider, externalApiHttpClient);
+            await new SchoolHourEntryExample().Execute(tokenProvider, externalApiHttpClient);
+            await new EducationalProgrammesExample().Execute(tokenProvider, externalApiHttpClient);
+            await new SubjectCoursesExample().Execute(tokenProvider, externalApiHttpClient);
         }
     }
 }

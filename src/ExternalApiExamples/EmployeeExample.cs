@@ -9,11 +9,11 @@ namespace ExternalApiExamples
 {
     public class EmployeeExample
     {
-        public async Task Execute(ITokenProvider tokenProvider, Func<HttpClient> getHttpClient)
+        public async Task Execute(ITokenProvider tokenProvider, HttpClient httpClient)
         {
             Console.WriteLine("Executing employee example");
 
-            using var schoolAdministrationClient = new SchoolAdministrationHost(new TokenCredentials(tokenProvider), getHttpClient(), true);
+            using var schoolAdministrationClient = new SchoolAdministrationHost(new TokenCredentials(tokenProvider), httpClient, false);
 
             var result = await schoolAdministrationClient.EmployeesExternal.GetWithHttpMessagesAsync(
                 employmentStartDateFrom: DateTime.Now.AddYears(-1),

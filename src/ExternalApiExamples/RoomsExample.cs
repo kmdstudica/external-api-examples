@@ -2,7 +2,6 @@ using ConsoleTables;
 using Kmd.Studica.SchoolAdministration.Client;
 using Microsoft.Rest;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ExternalApiExamples

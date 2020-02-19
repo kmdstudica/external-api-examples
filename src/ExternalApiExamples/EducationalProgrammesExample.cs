@@ -20,11 +20,7 @@ namespace ExternalApiExamples
                 schoolCode: Configuration.TestSchoolCode,
                 pageNumber: 1,
                 pageSize: 10,
-                inlineCount: true,
-                new Dictionary<string, List<string>>
-                {
-                    { "X-Host-To-Host", new List<string>{"true"} }
-                });
+                inlineCount: true);
 
             Console.WriteLine($"Got {result.Body.TotalItems} educational programmes from API");
 

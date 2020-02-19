@@ -19,11 +19,7 @@ namespace ExternalApiExamples
                 schoolCode: Configuration.TestSchoolCode,
                 pageNumber: 1,
                 pageSize: 10,
-                inlineCount: true,
-                customHeaders: new Dictionary<string, List<string>>
-                {
-                    { "X-Host-To-Host", new List<string>{"true"} }
-                });
+                inlineCount: true);
 
             Console.WriteLine($"Got {result.Body.TotalItems} plans from API");
 

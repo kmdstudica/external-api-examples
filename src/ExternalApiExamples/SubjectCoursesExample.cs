@@ -9,11 +9,11 @@ namespace ExternalApiExamples
 {
     public class SubjectCoursesExample
     {
-        public async Task Execute(ITokenProvider tokenProvider, Func<HttpClient> getHttpClient)
+        public async Task Execute(ITokenProvider tokenProvider, HttpClient httpClient)
         {
             Console.WriteLine("Executing subject courses example");
 
-            using var programmesClient = new ProgrammesHost(new TokenCredentials(tokenProvider), getHttpClient(), true);
+            using var programmesClient = new ProgrammesHost(new TokenCredentials(tokenProvider), httpClient, false);
             var result = await programmesClient.SubjectCoursesExternal.GetWithHttpMessagesAsync(
                 startDateFrom: DateTime.Now.AddMonths(-12),
                 startDateTo: DateTime.Now.AddMonths(6),

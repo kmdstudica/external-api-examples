@@ -1,6 +1,5 @@
 ﻿using Kmd.Logic.Identity.Authorization;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Rest;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -33,13 +32,12 @@ namespace ExternalApiExamples
         private static async Task Run(AppConfiguration configuration)
         {
             Console.WriteLine("KMD Studica Examples");
-            using var httpClient = new HttpClient
-            {
-                BaseAddress = configuration.StudicaExternalApiBaseAddress
-            };
+
+            using var httpClient = new HttpClient { BaseAddress = configuration.StudicaExternalApiBaseAddress };
             httpClient.DefaultRequestHeaders.Add("logic-api-key", configuration.StudicaExternalApiKey);
+
             var tokenProvider = new LogicTokenProviderFactory(configuration.TokenProvider).GetProvider(httpClient);
-            var apiKey = configuration.StudicaExternalApiKey;
+
             await new StudentsExample().Execute(tokenProvider);
             await new EmployeeExample().Execute(tokenProvider);
             await new RoomsExample().Execute(tokenProvider);

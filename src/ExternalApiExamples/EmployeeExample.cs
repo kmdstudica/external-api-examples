@@ -1,9 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using ConsoleTables;
 using Kmd.Studica.SchoolAdministration.Client;
 using Microsoft.Rest;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ExternalApiExamples
 {
@@ -24,11 +24,11 @@ namespace ExternalApiExamples
                 inlineCount: true,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    { "X-Host-To-Host", new List<string>{"true"} } 
+                    { "X-Host-To-Host", new List<string>{"true"} }
                 });
-                
+
             Console.WriteLine($"Got {result.Body.TotalItems} employees from API");
-                
+
             ConsoleTable
                 .From(result.Body.Items)
                 .Write();

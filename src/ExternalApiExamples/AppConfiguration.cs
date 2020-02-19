@@ -8,5 +8,7 @@ namespace ExternalApiExamples
         public LogicTokenProviderOptions TokenProvider { get; set; }
 
         public Uri StudicaExternalApiBaseAddress { get; set; }
+
+        public Uri StudicaExternalApiKey { get; set; }
     }
 }

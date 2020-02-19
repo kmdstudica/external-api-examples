@@ -1,9 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using ConsoleTables;
 using Kmd.Studica.Students.Client;
 using Microsoft.Rest;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ExternalApiExamples
 {

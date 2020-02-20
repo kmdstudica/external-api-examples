@@ -36,17 +36,13 @@ namespace ExternalApiExamples
             using var httpClient = new HttpClient();
             var tokenProvider = new LogicTokenProviderFactory(configuration.TokenProvider).GetProvider(httpClient);
 
-            using var externalApiHttpClient = new HttpClient();
-            externalApiHttpClient.BaseAddress = configuration.StudicaExternalApiBaseAddress;
-            externalApiHttpClient.DefaultRequestHeaders.Add("Logic-Api-Key", configuration.StudicaExternalApiKey);
-
-            await new StudentsExample().Execute(tokenProvider, externalApiHttpClient);
-            await new EmployeeExample().Execute(tokenProvider, externalApiHttpClient);
-            await new RoomsExample().Execute(tokenProvider, externalApiHttpClient);
-            await new SchoolHoursPlansExample().Execute(tokenProvider, externalApiHttpClient);
-            await new SchoolHourEntryExample().Execute(tokenProvider, externalApiHttpClient);
-            await new EducationalProgrammesExample().Execute(tokenProvider, externalApiHttpClient);
-            await new SubjectCoursesExample().Execute(tokenProvider, externalApiHttpClient);
+            await new StudentsExample().Execute(tokenProvider, configuration.StudicaExternalApiKey);
+            await new EmployeeExample().Execute(tokenProvider, configuration.StudicaExternalApiKey);
+            await new RoomsExample().Execute(tokenProvider, configuration.StudicaExternalApiKey);
+            await new SchoolHoursPlansExample().Execute(tokenProvider, configuration.StudicaExternalApiKey);
+            await new SchoolHourEntryExample().Execute(tokenProvider, configuration.StudicaExternalApiKey);
+            await new EducationalProgrammesExample().Execute(tokenProvider, configuration.StudicaExternalApiKey);
+            await new SubjectCoursesExample().Execute(tokenProvider, configuration.StudicaExternalApiKey);
         }
     }
 }

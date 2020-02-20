@@ -9,7 +9,7 @@ namespace ExternalApiExamples
 {
     public class EducationalProgrammesExample
     {
-        public async Task Execute(ITokenProvider tokenProvider, string apiKey)
+        public async Task Execute(ITokenProvider tokenProvider, string apiKey, string schoolCode)
         {
             Console.WriteLine("Executing educational programmes example");
 
@@ -17,7 +17,7 @@ namespace ExternalApiExamples
             var result = await programmesClient.EducationalProgrammesExternal.GetWithHttpMessagesAsync(
                 startDateFrom: DateTime.Now.AddMonths(-12),
                 startDateTo: DateTime.Now.AddMonths(6),
-                schoolCode: Configuration.TestSchoolCode,
+                schoolCode: schoolCode,
                 pageNumber: 1,
                 pageSize: 10,
                 inlineCount: true,

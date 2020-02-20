@@ -9,14 +9,14 @@ namespace ExternalApiExamples
 {
     public class SchoolHourEntryExample
     {
-        public async Task Execute(ITokenProvider tokenProvider, string apiKey)
+        public async Task Execute(ITokenProvider tokenProvider, string apiKey, string schoolCode)
         {
             Console.WriteLine("Executing school hour entry example");
 
             using var schoolAdministrationClient = new KMDStudicaReviewSchoolAdministration(new TokenCredentials(tokenProvider));
 
             var result = await schoolAdministrationClient.SchoolHourEntriesExternal.GetWithHttpMessagesAsync(
-                schoolCode: Configuration.TestSchoolCode,
+                schoolCode: schoolCode,
                 pageNumber: 1,
                 pageSize: 10,
                 inlineCount: true,

@@ -7,5 +7,7 @@ namespace ExternalApiExamples
         public LogicTokenProviderOptions TokenProvider { get; set; }
 
         public string StudicaExternalApiKey { get; set; }
+
+        public string SchoolCode { get; set; }
     }
 }

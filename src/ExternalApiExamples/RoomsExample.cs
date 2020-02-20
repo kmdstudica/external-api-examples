@@ -2,24 +2,28 @@ using ConsoleTables;
 using Kmd.Studica.SchoolAdministration.Client;
 using Microsoft.Rest;
 using System;
-using System.Net.Http;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ExternalApiExamples
 {
     public class RoomsExample
     {
-        public async Task Execute(ITokenProvider tokenProvider, HttpClient httpClient)
+        public async Task Execute(ITokenProvider tokenProvider, string apiKey)
         {
             Console.WriteLine("Executing rooms example");
 
-            using var schoolAdministrationClient = new SchoolAdministrationHost(new TokenCredentials(tokenProvider), httpClient, false);
+            using var schoolAdministrationClient = new SchoolAdministrationHost(new TokenCredentials(tokenProvider));
 
             var result = await schoolAdministrationClient.RoomsExternal.GetWithHttpMessagesAsync(
                 schoolCode: Configuration.TestSchoolCode,
                 pageNumber: 1,
                 pageSize: 10,
-                inlineCount: true);
+                inlineCount: true,
+                customHeaders: new Dictionary<string, List<string>>
+                {
+                    { "Logic-Api-Key", new List<string> { apiKey } }
+                });
 
             Console.WriteLine($"Got {result.Body.TotalItems} rooms from API");
 

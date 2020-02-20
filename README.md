@@ -27,7 +27,14 @@ Perhaps the easiest way to configure the connection.
 3. Once client credentials are provided, generate two API Keys for Studica product in API Marketplace (_API Marketplace/Products/KMD Studica (Review)/Create api key_). They can be used interchangeably. Any of them gives you `StudicaExternalApiKey`. This ApiKey must be sent as a request header named `Logic-Api-Key`.
 4. OpenApi specifications can be found in API Marketplace (_API Marketplace/APIs/KMD Studica (Review) - <--Name of endpoint-->/Learn more_)
 
-## Data avalaible through API
+
+## Currently available APIs in Logic API Marketplace
+
+* KMD Studica (Review) - Programmes
+* KMD Studica (Review) - School Administration
+* KMD Studica (Review) - Students
+
+## Data available through APIs
 
 ![alt text][api_diagram]
 

@@ -1,1 +1,1 @@
-autorest --input-file=https://kmdlogicapiprodstore.blob.core.windows.net/apiswaggerfiles/Api/12c08f28-b914-4368-aee7-0b9929e0fd4c.json --output-folder=. --namespace=Kmd.Studica.Students.Client --csharp --add-credentials --payload-flattening-threshold=2
+autorest --input-file=https://kmdlogicapiprodstore.blob.core.windows.net/apiswaggerfiles/Api/690687d0-cb83-4cef-b158-902bc98fc713.json --output-folder=. --namespace=Kmd.Studica.Students.Client --csharp --add-credentials --payload-flattening-threshold=2

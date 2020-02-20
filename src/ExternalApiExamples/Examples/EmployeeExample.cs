@@ -13,7 +13,7 @@ namespace ExternalApiExamples
         {
             Console.WriteLine("Executing employee example");
 
-            using var schoolAdministrationClient = new KMDStudicaReviewSchoolAdministration(new TokenCredentials(tokenProvider));
+            using var schoolAdministrationClient = new KMDStudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
 
             var result = await schoolAdministrationClient.EmployeesExternal.GetWithHttpMessagesAsync(
                 employmentStartDateFrom: DateTime.Now.AddYears(-1),

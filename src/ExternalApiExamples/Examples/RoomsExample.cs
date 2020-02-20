@@ -13,7 +13,7 @@ namespace ExternalApiExamples
         {
             Console.WriteLine("Executing rooms example");
 
-            using var schoolAdministrationClient = new KMDStudicaReviewSchoolAdministration(new TokenCredentials(tokenProvider));
+            using var schoolAdministrationClient = new KMDStudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
 
             var result = await schoolAdministrationClient.RoomsExternal.GetWithHttpMessagesAsync(
                 schoolCode: schoolCode,

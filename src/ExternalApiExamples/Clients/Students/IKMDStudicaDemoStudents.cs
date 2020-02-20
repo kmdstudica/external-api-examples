@@ -4,7 +4,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.SchoolAdministration.Client
+namespace Kmd.Studica.Students.Client
 {
     using Microsoft.Rest;
     using Models;
@@ -12,7 +12,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
     /// <summary>
     /// </summary>
-    public partial interface IKMDStudicaReviewSchoolAdministration : System.IDisposable
+    public partial interface IKMDStudicaDemoStudents : System.IDisposable
     {
         /// <summary>
         /// The base URI of the service.
@@ -37,24 +37,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
 
         /// <summary>
-        /// Gets the IEmployeesExternal.
+        /// Gets the IStudentsExternal.
         /// </summary>
-        IEmployeesExternal EmployeesExternal { get; }
-
-        /// <summary>
-        /// Gets the IRoomsExternal.
-        /// </summary>
-        IRoomsExternal RoomsExternal { get; }
-
-        /// <summary>
-        /// Gets the ISchoolHourEntriesExternal.
-        /// </summary>
-        ISchoolHourEntriesExternal SchoolHourEntriesExternal { get; }
-
-        /// <summary>
-        /// Gets the ISchoolHoursPlansExternal.
-        /// </summary>
-        ISchoolHoursPlansExternal SchoolHoursPlansExternal { get; }
+        IStudentsExternal StudentsExternal { get; }
 
     }
 }

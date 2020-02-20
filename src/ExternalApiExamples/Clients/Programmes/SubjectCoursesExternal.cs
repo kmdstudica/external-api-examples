@@ -22,7 +22,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// SubjectCoursesExternal operations.
     /// </summary>
-    public partial class SubjectCoursesExternal : IServiceOperations<KMDStudicaReviewProgrammes>, ISubjectCoursesExternal
+    public partial class SubjectCoursesExternal : IServiceOperations<KMDStudicaDemoProgrammes>, ISubjectCoursesExternal
     {
         /// <summary>
         /// Initializes a new instance of the SubjectCoursesExternal class.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public SubjectCoursesExternal(KMDStudicaReviewProgrammes client)
+        public SubjectCoursesExternal(KMDStudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -43,9 +43,9 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaReviewProgrammes
+        /// Gets a reference to the KMDStudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaReviewProgrammes Client { get; private set; }
+        public KMDStudicaDemoProgrammes Client { get; private set; }
 
         /// <param name='startDateFrom'>
         /// Beginning of the range for start date subject courses.

@@ -13,7 +13,7 @@ namespace ExternalApiExamples
         {
             Console.WriteLine("Executing school hour entry example");
 
-            using var schoolAdministrationClient = new KMDStudicaReviewSchoolAdministration(new TokenCredentials(tokenProvider));
+            using var schoolAdministrationClient = new KMDStudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
 
             var result = await schoolAdministrationClient.SchoolHourEntriesExternal.GetWithHttpMessagesAsync(
                 schoolCode: schoolCode,

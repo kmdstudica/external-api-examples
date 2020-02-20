@@ -13,7 +13,7 @@ namespace ExternalApiExamples
         {
             Console.WriteLine("Executing educational programmes example");
 
-            using var programmesClient = new KMDStudicaReviewProgrammes(new TokenCredentials(tokenProvider));
+            using var programmesClient = new KMDStudicaDemoProgrammes(new TokenCredentials(tokenProvider));
             var result = await programmesClient.EducationalProgrammesExternal.GetWithHttpMessagesAsync(
                 startDateFrom: DateTime.Now.AddMonths(-12),
                 startDateTo: DateTime.Now.AddMonths(6),

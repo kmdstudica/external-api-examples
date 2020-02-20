@@ -18,17 +18,14 @@ Perhaps the easiest way to configure the connection.
     "ClientId": "",
     "ClientSecret": ""
   },
-  "StudicaExternalApiBaseAddress": "",
   "StudicaExternalApiKey": ""
 }
 ```
 
-To get started:
-
 1. Create a subscription in [Logic Console](https://console.kmdlogic.io).
 2. Request a client credential. Once issued you can view the `ClientId`, `ClientSecret` and `AuthorizationScope` in [Logic Console](https://console.kmdlogic.io).
-3. Once client credentials are provided, generate two API Keys for Studica product in API Marketplace (_API Marketplace/Products/Studica/Create api key_). They can be used interchangeably. Any of them gives you `StudicaExternalApiKey`.
-4. Provide address to the Studica API from _API Marketplace/APIs/**--PROVIDE STUDICA API ITEM--**_.
+3. Once client credentials are provided, generate two API Keys for Studica product in API Marketplace (_API Marketplace/Products/KMD Studica (Review)/Create api key_). They can be used interchangeably. Any of them gives you `StudicaExternalApiKey`. This ApiKey must be sent as a request header named `Logic-Api-Key`.
+4. OpenApi specifications can be found in API Marketplace (_API Marketplace/APIs/KMD Studica (Review) - <--Name of endpoint-->/Learn more_)
 
 ## Data avalaible through API
 

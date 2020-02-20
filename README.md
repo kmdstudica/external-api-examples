@@ -26,7 +26,6 @@ Perhaps the easiest way to configure the connection.
 1. Create a subscription in [Logic Console](https://console.kmdlogic.io).
 2. Request a client credentials. Once issued you can view the `ClientId`, `ClientSecret` and `AuthorizationScope` (_Subscriptions/Client Credentials_).
 3. Generate two API Keys for _KMD Studica (Review)_ product (_API Marketplace/Products/KMD Studica (Review)/Create api key_). They can be used interchangeably. That gives you `StudicaExternalApiKey`. API key must be sent as a request header named `Logic-Api-Key`.
-* Important note: _KMD Studica (Review)_ product requires client credentials, so the product is not shown on the list, until client credentials are issued.
 4. OpenAPI specifications can be found in API Marketplace (_API Marketplace/APIs/KMD Studica (Review) - <--Name of endpoint-->/Learn more_)
 5. Powershell scripts `generate.ps1` are located in the folders of each external API. Parameter `--input-file` has the direct reference to the OpenAPI spec file located in Logic blob storage.
 

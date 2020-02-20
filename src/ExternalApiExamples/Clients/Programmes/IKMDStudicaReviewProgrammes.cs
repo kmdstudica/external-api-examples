@@ -12,7 +12,7 @@ namespace Kmd.Studica.Programmes.Client
 
     /// <summary>
     /// </summary>
-    public partial interface IProgrammesHost : System.IDisposable
+    public partial interface IKMDStudicaReviewProgrammes : System.IDisposable
     {
         /// <summary>
         /// The base URI of the service.

@@ -22,7 +22,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// <summary>
     /// EmployeesExternal operations.
     /// </summary>
-    public partial class EmployeesExternal : IServiceOperations<SchoolAdministrationHost>, IEmployeesExternal
+    public partial class EmployeesExternal : IServiceOperations<KMDStudicaReviewSchoolAdministration>, IEmployeesExternal
     {
         /// <summary>
         /// Initializes a new instance of the EmployeesExternal class.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public EmployeesExternal(SchoolAdministrationHost client)
+        public EmployeesExternal(KMDStudicaReviewSchoolAdministration client)
         {
             if (client == null)
             {
@@ -43,9 +43,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Gets a reference to the SchoolAdministrationHost
+        /// Gets a reference to the KMDStudicaReviewSchoolAdministration
         /// </summary>
-        public SchoolAdministrationHost Client { get; private set; }
+        public KMDStudicaReviewSchoolAdministration Client { get; private set; }
 
         /// <param name='employmentStartDateFrom'>
         /// Beginning of range for start date employment.

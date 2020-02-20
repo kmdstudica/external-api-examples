@@ -6,6 +6,14 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Clients\Students\Students.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Clients\Students\generate.sh" />
+    </ItemGroup>
+
+    <ItemGroup>
       <PackageReference Include="ConsoleTables" Version="2.3.0" />
       <PackageReference Include="Kmd.Logic.Identity.Authorization" Version="2.0.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.1" />

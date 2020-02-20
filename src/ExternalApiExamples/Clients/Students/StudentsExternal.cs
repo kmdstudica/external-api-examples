@@ -22,7 +22,7 @@ namespace Kmd.Studica.Students.Client
     /// <summary>
     /// StudentsExternal operations.
     /// </summary>
-    public partial class StudentsExternal : IServiceOperations<StudentsHost>, IStudentsExternal
+    public partial class StudentsExternal : IServiceOperations<KMDStudicaReviewStudents>, IStudentsExternal
     {
         /// <summary>
         /// Initializes a new instance of the StudentsExternal class.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public StudentsExternal(StudentsHost client)
+        public StudentsExternal(KMDStudicaReviewStudents client)
         {
             if (client == null)
             {
@@ -43,9 +43,9 @@ namespace Kmd.Studica.Students.Client
         }
 
         /// <summary>
-        /// Gets a reference to the StudentsHost
+        /// Gets a reference to the KMDStudicaReviewStudents
         /// </summary>
-        public StudentsHost Client { get; private set; }
+        public KMDStudicaReviewStudents Client { get; private set; }
 
         /// <param name='studyStartDateFrom'>
         /// Beginning of range for start date of the students study.

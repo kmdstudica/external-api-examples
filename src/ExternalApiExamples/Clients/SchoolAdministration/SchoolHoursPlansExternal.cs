@@ -21,7 +21,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// <summary>
     /// SchoolHoursPlansExternal operations.
     /// </summary>
-    public partial class SchoolHoursPlansExternal : IServiceOperations<SchoolAdministrationHost>, ISchoolHoursPlansExternal
+    public partial class SchoolHoursPlansExternal : IServiceOperations<KMDStudicaReviewSchoolAdministration>, ISchoolHoursPlansExternal
     {
         /// <summary>
         /// Initializes a new instance of the SchoolHoursPlansExternal class.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public SchoolHoursPlansExternal(SchoolAdministrationHost client)
+        public SchoolHoursPlansExternal(KMDStudicaReviewSchoolAdministration client)
         {
             if (client == null)
             {
@@ -42,9 +42,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Gets a reference to the SchoolAdministrationHost
+        /// Gets a reference to the KMDStudicaReviewSchoolAdministration
         /// </summary>
-        public SchoolAdministrationHost Client { get; private set; }
+        public KMDStudicaReviewSchoolAdministration Client { get; private set; }
 
         /// <param name='schoolCode'>
         /// The school code for which to get data.

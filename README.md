@@ -26,16 +26,16 @@ Perhaps the easiest way to configure the connection.
 
 1. Create a subscription in [Logic Console](https://console.kmdlogic.io).
 2. Request a client credentials. Once issued you can view the `ClientId`, `ClientSecret` and `AuthorizationScope` (_Subscriptions/Client Credentials_).
-3. Generate two API Keys for _KMD Studica (Review)_ product (_API Marketplace/Products/KMD Studica (Review)/Create api key_). They can be used interchangeably. That gives you `StudicaExternalApiKey`. API key must be sent as a request header named `Logic-Api-Key`.
+3. Generate two API Keys for _KMD Studica (Demo)_ product (_API Marketplace/Products/KMD Studica (Demo)/Create api key_). They can be used interchangeably. That gives you `StudicaExternalApiKey`. API key must be sent as a request header named `Logic-Api-Key`.
 4. `SchoolCode` is the required parameter for each request to Studica external API.
-5. OpenAPI specifications can be found in API Marketplace (_API Marketplace/APIs/KMD Studica (Review) - <--Name of endpoint-->/Learn more_)
+5. OpenAPI specifications can be found in API Marketplace (_API Marketplace/APIs/KMD Studica (Demo) - <--Name of endpoint-->/Learn more_)
 6. Powershell scripts `generate.ps1` are located in the folders of each external API. Parameter `--input-file` has the direct reference to the OpenAPI spec file located in Logic blob storage.
 
 ## Currently available APIs in Logic API Marketplace
 
-* KMD Studica (Review) - Programmes
-* KMD Studica (Review) - School Administration
-* KMD Studica (Review) - Students
+* KMD Studica (Demo) - Programmes
+* KMD Studica (Demo) - School Administration
+* KMD Studica (Demo) - Students
 
 ## Data available through APIs
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExternalApiExamples
 {
-    internal class Program
+    public static class Program
     {
         private static async Task Main(string[] args)
         {
@@ -15,6 +15,7 @@ namespace ExternalApiExamples
                 var config = new ConfigurationBuilder()
                     .SetBasePath(AppContext.BaseDirectory)
                     .AddJsonFile("appsettings.json", optional: false)
+                    .AddUserSecrets(typeof(Program).Assembly)
                     .AddEnvironmentVariables()
                     .Build()
                     .Get<AppConfiguration>();
@@ -36,13 +37,13 @@ namespace ExternalApiExamples
             using var httpClient = new HttpClient();
             var tokenProvider = new LogicTokenProviderFactory(configuration.TokenProvider).GetProvider(httpClient);
 
-            await new StudentsExample().Execute(tokenProvider, configuration.StudicaExternalApiKey, configuration.SchoolCode);
-            await new EmployeeExample().Execute(tokenProvider, configuration.StudicaExternalApiKey, configuration.SchoolCode);
-            await new RoomsExample().Execute(tokenProvider, configuration.StudicaExternalApiKey, configuration.SchoolCode);
-            await new SchoolHoursPlansExample().Execute(tokenProvider, configuration.StudicaExternalApiKey, configuration.SchoolCode);
-            await new SchoolHourEntryExample().Execute(tokenProvider, configuration.StudicaExternalApiKey, configuration.SchoolCode);
-            await new EducationalProgrammesExample().Execute(tokenProvider, configuration.StudicaExternalApiKey, configuration.SchoolCode);
-            await new SubjectCoursesExample().Execute(tokenProvider, configuration.StudicaExternalApiKey, configuration.SchoolCode);
+            await new StudentsExample(tokenProvider, configuration).Execute();
+            await new EmployeeExample(tokenProvider, configuration).Execute();
+            await new RoomsExample(tokenProvider, configuration).Execute();
+            await new SchoolHoursPlansExample(tokenProvider, configuration).Execute();
+            await new SchoolHourEntryExample(tokenProvider, configuration).Execute();
+            await new EducationalProgrammesExample(tokenProvider, configuration).Execute();
+            await new SubjectCoursesExample(tokenProvider, configuration).Execute();
         }
     }
 }

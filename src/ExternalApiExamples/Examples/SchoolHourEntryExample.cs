@@ -9,20 +9,32 @@ namespace ExternalApiExamples
 {
     public class SchoolHourEntryExample
     {
-        public async Task Execute(ITokenProvider tokenProvider, string apiKey, string schoolCode)
+        private readonly ITokenProvider tokenProvider;
+        private readonly AppConfiguration configuration;
+
+        public SchoolHourEntryExample(ITokenProvider tokenProvider, AppConfiguration configuration)
+        {
+            this.tokenProvider = tokenProvider;
+            this.configuration = configuration;
+        }
+
+        public async Task Execute()
         {
             Console.WriteLine("Executing school hour entry example");
 
-            using var schoolAdministrationClient = new KMDStudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
+            using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+            schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
+                ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
+                : new Uri(configuration.SchoolAdministrationBaseUri);
 
             var result = await schoolAdministrationClient.SchoolHourEntriesExternal.GetWithHttpMessagesAsync(
-                schoolCode: schoolCode,
+                schoolCode: configuration.SchoolCode,
                 pageNumber: 1,
                 pageSize: 10,
                 inlineCount: true,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    { "Logic-Api-Key", new List<string> { apiKey } }
+                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
             Console.WriteLine($"Got {result.Body.TotalItems} plans from API");

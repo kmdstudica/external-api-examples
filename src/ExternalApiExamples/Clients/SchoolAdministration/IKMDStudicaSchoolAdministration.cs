@@ -12,7 +12,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
     /// <summary>
     /// </summary>
-    public partial interface IKMDStudicaDemoSchoolAdministration : System.IDisposable
+    public partial interface IKMDStudicaSchoolAdministration : System.IDisposable
     {
         /// <summary>
         /// The base URI of the service.

@@ -4,7 +4,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.SchoolAdministration.Client
+namespace Kmd.Studica.Programmes.Client
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Serialization;
@@ -15,7 +15,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
     using System.Net;
     using System.Net.Http;
 
-    public partial class KMDStudicaDemoSchoolAdministration : ServiceClient<KMDStudicaDemoSchoolAdministration>, IKMDStudicaDemoSchoolAdministration
+    public partial class KMDStudicaProgrammes : ServiceClient<KMDStudicaProgrammes>, IKMDStudicaProgrammes
     {
         /// <summary>
         /// The base URI of the service.
@@ -38,51 +38,41 @@ namespace Kmd.Studica.SchoolAdministration.Client
         public ServiceClientCredentials Credentials { get; private set; }
 
         /// <summary>
-        /// Gets the IEmployeesExternal.
+        /// Gets the IEducationalProgrammesExternal.
         /// </summary>
-        public virtual IEmployeesExternal EmployeesExternal { get; private set; }
+        public virtual IEducationalProgrammesExternal EducationalProgrammesExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IRoomsExternal.
+        /// Gets the ISubjectCoursesExternal.
         /// </summary>
-        public virtual IRoomsExternal RoomsExternal { get; private set; }
+        public virtual ISubjectCoursesExternal SubjectCoursesExternal { get; private set; }
 
         /// <summary>
-        /// Gets the ISchoolHourEntriesExternal.
-        /// </summary>
-        public virtual ISchoolHourEntriesExternal SchoolHourEntriesExternal { get; private set; }
-
-        /// <summary>
-        /// Gets the ISchoolHoursPlansExternal.
-        /// </summary>
-        public virtual ISchoolHoursPlansExternal SchoolHoursPlansExternal { get; private set; }
-
-        /// <summary>
-        /// Initializes a new instance of the KMDStudicaDemoSchoolAdministration class.
+        /// Initializes a new instance of the KMDStudicaProgrammes class.
         /// </summary>
         /// <param name='httpClient'>
         /// HttpClient to be used
         /// </param>
         /// <param name='disposeHttpClient'>
-        /// True: will dispose the provided httpClient on calling KMDStudicaDemoSchoolAdministration.Dispose(). False: will not dispose provided httpClient</param>
-        protected KMDStudicaDemoSchoolAdministration(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
+        /// True: will dispose the provided httpClient on calling KMDStudicaProgrammes.Dispose(). False: will not dispose provided httpClient</param>
+        protected KMDStudicaProgrammes(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaDemoSchoolAdministration class.
+        /// Initializes a new instance of the KMDStudicaProgrammes class.
         /// </summary>
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected KMDStudicaDemoSchoolAdministration(params DelegatingHandler[] handlers) : base(handlers)
+        protected KMDStudicaProgrammes(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaDemoSchoolAdministration class.
+        /// Initializes a new instance of the KMDStudicaProgrammes class.
         /// </summary>
         /// <param name='rootHandler'>
         /// Optional. The http client handler used to handle http transport.
@@ -90,13 +80,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected KMDStudicaDemoSchoolAdministration(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        protected KMDStudicaProgrammes(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaDemoSchoolAdministration class.
+        /// Initializes a new instance of the KMDStudicaProgrammes class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -107,7 +97,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected KMDStudicaDemoSchoolAdministration(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        protected KMDStudicaProgrammes(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -117,7 +107,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaDemoSchoolAdministration class.
+        /// Initializes a new instance of the KMDStudicaProgrammes class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -131,7 +121,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected KMDStudicaDemoSchoolAdministration(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        protected KMDStudicaProgrammes(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {
@@ -141,7 +131,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaDemoSchoolAdministration class.
+        /// Initializes a new instance of the KMDStudicaProgrammes class.
         /// </summary>
         /// <param name='credentials'>
         /// Required. Subscription credentials which uniquely identify client subscription.
@@ -152,7 +142,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaDemoSchoolAdministration(ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
+        public KMDStudicaProgrammes(ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (credentials == null)
             {
@@ -166,7 +156,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaDemoSchoolAdministration class.
+        /// Initializes a new instance of the KMDStudicaProgrammes class.
         /// </summary>
         /// <param name='credentials'>
         /// Required. Subscription credentials which uniquely identify client subscription.
@@ -175,11 +165,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// HttpClient to be used
         /// </param>
         /// <param name='disposeHttpClient'>
-        /// True: will dispose the provided httpClient on calling KMDStudicaDemoSchoolAdministration.Dispose(). False: will not dispose provided httpClient</param>
+        /// True: will dispose the provided httpClient on calling KMDStudicaProgrammes.Dispose(). False: will not dispose provided httpClient</param>
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaDemoSchoolAdministration(ServiceClientCredentials credentials, HttpClient httpClient, bool disposeHttpClient) : this(httpClient, disposeHttpClient)
+        public KMDStudicaProgrammes(ServiceClientCredentials credentials, HttpClient httpClient, bool disposeHttpClient) : this(httpClient, disposeHttpClient)
         {
             if (credentials == null)
             {
@@ -193,7 +183,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaDemoSchoolAdministration class.
+        /// Initializes a new instance of the KMDStudicaProgrammes class.
         /// </summary>
         /// <param name='credentials'>
         /// Required. Subscription credentials which uniquely identify client subscription.
@@ -207,7 +197,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaDemoSchoolAdministration(ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public KMDStudicaProgrammes(ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (credentials == null)
             {
@@ -221,7 +211,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaDemoSchoolAdministration class.
+        /// Initializes a new instance of the KMDStudicaProgrammes class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -235,7 +225,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaDemoSchoolAdministration(System.Uri baseUri, ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
+        public KMDStudicaProgrammes(System.Uri baseUri, ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -254,7 +244,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaDemoSchoolAdministration class.
+        /// Initializes a new instance of the KMDStudicaProgrammes class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -271,7 +261,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaDemoSchoolAdministration(System.Uri baseUri, ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public KMDStudicaProgrammes(System.Uri baseUri, ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {
@@ -298,11 +288,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// </summary>
         private void Initialize()
         {
-            EmployeesExternal = new EmployeesExternal(this);
-            RoomsExternal = new RoomsExternal(this);
-            SchoolHourEntriesExternal = new SchoolHourEntriesExternal(this);
-            SchoolHoursPlansExternal = new SchoolHoursPlansExternal(this);
-            BaseUri = new System.Uri("https://gateway.kmdlogic.io/studica-demo/school-administration/v1");
+            EducationalProgrammesExternal = new EducationalProgrammesExternal(this);
+            SubjectCoursesExternal = new SubjectCoursesExternal(this);
+            BaseUri = new System.Uri("https://review.studica.dk/api-programmes");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,

@@ -42,6 +42,9 @@ namespace ExternalApiExamples
             await new RoomsExample(tokenProvider, configuration).Execute();
             await new SchoolHoursPlansExample(tokenProvider, configuration).Execute();
             await new SchoolHourEntryExample(tokenProvider, configuration).Execute();
+            await new DayCalendarsExample(tokenProvider, configuration).Execute();
+            await new AreaOfResponsibilityExample(tokenProvider, configuration).Execute();
+            await new DepartmentsExample(tokenProvider, configuration).Execute();
             await new EducationalProgrammesExample(tokenProvider, configuration).Execute();
             await new SubjectCoursesExample(tokenProvider, configuration).Execute();
         }

@@ -46,7 +46,7 @@ namespace ExternalApiExamples
                 .Write();
         }
 
-        public async Task ExecuteAddNew()
+        public async Task ExecuteAddNewLesson()
         {
             Console.WriteLine("Add new lesson example");
 

@@ -20,12 +20,12 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// SubjectCoursesExternal operations.
+    /// LessonsExternal operations.
     /// </summary>
-    public partial class SubjectCoursesExternal : IServiceOperations<KMDStudicaProgrammes>, ISubjectCoursesExternal
+    public partial class LessonsExternal : IServiceOperations<KMDStudicaProgrammes>, ILessonsExternal
     {
         /// <summary>
-        /// Initializes a new instance of the SubjectCoursesExternal class.
+        /// Initializes a new instance of the LessonsExternal class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public SubjectCoursesExternal(KMDStudicaProgrammes client)
+        public LessonsExternal(KMDStudicaProgrammes client)
         {
             if (client == null)
             {
@@ -47,11 +47,11 @@ namespace Kmd.Studica.Programmes.Client
         /// </summary>
         public KMDStudicaProgrammes Client { get; private set; }
 
-        /// <param name='startDateFrom'>
-        /// Beginning of the range for start date subject courses.
+        /// <param name='dateFrom'>
+        /// Beginning of range for lesson date.
         /// </param>
-        /// <param name='startDateTo'>
-        /// End of the range for start date subject courses.
+        /// <param name='dateTo'>
+        /// End of range for lesson date.
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
@@ -64,6 +64,9 @@ namespace Kmd.Studica.Programmes.Client
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
+        /// </param>
+        /// <param name='departmentId'>
+        /// Department where the lesson is conducted.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -86,7 +89,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseLessonsExternalResponse>> GetWithHttpMessagesAsync(System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? departmentId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (schoolCode == null)
             {
@@ -126,8 +129,9 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("startDateFrom", startDateFrom);
-                tracingParameters.Add("startDateTo", startDateTo);
+                tracingParameters.Add("departmentId", departmentId);
+                tracingParameters.Add("dateFrom", dateFrom);
+                tracingParameters.Add("dateTo", dateTo);
                 tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("pageNumber", pageNumber);
                 tracingParameters.Add("pageSize", pageSize);
@@ -137,10 +141,14 @@ namespace Kmd.Studica.Programmes.Client
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SubjectCoursesExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "LessonsExternal").ToString();
             List<string> _queryParameters = new List<string>();
-            _queryParameters.Add(string.Format("StartDateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateFrom, new DateJsonConverter()).Trim('"'))));
-            _queryParameters.Add(string.Format("StartDateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateTo, new DateJsonConverter()).Trim('"'))));
+            if (departmentId != null)
+            {
+                _queryParameters.Add(string.Format("DepartmentId={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(departmentId, Client.SerializationSettings).Trim('"'))));
+            }
+            _queryParameters.Add(string.Format("DateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(dateFrom, new DateJsonConverter()).Trim('"'))));
+            _queryParameters.Add(string.Format("DateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(dateTo, new DateJsonConverter()).Trim('"'))));
             if (schoolCode != null)
             {
                 _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
@@ -217,7 +225,7 @@ namespace Kmd.Studica.Programmes.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>();
+            var _result = new HttpOperationResponse<PagedResponseLessonsExternalResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -226,7 +234,7 @@ namespace Kmd.Studica.Programmes.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseSubjectCourseExternalResponse>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseLessonsExternalResponse>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

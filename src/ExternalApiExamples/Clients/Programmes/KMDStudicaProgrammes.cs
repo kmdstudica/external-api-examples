@@ -38,9 +38,19 @@ namespace Kmd.Studica.Programmes.Client
         public ServiceClientCredentials Credentials { get; private set; }
 
         /// <summary>
+        /// Gets the IAddLessonExternal.
+        /// </summary>
+        public virtual IAddLessonExternal AddLessonExternal { get; private set; }
+
+        /// <summary>
         /// Gets the IEducationalProgrammesExternal.
         /// </summary>
         public virtual IEducationalProgrammesExternal EducationalProgrammesExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the ILessonsExternal.
+        /// </summary>
+        public virtual ILessonsExternal LessonsExternal { get; private set; }
 
         /// <summary>
         /// Gets the ISubjectCoursesExternal.
@@ -288,9 +298,11 @@ namespace Kmd.Studica.Programmes.Client
         /// </summary>
         private void Initialize()
         {
+            AddLessonExternal = new AddLessonExternal(this);
             EducationalProgrammesExternal = new EducationalProgrammesExternal(this);
+            LessonsExternal = new LessonsExternal(this);
             SubjectCoursesExternal = new SubjectCoursesExternal(this);
-            BaseUri = new System.Uri("https://gateway.kmdlogic.io/studica/students/v1");
+            BaseUri = new System.Uri("https://gateway.kmdlogic.io/studica/programmes/v1");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,

@@ -11,24 +11,24 @@ namespace Kmd.Studica.Programmes.Client.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class PagedResponse1EducationalProgrammeExternalResponse
+    public partial class PagedResponseLessonsExternalResponse
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// PagedResponse1EducationalProgrammeExternalResponse class.
+        /// PagedResponseLessonsExternalResponse class.
         /// </summary>
-        public PagedResponse1EducationalProgrammeExternalResponse()
+        public PagedResponseLessonsExternalResponse()
         {
             CustomInit();
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// PagedResponse1EducationalProgrammeExternalResponse class.
+        /// PagedResponseLessonsExternalResponse class.
         /// </summary>
         /// <param name="items">Page of items</param>
         /// <param name="totalItems">Total number of items</param>
-        public PagedResponse1EducationalProgrammeExternalResponse(IList<EducationalProgrammeExternalResponse> items = default(IList<EducationalProgrammeExternalResponse>), int? totalItems = default(int?))
+        public PagedResponseLessonsExternalResponse(IList<LessonsExternalResponse> items = default(IList<LessonsExternalResponse>), int? totalItems = default(int?))
         {
             Items = items;
             TotalItems = totalItems;
@@ -44,7 +44,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Gets page of items
         /// </summary>
         [JsonProperty(PropertyName = "items")]
-        public IList<EducationalProgrammeExternalResponse> Items { get; private set; }
+        public IList<LessonsExternalResponse> Items { get; private set; }
 
         /// <summary>
         /// Gets total number of items

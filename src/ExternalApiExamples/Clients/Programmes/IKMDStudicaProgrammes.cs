@@ -37,9 +37,19 @@ namespace Kmd.Studica.Programmes.Client
 
 
         /// <summary>
+        /// Gets the IAddLessonExternal.
+        /// </summary>
+        IAddLessonExternal AddLessonExternal { get; }
+
+        /// <summary>
         /// Gets the IEducationalProgrammesExternal.
         /// </summary>
         IEducationalProgrammesExternal EducationalProgrammesExternal { get; }
+
+        /// <summary>
+        /// Gets the ILessonsExternal.
+        /// </summary>
+        ILessonsExternal LessonsExternal { get; }
 
         /// <summary>
         /// Gets the ISubjectCoursesExternal.

@@ -36,7 +36,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
-            public static PagedResponse1SubjectCourseExternalResponse Get(this ISubjectCoursesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount)
+            public static PagedResponseSubjectCourseExternalResponse Get(this ISubjectCoursesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount)
             {
                 return operations.GetAsync(startDateFrom, startDateTo, schoolCode, pageNumber, pageSize, inlineCount).GetAwaiter().GetResult();
             }
@@ -65,7 +65,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponse1SubjectCourseExternalResponse> GetAsync(this ISubjectCoursesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseSubjectCourseExternalResponse> GetAsync(this ISubjectCoursesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(startDateFrom, startDateTo, schoolCode, pageNumber, pageSize, inlineCount, null, cancellationToken).ConfigureAwait(false))
                 {

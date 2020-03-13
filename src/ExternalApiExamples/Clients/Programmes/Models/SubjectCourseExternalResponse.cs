@@ -35,25 +35,22 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="id">Id of the subject course.</param>
         /// <param name="educationalProgrammeId">Id of the associated
         /// educational programme.</param>
-        /// <param name="subject">Unique number of the subject course, e.g.
-        /// '4848' for English.</param>
         /// <param name="name">Name of the subject course.</param>
         /// <param name="startDate">Start date of the subject course.</param>
         /// <param name="endDate">End date for the subject course.</param>
         /// <param name="lmsIndicator">Is the entity to be created in the
         /// LMS.</param>
-        /// <param name="level">The level of the subject course is taught at,
-        /// e.g. "basic", "normal", "advanced".</param>
-        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string subject, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, string level = default(string))
+        /// <param name="defaultSubjectId">The id of the default subject for
+        /// this subject course</param>
+        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, System.Guid? defaultSubjectId = default(System.Guid?))
         {
             Id = id;
             EducationalProgrammeId = educationalProgrammeId;
-            Subject = subject;
+            DefaultSubjectId = defaultSubjectId;
             Name = name;
             StartDate = startDate;
             EndDate = endDate;
             LmsIndicator = lmsIndicator;
-            Level = level;
             CustomInit();
         }
 
@@ -75,11 +72,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.Guid EducationalProgrammeId { get; set; }
 
         /// <summary>
-        /// Gets or sets unique number of the subject course, e.g. '4848' for
-        /// English.
+        /// Gets or sets the id of the default subject for this subject course
         /// </summary>
-        [JsonProperty(PropertyName = "subject")]
-        public string Subject { get; set; }
+        [JsonProperty(PropertyName = "defaultSubjectId")]
+        public System.Guid? DefaultSubjectId { get; set; }
 
         /// <summary>
         /// Gets or sets name of the subject course.
@@ -108,13 +104,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         public bool LmsIndicator { get; set; }
 
         /// <summary>
-        /// Gets or sets the level of the subject course is taught at, e.g.
-        /// "basic", "normal", "advanced".
-        /// </summary>
-        [JsonProperty(PropertyName = "level")]
-        public string Level { get; set; }
-
-        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -122,10 +111,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (Subject == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Subject");
-            }
             if (Name == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Name");

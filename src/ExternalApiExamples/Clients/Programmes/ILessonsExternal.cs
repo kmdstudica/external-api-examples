@@ -14,15 +14,15 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// SubjectCoursesExternal operations.
+    /// LessonsExternal operations.
     /// </summary>
-    public partial interface ISubjectCoursesExternal
+    public partial interface ILessonsExternal
     {
-        /// <param name='startDateFrom'>
-        /// Beginning of the range for start date subject courses.
+        /// <param name='dateFrom'>
+        /// Beginning of range for lesson date.
         /// </param>
-        /// <param name='startDateTo'>
-        /// End of the range for start date subject courses.
+        /// <param name='dateTo'>
+        /// End of range for lesson date.
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
@@ -35,6 +35,9 @@ namespace Kmd.Studica.Programmes.Client
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
+        /// </param>
+        /// <param name='departmentId'>
+        /// Department where the lesson is conducted.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -51,6 +54,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseLessonsExternalResponse>> GetWithHttpMessagesAsync(System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? departmentId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

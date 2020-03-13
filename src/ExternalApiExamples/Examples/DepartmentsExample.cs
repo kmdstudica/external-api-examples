@@ -20,7 +20,7 @@ namespace ExternalApiExamples
 
         public async Task Execute()
         {
-            Console.WriteLine("Executing school hour entry example");
+            Console.WriteLine("Executing departments example");
 
             using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
             schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)

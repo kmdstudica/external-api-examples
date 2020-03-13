@@ -14,9 +14,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// SchoolHourEntriesExternal operations.
+    /// DepartmentsExternal operations.
     /// </summary>
-    public partial interface ISchoolHourEntriesExternal
+    public partial interface IDepartmentsExternal
     {
         /// <param name='schoolCode'>
         /// The school code for which to get data.
@@ -45,6 +45,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseSchoolHourEntryExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseDepartmentsExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

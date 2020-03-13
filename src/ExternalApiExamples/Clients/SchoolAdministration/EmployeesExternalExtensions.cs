@@ -36,7 +36,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
-            public static PagedResponse1EmployeeExternalResponse Get(this IEmployeesExternal operations, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount)
+            public static PagedResponseEmployeeExternalResponse Get(this IEmployeesExternal operations, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount)
             {
                 return operations.GetAsync(employmentStartDateFrom, employmentStartDateTo, schoolCode, pageNumber, pageSize, inlineCount).GetAwaiter().GetResult();
             }
@@ -65,7 +65,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponse1EmployeeExternalResponse> GetAsync(this IEmployeesExternal operations, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseEmployeeExternalResponse> GetAsync(this IEmployeesExternal operations, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(employmentStartDateFrom, employmentStartDateTo, schoolCode, pageNumber, pageSize, inlineCount, null, cancellationToken).ConfigureAwait(false))
                 {

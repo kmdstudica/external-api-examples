@@ -38,6 +38,21 @@ namespace Kmd.Studica.SchoolAdministration.Client
         public ServiceClientCredentials Credentials { get; private set; }
 
         /// <summary>
+        /// Gets the IAreasOfResponsibilityExternal.
+        /// </summary>
+        public virtual IAreasOfResponsibilityExternal AreasOfResponsibilityExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IDayCalendarsExternal.
+        /// </summary>
+        public virtual IDayCalendarsExternal DayCalendarsExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IDepartmentsExternal.
+        /// </summary>
+        public virtual IDepartmentsExternal DepartmentsExternal { get; private set; }
+
+        /// <summary>
         /// Gets the IEmployeesExternal.
         /// </summary>
         public virtual IEmployeesExternal EmployeesExternal { get; private set; }
@@ -298,6 +313,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// </summary>
         private void Initialize()
         {
+            AreasOfResponsibilityExternal = new AreasOfResponsibilityExternal(this);
+            DayCalendarsExternal = new DayCalendarsExternal(this);
+            DepartmentsExternal = new DepartmentsExternal(this);
             EmployeesExternal = new EmployeesExternal(this);
             RoomsExternal = new RoomsExternal(this);
             SchoolHourEntriesExternal = new SchoolHourEntriesExternal(this);

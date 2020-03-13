@@ -30,7 +30,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
-            public static PagedResponse1SchoolHourEntryExternalResponse Get(this ISchoolHourEntriesExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount)
+            public static PagedResponseSchoolHourEntryExternalResponse Get(this ISchoolHourEntriesExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount)
             {
                 return operations.GetAsync(schoolCode, pageNumber, pageSize, inlineCount).GetAwaiter().GetResult();
             }
@@ -53,7 +53,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponse1SchoolHourEntryExternalResponse> GetAsync(this ISchoolHourEntriesExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseSchoolHourEntryExternalResponse> GetAsync(this ISchoolHourEntriesExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(schoolCode, pageNumber, pageSize, inlineCount, null, cancellationToken).ConfigureAwait(false))
                 {

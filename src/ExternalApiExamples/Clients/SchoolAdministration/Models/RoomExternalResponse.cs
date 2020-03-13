@@ -45,11 +45,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// located.</param>
         /// <param name="postalCode">Postal code of the building where the room
         /// is located.</param>
-        /// <param name="buildingNumber">Building number at the address, where
-        /// the room is located.</param>
-        /// <param name="floor">Floor number in the building, where the room is
-        /// located.</param>
-        public RoomExternalResponse(System.Guid id, string name, string designation, string roomType, string description = default(string), int? capacity = default(int?), int? maximumPersonsAllowed = default(int?), string addressLine = default(string), string city = default(string), string postalCode = default(string), string buildingNumber = default(string), string floor = default(string))
+        public RoomExternalResponse(System.Guid id, string name, string designation, string roomType, string description = default(string), int? capacity = default(int?), int? maximumPersonsAllowed = default(int?), string addressLine = default(string), string city = default(string), string postalCode = default(string))
         {
             Id = id;
             Name = name;
@@ -61,8 +57,6 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             AddressLine = addressLine;
             City = city;
             PostalCode = postalCode;
-            BuildingNumber = buildingNumber;
-            Floor = floor;
             CustomInit();
         }
 
@@ -131,20 +125,6 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "postalCode")]
         public string PostalCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets building number at the address, where the room is
-        /// located.
-        /// </summary>
-        [JsonProperty(PropertyName = "buildingNumber")]
-        public string BuildingNumber { get; set; }
-
-        /// <summary>
-        /// Gets or sets floor number in the building, where the room is
-        /// located.
-        /// </summary>
-        [JsonProperty(PropertyName = "floor")]
-        public string Floor { get; set; }
 
         /// <summary>
         /// Validate the object.

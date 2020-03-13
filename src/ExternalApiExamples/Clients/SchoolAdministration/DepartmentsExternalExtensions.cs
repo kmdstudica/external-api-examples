@@ -11,9 +11,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for SchoolHoursPlansExternal.
+    /// Extension methods for DepartmentsExternal.
     /// </summary>
-    public static partial class SchoolHoursPlansExternalExtensions
+    public static partial class DepartmentsExternalExtensions
     {
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -30,7 +30,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
-            public static PagedResponseSchoolHoursPlanExternalResponse Get(this ISchoolHoursPlansExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount)
+            public static PagedResponseDepartmentsExternalResponse Get(this IDepartmentsExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount)
             {
                 return operations.GetAsync(schoolCode, pageNumber, pageSize, inlineCount).GetAwaiter().GetResult();
             }
@@ -53,7 +53,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseSchoolHoursPlanExternalResponse> GetAsync(this ISchoolHoursPlansExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseDepartmentsExternalResponse> GetAsync(this IDepartmentsExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(schoolCode, pageNumber, pageSize, inlineCount, null, cancellationToken).ConfigureAwait(false))
                 {

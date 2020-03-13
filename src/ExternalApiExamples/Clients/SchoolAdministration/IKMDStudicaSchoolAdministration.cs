@@ -37,6 +37,21 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
 
         /// <summary>
+        /// Gets the IAreasOfResponsibilityExternal.
+        /// </summary>
+        IAreasOfResponsibilityExternal AreasOfResponsibilityExternal { get; }
+
+        /// <summary>
+        /// Gets the IDayCalendarsExternal.
+        /// </summary>
+        IDayCalendarsExternal DayCalendarsExternal { get; }
+
+        /// <summary>
+        /// Gets the IDepartmentsExternal.
+        /// </summary>
+        IDepartmentsExternal DepartmentsExternal { get; }
+
+        /// <summary>
         /// Gets the IEmployeesExternal.
         /// </summary>
         IEmployeesExternal EmployeesExternal { get; }

@@ -284,7 +284,7 @@ namespace Kmd.Studica.Students.Client
         private void Initialize()
         {
             StudentsExternal = new StudentsExternal(this);
-            BaseUri = new System.Uri("https://review.studica.dk/api-students");
+            BaseUri = new System.Uri("https://gateway.kmdlogic.io/studica/students/v1");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,

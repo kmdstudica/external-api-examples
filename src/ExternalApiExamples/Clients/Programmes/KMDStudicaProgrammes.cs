@@ -290,7 +290,7 @@ namespace Kmd.Studica.Programmes.Client
         {
             EducationalProgrammesExternal = new EducationalProgrammesExternal(this);
             SubjectCoursesExternal = new SubjectCoursesExternal(this);
-            BaseUri = new System.Uri("https://review.studica.dk/api-programmes");
+            BaseUri = new System.Uri("https://gateway.kmdlogic.io/studica/students/v1");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,

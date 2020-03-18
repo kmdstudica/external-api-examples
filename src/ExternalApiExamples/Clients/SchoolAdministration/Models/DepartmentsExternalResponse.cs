@@ -88,17 +88,6 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Name");
             }
-            if (Name != null)
-            {
-                if (Name.Length > 255)
-                {
-                    throw new ValidationException(ValidationRules.MaxLength, "Name", 255);
-                }
-                if (Name.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "Name", 1);
-                }
-            }
         }
     }
 }

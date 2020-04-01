@@ -38,13 +38,16 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="givenName">Gets employee given name.</param>
         /// <param name="surname">Gets employee surname.</param>
         /// <param name="email">Gets employee e-mail address.</param>
+        /// <param name="employmentStartDate">Gets employee start date.</param>
         /// <param name="uniLoginUsername">Gets employee Unilogin
         /// username.</param>
         /// <param name="adUserName">Gets employee Active Directory
         /// username.</param>
         /// <param name="employmentResignationDate">Gets employee resignation
         /// date.</param>
-        public EmployeeExternalResponse(System.Guid id, string civilRegistrationNumber, bool lmsIndicator, string givenName, string surname, string email, string uniLoginUsername = default(string), string adUserName = default(string), System.DateTime? employmentResignationDate = default(System.DateTime?))
+        /// <param name="areaOfResponsibilityId">Reference id to the area of
+        /// responsibility.</param>
+        public EmployeeExternalResponse(System.Guid id, string civilRegistrationNumber, bool lmsIndicator, string givenName, string surname, string email, System.DateTime employmentStartDate, string uniLoginUsername = default(string), string adUserName = default(string), System.DateTime? employmentResignationDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?))
         {
             Id = id;
             CivilRegistrationNumber = civilRegistrationNumber;
@@ -54,7 +57,9 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             Email = email;
             UniLoginUsername = uniLoginUsername;
             AdUserName = adUserName;
+            EmploymentStartDate = employmentStartDate;
             EmploymentResignationDate = employmentResignationDate;
+            AreaOfResponsibilityId = areaOfResponsibilityId;
             CustomInit();
         }
 
@@ -112,11 +117,24 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         public string AdUserName { get; set; }
 
         /// <summary>
+        /// Gets employee start date.
+        /// </summary>
+        [JsonConverter(typeof(DateJsonConverter))]
+        [JsonProperty(PropertyName = "employmentStartDate")]
+        public System.DateTime EmploymentStartDate { get; set; }
+
+        /// <summary>
         /// Gets employee resignation date.
         /// </summary>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "employmentResignationDate")]
         public System.DateTime? EmploymentResignationDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets reference id to the area of responsibility.
+        /// </summary>
+        [JsonProperty(PropertyName = "areaOfResponsibilityId")]
+        public System.Guid? AreaOfResponsibilityId { get; set; }
 
         /// <summary>
         /// Validate the object.

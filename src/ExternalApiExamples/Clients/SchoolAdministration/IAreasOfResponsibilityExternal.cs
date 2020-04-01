@@ -45,6 +45,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseAreasOfResponsibilityExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseAreaOfResponsibilityExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

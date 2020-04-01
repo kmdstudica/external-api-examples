@@ -58,6 +58,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
         /// </param>
+        /// <param name='departmentId'>
+        /// Department that room is used by.
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -79,7 +82,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseRoomExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseRoomExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? departmentId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (schoolCode == null)
             {
@@ -119,6 +122,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("departmentId", departmentId);
                 tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("pageNumber", pageNumber);
                 tracingParameters.Add("pageSize", pageSize);
@@ -130,6 +134,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "RoomsExternal").ToString();
             List<string> _queryParameters = new List<string>();
+            if (departmentId != null)
+            {
+                _queryParameters.Add(string.Format("DepartmentId={0}", System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(departmentId, Client.SerializationSettings).Trim('"'))));
+            }
             if (schoolCode != null)
             {
                 _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));

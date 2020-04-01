@@ -12,31 +12,33 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// DepartmentsExternalResponse
+    /// AreaOfResponsibilityExternalResponse
     /// </summary>
     /// <remarks>
-    /// Model of department.
+    /// The model of area of responsibility.
     /// </remarks>
-    public partial class DepartmentsExternalResponse
+    public partial class AreaOfResponsibilityExternalResponse
     {
         /// <summary>
-        /// Initializes a new instance of the DepartmentsExternalResponse
-        /// class.
+        /// Initializes a new instance of the
+        /// AreaOfResponsibilityExternalResponse class.
         /// </summary>
-        public DepartmentsExternalResponse()
+        public AreaOfResponsibilityExternalResponse()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the DepartmentsExternalResponse
-        /// class.
+        /// Initializes a new instance of the
+        /// AreaOfResponsibilityExternalResponse class.
         /// </summary>
-        /// <param name="id">Identifier of the department.</param>
-        /// <param name="name">Name of the department.</param>
-        /// <param name="validFrom">Beginning date of being valid.</param>
-        /// <param name="validTo">End date of being valid.</param>
-        public DepartmentsExternalResponse(System.Guid id, string name, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?))
+        /// <param name="id">Identifier of the area of responsibility.</param>
+        /// <param name="name">Name of the area of responsibility.</param>
+        /// <param name="validFrom">Start date of the area of
+        /// responsibility.</param>
+        /// <param name="validTo">End date of the area of
+        /// responsibiliity.</param>
+        public AreaOfResponsibilityExternalResponse(System.Guid id, string name, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?))
         {
             Id = id;
             Name = name;
@@ -51,26 +53,26 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets identifier of the department.
+        /// Gets or sets identifier of the area of responsibility.
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets name of the department.
+        /// Gets or sets name of the area of responsibility.
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets beginning date of being valid.
+        /// Gets or sets start date of the area of responsibility.
         /// </summary>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "validFrom")]
         public System.DateTime ValidFrom { get; set; }
 
         /// <summary>
-        /// Gets or sets end date of being valid.
+        /// Gets or sets end date of the area of responsibiliity.
         /// </summary>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "validTo")]

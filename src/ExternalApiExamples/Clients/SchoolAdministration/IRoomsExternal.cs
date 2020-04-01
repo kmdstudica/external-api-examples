@@ -30,6 +30,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
         /// </param>
+        /// <param name='departmentId'>
+        /// Department that room is used by.
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -45,6 +48,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseRoomExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseRoomExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? departmentId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

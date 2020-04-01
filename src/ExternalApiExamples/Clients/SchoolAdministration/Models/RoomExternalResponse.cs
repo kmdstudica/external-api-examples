@@ -8,6 +8,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -35,6 +37,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="roomType">Type of room. Possible values include:
         /// 'ClassRoom', 'Lab', 'Workshop', 'Gym', 'Auditorium', 'MeetingRoom',
         /// 'Other'</param>
+        /// <param name="departmentIds">Departments that room is used
+        /// by.</param>
         /// <param name="description">Description of the room.</param>
         /// <param name="capacity">Capacity for meetings.</param>
         /// <param name="maximumPersonsAllowed">Maximum persons allowed in the
@@ -45,7 +49,9 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// located.</param>
         /// <param name="postalCode">Postal code of the building where the room
         /// is located.</param>
-        public RoomExternalResponse(System.Guid id, string name, string designation, string roomType, string description = default(string), int? capacity = default(int?), int? maximumPersonsAllowed = default(int?), string addressLine = default(string), string city = default(string), string postalCode = default(string))
+        /// <param name="dsDepartmentNumber">The DS-department number that room
+        /// belongs to.</param>
+        public RoomExternalResponse(System.Guid id, string name, string designation, string roomType, IList<System.Guid> departmentIds, string description = default(string), int? capacity = default(int?), int? maximumPersonsAllowed = default(int?), string addressLine = default(string), string city = default(string), string postalCode = default(string), string dsDepartmentNumber = default(string))
         {
             Id = id;
             Name = name;
@@ -57,6 +63,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             AddressLine = addressLine;
             City = city;
             PostalCode = postalCode;
+            DsDepartmentNumber = dsDepartmentNumber;
+            DepartmentIds = departmentIds;
             CustomInit();
         }
 
@@ -127,6 +135,18 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         public string PostalCode { get; set; }
 
         /// <summary>
+        /// Gets or sets the DS-department number that room belongs to.
+        /// </summary>
+        [JsonProperty(PropertyName = "dsDepartmentNumber")]
+        public string DsDepartmentNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets departments that room is used by.
+        /// </summary>
+        [JsonProperty(PropertyName = "departmentIds")]
+        public IList<System.Guid> DepartmentIds { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -145,6 +165,10 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             if (RoomType == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "RoomType");
+            }
+            if (DepartmentIds == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "DepartmentIds");
             }
         }
     }

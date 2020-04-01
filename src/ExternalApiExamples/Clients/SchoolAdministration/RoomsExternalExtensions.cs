@@ -30,9 +30,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
-            public static PagedResponseRoomExternalResponse Get(this IRoomsExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount)
+            /// <param name='departmentId'>
+            /// Department that room is used by.
+            /// </param>
+            public static PagedResponseRoomExternalResponse Get(this IRoomsExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? departmentId = default(System.Guid?))
             {
-                return operations.GetAsync(schoolCode, pageNumber, pageSize, inlineCount).GetAwaiter().GetResult();
+                return operations.GetAsync(schoolCode, pageNumber, pageSize, inlineCount, departmentId).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -50,12 +53,15 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
+            /// <param name='departmentId'>
+            /// Department that room is used by.
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseRoomExternalResponse> GetAsync(this IRoomsExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseRoomExternalResponse> GetAsync(this IRoomsExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? departmentId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(schoolCode, pageNumber, pageSize, inlineCount, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(schoolCode, pageNumber, pageSize, inlineCount, departmentId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

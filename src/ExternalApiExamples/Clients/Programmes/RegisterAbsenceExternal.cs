@@ -18,12 +18,12 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// AddLessonExternal operations.
+    /// RegisterAbsenceExternal operations.
     /// </summary>
-    public partial class AddLessonExternal : IServiceOperations<KMDStudicaProgrammes>, IAddLessonExternal
+    public partial class RegisterAbsenceExternal : IServiceOperations<KMDStudicaProgrammes>, IRegisterAbsenceExternal
     {
         /// <summary>
-        /// Initializes a new instance of the AddLessonExternal class.
+        /// Initializes a new instance of the RegisterAbsenceExternal class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -31,7 +31,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public AddLessonExternal(KMDStudicaProgrammes client)
+        public RegisterAbsenceExternal(KMDStudicaProgrammes client)
         {
             if (client == null)
             {
@@ -59,7 +59,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostWithHttpMessagesAsync(AddLessonExternalCommand body = default(AddLessonExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostWithHttpMessagesAsync(RegisterAbsenceExternalCommand body = default(RegisterAbsenceExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body != null)
             {
@@ -78,7 +78,7 @@ namespace Kmd.Studica.Programmes.Client
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "AddLessonExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "RegisterAbsenceExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;

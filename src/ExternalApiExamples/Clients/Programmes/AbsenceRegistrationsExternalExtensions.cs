@@ -11,18 +11,18 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for LessonsExternal.
+    /// Extension methods for AbsenceRegistrationsExternal.
     /// </summary>
-    public static partial class LessonsExternalExtensions
+    public static partial class AbsenceRegistrationsExternalExtensions
     {
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dateFrom'>
-            /// Beginning of range for lesson date.
+            /// Beginning of the range for absence date.
             /// </param>
             /// <param name='dateTo'>
-            /// End of range for lesson date.
+            /// End of the range for absence date.
             /// </param>
             /// <param name='schoolCode'>
             /// The school code for which to get data.
@@ -36,22 +36,25 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
-            /// <param name='departmentId'>
-            /// Department where the lesson is conducted.
+            /// <param name='studentId'>
+            /// Absent student.
             /// </param>
-            public static PagedResponseLessonExternalResponse Get(this ILessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? departmentId = default(System.Guid?))
+            /// <param name='lessonId'>
+            /// Lesson of absence.
+            /// </param>
+            public static PagedResponseAbsenceRegistrationExternalResponse Get(this IAbsenceRegistrationsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?))
             {
-                return operations.GetAsync(dateFrom, dateTo, schoolCode, pageNumber, pageSize, inlineCount, departmentId).GetAwaiter().GetResult();
+                return operations.GetAsync(dateFrom, dateTo, schoolCode, pageNumber, pageSize, inlineCount, studentId, lessonId).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dateFrom'>
-            /// Beginning of range for lesson date.
+            /// Beginning of the range for absence date.
             /// </param>
             /// <param name='dateTo'>
-            /// End of range for lesson date.
+            /// End of the range for absence date.
             /// </param>
             /// <param name='schoolCode'>
             /// The school code for which to get data.
@@ -65,15 +68,18 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
-            /// <param name='departmentId'>
-            /// Department where the lesson is conducted.
+            /// <param name='studentId'>
+            /// Absent student.
+            /// </param>
+            /// <param name='lessonId'>
+            /// Lesson of absence.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseLessonExternalResponse> GetAsync(this ILessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? departmentId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseAbsenceRegistrationExternalResponse> GetAsync(this IAbsenceRegistrationsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(dateFrom, dateTo, schoolCode, pageNumber, pageSize, inlineCount, departmentId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(dateFrom, dateTo, schoolCode, pageNumber, pageSize, inlineCount, studentId, lessonId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

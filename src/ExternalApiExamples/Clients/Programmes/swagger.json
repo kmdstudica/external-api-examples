@@ -1,1 +1,1379 @@
-{"swagger":"2.0","info":{"title":"KMD Studica (Demo) - Programmes","version":"1.0.0"},"host":"gateway.kmdlogic.io","basePath":"/studica-demo/programmes/v1","schemes":["https"],"paths":{"/AddLessonExternal":{"post":{"tags":["AddLessonExternal"],"operationId":"AddLessonExternal_Post","consumes":["application/json-patch+json","application/json","text/json","application/*+json"],"produces":["application/json"],"parameters":[{"in":"header","name":"Authorization","description":"Authorization Header","type":"string"},{"in":"body","name":"body","schema":{"$ref":"#/definitions/AddLessonExternalCommand"}}],"responses":{"200":{"description":"Success"}}}},"/EducationalProgrammesExternal":{"get":{"tags":["EducationalProgrammesExternal"],"operationId":"EducationalProgrammesExternal_Get","produces":["text/plain","application/json","text/json"],"parameters":[{"in":"header","name":"Authorization","description":"Authorization Header","type":"string"},{"in":"query","name":"StartDateFrom","description":"Beginning of the range for start date of the educational programmes.","required":true,"type":"string","format":"date"},{"in":"query","name":"StartDateTo","description":"End of the range for start date of the educational programmes.","required":true,"type":"string","format":"date"},{"in":"query","name":"SchoolCode","description":"The school code for which to get data.","required":true,"type":"string","maxLength":6,"minLength":6},{"in":"query","name":"PageNumber","description":"The number of the page to return (1 is the first page).","required":true,"type":"integer","format":"int32","maximum":2147483647.0,"minimum":1.0},{"in":"query","name":"PageSize","description":"Number of objects per page.","required":true,"type":"integer","format":"int32","maximum":1000.0,"minimum":1.0},{"in":"query","name":"InlineCount","description":"A flag indicating if total number of items should be included.","required":true,"type":"boolean"}],"responses":{"200":{"description":"Success","schema":{"$ref":"#/definitions/PagedResponse_EducationalProgrammeExternalResponse"}}}}},"/LessonsExternal":{"get":{"tags":["LessonsExternal"],"operationId":"LessonsExternal_Get","produces":["text/plain","application/json","text/json"],"parameters":[{"in":"header","name":"Authorization","description":"Authorization Header","type":"string"},{"in":"query","name":"DepartmentId","description":"Department where the lesson is conducted.","type":"string","format":"uuid"},{"in":"query","name":"DateFrom","description":"Beginning of range for lesson date.","required":true,"type":"string","format":"date"},{"in":"query","name":"DateTo","description":"End of range for lesson date.","required":true,"type":"string","format":"date"},{"in":"query","name":"SchoolCode","description":"The school code for which to get data.","required":true,"type":"string","maxLength":6,"minLength":6},{"in":"query","name":"PageNumber","description":"The number of the page to return (1 is the first page).","required":true,"type":"integer","format":"int32","maximum":2147483647.0,"minimum":1.0},{"in":"query","name":"PageSize","description":"Number of objects per page.","required":true,"type":"integer","format":"int32","maximum":1000.0,"minimum":1.0},{"in":"query","name":"InlineCount","description":"A flag indicating if total number of items should be included.","required":true,"type":"boolean"}],"responses":{"200":{"description":"Success","schema":{"$ref":"#/definitions/PagedResponse_LessonsExternalResponse"}}}}},"/SubjectCoursesExternal":{"get":{"tags":["SubjectCoursesExternal"],"operationId":"SubjectCoursesExternal_Get","produces":["text/plain","application/json","text/json"],"parameters":[{"in":"header","name":"Authorization","description":"Authorization Header","type":"string"},{"in":"query","name":"StartDateFrom","description":"Beginning of the range for start date subject courses.","required":true,"type":"string","format":"date"},{"in":"query","name":"StartDateTo","description":"End of the range for start date subject courses.","required":true,"type":"string","format":"date"},{"in":"query","name":"SchoolCode","description":"The school code for which to get data.","required":true,"type":"string","maxLength":6,"minLength":6},{"in":"query","name":"PageNumber","description":"The number of the page to return (1 is the first page).","required":true,"type":"integer","format":"int32","maximum":2147483647.0,"minimum":1.0},{"in":"query","name":"PageSize","description":"Number of objects per page.","required":true,"type":"integer","format":"int32","maximum":1000.0,"minimum":1.0},{"in":"query","name":"InlineCount","description":"A flag indicating if total number of items should be included.","required":true,"type":"boolean"}],"responses":{"200":{"description":"Success","schema":{"$ref":"#/definitions/PagedResponse_SubjectCourseExternalResponse"}}}}}},"definitions":{"AddLessonExternalCommand":{"title":"AddLessonExternalCommand","description":"Creates new lesson.","required":["id"],"type":"object","properties":{"id":{"format":"uuid","description":"Identifier of the lesson.","type":"string","x-nullable":false},"roomId":{"format":"uuid","description":"Identifier of the room where lesson is conducted.","type":"string"},"date":{"format":"date","description":"Date of the lesson.","type":"string"},"startTime":{"description":"Start time of the lesson.","type":"string"},"endTime":{"description":"End time of the lesson.","type":"string"},"rule":{"type":"string"},"schoolCode":{"description":"The school code for which command is performed.","type":"string"}}},"PagedResponse_EducationalProgrammeExternalResponse":{"type":"object","properties":{"items":{"description":"Page of items","uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/EducationalProgrammeExternalResponse"},"readOnly":true},"totalItems":{"format":"int32","description":"Total number of items","type":"integer","readOnly":true}}},"EducationalProgrammeExternalResponse":{"title":"EducationalProgrammeExternalResponse","description":"Model of the educational programme.","required":["id","name","startDate","endDate"],"type":"object","properties":{"id":{"format":"uuid","description":"Id of the educational programme.","type":"string","x-nullable":false},"name":{"description":"Name of the educational programme.","type":"string"},"startDate":{"format":"date","description":"Start date of the educational programme.","type":"string","x-nullable":false},"endDate":{"format":"date","description":"End date for the educational programme.","type":"string","x-nullable":false}}},"PagedResponse_LessonsExternalResponse":{"type":"object","properties":{"items":{"description":"Page of items","uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/LessonsExternalResponse"},"readOnly":true},"totalItems":{"format":"int32","description":"Total number of items","type":"integer","readOnly":true}}},"LessonsExternalResponse":{"title":"LessonsExternalResponse","description":"The model of lesson.","required":["id","subjectCourseId","roomId","date"],"type":"object","properties":{"id":{"format":"uuid","description":"Unique identifier.","type":"string","x-nullable":false},"name":{"description":"Name of the lesson.","type":"string"},"subjectCourseId":{"format":"uuid","description":"Reference to the subject course that lesson is part of.","type":"string","x-nullable":false},"roomId":{"format":"uuid","description":"Reference to the room where lesson is conducted.","type":"string","x-nullable":false},"date":{"format":"date","description":"Date of the lesson.","type":"string","x-nullable":false},"startTime":{"description":"Start time of the lesson.","type":"string"},"endTime":{"description":"End time of the lesson.","type":"string"}}},"PagedResponse_SubjectCourseExternalResponse":{"type":"object","properties":{"items":{"description":"Page of items","uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/SubjectCourseExternalResponse"},"readOnly":true},"totalItems":{"format":"int32","description":"Total number of items","type":"integer","readOnly":true}}},"SubjectCourseExternalResponse":{"title":"SubjectCourseExternalResponse","description":"Model of the subject course.","required":["id","educationalProgrammeId","name","startDate","endDate","lmsIndicator"],"type":"object","properties":{"id":{"format":"uuid","description":"Id of the subject course.","type":"string","x-nullable":false},"educationalProgrammeId":{"format":"uuid","description":"Id of the associated educational programme.","type":"string","x-nullable":false},"defaultSubjectId":{"format":"uuid","description":"The id of the default subject for this subject course","type":"string"},"name":{"description":"Name of the subject course.","type":"string"},"startDate":{"format":"date","description":"Start date of the subject course.","type":"string","x-nullable":false},"endDate":{"format":"date","description":"End date for the subject course.","type":"string","x-nullable":false},"lmsIndicator":{"description":"Is the entity to be created in the LMS.","type":"boolean","x-nullable":false}}}}}
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "KMD Studica - Programmes",
+      "version": "v1"
+    },
+    "host": "gateway.kmdlogic.io",
+    "basePath": "/studica-demo/programmes/v1",
+    "schemes": [
+      "https"
+    ],
+    "paths": {
+      "/AbsenceRegistrationsExternal": {
+        "get": {
+          "tags": [
+            "AbsenceRegistrationsExternal"
+          ],
+          "operationId": "AbsenceRegistrationsExternal_Get",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "description": "Authorization Header",
+              "type": "string"
+            },
+            {
+              "in": "query",
+              "name": "StudentId",
+              "description": "Absent student.",
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "in": "query",
+              "name": "LessonId",
+              "description": "Lesson of absence.",
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "in": "query",
+              "name": "DateFrom",
+              "description": "Beginning of the range for absence date.",
+              "required": true,
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "in": "query",
+              "name": "DateTo",
+              "description": "End of the range for absence date.",
+              "required": true,
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "in": "query",
+              "name": "SchoolCode",
+              "description": "The school code for which to get data.",
+              "required": true,
+              "type": "string",
+              "maxLength": 6,
+              "minLength": 6
+            },
+            {
+              "in": "query",
+              "name": "PageNumber",
+              "description": "The number of the page to return (1 is the first page).",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "maximum": 2147483647.0,
+              "minimum": 1.0
+            },
+            {
+              "in": "query",
+              "name": "PageSize",
+              "description": "Number of objects per page.",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "maximum": 1000.0,
+              "minimum": 1.0
+            },
+            {
+              "in": "query",
+              "name": "InlineCount",
+              "description": "A flag indicating if total number of items should be included.",
+              "required": true,
+              "type": "boolean"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/definitions/PagedResponse_AbsenceRegistrationExternalResponse"
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "AbsenceRegistrationsExternal"
+          ],
+          "operationId": "_AbsenceRegistrationsExternal_Post",
+          "consumes": [
+            "application/json-patch+json",
+            "application/json",
+            "text/json",
+            "application/*+json"
+          ],
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "description": "Authorization Header",
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/AbsenceRegistrationsExternalRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/definitions/PagedResponse_AbsenceRegistrationExternalResponse"
+              }
+            }
+          }
+        }
+      },
+      "/EducationalProgrammesExternal": {
+        "get": {
+          "tags": [
+            "EducationalProgrammesExternal"
+          ],
+          "operationId": "EducationalProgrammesExternal_Get",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "description": "Authorization Header",
+              "type": "string"
+            },
+            {
+              "in": "query",
+              "name": "StartDateFrom",
+              "description": "Beginning of the range for start date of the educational programmes.",
+              "required": true,
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "in": "query",
+              "name": "StartDateTo",
+              "description": "End of the range for start date of the educational programmes.",
+              "required": true,
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "in": "query",
+              "name": "SchoolCode",
+              "description": "The school code for which to get data.",
+              "required": true,
+              "type": "string",
+              "maxLength": 6,
+              "minLength": 6
+            },
+            {
+              "in": "query",
+              "name": "PageNumber",
+              "description": "The number of the page to return (1 is the first page).",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "maximum": 2147483647.0,
+              "minimum": 1.0
+            },
+            {
+              "in": "query",
+              "name": "PageSize",
+              "description": "Number of objects per page.",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "maximum": 1000.0,
+              "minimum": 1.0
+            },
+            {
+              "in": "query",
+              "name": "InlineCount",
+              "description": "A flag indicating if total number of items should be included.",
+              "required": true,
+              "type": "boolean"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/definitions/PagedResponse_EducationalProgrammeExternalResponse"
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "EducationalProgrammesExternal"
+          ],
+          "operationId": "_EducationalProgrammesExternal_Post",
+          "consumes": [
+            "application/json-patch+json",
+            "application/json",
+            "text/json",
+            "application/*+json"
+          ],
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "description": "Authorization Header",
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/EducationalProgrammesExternalRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/definitions/PagedResponse_EducationalProgrammeExternalResponse"
+              }
+            }
+          }
+        }
+      },
+      "/LessonsExternal": {
+        "get": {
+          "tags": [
+            "LessonsExternal"
+          ],
+          "operationId": "LessonsExternal_Get",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "description": "Authorization Header",
+              "type": "string"
+            },
+            {
+              "in": "query",
+              "name": "DepartmentId",
+              "description": "Department where the lesson is conducted.",
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "in": "query",
+              "name": "DateFrom",
+              "description": "Beginning of range for lesson date.",
+              "required": true,
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "in": "query",
+              "name": "DateTo",
+              "description": "End of range for lesson date.",
+              "required": true,
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "in": "query",
+              "name": "SchoolCode",
+              "description": "The school code for which to get data.",
+              "required": true,
+              "type": "string",
+              "maxLength": 6,
+              "minLength": 6
+            },
+            {
+              "in": "query",
+              "name": "PageNumber",
+              "description": "The number of the page to return (1 is the first page).",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "maximum": 2147483647.0,
+              "minimum": 1.0
+            },
+            {
+              "in": "query",
+              "name": "PageSize",
+              "description": "Number of objects per page.",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "maximum": 1000.0,
+              "minimum": 1.0
+            },
+            {
+              "in": "query",
+              "name": "InlineCount",
+              "description": "A flag indicating if total number of items should be included.",
+              "required": true,
+              "type": "boolean"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/definitions/PagedResponse_LessonExternalResponse"
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "LessonsExternal"
+          ],
+          "operationId": "_LessonsExternal_Post",
+          "consumes": [
+            "application/json-patch+json",
+            "application/json",
+            "text/json",
+            "application/*+json"
+          ],
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "description": "Authorization Header",
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/LessonsExternalRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/definitions/PagedResponse_LessonExternalResponse"
+              }
+            }
+          }
+        }
+      },
+      "/RegisterAbsenceExternal": {
+        "post": {
+          "tags": [
+            "RegisterAbsenceExternal"
+          ],
+          "operationId": "RegisterAbsenceExternal_Post",
+          "consumes": [
+            "application/json-patch+json",
+            "application/json",
+            "text/json",
+            "application/*+json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "description": "Authorization Header",
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/RegisterAbsenceExternalCommand"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/RegisterLessonExternal": {
+        "post": {
+          "tags": [
+            "RegisterLessonExternal"
+          ],
+          "operationId": "RegisterLessonExternal_Post",
+          "consumes": [
+            "application/json-patch+json",
+            "application/json",
+            "text/json",
+            "application/*+json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "description": "Authorization Header",
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/RegisterLessonExternalCommand"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/SubjectCoursesExternal": {
+        "get": {
+          "tags": [
+            "SubjectCoursesExternal"
+          ],
+          "operationId": "SubjectCoursesExternal_Get",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "description": "Authorization Header",
+              "type": "string"
+            },
+            {
+              "in": "query",
+              "name": "StartDateFrom",
+              "description": "Beginning of the range for start date subject courses.",
+              "required": true,
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "in": "query",
+              "name": "StartDateTo",
+              "description": "End of the range for start date subject courses.",
+              "required": true,
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "in": "query",
+              "name": "SchoolCode",
+              "description": "The school code for which to get data.",
+              "required": true,
+              "type": "string",
+              "maxLength": 6,
+              "minLength": 6
+            },
+            {
+              "in": "query",
+              "name": "PageNumber",
+              "description": "The number of the page to return (1 is the first page).",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "maximum": 2147483647.0,
+              "minimum": 1.0
+            },
+            {
+              "in": "query",
+              "name": "PageSize",
+              "description": "Number of objects per page.",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "maximum": 1000.0,
+              "minimum": 1.0
+            },
+            {
+              "in": "query",
+              "name": "InlineCount",
+              "description": "A flag indicating if total number of items should be included.",
+              "required": true,
+              "type": "boolean"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/definitions/PagedResponse_SubjectCourseExternalResponse"
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "SubjectCoursesExternal"
+          ],
+          "operationId": "_SubjectCoursesExternal_Post",
+          "consumes": [
+            "application/json-patch+json",
+            "application/json",
+            "text/json",
+            "application/*+json"
+          ],
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "description": "Authorization Header",
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/SubjectCoursesExternalRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/definitions/PagedResponse_SubjectCourseExternalResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "PagedResponse_AbsenceRegistrationExternalResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "description": "Page of items",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/AbsenceRegistrationExternalResponse"
+            },
+            "readOnly": true
+          },
+          "totalItems": {
+            "format": "int32",
+            "description": "Total number of items",
+            "type": "integer",
+            "readOnly": true
+          }
+        }
+      },
+      "AbsenceRegistrationExternalResponse": {
+        "title": "AbsenceRegistrationExternalResponse",
+        "description": "The model of absence.",
+        "required": [
+          "studentId",
+          "lessonId",
+          "absenceDate",
+          "minutes",
+          "approved",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "format": "uuid",
+            "description": "Absent student id.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "lessonId": {
+            "format": "uuid",
+            "description": "Lesson id.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "absenceDate": {
+            "format": "date",
+            "description": "Date of absence.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "minutes": {
+            "format": "int32",
+            "description": "The length of the absence in minutes.",
+            "type": "integer",
+            "x-nullable": false
+          },
+          "approved": {
+            "description": "Was absence approved.",
+            "type": "boolean",
+            "x-nullable": false
+          },
+          "status": {
+            "description": "Type of absence.",
+            "enum": [
+              "Present",
+              "Absent",
+              "PartialAbsence"
+            ],
+            "type": "string",
+            "x-nullable": false
+          }
+        }
+      },
+      "AbsenceRegistrationsExternalRequest": {
+        "title": "AbsenceRegistrationsExternalRequest",
+        "description": "Returns a paged list of absences satisfying provided criteria.",
+        "required": [
+          "dateFrom",
+          "dateTo",
+          "schoolCode",
+          "pageNumber",
+          "pageSize",
+          "inlineCount"
+        ],
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "format": "uuid",
+            "description": "Absent student.",
+            "type": "string"
+          },
+          "lessonId": {
+            "format": "uuid",
+            "description": "Lesson of absence.",
+            "type": "string"
+          },
+          "dateFrom": {
+            "format": "date",
+            "description": "Beginning of the range for absence date.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "dateTo": {
+            "format": "date",
+            "description": "End of the range for absence date.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "schoolCode": {
+            "description": "The school code for which to get data.",
+            "maxLength": 6,
+            "minLength": 6,
+            "type": "string"
+          },
+          "pageNumber": {
+            "format": "int32",
+            "description": "The number of the page to return (1 is the first page).",
+            "maximum": 2147483647.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "x-nullable": false
+          },
+          "pageSize": {
+            "format": "int32",
+            "description": "Number of objects per page.",
+            "maximum": 1000.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "x-nullable": false
+          },
+          "inlineCount": {
+            "description": "A flag indicating if total number of items should be included.",
+            "default": true,
+            "type": "boolean",
+            "x-nullable": false
+          }
+        }
+      },
+      "PagedResponse_EducationalProgrammeExternalResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "description": "Page of items",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/EducationalProgrammeExternalResponse"
+            },
+            "readOnly": true
+          },
+          "totalItems": {
+            "format": "int32",
+            "description": "Total number of items",
+            "type": "integer",
+            "readOnly": true
+          }
+        }
+      },
+      "EducationalProgrammeExternalResponse": {
+        "title": "EducationalProgrammeExternalResponse",
+        "description": "Model of the educational programme.",
+        "required": [
+          "id",
+          "name",
+          "startDate",
+          "endDate",
+          "departmentId",
+          "studentsIds"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "uuid",
+            "description": "Id of the educational programme.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "name": {
+            "description": "Name of the educational programme.",
+            "type": "string"
+          },
+          "startDate": {
+            "format": "date",
+            "description": "Start date of the educational programme.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "endDate": {
+            "format": "date",
+            "description": "End date for the educational programme.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "areaOfResponsibilityId": {
+            "format": "uuid",
+            "description": "Reference id of the area of responsibility.",
+            "type": "string"
+          },
+          "dayCalendarId": {
+            "format": "uuid",
+            "description": "Reference id of the day calendar.",
+            "type": "string"
+          },
+          "schoolHoursPlanId": {
+            "format": "uuid",
+            "description": "Reference id of the school hours plan.",
+            "type": "string"
+          },
+          "departmentId": {
+            "format": "uuid",
+            "description": "Reference id of the department.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "studentsIds": {
+            "description": "Reference ids to assigned students.",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "format": "uuid",
+              "type": "string",
+              "x-nullable": false
+            }
+          }
+        }
+      },
+      "EducationalProgrammesExternalRequest": {
+        "title": "EducationalProgrammesExternalRequest",
+        "required": [
+          "startDateFrom",
+          "startDateTo",
+          "schoolCode",
+          "pageNumber",
+          "pageSize",
+          "inlineCount"
+        ],
+        "type": "object",
+        "properties": {
+          "startDateFrom": {
+            "format": "date",
+            "description": "Beginning of the range for start date of the educational programmes.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "startDateTo": {
+            "format": "date",
+            "description": "End of the range for start date of the educational programmes.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "schoolCode": {
+            "description": "The school code for which to get data.",
+            "maxLength": 6,
+            "minLength": 6,
+            "type": "string"
+          },
+          "pageNumber": {
+            "format": "int32",
+            "description": "The number of the page to return (1 is the first page).",
+            "maximum": 2147483647.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "x-nullable": false
+          },
+          "pageSize": {
+            "format": "int32",
+            "description": "Number of objects per page.",
+            "maximum": 1000.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "x-nullable": false
+          },
+          "inlineCount": {
+            "description": "A flag indicating if total number of items should be included.",
+            "default": true,
+            "type": "boolean",
+            "x-nullable": false
+          }
+        }
+      },
+      "PagedResponse_LessonExternalResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "description": "Page of items",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/LessonExternalResponse"
+            },
+            "readOnly": true
+          },
+          "totalItems": {
+            "format": "int32",
+            "description": "Total number of items",
+            "type": "integer",
+            "readOnly": true
+          }
+        }
+      },
+      "LessonExternalResponse": {
+        "title": "LessonExternalResponse",
+        "description": "The model of lesson.",
+        "required": [
+          "id",
+          "subjectCourseId",
+          "date"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "uuid",
+            "description": "Unique identifier.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "name": {
+            "description": "Name of the lesson.",
+            "type": "string"
+          },
+          "subjectCourseId": {
+            "format": "uuid",
+            "description": "Reference to the subject course that lesson is part of.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "roomId": {
+            "format": "uuid",
+            "description": "Reference to the room where lesson is conducted.",
+            "type": "string"
+          },
+          "date": {
+            "format": "date",
+            "description": "Date of the lesson.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "startTime": {
+            "description": "Start time of the lesson.",
+            "type": "string"
+          },
+          "endTime": {
+            "description": "End time of the lesson.",
+            "type": "string"
+          },
+          "teachersIds": {
+            "description": "Teachers assigned to the lesson.",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "format": "uuid",
+              "type": "string",
+              "x-nullable": false
+            }
+          }
+        }
+      },
+      "LessonsExternalRequest": {
+        "title": "LessonsExternalRequest",
+        "description": "Returns a paged list of lessons satisfying provided criteria.",
+        "required": [
+          "dateFrom",
+          "dateTo",
+          "schoolCode",
+          "pageNumber",
+          "pageSize",
+          "inlineCount"
+        ],
+        "type": "object",
+        "properties": {
+          "departmentId": {
+            "format": "uuid",
+            "description": "Department where the lesson is conducted.",
+            "type": "string"
+          },
+          "dateFrom": {
+            "format": "date",
+            "description": "Beginning of range for lesson date.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "dateTo": {
+            "format": "date",
+            "description": "End of range for lesson date.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "schoolCode": {
+            "description": "The school code for which to get data.",
+            "maxLength": 6,
+            "minLength": 6,
+            "type": "string"
+          },
+          "pageNumber": {
+            "format": "int32",
+            "description": "The number of the page to return (1 is the first page).",
+            "maximum": 2147483647.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "x-nullable": false
+          },
+          "pageSize": {
+            "format": "int32",
+            "description": "Number of objects per page.",
+            "maximum": 1000.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "x-nullable": false
+          },
+          "inlineCount": {
+            "description": "A flag indicating if total number of items should be included.",
+            "default": true,
+            "type": "boolean",
+            "x-nullable": false
+          }
+        }
+      },
+      "RegisterAbsenceExternalCommand": {
+        "title": "RegisterAbsenceExternalCommand",
+        "description": "Registers absence of student.",
+        "required": [
+          "lessonId",
+          "subjectCourseId",
+          "absenceRegistered",
+          "absenceRegistrations"
+        ],
+        "type": "object",
+        "properties": {
+          "lessonId": {
+            "format": "uuid",
+            "description": "Id of lesson to register absence on.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "subjectCourseId": {
+            "format": "uuid",
+            "description": "Id of the subject course the lesson is part of.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "absenceRegistered": {
+            "description": "Has all absence been registered",
+            "type": "boolean",
+            "x-nullable": false
+          },
+          "absenceRegistrations": {
+            "description": "The absence registrations on the lesson.",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/RegisterAbsenceRegistrationDto"
+            }
+          },
+          "schoolCode": {
+            "description": "The school code for which command is performed.",
+            "type": "string"
+          }
+        }
+      },
+      "RegisterAbsenceRegistrationDto": {
+        "title": "RegisterAbsenceRegistrationDto",
+        "required": [
+          "studentId",
+          "status",
+          "minutes",
+          "approved"
+        ],
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "format": "uuid",
+            "description": "The student to register absence for.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "status": {
+            "description": "Status of the absence registration.\r\n0 = Present\r\n1 = Absent\r\n2 = Partially absent",
+            "enum": [
+              "Present",
+              "Absent",
+              "PartialAbsence"
+            ],
+            "type": "string",
+            "x-nullable": false
+          },
+          "minutes": {
+            "format": "int32",
+            "description": "How many minutes the student was absent for.\r\nMust be 0 if Status is not partially absent.",
+            "type": "integer",
+            "x-nullable": false
+          },
+          "approved": {
+            "description": "Whether the absence was approved",
+            "type": "boolean",
+            "x-nullable": false
+          },
+          "comment": {
+            "description": "Comment regarding the absence.",
+            "type": "string"
+          }
+        }
+      },
+      "RegisterLessonExternalCommand": {
+        "title": "RegisterLessonExternalCommand",
+        "description": "Creates new lesson.",
+        "required": [
+          "id",
+          "subjectCourseId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "uuid",
+            "description": "Identifier of the lesson.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "roomId": {
+            "format": "uuid",
+            "description": "Identifier of the room where lesson is conducted.",
+            "type": "string"
+          },
+          "date": {
+            "format": "date",
+            "description": "Date of the lesson.",
+            "type": "string"
+          },
+          "startTime": {
+            "description": "Start time of the lesson.",
+            "type": "string"
+          },
+          "endTime": {
+            "description": "End time of the lesson.",
+            "type": "string"
+          },
+          "subjectCourseId": {
+            "format": "uuid",
+            "description": "The Id of the subject course this lesson is added to.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "teacherIds": {
+            "description": "List of teacher' identifiers.",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "format": "uuid",
+              "type": "string",
+              "x-nullable": false
+            }
+          },
+          "schoolCode": {
+            "description": "The school code for which command is performed.",
+            "type": "string"
+          }
+        }
+      },
+      "PagedResponse_SubjectCourseExternalResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "description": "Page of items",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/SubjectCourseExternalResponse"
+            },
+            "readOnly": true
+          },
+          "totalItems": {
+            "format": "int32",
+            "description": "Total number of items",
+            "type": "integer",
+            "readOnly": true
+          }
+        }
+      },
+      "SubjectCourseExternalResponse": {
+        "title": "SubjectCourseExternalResponse",
+        "description": "Model of the subject course.",
+        "required": [
+          "id",
+          "educationalProgrammeId",
+          "name",
+          "startDate",
+          "endDate",
+          "lmsIndicator",
+          "studentsIds",
+          "teachersIds",
+          "uvmSubjects"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "uuid",
+            "description": "Id of the subject course.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "educationalProgrammeId": {
+            "format": "uuid",
+            "description": "Id of the associated educational programme.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "defaultSubjectId": {
+            "format": "uuid",
+            "description": "The id of the default subject for this subject course.",
+            "type": "string"
+          },
+          "name": {
+            "description": "Name of the subject course.",
+            "type": "string"
+          },
+          "startDate": {
+            "format": "date",
+            "description": "Start date of the subject course.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "endDate": {
+            "format": "date",
+            "description": "End date for the subject course.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "lmsIndicator": {
+            "description": "Is the entity to be created in the LMS.",
+            "type": "boolean",
+            "x-nullable": false
+          },
+          "studentsIds": {
+            "description": "Reference ids to assigned students.",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "format": "uuid",
+              "type": "string",
+              "x-nullable": false
+            }
+          },
+          "teachersIds": {
+            "description": "Reference ids to assigned teachers.",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "format": "uuid",
+              "type": "string",
+              "x-nullable": false
+            }
+          },
+          "uvmSubjects": {
+            "description": "List of UVM subjects",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/UVMSubjectDetails"
+            }
+          }
+        }
+      },
+      "UVMSubjectDetails": {
+        "title": "UVMSubjectDetails",
+        "required": [
+          "id",
+          "canOverwriteDuration"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "uuid",
+            "type": "string",
+            "x-nullable": false
+          },
+          "subject": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "startDate": {
+            "format": "date",
+            "type": "string"
+          },
+          "endDate": {
+            "format": "date",
+            "type": "string"
+          },
+          "canOverwriteDuration": {
+            "type": "boolean",
+            "x-nullable": false
+          },
+          "durationInDays": {
+            "format": "double",
+            "type": "number"
+          },
+          "durationInHours": {
+            "format": "double",
+            "type": "number"
+          },
+          "levelDetails": {
+            "$ref": "#/definitions/LevelDetails"
+          }
+        }
+      },
+      "LevelDetails": {
+        "title": "LevelDetails",
+        "required": [
+          "levelId"
+        ],
+        "type": "object",
+        "properties": {
+          "levelId": {
+            "format": "uuid",
+            "type": "string",
+            "x-nullable": false
+          },
+          "level": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "levelType": {
+            "type": "string"
+          }
+        }
+      },
+      "SubjectCoursesExternalRequest": {
+        "title": "SubjectCoursesExternalRequest",
+        "description": "Returns a paged list of subject courses satisfying provided criteria.",
+        "required": [
+          "startDateFrom",
+          "startDateTo",
+          "schoolCode",
+          "pageNumber",
+          "pageSize",
+          "inlineCount"
+        ],
+        "type": "object",
+        "properties": {
+          "startDateFrom": {
+            "format": "date",
+            "description": "Beginning of the range for start date subject courses.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "startDateTo": {
+            "format": "date",
+            "description": "End of the range for start date subject courses.",
+            "type": "string",
+            "x-nullable": false
+          },
+          "schoolCode": {
+            "description": "The school code for which to get data.",
+            "maxLength": 6,
+            "minLength": 6,
+            "type": "string"
+          },
+          "pageNumber": {
+            "format": "int32",
+            "description": "The number of the page to return (1 is the first page).",
+            "maximum": 2147483647.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "x-nullable": false
+          },
+          "pageSize": {
+            "format": "int32",
+            "description": "Number of objects per page.",
+            "maximum": 1000.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "x-nullable": false
+          },
+          "inlineCount": {
+            "description": "A flag indicating if total number of items should be included.",
+            "default": true,
+            "type": "boolean",
+            "x-nullable": false
+          }
+        }
+      }
+    }
+  }

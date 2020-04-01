@@ -11,16 +11,16 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for AddLessonExternal.
+    /// Extension methods for RegisterLessonExternal.
     /// </summary>
-    public static partial class AddLessonExternalExtensions
+    public static partial class RegisterLessonExternalExtensions
     {
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static void Post(this IAddLessonExternal operations, AddLessonExternalCommand body = default(AddLessonExternalCommand))
+            public static void Post(this IRegisterLessonExternal operations, RegisterLessonExternalCommand body = default(RegisterLessonExternalCommand))
             {
                 operations.PostAsync(body).GetAwaiter().GetResult();
             }
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task PostAsync(this IAddLessonExternal operations, AddLessonExternalCommand body = default(AddLessonExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task PostAsync(this IRegisterLessonExternal operations, RegisterLessonExternalCommand body = default(RegisterLessonExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.PostWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }

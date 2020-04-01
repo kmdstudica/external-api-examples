@@ -9,6 +9,8 @@ namespace Kmd.Studica.Programmes.Client.Models
     using Microsoft.Rest;
     using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -38,12 +40,26 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// programme.</param>
         /// <param name="endDate">End date for the educational
         /// programme.</param>
-        public EducationalProgrammeExternalResponse(System.Guid id, string name, System.DateTime startDate, System.DateTime endDate)
+        /// <param name="departmentId">Reference id of the department.</param>
+        /// <param name="studentsIds">Reference ids to assigned
+        /// students.</param>
+        /// <param name="areaOfResponsibilityId">Reference id of the area of
+        /// responsibility.</param>
+        /// <param name="dayCalendarId">Reference id of the day
+        /// calendar.</param>
+        /// <param name="schoolHoursPlanId">Reference id of the school hours
+        /// plan.</param>
+        public EducationalProgrammeExternalResponse(System.Guid id, string name, System.DateTime startDate, System.DateTime endDate, System.Guid departmentId, IList<System.Guid> studentsIds, System.Guid? areaOfResponsibilityId = default(System.Guid?), System.Guid? dayCalendarId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?))
         {
             Id = id;
             Name = name;
             StartDate = startDate;
             EndDate = endDate;
+            AreaOfResponsibilityId = areaOfResponsibilityId;
+            DayCalendarId = dayCalendarId;
+            SchoolHoursPlanId = schoolHoursPlanId;
+            DepartmentId = departmentId;
+            StudentsIds = studentsIds;
             CustomInit();
         }
 
@@ -79,6 +95,36 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.DateTime EndDate { get; set; }
 
         /// <summary>
+        /// Gets or sets reference id of the area of responsibility.
+        /// </summary>
+        [JsonProperty(PropertyName = "areaOfResponsibilityId")]
+        public System.Guid? AreaOfResponsibilityId { get; set; }
+
+        /// <summary>
+        /// Gets or sets reference id of the day calendar.
+        /// </summary>
+        [JsonProperty(PropertyName = "dayCalendarId")]
+        public System.Guid? DayCalendarId { get; set; }
+
+        /// <summary>
+        /// Gets or sets reference id of the school hours plan.
+        /// </summary>
+        [JsonProperty(PropertyName = "schoolHoursPlanId")]
+        public System.Guid? SchoolHoursPlanId { get; set; }
+
+        /// <summary>
+        /// Gets or sets reference id of the department.
+        /// </summary>
+        [JsonProperty(PropertyName = "departmentId")]
+        public System.Guid DepartmentId { get; set; }
+
+        /// <summary>
+        /// Gets or sets reference ids to assigned students.
+        /// </summary>
+        [JsonProperty(PropertyName = "studentsIds")]
+        public IList<System.Guid> StudentsIds { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -89,6 +135,10 @@ namespace Kmd.Studica.Programmes.Client.Models
             if (Name == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Name");
+            }
+            if (StudentsIds == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "StudentsIds");
             }
         }
     }

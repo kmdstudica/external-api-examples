@@ -39,14 +39,14 @@ namespace ExternalApiExamples
                     { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
-            Console.WriteLine($"Got {result.Body.TotalItems} educational programmes from API");
+            Console.WriteLine($"Got {result.Body.TotalItems} lessons from API");
 
             ConsoleTable
                 .From(result.Body.Items)
                 .Write();
         }
 
-        public async Task ExecuteAddNewLesson()
+        public async Task ExecuteRegisterLesson()
         {
             Console.WriteLine("Add new lesson example");
 
@@ -55,13 +55,15 @@ namespace ExternalApiExamples
                 ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
                 : new Uri(configuration.ProgrammesBaseUri);
 
-            var result = await programmesClient.AddLessonExternal.PostWithHttpMessagesAsync(
-                body: new Kmd.Studica.Programmes.Client.Models.AddLessonExternalCommand(
+            var result = await programmesClient.RegisterLessonExternal.PostWithHttpMessagesAsync(
+                body: new Kmd.Studica.Programmes.Client.Models.RegisterLessonExternalCommand(
                     id: Guid.NewGuid(),
+                    subjectCourseId: Guid.NewGuid(),
+                    roomId: Guid.NewGuid(),
                     date: DateTime.Now,
                     startTime: "11:15",
                     endTime: "12:00",
-                    rule: "Rule1",
+                    teacherIds: new List<Guid>(),
                     schoolCode: configuration.SchoolCode),
                 customHeaders: new Dictionary<string, List<string>>
                 {

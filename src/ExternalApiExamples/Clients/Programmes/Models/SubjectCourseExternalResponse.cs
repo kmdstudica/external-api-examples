@@ -9,6 +9,8 @@ namespace Kmd.Studica.Programmes.Client.Models
     using Microsoft.Rest;
     using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -40,9 +42,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="endDate">End date for the subject course.</param>
         /// <param name="lmsIndicator">Is the entity to be created in the
         /// LMS.</param>
+        /// <param name="studentsIds">Reference ids to assigned
+        /// students.</param>
+        /// <param name="teachersIds">Reference ids to assigned
+        /// teachers.</param>
+        /// <param name="uvmSubjects">List of UVM subjects</param>
         /// <param name="defaultSubjectId">The id of the default subject for
-        /// this subject course</param>
-        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, System.Guid? defaultSubjectId = default(System.Guid?))
+        /// this subject course.</param>
+        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<System.Guid> studentsIds, IList<System.Guid> teachersIds, IList<UVMSubjectDetails> uvmSubjects, System.Guid? defaultSubjectId = default(System.Guid?))
         {
             Id = id;
             EducationalProgrammeId = educationalProgrammeId;
@@ -51,6 +58,9 @@ namespace Kmd.Studica.Programmes.Client.Models
             StartDate = startDate;
             EndDate = endDate;
             LmsIndicator = lmsIndicator;
+            StudentsIds = studentsIds;
+            TeachersIds = teachersIds;
+            UvmSubjects = uvmSubjects;
             CustomInit();
         }
 
@@ -72,7 +82,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.Guid EducationalProgrammeId { get; set; }
 
         /// <summary>
-        /// Gets or sets the id of the default subject for this subject course
+        /// Gets or sets the id of the default subject for this subject course.
         /// </summary>
         [JsonProperty(PropertyName = "defaultSubjectId")]
         public System.Guid? DefaultSubjectId { get; set; }
@@ -104,6 +114,24 @@ namespace Kmd.Studica.Programmes.Client.Models
         public bool LmsIndicator { get; set; }
 
         /// <summary>
+        /// Gets or sets reference ids to assigned students.
+        /// </summary>
+        [JsonProperty(PropertyName = "studentsIds")]
+        public IList<System.Guid> StudentsIds { get; set; }
+
+        /// <summary>
+        /// Gets or sets reference ids to assigned teachers.
+        /// </summary>
+        [JsonProperty(PropertyName = "teachersIds")]
+        public IList<System.Guid> TeachersIds { get; set; }
+
+        /// <summary>
+        /// Gets or sets list of UVM subjects
+        /// </summary>
+        [JsonProperty(PropertyName = "uvmSubjects")]
+        public IList<UVMSubjectDetails> UvmSubjects { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -114,6 +142,28 @@ namespace Kmd.Studica.Programmes.Client.Models
             if (Name == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Name");
+            }
+            if (StudentsIds == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "StudentsIds");
+            }
+            if (TeachersIds == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "TeachersIds");
+            }
+            if (UvmSubjects == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "UvmSubjects");
+            }
+            if (UvmSubjects != null)
+            {
+                foreach (var element in UvmSubjects)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
             }
         }
     }

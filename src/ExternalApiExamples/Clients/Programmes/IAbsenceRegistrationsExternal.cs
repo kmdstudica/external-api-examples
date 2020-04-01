@@ -14,15 +14,15 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// LessonsExternal operations.
+    /// AbsenceRegistrationsExternal operations.
     /// </summary>
-    public partial interface ILessonsExternal
+    public partial interface IAbsenceRegistrationsExternal
     {
         /// <param name='dateFrom'>
-        /// Beginning of range for lesson date.
+        /// Beginning of the range for absence date.
         /// </param>
         /// <param name='dateTo'>
-        /// End of range for lesson date.
+        /// End of the range for absence date.
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
@@ -36,8 +36,11 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
         /// </param>
-        /// <param name='departmentId'>
-        /// Department where the lesson is conducted.
+        /// <param name='studentId'>
+        /// Absent student.
+        /// </param>
+        /// <param name='lessonId'>
+        /// Lesson of absence.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -54,6 +57,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseLessonExternalResponse>> GetWithHttpMessagesAsync(System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? departmentId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseAbsenceRegistrationExternalResponse>> GetWithHttpMessagesAsync(System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -43,5 +43,29 @@ namespace ExternalApiExamples
                 .From(result.Body.Items)
                 .Write();
         }
+
+        public async Task ExecuteBulk()
+        {
+            Console.WriteLine("Executing bulk rooms example");
+
+            using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+            schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
+                ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
+                : new Uri(configuration.SchoolAdministrationBaseUri);
+
+            var result = await schoolAdministrationClient.BulkRoomsExternal.PostWithHttpMessagesAsync(
+                roomIds: new[] { Guid.NewGuid() },
+                schoolCode: configuration.SchoolCode,
+                customHeaders: new Dictionary<string, List<string>>
+                {
+                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                });
+
+            Console.WriteLine($"Got {result.Body} rooms from API");
+
+            ConsoleTable
+                .From(result.Body)
+                .Write();
+        }
     }
 }

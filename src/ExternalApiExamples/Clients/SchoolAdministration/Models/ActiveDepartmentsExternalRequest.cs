@@ -11,24 +11,24 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// SchoolHourEntriesExternalRequest
+    /// ActiveDepartmentsExternalRequest
     /// </summary>
     /// <remarks>
-    /// Returns paged list of school hour entries satisfying provided criteria.
+    /// Returns a paged list of active departments.
     /// </remarks>
-    public partial class SchoolHourEntriesExternalRequest
+    public partial class ActiveDepartmentsExternalRequest
     {
         /// <summary>
-        /// Initializes a new instance of the SchoolHourEntriesExternalRequest
+        /// Initializes a new instance of the ActiveDepartmentsExternalRequest
         /// class.
         /// </summary>
-        public SchoolHourEntriesExternalRequest()
+        public ActiveDepartmentsExternalRequest()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the SchoolHourEntriesExternalRequest
+        /// Initializes a new instance of the ActiveDepartmentsExternalRequest
         /// class.
         /// </summary>
         /// <param name="pageNumber">The number of the page to return (1 is the
@@ -38,7 +38,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// items should be included.</param>
         /// <param name="schoolCode">The school code for which to get
         /// data.</param>
-        public SchoolHourEntriesExternalRequest(int pageNumber, int pageSize, bool inlineCount, string schoolCode)
+        public ActiveDepartmentsExternalRequest(int pageNumber, int pageSize, bool inlineCount, string schoolCode)
         {
             PageNumber = pageNumber;
             PageSize = pageSize;

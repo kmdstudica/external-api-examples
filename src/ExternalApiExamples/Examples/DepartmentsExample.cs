@@ -28,6 +28,8 @@ namespace ExternalApiExamples
                 : new Uri(configuration.SchoolAdministrationBaseUri);
 
             var result = await schoolAdministrationClient.DepartmentsExternal.GetWithHttpMessagesAsync(
+                validFrom: DateTime.Now.AddDays(-10),
+                validTo: DateTime.Now.AddDays(10),
                 schoolCode: configuration.SchoolCode,
                 pageNumber: 1,
                 pageSize: 10,
@@ -41,6 +43,56 @@ namespace ExternalApiExamples
 
             ConsoleTable
                 .From(result.Body.Items)
+                .Write();
+        }
+
+        public async Task ExecuteActive()
+        {
+            Console.WriteLine("Executing active departments example");
+
+            using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+            schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
+                ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
+                : new Uri(configuration.SchoolAdministrationBaseUri);
+
+            var result = await schoolAdministrationClient.ActiveDepartmentsExternal.GetWithHttpMessagesAsync(
+                schoolCode: configuration.SchoolCode,
+                pageNumber: 1,
+                pageSize: 10,
+                inlineCount: true,
+                customHeaders: new Dictionary<string, List<string>>
+                {
+                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                });
+
+            Console.WriteLine($"Got {result.Body.TotalItems} plans from API");
+
+            ConsoleTable
+                .From(result.Body.Items)
+                .Write();
+        }
+
+        public async Task ExecuteBulk()
+        {
+            Console.WriteLine("Executing bulk departments example");
+
+            using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+            schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
+                ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
+                : new Uri(configuration.SchoolAdministrationBaseUri);
+
+            var result = await schoolAdministrationClient.BulkDepartmentsExternal.PostWithHttpMessagesAsync(
+                departmentIds: new[] { Guid.NewGuid() },
+                schoolCode: configuration.SchoolCode,
+                customHeaders: new Dictionary<string, List<string>>
+                {
+                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                });
+
+            Console.WriteLine($"Got {result.Body} plans from API");
+
+            ConsoleTable
+                .From(result.Body)
                 .Write();
         }
     }

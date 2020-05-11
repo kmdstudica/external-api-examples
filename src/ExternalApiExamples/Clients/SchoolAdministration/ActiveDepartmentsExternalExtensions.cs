@@ -11,9 +11,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for RoomsExternal.
+    /// Extension methods for ActiveDepartmentsExternal.
     /// </summary>
-    public static partial class RoomsExternalExtensions
+    public static partial class ActiveDepartmentsExternalExtensions
     {
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -30,12 +30,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
-            /// <param name='departmentId'>
-            /// Department identifiers for bulk query.
-            /// </param>
-            public static PagedResponseRoomExternalResponse Get(this IRoomsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?))
+            public static PagedResponseDepartmentsExternalResponse Get(this IActiveDepartmentsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode)
             {
-                return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode, departmentId).GetAwaiter().GetResult();
+                return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -53,15 +50,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
-            /// <param name='departmentId'>
-            /// Department identifiers for bulk query.
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseRoomExternalResponse> GetAsync(this IRoomsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseDepartmentsExternalResponse> GetAsync(this IActiveDepartmentsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(pageNumber, pageSize, inlineCount, schoolCode, departmentId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(pageNumber, pageSize, inlineCount, schoolCode, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

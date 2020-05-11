@@ -7,6 +7,7 @@
 namespace Kmd.Studica.SchoolAdministration.Client.Models
 {
     using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -29,19 +30,23 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <summary>
         /// Initializes a new instance of the DepartmentsExternalRequest class.
         /// </summary>
-        /// <param name="schoolCode">The school code for which to get
-        /// data.</param>
         /// <param name="pageNumber">The number of the page to return (1 is the
         /// first page).</param>
         /// <param name="pageSize">Number of objects per page.</param>
         /// <param name="inlineCount">A flag indicating if total number of
         /// items should be included.</param>
-        public DepartmentsExternalRequest(string schoolCode, int pageNumber, int pageSize, bool inlineCount)
+        /// <param name="schoolCode">The school code for which to get
+        /// data.</param>
+        /// <param name="validFrom">Beginning date of being valid.</param>
+        /// <param name="validTo">End date of being valid.</param>
+        public DepartmentsExternalRequest(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? validFrom = default(System.DateTime?), System.DateTime? validTo = default(System.DateTime?))
         {
-            SchoolCode = schoolCode;
+            ValidFrom = validFrom;
+            ValidTo = validTo;
             PageNumber = pageNumber;
             PageSize = pageSize;
             InlineCount = inlineCount;
+            SchoolCode = schoolCode;
             CustomInit();
         }
 
@@ -51,10 +56,18 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the school code for which to get data.
+        /// Gets or sets beginning date of being valid.
         /// </summary>
-        [JsonProperty(PropertyName = "schoolCode")]
-        public string SchoolCode { get; set; }
+        [JsonConverter(typeof(DateJsonConverter))]
+        [JsonProperty(PropertyName = "validFrom")]
+        public System.DateTime? ValidFrom { get; set; }
+
+        /// <summary>
+        /// Gets or sets end date of being valid.
+        /// </summary>
+        [JsonConverter(typeof(DateJsonConverter))]
+        [JsonProperty(PropertyName = "validTo")]
+        public System.DateTime? ValidTo { get; set; }
 
         /// <summary>
         /// Gets or sets the number of the page to return (1 is the first
@@ -77,6 +90,12 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         public bool InlineCount { get; set; }
 
         /// <summary>
+        /// Gets or sets the school code for which to get data.
+        /// </summary>
+        [JsonProperty(PropertyName = "schoolCode")]
+        public string SchoolCode { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -87,17 +106,6 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             if (SchoolCode == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "SchoolCode");
-            }
-            if (SchoolCode != null)
-            {
-                if (SchoolCode.Length > 6)
-                {
-                    throw new ValidationException(ValidationRules.MaxLength, "SchoolCode", 6);
-                }
-                if (SchoolCode.Length < 6)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "SchoolCode", 6);
-                }
             }
             if (PageNumber > 2147483647)
             {
@@ -114,6 +122,17 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             if (PageSize < 1)
             {
                 throw new ValidationException(ValidationRules.InclusiveMinimum, "PageSize", 1);
+            }
+            if (SchoolCode != null)
+            {
+                if (SchoolCode.Length > 6)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "SchoolCode", 6);
+                }
+                if (SchoolCode.Length < 6)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "SchoolCode", 6);
+                }
             }
         }
     }

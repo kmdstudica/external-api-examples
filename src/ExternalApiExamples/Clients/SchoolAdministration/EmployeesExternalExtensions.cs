@@ -24,9 +24,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='employmentStartDateTo'>
             /// End of range for start date employment.
             /// </param>
-            /// <param name='schoolCode'>
-            /// The school code for which to get data.
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -36,9 +33,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
-            public static PagedResponseEmployeeExternalResponse Get(this IEmployeesExternal operations, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount)
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
+            /// </param>
+            public static PagedResponseEmployeeExternalResponse Get(this IEmployeesExternal operations, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode)
             {
-                return operations.GetAsync(employmentStartDateFrom, employmentStartDateTo, schoolCode, pageNumber, pageSize, inlineCount).GetAwaiter().GetResult();
+                return operations.GetAsync(employmentStartDateFrom, employmentStartDateTo, pageNumber, pageSize, inlineCount, schoolCode).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -50,9 +50,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='employmentStartDateTo'>
             /// End of range for start date employment.
             /// </param>
-            /// <param name='schoolCode'>
-            /// The school code for which to get data.
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -62,12 +59,15 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseEmployeeExternalResponse> GetAsync(this IEmployeesExternal operations, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseEmployeeExternalResponse> GetAsync(this IEmployeesExternal operations, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(employmentStartDateFrom, employmentStartDateTo, schoolCode, pageNumber, pageSize, inlineCount, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(employmentStartDateFrom, employmentStartDateTo, pageNumber, pageSize, inlineCount, schoolCode, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

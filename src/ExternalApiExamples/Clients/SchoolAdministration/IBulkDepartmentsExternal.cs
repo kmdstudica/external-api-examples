@@ -14,18 +14,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// SchoolHoursPlansExternal operations.
+    /// BulkDepartmentsExternal operations.
     /// </summary>
-    public partial interface ISchoolHoursPlansExternal
+    public partial interface IBulkDepartmentsExternal
     {
-        /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
-        /// </param>
-        /// <param name='pageSize'>
-        /// Number of objects per page.
-        /// </param>
-        /// <param name='inlineCount'>
-        /// A flag indicating if total number of items should be included.
+        /// <param name='departmentIds'>
+        /// Department identifiers for bulk query.
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
@@ -45,6 +39,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseSchoolHoursPlanExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<DepartmentsExternalResponse>>> PostWithHttpMessagesAsync(IList<System.Guid> departmentIds, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -20,7 +20,7 @@ namespace ExternalApiExamples
 
         public async Task Execute()
         {
-            Console.WriteLine("Executing employee example");
+            Console.WriteLine("Executing employees example");
 
             using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
             schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
@@ -43,6 +43,30 @@ namespace ExternalApiExamples
 
             ConsoleTable
                 .From(result.Body.Items)
+                .Write();
+        }
+
+        public async Task ExecuteBulk()
+        {
+            Console.WriteLine("Executing bulk employees example");
+
+            using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+            schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
+                ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
+                : new Uri(configuration.SchoolAdministrationBaseUri);
+
+            var result = await schoolAdministrationClient.BulkEmployeesExternal.PostWithHttpMessagesAsync(
+                employeeIds: new[] { Guid.NewGuid() },
+                schoolCode: configuration.SchoolCode,
+                customHeaders: new Dictionary<string, List<string>>
+                {
+                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                });
+
+            Console.WriteLine($"Got {result.Body} employees from API");
+
+            ConsoleTable
+                .From(result.Body)
                 .Write();
         }
     }

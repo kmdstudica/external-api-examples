@@ -38,12 +38,15 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// responsibility.</param>
         /// <param name="validTo">End date of the area of
         /// responsibiliity.</param>
-        public AreaOfResponsibilityExternalResponse(System.Guid id, string name, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?))
+        /// <param name="responsibleEmployeeId">Identifier of employee
+        /// responsible for area.</param>
+        public AreaOfResponsibilityExternalResponse(System.Guid id, string name, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?), System.Guid? responsibleEmployeeId = default(System.Guid?))
         {
             Id = id;
             Name = name;
             ValidFrom = validFrom;
             ValidTo = validTo;
+            ResponsibleEmployeeId = responsibleEmployeeId;
             CustomInit();
         }
 
@@ -77,6 +80,12 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "validTo")]
         public System.DateTime? ValidTo { get; set; }
+
+        /// <summary>
+        /// Gets or sets identifier of employee responsible for area.
+        /// </summary>
+        [JsonProperty(PropertyName = "responsibleEmployeeId")]
+        public System.Guid? ResponsibleEmployeeId { get; set; }
 
         /// <summary>
         /// Validate the object.

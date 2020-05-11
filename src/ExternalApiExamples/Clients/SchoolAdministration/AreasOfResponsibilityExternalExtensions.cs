@@ -18,9 +18,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='schoolCode'>
-            /// The school code for which to get data.
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -30,17 +27,17 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
-            public static PagedResponseAreaOfResponsibilityExternalResponse Get(this IAreasOfResponsibilityExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount)
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
+            /// </param>
+            public static PagedResponseAreaOfResponsibilityExternalResponse Get(this IAreasOfResponsibilityExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode)
             {
-                return operations.GetAsync(schoolCode, pageNumber, pageSize, inlineCount).GetAwaiter().GetResult();
+                return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='schoolCode'>
-            /// The school code for which to get data.
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -50,12 +47,15 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseAreaOfResponsibilityExternalResponse> GetAsync(this IAreasOfResponsibilityExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseAreaOfResponsibilityExternalResponse> GetAsync(this IAreasOfResponsibilityExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(schoolCode, pageNumber, pageSize, inlineCount, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(pageNumber, pageSize, inlineCount, schoolCode, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

@@ -18,9 +18,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// </summary>
     public partial interface IRoomsExternal
     {
-        /// <param name='schoolCode'>
-        /// The school code for which to get data.
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -30,8 +27,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
         /// </param>
+        /// <param name='schoolCode'>
+        /// The school code for which to get data.
+        /// </param>
         /// <param name='departmentId'>
-        /// Department that room is used by.
+        /// Department identifiers for bulk query.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -48,6 +48,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseRoomExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? departmentId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseRoomExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

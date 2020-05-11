@@ -44,12 +44,16 @@ namespace ExternalApiExamples
 
             // School administration API examples
             await new AreaOfResponsibilityExample(tokenProvider, configuration).Execute();
+            await new AreaOfResponsibilityExample(tokenProvider, configuration).ExecuteBulk();
             await new DayCalendarsExample(tokenProvider, configuration).Execute();
             await new DepartmentsExample(tokenProvider, configuration).Execute();
+            await new DepartmentsExample(tokenProvider, configuration).ExecuteBulk();
             await new EmployeeExample(tokenProvider, configuration).Execute();
+            await new EmployeeExample(tokenProvider, configuration).ExecuteBulk();
             await new SchoolHourEntryExample(tokenProvider, configuration).Execute();
             await new SchoolHoursPlansExample(tokenProvider, configuration).Execute();
             await new RoomsExample(tokenProvider, configuration).Execute();
+            await new RoomsExample(tokenProvider, configuration).ExecuteBulk();
 
             // Programmes API examples
             await new EducationalProgrammesExample(tokenProvider, configuration).Execute();

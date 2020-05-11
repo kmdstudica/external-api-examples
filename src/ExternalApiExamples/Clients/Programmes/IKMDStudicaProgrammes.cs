@@ -46,6 +46,21 @@ namespace Kmd.Studica.Programmes.Client
         IAbsenceRegistrationsExternal AbsenceRegistrationsExternal { get; }
 
         /// <summary>
+        /// Gets the IBulkEducationalProgrammesExternal.
+        /// </summary>
+        IBulkEducationalProgrammesExternal BulkEducationalProgrammesExternal { get; }
+
+        /// <summary>
+        /// Gets the IBulkLessonsExternal.
+        /// </summary>
+        IBulkLessonsExternal BulkLessonsExternal { get; }
+
+        /// <summary>
+        /// Gets the IBulkSubjectCoursesExternal.
+        /// </summary>
+        IBulkSubjectCoursesExternal BulkSubjectCoursesExternal { get; }
+
+        /// <summary>
         /// Gets the IEducationalProgrammesExternal.
         /// </summary>
         IEducationalProgrammesExternal EducationalProgrammesExternal { get; }

@@ -24,9 +24,6 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='dateTo'>
             /// End of the range for absence date.
             /// </param>
-            /// <param name='schoolCode'>
-            /// The school code for which to get data.
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -36,15 +33,18 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
+            /// </param>
             /// <param name='studentId'>
             /// Absent student.
             /// </param>
             /// <param name='lessonId'>
             /// Lesson of absence.
             /// </param>
-            public static PagedResponseAbsenceRegistrationExternalResponse Get(this IAbsenceRegistrationsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?))
+            public static PagedResponseAbsenceRegistrationExternalResponse Get(this IAbsenceRegistrationsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?))
             {
-                return operations.GetAsync(dateFrom, dateTo, schoolCode, pageNumber, pageSize, inlineCount, studentId, lessonId).GetAwaiter().GetResult();
+                return operations.GetAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, studentId, lessonId).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -56,9 +56,6 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='dateTo'>
             /// End of the range for absence date.
             /// </param>
-            /// <param name='schoolCode'>
-            /// The school code for which to get data.
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -67,6 +64,9 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
+            /// </param>
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
             /// </param>
             /// <param name='studentId'>
             /// Absent student.
@@ -77,9 +77,9 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseAbsenceRegistrationExternalResponse> GetAsync(this IAbsenceRegistrationsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseAbsenceRegistrationExternalResponse> GetAsync(this IAbsenceRegistrationsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(dateFrom, dateTo, schoolCode, pageNumber, pageSize, inlineCount, studentId, lessonId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, studentId, lessonId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

@@ -118,6 +118,20 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </exception>
         public virtual void Validate()
         {
+            if (StartTime != null)
+            {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(StartTime, "([01]?[0-9]|2[0-3]):[0-5][0-9]"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "StartTime", "([01]?[0-9]|2[0-3]):[0-5][0-9]");
+                }
+            }
+            if (EndTime != null)
+            {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(EndTime, "([01]?[0-9]|2[0-3]):[0-5][0-9]"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "EndTime", "([01]?[0-9]|2[0-3]):[0-5][0-9]");
+                }
+            }
         }
     }
 }

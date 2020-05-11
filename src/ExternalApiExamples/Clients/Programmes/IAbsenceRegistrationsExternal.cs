@@ -24,9 +24,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='dateTo'>
         /// End of the range for absence date.
         /// </param>
-        /// <param name='schoolCode'>
-        /// The school code for which to get data.
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -35,6 +32,9 @@ namespace Kmd.Studica.Programmes.Client
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
+        /// </param>
+        /// <param name='schoolCode'>
+        /// The school code for which to get data.
         /// </param>
         /// <param name='studentId'>
         /// Absent student.
@@ -57,6 +57,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseAbsenceRegistrationExternalResponse>> GetWithHttpMessagesAsync(System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseAbsenceRegistrationExternalResponse>> GetWithHttpMessagesAsync(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

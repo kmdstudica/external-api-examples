@@ -14,30 +14,15 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// LessonsExternal operations.
+    /// BulkLessonsExternal operations.
     /// </summary>
-    public partial interface ILessonsExternal
+    public partial interface IBulkLessonsExternal
     {
-        /// <param name='dateFrom'>
-        /// Beginning of range for lesson date.
-        /// </param>
-        /// <param name='dateTo'>
-        /// End of range for lesson date.
-        /// </param>
-        /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
-        /// </param>
-        /// <param name='pageSize'>
-        /// Number of objects per page.
-        /// </param>
-        /// <param name='inlineCount'>
-        /// A flag indicating if total number of items should be included.
+        /// <param name='lessonIds'>
+        /// Lesson identifiers for bulk query.
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
-        /// </param>
-        /// <param name='departmentId'>
-        /// Department where the lesson is conducted.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -54,6 +39,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseLessonExternalResponse>> GetWithHttpMessagesAsync(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<LessonExternalResponse>>> PostWithHttpMessagesAsync(IList<System.Guid> lessonIds, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

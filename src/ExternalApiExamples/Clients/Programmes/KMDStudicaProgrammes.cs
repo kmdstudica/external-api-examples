@@ -45,6 +45,21 @@ namespace Kmd.Studica.Programmes.Client
         public virtual IAbsenceRegistrationsExternal AbsenceRegistrationsExternal { get; private set; }
 
         /// <summary>
+        /// Gets the IBulkEducationalProgrammesExternal.
+        /// </summary>
+        public virtual IBulkEducationalProgrammesExternal BulkEducationalProgrammesExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IBulkLessonsExternal.
+        /// </summary>
+        public virtual IBulkLessonsExternal BulkLessonsExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IBulkSubjectCoursesExternal.
+        /// </summary>
+        public virtual IBulkSubjectCoursesExternal BulkSubjectCoursesExternal { get; private set; }
+
+        /// <summary>
         /// Gets the IEducationalProgrammesExternal.
         /// </summary>
         public virtual IEducationalProgrammesExternal EducationalProgrammesExternal { get; private set; }
@@ -311,6 +326,9 @@ namespace Kmd.Studica.Programmes.Client
         private void Initialize()
         {
             AbsenceRegistrationsExternal = new AbsenceRegistrationsExternal(this);
+            BulkEducationalProgrammesExternal = new BulkEducationalProgrammesExternal(this);
+            BulkLessonsExternal = new BulkLessonsExternal(this);
+            BulkSubjectCoursesExternal = new BulkSubjectCoursesExternal(this);
             EducationalProgrammesExternal = new EducationalProgrammesExternal(this);
             LessonsExternal = new LessonsExternal(this);
             RegisterAbsenceExternal = new RegisterAbsenceExternal(this);

@@ -25,9 +25,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='startDateTo'>
         /// End of the range for start date of the educational programmes.
         /// </param>
-        /// <param name='schoolCode'>
-        /// The school code for which to get data.
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -36,6 +33,9 @@ namespace Kmd.Studica.Programmes.Client
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
+        /// </param>
+        /// <param name='schoolCode'>
+        /// The school code for which to get data.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -52,6 +52,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseEducationalProgrammeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseEducationalProgrammeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

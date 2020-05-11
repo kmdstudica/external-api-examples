@@ -35,7 +35,9 @@ namespace ExternalApiExamples
             Console.WriteLine("KMD Studica Examples");
 
             using var httpClient = new HttpClient();
-            var tokenProvider = new LogicTokenProviderFactory(configuration.TokenProvider).GetProvider(httpClient);
+            var tokenProvider = string.IsNullOrEmpty(configuration.LocalTestJwtToken)
+                ? new LogicTokenProviderFactory(configuration.TokenProvider).GetProvider(httpClient)
+                : new LocalTestTokenProvider(configuration.LocalTestJwtToken);
 
             // Students API examples
             await new StudentsExample(tokenProvider, configuration).Execute();
@@ -51,9 +53,12 @@ namespace ExternalApiExamples
 
             // Programmes API examples
             await new EducationalProgrammesExample(tokenProvider, configuration).Execute();
+            await new EducationalProgrammesExample(tokenProvider, configuration).ExecuteBulk();
             await new LessonsExample(tokenProvider, configuration).Execute();
             await new LessonsExample(tokenProvider, configuration).ExecuteRegisterLesson();
+            await new LessonsExample(tokenProvider, configuration).ExecuteBulk();
             await new SubjectCoursesExample(tokenProvider, configuration).Execute();
+            await new SubjectCoursesExample(tokenProvider, configuration).ExecuteBulk();
         }
     }
 }

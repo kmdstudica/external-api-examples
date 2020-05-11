@@ -24,9 +24,6 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='dateTo'>
             /// End of range for lesson date.
             /// </param>
-            /// <param name='schoolCode'>
-            /// The school code for which to get data.
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -36,12 +33,15 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
+            /// </param>
             /// <param name='departmentId'>
             /// Department where the lesson is conducted.
             /// </param>
-            public static PagedResponseLessonExternalResponse Get(this ILessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? departmentId = default(System.Guid?))
+            public static PagedResponseLessonExternalResponse Get(this ILessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?))
             {
-                return operations.GetAsync(dateFrom, dateTo, schoolCode, pageNumber, pageSize, inlineCount, departmentId).GetAwaiter().GetResult();
+                return operations.GetAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, departmentId).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -53,9 +53,6 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='dateTo'>
             /// End of range for lesson date.
             /// </param>
-            /// <param name='schoolCode'>
-            /// The school code for which to get data.
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -65,15 +62,18 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
             /// </param>
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
+            /// </param>
             /// <param name='departmentId'>
             /// Department where the lesson is conducted.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseLessonExternalResponse> GetAsync(this ILessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? departmentId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseLessonExternalResponse> GetAsync(this ILessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(dateFrom, dateTo, schoolCode, pageNumber, pageSize, inlineCount, departmentId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, departmentId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

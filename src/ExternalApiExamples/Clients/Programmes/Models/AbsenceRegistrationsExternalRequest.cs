@@ -35,25 +35,25 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="dateFrom">Beginning of the range for absence
         /// date.</param>
         /// <param name="dateTo">End of the range for absence date.</param>
-        /// <param name="schoolCode">The school code for which to get
-        /// data.</param>
         /// <param name="pageNumber">The number of the page to return (1 is the
         /// first page).</param>
         /// <param name="pageSize">Number of objects per page.</param>
         /// <param name="inlineCount">A flag indicating if total number of
         /// items should be included.</param>
+        /// <param name="schoolCode">The school code for which to get
+        /// data.</param>
         /// <param name="studentId">Absent student.</param>
         /// <param name="lessonId">Lesson of absence.</param>
-        public AbsenceRegistrationsExternalRequest(System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?))
+        public AbsenceRegistrationsExternalRequest(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?))
         {
             StudentId = studentId;
             LessonId = lessonId;
             DateFrom = dateFrom;
             DateTo = dateTo;
-            SchoolCode = schoolCode;
             PageNumber = pageNumber;
             PageSize = pageSize;
             InlineCount = inlineCount;
+            SchoolCode = schoolCode;
             CustomInit();
         }
 
@@ -89,12 +89,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.DateTime DateTo { get; set; }
 
         /// <summary>
-        /// Gets or sets the school code for which to get data.
-        /// </summary>
-        [JsonProperty(PropertyName = "schoolCode")]
-        public string SchoolCode { get; set; }
-
-        /// <summary>
         /// Gets or sets the number of the page to return (1 is the first
         /// page).
         /// </summary>
@@ -115,6 +109,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         public bool InlineCount { get; set; }
 
         /// <summary>
+        /// Gets or sets the school code for which to get data.
+        /// </summary>
+        [JsonProperty(PropertyName = "schoolCode")]
+        public string SchoolCode { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -125,17 +125,6 @@ namespace Kmd.Studica.Programmes.Client.Models
             if (SchoolCode == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "SchoolCode");
-            }
-            if (SchoolCode != null)
-            {
-                if (SchoolCode.Length > 6)
-                {
-                    throw new ValidationException(ValidationRules.MaxLength, "SchoolCode", 6);
-                }
-                if (SchoolCode.Length < 6)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "SchoolCode", 6);
-                }
             }
             if (PageNumber > 2147483647)
             {
@@ -152,6 +141,17 @@ namespace Kmd.Studica.Programmes.Client.Models
             if (PageSize < 1)
             {
                 throw new ValidationException(ValidationRules.InclusiveMinimum, "PageSize", 1);
+            }
+            if (SchoolCode != null)
+            {
+                if (SchoolCode.Length > 6)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "SchoolCode", 6);
+                }
+                if (SchoolCode.Length < 6)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "SchoolCode", 6);
+                }
             }
         }
     }

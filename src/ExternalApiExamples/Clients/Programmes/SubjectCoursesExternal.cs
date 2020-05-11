@@ -53,9 +53,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='startDateTo'>
         /// End of the range for start date subject courses.
         /// </param>
-        /// <param name='schoolCode'>
-        /// The school code for which to get data.
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -64,6 +61,9 @@ namespace Kmd.Studica.Programmes.Client
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
+        /// </param>
+        /// <param name='schoolCode'>
+        /// The school code for which to get data.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -86,23 +86,8 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, string schoolCode, int pageNumber, int pageSize, bool inlineCount, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (schoolCode == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "schoolCode");
-            }
-            if (schoolCode != null)
-            {
-                if (schoolCode.Length > 6)
-                {
-                    throw new ValidationException(ValidationRules.MaxLength, "schoolCode", 6);
-                }
-                if (schoolCode.Length < 6)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
-                }
-            }
             if (pageNumber > 2147483647)
             {
                 throw new ValidationException(ValidationRules.InclusiveMaximum, "pageNumber", 2147483647);
@@ -119,6 +104,21 @@ namespace Kmd.Studica.Programmes.Client
             {
                 throw new ValidationException(ValidationRules.InclusiveMinimum, "pageSize", 1);
             }
+            if (schoolCode == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "schoolCode");
+            }
+            if (schoolCode != null)
+            {
+                if (schoolCode.Length > 6)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "schoolCode", 6);
+                }
+                if (schoolCode.Length < 6)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
+                }
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -128,10 +128,10 @@ namespace Kmd.Studica.Programmes.Client
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("startDateFrom", startDateFrom);
                 tracingParameters.Add("startDateTo", startDateTo);
-                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("pageNumber", pageNumber);
                 tracingParameters.Add("pageSize", pageSize);
                 tracingParameters.Add("inlineCount", inlineCount);
+                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
@@ -141,13 +141,13 @@ namespace Kmd.Studica.Programmes.Client
             List<string> _queryParameters = new List<string>();
             _queryParameters.Add(string.Format("StartDateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateFrom, new DateJsonConverter()).Trim('"'))));
             _queryParameters.Add(string.Format("StartDateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateTo, new DateJsonConverter()).Trim('"'))));
+            _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
+            _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
+            _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
             if (schoolCode != null)
             {
                 _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
             }
-            _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
             if (_queryParameters.Count > 0)
             {
                 _url += "?" + string.Join("&", _queryParameters);

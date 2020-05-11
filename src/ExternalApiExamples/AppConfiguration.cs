@@ -15,5 +15,7 @@ namespace ExternalApiExamples
         public string ProgrammesBaseUri { get; set; }
 
         public string StudentsBaseUri { get; set; }
+
+        public string LocalTestJwtToken { get; set; }
     }
 }

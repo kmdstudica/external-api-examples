@@ -1,1 +1,356 @@
-{"swagger":"2.0","info":{"title":"KMD Studica (Demo) - Students","version":"1.0.0"},"host":"gateway.kmdlogic.io","basePath":"/studica-demo/students/v1","schemes":["https"],"paths":{"/StudentsExternal":{"get":{"tags":["StudentsExternal"],"operationId":"StudentsExternal_Get","produces":["text/plain","application/json","text/json"],"parameters":[{"in":"header","name":"Authorization","description":"Authorization Header","type":"string"},{"in":"query","name":"StudyStartDateFrom","description":"Beginning of range for start date of the students study.","required":true,"type":"string","format":"date"},{"in":"query","name":"StudyStartDateTo","description":"End of range for start date of the students study.","required":true,"type":"string","format":"date"},{"in":"query","name":"SchoolCode","description":"The school code for which to get data.","required":true,"type":"string","maxLength":6,"minLength":6},{"in":"query","name":"PageNumber","description":"The number of the page to return (1 is the first page).","required":true,"type":"integer","format":"int32","maximum":2147483647.0,"minimum":1.0},{"in":"query","name":"PageSize","description":"Number of objects per page.","required":true,"type":"integer","format":"int32","maximum":1000.0,"minimum":1.0},{"in":"query","name":"InlineCount","description":"A flag indicating if total number of items should be included.","required":true,"type":"boolean"}],"responses":{"200":{"description":"Success","schema":{"$ref":"#/definitions/PagedResponse1_StudentExternalResponse"}}}}}},"definitions":{"PagedResponse1_StudentExternalResponse":{"type":"object","properties":{"items":{"description":"Page of items","uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/StudentExternalResponse"},"readOnly":true},"totalItems":{"format":"int32","description":"Total number of items","type":"integer","readOnly":true}}},"StudentExternalResponse":{"title":"StudentExternalResponse","description":"Model of the student.","required":["id","civilRegistrationNumber","givenName","surname","email","studyStartDate"],"type":"object","properties":{"id":{"format":"uuid","description":"Student's identifier.","type":"string","x-nullable":false},"civilRegistrationNumber":{"description":"Student's civil registration number.","type":"string"},"givenName":{"description":"Student's given name.","type":"string"},"surname":{"description":"Student's surname.","type":"string"},"email":{"description":"Student's e-mail address.","type":"string"},"uniLoginUsername":{"description":"Student's Unilogin username.","type":"string"},"studyStartDate":{"format":"date","description":"Study date of start.","type":"string","x-nullable":false},"studyEndDate":{"format":"date","description":"Study date of end.","type":"string"},"studyEndCause":{"description":"Cause of study ending.","type":"string"},"adUsername":{"description":"Student's Active Directory username.","type":"string"}}}}}
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "KMD Studica - Students",
+    "version": "v1"
+  },
+  "host": "gateway.kmdlogic.io",
+  "basePath": "/studica-demo/students/v1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/BulkStudentsExternal": {
+      "post": {
+        "tags": [
+          "BulkStudentsExternal"
+        ],
+        "operationId": "BulkStudentsExternal_Post",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/BulkStudentsExternalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StudentExternalResponse"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/StudentsExternal": {
+      "get": {
+        "tags": [
+          "StudentsExternal"
+        ],
+        "operationId": "StudentsExternal_Get",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "StudyStartDateFrom",
+            "description": "Beginning of range for start date of the students study.",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "in": "query",
+            "name": "StudyStartDateTo",
+            "description": "End of range for start date of the students study.",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "in": "query",
+            "name": "PageNumber",
+            "description": "The number of the page to return (1 is the first page).",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 2147483647,
+            "minimum": 1
+          },
+          {
+            "in": "query",
+            "name": "PageSize",
+            "description": "Number of objects per page.",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 1000,
+            "minimum": 1
+          },
+          {
+            "in": "query",
+            "name": "InlineCount",
+            "description": "A flag indicating if total number of items should be included.",
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "SchoolCode",
+            "description": "The school code for which to get data.",
+            "required": true,
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_StudentExternalResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "StudentsExternal"
+        ],
+        "operationId": "_StudentsExternal_Post",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StudentsExternalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_StudentExternalResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "BulkStudentsExternalRequest": {
+      "title": "BulkStudentsExternalRequest",
+      "description": "Returns a list of students for given criteria.",
+      "required": [
+        "studentIds",
+        "schoolCode"
+      ],
+      "type": "object",
+      "properties": {
+        "studentIds": {
+          "description": "Student ids for bulk query.",
+          "maxLength": 1000,
+          "minLength": 1,
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "x-nullable": false
+          }
+        },
+        "schoolCode": {
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
+    "StudentExternalResponse": {
+      "title": "StudentExternalResponse",
+      "description": "Model of the student.",
+      "required": [
+        "id",
+        "civilRegistrationNumber",
+        "givenName",
+        "surname",
+        "email",
+        "studyStartDate"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "description": "Student's identifier.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "civilRegistrationNumber": {
+          "description": "Student's civil registration number.",
+          "type": "string"
+        },
+        "givenName": {
+          "description": "Student's given name.",
+          "type": "string"
+        },
+        "surname": {
+          "description": "Student's surname.",
+          "type": "string"
+        },
+        "email": {
+          "description": "Student's e-mail address.",
+          "type": "string"
+        },
+        "uniLoginUsername": {
+          "description": "Student's Unilogin username.",
+          "type": "string"
+        },
+        "studyStartDate": {
+          "format": "date",
+          "description": "Study date of start.",
+          "type": "string",
+          "example": "2020-05-08T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "studyEndDate": {
+          "format": "date",
+          "description": "Study date of end.",
+          "type": "string",
+          "example": "2020-05-08T00:00:00.0000000"
+        },
+        "studyEndCause": {
+          "description": "Cause of study ending.",
+          "type": "string"
+        },
+        "adUsername": {
+          "description": "Student's Active Directory username.",
+          "type": "string"
+        }
+      }
+    },
+    "PagedResponse_StudentExternalResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Page of items",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentExternalResponse"
+          },
+          "readOnly": true
+        },
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
+          "type": "integer",
+          "readOnly": true
+        }
+      }
+    },
+    "StudentsExternalRequest": {
+      "title": "StudentsExternalRequest",
+      "description": "Returns a paged list of students for given criteria.",
+      "required": [
+        "studyStartDateFrom",
+        "studyStartDateTo",
+        "pageNumber",
+        "pageSize",
+        "inlineCount",
+        "schoolCode"
+      ],
+      "type": "object",
+      "properties": {
+        "studyStartDateFrom": {
+          "format": "date",
+          "description": "Beginning of range for start date of the students study.",
+          "type": "string",
+          "example": "2020-05-08T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "studyStartDateTo": {
+          "format": "date",
+          "description": "End of range for start date of the students study.",
+          "type": "string",
+          "example": "2020-05-08T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "pageNumber": {
+          "format": "int32",
+          "description": "The number of the page to return (1 is the first page).",
+          "maximum": 2147483647,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "pageSize": {
+          "format": "int32",
+          "description": "Number of objects per page.",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "inlineCount": {
+          "description": "A flag indicating if total number of items should be included.",
+          "default": true,
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "schoolCode": {
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+    }
+  }
+}

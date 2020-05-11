@@ -45,5 +45,29 @@ namespace ExternalApiExamples
                 .From(result.Body.Items)
                 .Write();
         }
+
+        public async Task ExecuteBulk()
+        {
+            Console.WriteLine("Executing bulk student example");
+
+            using var studentsClient = new KMDStudicaStudents(new TokenCredentials(tokenProvider));
+            studentsClient.BaseUri = string.IsNullOrEmpty(configuration.StudentsBaseUri)
+                ? new Uri("https://gateway.kmdlogic.io/studica/students/v1")
+                : new Uri(configuration.StudentsBaseUri);
+
+            var result = await studentsClient.BulkStudentsExternal.PostWithHttpMessagesAsync(
+                studentIds: new[] { Guid.NewGuid() },
+                schoolCode: configuration.SchoolCode,
+                customHeaders: new Dictionary<string, List<string>>
+                {
+                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                });
+
+            Console.WriteLine($"Got {result.Body} students from API");
+
+            ConsoleTable
+                .From(result.Body)
+                .Write();
+        }
     }
 }

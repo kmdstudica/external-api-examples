@@ -7,7 +7,6 @@
 namespace Kmd.Studica.Students.Client
 {
     using Microsoft.Rest;
-    using Microsoft.Rest.Serialization;
     using Models;
     using Newtonsoft.Json;
     using System.Collections;
@@ -20,12 +19,12 @@ namespace Kmd.Studica.Students.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// StudentsExternal operations.
+    /// BulkStudentsExternal operations.
     /// </summary>
-    public partial class StudentsExternal : IServiceOperations<KMDStudicaStudents>, IStudentsExternal
+    public partial class BulkStudentsExternal : IServiceOperations<KMDStudicaStudents>, IBulkStudentsExternal
     {
         /// <summary>
-        /// Initializes a new instance of the StudentsExternal class.
+        /// Initializes a new instance of the BulkStudentsExternal class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -33,7 +32,7 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public StudentsExternal(KMDStudicaStudents client)
+        public BulkStudentsExternal(KMDStudicaStudents client)
         {
             if (client == null)
             {
@@ -47,20 +46,8 @@ namespace Kmd.Studica.Students.Client
         /// </summary>
         public KMDStudicaStudents Client { get; private set; }
 
-        /// <param name='studyStartDateFrom'>
-        /// Beginning of range for start date of the students study.
-        /// </param>
-        /// <param name='studyStartDateTo'>
-        /// End of range for start date of the students study.
-        /// </param>
-        /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
-        /// </param>
-        /// <param name='pageSize'>
-        /// Number of objects per page.
-        /// </param>
-        /// <param name='inlineCount'>
-        /// A flag indicating if total number of items should be included.
+        /// <param name='studentIds'>
+        /// Student ids for bulk query.
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
@@ -86,23 +73,11 @@ namespace Kmd.Studica.Students.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> GetWithHttpMessagesAsync(System.DateTime studyStartDateFrom, System.DateTime studyStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<StudentExternalResponse>>> PostWithHttpMessagesAsync(IList<System.Guid> studentIds, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (pageNumber > 2147483647)
+            if (studentIds == null)
             {
-                throw new ValidationException(ValidationRules.InclusiveMaximum, "pageNumber", 2147483647);
-            }
-            if (pageNumber < 1)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMinimum, "pageNumber", 1);
-            }
-            if (pageSize > 1000)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMaximum, "pageSize", 1000);
-            }
-            if (pageSize < 1)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMinimum, "pageSize", 1);
+                throw new ValidationException(ValidationRules.CannotBeNull, "studentIds");
             }
             if (schoolCode == null)
             {
@@ -119,6 +94,13 @@ namespace Kmd.Studica.Students.Client
                     throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
                 }
             }
+            BulkStudentsExternalRequest body = default(BulkStudentsExternalRequest);
+            if (studentIds != null || schoolCode != null)
+            {
+                body = new BulkStudentsExternalRequest();
+                body.StudentIds = studentIds;
+                body.SchoolCode = schoolCode;
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -126,36 +108,17 @@ namespace Kmd.Studica.Students.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("studyStartDateFrom", studyStartDateFrom);
-                tracingParameters.Add("studyStartDateTo", studyStartDateTo);
-                tracingParameters.Add("pageNumber", pageNumber);
-                tracingParameters.Add("pageSize", pageSize);
-                tracingParameters.Add("inlineCount", inlineCount);
-                tracingParameters.Add("schoolCode", schoolCode);
+                tracingParameters.Add("body", body);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "StudentsExternal").ToString();
-            List<string> _queryParameters = new List<string>();
-            _queryParameters.Add(string.Format("StudyStartDateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(studyStartDateFrom, new DateJsonConverter()).Trim('"'))));
-            _queryParameters.Add(string.Format("StudyStartDateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(studyStartDateTo, new DateJsonConverter()).Trim('"'))));
-            _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
-            if (schoolCode != null)
-            {
-                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
-            }
-            if (_queryParameters.Count > 0)
-            {
-                _url += "?" + string.Join("&", _queryParameters);
-            }
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "BulkStudentsExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
-            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
 
@@ -174,6 +137,12 @@ namespace Kmd.Studica.Students.Client
 
             // Serialize Request
             string _requestContent = null;
+            if(body != null)
+            {
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
+            }
             // Set Credentials
             if (Client.Credentials != null)
             {
@@ -217,7 +186,7 @@ namespace Kmd.Studica.Students.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponseStudentExternalResponse>();
+            var _result = new HttpOperationResponse<IList<StudentExternalResponse>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -226,7 +195,7 @@ namespace Kmd.Studica.Students.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseStudentExternalResponse>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<IList<StudentExternalResponse>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

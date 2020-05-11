@@ -11,24 +11,24 @@ namespace Kmd.Studica.Students.Client.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class PagedResponse1StudentExternalResponse
+    public partial class PagedResponseStudentExternalResponse
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// PagedResponse1StudentExternalResponse class.
+        /// PagedResponseStudentExternalResponse class.
         /// </summary>
-        public PagedResponse1StudentExternalResponse()
+        public PagedResponseStudentExternalResponse()
         {
             CustomInit();
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// PagedResponse1StudentExternalResponse class.
+        /// PagedResponseStudentExternalResponse class.
         /// </summary>
         /// <param name="items">Page of items</param>
         /// <param name="totalItems">Total number of items</param>
-        public PagedResponse1StudentExternalResponse(IList<StudentExternalResponse> items = default(IList<StudentExternalResponse>), int? totalItems = default(int?))
+        public PagedResponseStudentExternalResponse(IList<StudentExternalResponse> items = default(IList<StudentExternalResponse>), int? totalItems = default(int?))
         {
             Items = items;
             TotalItems = totalItems;

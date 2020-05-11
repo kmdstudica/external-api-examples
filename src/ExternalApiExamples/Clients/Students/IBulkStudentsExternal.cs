@@ -14,24 +14,12 @@ namespace Kmd.Studica.Students.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// StudentsExternal operations.
+    /// BulkStudentsExternal operations.
     /// </summary>
-    public partial interface IStudentsExternal
+    public partial interface IBulkStudentsExternal
     {
-        /// <param name='studyStartDateFrom'>
-        /// Beginning of range for start date of the students study.
-        /// </param>
-        /// <param name='studyStartDateTo'>
-        /// End of range for start date of the students study.
-        /// </param>
-        /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
-        /// </param>
-        /// <param name='pageSize'>
-        /// Number of objects per page.
-        /// </param>
-        /// <param name='inlineCount'>
-        /// A flag indicating if total number of items should be included.
+        /// <param name='studentIds'>
+        /// Student ids for bulk query.
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
@@ -51,6 +39,6 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> GetWithHttpMessagesAsync(System.DateTime studyStartDateFrom, System.DateTime studyStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<StudentExternalResponse>>> PostWithHttpMessagesAsync(IList<System.Guid> studentIds, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

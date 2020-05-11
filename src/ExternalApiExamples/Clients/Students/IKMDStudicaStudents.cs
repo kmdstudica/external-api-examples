@@ -9,6 +9,10 @@ namespace Kmd.Studica.Students.Client
     using Microsoft.Rest;
     using Models;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Threading;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// </summary>
@@ -37,9 +41,24 @@ namespace Kmd.Studica.Students.Client
 
 
         /// <summary>
+        /// Gets the IBulkStudentsExternal.
+        /// </summary>
+        IBulkStudentsExternal BulkStudentsExternal { get; }
+
+        /// <summary>
         /// Gets the IStudentsExternal.
         /// </summary>
         IStudentsExternal StudentsExternal { get; }
+
+        /// <param name='body'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> PostWithHttpMessagesAsync(StudentsExternalRequest body = default(StudentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

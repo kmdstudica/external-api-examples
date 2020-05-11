@@ -41,6 +41,7 @@ namespace ExternalApiExamples
 
             // Students API examples
             await new StudentsExample(tokenProvider, configuration).Execute();
+            await new StudentsExample(tokenProvider, configuration).ExecuteBulk();
 
             // School administration API examples
             await new AreaOfResponsibilityExample(tokenProvider, configuration).Execute();

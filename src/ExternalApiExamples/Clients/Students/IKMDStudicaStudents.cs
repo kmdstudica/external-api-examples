@@ -41,6 +41,11 @@ namespace Kmd.Studica.Students.Client
 
 
         /// <summary>
+        /// Gets the IAggregateExistsExternal.
+        /// </summary>
+        IAggregateExistsExternal AggregateExistsExternal { get; }
+
+        /// <summary>
         /// Gets the IBulkStudentsExternal.
         /// </summary>
         IBulkStudentsExternal BulkStudentsExternal { get; }
@@ -58,7 +63,17 @@ namespace Kmd.Studica.Students.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> PostWithHttpMessagesAsync(StudentsExternalRequest body = default(StudentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<bool?>> PostWithHttpMessagesAsync(AggregateExistsExternalRequest body = default(AggregateExistsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <param name='body'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> Post1WithHttpMessagesAsync(StudentsExternalRequest body = default(StudentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

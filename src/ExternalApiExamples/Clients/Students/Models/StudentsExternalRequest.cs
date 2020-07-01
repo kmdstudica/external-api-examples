@@ -30,8 +30,6 @@ namespace Kmd.Studica.Students.Client.Models
         /// <summary>
         /// Initializes a new instance of the StudentsExternalRequest class.
         /// </summary>
-        /// <param name="studyStartDateFrom">Beginning of range for start date
-        /// of the students study.</param>
         /// <param name="studyStartDateTo">End of range for start date of the
         /// students study.</param>
         /// <param name="pageNumber">The number of the page to return (1 is the
@@ -41,7 +39,9 @@ namespace Kmd.Studica.Students.Client.Models
         /// items should be included.</param>
         /// <param name="schoolCode">The school code for which to get
         /// data.</param>
-        public StudentsExternalRequest(System.DateTime studyStartDateFrom, System.DateTime studyStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode)
+        /// <param name="studyStartDateFrom">Beginning of range for start date
+        /// of the students study.</param>
+        public StudentsExternalRequest(System.DateTime studyStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? studyStartDateFrom = default(System.DateTime?))
         {
             StudyStartDateFrom = studyStartDateFrom;
             StudyStartDateTo = studyStartDateTo;
@@ -63,7 +63,7 @@ namespace Kmd.Studica.Students.Client.Models
         /// </summary>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "studyStartDateFrom")]
-        public System.DateTime StudyStartDateFrom { get; set; }
+        public System.DateTime? StudyStartDateFrom { get; set; }
 
         /// <summary>
         /// Gets or sets end of range for start date of the students study.

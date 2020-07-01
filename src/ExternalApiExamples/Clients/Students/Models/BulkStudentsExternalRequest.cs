@@ -16,7 +16,7 @@ namespace Kmd.Studica.Students.Client.Models
     /// BulkStudentsExternalRequest
     /// </summary>
     /// <remarks>
-    /// Returns a list of students for given criteria.
+    /// Returns a paged list of students for given criteria.
     /// </remarks>
     public partial class BulkStudentsExternalRequest
     {

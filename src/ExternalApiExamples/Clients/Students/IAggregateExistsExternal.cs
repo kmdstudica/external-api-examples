@@ -14,27 +14,20 @@ namespace Kmd.Studica.Students.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// StudentsExternal operations.
+    /// AggregateExistsExternal operations.
     /// </summary>
-    public partial interface IStudentsExternal
+    public partial interface IAggregateExistsExternal
     {
-        /// <param name='studyStartDateTo'>
-        /// End of range for start date of the students study.
-        /// </param>
-        /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
-        /// </param>
-        /// <param name='pageSize'>
-        /// Number of objects per page.
-        /// </param>
-        /// <param name='inlineCount'>
-        /// A flag indicating if total number of items should be included.
-        /// </param>
         /// <param name='schoolCode'>
-        /// The school code for which to get data.
         /// </param>
-        /// <param name='studyStartDateFrom'>
-        /// Beginning of range for start date of the students study.
+        /// <param name='tableName'>
+        /// </param>
+        /// <param name='idColumn'>
+        /// </param>
+        /// <param name='id'>
+        /// </param>
+        /// <param name='filter'>
+        /// Possible values include: 'None', 'SchoolCode', 'InstitutionNumber'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -51,6 +44,6 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> GetWithHttpMessagesAsync(System.DateTime studyStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? studyStartDateFrom = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<bool?>> GetWithHttpMessagesAsync(string schoolCode, string tableName, string idColumn, System.Guid id, string filter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

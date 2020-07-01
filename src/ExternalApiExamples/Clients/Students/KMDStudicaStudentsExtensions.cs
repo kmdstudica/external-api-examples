@@ -20,7 +20,7 @@ namespace Kmd.Studica.Students.Client
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseStudentExternalResponse Post(this IKMDStudicaStudents operations, StudentsExternalRequest body = default(StudentsExternalRequest))
+            public static bool? Post(this IKMDStudicaStudents operations, AggregateExistsExternalRequest body = default(AggregateExistsExternalRequest))
             {
                 return operations.PostAsync(body).GetAwaiter().GetResult();
             }
@@ -33,9 +33,35 @@ namespace Kmd.Studica.Students.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseStudentExternalResponse> PostAsync(this IKMDStudicaStudents operations, StudentsExternalRequest body = default(StudentsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<bool?> PostAsync(this IKMDStudicaStudents operations, AggregateExistsExternalRequest body = default(AggregateExistsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.PostWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='body'>
+            /// </param>
+            public static PagedResponseStudentExternalResponse Post1(this IKMDStudicaStudents operations, StudentsExternalRequest body = default(StudentsExternalRequest))
+            {
+                return operations.Post1Async(body).GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='body'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PagedResponseStudentExternalResponse> Post1Async(this IKMDStudicaStudents operations, StudentsExternalRequest body = default(StudentsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.Post1WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

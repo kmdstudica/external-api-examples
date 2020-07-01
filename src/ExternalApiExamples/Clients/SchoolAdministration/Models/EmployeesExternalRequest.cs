@@ -30,8 +30,6 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <summary>
         /// Initializes a new instance of the EmployeesExternalRequest class.
         /// </summary>
-        /// <param name="employmentStartDateFrom">Beginning of range for start
-        /// date employment.</param>
         /// <param name="employmentStartDateTo">End of range for start date
         /// employment.</param>
         /// <param name="pageNumber">The number of the page to return (1 is the
@@ -41,7 +39,9 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// items should be included.</param>
         /// <param name="schoolCode">The school code for which to get
         /// data.</param>
-        public EmployeesExternalRequest(System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode)
+        /// <param name="employmentStartDateFrom">Beginning of range for start
+        /// date employment.</param>
+        public EmployeesExternalRequest(System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employmentStartDateFrom = default(System.DateTime?))
         {
             EmploymentStartDateFrom = employmentStartDateFrom;
             EmploymentStartDateTo = employmentStartDateTo;
@@ -62,7 +62,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </summary>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "employmentStartDateFrom")]
-        public System.DateTime EmploymentStartDateFrom { get; set; }
+        public System.DateTime? EmploymentStartDateFrom { get; set; }
 
         /// <summary>
         /// Gets or sets end of range for start date employment.

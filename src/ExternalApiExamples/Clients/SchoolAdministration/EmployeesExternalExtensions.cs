@@ -18,9 +18,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='employmentStartDateFrom'>
-            /// Beginning of range for start date employment.
-            /// </param>
             /// <param name='employmentStartDateTo'>
             /// End of range for start date employment.
             /// </param>
@@ -36,17 +33,17 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
-            public static PagedResponseEmployeeExternalResponse Get(this IEmployeesExternal operations, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode)
+            /// <param name='employmentStartDateFrom'>
+            /// Beginning of range for start date employment.
+            /// </param>
+            public static PagedResponseEmployeeExternalResponse Get(this IEmployeesExternal operations, System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employmentStartDateFrom = default(System.DateTime?))
             {
-                return operations.GetAsync(employmentStartDateFrom, employmentStartDateTo, pageNumber, pageSize, inlineCount, schoolCode).GetAwaiter().GetResult();
+                return operations.GetAsync(employmentStartDateTo, pageNumber, pageSize, inlineCount, schoolCode, employmentStartDateFrom).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='employmentStartDateFrom'>
-            /// Beginning of range for start date employment.
-            /// </param>
             /// <param name='employmentStartDateTo'>
             /// End of range for start date employment.
             /// </param>
@@ -62,12 +59,15 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
+            /// <param name='employmentStartDateFrom'>
+            /// Beginning of range for start date employment.
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseEmployeeExternalResponse> GetAsync(this IEmployeesExternal operations, System.DateTime employmentStartDateFrom, System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseEmployeeExternalResponse> GetAsync(this IEmployeesExternal operations, System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employmentStartDateFrom = default(System.DateTime?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(employmentStartDateFrom, employmentStartDateTo, pageNumber, pageSize, inlineCount, schoolCode, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(employmentStartDateTo, pageNumber, pageSize, inlineCount, schoolCode, employmentStartDateFrom, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

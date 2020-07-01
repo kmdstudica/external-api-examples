@@ -9,6 +9,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
     using Microsoft.Rest;
     using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -33,33 +35,67 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="id">Gets employee identifier in Studica.</param>
         /// <param name="civilRegistrationNumber">Gets employee civil
         /// registration number.</param>
+        /// <param name="protectedNameAndAddress">Gets a flag indicating if
+        /// name and address are protected.</param>
         /// <param name="lmsIndicator">Gets Learning Management System
         /// indicator.</param>
         /// <param name="givenName">Gets employee given name.</param>
         /// <param name="surname">Gets employee surname.</param>
         /// <param name="email">Gets employee e-mail address.</param>
+        /// <param name="deceased">Gets indticator if employee is
+        /// deceased.</param>
         /// <param name="employmentStartDate">Gets employee start date.</param>
+        /// <param name="protectedGivenName">Gets employee protected given
+        /// name.</param>
+        /// <param name="protectedSurname">Gets employee protected
+        /// surname.</param>
+        /// <param name="phoneNumber">Gets employee phone number.</param>
         /// <param name="uniLoginUsername">Gets employee Unilogin
         /// username.</param>
         /// <param name="adUserName">Gets employee Active Directory
         /// username.</param>
+        /// <param name="roleNames">Gets employee roles.</param>
+        /// <param name="jobTitle">Gets employee job title.</param>
         /// <param name="employmentResignationDate">Gets employee resignation
         /// date.</param>
         /// <param name="areaOfResponsibilityId">Reference id to the area of
         /// responsibility.</param>
-        public EmployeeExternalResponse(System.Guid id, string civilRegistrationNumber, bool lmsIndicator, string givenName, string surname, string email, System.DateTime employmentStartDate, string uniLoginUsername = default(string), string adUserName = default(string), System.DateTime? employmentResignationDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?))
+        /// <param name="departmentIds">Gets employee department
+        /// affilation.</param>
+        /// <param name="addressLine">Gets employee address line.</param>
+        /// <param name="careOfAddressLine">Gets employee care of address
+        /// line.</param>
+        /// <param name="place">Gets employee place.</param>
+        /// <param name="city">Gets employee city.</param>
+        /// <param name="postalCode">Gets employee postal code.</param>
+        /// <param name="country">Gets employee country.</param>
+        public EmployeeExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, bool lmsIndicator, string givenName, string surname, string email, bool deceased, System.DateTime employmentStartDate, string protectedGivenName = default(string), string protectedSurname = default(string), string phoneNumber = default(string), string uniLoginUsername = default(string), string adUserName = default(string), IList<string> roleNames = default(IList<string>), string jobTitle = default(string), System.DateTime? employmentResignationDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), IList<System.Guid> departmentIds = default(IList<System.Guid>), string addressLine = default(string), string careOfAddressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string))
         {
             Id = id;
             CivilRegistrationNumber = civilRegistrationNumber;
+            ProtectedNameAndAddress = protectedNameAndAddress;
             LmsIndicator = lmsIndicator;
             GivenName = givenName;
             Surname = surname;
+            ProtectedGivenName = protectedGivenName;
+            ProtectedSurname = protectedSurname;
             Email = email;
+            PhoneNumber = phoneNumber;
+            Deceased = deceased;
             UniLoginUsername = uniLoginUsername;
             AdUserName = adUserName;
+            RoleNames = roleNames;
+            JobTitle = jobTitle;
             EmploymentStartDate = employmentStartDate;
             EmploymentResignationDate = employmentResignationDate;
             AreaOfResponsibilityId = areaOfResponsibilityId;
+            DepartmentIds = departmentIds;
+            AddressLine = addressLine;
+            CareOfAddressLine = careOfAddressLine;
+            Place = place;
+            City = city;
+            PostalCode = postalCode;
+            Country = country;
             CustomInit();
         }
 
@@ -81,6 +117,12 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         public string CivilRegistrationNumber { get; set; }
 
         /// <summary>
+        /// Gets a flag indicating if name and address are protected.
+        /// </summary>
+        [JsonProperty(PropertyName = "protectedNameAndAddress")]
+        public bool ProtectedNameAndAddress { get; set; }
+
+        /// <summary>
         /// Gets Learning Management System indicator.
         /// </summary>
         [JsonProperty(PropertyName = "lmsIndicator")]
@@ -99,10 +141,34 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         public string Surname { get; set; }
 
         /// <summary>
+        /// Gets employee protected given name.
+        /// </summary>
+        [JsonProperty(PropertyName = "protectedGivenName")]
+        public string ProtectedGivenName { get; set; }
+
+        /// <summary>
+        /// Gets employee protected surname.
+        /// </summary>
+        [JsonProperty(PropertyName = "protectedSurname")]
+        public string ProtectedSurname { get; set; }
+
+        /// <summary>
         /// Gets employee e-mail address.
         /// </summary>
         [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
+
+        /// <summary>
+        /// Gets employee phone number.
+        /// </summary>
+        [JsonProperty(PropertyName = "phoneNumber")]
+        public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Gets indticator if employee is deceased.
+        /// </summary>
+        [JsonProperty(PropertyName = "deceased")]
+        public bool Deceased { get; set; }
 
         /// <summary>
         /// Gets employee Unilogin username.
@@ -115,6 +181,18 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "adUserName")]
         public string AdUserName { get; set; }
+
+        /// <summary>
+        /// Gets employee roles.
+        /// </summary>
+        [JsonProperty(PropertyName = "roleNames")]
+        public IList<string> RoleNames { get; set; }
+
+        /// <summary>
+        /// Gets employee job title.
+        /// </summary>
+        [JsonProperty(PropertyName = "jobTitle")]
+        public string JobTitle { get; set; }
 
         /// <summary>
         /// Gets employee start date.
@@ -135,6 +213,48 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "areaOfResponsibilityId")]
         public System.Guid? AreaOfResponsibilityId { get; set; }
+
+        /// <summary>
+        /// Gets employee department affilation.
+        /// </summary>
+        [JsonProperty(PropertyName = "departmentIds")]
+        public IList<System.Guid> DepartmentIds { get; set; }
+
+        /// <summary>
+        /// Gets employee address line.
+        /// </summary>
+        [JsonProperty(PropertyName = "addressLine")]
+        public string AddressLine { get; set; }
+
+        /// <summary>
+        /// Gets employee care of address line.
+        /// </summary>
+        [JsonProperty(PropertyName = "careOfAddressLine")]
+        public string CareOfAddressLine { get; set; }
+
+        /// <summary>
+        /// Gets employee place.
+        /// </summary>
+        [JsonProperty(PropertyName = "place")]
+        public string Place { get; set; }
+
+        /// <summary>
+        /// Gets employee city.
+        /// </summary>
+        [JsonProperty(PropertyName = "city")]
+        public string City { get; set; }
+
+        /// <summary>
+        /// Gets employee postal code.
+        /// </summary>
+        [JsonProperty(PropertyName = "postalCode")]
+        public string PostalCode { get; set; }
+
+        /// <summary>
+        /// Gets employee country.
+        /// </summary>
+        [JsonProperty(PropertyName = "country")]
+        public string Country { get; set; }
 
         /// <summary>
         /// Validate the object.

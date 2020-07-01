@@ -7,7 +7,6 @@
 namespace Kmd.Studica.SchoolAdministration.Client
 {
     using Microsoft.Rest;
-    using Microsoft.Rest.Serialization;
     using Models;
     using Newtonsoft.Json;
     using System.Collections;
@@ -20,12 +19,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// EmployeesExternal operations.
+    /// AggregateExistsExternal operations.
     /// </summary>
-    public partial class EmployeesExternal : IServiceOperations<KMDStudicaSchoolAdministration>, IEmployeesExternal
+    public partial class AggregateExistsExternal : IServiceOperations<KMDStudicaSchoolAdministration>, IAggregateExistsExternal
     {
         /// <summary>
-        /// Initializes a new instance of the EmployeesExternal class.
+        /// Initializes a new instance of the AggregateExistsExternal class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -33,7 +32,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public EmployeesExternal(KMDStudicaSchoolAdministration client)
+        public AggregateExistsExternal(KMDStudicaSchoolAdministration client)
         {
             if (client == null)
             {
@@ -47,23 +46,16 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// </summary>
         public KMDStudicaSchoolAdministration Client { get; private set; }
 
-        /// <param name='employmentStartDateTo'>
-        /// End of range for start date employment.
-        /// </param>
-        /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
-        /// </param>
-        /// <param name='pageSize'>
-        /// Number of objects per page.
-        /// </param>
-        /// <param name='inlineCount'>
-        /// A flag indicating if total number of items should be included.
-        /// </param>
         /// <param name='schoolCode'>
-        /// The school code for which to get data.
         /// </param>
-        /// <param name='employmentStartDateFrom'>
-        /// Beginning of range for start date employment.
+        /// <param name='tableName'>
+        /// </param>
+        /// <param name='idColumn'>
+        /// </param>
+        /// <param name='id'>
+        /// </param>
+        /// <param name='filter'>
+        /// Possible values include: 'None', 'SchoolCode', 'InstitutionNumber'
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -86,24 +78,8 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseEmployeeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employmentStartDateFrom = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<bool?>> GetWithHttpMessagesAsync(string schoolCode, string tableName, string idColumn, System.Guid id, string filter, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (pageNumber > 2147483647)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMaximum, "pageNumber", 2147483647);
-            }
-            if (pageNumber < 1)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMinimum, "pageNumber", 1);
-            }
-            if (pageSize > 1000)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMaximum, "pageSize", 1000);
-            }
-            if (pageSize < 1)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMinimum, "pageSize", 1);
-            }
             if (schoolCode == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "schoolCode");
@@ -119,6 +95,18 @@ namespace Kmd.Studica.SchoolAdministration.Client
                     throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
                 }
             }
+            if (tableName == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "tableName");
+            }
+            if (idColumn == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "idColumn");
+            }
+            if (filter == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "filter");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -126,30 +114,34 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("employmentStartDateFrom", employmentStartDateFrom);
-                tracingParameters.Add("employmentStartDateTo", employmentStartDateTo);
-                tracingParameters.Add("pageNumber", pageNumber);
-                tracingParameters.Add("pageSize", pageSize);
-                tracingParameters.Add("inlineCount", inlineCount);
                 tracingParameters.Add("schoolCode", schoolCode);
+                tracingParameters.Add("tableName", tableName);
+                tracingParameters.Add("idColumn", idColumn);
+                tracingParameters.Add("id", id);
+                tracingParameters.Add("filter", filter);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "EmployeesExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "AggregateExistsExternal").ToString();
             List<string> _queryParameters = new List<string>();
-            if (employmentStartDateFrom != null)
-            {
-                _queryParameters.Add(string.Format("EmploymentStartDateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(employmentStartDateFrom, new DateJsonConverter()).Trim('"'))));
-            }
-            _queryParameters.Add(string.Format("EmploymentStartDateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(employmentStartDateTo, new DateJsonConverter()).Trim('"'))));
-            _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
             if (schoolCode != null)
             {
                 _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
+            }
+            if (tableName != null)
+            {
+                _queryParameters.Add(string.Format("TableName={0}", System.Uri.EscapeDataString(tableName)));
+            }
+            if (idColumn != null)
+            {
+                _queryParameters.Add(string.Format("IdColumn={0}", System.Uri.EscapeDataString(idColumn)));
+            }
+            _queryParameters.Add(string.Format("Id={0}", System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(id, Client.SerializationSettings).Trim('"'))));
+            if (filter != null)
+            {
+                _queryParameters.Add(string.Format("Filter={0}", System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(filter, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -220,7 +212,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponseEmployeeExternalResponse>();
+            var _result = new HttpOperationResponse<bool?>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -229,7 +221,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseEmployeeExternalResponse>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<bool?>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

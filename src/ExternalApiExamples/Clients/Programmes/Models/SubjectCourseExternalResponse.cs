@@ -42,14 +42,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="endDate">End date for the subject course.</param>
         /// <param name="lmsIndicator">Is the entity to be created in the
         /// LMS.</param>
-        /// <param name="studentsIds">Reference ids to assigned
-        /// students.</param>
+        /// <param name="students">Assigned students.</param>
         /// <param name="teachersIds">Reference ids to assigned
         /// teachers.</param>
-        /// <param name="uvmSubjects">List of UVM subjects</param>
         /// <param name="defaultSubjectId">The id of the default subject for
         /// this subject course.</param>
-        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<System.Guid> studentsIds, IList<System.Guid> teachersIds, IList<UVMSubjectDetails> uvmSubjects, System.Guid? defaultSubjectId = default(System.Guid?))
+        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, System.Guid? defaultSubjectId = default(System.Guid?))
         {
             Id = id;
             EducationalProgrammeId = educationalProgrammeId;
@@ -58,9 +56,8 @@ namespace Kmd.Studica.Programmes.Client.Models
             StartDate = startDate;
             EndDate = endDate;
             LmsIndicator = lmsIndicator;
-            StudentsIds = studentsIds;
+            Students = students;
             TeachersIds = teachersIds;
-            UvmSubjects = uvmSubjects;
             CustomInit();
         }
 
@@ -114,22 +111,16 @@ namespace Kmd.Studica.Programmes.Client.Models
         public bool LmsIndicator { get; set; }
 
         /// <summary>
-        /// Gets or sets reference ids to assigned students.
+        /// Gets or sets assigned students.
         /// </summary>
-        [JsonProperty(PropertyName = "studentsIds")]
-        public IList<System.Guid> StudentsIds { get; set; }
+        [JsonProperty(PropertyName = "students")]
+        public IList<SubjectCourseExternalResponseStudent> Students { get; set; }
 
         /// <summary>
         /// Gets or sets reference ids to assigned teachers.
         /// </summary>
         [JsonProperty(PropertyName = "teachersIds")]
         public IList<System.Guid> TeachersIds { get; set; }
-
-        /// <summary>
-        /// Gets or sets list of UVM subjects
-        /// </summary>
-        [JsonProperty(PropertyName = "uvmSubjects")]
-        public IList<UVMSubjectDetails> UvmSubjects { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -143,21 +134,17 @@ namespace Kmd.Studica.Programmes.Client.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Name");
             }
-            if (StudentsIds == null)
+            if (Students == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "StudentsIds");
+                throw new ValidationException(ValidationRules.CannotBeNull, "Students");
             }
             if (TeachersIds == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "TeachersIds");
             }
-            if (UvmSubjects == null)
+            if (Students != null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "UvmSubjects");
-            }
-            if (UvmSubjects != null)
-            {
-                foreach (var element in UvmSubjects)
+                foreach (var element in Students)
                 {
                     if (element != null)
                     {

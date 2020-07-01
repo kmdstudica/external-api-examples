@@ -37,15 +37,15 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="id">Identifier of the lesson.</param>
         /// <param name="subjectCourseId">The Id of the subject course this
         /// lesson is added to.</param>
+        /// <param name="teacherIds">List of teacher' identifiers.</param>
         /// <param name="roomId">Identifier of the room where lesson is
         /// conducted.</param>
         /// <param name="date">Date of the lesson.</param>
         /// <param name="startTime">Start time of the lesson.</param>
         /// <param name="endTime">End time of the lesson.</param>
-        /// <param name="teacherIds">List of teacher' identifiers.</param>
         /// <param name="schoolCode">The school code for which command is
         /// performed.</param>
-        public RegisterLessonExternalCommand(System.Guid id, System.Guid subjectCourseId, System.Guid? roomId = default(System.Guid?), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), IList<System.Guid> teacherIds = default(IList<System.Guid>), string schoolCode = default(string))
+        public RegisterLessonExternalCommand(System.Guid id, System.Guid subjectCourseId, IList<System.Guid> teacherIds, System.Guid? roomId = default(System.Guid?), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), string schoolCode = default(string))
         {
             Id = id;
             RoomId = roomId;
@@ -120,6 +120,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </exception>
         public virtual void Validate()
         {
+            if (TeacherIds == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "TeacherIds");
+            }
             if (StartTime != null)
             {
                 if (!System.Text.RegularExpressions.Regex.IsMatch(StartTime, "([01]?[0-9]|2[0-3]):[0-5][0-9]"))

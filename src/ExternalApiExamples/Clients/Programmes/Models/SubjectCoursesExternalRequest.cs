@@ -43,10 +43,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// items should be included.</param>
         /// <param name="schoolCode">The school code for which to get
         /// data.</param>
-        public SubjectCoursesExternalRequest(System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode)
+        /// <param name="lmsIndicator">Is the entity to be created in the LMS.
+        /// If not specified, then the value of the LMS indicator is
+        /// disregarded in the filtering.</param>
+        public SubjectCoursesExternalRequest(System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?))
         {
             StartDateFrom = startDateFrom;
             StartDateTo = startDateTo;
+            LmsIndicator = lmsIndicator;
             PageNumber = pageNumber;
             PageSize = pageSize;
             InlineCount = inlineCount;
@@ -72,6 +76,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "startDateTo")]
         public System.DateTime StartDateTo { get; set; }
+
+        /// <summary>
+        /// Gets or sets is the entity to be created in the LMS.
+        /// If not specified, then the value of the LMS indicator is
+        /// disregarded in the filtering.
+        /// </summary>
+        [JsonProperty(PropertyName = "lmsIndicator")]
+        public bool? LmsIndicator { get; set; }
 
         /// <summary>
         /// Gets or sets the number of the page to return (1 is the first

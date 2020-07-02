@@ -143,113 +143,6 @@
         ]
       }
     },
-    "/AggregateExistsExternal": {
-      "get": {
-        "tags": [
-          "AggregateExistsExternal"
-        ],
-        "operationId": "AggregateExistsExternal_Get",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          },
-          {
-            "in": "query",
-            "name": "TableName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "IdColumn",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "Id",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "in": "query",
-            "name": "Filter",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "None",
-              "SchoolCode",
-              "InstitutionNumber"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "type": "boolean",
-              "x-nullable": false
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "AggregateExistsExternal"
-        ],
-        "operationId": "_AggregateExistsExternal_Post",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AggregateExistsExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "type": "boolean",
-              "x-nullable": false
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
     "/BulkEducationalProgrammesExternal": {
       "post": {
         "tags": [
@@ -732,6 +625,12 @@
           },
           {
             "in": "query",
+            "name": "LmsIndicator",
+            "description": "Is the entity to be created in the LMS.\r\nIf not specified, then the value of the LMS indicator is disregarded in the filtering.",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
             "name": "PageNumber",
             "description": "The number of the page to return (1 is the first page).",
             "required": true,
@@ -872,7 +771,7 @@
           "format": "date",
           "description": "Date of absence.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "minutes": {
@@ -925,14 +824,14 @@
           "format": "date",
           "description": "Beginning of the range for absence date.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
           "format": "date",
           "description": "End of the range for absence date.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
@@ -962,44 +861,6 @@
           "maxLength": 6,
           "minLength": 6,
           "type": "string"
-        }
-      }
-    },
-    "AggregateExistsExternalRequest": {
-      "title": "AggregateExistsExternalRequest",
-      "required": [
-        "schoolCode",
-        "tableName",
-        "idColumn",
-        "id",
-        "filter"
-      ],
-      "type": "object",
-      "properties": {
-        "schoolCode": {
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        },
-        "tableName": {
-          "type": "string"
-        },
-        "idColumn": {
-          "type": "string"
-        },
-        "id": {
-          "format": "uuid",
-          "type": "string",
-          "x-nullable": false
-        },
-        "filter": {
-          "enum": [
-            "None",
-            "SchoolCode",
-            "InstitutionNumber"
-          ],
-          "type": "string",
-          "x-nullable": false
         }
       }
     },
@@ -1059,14 +920,14 @@
           "format": "date",
           "description": "Start date of the educational programme.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "description": "End date for the educational programme.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1166,7 +1027,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "startTime": {
@@ -1264,14 +1125,14 @@
           "format": "date",
           "description": "Start date of the subject course.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "description": "End date for the subject course.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -1328,14 +1189,14 @@
           "format": "date",
           "description": "Start date of the period.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "description": "End date of the period.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -1362,12 +1223,12 @@
         "startDate": {
           "format": "date",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000"
+          "example": "2020-07-02T00:00:00.0000000"
         },
         "endDate": {
           "format": "date",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000"
+          "example": "2020-07-02T00:00:00.0000000"
         },
         "canOverwriteDuration": {
           "type": "boolean",
@@ -1445,14 +1306,14 @@
           "format": "date",
           "description": "Beginning of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
           "format": "date",
           "description": "End of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
@@ -1527,14 +1388,14 @@
           "format": "date",
           "description": "Beginning of range for lesson date.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
           "format": "date",
           "description": "End of range for lesson date.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
@@ -1677,7 +1538,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000"
+          "example": "2020-07-02T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -1752,15 +1613,19 @@
           "format": "date",
           "description": "Beginning of the range for start date subject courses.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
           "format": "date",
           "description": "End of the range for start date subject courses.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-02T00:00:00.0000000",
           "x-nullable": false
+        },
+        "lmsIndicator": {
+          "description": "Is the entity to be created in the LMS.\r\nIf not specified, then the value of the LMS indicator is disregarded in the filtering.",
+          "type": "boolean"
         },
         "pageNumber": {
           "format": "int32",

@@ -45,11 +45,6 @@ namespace Kmd.Studica.Programmes.Client
         public virtual IAbsenceRegistrationsExternal AbsenceRegistrationsExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IAggregateExistsExternal.
-        /// </summary>
-        public virtual IAggregateExistsExternal AggregateExistsExternal { get; private set; }
-
-        /// <summary>
         /// Gets the IBulkEducationalProgrammesExternal.
         /// </summary>
         public virtual IBulkEducationalProgrammesExternal BulkEducationalProgrammesExternal { get; private set; }
@@ -331,7 +326,6 @@ namespace Kmd.Studica.Programmes.Client
         private void Initialize()
         {
             AbsenceRegistrationsExternal = new AbsenceRegistrationsExternal(this);
-            AggregateExistsExternal = new AggregateExistsExternal(this);
             BulkEducationalProgrammesExternal = new BulkEducationalProgrammesExternal(this);
             BulkLessonsExternal = new BulkLessonsExternal(this);
             BulkSubjectCoursesExternal = new BulkSubjectCoursesExternal(this);

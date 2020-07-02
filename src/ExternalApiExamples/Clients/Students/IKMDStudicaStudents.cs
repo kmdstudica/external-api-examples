@@ -39,12 +39,6 @@ namespace Kmd.Studica.Students.Client
         /// </summary>
         ServiceClientCredentials Credentials { get; }
 
-
-        /// <summary>
-        /// Gets the IAggregateExistsExternal.
-        /// </summary>
-        IAggregateExistsExternal AggregateExistsExternal { get; }
-
         /// <summary>
         /// Gets the IBulkStudentsExternal.
         /// </summary>

@@ -46,11 +46,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         IActiveDepartmentsExternal ActiveDepartmentsExternal { get; }
 
         /// <summary>
-        /// Gets the IAggregateExistsExternal.
-        /// </summary>
-        IAggregateExistsExternal AggregateExistsExternal { get; }
-
-        /// <summary>
         /// Gets the IAreasOfResponsibilityExternal.
         /// </summary>
         IAreasOfResponsibilityExternal AreasOfResponsibilityExternal { get; }
@@ -89,11 +84,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// Gets the IEmployeesExternal.
         /// </summary>
         IEmployeesExternal EmployeesExternal { get; }
-
-        /// <summary>
-        /// Gets the IFindSchoolHourEntryExternal.
-        /// </summary>
-        IFindSchoolHourEntryExternal FindSchoolHourEntryExternal { get; }
 
         /// <summary>
         /// Gets the IRoomsExternal.

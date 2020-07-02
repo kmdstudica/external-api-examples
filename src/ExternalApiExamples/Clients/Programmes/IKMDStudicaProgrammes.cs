@@ -46,11 +46,6 @@ namespace Kmd.Studica.Programmes.Client
         IAbsenceRegistrationsExternal AbsenceRegistrationsExternal { get; }
 
         /// <summary>
-        /// Gets the IAggregateExistsExternal.
-        /// </summary>
-        IAggregateExistsExternal AggregateExistsExternal { get; }
-
-        /// <summary>
         /// Gets the IBulkEducationalProgrammesExternal.
         /// </summary>
         IBulkEducationalProgrammesExternal BulkEducationalProgrammesExternal { get; }

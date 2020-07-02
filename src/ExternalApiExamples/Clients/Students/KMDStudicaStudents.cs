@@ -40,11 +40,6 @@ namespace Kmd.Studica.Students.Client
         public ServiceClientCredentials Credentials { get; private set; }
 
         /// <summary>
-        /// Gets the IAggregateExistsExternal.
-        /// </summary>
-        public virtual IAggregateExistsExternal AggregateExistsExternal { get; private set; }
-
-        /// <summary>
         /// Gets the IBulkStudentsExternal.
         /// </summary>
         public virtual IBulkStudentsExternal BulkStudentsExternal { get; private set; }
@@ -295,7 +290,6 @@ namespace Kmd.Studica.Students.Client
         /// </summary>
         private void Initialize()
         {
-            AggregateExistsExternal = new AggregateExistsExternal(this);
             BulkStudentsExternal = new BulkStudentsExternal(this);
             StudentsExternal = new StudentsExternal(this);
             BaseUri = new System.Uri("https://gateway.kmdlogic.io/studica-demo/students/v1");

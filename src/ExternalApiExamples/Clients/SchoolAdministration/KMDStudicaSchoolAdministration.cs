@@ -45,11 +45,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         public virtual IActiveDepartmentsExternal ActiveDepartmentsExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IAggregateExistsExternal.
-        /// </summary>
-        public virtual IAggregateExistsExternal AggregateExistsExternal { get; private set; }
-
-        /// <summary>
         /// Gets the IAreasOfResponsibilityExternal.
         /// </summary>
         public virtual IAreasOfResponsibilityExternal AreasOfResponsibilityExternal { get; private set; }
@@ -88,11 +83,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// Gets the IEmployeesExternal.
         /// </summary>
         public virtual IEmployeesExternal EmployeesExternal { get; private set; }
-
-        /// <summary>
-        /// Gets the IFindSchoolHourEntryExternal.
-        /// </summary>
-        public virtual IFindSchoolHourEntryExternal FindSchoolHourEntryExternal { get; private set; }
 
         /// <summary>
         /// Gets the IRoomsExternal.
@@ -356,7 +346,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         private void Initialize()
         {
             ActiveDepartmentsExternal = new ActiveDepartmentsExternal(this);
-            AggregateExistsExternal = new AggregateExistsExternal(this);
             AreasOfResponsibilityExternal = new AreasOfResponsibilityExternal(this);
             BulkAreasOfResponsibilityExternal = new BulkAreasOfResponsibilityExternal(this);
             BulkDepartmentsExternal = new BulkDepartmentsExternal(this);
@@ -365,7 +354,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
             DayCalendarsExternal = new DayCalendarsExternal(this);
             DepartmentsExternal = new DepartmentsExternal(this);
             EmployeesExternal = new EmployeesExternal(this);
-            FindSchoolHourEntryExternal = new FindSchoolHourEntryExternal(this);
             RoomsExternal = new RoomsExternal(this);
             SchoolHourEntriesExternal = new SchoolHourEntriesExternal(this);
             SchoolHourEntryStartAndEndTimeExternal = new SchoolHourEntryStartAndEndTimeExternal(this);

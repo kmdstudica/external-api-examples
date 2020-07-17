@@ -14,37 +14,39 @@ namespace Kmd.Studica.Programmes.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// LessonExternalResponse
+    /// UnscheduledLessonExternalResponse
     /// </summary>
     /// <remarks>
     /// The model of lesson.
     /// </remarks>
-    public partial class LessonExternalResponse
+    public partial class UnscheduledLessonExternalResponse
     {
         /// <summary>
-        /// Initializes a new instance of the LessonExternalResponse class.
+        /// Initializes a new instance of the UnscheduledLessonExternalResponse
+        /// class.
         /// </summary>
-        public LessonExternalResponse()
+        public UnscheduledLessonExternalResponse()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the LessonExternalResponse class.
+        /// Initializes a new instance of the UnscheduledLessonExternalResponse
+        /// class.
         /// </summary>
         /// <param name="id">Unique identifier.</param>
         /// <param name="subjectCourseId">Reference to the subject course that
         /// lesson is part of.</param>
-        /// <param name="date">Date of the lesson.</param>
         /// <param name="externalLessonId">External identifier set by partners
         /// to allow them to match it with the lessons known by them.</param>
         /// <param name="name">Name of the lesson.</param>
         /// <param name="roomId">Reference to the room where lesson is
         /// conducted.</param>
+        /// <param name="date">Date of the lesson.</param>
         /// <param name="startTime">Start time of the lesson.</param>
         /// <param name="endTime">End time of the lesson.</param>
         /// <param name="teachersIds">Teachers assigned to the lesson.</param>
-        public LessonExternalResponse(System.Guid id, System.Guid subjectCourseId, System.DateTime date, string externalLessonId = default(string), string name = default(string), System.Guid? roomId = default(System.Guid?), string startTime = default(string), string endTime = default(string), IList<System.Guid> teachersIds = default(IList<System.Guid>))
+        public UnscheduledLessonExternalResponse(System.Guid id, System.Guid subjectCourseId, string externalLessonId = default(string), string name = default(string), System.Guid? roomId = default(System.Guid?), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), IList<System.Guid> teachersIds = default(IList<System.Guid>))
         {
             Id = id;
             ExternalLessonId = externalLessonId;
@@ -100,7 +102,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "date")]
-        public System.DateTime Date { get; set; }
+        public System.DateTime? Date { get; set; }
 
         /// <summary>
         /// Gets or sets start time of the lesson.

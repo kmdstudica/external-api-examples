@@ -46,6 +46,11 @@ namespace Kmd.Studica.Programmes.Client
         IAbsenceRegistrationsExternal AbsenceRegistrationsExternal { get; }
 
         /// <summary>
+        /// Gets the IAddLessonsExternal.
+        /// </summary>
+        IAddLessonsExternal AddLessonsExternal { get; }
+
+        /// <summary>
         /// Gets the IBulkEducationalProgrammesExternal.
         /// </summary>
         IBulkEducationalProgrammesExternal BulkEducationalProgrammesExternal { get; }
@@ -59,6 +64,21 @@ namespace Kmd.Studica.Programmes.Client
         /// Gets the IBulkSubjectCoursesExternal.
         /// </summary>
         IBulkSubjectCoursesExternal BulkSubjectCoursesExternal { get; }
+
+        /// <summary>
+        /// Gets the IDeleteLessonExternal.
+        /// </summary>
+        IDeleteLessonExternal DeleteLessonExternal { get; }
+
+        /// <summary>
+        /// Gets the IDeleteLessonsExternal.
+        /// </summary>
+        IDeleteLessonsExternal DeleteLessonsExternal { get; }
+
+        /// <summary>
+        /// Gets the IEditLessonExternal.
+        /// </summary>
+        IEditLessonExternal EditLessonExternal { get; }
 
         /// <summary>
         /// Gets the IEducationalProgrammesExternal.
@@ -76,14 +96,14 @@ namespace Kmd.Studica.Programmes.Client
         IRegisterAbsenceExternal RegisterAbsenceExternal { get; }
 
         /// <summary>
-        /// Gets the IRegisterLessonExternal.
-        /// </summary>
-        IRegisterLessonExternal RegisterLessonExternal { get; }
-
-        /// <summary>
         /// Gets the ISubjectCoursesExternal.
         /// </summary>
         ISubjectCoursesExternal SubjectCoursesExternal { get; }
+
+        /// <summary>
+        /// Gets the IUnscheduledLessonsExternal.
+        /// </summary>
+        IUnscheduledLessonsExternal UnscheduledLessonsExternal { get; }
 
         /// <param name='body'>
         /// </param>
@@ -124,6 +144,16 @@ namespace Kmd.Studica.Programmes.Client
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> Post3WithHttpMessagesAsync(SubjectCoursesExternalRequest body = default(SubjectCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <param name='body'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<PagedResponseUnscheduledLessonExternalResponse>> Post4WithHttpMessagesAsync(LessonsExternalRequest body = default(LessonsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

@@ -14,47 +14,42 @@ namespace Kmd.Studica.Programmes.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// RegisterLessonExternalCommand
+    /// NewLessonExternal
     /// </summary>
-    /// <remarks>
-    /// Creates new lesson.
-    /// </remarks>
-    public partial class RegisterLessonExternalCommand
+    public partial class NewLessonExternal
     {
         /// <summary>
-        /// Initializes a new instance of the RegisterLessonExternalCommand
-        /// class.
+        /// Initializes a new instance of the NewLessonExternal class.
         /// </summary>
-        public RegisterLessonExternalCommand()
+        public NewLessonExternal()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the RegisterLessonExternalCommand
-        /// class.
+        /// Initializes a new instance of the NewLessonExternal class.
         /// </summary>
         /// <param name="id">Identifier of the lesson.</param>
         /// <param name="subjectCourseId">The Id of the subject course this
         /// lesson is added to.</param>
         /// <param name="teacherIds">List of teacher' identifiers.</param>
+        /// <param name="externalLessonId">External identifier set by partners
+        /// to allow them to match it with the lessons known by them.</param>
         /// <param name="roomId">Identifier of the room where lesson is
         /// conducted.</param>
         /// <param name="date">Date of the lesson.</param>
         /// <param name="startTime">Start time of the lesson.</param>
         /// <param name="endTime">End time of the lesson.</param>
-        /// <param name="schoolCode">The school code for which command is
-        /// performed.</param>
-        public RegisterLessonExternalCommand(System.Guid id, System.Guid subjectCourseId, IList<System.Guid> teacherIds, System.Guid? roomId = default(System.Guid?), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), string schoolCode = default(string))
+        public NewLessonExternal(System.Guid id, System.Guid subjectCourseId, IList<System.Guid> teacherIds, string externalLessonId = default(string), System.Guid? roomId = default(System.Guid?), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string))
         {
             Id = id;
+            ExternalLessonId = externalLessonId;
+            SubjectCourseId = subjectCourseId;
             RoomId = roomId;
             Date = date;
             StartTime = startTime;
             EndTime = endTime;
-            SubjectCourseId = subjectCourseId;
             TeacherIds = teacherIds;
-            SchoolCode = schoolCode;
             CustomInit();
         }
 
@@ -68,6 +63,19 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets external identifier set by partners to allow them to
+        /// match it with the lessons known by them.
+        /// </summary>
+        [JsonProperty(PropertyName = "externalLessonId")]
+        public string ExternalLessonId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Id of the subject course this lesson is added to.
+        /// </summary>
+        [JsonProperty(PropertyName = "subjectCourseId")]
+        public System.Guid SubjectCourseId { get; set; }
 
         /// <summary>
         /// Gets or sets identifier of the room where lesson is conducted.
@@ -95,22 +103,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         public string EndTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the Id of the subject course this lesson is added to.
-        /// </summary>
-        [JsonProperty(PropertyName = "subjectCourseId")]
-        public System.Guid SubjectCourseId { get; set; }
-
-        /// <summary>
         /// Gets or sets list of teacher' identifiers.
         /// </summary>
         [JsonProperty(PropertyName = "teacherIds")]
         public IList<System.Guid> TeacherIds { get; set; }
-
-        /// <summary>
-        /// Gets or sets the school code for which command is performed.
-        /// </summary>
-        [JsonProperty(PropertyName = "schoolCode")]
-        public string SchoolCode { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -123,6 +119,13 @@ namespace Kmd.Studica.Programmes.Client.Models
             if (TeacherIds == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "TeacherIds");
+            }
+            if (ExternalLessonId != null)
+            {
+                if (ExternalLessonId.Length > 50)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "ExternalLessonId", 50);
+                }
             }
             if (StartTime != null)
             {

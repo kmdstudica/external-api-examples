@@ -14,9 +14,9 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// RegisterLessonExternal operations.
+    /// EditLessonExternal operations.
     /// </summary>
-    public partial interface IRegisterLessonExternal
+    public partial interface IEditLessonExternal
     {
         /// <param name='body'>
         /// </param>
@@ -29,6 +29,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> PostWithHttpMessagesAsync(RegisterLessonExternalCommand body = default(RegisterLessonExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PostWithHttpMessagesAsync(EditLessonExternalCommand body = default(EditLessonExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

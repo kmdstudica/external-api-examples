@@ -11,9 +11,9 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for LessonsExternal.
+    /// Extension methods for UnscheduledLessonsExternal.
     /// </summary>
-    public static partial class LessonsExternalExtensions
+    public static partial class UnscheduledLessonsExternalExtensions
     {
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -42,7 +42,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='hasExternalId'>
             /// Flag indicating if lesson contains external id.
             /// </param>
-            public static PagedResponseLessonExternalResponse Get(this ILessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?))
+            public static PagedResponseUnscheduledLessonExternalResponse Get(this IUnscheduledLessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?))
             {
                 return operations.GetAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, departmentId, hasExternalId).GetAwaiter().GetResult();
             }
@@ -77,7 +77,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseLessonExternalResponse> GetAsync(this ILessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseUnscheduledLessonExternalResponse> GetAsync(this IUnscheduledLessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, departmentId, hasExternalId, null, cancellationToken).ConfigureAwait(false))
                 {

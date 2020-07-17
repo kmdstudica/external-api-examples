@@ -60,7 +60,7 @@ namespace ExternalApiExamples
             await new EducationalProgrammesExample(tokenProvider, configuration).Execute();
             await new EducationalProgrammesExample(tokenProvider, configuration).ExecuteBulk();
             await new LessonsExample(tokenProvider, configuration).Execute();
-            await new LessonsExample(tokenProvider, configuration).ExecuteRegisterLesson();
+            await new LessonsExample(tokenProvider, configuration).ExecuteEditLesson();
             await new LessonsExample(tokenProvider, configuration).ExecuteBulk();
             await new SubjectCoursesExample(tokenProvider, configuration).Execute();
             await new SubjectCoursesExample(tokenProvider, configuration).ExecuteBulk();

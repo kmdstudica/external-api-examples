@@ -18,12 +18,12 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// RegisterLessonExternal operations.
+    /// DeleteLessonsExternal operations.
     /// </summary>
-    public partial class RegisterLessonExternal : IServiceOperations<KMDStudicaProgrammes>, IRegisterLessonExternal
+    public partial class DeleteLessonsExternal : IServiceOperations<KMDStudicaProgrammes>, IDeleteLessonsExternal
     {
         /// <summary>
-        /// Initializes a new instance of the RegisterLessonExternal class.
+        /// Initializes a new instance of the DeleteLessonsExternal class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -31,7 +31,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public RegisterLessonExternal(KMDStudicaProgrammes client)
+        public DeleteLessonsExternal(KMDStudicaProgrammes client)
         {
             if (client == null)
             {
@@ -59,7 +59,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostWithHttpMessagesAsync(RegisterLessonExternalCommand body = default(RegisterLessonExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostWithHttpMessagesAsync(DeleteLessonsExternalCommand body = default(DeleteLessonsExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body != null)
             {
@@ -78,7 +78,7 @@ namespace Kmd.Studica.Programmes.Client
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "RegisterLessonExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "DeleteLessonsExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;

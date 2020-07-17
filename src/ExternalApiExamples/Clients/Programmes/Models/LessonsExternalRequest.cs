@@ -41,11 +41,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// data.</param>
         /// <param name="departmentId">Department where the lesson is
         /// conducted.</param>
-        public LessonsExternalRequest(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?))
+        /// <param name="hasExternalId">Flag indicating if lesson contains
+        /// external id.</param>
+        public LessonsExternalRequest(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?))
         {
             DepartmentId = departmentId;
             DateFrom = dateFrom;
             DateTo = dateTo;
+            HasExternalId = hasExternalId;
             PageNumber = pageNumber;
             PageSize = pageSize;
             InlineCount = inlineCount;
@@ -77,6 +80,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "dateTo")]
         public System.DateTime DateTo { get; set; }
+
+        /// <summary>
+        /// Gets or sets flag indicating if lesson contains external id.
+        /// </summary>
+        [JsonProperty(PropertyName = "hasExternalId")]
+        public bool? HasExternalId { get; set; }
 
         /// <summary>
         /// Gets or sets the number of the page to return (1 is the first

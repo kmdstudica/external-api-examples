@@ -47,17 +47,17 @@ namespace ExternalApiExamples
                 .Write();
         }
 
-        public async Task ExecuteRegisterLesson()
+        public async Task ExecuteEditLesson()
         {
-            Console.WriteLine("Register lesson example");
+            Console.WriteLine("Edit lesson example");
 
             using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
             programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
                 ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
                 : new Uri(configuration.ProgrammesBaseUri);
 
-            var result = await programmesClient.RegisterLessonExternal.PostWithHttpMessagesAsync(
-                body: new RegisterLessonExternalCommand(
+            var result = await programmesClient.EditLessonExternal.PostWithHttpMessagesAsync(
+                body: new EditLessonExternalCommand(
                     id: Guid.NewGuid(),
                     subjectCourseId: Guid.NewGuid(),
                     roomId: Guid.NewGuid(),
@@ -72,9 +72,9 @@ namespace ExternalApiExamples
                 });
 
             if (result.Response.IsSuccessStatusCode)
-                Console.WriteLine("[Register lesson] Successfully added new lesson");
+                Console.WriteLine("[Edit lesson] Successfully added new lesson");
             else
-                Console.WriteLine("[Register lesson] Couldn't add new lesson");
+                Console.WriteLine("[Edit lesson] Couldn't add new lesson");
         }
 
         public async Task ExecuteBulk()

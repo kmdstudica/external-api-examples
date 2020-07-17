@@ -59,9 +59,13 @@ namespace ExternalApiExamples
             // Programmes API examples
             await new EducationalProgrammesExample(tokenProvider, configuration).Execute();
             await new EducationalProgrammesExample(tokenProvider, configuration).ExecuteBulk();
-            await new LessonsExample(tokenProvider, configuration).Execute();
+            await new LessonsExample(tokenProvider, configuration).ExecuteGet();
+            await new LessonsExample(tokenProvider, configuration).ExecuteGetBulk();
+            await new LessonsExample(tokenProvider, configuration).ExecuteGetUnscheduled();
+            await new LessonsExample(tokenProvider, configuration).ExecuteAddLessons();
             await new LessonsExample(tokenProvider, configuration).ExecuteEditLesson();
-            await new LessonsExample(tokenProvider, configuration).ExecuteBulk();
+            await new LessonsExample(tokenProvider, configuration).ExecuteDeleteLesson();
+            await new LessonsExample(tokenProvider, configuration).ExecuteDeleteLessons();
             await new SubjectCoursesExample(tokenProvider, configuration).Execute();
             await new SubjectCoursesExample(tokenProvider, configuration).ExecuteBulk();
         }

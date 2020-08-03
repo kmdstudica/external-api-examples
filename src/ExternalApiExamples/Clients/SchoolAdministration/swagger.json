@@ -29,8 +29,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
+            "maximum": 2147483647.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -39,8 +39,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
+            "maximum": 1000.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -69,7 +69,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
@@ -108,114 +108,7 @@
         },
         "security": [
           {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/AggregateExistsExternal": {
-      "get": {
-        "tags": [
-          "AggregateExistsExternal"
-        ],
-        "operationId": "AggregateExistsExternal_Get",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          },
-          {
-            "in": "query",
-            "name": "TableName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "IdColumn",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "Id",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "in": "query",
-            "name": "Filter",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "None",
-              "SchoolCode",
-              "InstitutionNumber"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "type": "boolean",
-              "x-nullable": false
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "AggregateExistsExternal"
-        ],
-        "operationId": "_AggregateExistsExternal_Post",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AggregateExistsExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "type": "boolean",
-              "x-nullable": false
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -239,8 +132,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
+            "maximum": 2147483647.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -249,8 +142,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
+            "maximum": 1000.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -279,7 +172,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
@@ -318,7 +211,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -363,7 +256,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -408,7 +301,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -453,7 +346,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -498,7 +391,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -522,8 +415,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
+            "maximum": 2147483647.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -532,8 +425,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
+            "maximum": 1000.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -562,7 +455,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
@@ -601,7 +494,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -639,8 +532,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
+            "maximum": 2147483647.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -649,8 +542,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
+            "maximum": 1000.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -679,7 +572,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
@@ -718,7 +611,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -757,8 +650,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
+            "maximum": 2147483647.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -767,8 +660,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
+            "maximum": 1000.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -797,7 +690,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
@@ -836,111 +729,7 @@
         },
         "security": [
           {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/FindSchoolHourEntryExternal": {
-      "get": {
-        "tags": [
-          "FindSchoolHourEntryExternal"
-        ],
-        "operationId": "FindSchoolHourEntryExternal_Get",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "SchoolHoursPlanId",
-            "description": "The identifier of School Hours Plan.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "in": "query",
-            "name": "StartTime",
-            "description": "Start time of lecture.",
-            "required": true,
-            "type": "string",
-            "format": "time",
-            "pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]"
-          },
-          {
-            "in": "query",
-            "name": "EndTime",
-            "description": "End time of lecture.",
-            "required": true,
-            "type": "string",
-            "format": "time",
-            "pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]"
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "FindSchoolHourEntryExternal"
-        ],
-        "operationId": "_FindSchoolHourEntryExternal_Post",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/FindSchoolHourEntryExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -971,8 +760,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
+            "maximum": 2147483647.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -981,8 +770,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
+            "maximum": 1000.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -1011,7 +800,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
@@ -1050,7 +839,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -1074,8 +863,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
+            "maximum": 2147483647.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -1084,8 +873,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
+            "maximum": 1000.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -1114,7 +903,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
@@ -1153,91 +942,7 @@
         },
         "security": [
           {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/SchoolHourEntryStartAndEndTimeExternal": {
-      "get": {
-        "tags": [
-          "SchoolHourEntryStartAndEndTimeExternal"
-        ],
-        "operationId": "SchoolHourEntryStartAndEndTimeExternal_Get",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "SchoolHourEntryId",
-            "description": "The school hour entry id to get start and end time for",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/SchoolHourEntryStartAndEndTimeExternalDto"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "SchoolHourEntryStartAndEndTimeExternal"
-        ],
-        "operationId": "_SchoolHourEntryStartAndEndTimeExternal_Post",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SchoolHourEntryStartAndEndTimeExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/SchoolHourEntryStartAndEndTimeExternalDto"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -1261,8 +966,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
+            "maximum": 2147483647.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -1271,8 +976,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
+            "maximum": 1000.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -1301,7 +1006,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
@@ -1340,7 +1045,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -1393,14 +1098,14 @@
           "format": "date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-31T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000"
+          "example": "2020-07-31T00:00:00.0000000"
         }
       }
     },
@@ -1418,16 +1123,16 @@
         "pageNumber": {
           "format": "int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
+          "maximum": 2147483647.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
           "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
+          "maximum": 1000.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
@@ -1442,44 +1147,6 @@
           "maxLength": 6,
           "minLength": 6,
           "type": "string"
-        }
-      }
-    },
-    "AggregateExistsExternalRequest": {
-      "title": "AggregateExistsExternalRequest",
-      "required": [
-        "schoolCode",
-        "tableName",
-        "idColumn",
-        "id",
-        "filter"
-      ],
-      "type": "object",
-      "properties": {
-        "schoolCode": {
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        },
-        "tableName": {
-          "type": "string"
-        },
-        "idColumn": {
-          "type": "string"
-        },
-        "id": {
-          "format": "uuid",
-          "type": "string",
-          "x-nullable": false
-        },
-        "filter": {
-          "enum": [
-            "None",
-            "SchoolCode",
-            "InstitutionNumber"
-          ],
-          "type": "string",
-          "x-nullable": false
         }
       }
     },
@@ -1529,14 +1196,14 @@
           "format": "date",
           "description": "Start date of the area of responsibility.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-31T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of the area of responsibiliity.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000"
+          "example": "2020-07-31T00:00:00.0000000"
         },
         "responsibleEmployeeId": {
           "format": "uuid",
@@ -1559,16 +1226,16 @@
         "pageNumber": {
           "format": "int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
+          "maximum": 2147483647.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
           "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
+          "maximum": 1000.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
@@ -1725,6 +1392,10 @@
           "description": "Gets employee protected surname.",
           "type": "string"
         },
+        "initials": {
+          "description": "Gets employee initials.",
+          "type": "string"
+        },
         "email": {
           "description": "Gets employee e-mail address.",
           "type": "string"
@@ -1762,14 +1433,14 @@
           "format": "date",
           "description": "Gets employee start date.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-31T00:00:00.0000000",
           "x-nullable": false
         },
         "employmentResignationDate": {
           "format": "date",
           "description": "Gets employee resignation date.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000"
+          "example": "2020-07-31T00:00:00.0000000"
         },
         "areaOfResponsibilityId": {
           "format": "uuid",
@@ -1983,7 +1654,7 @@
           "format": "date",
           "description": "Date of the school day.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-31T00:00:00.0000000",
           "x-nullable": false
         },
         "isSchoolDay": {
@@ -2011,16 +1682,16 @@
         "pageNumber": {
           "format": "int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
+          "maximum": 2147483647.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
           "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
+          "maximum": 1000.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
@@ -2053,27 +1724,27 @@
           "format": "date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000"
+          "example": "2020-07-31T00:00:00.0000000"
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000"
+          "example": "2020-07-31T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
+          "maximum": 2147483647.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
           "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
+          "maximum": 1000.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
@@ -2127,28 +1798,28 @@
           "format": "date",
           "description": "Beginning of range for start date employment.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000"
+          "example": "2020-07-31T00:00:00.0000000"
         },
         "employmentStartDateTo": {
           "format": "date",
           "description": "End of range for start date employment.",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-07-31T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
           "format": "int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
+          "maximum": 2147483647.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
           "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
+          "maximum": 1000.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
@@ -2156,47 +1827,6 @@
           "description": "A flag indicating if total number of items should be included.",
           "default": true,
           "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "FindSchoolHourEntryExternalRequest": {
-      "title": "FindSchoolHourEntryExternalRequest",
-      "description": "Returns ID of lecture school entry that match criteria.",
-      "required": [
-        "schoolHoursPlanId",
-        "startTime",
-        "endTime",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "schoolHoursPlanId": {
-          "format": "uuid",
-          "description": "The identifier of School Hours Plan.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "startTime": {
-          "format": "time",
-          "description": "Start time of lecture.",
-          "pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
-          "type": "string",
-          "example": "14:15",
-          "x-nullable": false
-        },
-        "endTime": {
-          "format": "time",
-          "description": "End time of lecture.",
-          "pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
-          "type": "string",
-          "example": "14:15",
           "x-nullable": false
         },
         "schoolCode": {
@@ -2246,16 +1876,16 @@
         "pageNumber": {
           "format": "int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
+          "maximum": 2147483647.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
           "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
+          "maximum": 1000.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
@@ -2325,8 +1955,8 @@
         "duration": {
           "format": "int32",
           "description": "Duration of this entry, only valid for breaks.",
-          "maximum": 1440,
-          "minimum": 1,
+          "maximum": 1440.0,
+          "minimum": 1.0,
           "type": "integer"
         }
       }
@@ -2345,16 +1975,16 @@
         "pageNumber": {
           "format": "int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
+          "maximum": 2147483647.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
           "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
+          "maximum": 1000.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
@@ -2362,47 +1992,6 @@
           "description": "A flag indicating if total number of items should be included.",
           "default": true,
           "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "SchoolHourEntryStartAndEndTimeExternalDto": {
-      "title": "SchoolHourEntryStartAndEndTimeExternalDto",
-      "type": "object",
-      "properties": {
-        "startTime": {
-          "format": "time",
-          "pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
-          "type": "string",
-          "example": "14:15"
-        },
-        "endTime": {
-          "format": "time",
-          "pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
-          "type": "string",
-          "example": "14:15"
-        }
-      }
-    },
-    "SchoolHourEntryStartAndEndTimeExternalRequest": {
-      "title": "SchoolHourEntryStartAndEndTimeExternalRequest",
-      "description": "Get the start and end time for a school hour entry",
-      "required": [
-        "schoolHourEntryId",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "schoolHourEntryId": {
-          "format": "uuid",
-          "description": "The school hour entry id to get start and end time for",
-          "type": "string",
           "x-nullable": false
         },
         "schoolCode": {
@@ -2468,8 +2057,8 @@
         "lectureDurationInMinutes": {
           "format": "int32",
           "description": "Duration of a lecture in minutes.",
-          "maximum": 1440,
-          "minimum": 1,
+          "maximum": 1440.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
@@ -2524,16 +2113,16 @@
         "pageNumber": {
           "format": "int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
+          "maximum": 2147483647.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
           "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
+          "maximum": 1000.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },

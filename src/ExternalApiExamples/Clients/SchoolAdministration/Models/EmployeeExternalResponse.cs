@@ -49,6 +49,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// name.</param>
         /// <param name="protectedSurname">Gets employee protected
         /// surname.</param>
+        /// <param name="initials">Gets employee initials.</param>
         /// <param name="phoneNumber">Gets employee phone number.</param>
         /// <param name="uniLoginUsername">Gets employee Unilogin
         /// username.</param>
@@ -69,7 +70,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="city">Gets employee city.</param>
         /// <param name="postalCode">Gets employee postal code.</param>
         /// <param name="country">Gets employee country.</param>
-        public EmployeeExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, bool lmsIndicator, string givenName, string surname, string email, bool deceased, System.DateTime employmentStartDate, string protectedGivenName = default(string), string protectedSurname = default(string), string phoneNumber = default(string), string uniLoginUsername = default(string), string adUserName = default(string), IList<string> roleNames = default(IList<string>), string jobTitle = default(string), System.DateTime? employmentResignationDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), IList<System.Guid> departmentIds = default(IList<System.Guid>), string addressLine = default(string), string careOfAddressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string))
+        public EmployeeExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, bool lmsIndicator, string givenName, string surname, string email, bool deceased, System.DateTime employmentStartDate, string protectedGivenName = default(string), string protectedSurname = default(string), string initials = default(string), string phoneNumber = default(string), string uniLoginUsername = default(string), string adUserName = default(string), IList<string> roleNames = default(IList<string>), string jobTitle = default(string), System.DateTime? employmentResignationDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), IList<System.Guid> departmentIds = default(IList<System.Guid>), string addressLine = default(string), string careOfAddressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string))
         {
             Id = id;
             CivilRegistrationNumber = civilRegistrationNumber;
@@ -79,6 +80,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             Surname = surname;
             ProtectedGivenName = protectedGivenName;
             ProtectedSurname = protectedSurname;
+            Initials = initials;
             Email = email;
             PhoneNumber = phoneNumber;
             Deceased = deceased;
@@ -151,6 +153,12 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "protectedSurname")]
         public string ProtectedSurname { get; set; }
+
+        /// <summary>
+        /// Gets employee initials.
+        /// </summary>
+        [JsonProperty(PropertyName = "initials")]
+        public string Initials { get; set; }
 
         /// <summary>
         /// Gets employee e-mail address.

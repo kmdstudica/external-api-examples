@@ -12,26 +12,26 @@ namespace Kmd.Studica.Students.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// Student_Type
+    /// Study_StudentType
     /// </summary>
-    public partial class StudentType
+    public partial class StudyStudentType
     {
         /// <summary>
-        /// Initializes a new instance of the StudentType class.
+        /// Initializes a new instance of the StudyStudentType class.
         /// </summary>
-        public StudentType()
+        public StudyStudentType()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the StudentType class.
+        /// Initializes a new instance of the StudyStudentType class.
         /// </summary>
         /// <param name="id">The student type</param>
         /// <param name="validFrom">The date from which the studenttype is
         /// valid</param>
         /// <param name="validTo">The end date of the studenttype</param>
-        public StudentType(System.Guid id, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?))
+        public StudyStudentType(System.Guid id, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?))
         {
             Id = id;
             ValidFrom = validFrom;

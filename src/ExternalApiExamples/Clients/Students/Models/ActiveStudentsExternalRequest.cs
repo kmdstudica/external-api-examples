@@ -12,26 +12,29 @@ namespace Kmd.Studica.Students.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// StudentsExternalRequest
+    /// ActiveStudentsExternalRequest
     /// </summary>
     /// <remarks>
     /// Returns a paged list of students for given criteria.
     /// </remarks>
-    public partial class StudentsExternalRequest
+    public partial class ActiveStudentsExternalRequest
     {
         /// <summary>
-        /// Initializes a new instance of the StudentsExternalRequest class.
+        /// Initializes a new instance of the ActiveStudentsExternalRequest
+        /// class.
         /// </summary>
-        public StudentsExternalRequest()
+        public ActiveStudentsExternalRequest()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the StudentsExternalRequest class.
+        /// Initializes a new instance of the ActiveStudentsExternalRequest
+        /// class.
         /// </summary>
-        /// <param name="studyStartDateTo">End of range for start date of the
-        /// students study.</param>
+        /// <param name="studentActiveOnOrAfterDate">Students must be active on
+        /// the date or after this date
+        /// This parameter is required</param>
         /// <param name="pageNumber">The number of the page to return (1 is the
         /// first page).</param>
         /// <param name="pageSize">Number of objects per page.</param>
@@ -39,12 +42,9 @@ namespace Kmd.Studica.Students.Client.Models
         /// items should be included.</param>
         /// <param name="schoolCode">The school code for which to get
         /// data.</param>
-        /// <param name="studyStartDateFrom">Beginning of range for start date
-        /// of the students study.</param>
-        public StudentsExternalRequest(System.DateTime studyStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? studyStartDateFrom = default(System.DateTime?))
+        public ActiveStudentsExternalRequest(System.DateTime studentActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode)
         {
-            StudyStartDateFrom = studyStartDateFrom;
-            StudyStartDateTo = studyStartDateTo;
+            StudentActiveOnOrAfterDate = studentActiveOnOrAfterDate;
             PageNumber = pageNumber;
             PageSize = pageSize;
             InlineCount = inlineCount;
@@ -58,19 +58,12 @@ namespace Kmd.Studica.Students.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets beginning of range for start date of the students
-        /// study.
+        /// Gets or sets students must be active on the date or after this date
+        /// This parameter is required
         /// </summary>
         [JsonConverter(typeof(DateJsonConverter))]
-        [JsonProperty(PropertyName = "studyStartDateFrom")]
-        public System.DateTime? StudyStartDateFrom { get; set; }
-
-        /// <summary>
-        /// Gets or sets end of range for start date of the students study.
-        /// </summary>
-        [JsonConverter(typeof(DateJsonConverter))]
-        [JsonProperty(PropertyName = "studyStartDateTo")]
-        public System.DateTime StudyStartDateTo { get; set; }
+        [JsonProperty(PropertyName = "studentActiveOnOrAfterDate")]
+        public System.DateTime StudentActiveOnOrAfterDate { get; set; }
 
         /// <summary>
         /// Gets or sets the number of the page to return (1 is the first

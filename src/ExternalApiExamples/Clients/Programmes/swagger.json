@@ -59,8 +59,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
+            "maximum": 2147483647.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -69,8 +69,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
+            "maximum": 1000.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -99,7 +99,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
@@ -138,7 +138,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -174,7 +174,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -219,7 +219,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -264,7 +264,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -309,7 +309,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -345,7 +345,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -381,7 +381,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -417,7 +417,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -457,8 +457,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
+            "maximum": 2147483647.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -467,8 +467,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
+            "maximum": 1000.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -497,7 +497,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
@@ -536,7 +536,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -589,8 +589,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
+            "maximum": 2147483647.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -599,8 +599,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
+            "maximum": 1000.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -629,7 +629,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
@@ -668,7 +668,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -704,7 +704,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -750,8 +750,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
+            "maximum": 2147483647.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -760,8 +760,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
+            "maximum": 1000.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -790,7 +790,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
@@ -829,7 +829,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -882,8 +882,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
+            "maximum": 2147483647.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -892,8 +892,8 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
+            "maximum": 1000.0,
+            "minimum": 1.0
           },
           {
             "in": "query",
@@ -922,7 +922,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
@@ -961,7 +961,7 @@
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -1017,7 +1017,7 @@
           "format": "date",
           "description": "Date of absence.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "minutes": {
@@ -1070,29 +1070,29 @@
           "format": "date",
           "description": "Beginning of the range for absence date.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
           "format": "date",
           "description": "End of the range for absence date.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
           "format": "int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
+          "maximum": 2147483647.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
           "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
+          "maximum": 1000.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
@@ -1169,7 +1169,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000"
+          "example": "2020-08-10T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -1253,14 +1253,14 @@
           "format": "date",
           "description": "Start date of the educational programme.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "description": "End date for the educational programme.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1345,10 +1345,6 @@
           "description": "External identifier set by partners to allow them to match it with the lessons known by them.",
           "type": "string"
         },
-        "name": {
-          "description": "Name of the lesson.",
-          "type": "string"
-        },
         "subjectCourseId": {
           "format": "uuid",
           "description": "Reference to the subject course that lesson is part of.",
@@ -1364,7 +1360,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "startTime": {
@@ -1462,14 +1458,14 @@
           "format": "date",
           "description": "Start date of the subject course.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "description": "End date for the subject course.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -1526,14 +1522,14 @@
           "format": "date",
           "description": "Start date of the period.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "description": "End date of the period.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -1548,35 +1544,43 @@
       "properties": {
         "id": {
           "format": "uuid",
+          "description": "Unique identification of subject course",
           "type": "string",
           "x-nullable": false
         },
         "subject": {
+          "description": "Subject code (Fagnummer) from UMO",
           "type": "string"
         },
         "description": {
+          "description": "UVM subject description",
           "type": "string"
         },
         "startDate": {
           "format": "date",
+          "description": "Possible start date of UVM subject",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000"
+          "example": "2020-08-10T00:00:00.0000000"
         },
         "endDate": {
           "format": "date",
+          "description": "Possible end date of UVM subject",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000"
+          "example": "2020-08-10T00:00:00.0000000"
         },
         "canOverwriteDuration": {
+          "description": "Is it possible to have a locally defined duration of this subject",
           "type": "boolean",
           "x-nullable": false
         },
         "durationInDays": {
           "format": "double",
+          "description": "Possible duration of subject in days. \r\nThis is used for EUD. \r\nCan be null. In this case look at Programmes.Host.ExternalApi.SubjectCourses.Queries.SubjectCourses.UVMSubjectDetails.DurationInHours",
           "type": "number"
         },
         "durationInHours": {
           "format": "double",
+          "description": "Possible duration of subject in hours. \r\nThis us used for Adult Education Center (VUC)\r\nCan be null. In this case look at Programmes.Host.ExternalApi.SubjectCourses.Queries.SubjectCourses.UVMSubjectDetails.DurationInDays",
           "type": "number"
         },
         "levelDetails": {
@@ -1695,7 +1699,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000"
+          "example": "2020-08-10T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -1769,29 +1773,29 @@
           "format": "date",
           "description": "Beginning of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
           "format": "date",
           "description": "End of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
           "format": "int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
+          "maximum": 2147483647.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
           "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
+          "maximum": 1000.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
@@ -1851,14 +1855,14 @@
           "format": "date",
           "description": "Beginning of range for lesson date.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
           "format": "date",
           "description": "End of range for lesson date.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "hasExternalId": {
@@ -1868,16 +1872,16 @@
         "pageNumber": {
           "format": "int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
+          "maximum": 2147483647.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
           "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
+          "maximum": 1000.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
@@ -1954,7 +1958,7 @@
           "x-nullable": false
         },
         "status": {
-          "description": "Status of the absence registration.\r\n0 = Present\r\n1 = Absent\r\n2 = Partially absent",
+          "description": "Status of the absence registration:\r\n0 = Present\r\n1 = Absent\r\n2 = Partially absent",
           "enum": [
             "Present",
             "Absent",
@@ -1970,12 +1974,12 @@
           "x-nullable": false
         },
         "approved": {
-          "description": "Whether the absence was approved",
+          "description": "Whether the absence was approved.",
           "type": "boolean",
           "x-nullable": false
         },
         "comment": {
-          "description": "Comment regarding the absence.",
+          "description": "Educator's or optionally Administrative employee's comment regarding the absence.",
           "type": "string"
         }
       }
@@ -2017,14 +2021,14 @@
           "format": "date",
           "description": "Beginning of the range for start date subject courses.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
           "format": "date",
           "description": "End of the range for start date subject courses.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -2034,16 +2038,16 @@
         "pageNumber": {
           "format": "int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
+          "maximum": 2147483647.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
           "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
+          "maximum": 1000.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
@@ -2100,10 +2104,6 @@
           "description": "External identifier set by partners to allow them to match it with the lessons known by them.",
           "type": "string"
         },
-        "name": {
-          "description": "Name of the lesson.",
-          "type": "string"
-        },
         "subjectCourseId": {
           "format": "uuid",
           "description": "Reference to the subject course that lesson is part of.",
@@ -2119,7 +2119,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-07-17T00:00:00.0000000"
+          "example": "2020-08-10T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",

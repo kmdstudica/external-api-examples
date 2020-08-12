@@ -10,12 +10,12 @@
     "https"
   ],
   "paths": {
-    "/AggregateExistsExternal": {
+    "/ActiveStudentsExternal": {
       "get": {
         "tags": [
-          "AggregateExistsExternal"
+          "ActiveStudentsExternal"
         ],
-        "operationId": "AggregateExistsExternal_Get",
+        "operationId": "ActiveStudentsExternal_Get",
         "produces": [
           "text/plain",
           "application/json",
@@ -24,63 +24,68 @@
         "parameters": [
           {
             "in": "query",
+            "name": "StudentActiveOnOrAfterDate",
+            "description": "Students must be active on the date or after this date\r\nThis parameter is required",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "in": "query",
+            "name": "PageNumber",
+            "description": "The number of the page to return (1 is the first page).",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 2147483647.0,
+            "minimum": 1.0
+          },
+          {
+            "in": "query",
+            "name": "PageSize",
+            "description": "Number of objects per page.",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 1000.0,
+            "minimum": 1.0
+          },
+          {
+            "in": "query",
+            "name": "InlineCount",
+            "description": "A flag indicating if total number of items should be included.",
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
             "name": "SchoolCode",
+            "description": "The school code for which to get data.",
             "required": true,
             "type": "string",
             "maxLength": 6,
             "minLength": 6
-          },
-          {
-            "in": "query",
-            "name": "TableName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "IdColumn",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "Id",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "in": "query",
-            "name": "Filter",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "None",
-              "SchoolCode",
-              "InstitutionNumber"
-            ]
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
             "schema": {
-              "type": "boolean",
-              "x-nullable": false
+              "$ref": "#/definitions/PagedResponse_StudentExternalResponse"
             }
           }
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       },
       "post": {
         "tags": [
-          "AggregateExistsExternal"
+          "ActiveStudentsExternal"
         ],
-        "operationId": "_AggregateExistsExternal_Post",
+        "operationId": "_ActiveStudentsExternal_Post",
         "consumes": [
           "application/json-patch+json",
           "application/json",
@@ -97,7 +102,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "#/definitions/AggregateExistsExternalRequest"
+              "$ref": "#/definitions/ActiveStudentsExternalRequest"
             }
           }
         ],
@@ -105,14 +110,13 @@
           "200": {
             "description": "Success",
             "schema": {
-              "type": "boolean",
-              "x-nullable": false
+              "$ref": "#/definitions/PagedResponse_StudentExternalResponse"
             }
           }
         },
         "security": [
           {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
@@ -157,195 +161,30 @@
         },
         "security": [
           {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/StudentsExternal": {
-      "get": {
-        "tags": [
-          "StudentsExternal"
-        ],
-        "operationId": "StudentsExternal_Get",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "StudyStartDateFrom",
-            "description": "Beginning of range for start date of the students study.",
-            "type": "string",
-            "format": "date"
-          },
-          {
-            "in": "query",
-            "name": "StudyStartDateTo",
-            "description": "End of range for start date of the students study.",
-            "required": true,
-            "type": "string",
-            "format": "date"
-          },
-          {
-            "in": "query",
-            "name": "PageNumber",
-            "description": "The number of the page to return (1 is the first page).",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1
-          },
-          {
-            "in": "query",
-            "name": "PageSize",
-            "description": "Number of objects per page.",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 1000,
-            "minimum": 1
-          },
-          {
-            "in": "query",
-            "name": "InlineCount",
-            "description": "A flag indicating if total number of items should be included.",
-            "required": true,
-            "type": "boolean"
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_StudentExternalResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "StudentsExternal"
-        ],
-        "operationId": "_StudentsExternal_Post",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/StudentsExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_StudentExternalResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
+            "Bearer": [ ]
           }
         ]
       }
     }
   },
   "definitions": {
-    "AggregateExistsExternalRequest": {
-      "title": "AggregateExistsExternalRequest",
-      "required": [
-        "schoolCode",
-        "tableName",
-        "idColumn",
-        "id",
-        "filter"
-      ],
+    "PagedResponse_StudentExternalResponse": {
       "type": "object",
       "properties": {
-        "schoolCode": {
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        },
-        "tableName": {
-          "type": "string"
-        },
-        "idColumn": {
-          "type": "string"
-        },
-        "id": {
-          "format": "uuid",
-          "type": "string",
-          "x-nullable": false
-        },
-        "filter": {
-          "enum": [
-            "None",
-            "SchoolCode",
-            "InstitutionNumber"
-          ],
-          "type": "string",
-          "x-nullable": false
-        }
-      }
-    },
-    "BulkStudentsExternalRequest": {
-      "title": "BulkStudentsExternalRequest",
-      "description": "Returns a paged list of students for given criteria.",
-      "required": [
-        "studentIds",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "studentIds": {
-          "description": "Student ids for bulk query.",
-          "maxLength": 1000,
-          "minLength": 1,
+        "items": {
+          "description": "Page of items",
           "uniqueItems": false,
           "type": "array",
           "items": {
-            "format": "uuid",
-            "type": "string",
-            "x-nullable": false
-          }
+            "$ref": "#/definitions/StudentExternalResponse"
+          },
+          "readOnly": true
         },
-        "schoolCode": {
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
+          "type": "integer",
+          "readOnly": true
         }
       }
     },
@@ -357,10 +196,8 @@
         "civilRegistrationNumber",
         "protectedNameAndAddress",
         "email",
-        "studyStartDate",
-        "departmentId",
-        "studentTypes",
-        "guardians"
+        "guardians",
+        "studies"
       ],
       "type": "object",
       "properties": {
@@ -371,7 +208,7 @@
           "x-nullable": false
         },
         "civilRegistrationNumber": {
-          "description": "Student's civil registration number.",
+          "description": "Student's civil registration (CPR) number.",
           "type": "string"
         },
         "givenName": {
@@ -431,44 +268,9 @@
           "description": "Student's Unilogin username.",
           "type": "string"
         },
-        "studyStartDate": {
-          "format": "date",
-          "description": "Study date of start.",
-          "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "studyEndDate": {
-          "format": "date",
-          "description": "Study date of end.",
-          "type": "string",
-          "example": "2020-07-01T00:00:00.0000000"
-        },
-        "departmentId": {
-          "format": "uuid",
-          "description": "Id of the department that student is affiliated to.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "dsDepartmentNumber": {
-          "description": "DS Department number that student is affiliated to.",
-          "type": "string"
-        },
-        "studyEndCause": {
-          "description": "Cause of study ending.",
-          "type": "string"
-        },
         "adUsername": {
           "description": "Student's Active Directory username.",
           "type": "string"
-        },
-        "studentTypes": {
-          "description": "StudentTypes associated with the student.",
-          "uniqueItems": false,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Student_Type"
-          }
         },
         "guardians": {
           "description": "The student's guardian(s).",
@@ -477,35 +279,14 @@
           "items": {
             "$ref": "#/definitions/Student_Guardian"
           }
-        }
-      }
-    },
-    "Student_Type": {
-      "title": "Student_Type",
-      "required": [
-        "id",
-        "validFrom"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "description": "The student type",
-          "type": "string",
-          "x-nullable": false
         },
-        "validFrom": {
-          "format": "date",
-          "description": "The date from which the studenttype is valid",
-          "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "validTo": {
-          "format": "date",
-          "description": "The end date of the studenttype",
-          "type": "string",
-          "example": "2020-07-01T00:00:00.0000000"
+        "studies": {
+          "description": "The studies (educations) the student is attending or has finished",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Student_Study"
+          }
         }
       }
     },
@@ -523,7 +304,7 @@
           "x-nullable": false
         },
         "civilRegistrationNumber": {
-          "description": "The guardian's Civil Registration number.",
+          "description": "The guardian's Civil Registration (CPR) number.",
           "type": "string"
         },
         "role": {
@@ -591,31 +372,151 @@
         }
       }
     },
-    "PagedResponse_StudentExternalResponse": {
+    "Student_Study": {
+      "title": "Student_Study",
+      "required": [
+        "id",
+        "departmentId",
+        "educationId",
+        "studyStartDate",
+        "studentTypes"
+      ],
       "type": "object",
       "properties": {
-        "items": {
-          "description": "Page of items",
+        "id": {
+          "format": "uuid",
+          "description": "The id of the study",
+          "type": "string",
+          "x-nullable": false
+        },
+        "departmentId": {
+          "format": "uuid",
+          "description": "Id of the department that student is affiliated to.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "dsDepartmentNumber": {
+          "description": "DS Department number that student is affiliated to.",
+          "type": "string"
+        },
+        "educationId": {
+          "format": "uuid",
+          "description": "Id of the education (from UMO) that the study is linked to",
+          "type": "string",
+          "x-nullable": false
+        },
+        "educationName": {
+          "description": "Name of the education from UMO",
+          "type": "string"
+        },
+        "coesa": {
+          "description": "CØSA number of education from UMO",
+          "type": "string"
+        },
+        "educationVersion": {
+          "description": "Education version from UMO",
+          "type": "string"
+        },
+        "studyStartDate": {
+          "format": "date",
+          "description": "Study date of start.",
+          "type": "string",
+          "example": "2020-08-10T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "studyExpectedCompletionDate": {
+          "format": "date",
+          "description": "Expected completion date of study.",
+          "type": "string",
+          "example": "2020-08-10T00:00:00.0000000"
+        },
+        "studyEndDate": {
+          "format": "date",
+          "description": "Study end date",
+          "type": "string",
+          "example": "2020-08-10T00:00:00.0000000"
+        },
+        "studyEndCauseId": {
+          "format": "uuid",
+          "description": "Id of study end cause",
+          "type": "string"
+        },
+        "studyEndCauseCode": {
+          "description": "The UMO code for ending the study",
+          "type": "string"
+        },
+        "studyEndCause": {
+          "description": "UMO description for cause for study end.",
+          "type": "string"
+        },
+        "studyCancellationCauseCode": {
+          "description": "The cancellation code for ending the study.",
+          "enum": [
+            "StudyNotStarted",
+            "Absence",
+            "Illness",
+            "EducationalRequirements",
+            "ChangedStudy",
+            "ChangedSchool",
+            "ChangedSchoolAndChangedStudy",
+            "Other",
+            "Unknown",
+            "Deceased",
+            "WrittenAgreementTerminated",
+            "CompletedGF2NotContinuing",
+            "NotPassedFinalExam",
+            "AdmissionExamNotPassedAndInterviewDenied",
+            "AdmissionExamNotPassedAndDidNotShowAtInterview",
+            "AdmissionInterviewNotPassed",
+            "AdmissionExamPassedButInterviewDenied",
+            "AdmissionExamPassedButDidNotShowAtInterview"
+          ],
+          "type": "string"
+        },
+        "studentTypes": {
+          "description": "StudentTypes associated with the student.",
           "uniqueItems": false,
           "type": "array",
           "items": {
-            "$ref": "#/definitions/StudentExternalResponse"
-          },
-          "readOnly": true
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer",
-          "readOnly": true
+            "$ref": "#/definitions/Study_StudentType"
+          }
         }
       }
     },
-    "StudentsExternalRequest": {
-      "title": "StudentsExternalRequest",
+    "Study_StudentType": {
+      "title": "Study_StudentType",
+      "required": [
+        "id",
+        "validFrom"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "description": "The student type",
+          "type": "string",
+          "x-nullable": false
+        },
+        "validFrom": {
+          "format": "date",
+          "description": "The date from which the studenttype is valid",
+          "type": "string",
+          "example": "2020-08-10T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "validTo": {
+          "format": "date",
+          "description": "The end date of the studenttype",
+          "type": "string",
+          "example": "2020-08-10T00:00:00.0000000"
+        }
+      }
+    },
+    "ActiveStudentsExternalRequest": {
+      "title": "ActiveStudentsExternalRequest",
       "description": "Returns a paged list of students for given criteria.",
       "required": [
-        "studyStartDateTo",
+        "studentActiveOnOrAfterDate",
         "pageNumber",
         "pageSize",
         "inlineCount",
@@ -623,32 +524,26 @@
       ],
       "type": "object",
       "properties": {
-        "studyStartDateFrom": {
+        "studentActiveOnOrAfterDate": {
           "format": "date",
-          "description": "Beginning of range for start date of the students study.",
+          "description": "Students must be active on the date or after this date\r\nThis parameter is required",
           "type": "string",
-          "example": "2020-07-01T00:00:00.0000000"
-        },
-        "studyStartDateTo": {
-          "format": "date",
-          "description": "End of range for start date of the students study.",
-          "type": "string",
-          "example": "2020-07-01T00:00:00.0000000",
+          "example": "2020-08-10T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
           "format": "int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
+          "maximum": 2147483647.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
           "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
+          "maximum": 1000.0,
+          "minimum": 1.0,
           "type": "integer",
           "x-nullable": false
         },
@@ -657,6 +552,35 @@
           "default": true,
           "type": "boolean",
           "x-nullable": false
+        },
+        "schoolCode": {
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
+    "BulkStudentsExternalRequest": {
+      "title": "BulkStudentsExternalRequest",
+      "description": "Returns a paged list of students for given criteria.",
+      "required": [
+        "studentIds",
+        "schoolCode"
+      ],
+      "type": "object",
+      "properties": {
+        "studentIds": {
+          "description": "Student ids for bulk query. Must contain 1 to 1000 elements",
+          "maxLength": 1000,
+          "minLength": 1,
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "x-nullable": false
+          }
         },
         "schoolCode": {
           "description": "The school code for which to get data.",

@@ -28,7 +28,7 @@ namespace Kmd.Studica.Students.Client.Models
         /// <param name="protectedNameAndAddress">Whether the guardian has name
         /// and address protection.</param>
         /// <param name="civilRegistrationNumber">The guardian's Civil
-        /// Registration number.</param>
+        /// Registration (CPR) number.</param>
         /// <param name="role">The guardian's role towards the student.
         /// Possible values include: 'Mother', 'Father', 'Other',
         /// 'OfficialAuthority'</param>
@@ -82,7 +82,7 @@ namespace Kmd.Studica.Students.Client.Models
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the guardian's Civil Registration number.
+        /// Gets or sets the guardian's Civil Registration (CPR) number.
         /// </summary>
         [JsonProperty(PropertyName = "civilRegistrationNumber")]
         public string CivilRegistrationNumber { get; set; }

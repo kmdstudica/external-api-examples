@@ -11,15 +11,16 @@ namespace Kmd.Studica.Students.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for StudentsExternal.
+    /// Extension methods for ActiveStudentsExternal.
     /// </summary>
-    public static partial class StudentsExternalExtensions
+    public static partial class ActiveStudentsExternalExtensions
     {
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='studyStartDateTo'>
-            /// End of range for start date of the students study.
+            /// <param name='studentActiveOnOrAfterDate'>
+            /// Students must be active on the date or after this date
+            /// This parameter is required
             /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
@@ -33,19 +34,17 @@ namespace Kmd.Studica.Students.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
-            /// <param name='studyStartDateFrom'>
-            /// Beginning of range for start date of the students study.
-            /// </param>
-            public static PagedResponseStudentExternalResponse Get(this IStudentsExternal operations, System.DateTime studyStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? studyStartDateFrom = default(System.DateTime?))
+            public static PagedResponseStudentExternalResponse Get(this IActiveStudentsExternal operations, System.DateTime studentActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode)
             {
-                return operations.GetAsync(studyStartDateTo, pageNumber, pageSize, inlineCount, schoolCode, studyStartDateFrom).GetAwaiter().GetResult();
+                return operations.GetAsync(studentActiveOnOrAfterDate, pageNumber, pageSize, inlineCount, schoolCode).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='studyStartDateTo'>
-            /// End of range for start date of the students study.
+            /// <param name='studentActiveOnOrAfterDate'>
+            /// Students must be active on the date or after this date
+            /// This parameter is required
             /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
@@ -59,15 +58,12 @@ namespace Kmd.Studica.Students.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
-            /// <param name='studyStartDateFrom'>
-            /// Beginning of range for start date of the students study.
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseStudentExternalResponse> GetAsync(this IStudentsExternal operations, System.DateTime studyStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? studyStartDateFrom = default(System.DateTime?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseStudentExternalResponse> GetAsync(this IActiveStudentsExternal operations, System.DateTime studentActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(studyStartDateTo, pageNumber, pageSize, inlineCount, schoolCode, studyStartDateFrom, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(studentActiveOnOrAfterDate, pageNumber, pageSize, inlineCount, schoolCode, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

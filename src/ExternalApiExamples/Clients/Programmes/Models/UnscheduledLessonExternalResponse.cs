@@ -39,18 +39,16 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// lesson is part of.</param>
         /// <param name="externalLessonId">External identifier set by partners
         /// to allow them to match it with the lessons known by them.</param>
-        /// <param name="name">Name of the lesson.</param>
         /// <param name="roomId">Reference to the room where lesson is
         /// conducted.</param>
         /// <param name="date">Date of the lesson.</param>
         /// <param name="startTime">Start time of the lesson.</param>
         /// <param name="endTime">End time of the lesson.</param>
         /// <param name="teachersIds">Teachers assigned to the lesson.</param>
-        public UnscheduledLessonExternalResponse(System.Guid id, System.Guid subjectCourseId, string externalLessonId = default(string), string name = default(string), System.Guid? roomId = default(System.Guid?), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), IList<System.Guid> teachersIds = default(IList<System.Guid>))
+        public UnscheduledLessonExternalResponse(System.Guid id, System.Guid subjectCourseId, string externalLessonId = default(string), System.Guid? roomId = default(System.Guid?), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), IList<System.Guid> teachersIds = default(IList<System.Guid>))
         {
             Id = id;
             ExternalLessonId = externalLessonId;
-            Name = name;
             SubjectCourseId = subjectCourseId;
             RoomId = roomId;
             Date = date;
@@ -77,12 +75,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "externalLessonId")]
         public string ExternalLessonId { get; set; }
-
-        /// <summary>
-        /// Gets or sets name of the lesson.
-        /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets reference to the subject course that lesson is part

@@ -47,7 +47,7 @@ namespace Kmd.Studica.Students.Client
         public KMDStudicaStudents Client { get; private set; }
 
         /// <param name='studentIds'>
-        /// Student ids for bulk query.
+        /// Student ids for bulk query. Must contain 1 to 1000 elements
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.

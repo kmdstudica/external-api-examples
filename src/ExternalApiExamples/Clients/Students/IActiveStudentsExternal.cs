@@ -4,7 +4,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.SchoolAdministration.Client
+namespace Kmd.Studica.Students.Client
 {
     using Microsoft.Rest;
     using Models;
@@ -14,12 +14,22 @@ namespace Kmd.Studica.SchoolAdministration.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// SchoolHourEntryStartAndEndTimeExternal operations.
+    /// ActiveStudentsExternal operations.
     /// </summary>
-    public partial interface ISchoolHourEntryStartAndEndTimeExternal
+    public partial interface IActiveStudentsExternal
     {
-        /// <param name='schoolHourEntryId'>
-        /// The school hour entry id to get start and end time for
+        /// <param name='studentActiveOnOrAfterDate'>
+        /// Students must be active on the date or after this date
+        /// This parameter is required
+        /// </param>
+        /// <param name='pageNumber'>
+        /// The number of the page to return (1 is the first page).
+        /// </param>
+        /// <param name='pageSize'>
+        /// Number of objects per page.
+        /// </param>
+        /// <param name='inlineCount'>
+        /// A flag indicating if total number of items should be included.
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
@@ -39,6 +49,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<SchoolHourEntryStartAndEndTimeExternalDto>> GetWithHttpMessagesAsync(System.Guid schoolHourEntryId, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> GetWithHttpMessagesAsync(System.DateTime studentActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

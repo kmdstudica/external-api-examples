@@ -27,6 +27,22 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Initializes a new instance of the UVMSubjectDetails class.
         /// </summary>
+        /// <param name="id">Unique identification of subject course</param>
+        /// <param name="canOverwriteDuration">Is it possible to have a locally
+        /// defined duration of this subject</param>
+        /// <param name="subject">Subject code (Fagnummer) from UMO</param>
+        /// <param name="description">UVM subject description</param>
+        /// <param name="startDate">Possible start date of UVM subject</param>
+        /// <param name="endDate">Possible end date of UVM subject</param>
+        /// <param name="durationInDays">Possible duration of subject in days.
+        /// This is used for EUD.
+        /// Can be null. In this case look at
+        /// Programmes.Host.ExternalApi.SubjectCourses.Queries.SubjectCourses.UVMSubjectDetails.DurationInHours</param>
+        /// <param name="durationInHours">Possible duration of subject in
+        /// hours.
+        /// This us used for Adult Education Center (VUC)
+        /// Can be null. In this case look at
+        /// Programmes.Host.ExternalApi.SubjectCourses.Queries.SubjectCourses.UVMSubjectDetails.DurationInDays</param>
         public UVMSubjectDetails(System.Guid id, bool canOverwriteDuration, string subject = default(string), string description = default(string), System.DateTime? startDate = default(System.DateTime?), System.DateTime? endDate = default(System.DateTime?), double? durationInDays = default(double?), double? durationInHours = default(double?), LevelDetails levelDetails = default(LevelDetails))
         {
             Id = id;
@@ -47,43 +63,58 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets unique identification of subject course
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
+        /// Gets or sets subject code (Fagnummer) from UMO
         /// </summary>
         [JsonProperty(PropertyName = "subject")]
         public string Subject { get; set; }
 
         /// <summary>
+        /// Gets or sets UVM subject description
         /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
         /// <summary>
+        /// Gets or sets possible start date of UVM subject
         /// </summary>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "startDate")]
         public System.DateTime? StartDate { get; set; }
 
         /// <summary>
+        /// Gets or sets possible end date of UVM subject
         /// </summary>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "endDate")]
         public System.DateTime? EndDate { get; set; }
 
         /// <summary>
+        /// Gets or sets is it possible to have a locally defined duration of
+        /// this subject
         /// </summary>
         [JsonProperty(PropertyName = "canOverwriteDuration")]
         public bool CanOverwriteDuration { get; set; }
 
         /// <summary>
+        /// Gets or sets possible duration of subject in days.
+        /// This is used for EUD.
+        /// Can be null. In this case look at
+        /// Programmes.Host.ExternalApi.SubjectCourses.Queries.SubjectCourses.UVMSubjectDetails.DurationInHours
         /// </summary>
         [JsonProperty(PropertyName = "durationInDays")]
         public double? DurationInDays { get; set; }
 
         /// <summary>
+        /// Gets or sets possible duration of subject in hours.
+        /// This us used for Adult Education Center (VUC)
+        /// Can be null. In this case look at
+        /// Programmes.Host.ExternalApi.SubjectCourses.Queries.SubjectCourses.UVMSubjectDetails.DurationInDays
         /// </summary>
         [JsonProperty(PropertyName = "durationInHours")]
         public double? DurationInHours { get; set; }

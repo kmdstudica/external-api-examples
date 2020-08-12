@@ -33,7 +33,8 @@ namespace Kmd.Studica.Students.Client.Models
         /// Initializes a new instance of the BulkStudentsExternalRequest
         /// class.
         /// </summary>
-        /// <param name="studentIds">Student ids for bulk query.</param>
+        /// <param name="studentIds">Student ids for bulk query. Must contain 1
+        /// to 1000 elements</param>
         /// <param name="schoolCode">The school code for which to get
         /// data.</param>
         public BulkStudentsExternalRequest(IList<System.Guid> studentIds, string schoolCode)
@@ -49,7 +50,8 @@ namespace Kmd.Studica.Students.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets student ids for bulk query.
+        /// Gets or sets student ids for bulk query. Must contain 1 to 1000
+        /// elements
         /// </summary>
         [JsonProperty(PropertyName = "studentIds")]
         public IList<System.Guid> StudentIds { get; set; }

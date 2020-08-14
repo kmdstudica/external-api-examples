@@ -5,7 +5,7 @@
     "version": "v1"
   },
   "host": "gateway.kmdlogic.io",
-  "basePath": "/studica-demo/students/v1",
+  "basePath": "/studica/students/v1",
   "schemes": [
     "https"
   ],
@@ -196,6 +196,8 @@
         "civilRegistrationNumber",
         "protectedNameAndAddress",
         "email",
+        "reportToUniLogin",
+        "createAdLogin",
         "guardians",
         "studies"
       ],
@@ -268,9 +270,19 @@
           "description": "Student's Unilogin username.",
           "type": "string"
         },
+        "reportToUniLogin": {
+          "description": "Flag denoting whether the student should be created as a user in UNI-Login",
+          "type": "boolean",
+          "x-nullable": false
+        },
         "adUsername": {
           "description": "Student's Active Directory username.",
           "type": "string"
+        },
+        "createAdLogin": {
+          "description": "Flag denoting whether the student should be created in the local Active Directory",
+          "type": "boolean",
+          "x-nullable": false
         },
         "guardians": {
           "description": "The student's guardian(s).",
@@ -421,20 +433,20 @@
           "format": "date",
           "description": "Study date of start.",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000",
+          "example": "2020-08-14T00:00:00.0000000",
           "x-nullable": false
         },
         "studyExpectedCompletionDate": {
           "format": "date",
           "description": "Expected completion date of study.",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000"
+          "example": "2020-08-14T00:00:00.0000000"
         },
         "studyEndDate": {
           "format": "date",
           "description": "Study end date",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000"
+          "example": "2020-08-14T00:00:00.0000000"
         },
         "studyEndCauseId": {
           "format": "uuid",
@@ -497,18 +509,22 @@
           "type": "string",
           "x-nullable": false
         },
+        "name": {
+          "description": "Name of studet type (ElevType from UMO)",
+          "type": "string"
+        },
         "validFrom": {
           "format": "date",
           "description": "The date from which the studenttype is valid",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000",
+          "example": "2020-08-14T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "The end date of the studenttype",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000"
+          "example": "2020-08-14T00:00:00.0000000"
         }
       }
     },
@@ -528,7 +544,7 @@
           "format": "date",
           "description": "Students must be active on the date or after this date\r\nThis parameter is required",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000",
+          "example": "2020-08-14T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {

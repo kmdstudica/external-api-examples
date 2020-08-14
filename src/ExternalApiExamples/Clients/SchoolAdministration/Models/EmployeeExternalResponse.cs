@@ -44,6 +44,10 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="email">Gets employee e-mail address.</param>
         /// <param name="deceased">Gets indticator if employee is
         /// deceased.</param>
+        /// <param name="reportToUniLogin">Flag denoting whether the employee
+        /// should be created as a user in UNI-Login</param>
+        /// <param name="createAdLogin">Flag denoting whether the employee
+        /// should be created in the local Active Directory</param>
         /// <param name="employmentStartDate">Gets employee start date.</param>
         /// <param name="protectedGivenName">Gets employee protected given
         /// name.</param>
@@ -70,7 +74,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="city">Gets employee city.</param>
         /// <param name="postalCode">Gets employee postal code.</param>
         /// <param name="country">Gets employee country.</param>
-        public EmployeeExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, bool lmsIndicator, string givenName, string surname, string email, bool deceased, System.DateTime employmentStartDate, string protectedGivenName = default(string), string protectedSurname = default(string), string initials = default(string), string phoneNumber = default(string), string uniLoginUsername = default(string), string adUserName = default(string), IList<string> roleNames = default(IList<string>), string jobTitle = default(string), System.DateTime? employmentResignationDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), IList<System.Guid> departmentIds = default(IList<System.Guid>), string addressLine = default(string), string careOfAddressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string))
+        public EmployeeExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, bool lmsIndicator, string givenName, string surname, string email, bool deceased, bool reportToUniLogin, bool createAdLogin, System.DateTime employmentStartDate, string protectedGivenName = default(string), string protectedSurname = default(string), string initials = default(string), string phoneNumber = default(string), string uniLoginUsername = default(string), string adUserName = default(string), IList<string> roleNames = default(IList<string>), string jobTitle = default(string), System.DateTime? employmentResignationDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), IList<System.Guid> departmentIds = default(IList<System.Guid>), string addressLine = default(string), string careOfAddressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string))
         {
             Id = id;
             CivilRegistrationNumber = civilRegistrationNumber;
@@ -85,6 +89,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             PhoneNumber = phoneNumber;
             Deceased = deceased;
             UniLoginUsername = uniLoginUsername;
+            ReportToUniLogin = reportToUniLogin;
+            CreateAdLogin = createAdLogin;
             AdUserName = adUserName;
             RoleNames = roleNames;
             JobTitle = jobTitle;
@@ -183,6 +189,20 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "uniLoginUsername")]
         public string UniLoginUsername { get; set; }
+
+        /// <summary>
+        /// Gets or sets flag denoting whether the employee should be created
+        /// as a user in UNI-Login
+        /// </summary>
+        [JsonProperty(PropertyName = "reportToUniLogin")]
+        public bool ReportToUniLogin { get; set; }
+
+        /// <summary>
+        /// Gets or sets flag denoting whether the employee should be created
+        /// in the local Active Directory
+        /// </summary>
+        [JsonProperty(PropertyName = "createAdLogin")]
+        public bool CreateAdLogin { get; set; }
 
         /// <summary>
         /// Gets employee Active Directory username.

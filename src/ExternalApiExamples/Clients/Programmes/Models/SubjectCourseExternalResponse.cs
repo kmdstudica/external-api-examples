@@ -45,11 +45,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="students">Assigned students.</param>
         /// <param name="teachersIds">Reference ids to assigned
         /// teachers.</param>
+        /// <param name="designation">The designation (user facing unique id)
+        /// of the subject course</param>
         /// <param name="defaultSubjectId">The id of the default subject for
         /// this subject course.</param>
-        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, System.Guid? defaultSubjectId = default(System.Guid?))
+        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, string designation = default(string), System.Guid? defaultSubjectId = default(System.Guid?))
         {
             Id = id;
+            Designation = designation;
             EducationalProgrammeId = educationalProgrammeId;
             DefaultSubjectId = defaultSubjectId;
             Name = name;
@@ -71,6 +74,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the designation (user facing unique id) of the subject
+        /// course
+        /// </summary>
+        [JsonProperty(PropertyName = "designation")]
+        public string Designation { get; set; }
 
         /// <summary>
         /// Gets or sets id of the associated educational programme.

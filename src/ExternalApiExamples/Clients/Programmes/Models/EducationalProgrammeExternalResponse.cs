@@ -43,15 +43,18 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="departmentId">Reference id of the department.</param>
         /// <param name="studentsIds">Reference ids to assigned
         /// students.</param>
+        /// <param name="designation">The designation (user facing unique id)
+        /// of the educational programme</param>
         /// <param name="areaOfResponsibilityId">Reference id of the area of
         /// responsibility.</param>
         /// <param name="dayCalendarId">Reference id of the day
         /// calendar.</param>
         /// <param name="schoolHoursPlanId">Reference id of the school hours
         /// plan.</param>
-        public EducationalProgrammeExternalResponse(System.Guid id, string name, System.DateTime startDate, System.DateTime endDate, System.Guid departmentId, IList<System.Guid> studentsIds, System.Guid? areaOfResponsibilityId = default(System.Guid?), System.Guid? dayCalendarId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?))
+        public EducationalProgrammeExternalResponse(System.Guid id, string name, System.DateTime startDate, System.DateTime endDate, System.Guid departmentId, IList<System.Guid> studentsIds, string designation = default(string), System.Guid? areaOfResponsibilityId = default(System.Guid?), System.Guid? dayCalendarId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?))
         {
             Id = id;
+            Designation = designation;
             Name = name;
             StartDate = startDate;
             EndDate = endDate;
@@ -73,6 +76,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the designation (user facing unique id) of the
+        /// educational programme
+        /// </summary>
+        [JsonProperty(PropertyName = "designation")]
+        public string Designation { get; set; }
 
         /// <summary>
         /// Gets or sets name of the educational programme.

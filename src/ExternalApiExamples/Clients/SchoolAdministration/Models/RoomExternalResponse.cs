@@ -33,7 +33,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </summary>
         /// <param name="id">Id of the room.</param>
         /// <param name="name">Name of the room.</param>
-        /// <param name="designation">Acronym used for the room.</param>
+        /// <param name="designation">The acronym or designation (user facing
+        /// unique id) of the room</param>
         /// <param name="roomType">Type of room. Possible values include:
         /// 'ClassRoom', 'Lab', 'Workshop', 'Gym', 'Auditorium', 'MeetingRoom',
         /// 'Other'</param>
@@ -86,7 +87,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets acronym used for the room.
+        /// Gets or sets the acronym or designation (user facing unique id) of
+        /// the room
         /// </summary>
         [JsonProperty(PropertyName = "designation")]
         public string Designation { get; set; }

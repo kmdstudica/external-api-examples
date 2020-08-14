@@ -30,10 +30,12 @@ namespace Kmd.Studica.Students.Client.Models
         /// <param name="id">The student type</param>
         /// <param name="validFrom">The date from which the studenttype is
         /// valid</param>
+        /// <param name="name">Name of studet type (ElevType from UMO)</param>
         /// <param name="validTo">The end date of the studenttype</param>
-        public StudyStudentType(System.Guid id, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?))
+        public StudyStudentType(System.Guid id, System.DateTime validFrom, string name = default(string), System.DateTime? validTo = default(System.DateTime?))
         {
             Id = id;
+            Name = name;
             ValidFrom = validFrom;
             ValidTo = validTo;
             CustomInit();
@@ -49,6 +51,12 @@ namespace Kmd.Studica.Students.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets name of studet type (ElevType from UMO)
+        /// </summary>
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the date from which the studenttype is valid

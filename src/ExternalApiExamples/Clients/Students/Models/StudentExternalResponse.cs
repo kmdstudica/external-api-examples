@@ -37,6 +37,10 @@ namespace Kmd.Studica.Students.Client.Models
         /// <param name="protectedNameAndAddress">Whether the name and address
         /// of the applicant are protected.</param>
         /// <param name="email">Student's e-mail address.</param>
+        /// <param name="reportToUniLogin">Flag denoting whether the student
+        /// should be created as a user in UNI-Login</param>
+        /// <param name="createAdLogin">Flag denoting whether the student
+        /// should be created in the local Active Directory</param>
         /// <param name="guardians">The student's guardian(s).</param>
         /// <param name="studies">The studies (educations) the student is
         /// attending or has finished</param>
@@ -59,7 +63,7 @@ namespace Kmd.Studica.Students.Client.Models
         /// <param name="uniLoginUsername">Student's Unilogin username.</param>
         /// <param name="adUsername">Student's Active Directory
         /// username.</param>
-        public StudentExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, string email, IList<StudentGuardian> guardians, IList<StudentStudy> studies, string givenName = default(string), string surname = default(string), string protectedGivenName = default(string), string protectedSurname = default(string), string careOfAddress = default(string), string addressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), string uniLoginUsername = default(string), string adUsername = default(string))
+        public StudentExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, string email, bool reportToUniLogin, bool createAdLogin, IList<StudentGuardian> guardians, IList<StudentStudy> studies, string givenName = default(string), string surname = default(string), string protectedGivenName = default(string), string protectedSurname = default(string), string careOfAddress = default(string), string addressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), string uniLoginUsername = default(string), string adUsername = default(string))
         {
             Id = id;
             CivilRegistrationNumber = civilRegistrationNumber;
@@ -77,7 +81,9 @@ namespace Kmd.Studica.Students.Client.Models
             PhoneNumber = phoneNumber;
             Email = email;
             UniLoginUsername = uniLoginUsername;
+            ReportToUniLogin = reportToUniLogin;
             AdUsername = adUsername;
+            CreateAdLogin = createAdLogin;
             Guardians = guardians;
             Studies = studies;
             CustomInit();
@@ -187,10 +193,24 @@ namespace Kmd.Studica.Students.Client.Models
         public string UniLoginUsername { get; set; }
 
         /// <summary>
+        /// Gets or sets flag denoting whether the student should be created as
+        /// a user in UNI-Login
+        /// </summary>
+        [JsonProperty(PropertyName = "reportToUniLogin")]
+        public bool ReportToUniLogin { get; set; }
+
+        /// <summary>
         /// Gets or sets student's Active Directory username.
         /// </summary>
         [JsonProperty(PropertyName = "adUsername")]
         public string AdUsername { get; set; }
+
+        /// <summary>
+        /// Gets or sets flag denoting whether the student should be created in
+        /// the local Active Directory
+        /// </summary>
+        [JsonProperty(PropertyName = "createAdLogin")]
+        public bool CreateAdLogin { get; set; }
 
         /// <summary>
         /// Gets or sets the student's guardian(s).

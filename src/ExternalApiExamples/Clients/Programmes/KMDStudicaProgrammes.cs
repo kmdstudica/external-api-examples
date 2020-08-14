@@ -358,7 +358,7 @@ namespace Kmd.Studica.Programmes.Client
             RegisterAbsenceExternal = new RegisterAbsenceExternal(this);
             SubjectCoursesExternal = new SubjectCoursesExternal(this);
             UnscheduledLessonsExternal = new UnscheduledLessonsExternal(this);
-            BaseUri = new System.Uri("https://gateway.kmdlogic.io/studica-demo/programmes/v1");
+            BaseUri = new System.Uri("https://gateway.kmdlogic.io/studica/programmes/v1");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,

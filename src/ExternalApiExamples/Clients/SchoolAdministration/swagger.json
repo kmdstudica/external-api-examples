@@ -5,7 +5,7 @@
     "version": "v1"
   },
   "host": "gateway.kmdlogic.io",
-  "basePath": "/studica-demo/school-administration/v1",
+  "basePath": "/studica/school-administration/v1",
   "schemes": [
     "https"
   ],
@@ -1098,14 +1098,14 @@
           "format": "date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000",
+          "example": "2020-08-14T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000"
+          "example": "2020-08-14T00:00:00.0000000"
         }
       }
     },
@@ -1196,14 +1196,14 @@
           "format": "date",
           "description": "Start date of the area of responsibility.",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000",
+          "example": "2020-08-14T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of the area of responsibiliity.",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000"
+          "example": "2020-08-14T00:00:00.0000000"
         },
         "responsibleEmployeeId": {
           "format": "uuid",
@@ -1352,6 +1352,8 @@
         "surname",
         "email",
         "deceased",
+        "reportToUniLogin",
+        "createAdLogin",
         "employmentStartDate"
       ],
       "type": "object",
@@ -1413,6 +1415,16 @@
           "description": "Gets employee Unilogin username.",
           "type": "string"
         },
+        "reportToUniLogin": {
+          "description": "Flag denoting whether the employee should be created as a user in UNI-Login",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "createAdLogin": {
+          "description": "Flag denoting whether the employee should be created in the local Active Directory",
+          "type": "boolean",
+          "x-nullable": false
+        },
         "adUserName": {
           "description": "Gets employee Active Directory username.",
           "type": "string"
@@ -1433,14 +1445,14 @@
           "format": "date",
           "description": "Gets employee start date.",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000",
+          "example": "2020-08-14T00:00:00.0000000",
           "x-nullable": false
         },
         "employmentResignationDate": {
           "format": "date",
           "description": "Gets employee resignation date.",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000"
+          "example": "2020-08-14T00:00:00.0000000"
         },
         "areaOfResponsibilityId": {
           "format": "uuid",
@@ -1535,7 +1547,7 @@
           "type": "string"
         },
         "designation": {
-          "description": "Acronym used for the room.",
+          "description": "The acronym or designation (user facing unique id) of the room",
           "type": "string"
         },
         "description": {
@@ -1654,7 +1666,7 @@
           "format": "date",
           "description": "Date of the school day.",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000",
+          "example": "2020-08-14T00:00:00.0000000",
           "x-nullable": false
         },
         "isSchoolDay": {
@@ -1724,13 +1736,13 @@
           "format": "date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000"
+          "example": "2020-08-14T00:00:00.0000000"
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000"
+          "example": "2020-08-14T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
@@ -1798,13 +1810,13 @@
           "format": "date",
           "description": "Beginning of range for start date employment.",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000"
+          "example": "2020-08-14T00:00:00.0000000"
         },
         "employmentStartDateTo": {
           "format": "date",
           "description": "End of range for start date employment.",
           "type": "string",
-          "example": "2020-08-10T00:00:00.0000000",
+          "example": "2020-08-14T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {

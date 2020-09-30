@@ -65,6 +65,10 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='schoolCode'>
         /// The school code for which to get data.
         /// </param>
+        /// <param name='areaOfResponsibilityId'>
+        /// Option for also querying educational programmes by area of responsibility
+        /// in addition to dates
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -86,7 +90,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseEducationalProgrammeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseEducationalProgrammeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pageNumber > 2147483647)
             {
@@ -128,6 +132,7 @@ namespace Kmd.Studica.Programmes.Client
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("startDateFrom", startDateFrom);
                 tracingParameters.Add("startDateTo", startDateTo);
+                tracingParameters.Add("areaOfResponsibilityId", areaOfResponsibilityId);
                 tracingParameters.Add("pageNumber", pageNumber);
                 tracingParameters.Add("pageSize", pageSize);
                 tracingParameters.Add("inlineCount", inlineCount);
@@ -141,6 +146,10 @@ namespace Kmd.Studica.Programmes.Client
             List<string> _queryParameters = new List<string>();
             _queryParameters.Add(string.Format("StartDateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateFrom, new DateJsonConverter()).Trim('"'))));
             _queryParameters.Add(string.Format("StartDateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateTo, new DateJsonConverter()).Trim('"'))));
+            if (areaOfResponsibilityId != null)
+            {
+                _queryParameters.Add(string.Format("AreaOfResponsibilityId={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(areaOfResponsibilityId, Client.SerializationSettings).Trim('"'))));
+            }
             _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));

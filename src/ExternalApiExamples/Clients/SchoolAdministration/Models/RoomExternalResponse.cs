@@ -32,7 +32,6 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Initializes a new instance of the RoomExternalResponse class.
         /// </summary>
         /// <param name="id">Id of the room.</param>
-        /// <param name="name">Name of the room.</param>
         /// <param name="designation">The acronym or designation (user facing
         /// unique id) of the room</param>
         /// <param name="roomType">Type of room. Possible values include:
@@ -40,6 +39,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// 'Other'</param>
         /// <param name="departmentIds">Departments that room is used
         /// by.</param>
+        /// <param name="name">Name of the room.</param>
         /// <param name="description">Description of the room.</param>
         /// <param name="capacity">Capacity for meetings.</param>
         /// <param name="maximumPersonsAllowed">Maximum persons allowed in the
@@ -52,7 +52,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// is located.</param>
         /// <param name="dsDepartmentNumber">The DS-department number that room
         /// belongs to.</param>
-        public RoomExternalResponse(System.Guid id, string name, string designation, string roomType, IList<System.Guid> departmentIds, string description = default(string), int? capacity = default(int?), int? maximumPersonsAllowed = default(int?), string addressLine = default(string), string city = default(string), string postalCode = default(string), string dsDepartmentNumber = default(string))
+        public RoomExternalResponse(System.Guid id, string designation, string roomType, IList<System.Guid> departmentIds, string name = default(string), string description = default(string), int? capacity = default(int?), int? maximumPersonsAllowed = default(int?), string addressLine = default(string), string city = default(string), string postalCode = default(string), string dsDepartmentNumber = default(string))
         {
             Id = id;
             Name = name;
@@ -156,10 +156,6 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (Name == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Name");
-            }
             if (Designation == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Designation");

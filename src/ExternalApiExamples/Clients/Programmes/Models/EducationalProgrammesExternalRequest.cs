@@ -40,10 +40,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// items should be included.</param>
         /// <param name="schoolCode">The school code for which to get
         /// data.</param>
-        public EducationalProgrammesExternalRequest(System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode)
+        /// <param name="areaOfResponsibilityId">Option for also querying
+        /// educational programmes by area of responsibility in addition to
+        /// dates</param>
+        public EducationalProgrammesExternalRequest(System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?))
         {
             StartDateFrom = startDateFrom;
             StartDateTo = startDateTo;
+            AreaOfResponsibilityId = areaOfResponsibilityId;
             PageNumber = pageNumber;
             PageSize = pageSize;
             InlineCount = inlineCount;
@@ -71,6 +75,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "startDateTo")]
         public System.DateTime StartDateTo { get; set; }
+
+        /// <summary>
+        /// Gets or sets option for also querying educational programmes by
+        /// area of responsibility in addition to dates
+        /// </summary>
+        [JsonProperty(PropertyName = "areaOfResponsibilityId")]
+        public System.Guid? AreaOfResponsibilityId { get; set; }
 
         /// <summary>
         /// Gets or sets the number of the page to return (1 is the first

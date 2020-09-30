@@ -34,7 +34,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="schoolHoursPlanId">Id of school hours plan where this
         /// entry belongs to.</param>
         /// <param name="entryType">The type of entry. Possible values include:
-        /// 'Break', 'Lecture'</param>
+        /// 'Break', 'Module', 'Lecture'</param>
         /// <param name="name">Optional name of this entry.</param>
         /// <param name="duration">Duration of this entry, only valid for
         /// breaks.</param>
@@ -60,7 +60,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
 
         /// <summary>
         /// Gets or sets the type of entry. Possible values include: 'Break',
-        /// 'Lecture'
+        /// 'Module', 'Lecture'
         /// </summary>
         [JsonProperty(PropertyName = "entryType")]
         public string EntryType { get; set; }

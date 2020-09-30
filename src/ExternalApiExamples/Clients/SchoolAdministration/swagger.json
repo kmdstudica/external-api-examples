@@ -5,7 +5,7 @@
     "version": "v1"
   },
   "host": "gateway.kmdlogic.io",
-  "basePath": "/studica/school-administration/v1",
+  "basePath": "/studica-demo/school-administration/v1",
   "schemes": [
     "https"
   ],
@@ -645,6 +645,13 @@
           },
           {
             "in": "query",
+            "name": "AreaOfResponsibilityId",
+            "description": "Option for also querying employees by area of responsibility",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
             "name": "PageNumber",
             "description": "The number of the page to return (1 is the first page).",
             "required": true,
@@ -749,7 +756,7 @@
           {
             "in": "query",
             "name": "DepartmentId",
-            "description": "Department identifiers for bulk query.",
+            "description": "Department identifiers for querying only rooms in a specific department",
             "type": "string",
             "format": "uuid"
           },
@@ -1098,14 +1105,14 @@
           "format": "date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000"
+          "example": "2020-09-30T00:00:00.0000000"
         }
       }
     },
@@ -1196,14 +1203,14 @@
           "format": "date",
           "description": "Start date of the area of responsibility.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of the area of responsibiliity.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000"
+          "example": "2020-09-30T00:00:00.0000000"
         },
         "responsibleEmployeeId": {
           "format": "uuid",
@@ -1445,14 +1452,14 @@
           "format": "date",
           "description": "Gets employee start date.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "employmentResignationDate": {
           "format": "date",
           "description": "Gets employee resignation date.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000"
+          "example": "2020-09-30T00:00:00.0000000"
         },
         "areaOfResponsibilityId": {
           "format": "uuid",
@@ -1529,7 +1536,6 @@
       "description": "Model of the room.",
       "required": [
         "id",
-        "name",
         "designation",
         "roomType",
         "departmentIds"
@@ -1666,7 +1672,7 @@
           "format": "date",
           "description": "Date of the school day.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "isSchoolDay": {
@@ -1736,13 +1742,13 @@
           "format": "date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000"
+          "example": "2020-09-30T00:00:00.0000000"
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000"
+          "example": "2020-09-30T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
@@ -1810,14 +1816,19 @@
           "format": "date",
           "description": "Beginning of range for start date employment.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000"
+          "example": "2020-09-30T00:00:00.0000000"
         },
         "employmentStartDateTo": {
           "format": "date",
           "description": "End of range for start date employment.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
+        },
+        "areaOfResponsibilityId": {
+          "format": "uuid",
+          "description": "Option for also querying employees by area of responsibility",
+          "type": "string"
         },
         "pageNumber": {
           "format": "int32",
@@ -1882,7 +1893,7 @@
       "properties": {
         "departmentId": {
           "format": "uuid",
-          "description": "Department identifiers for bulk query.",
+          "description": "Department identifiers for querying only rooms in a specific department",
           "type": "string"
         },
         "pageNumber": {
@@ -1954,6 +1965,7 @@
           "description": "The type of entry.",
           "enum": [
             "Break",
+            "Module",
             "Lecture"
           ],
           "type": "string",

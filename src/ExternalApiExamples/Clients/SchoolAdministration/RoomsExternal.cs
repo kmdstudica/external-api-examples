@@ -59,7 +59,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// The school code for which to get data.
         /// </param>
         /// <param name='departmentId'>
-        /// Department identifiers for bulk query.
+        /// Department identifiers for querying only rooms in a specific department
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

@@ -5,7 +5,7 @@
     "version": "v1"
   },
   "host": "gateway.kmdlogic.io",
-  "basePath": "/studica/programmes/v1",
+  "basePath": "/studica-demo/programmes/v1",
   "schemes": [
     "https"
   ],
@@ -449,6 +449,13 @@
             "required": true,
             "type": "string",
             "format": "date"
+          },
+          {
+            "in": "query",
+            "name": "AreaOfResponsibilityId",
+            "description": "Option for also querying educational programmes by area of responsibility in addition to dates",
+            "type": "string",
+            "format": "uuid"
           },
           {
             "in": "query",
@@ -1017,7 +1024,7 @@
           "format": "date",
           "description": "Date of absence.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "minutes": {
@@ -1070,14 +1077,14 @@
           "format": "date",
           "description": "Beginning of the range for absence date.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
           "format": "date",
           "description": "End of the range for absence date.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
@@ -1169,7 +1176,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000"
+          "example": "2020-09-30T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -1257,14 +1264,14 @@
           "format": "date",
           "description": "Start date of the educational programme.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "description": "End date for the educational programme.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1364,7 +1371,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "startTime": {
@@ -1466,14 +1473,14 @@
           "format": "date",
           "description": "Start date of the subject course.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "description": "End date for the subject course.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -1530,14 +1537,14 @@
           "format": "date",
           "description": "Start date of the period.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "description": "End date of the period.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -1568,13 +1575,13 @@
           "format": "date",
           "description": "Possible start date of UVM subject",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000"
+          "example": "2020-09-30T00:00:00.0000000"
         },
         "endDate": {
           "format": "date",
           "description": "Possible end date of UVM subject",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000"
+          "example": "2020-09-30T00:00:00.0000000"
         },
         "canOverwriteDuration": {
           "description": "Is it possible to have a locally defined duration of this subject",
@@ -1707,7 +1714,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000"
+          "example": "2020-09-30T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -1781,15 +1788,20 @@
           "format": "date",
           "description": "Beginning of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
           "format": "date",
           "description": "End of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
+        },
+        "areaOfResponsibilityId": {
+          "format": "uuid",
+          "description": "Option for also querying educational programmes by area of responsibility in addition to dates",
+          "type": "string"
         },
         "pageNumber": {
           "format": "int32",
@@ -1863,14 +1875,14 @@
           "format": "date",
           "description": "Beginning of range for lesson date.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
           "format": "date",
           "description": "End of range for lesson date.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "hasExternalId": {
@@ -2029,14 +2041,14 @@
           "format": "date",
           "description": "Beginning of the range for start date subject courses.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
           "format": "date",
           "description": "End of the range for start date subject courses.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000",
+          "example": "2020-09-30T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -2127,7 +2139,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-08-14T00:00:00.0000000"
+          "example": "2020-09-30T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",

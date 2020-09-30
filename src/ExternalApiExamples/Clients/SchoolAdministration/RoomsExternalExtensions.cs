@@ -31,7 +31,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='departmentId'>
-            /// Department identifiers for bulk query.
+            /// Department identifiers for querying only rooms in a specific department
             /// </param>
             public static PagedResponseRoomExternalResponse Get(this IRoomsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?))
             {
@@ -54,7 +54,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='departmentId'>
-            /// Department identifiers for bulk query.
+            /// Department identifiers for querying only rooms in a specific department
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

@@ -36,8 +36,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// items should be included.</param>
         /// <param name="schoolCode">The school code for which to get
         /// data.</param>
-        /// <param name="departmentId">Department identifiers for bulk
-        /// query.</param>
+        /// <param name="departmentId">Department identifiers for querying only
+        /// rooms in a specific department</param>
         public RoomsExternalRequest(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?))
         {
             DepartmentId = departmentId;
@@ -54,7 +54,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets department identifiers for bulk query.
+        /// Gets or sets department identifiers for querying only rooms in a
+        /// specific department
         /// </summary>
         [JsonProperty(PropertyName = "departmentId")]
         public System.Guid? DepartmentId { get; set; }

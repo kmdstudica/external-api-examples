@@ -36,9 +36,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='employmentStartDateFrom'>
             /// Beginning of range for start date employment.
             /// </param>
-            public static PagedResponseEmployeeExternalResponse Get(this IEmployeesExternal operations, System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employmentStartDateFrom = default(System.DateTime?))
+            /// <param name='areaOfResponsibilityId'>
+            /// Option for also querying employees by area of responsibility
+            /// </param>
+            public static PagedResponseEmployeeExternalResponse Get(this IEmployeesExternal operations, System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employmentStartDateFrom = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?))
             {
-                return operations.GetAsync(employmentStartDateTo, pageNumber, pageSize, inlineCount, schoolCode, employmentStartDateFrom).GetAwaiter().GetResult();
+                return operations.GetAsync(employmentStartDateTo, pageNumber, pageSize, inlineCount, schoolCode, employmentStartDateFrom, areaOfResponsibilityId).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -62,12 +65,15 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='employmentStartDateFrom'>
             /// Beginning of range for start date employment.
             /// </param>
+            /// <param name='areaOfResponsibilityId'>
+            /// Option for also querying employees by area of responsibility
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseEmployeeExternalResponse> GetAsync(this IEmployeesExternal operations, System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employmentStartDateFrom = default(System.DateTime?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseEmployeeExternalResponse> GetAsync(this IEmployeesExternal operations, System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employmentStartDateFrom = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(employmentStartDateTo, pageNumber, pageSize, inlineCount, schoolCode, employmentStartDateFrom, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(employmentStartDateTo, pageNumber, pageSize, inlineCount, schoolCode, employmentStartDateFrom, areaOfResponsibilityId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

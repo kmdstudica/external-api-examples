@@ -41,10 +41,13 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// data.</param>
         /// <param name="employmentStartDateFrom">Beginning of range for start
         /// date employment.</param>
-        public EmployeesExternalRequest(System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employmentStartDateFrom = default(System.DateTime?))
+        /// <param name="areaOfResponsibilityId">Option for also querying
+        /// employees by area of responsibility</param>
+        public EmployeesExternalRequest(System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employmentStartDateFrom = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?))
         {
             EmploymentStartDateFrom = employmentStartDateFrom;
             EmploymentStartDateTo = employmentStartDateTo;
+            AreaOfResponsibilityId = areaOfResponsibilityId;
             PageNumber = pageNumber;
             PageSize = pageSize;
             InlineCount = inlineCount;
@@ -70,6 +73,13 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "employmentStartDateTo")]
         public System.DateTime EmploymentStartDateTo { get; set; }
+
+        /// <summary>
+        /// Gets or sets option for also querying employees by area of
+        /// responsibility
+        /// </summary>
+        [JsonProperty(PropertyName = "areaOfResponsibilityId")]
+        public System.Guid? AreaOfResponsibilityId { get; set; }
 
         /// <summary>
         /// Gets or sets the number of the page to return (1 is the first

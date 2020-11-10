@@ -32,18 +32,25 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Initializes a new instance of the LessonExternalResponse class.
         /// </summary>
-        /// <param name="id">Unique identifier.</param>
-        /// <param name="subjectCourseId">Reference to the subject course that
-        /// lesson is part of.</param>
-        /// <param name="date">Date of the lesson.</param>
-        /// <param name="externalLessonId">External identifier set by partners
-        /// to allow them to match it with the lessons known by them.</param>
+        /// <param name="id">Guid</param>
+        /// <param name="subjectCourseId">Guid</param>
+        /// <param name="date">Date</param>
+        /// <param name="externalLessonId">String</param>
         /// <param name="roomId">Reference to the room where lesson is
         /// conducted.</param>
-        /// <param name="startTime">Start time of the lesson.</param>
-        /// <param name="endTime">End time of the lesson.</param>
+        /// <param name="startTime">Start time of the lesson.
+        /// This property is filled if the lesson is using a user defined
+        /// schedule</param>
+        /// <param name="endTime">End time of the lesson.
+        /// This property is filled if the lesson is using a user defined
+        /// schedule</param>
+        /// <param name="schoolHourEntryId">If the lesson is planned using the
+        /// school hours time table, the SchoolHourEntryId will be populated.
+        /// If the lesson otherwise is using custom start and end time, the
+        /// SchoolHourEntryId will be null (this is the default of most of the
+        /// partnering time table systems)</param>
         /// <param name="teachersIds">Teachers assigned to the lesson.</param>
-        public LessonExternalResponse(System.Guid id, System.Guid subjectCourseId, System.DateTime date, string externalLessonId = default(string), System.Guid? roomId = default(System.Guid?), string startTime = default(string), string endTime = default(string), IList<System.Guid> teachersIds = default(IList<System.Guid>))
+        public LessonExternalResponse(System.Guid id, System.Guid subjectCourseId, System.DateTime date, string externalLessonId = default(string), System.Guid? roomId = default(System.Guid?), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), IList<System.Guid> teachersIds = default(IList<System.Guid>))
         {
             Id = id;
             ExternalLessonId = externalLessonId;
@@ -52,6 +59,7 @@ namespace Kmd.Studica.Programmes.Client.Models
             Date = date;
             StartTime = startTime;
             EndTime = endTime;
+            SchoolHourEntryId = schoolHourEntryId;
             TeachersIds = teachersIds;
             CustomInit();
         }
@@ -62,22 +70,30 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique identifier.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Unique identifier.
+        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets external identifier set by partners to allow them to
-        /// match it with the lessons known by them.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// External identifier set by partners to allow them to match it with
+        /// the lessons known by them.
+        /// </remarks>
         [JsonProperty(PropertyName = "externalLessonId")]
         public string ExternalLessonId { get; set; }
 
         /// <summary>
-        /// Gets or sets reference to the subject course that lesson is part
-        /// of.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Reference to the subject course that lesson is part of.
+        /// </remarks>
         [JsonProperty(PropertyName = "subjectCourseId")]
         public System.Guid SubjectCourseId { get; set; }
 
@@ -88,23 +104,40 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.Guid? RoomId { get; set; }
 
         /// <summary>
-        /// Gets or sets date of the lesson.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Date of the lesson.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "date")]
         public System.DateTime Date { get; set; }
 
         /// <summary>
         /// Gets or sets start time of the lesson.
+        /// This property is filled if the lesson is using a user defined
+        /// schedule
         /// </summary>
         [JsonProperty(PropertyName = "startTime")]
         public string StartTime { get; set; }
 
         /// <summary>
         /// Gets or sets end time of the lesson.
+        /// This property is filled if the lesson is using a user defined
+        /// schedule
         /// </summary>
         [JsonProperty(PropertyName = "endTime")]
         public string EndTime { get; set; }
+
+        /// <summary>
+        /// Gets or sets if the lesson is planned using the school hours time
+        /// table, the SchoolHourEntryId will be populated.
+        /// If the lesson otherwise is using custom start and end time, the
+        /// SchoolHourEntryId will be null (this is the default of most of the
+        /// partnering time table systems)
+        /// </summary>
+        [JsonProperty(PropertyName = "schoolHourEntryId")]
+        public System.Guid? SchoolHourEntryId { get; set; }
 
         /// <summary>
         /// Gets or sets teachers assigned to the lesson.

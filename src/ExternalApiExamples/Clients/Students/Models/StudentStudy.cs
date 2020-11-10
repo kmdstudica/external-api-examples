@@ -29,27 +29,22 @@ namespace Kmd.Studica.Students.Client.Models
         /// <summary>
         /// Initializes a new instance of the StudentStudy class.
         /// </summary>
-        /// <param name="id">The id of the study</param>
-        /// <param name="departmentId">Id of the department that student is
-        /// affiliated to.</param>
-        /// <param name="educationId">Id of the education (from UMO) that the
-        /// study is linked to</param>
-        /// <param name="studyStartDate">Study date of start.</param>
+        /// <param name="id">Guid</param>
+        /// <param name="departmentId">Guid</param>
+        /// <param name="educationId">Guid</param>
+        /// <param name="studyStartDate">Date</param>
         /// <param name="studentTypes">StudentTypes associated with the
         /// student.</param>
-        /// <param name="dsDepartmentNumber">DS Department number that student
-        /// is affiliated to.</param>
-        /// <param name="educationName">Name of the education from UMO</param>
-        /// <param name="coesa">CØSA number of education from UMO</param>
-        /// <param name="educationVersion">Education version from UMO</param>
+        /// <param name="dsDepartmentNumber">String</param>
+        /// <param name="educationName">String</param>
+        /// <param name="coesa">String</param>
+        /// <param name="educationVersion">String</param>
         /// <param name="studyExpectedCompletionDate">Expected completion date
         /// of study.</param>
         /// <param name="studyEndDate">Study end date</param>
         /// <param name="studyEndCauseId">Id of study end cause</param>
-        /// <param name="studyEndCauseCode">The UMO code for ending the
-        /// study</param>
-        /// <param name="studyEndCause">UMO description for cause for study
-        /// end.</param>
+        /// <param name="studyEndCauseCode">String</param>
+        /// <param name="studyEndCause">String</param>
         /// <param name="studyCancellationCauseCode">The cancellation code for
         /// ending the study. Possible values include: 'StudyNotStarted',
         /// 'Absence', 'Illness', 'EducationalRequirements', 'ChangedStudy',
@@ -87,51 +82,74 @@ namespace Kmd.Studica.Students.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the id of the study
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// The id of the study
+        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets id of the department that student is affiliated to.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Id of the department that student is affiliated to.
+        /// </remarks>
         [JsonProperty(PropertyName = "departmentId")]
         public System.Guid DepartmentId { get; set; }
 
         /// <summary>
-        /// Gets or sets DS Department number that student is affiliated to.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// DS Department number that student is affiliated to.
+        /// </remarks>
         [JsonProperty(PropertyName = "dsDepartmentNumber")]
         public string DsDepartmentNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets id of the education (from UMO) that the study is
-        /// linked to
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Id of the education (from UMO) that the study is linked to
+        /// </remarks>
         [JsonProperty(PropertyName = "educationId")]
         public System.Guid EducationId { get; set; }
 
         /// <summary>
-        /// Gets or sets name of the education from UMO
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Name of the education from UMO
+        /// </remarks>
         [JsonProperty(PropertyName = "educationName")]
         public string EducationName { get; set; }
 
         /// <summary>
-        /// Gets or sets CØSA number of education from UMO
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// CØSA number of education from UMO
+        /// </remarks>
         [JsonProperty(PropertyName = "coesa")]
         public string Coesa { get; set; }
 
         /// <summary>
-        /// Gets or sets education version from UMO
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Education version from UMO
+        /// </remarks>
         [JsonProperty(PropertyName = "educationVersion")]
         public string EducationVersion { get; set; }
 
         /// <summary>
-        /// Gets or sets study date of start.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Study date of start.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "studyStartDate")]
         public System.DateTime StudyStartDate { get; set; }
@@ -157,14 +175,20 @@ namespace Kmd.Studica.Students.Client.Models
         public System.Guid? StudyEndCauseId { get; set; }
 
         /// <summary>
-        /// Gets or sets the UMO code for ending the study
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The UMO code for ending the study
+        /// </remarks>
         [JsonProperty(PropertyName = "studyEndCauseCode")]
         public string StudyEndCauseCode { get; set; }
 
         /// <summary>
-        /// Gets or sets UMO description for cause for study end.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// UMO description for cause for study end.
+        /// </remarks>
         [JsonProperty(PropertyName = "studyEndCause")]
         public string StudyEndCause { get; set; }
 

@@ -27,10 +27,9 @@ namespace Kmd.Studica.Students.Client.Models
         /// <summary>
         /// Initializes a new instance of the StudyStudentType class.
         /// </summary>
-        /// <param name="id">The student type</param>
-        /// <param name="validFrom">The date from which the studenttype is
-        /// valid</param>
-        /// <param name="name">Name of studet type (ElevType from UMO)</param>
+        /// <param name="id">Guid</param>
+        /// <param name="validFrom">Date</param>
+        /// <param name="name">String</param>
         /// <param name="validTo">The end date of the studenttype</param>
         public StudyStudentType(System.Guid id, System.DateTime validFrom, string name = default(string), System.DateTime? validTo = default(System.DateTime?))
         {
@@ -47,20 +46,29 @@ namespace Kmd.Studica.Students.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the student type
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// The student type
+        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets name of studet type (ElevType from UMO)
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Name of studet type (ElevType from UMO)
+        /// </remarks>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the date from which the studenttype is valid
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// The date from which the studenttype is valid
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "validFrom")]
         public System.DateTime ValidFrom { get; set; }

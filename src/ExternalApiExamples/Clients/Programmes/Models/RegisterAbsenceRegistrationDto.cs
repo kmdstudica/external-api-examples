@@ -28,18 +28,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the RegisterAbsenceRegistrationDto
         /// class.
         /// </summary>
-        /// <param name="studentId">The student to register absence
-        /// for.</param>
-        /// <param name="status">Status of the absence registration:
-        /// 0 = Present
-        /// 1 = Absent
-        /// 2 = Partially absent. Possible values include: 'Present', 'Absent',
-        /// 'PartialAbsence'</param>
-        /// <param name="minutes">How many minutes the student was absent for.
-        /// Must be 0 if Status is not partially absent.</param>
-        /// <param name="approved">Whether the absence was approved.</param>
-        /// <param name="comment">Educator's or optionally Administrative
-        /// employee's comment regarding the absence.</param>
+        /// <param name="studentId">Guid</param>
+        /// <param name="status">AbsenceRegistrationStatus</param>
+        /// <param name="minutes">Int32</param>
+        /// <param name="approved">Boolean</param>
+        /// <param name="comment">String</param>
         public RegisterAbsenceRegistrationDto(System.Guid studentId, string status, int minutes, bool approved, string comment = default(string))
         {
             StudentId = studentId;
@@ -56,38 +49,53 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the student to register absence for.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// The student to register absence for.
+        /// </remarks>
         [JsonProperty(PropertyName = "studentId")]
         public System.Guid StudentId { get; set; }
 
         /// <summary>
-        /// Gets or sets status of the absence registration:
+        /// Gets or sets absenceRegistrationStatus
+        /// </summary>
+        /// <remarks>
+        /// Status of the absence registration:
         /// 0 = Present
         /// 1 = Absent
         /// 2 = Partially absent. Possible values include: 'Present', 'Absent',
         /// 'PartialAbsence'
-        /// </summary>
+        /// </remarks>
         [JsonProperty(PropertyName = "status")]
         public string Status { get; set; }
 
         /// <summary>
-        /// Gets or sets how many minutes the student was absent for.
-        /// Must be 0 if Status is not partially absent.
+        /// Gets or sets int32
         /// </summary>
+        /// <remarks>
+        /// How many minutes the student was absent for.
+        /// Must be 0 if Status is not partially absent.
+        /// </remarks>
         [JsonProperty(PropertyName = "minutes")]
         public int Minutes { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the absence was approved.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Whether the absence was approved.
+        /// </remarks>
         [JsonProperty(PropertyName = "approved")]
         public bool Approved { get; set; }
 
         /// <summary>
-        /// Gets or sets educator's or optionally Administrative employee's
-        /// comment regarding the absence.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Educator's or optionally Administrative employee's comment
+        /// regarding the absence.
+        /// </remarks>
         [JsonProperty(PropertyName = "comment")]
         public string Comment { get; set; }
 

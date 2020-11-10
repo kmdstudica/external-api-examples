@@ -24,7 +24,7 @@ namespace Kmd.Studica.Programmes.Client
             /// Educational programme identifiers for bulk query.
             /// </param>
             /// <param name='schoolCode'>
-            /// The school code for which to get data.
+            /// String The school code for which to get data.
             /// </param>
             public static IList<EducationalProgrammeExternalResponse> Post(this IBulkEducationalProgrammesExternal operations, IList<System.Guid> educationalProgrammeIds, string schoolCode)
             {
@@ -38,7 +38,7 @@ namespace Kmd.Studica.Programmes.Client
             /// Educational programme identifiers for bulk query.
             /// </param>
             /// <param name='schoolCode'>
-            /// The school code for which to get data.
+            /// String The school code for which to get data.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

@@ -49,7 +49,7 @@ namespace Kmd.Studica.Programmes.Client
         /// New lessons.
         /// </param>
         /// <param name='schoolCode'>
-        /// The school code for which command is performed.
+        /// String The school code for which command is performed.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -136,7 +136,7 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)

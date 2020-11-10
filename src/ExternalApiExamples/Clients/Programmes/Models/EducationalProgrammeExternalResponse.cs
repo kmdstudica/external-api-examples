@@ -34,24 +34,23 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the
         /// EducationalProgrammeExternalResponse class.
         /// </summary>
-        /// <param name="id">Id of the educational programme.</param>
-        /// <param name="name">Name of the educational programme.</param>
-        /// <param name="startDate">Start date of the educational
-        /// programme.</param>
-        /// <param name="endDate">End date for the educational
-        /// programme.</param>
-        /// <param name="departmentId">Reference id of the department.</param>
+        /// <param name="id">Guid</param>
+        /// <param name="name">String</param>
+        /// <param name="startDate">Date</param>
+        /// <param name="endDate">Date</param>
+        /// <param name="departmentId">Guid</param>
         /// <param name="studentsIds">Reference ids to assigned
         /// students.</param>
-        /// <param name="designation">The designation (user facing unique id)
-        /// of the educational programme</param>
+        /// <param name="subjectCourseIds">Reference ids to the subject courses
+        /// that are associated with the educational programme</param>
+        /// <param name="designation">String</param>
         /// <param name="areaOfResponsibilityId">Reference id of the area of
         /// responsibility.</param>
         /// <param name="dayCalendarId">Reference id of the day
         /// calendar.</param>
         /// <param name="schoolHoursPlanId">Reference id of the school hours
         /// plan.</param>
-        public EducationalProgrammeExternalResponse(System.Guid id, string name, System.DateTime startDate, System.DateTime endDate, System.Guid departmentId, IList<System.Guid> studentsIds, string designation = default(string), System.Guid? areaOfResponsibilityId = default(System.Guid?), System.Guid? dayCalendarId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?))
+        public EducationalProgrammeExternalResponse(System.Guid id, string name, System.DateTime startDate, System.DateTime endDate, System.Guid departmentId, IList<System.Guid> studentsIds, IList<System.Guid> subjectCourseIds, string designation = default(string), System.Guid? areaOfResponsibilityId = default(System.Guid?), System.Guid? dayCalendarId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?))
         {
             Id = id;
             Designation = designation;
@@ -63,6 +62,7 @@ namespace Kmd.Studica.Programmes.Client.Models
             SchoolHoursPlanId = schoolHoursPlanId;
             DepartmentId = departmentId;
             StudentsIds = studentsIds;
+            SubjectCourseIds = subjectCourseIds;
             CustomInit();
         }
 
@@ -72,34 +72,49 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets id of the educational programme.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Id of the educational programme.
+        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the designation (user facing unique id) of the
-        /// educational programme
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The designation (user facing unique id) of the educational
+        /// programme
+        /// </remarks>
         [JsonProperty(PropertyName = "designation")]
         public string Designation { get; set; }
 
         /// <summary>
-        /// Gets or sets name of the educational programme.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Name of the educational programme.
+        /// </remarks>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets start date of the educational programme.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Start date of the educational programme.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "startDate")]
         public System.DateTime StartDate { get; set; }
 
         /// <summary>
-        /// Gets or sets end date for the educational programme.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// End date for the educational programme.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "endDate")]
         public System.DateTime EndDate { get; set; }
@@ -123,8 +138,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.Guid? SchoolHoursPlanId { get; set; }
 
         /// <summary>
-        /// Gets or sets reference id of the department.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Reference id of the department.
+        /// </remarks>
         [JsonProperty(PropertyName = "departmentId")]
         public System.Guid DepartmentId { get; set; }
 
@@ -133,6 +151,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "studentsIds")]
         public IList<System.Guid> StudentsIds { get; set; }
+
+        /// <summary>
+        /// Gets or sets reference ids to the subject courses that are
+        /// associated with the educational programme
+        /// </summary>
+        [JsonProperty(PropertyName = "subjectCourseIds")]
+        public IList<System.Guid> SubjectCourseIds { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -149,6 +174,10 @@ namespace Kmd.Studica.Programmes.Client.Models
             if (StudentsIds == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "StudentsIds");
+            }
+            if (SubjectCourseIds == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "SubjectCourseIds");
             }
         }
     }

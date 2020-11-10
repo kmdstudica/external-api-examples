@@ -32,10 +32,9 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Initializes a new instance of the
         /// AreaOfResponsibilityExternalResponse class.
         /// </summary>
-        /// <param name="id">Identifier of the area of responsibility.</param>
-        /// <param name="name">Name of the area of responsibility.</param>
-        /// <param name="validFrom">Start date of the area of
-        /// responsibility.</param>
+        /// <param name="id">Guid</param>
+        /// <param name="name">String</param>
+        /// <param name="validFrom">Date</param>
         /// <param name="validTo">End date of the area of
         /// responsibiliity.</param>
         /// <param name="responsibleEmployeeId">Identifier of employee
@@ -56,20 +55,29 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets identifier of the area of responsibility.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Identifier of the area of responsibility.
+        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets name of the area of responsibility.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Name of the area of responsibility.
+        /// </remarks>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets start date of the area of responsibility.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Start date of the area of responsibility.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "validFrom")]
         public System.DateTime ValidFrom { get; set; }

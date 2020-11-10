@@ -41,16 +41,16 @@ namespace Kmd.Studica.Students.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets page of items
+        /// Gets or sets page of items
         /// </summary>
         [JsonProperty(PropertyName = "items")]
-        public IList<StudentExternalResponse> Items { get; private set; }
+        public IList<StudentExternalResponse> Items { get; set; }
 
         /// <summary>
-        /// Gets total number of items
+        /// Gets or sets total number of items
         /// </summary>
         [JsonProperty(PropertyName = "totalItems")]
-        public int? TotalItems { get; private set; }
+        public int? TotalItems { get; set; }
 
     }
 }

@@ -32,12 +32,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the
         /// SubjectCourseExternalResponseStudent class.
         /// </summary>
-        /// <param name="studentId">Id of the student.</param>
-        /// <param name="usePeriodFromSubjectCourse">Flag indicating, whether
-        /// period should be taken from subject course.</param>
-        /// <param name="startDate">Start date of the period.</param>
-        /// <param name="endDate">End date of the period.</param>
-        public SubjectCourseExternalResponseStudent(System.Guid studentId, bool usePeriodFromSubjectCourse, System.DateTime startDate, System.DateTime endDate, UVMSubjectDetails uvmSubject = default(UVMSubjectDetails))
+        /// <param name="studentId">Guid</param>
+        /// <param name="usePeriodFromSubjectCourse">Boolean</param>
+        /// <param name="startDate">Date</param>
+        /// <param name="endDate">Date</param>
+        /// <param name="uvmSubject">Subject that student is assigned
+        /// to.</param>
+        public SubjectCourseExternalResponseStudent(System.Guid studentId, bool usePeriodFromSubjectCourse, System.DateTime startDate, System.DateTime endDate, SubjectCourseExternalResponseStudentUvmSubject uvmSubject = default(SubjectCourseExternalResponseStudentUvmSubject))
         {
             StudentId = studentId;
             UvmSubject = uvmSubject;
@@ -53,33 +54,46 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets id of the student.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Id of the student.
+        /// </remarks>
         [JsonProperty(PropertyName = "studentId")]
         public System.Guid StudentId { get; set; }
 
         /// <summary>
+        /// Gets or sets subject that student is assigned to.
         /// </summary>
         [JsonProperty(PropertyName = "uvmSubject")]
-        public UVMSubjectDetails UvmSubject { get; set; }
+        public SubjectCourseExternalResponseStudentUvmSubject UvmSubject { get; set; }
 
         /// <summary>
-        /// Gets or sets flag indicating, whether period should be taken from
-        /// subject course.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Flag indicating, whether period should be taken from subject
+        /// course.
+        /// </remarks>
         [JsonProperty(PropertyName = "usePeriodFromSubjectCourse")]
         public bool UsePeriodFromSubjectCourse { get; set; }
 
         /// <summary>
-        /// Gets or sets start date of the period.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Start date of the period.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "startDate")]
         public System.DateTime StartDate { get; set; }
 
         /// <summary>
-        /// Gets or sets end date of the period.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// End date of the period.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "endDate")]
         public System.DateTime EndDate { get; set; }

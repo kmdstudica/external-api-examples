@@ -32,8 +32,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the BulkLessonsExternalRequest class.
         /// </summary>
         /// <param name="lessonIds">Lesson identifiers for bulk query.</param>
-        /// <param name="schoolCode">The school code for which to get
-        /// data.</param>
+        /// <param name="schoolCode">String</param>
         public BulkLessonsExternalRequest(IList<System.Guid> lessonIds, string schoolCode)
         {
             LessonIds = lessonIds;
@@ -53,8 +52,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<System.Guid> LessonIds { get; set; }
 
         /// <summary>
-        /// Gets or sets the school code for which to get data.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The school code for which to get data.
+        /// </remarks>
         [JsonProperty(PropertyName = "schoolCode")]
         public string SchoolCode { get; set; }
 

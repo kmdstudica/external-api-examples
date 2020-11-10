@@ -29,12 +29,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Initializes a new instance of the NewLessonExternal class.
         /// </summary>
-        /// <param name="id">Identifier of the lesson.</param>
-        /// <param name="subjectCourseId">The Id of the subject course this
-        /// lesson is added to.</param>
+        /// <param name="id">Guid</param>
+        /// <param name="subjectCourseId">Guid</param>
         /// <param name="teacherIds">List of teacher' identifiers.</param>
-        /// <param name="externalLessonId">External identifier set by partners
-        /// to allow them to match it with the lessons known by them.</param>
+        /// <param name="externalLessonId">String</param>
         /// <param name="roomId">Identifier of the room where lesson is
         /// conducted.</param>
         /// <param name="date">Date of the lesson.</param>
@@ -59,21 +57,30 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets identifier of the lesson.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Identifier of the lesson.
+        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets external identifier set by partners to allow them to
-        /// match it with the lessons known by them.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// External identifier set by partners to allow them to match it with
+        /// the lessons known by them.
+        /// </remarks>
         [JsonProperty(PropertyName = "externalLessonId")]
         public string ExternalLessonId { get; set; }
 
         /// <summary>
-        /// Gets or sets the Id of the subject course this lesson is added to.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// The Id of the subject course this lesson is added to.
+        /// </remarks>
         [JsonProperty(PropertyName = "subjectCourseId")]
         public System.Guid SubjectCourseId { get; set; }
 

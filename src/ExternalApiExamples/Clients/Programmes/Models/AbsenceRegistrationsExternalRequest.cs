@@ -32,16 +32,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the
         /// AbsenceRegistrationsExternalRequest class.
         /// </summary>
-        /// <param name="dateFrom">Beginning of the range for absence
-        /// date.</param>
-        /// <param name="dateTo">End of the range for absence date.</param>
-        /// <param name="pageNumber">The number of the page to return (1 is the
-        /// first page).</param>
-        /// <param name="pageSize">Number of objects per page.</param>
-        /// <param name="inlineCount">A flag indicating if total number of
-        /// items should be included.</param>
-        /// <param name="schoolCode">The school code for which to get
-        /// data.</param>
+        /// <param name="dateFrom">Date</param>
+        /// <param name="dateTo">Date</param>
+        /// <param name="pageNumber">Int32</param>
+        /// <param name="pageSize">Int32</param>
+        /// <param name="inlineCount">Boolean</param>
+        /// <param name="schoolCode">String</param>
         /// <param name="studentId">Absent student.</param>
         /// <param name="lessonId">Lesson of absence.</param>
         public AbsenceRegistrationsExternalRequest(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?))
@@ -75,42 +71,58 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.Guid? LessonId { get; set; }
 
         /// <summary>
-        /// Gets or sets beginning of the range for absence date.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Beginning of the range for absence date.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "dateFrom")]
         public System.DateTime DateFrom { get; set; }
 
         /// <summary>
-        /// Gets or sets end of the range for absence date.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// End of the range for absence date.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "dateTo")]
         public System.DateTime DateTo { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of the page to return (1 is the first
-        /// page).
+        /// Gets or sets int32
         /// </summary>
+        /// <remarks>
+        /// The number of the page to return (1 is the first page).
+        /// </remarks>
         [JsonProperty(PropertyName = "pageNumber")]
         public int PageNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets number of objects per page.
+        /// Gets or sets int32
         /// </summary>
+        /// <remarks>
+        /// Number of objects per page.
+        /// </remarks>
         [JsonProperty(PropertyName = "pageSize")]
         public int PageSize { get; set; }
 
         /// <summary>
-        /// Gets or sets a flag indicating if total number of items should be
-        /// included.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// A flag indicating if total number of items should be included.
+        /// </remarks>
         [JsonProperty(PropertyName = "inlineCount")]
         public bool InlineCount { get; set; }
 
         /// <summary>
-        /// Gets or sets the school code for which to get data.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The school code for which to get data.
+        /// </remarks>
         [JsonProperty(PropertyName = "schoolCode")]
         public string SchoolCode { get; set; }
 

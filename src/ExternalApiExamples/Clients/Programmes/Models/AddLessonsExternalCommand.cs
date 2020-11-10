@@ -32,8 +32,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the AddLessonsExternalCommand class.
         /// </summary>
         /// <param name="newLessons">New lessons.</param>
-        /// <param name="schoolCode">The school code for which command is
-        /// performed.</param>
+        /// <param name="schoolCode">String</param>
         public AddLessonsExternalCommand(IList<NewLessonExternal> newLessons, string schoolCode)
         {
             NewLessons = newLessons;
@@ -53,8 +52,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<NewLessonExternal> NewLessons { get; set; }
 
         /// <summary>
-        /// Gets or sets the school code for which command is performed.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The school code for which command is performed.
+        /// </remarks>
         [JsonProperty(PropertyName = "schoolCode")]
         public string SchoolCode { get; set; }
 

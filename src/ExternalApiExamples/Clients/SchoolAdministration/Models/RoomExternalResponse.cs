@@ -31,27 +31,20 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <summary>
         /// Initializes a new instance of the RoomExternalResponse class.
         /// </summary>
-        /// <param name="id">Id of the room.</param>
-        /// <param name="designation">The acronym or designation (user facing
-        /// unique id) of the room</param>
-        /// <param name="roomType">Type of room. Possible values include:
-        /// 'ClassRoom', 'Lab', 'Workshop', 'Gym', 'Auditorium', 'MeetingRoom',
-        /// 'Other'</param>
+        /// <param name="id">Guid</param>
+        /// <param name="designation">String</param>
+        /// <param name="roomType">RoomType</param>
         /// <param name="departmentIds">Departments that room is used
         /// by.</param>
-        /// <param name="name">Name of the room.</param>
-        /// <param name="description">Description of the room.</param>
+        /// <param name="name">String</param>
+        /// <param name="description">String</param>
         /// <param name="capacity">Capacity for meetings.</param>
         /// <param name="maximumPersonsAllowed">Maximum persons allowed in the
         /// room.</param>
-        /// <param name="addressLine">Address of the building where the room is
-        /// located.</param>
-        /// <param name="city">City of the building where the room is
-        /// located.</param>
-        /// <param name="postalCode">Postal code of the building where the room
-        /// is located.</param>
-        /// <param name="dsDepartmentNumber">The DS-department number that room
-        /// belongs to.</param>
+        /// <param name="addressLine">String</param>
+        /// <param name="city">String</param>
+        /// <param name="postalCode">String</param>
+        /// <param name="dsDepartmentNumber">String</param>
         public RoomExternalResponse(System.Guid id, string designation, string roomType, IList<System.Guid> departmentIds, string name = default(string), string description = default(string), int? capacity = default(int?), int? maximumPersonsAllowed = default(int?), string addressLine = default(string), string city = default(string), string postalCode = default(string), string dsDepartmentNumber = default(string))
         {
             Id = id;
@@ -75,34 +68,48 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets id of the room.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Id of the room.
+        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets name of the room.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Name of the room.
+        /// </remarks>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the acronym or designation (user facing unique id) of
-        /// the room
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The acronym or designation (user facing unique id) of the room
+        /// </remarks>
         [JsonProperty(PropertyName = "designation")]
         public string Designation { get; set; }
 
         /// <summary>
-        /// Gets or sets description of the room.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Description of the room.
+        /// </remarks>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets type of room. Possible values include: 'ClassRoom',
-        /// 'Lab', 'Workshop', 'Gym', 'Auditorium', 'MeetingRoom', 'Other'
+        /// Gets or sets roomType
         /// </summary>
+        /// <remarks>
+        /// Type of room. Possible values include: 'ClassRoom', 'Lab',
+        /// 'Workshop', 'Gym', 'Auditorium', 'MeetingRoom', 'Other'
+        /// </remarks>
         [JsonProperty(PropertyName = "roomType")]
         public string RoomType { get; set; }
 
@@ -119,26 +126,38 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         public int? MaximumPersonsAllowed { get; set; }
 
         /// <summary>
-        /// Gets or sets address of the building where the room is located.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Address of the building where the room is located.
+        /// </remarks>
         [JsonProperty(PropertyName = "addressLine")]
         public string AddressLine { get; set; }
 
         /// <summary>
-        /// Gets or sets city of the building where the room is located.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// City of the building where the room is located.
+        /// </remarks>
         [JsonProperty(PropertyName = "city")]
         public string City { get; set; }
 
         /// <summary>
-        /// Gets or sets postal code of the building where the room is located.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Postal code of the building where the room is located.
+        /// </remarks>
         [JsonProperty(PropertyName = "postalCode")]
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the DS-department number that room belongs to.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The DS-department number that room belongs to.
+        /// </remarks>
         [JsonProperty(PropertyName = "dsDepartmentNumber")]
         public string DsDepartmentNumber { get; set; }
 

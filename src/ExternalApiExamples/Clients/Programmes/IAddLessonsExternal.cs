@@ -22,7 +22,7 @@ namespace Kmd.Studica.Programmes.Client
         /// New lessons.
         /// </param>
         /// <param name='schoolCode'>
-        /// The school code for which command is performed.
+        /// String The school code for which command is performed.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

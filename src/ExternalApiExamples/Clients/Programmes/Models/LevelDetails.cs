@@ -25,6 +25,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Initializes a new instance of the LevelDetails class.
         /// </summary>
+        /// <param name="levelId">Guid</param>
+        /// <param name="level">String</param>
+        /// <param name="description">String</param>
+        /// <param name="levelType">String</param>
         public LevelDetails(System.Guid levelId, string level = default(string), string description = default(string), string levelType = default(string))
         {
             LevelId = levelId;
@@ -40,21 +44,25 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets guid
         /// </summary>
         [JsonProperty(PropertyName = "levelId")]
         public System.Guid LevelId { get; set; }
 
         /// <summary>
+        /// Gets or sets string
         /// </summary>
         [JsonProperty(PropertyName = "level")]
         public string Level { get; set; }
 
         /// <summary>
+        /// Gets or sets string
         /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
         /// <summary>
+        /// Gets or sets string
         /// </summary>
         [JsonProperty(PropertyName = "levelType")]
         public string LevelType { get; set; }

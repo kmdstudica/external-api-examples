@@ -31,25 +31,17 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Initializes a new instance of the SchoolHoursPlanExternalResponse
         /// class.
         /// </summary>
-        /// <param name="id">Id of the school hours plan.</param>
-        /// <param name="name">Name of the school hours plan.</param>
-        /// <param name="startTime">Start time for school day.</param>
-        /// <param name="lectureDurationInMinutes">Duration of a lecture in
-        /// minutes.</param>
-        /// <param name="hasLecturesOnMondays">Whether Mondays are school
-        /// days.</param>
-        /// <param name="hasLecturesOnTuesdays">Whether Tuesdays are school
-        /// days.</param>
-        /// <param name="hasLecturesOnWednesdays">Whether Wednesdays are
-        /// school-days.</param>
-        /// <param name="hasLecturesOnThursdays">Whether Thursdays are school
-        /// days.</param>
-        /// <param name="hasLecturesOnFridays">Whether Fridays are school
-        /// days.</param>
-        /// <param name="hasLecturesOnSaturdays">Whether Saturdays are school
-        /// days.</param>
-        /// <param name="hasLecturesOnSundays">Whether Sundays are school
-        /// days.</param>
+        /// <param name="id">Guid</param>
+        /// <param name="name">String</param>
+        /// <param name="startTime">String</param>
+        /// <param name="lectureDurationInMinutes">Int32</param>
+        /// <param name="hasLecturesOnMondays">Boolean</param>
+        /// <param name="hasLecturesOnTuesdays">Boolean</param>
+        /// <param name="hasLecturesOnWednesdays">Boolean</param>
+        /// <param name="hasLecturesOnThursdays">Boolean</param>
+        /// <param name="hasLecturesOnFridays">Boolean</param>
+        /// <param name="hasLecturesOnSaturdays">Boolean</param>
+        /// <param name="hasLecturesOnSundays">Boolean</param>
         public SchoolHoursPlanExternalResponse(System.Guid id, string name, string startTime, int lectureDurationInMinutes, bool hasLecturesOnMondays, bool hasLecturesOnTuesdays, bool hasLecturesOnWednesdays, bool hasLecturesOnThursdays, bool hasLecturesOnFridays, bool hasLecturesOnSaturdays, bool hasLecturesOnSundays)
         {
             Id = id;
@@ -72,68 +64,101 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets id of the school hours plan.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Id of the school hours plan.
+        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets name of the school hours plan.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Name of the school hours plan.
+        /// </remarks>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets start time for school day.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Start time for school day.
+        /// </remarks>
         [JsonProperty(PropertyName = "startTime")]
         public string StartTime { get; set; }
 
         /// <summary>
-        /// Gets or sets duration of a lecture in minutes.
+        /// Gets or sets int32
         /// </summary>
+        /// <remarks>
+        /// Duration of a lecture in minutes.
+        /// </remarks>
         [JsonProperty(PropertyName = "lectureDurationInMinutes")]
         public int LectureDurationInMinutes { get; set; }
 
         /// <summary>
-        /// Gets or sets whether Mondays are school days.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Whether Mondays are school days.
+        /// </remarks>
         [JsonProperty(PropertyName = "hasLecturesOnMondays")]
         public bool HasLecturesOnMondays { get; set; }
 
         /// <summary>
-        /// Gets or sets whether Tuesdays are school days.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Whether Tuesdays are school days.
+        /// </remarks>
         [JsonProperty(PropertyName = "hasLecturesOnTuesdays")]
         public bool HasLecturesOnTuesdays { get; set; }
 
         /// <summary>
-        /// Gets or sets whether Wednesdays are school-days.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Whether Wednesdays are school-days.
+        /// </remarks>
         [JsonProperty(PropertyName = "hasLecturesOnWednesdays")]
         public bool HasLecturesOnWednesdays { get; set; }
 
         /// <summary>
-        /// Gets or sets whether Thursdays are school days.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Whether Thursdays are school days.
+        /// </remarks>
         [JsonProperty(PropertyName = "hasLecturesOnThursdays")]
         public bool HasLecturesOnThursdays { get; set; }
 
         /// <summary>
-        /// Gets or sets whether Fridays are school days.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Whether Fridays are school days.
+        /// </remarks>
         [JsonProperty(PropertyName = "hasLecturesOnFridays")]
         public bool HasLecturesOnFridays { get; set; }
 
         /// <summary>
-        /// Gets or sets whether Saturdays are school days.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Whether Saturdays are school days.
+        /// </remarks>
         [JsonProperty(PropertyName = "hasLecturesOnSaturdays")]
         public bool HasLecturesOnSaturdays { get; set; }
 
         /// <summary>
-        /// Gets or sets whether Sundays are school days.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Whether Sundays are school days.
+        /// </remarks>
         [JsonProperty(PropertyName = "hasLecturesOnSundays")]
         public bool HasLecturesOnSundays { get; set; }
 

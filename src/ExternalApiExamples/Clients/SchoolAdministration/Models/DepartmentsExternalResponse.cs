@@ -32,9 +32,9 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Initializes a new instance of the DepartmentsExternalResponse
         /// class.
         /// </summary>
-        /// <param name="id">Identifier of the department.</param>
-        /// <param name="name">Name of the department.</param>
-        /// <param name="validFrom">Beginning date of being valid.</param>
+        /// <param name="id">Guid</param>
+        /// <param name="name">String</param>
+        /// <param name="validFrom">Date</param>
         /// <param name="validTo">End date of being valid.</param>
         public DepartmentsExternalResponse(System.Guid id, string name, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?))
         {
@@ -51,20 +51,29 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets identifier of the department.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Identifier of the department.
+        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets name of the department.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Name of the department.
+        /// </remarks>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets beginning date of being valid.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Beginning date of being valid.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "validFrom")]
         public System.DateTime ValidFrom { get; set; }

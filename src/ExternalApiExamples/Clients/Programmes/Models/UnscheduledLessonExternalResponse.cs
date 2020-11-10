@@ -34,11 +34,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the UnscheduledLessonExternalResponse
         /// class.
         /// </summary>
-        /// <param name="id">Unique identifier.</param>
-        /// <param name="subjectCourseId">Reference to the subject course that
-        /// lesson is part of.</param>
-        /// <param name="externalLessonId">External identifier set by partners
-        /// to allow them to match it with the lessons known by them.</param>
+        /// <param name="id">Guid</param>
+        /// <param name="subjectCourseId">Guid</param>
+        /// <param name="externalLessonId">String</param>
         /// <param name="roomId">Reference to the room where lesson is
         /// conducted.</param>
         /// <param name="date">Date of the lesson.</param>
@@ -64,22 +62,30 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique identifier.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Unique identifier.
+        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets external identifier set by partners to allow them to
-        /// match it with the lessons known by them.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// External identifier set by partners to allow them to match it with
+        /// the lessons known by them.
+        /// </remarks>
         [JsonProperty(PropertyName = "externalLessonId")]
         public string ExternalLessonId { get; set; }
 
         /// <summary>
-        /// Gets or sets reference to the subject course that lesson is part
-        /// of.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Reference to the subject course that lesson is part of.
+        /// </remarks>
         [JsonProperty(PropertyName = "subjectCourseId")]
         public System.Guid SubjectCourseId { get; set; }
 

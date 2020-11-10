@@ -32,17 +32,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the SubjectCoursesExternalRequest
         /// class.
         /// </summary>
-        /// <param name="startDateFrom">Beginning of the range for start date
-        /// subject courses.</param>
-        /// <param name="startDateTo">End of the range for start date subject
-        /// courses.</param>
-        /// <param name="pageNumber">The number of the page to return (1 is the
-        /// first page).</param>
-        /// <param name="pageSize">Number of objects per page.</param>
-        /// <param name="inlineCount">A flag indicating if total number of
-        /// items should be included.</param>
-        /// <param name="schoolCode">The school code for which to get
-        /// data.</param>
+        /// <param name="startDateFrom">Date</param>
+        /// <param name="startDateTo">Date</param>
+        /// <param name="pageNumber">Int32</param>
+        /// <param name="pageSize">Int32</param>
+        /// <param name="inlineCount">Boolean</param>
+        /// <param name="schoolCode">String</param>
         /// <param name="lmsIndicator">Is the entity to be created in the LMS.
         /// If not specified, then the value of the LMS indicator is
         /// disregarded in the filtering.</param>
@@ -64,15 +59,21 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets beginning of the range for start date subject courses.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Beginning of the range for start date subject courses.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "startDateFrom")]
         public System.DateTime StartDateFrom { get; set; }
 
         /// <summary>
-        /// Gets or sets end of the range for start date subject courses.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// End of the range for start date subject courses.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "startDateTo")]
         public System.DateTime StartDateTo { get; set; }
@@ -86,28 +87,38 @@ namespace Kmd.Studica.Programmes.Client.Models
         public bool? LmsIndicator { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of the page to return (1 is the first
-        /// page).
+        /// Gets or sets int32
         /// </summary>
+        /// <remarks>
+        /// The number of the page to return (1 is the first page).
+        /// </remarks>
         [JsonProperty(PropertyName = "pageNumber")]
         public int PageNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets number of objects per page.
+        /// Gets or sets int32
         /// </summary>
+        /// <remarks>
+        /// Number of objects per page.
+        /// </remarks>
         [JsonProperty(PropertyName = "pageSize")]
         public int PageSize { get; set; }
 
         /// <summary>
-        /// Gets or sets a flag indicating if total number of items should be
-        /// included.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// A flag indicating if total number of items should be included.
+        /// </remarks>
         [JsonProperty(PropertyName = "inlineCount")]
         public bool InlineCount { get; set; }
 
         /// <summary>
-        /// Gets or sets the school code for which to get data.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The school code for which to get data.
+        /// </remarks>
         [JsonProperty(PropertyName = "schoolCode")]
         public string SchoolCode { get; set; }
 

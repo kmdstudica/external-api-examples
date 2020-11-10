@@ -22,7 +22,7 @@ namespace Kmd.Studica.Students.Client
         /// Student ids for bulk query. Must contain 1 to 1000 elements
         /// </param>
         /// <param name='schoolCode'>
-        /// The school code for which to get data.
+        /// String The school code for which to get data.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

@@ -22,7 +22,7 @@ namespace Kmd.Studica.Programmes.Client
         /// Lesson identifiers for bulk query.
         /// </param>
         /// <param name='schoolCode'>
-        /// The school code for which to get data.
+        /// String The school code for which to get data.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

@@ -27,10 +27,9 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <summary>
         /// Initializes a new instance of the SchoolDay class.
         /// </summary>
-        /// <param name="date">Date of the school day.</param>
-        /// <param name="isSchoolDay">Flag indicating if a day is a school
-        /// day.</param>
-        /// <param name="comment">Comments to the school day.</param>
+        /// <param name="date">Date</param>
+        /// <param name="isSchoolDay">Boolean</param>
+        /// <param name="comment">String</param>
         public SchoolDay(System.DateTime date, bool isSchoolDay, string comment = default(string))
         {
             Date = date;
@@ -45,21 +44,30 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets date of the school day.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Date of the school day.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "date")]
         public System.DateTime Date { get; set; }
 
         /// <summary>
-        /// Gets or sets flag indicating if a day is a school day.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Flag indicating if a day is a school day.
+        /// </remarks>
         [JsonProperty(PropertyName = "isSchoolDay")]
         public bool IsSchoolDay { get; set; }
 
         /// <summary>
-        /// Gets or sets comments to the school day.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Comments to the school day.
+        /// </remarks>
         [JsonProperty(PropertyName = "comment")]
         public string Comment { get; set; }
 

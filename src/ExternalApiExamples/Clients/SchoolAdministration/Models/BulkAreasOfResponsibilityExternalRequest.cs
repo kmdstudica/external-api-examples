@@ -35,8 +35,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </summary>
         /// <param name="areaOfResponsibilityIds">Areas of responsibility
         /// identifiers for bulk query.</param>
-        /// <param name="schoolCode">The school code for which to get
-        /// data.</param>
+        /// <param name="schoolCode">String</param>
         public BulkAreasOfResponsibilityExternalRequest(IList<System.Guid> areaOfResponsibilityIds, string schoolCode)
         {
             AreaOfResponsibilityIds = areaOfResponsibilityIds;
@@ -56,8 +55,11 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         public IList<System.Guid> AreaOfResponsibilityIds { get; set; }
 
         /// <summary>
-        /// Gets or sets the school code for which to get data.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The school code for which to get data.
+        /// </remarks>
         [JsonProperty(PropertyName = "schoolCode")]
         public string SchoolCode { get; set; }
 

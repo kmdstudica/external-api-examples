@@ -24,7 +24,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// Employees identifiers for bulk query.
             /// </param>
             /// <param name='schoolCode'>
-            /// The school code for which to get data.
+            /// String The school code for which to get data.
             /// </param>
             public static IList<EmployeeExternalResponse> Post(this IBulkEmployeesExternal operations, IList<System.Guid> employeeIds, string schoolCode)
             {
@@ -38,7 +38,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// Employees identifiers for bulk query.
             /// </param>
             /// <param name='schoolCode'>
-            /// The school code for which to get data.
+            /// String The school code for which to get data.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

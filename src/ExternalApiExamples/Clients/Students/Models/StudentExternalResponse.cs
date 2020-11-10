@@ -31,38 +31,28 @@ namespace Kmd.Studica.Students.Client.Models
         /// <summary>
         /// Initializes a new instance of the StudentExternalResponse class.
         /// </summary>
-        /// <param name="id">Student's identifier.</param>
-        /// <param name="civilRegistrationNumber">Student's civil registration
-        /// (CPR) number.</param>
-        /// <param name="protectedNameAndAddress">Whether the name and address
-        /// of the applicant are protected.</param>
-        /// <param name="email">Student's e-mail address.</param>
-        /// <param name="reportToUniLogin">Flag denoting whether the student
-        /// should be created as a user in UNI-Login</param>
-        /// <param name="createAdLogin">Flag denoting whether the student
-        /// should be created in the local Active Directory</param>
+        /// <param name="id">Guid</param>
+        /// <param name="civilRegistrationNumber">String</param>
+        /// <param name="protectedNameAndAddress">Boolean</param>
+        /// <param name="email">String</param>
+        /// <param name="reportToUniLogin">Boolean</param>
+        /// <param name="createAdLogin">Boolean</param>
         /// <param name="guardians">The student's guardian(s).</param>
         /// <param name="studies">The studies (educations) the student is
         /// attending or has finished</param>
-        /// <param name="givenName">Student's given name.</param>
-        /// <param name="surname">Student's surname.</param>
-        /// <param name="protectedGivenName">Protected given name from national
-        /// registry</param>
-        /// <param name="protectedSurname">Protected surname from national
-        /// registry</param>
-        /// <param name="careOfAddress">The C/O address line of the
-        /// student.</param>
-        /// <param name="addressLine">Full address including street, house-nr
-        /// letter, etc. where the student lives.</param>
-        /// <param name="place">The place of the student.</param>
-        /// <param name="city">The city where the student lives.</param>
-        /// <param name="postalCode">The matching postal code for the
-        /// city.</param>
-        /// <param name="country">The country where the student lives.</param>
-        /// <param name="phoneNumber">The student's phone number.</param>
-        /// <param name="uniLoginUsername">Student's Unilogin username.</param>
-        /// <param name="adUsername">Student's Active Directory
-        /// username.</param>
+        /// <param name="givenName">String</param>
+        /// <param name="surname">String</param>
+        /// <param name="protectedGivenName">String</param>
+        /// <param name="protectedSurname">String</param>
+        /// <param name="careOfAddress">String</param>
+        /// <param name="addressLine">String</param>
+        /// <param name="place">String</param>
+        /// <param name="city">String</param>
+        /// <param name="postalCode">String</param>
+        /// <param name="country">String</param>
+        /// <param name="phoneNumber">String</param>
+        /// <param name="uniLoginUsername">String</param>
+        /// <param name="adUsername">String</param>
         public StudentExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, string email, bool reportToUniLogin, bool createAdLogin, IList<StudentGuardian> guardians, IList<StudentStudy> studies, string givenName = default(string), string surname = default(string), string protectedGivenName = default(string), string protectedSurname = default(string), string careOfAddress = default(string), string addressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), string uniLoginUsername = default(string), string adUsername = default(string))
         {
             Id = id;
@@ -95,120 +85,176 @@ namespace Kmd.Studica.Students.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets student's identifier.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Student's identifier.
+        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets student's civil registration (CPR) number.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Student's civil registration (CPR) number.
+        /// </remarks>
         [JsonProperty(PropertyName = "civilRegistrationNumber")]
         public string CivilRegistrationNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets student's given name.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Student's given name.
+        /// </remarks>
         [JsonProperty(PropertyName = "givenName")]
         public string GivenName { get; set; }
 
         /// <summary>
-        /// Gets or sets student's surname.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Student's surname.
+        /// </remarks>
         [JsonProperty(PropertyName = "surname")]
         public string Surname { get; set; }
 
         /// <summary>
-        /// Gets or sets protected given name from national registry
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Protected given name from national registry
+        /// </remarks>
         [JsonProperty(PropertyName = "protectedGivenName")]
         public string ProtectedGivenName { get; set; }
 
         /// <summary>
-        /// Gets or sets protected surname from national registry
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Protected surname from national registry
+        /// </remarks>
         [JsonProperty(PropertyName = "protectedSurname")]
         public string ProtectedSurname { get; set; }
 
         /// <summary>
-        /// Gets or sets the C/O address line of the student.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The C/O address line of the student.
+        /// </remarks>
         [JsonProperty(PropertyName = "careOfAddress")]
         public string CareOfAddress { get; set; }
 
         /// <summary>
-        /// Gets or sets full address including street, house-nr letter, etc.
-        /// where the student lives.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Full address including street, house-nr letter, etc. where the
+        /// student lives.
+        /// </remarks>
         [JsonProperty(PropertyName = "addressLine")]
         public string AddressLine { get; set; }
 
         /// <summary>
-        /// Gets or sets the place of the student.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The place of the student.
+        /// </remarks>
         [JsonProperty(PropertyName = "place")]
         public string Place { get; set; }
 
         /// <summary>
-        /// Gets or sets the city where the student lives.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The city where the student lives.
+        /// </remarks>
         [JsonProperty(PropertyName = "city")]
         public string City { get; set; }
 
         /// <summary>
-        /// Gets or sets the matching postal code for the city.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The matching postal code for the city.
+        /// </remarks>
         [JsonProperty(PropertyName = "postalCode")]
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the country where the student lives.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The country where the student lives.
+        /// </remarks>
         [JsonProperty(PropertyName = "country")]
         public string Country { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the name and address of the applicant are
-        /// protected.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Whether the name and address of the applicant are protected.
+        /// </remarks>
         [JsonProperty(PropertyName = "protectedNameAndAddress")]
         public bool ProtectedNameAndAddress { get; set; }
 
         /// <summary>
-        /// Gets or sets the student's phone number.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The student's phone number.
+        /// </remarks>
         [JsonProperty(PropertyName = "phoneNumber")]
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets student's e-mail address.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Student's e-mail address.
+        /// </remarks>
         [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
 
         /// <summary>
-        /// Gets or sets student's Unilogin username.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Student's Unilogin username.
+        /// </remarks>
         [JsonProperty(PropertyName = "uniLoginUsername")]
         public string UniLoginUsername { get; set; }
 
         /// <summary>
-        /// Gets or sets flag denoting whether the student should be created as
-        /// a user in UNI-Login
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Flag denoting whether the student should be created as a user in
+        /// UNI-Login
+        /// </remarks>
         [JsonProperty(PropertyName = "reportToUniLogin")]
         public bool ReportToUniLogin { get; set; }
 
         /// <summary>
-        /// Gets or sets student's Active Directory username.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Student's Active Directory username.
+        /// </remarks>
         [JsonProperty(PropertyName = "adUsername")]
         public string AdUsername { get; set; }
 
         /// <summary>
-        /// Gets or sets flag denoting whether the student should be created in
-        /// the local Active Directory
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Flag denoting whether the student should be created in the local
+        /// Active Directory
+        /// </remarks>
         [JsonProperty(PropertyName = "createAdLogin")]
         public bool CreateAdLogin { get; set; }
 

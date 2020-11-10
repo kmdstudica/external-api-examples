@@ -30,13 +30,10 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <summary>
         /// Initializes a new instance of the DepartmentsExternalRequest class.
         /// </summary>
-        /// <param name="pageNumber">The number of the page to return (1 is the
-        /// first page).</param>
-        /// <param name="pageSize">Number of objects per page.</param>
-        /// <param name="inlineCount">A flag indicating if total number of
-        /// items should be included.</param>
-        /// <param name="schoolCode">The school code for which to get
-        /// data.</param>
+        /// <param name="pageNumber">Int32</param>
+        /// <param name="pageSize">Int32</param>
+        /// <param name="inlineCount">Boolean</param>
+        /// <param name="schoolCode">String</param>
         /// <param name="validFrom">Beginning date of being valid.</param>
         /// <param name="validTo">End date of being valid.</param>
         public DepartmentsExternalRequest(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? validFrom = default(System.DateTime?), System.DateTime? validTo = default(System.DateTime?))
@@ -70,28 +67,38 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         public System.DateTime? ValidTo { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of the page to return (1 is the first
-        /// page).
+        /// Gets or sets int32
         /// </summary>
+        /// <remarks>
+        /// The number of the page to return (1 is the first page).
+        /// </remarks>
         [JsonProperty(PropertyName = "pageNumber")]
         public int PageNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets number of objects per page.
+        /// Gets or sets int32
         /// </summary>
+        /// <remarks>
+        /// Number of objects per page.
+        /// </remarks>
         [JsonProperty(PropertyName = "pageSize")]
         public int PageSize { get; set; }
 
         /// <summary>
-        /// Gets or sets a flag indicating if total number of items should be
-        /// included.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// A flag indicating if total number of items should be included.
+        /// </remarks>
         [JsonProperty(PropertyName = "inlineCount")]
         public bool InlineCount { get; set; }
 
         /// <summary>
-        /// Gets or sets the school code for which to get data.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The school code for which to get data.
+        /// </remarks>
         [JsonProperty(PropertyName = "schoolCode")]
         public string SchoolCode { get; set; }
 

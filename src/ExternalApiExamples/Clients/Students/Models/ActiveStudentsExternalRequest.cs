@@ -32,16 +32,11 @@ namespace Kmd.Studica.Students.Client.Models
         /// Initializes a new instance of the ActiveStudentsExternalRequest
         /// class.
         /// </summary>
-        /// <param name="studentActiveOnOrAfterDate">Students must be active on
-        /// the date or after this date
-        /// This parameter is required</param>
-        /// <param name="pageNumber">The number of the page to return (1 is the
-        /// first page).</param>
-        /// <param name="pageSize">Number of objects per page.</param>
-        /// <param name="inlineCount">A flag indicating if total number of
-        /// items should be included.</param>
-        /// <param name="schoolCode">The school code for which to get
-        /// data.</param>
+        /// <param name="studentActiveOnOrAfterDate">Date</param>
+        /// <param name="pageNumber">Int32</param>
+        /// <param name="pageSize">Int32</param>
+        /// <param name="inlineCount">Boolean</param>
+        /// <param name="schoolCode">String</param>
         public ActiveStudentsExternalRequest(System.DateTime studentActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode)
         {
             StudentActiveOnOrAfterDate = studentActiveOnOrAfterDate;
@@ -58,36 +53,49 @@ namespace Kmd.Studica.Students.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets students must be active on the date or after this date
-        /// This parameter is required
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Students must be active on the date or after this date
+        /// This parameter is required
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "studentActiveOnOrAfterDate")]
         public System.DateTime StudentActiveOnOrAfterDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of the page to return (1 is the first
-        /// page).
+        /// Gets or sets int32
         /// </summary>
+        /// <remarks>
+        /// The number of the page to return (1 is the first page).
+        /// </remarks>
         [JsonProperty(PropertyName = "pageNumber")]
         public int PageNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets number of objects per page.
+        /// Gets or sets int32
         /// </summary>
+        /// <remarks>
+        /// Number of objects per page.
+        /// </remarks>
         [JsonProperty(PropertyName = "pageSize")]
         public int PageSize { get; set; }
 
         /// <summary>
-        /// Gets or sets a flag indicating if total number of items should be
-        /// included.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// A flag indicating if total number of items should be included.
+        /// </remarks>
         [JsonProperty(PropertyName = "inlineCount")]
         public bool InlineCount { get; set; }
 
         /// <summary>
-        /// Gets or sets the school code for which to get data.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The school code for which to get data.
+        /// </remarks>
         [JsonProperty(PropertyName = "schoolCode")]
         public string SchoolCode { get; set; }
 

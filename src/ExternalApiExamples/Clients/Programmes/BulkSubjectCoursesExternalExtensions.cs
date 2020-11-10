@@ -24,7 +24,7 @@ namespace Kmd.Studica.Programmes.Client
             /// Subject course identifiers for bulk query.
             /// </param>
             /// <param name='schoolCode'>
-            /// The school code for which to get data.
+            /// String The school code for which to get data.
             /// </param>
             public static IList<SubjectCourseExternalResponse> Post(this IBulkSubjectCoursesExternal operations, IList<System.Guid> subjectCourseIds, string schoolCode)
             {
@@ -38,7 +38,7 @@ namespace Kmd.Studica.Programmes.Client
             /// Subject course identifiers for bulk query.
             /// </param>
             /// <param name='schoolCode'>
-            /// The school code for which to get data.
+            /// String The school code for which to get data.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

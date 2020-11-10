@@ -25,31 +25,24 @@ namespace Kmd.Studica.Students.Client.Models
         /// <summary>
         /// Initializes a new instance of the StudentGuardian class.
         /// </summary>
-        /// <param name="protectedNameAndAddress">Whether the guardian has name
-        /// and address protection.</param>
-        /// <param name="civilRegistrationNumber">The guardian's Civil
-        /// Registration (CPR) number.</param>
+        /// <param name="id">Guid</param>
+        /// <param name="protectedNameAndAddress">Boolean</param>
+        /// <param name="civilRegistrationNumber">String</param>
         /// <param name="role">The guardian's role towards the student.
         /// Possible values include: 'Mother', 'Father', 'Other',
         /// 'OfficialAuthority'</param>
-        /// <param name="givenName">The guardian's first- and middle
-        /// names.</param>
-        /// <param name="surname">The guardian's last name.</param>
-        /// <param name="protectedGivenName">The given name(s) of the guardian,
-        /// as registered in the national registry.</param>
-        /// <param name="protectedSurname">The surname of the guardian, as
-        /// registered in the national registry.</param>
-        /// <param name="phoneNumber">The guardian's phone number.</param>
-        /// <param name="email">The guardian's e-mail address.</param>
-        /// <param name="careOfAddressLine">The C/O address line of the
-        /// guardian.</param>
-        /// <param name="addressLine">The guardian's full address including
-        /// street, house-nr letter, etc.</param>
-        /// <param name="place">The place of the guardian.</param>
-        /// <param name="city">The city where the guardian lives.</param>
-        /// <param name="postalCode">The matching postal code for the
-        /// city.</param>
-        /// <param name="country">The country where the guardian lives.</param>
+        /// <param name="givenName">String</param>
+        /// <param name="surname">String</param>
+        /// <param name="protectedGivenName">String</param>
+        /// <param name="protectedSurname">String</param>
+        /// <param name="phoneNumber">String</param>
+        /// <param name="email">String</param>
+        /// <param name="careOfAddressLine">String</param>
+        /// <param name="addressLine">String</param>
+        /// <param name="place">String</param>
+        /// <param name="city">String</param>
+        /// <param name="postalCode">String</param>
+        /// <param name="country">String</param>
         public StudentGuardian(System.Guid id, bool protectedNameAndAddress, string civilRegistrationNumber = default(string), string role = default(string), string givenName = default(string), string surname = default(string), string protectedGivenName = default(string), string protectedSurname = default(string), string phoneNumber = default(string), string email = default(string), string careOfAddressLine = default(string), string addressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string))
         {
             Id = id;
@@ -77,13 +70,17 @@ namespace Kmd.Studica.Students.Client.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets guid
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the guardian's Civil Registration (CPR) number.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The guardian's Civil Registration (CPR) number.
+        /// </remarks>
         [JsonProperty(PropertyName = "civilRegistrationNumber")]
         public string CivilRegistrationNumber { get; set; }
 
@@ -95,83 +92,121 @@ namespace Kmd.Studica.Students.Client.Models
         public string Role { get; set; }
 
         /// <summary>
-        /// Gets or sets the guardian's first- and middle names.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The guardian's first- and middle names.
+        /// </remarks>
         [JsonProperty(PropertyName = "givenName")]
         public string GivenName { get; set; }
 
         /// <summary>
-        /// Gets or sets the guardian's last name.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The guardian's last name.
+        /// </remarks>
         [JsonProperty(PropertyName = "surname")]
         public string Surname { get; set; }
 
         /// <summary>
-        /// Gets or sets the given name(s) of the guardian, as registered in
-        /// the national registry.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The given name(s) of the guardian, as registered in the national
+        /// registry.
+        /// </remarks>
         [JsonProperty(PropertyName = "protectedGivenName")]
         public string ProtectedGivenName { get; set; }
 
         /// <summary>
-        /// Gets or sets the surname of the guardian, as registered in the
-        /// national registry.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The surname of the guardian, as registered in the national
+        /// registry.
+        /// </remarks>
         [JsonProperty(PropertyName = "protectedSurname")]
         public string ProtectedSurname { get; set; }
 
         /// <summary>
-        /// Gets or sets the guardian's phone number.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The guardian's phone number.
+        /// </remarks>
         [JsonProperty(PropertyName = "phoneNumber")]
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets the guardian's e-mail address.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The guardian's e-mail address.
+        /// </remarks>
         [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
 
         /// <summary>
-        /// Gets or sets the C/O address line of the guardian.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The C/O address line of the guardian.
+        /// </remarks>
         [JsonProperty(PropertyName = "careOfAddressLine")]
         public string CareOfAddressLine { get; set; }
 
         /// <summary>
-        /// Gets or sets the guardian's full address including street, house-nr
-        /// letter, etc.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The guardian's full address including street, house-nr letter, etc.
+        /// </remarks>
         [JsonProperty(PropertyName = "addressLine")]
         public string AddressLine { get; set; }
 
         /// <summary>
-        /// Gets or sets the place of the guardian.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The place of the guardian.
+        /// </remarks>
         [JsonProperty(PropertyName = "place")]
         public string Place { get; set; }
 
         /// <summary>
-        /// Gets or sets the city where the guardian lives.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The city where the guardian lives.
+        /// </remarks>
         [JsonProperty(PropertyName = "city")]
         public string City { get; set; }
 
         /// <summary>
-        /// Gets or sets the matching postal code for the city.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The matching postal code for the city.
+        /// </remarks>
         [JsonProperty(PropertyName = "postalCode")]
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the country where the guardian lives.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The country where the guardian lives.
+        /// </remarks>
         [JsonProperty(PropertyName = "country")]
         public string Country { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the guardian has name and address protection.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Whether the guardian has name and address protection.
+        /// </remarks>
         [JsonProperty(PropertyName = "protectedNameAndAddress")]
         public bool ProtectedNameAndAddress { get; set; }
 

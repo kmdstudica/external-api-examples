@@ -34,19 +34,16 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the SubjectCourseExternalResponse
         /// class.
         /// </summary>
-        /// <param name="id">Id of the subject course.</param>
-        /// <param name="educationalProgrammeId">Id of the associated
-        /// educational programme.</param>
-        /// <param name="name">Name of the subject course.</param>
-        /// <param name="startDate">Start date of the subject course.</param>
-        /// <param name="endDate">End date for the subject course.</param>
-        /// <param name="lmsIndicator">Is the entity to be created in the
-        /// LMS.</param>
+        /// <param name="id">Guid</param>
+        /// <param name="educationalProgrammeId">Guid</param>
+        /// <param name="name">String</param>
+        /// <param name="startDate">Date</param>
+        /// <param name="endDate">Date</param>
+        /// <param name="lmsIndicator">Boolean</param>
         /// <param name="students">Assigned students.</param>
         /// <param name="teachersIds">Reference ids to assigned
         /// teachers.</param>
-        /// <param name="designation">The designation (user facing unique id)
-        /// of the subject course</param>
+        /// <param name="designation">String</param>
         /// <param name="defaultSubjectId">The id of the default subject for
         /// this subject course.</param>
         public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, string designation = default(string), System.Guid? defaultSubjectId = default(System.Guid?))
@@ -70,21 +67,29 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets id of the subject course.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Id of the subject course.
+        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the designation (user facing unique id) of the subject
-        /// course
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The designation (user facing unique id) of the subject course
+        /// </remarks>
         [JsonProperty(PropertyName = "designation")]
         public string Designation { get; set; }
 
         /// <summary>
-        /// Gets or sets id of the associated educational programme.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Id of the associated educational programme.
+        /// </remarks>
         [JsonProperty(PropertyName = "educationalProgrammeId")]
         public System.Guid EducationalProgrammeId { get; set; }
 
@@ -95,28 +100,40 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.Guid? DefaultSubjectId { get; set; }
 
         /// <summary>
-        /// Gets or sets name of the subject course.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Name of the subject course.
+        /// </remarks>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets start date of the subject course.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Start date of the subject course.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "startDate")]
         public System.DateTime StartDate { get; set; }
 
         /// <summary>
-        /// Gets or sets end date for the subject course.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// End date for the subject course.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "endDate")]
         public System.DateTime EndDate { get; set; }
 
         /// <summary>
-        /// Gets or sets is the entity to be created in the LMS.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Is the entity to be created in the LMS.
+        /// </remarks>
         [JsonProperty(PropertyName = "lmsIndicator")]
         public bool LmsIndicator { get; set; }
 

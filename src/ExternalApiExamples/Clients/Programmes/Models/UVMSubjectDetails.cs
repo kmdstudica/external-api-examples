@@ -27,11 +27,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Initializes a new instance of the UVMSubjectDetails class.
         /// </summary>
-        /// <param name="id">Unique identification of subject course</param>
-        /// <param name="canOverwriteDuration">Is it possible to have a locally
-        /// defined duration of this subject</param>
-        /// <param name="subject">Subject code (Fagnummer) from UMO</param>
-        /// <param name="description">UVM subject description</param>
+        /// <param name="id">Guid</param>
+        /// <param name="canOverwriteDuration">Boolean</param>
+        /// <param name="subject">String</param>
+        /// <param name="description">String</param>
         /// <param name="startDate">Possible start date of UVM subject</param>
         /// <param name="endDate">Possible end date of UVM subject</param>
         /// <param name="durationInDays">Possible duration of subject in days.
@@ -63,20 +62,29 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique identification of subject course
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Unique identification of subject course
+        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets subject code (Fagnummer) from UMO
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Subject code (Fagnummer) from UMO
+        /// </remarks>
         [JsonProperty(PropertyName = "subject")]
         public string Subject { get; set; }
 
         /// <summary>
-        /// Gets or sets UVM subject description
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// UVM subject description
+        /// </remarks>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
@@ -95,9 +103,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.DateTime? EndDate { get; set; }
 
         /// <summary>
-        /// Gets or sets is it possible to have a locally defined duration of
-        /// this subject
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Is it possible to have a locally defined duration of this subject
+        /// </remarks>
         [JsonProperty(PropertyName = "canOverwriteDuration")]
         public bool CanOverwriteDuration { get; set; }
 

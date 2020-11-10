@@ -31,11 +31,9 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Initializes a new instance of the SchoolHourEntryExternalResponse
         /// class.
         /// </summary>
-        /// <param name="schoolHoursPlanId">Id of school hours plan where this
-        /// entry belongs to.</param>
-        /// <param name="entryType">The type of entry. Possible values include:
-        /// 'Break', 'Module', 'Lecture'</param>
-        /// <param name="name">Optional name of this entry.</param>
+        /// <param name="schoolHoursPlanId">Guid</param>
+        /// <param name="entryType">SchoolHourEntryType</param>
+        /// <param name="name">String</param>
         /// <param name="duration">Duration of this entry, only valid for
         /// breaks.</param>
         public SchoolHourEntryExternalResponse(System.Guid schoolHoursPlanId, string entryType, string name = default(string), int? duration = default(int?))
@@ -53,21 +51,30 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets id of school hours plan where this entry belongs to.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Id of school hours plan where this entry belongs to.
+        /// </remarks>
         [JsonProperty(PropertyName = "schoolHoursPlanId")]
         public System.Guid SchoolHoursPlanId { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of entry. Possible values include: 'Break',
-        /// 'Module', 'Lecture'
+        /// Gets or sets schoolHourEntryType
         /// </summary>
+        /// <remarks>
+        /// The type of entry. Possible values include: 'Break', 'Module',
+        /// 'Lecture'
+        /// </remarks>
         [JsonProperty(PropertyName = "entryType")]
         public string EntryType { get; set; }
 
         /// <summary>
-        /// Gets or sets optional name of this entry.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Optional name of this entry.
+        /// </remarks>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 

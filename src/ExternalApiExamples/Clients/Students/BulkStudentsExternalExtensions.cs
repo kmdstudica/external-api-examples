@@ -24,7 +24,7 @@ namespace Kmd.Studica.Students.Client
             /// Student ids for bulk query. Must contain 1 to 1000 elements
             /// </param>
             /// <param name='schoolCode'>
-            /// The school code for which to get data.
+            /// String The school code for which to get data.
             /// </param>
             public static IList<StudentExternalResponse> Post(this IBulkStudentsExternal operations, IList<System.Guid> studentIds, string schoolCode)
             {
@@ -38,7 +38,7 @@ namespace Kmd.Studica.Students.Client
             /// Student ids for bulk query. Must contain 1 to 1000 elements
             /// </param>
             /// <param name='schoolCode'>
-            /// The school code for which to get data.
+            /// String The school code for which to get data.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

@@ -35,8 +35,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         /// <param name="subjectCourseIds">Subject course identifiers for bulk
         /// query.</param>
-        /// <param name="schoolCode">The school code for which to get
-        /// data.</param>
+        /// <param name="schoolCode">String</param>
         public BulkSubjectCoursesExternalRequest(IList<System.Guid> subjectCourseIds, string schoolCode)
         {
             SubjectCourseIds = subjectCourseIds;
@@ -56,8 +55,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<System.Guid> SubjectCourseIds { get; set; }
 
         /// <summary>
-        /// Gets or sets the school code for which to get data.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The school code for which to get data.
+        /// </remarks>
         [JsonProperty(PropertyName = "schoolCode")]
         public string SchoolCode { get; set; }
 

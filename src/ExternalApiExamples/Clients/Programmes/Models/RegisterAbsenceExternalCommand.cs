@@ -33,15 +33,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the RegisterAbsenceExternalCommand
         /// class.
         /// </summary>
-        /// <param name="lessonId">Id of lesson to register absence on.</param>
-        /// <param name="subjectCourseId">Id of the subject course the lesson
-        /// is part of.</param>
-        /// <param name="absenceRegistered">Has all absence been
-        /// registered</param>
+        /// <param name="lessonId">Guid</param>
+        /// <param name="subjectCourseId">Guid</param>
+        /// <param name="absenceRegistered">Boolean</param>
         /// <param name="absenceRegistrations">The absence registrations on the
         /// lesson.</param>
-        /// <param name="schoolCode">The school code for which command is
-        /// performed.</param>
+        /// <param name="schoolCode">String</param>
         public RegisterAbsenceExternalCommand(System.Guid lessonId, System.Guid subjectCourseId, bool absenceRegistered, IList<RegisterAbsenceRegistrationDto> absenceRegistrations, string schoolCode = default(string))
         {
             LessonId = lessonId;
@@ -58,20 +55,29 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets id of lesson to register absence on.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Id of lesson to register absence on.
+        /// </remarks>
         [JsonProperty(PropertyName = "lessonId")]
         public System.Guid LessonId { get; set; }
 
         /// <summary>
-        /// Gets or sets id of the subject course the lesson is part of.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Id of the subject course the lesson is part of.
+        /// </remarks>
         [JsonProperty(PropertyName = "subjectCourseId")]
         public System.Guid SubjectCourseId { get; set; }
 
         /// <summary>
-        /// Gets or sets has all absence been registered
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Has all absence been registered
+        /// </remarks>
         [JsonProperty(PropertyName = "absenceRegistered")]
         public bool AbsenceRegistered { get; set; }
 
@@ -82,8 +88,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<RegisterAbsenceRegistrationDto> AbsenceRegistrations { get; set; }
 
         /// <summary>
-        /// Gets or sets the school code for which command is performed.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The school code for which command is performed.
+        /// </remarks>
         [JsonProperty(PropertyName = "schoolCode")]
         public string SchoolCode { get; set; }
 

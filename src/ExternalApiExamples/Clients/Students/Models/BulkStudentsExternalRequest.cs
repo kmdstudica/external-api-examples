@@ -35,8 +35,7 @@ namespace Kmd.Studica.Students.Client.Models
         /// </summary>
         /// <param name="studentIds">Student ids for bulk query. Must contain 1
         /// to 1000 elements</param>
-        /// <param name="schoolCode">The school code for which to get
-        /// data.</param>
+        /// <param name="schoolCode">String</param>
         public BulkStudentsExternalRequest(IList<System.Guid> studentIds, string schoolCode)
         {
             StudentIds = studentIds;
@@ -57,8 +56,11 @@ namespace Kmd.Studica.Students.Client.Models
         public IList<System.Guid> StudentIds { get; set; }
 
         /// <summary>
-        /// Gets or sets the school code for which to get data.
+        /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The school code for which to get data.
+        /// </remarks>
         [JsonProperty(PropertyName = "schoolCode")]
         public string SchoolCode { get; set; }
 

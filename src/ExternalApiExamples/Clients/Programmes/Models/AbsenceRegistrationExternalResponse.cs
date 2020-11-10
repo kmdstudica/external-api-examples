@@ -32,13 +32,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the
         /// AbsenceRegistrationExternalResponse class.
         /// </summary>
-        /// <param name="studentId">Absent student id.</param>
-        /// <param name="lessonId">Lesson id.</param>
-        /// <param name="absenceDate">Date of absence.</param>
-        /// <param name="minutes">The length of the absence in minutes.</param>
-        /// <param name="approved">Was absence approved.</param>
-        /// <param name="status">Type of absence. Possible values include:
-        /// 'Present', 'Absent', 'PartialAbsence'</param>
+        /// <param name="studentId">Guid</param>
+        /// <param name="lessonId">Guid</param>
+        /// <param name="absenceDate">Date</param>
+        /// <param name="minutes">Int32</param>
+        /// <param name="approved">Boolean</param>
+        /// <param name="status">AbsenceRegistrationStatus</param>
         public AbsenceRegistrationExternalResponse(System.Guid studentId, System.Guid lessonId, System.DateTime absenceDate, int minutes, bool approved, string status)
         {
             StudentId = studentId;
@@ -56,40 +55,58 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets absent student id.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Absent student id.
+        /// </remarks>
         [JsonProperty(PropertyName = "studentId")]
         public System.Guid StudentId { get; set; }
 
         /// <summary>
-        /// Gets or sets lesson id.
+        /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Lesson id.
+        /// </remarks>
         [JsonProperty(PropertyName = "lessonId")]
         public System.Guid LessonId { get; set; }
 
         /// <summary>
-        /// Gets or sets date of absence.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Date of absence.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "absenceDate")]
         public System.DateTime AbsenceDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the length of the absence in minutes.
+        /// Gets or sets int32
         /// </summary>
+        /// <remarks>
+        /// The length of the absence in minutes.
+        /// </remarks>
         [JsonProperty(PropertyName = "minutes")]
         public int Minutes { get; set; }
 
         /// <summary>
-        /// Gets or sets was absence approved.
+        /// Gets or sets boolean
         /// </summary>
+        /// <remarks>
+        /// Was absence approved.
+        /// </remarks>
         [JsonProperty(PropertyName = "approved")]
         public bool Approved { get; set; }
 
         /// <summary>
-        /// Gets or sets type of absence. Possible values include: 'Present',
-        /// 'Absent', 'PartialAbsence'
+        /// Gets or sets absenceRegistrationStatus
         /// </summary>
+        /// <remarks>
+        /// Type of absence. Possible values include: 'Present', 'Absent',
+        /// 'PartialAbsence'
+        /// </remarks>
         [JsonProperty(PropertyName = "status")]
         public string Status { get; set; }
 

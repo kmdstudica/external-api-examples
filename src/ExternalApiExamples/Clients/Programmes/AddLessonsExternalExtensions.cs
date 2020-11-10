@@ -24,7 +24,7 @@ namespace Kmd.Studica.Programmes.Client
             /// New lessons.
             /// </param>
             /// <param name='schoolCode'>
-            /// The school code for which command is performed.
+            /// String The school code for which command is performed.
             /// </param>
             public static void Post(this IAddLessonsExternal operations, IList<NewLessonExternal> newLessons, string schoolCode)
             {
@@ -38,7 +38,7 @@ namespace Kmd.Studica.Programmes.Client
             /// New lessons.
             /// </param>
             /// <param name='schoolCode'>
-            /// The school code for which command is performed.
+            /// String The school code for which command is performed.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

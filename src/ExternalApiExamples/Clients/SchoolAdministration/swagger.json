@@ -17,9 +17,7 @@
         ],
         "operationId": "ActiveDepartmentsExternal_Get",
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -29,8 +27,9 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647.0,
-            "minimum": 1.0
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -39,15 +38,18 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000.0,
-            "minimum": 1.0
+            "maximum": 1000,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
             "name": "InlineCount",
             "description": "A flag indicating if total number of items should be included.",
             "required": true,
-            "type": "boolean"
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -66,12 +68,7 @@
               "$ref": "#/definitions/PagedResponse_DepartmentsExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -79,15 +76,10 @@
         ],
         "operationId": "_ActiveDepartmentsExternal_Post",
         "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
+          "application/json"
         ],
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -105,12 +97,7 @@
               "$ref": "#/definitions/PagedResponse_DepartmentsExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       }
     },
     "/AreasOfResponsibilityExternal": {
@@ -120,9 +107,7 @@
         ],
         "operationId": "AreasOfResponsibilityExternal_Get",
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -132,8 +117,9 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647.0,
-            "minimum": 1.0
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -142,15 +128,18 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000.0,
-            "minimum": 1.0
+            "maximum": 1000,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
             "name": "InlineCount",
             "description": "A flag indicating if total number of items should be included.",
             "required": true,
-            "type": "boolean"
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -169,12 +158,7 @@
               "$ref": "#/definitions/PagedResponse_AreaOfResponsibilityExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -182,15 +166,10 @@
         ],
         "operationId": "_AreasOfResponsibilityExternal_Post",
         "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
+          "application/json"
         ],
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -208,12 +187,7 @@
               "$ref": "#/definitions/PagedResponse_AreaOfResponsibilityExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       }
     },
     "/BulkAreasOfResponsibilityExternal": {
@@ -223,15 +197,10 @@
         ],
         "operationId": "BulkAreasOfResponsibilityExternal_Post",
         "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
+          "application/json"
         ],
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -246,19 +215,13 @@
           "200": {
             "description": "Success",
             "schema": {
-              "uniqueItems": false,
               "type": "array",
               "items": {
                 "$ref": "#/definitions/AreaOfResponsibilityExternalResponse"
               }
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       }
     },
     "/BulkDepartmentsExternal": {
@@ -268,15 +231,10 @@
         ],
         "operationId": "BulkDepartmentsExternal_Post",
         "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
+          "application/json"
         ],
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -291,19 +249,13 @@
           "200": {
             "description": "Success",
             "schema": {
-              "uniqueItems": false,
               "type": "array",
               "items": {
                 "$ref": "#/definitions/DepartmentsExternalResponse"
               }
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       }
     },
     "/BulkEmployeesExternal": {
@@ -313,15 +265,10 @@
         ],
         "operationId": "BulkEmployeesExternal_Post",
         "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
+          "application/json"
         ],
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -336,19 +283,13 @@
           "200": {
             "description": "Success",
             "schema": {
-              "uniqueItems": false,
               "type": "array",
               "items": {
                 "$ref": "#/definitions/EmployeeExternalResponse"
               }
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       }
     },
     "/BulkRoomsExternal": {
@@ -358,15 +299,10 @@
         ],
         "operationId": "BulkRoomsExternal_Post",
         "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
+          "application/json"
         ],
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -381,19 +317,13 @@
           "200": {
             "description": "Success",
             "schema": {
-              "uniqueItems": false,
               "type": "array",
               "items": {
                 "$ref": "#/definitions/RoomExternalResponse"
               }
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       }
     },
     "/DayCalendarsExternal": {
@@ -403,9 +333,7 @@
         ],
         "operationId": "DayCalendarsExternal_Get",
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -415,8 +343,9 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647.0,
-            "minimum": 1.0
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -425,15 +354,18 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000.0,
-            "minimum": 1.0
+            "maximum": 1000,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
             "name": "InlineCount",
             "description": "A flag indicating if total number of items should be included.",
             "required": true,
-            "type": "boolean"
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -452,12 +384,7 @@
               "$ref": "#/definitions/PagedResponse_DayCalendarsExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -465,15 +392,10 @@
         ],
         "operationId": "_DayCalendarsExternal_Post",
         "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
+          "application/json"
         ],
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -491,12 +413,7 @@
               "$ref": "#/definitions/PagedResponse_DayCalendarsExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       }
     },
     "/DepartmentsExternal": {
@@ -506,9 +423,7 @@
         ],
         "operationId": "DepartmentsExternal_Get",
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -532,8 +447,9 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647.0,
-            "minimum": 1.0
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -542,15 +458,18 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000.0,
-            "minimum": 1.0
+            "maximum": 1000,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
             "name": "InlineCount",
             "description": "A flag indicating if total number of items should be included.",
             "required": true,
-            "type": "boolean"
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -569,12 +488,7 @@
               "$ref": "#/definitions/PagedResponse_DepartmentsExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -582,15 +496,10 @@
         ],
         "operationId": "_DepartmentsExternal_Post",
         "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
+          "application/json"
         ],
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -608,12 +517,7 @@
               "$ref": "#/definitions/PagedResponse_DepartmentsExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       }
     },
     "/EmployeesExternal": {
@@ -623,9 +527,7 @@
         ],
         "operationId": "EmployeesExternal_Get",
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -641,7 +543,8 @@
             "description": "End of range for start date employment.",
             "required": true,
             "type": "string",
-            "format": "date"
+            "format": "date",
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -657,8 +560,9 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647.0,
-            "minimum": 1.0
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -667,15 +571,18 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000.0,
-            "minimum": 1.0
+            "maximum": 1000,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
             "name": "InlineCount",
             "description": "A flag indicating if total number of items should be included.",
             "required": true,
-            "type": "boolean"
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -694,12 +601,7 @@
               "$ref": "#/definitions/PagedResponse_EmployeeExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -707,15 +609,10 @@
         ],
         "operationId": "_EmployeesExternal_Post",
         "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
+          "application/json"
         ],
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -733,12 +630,7 @@
               "$ref": "#/definitions/PagedResponse_EmployeeExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       }
     },
     "/RoomsExternal": {
@@ -748,9 +640,7 @@
         ],
         "operationId": "RoomsExternal_Get",
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -767,8 +657,9 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647.0,
-            "minimum": 1.0
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -777,15 +668,18 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000.0,
-            "minimum": 1.0
+            "maximum": 1000,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
             "name": "InlineCount",
             "description": "A flag indicating if total number of items should be included.",
             "required": true,
-            "type": "boolean"
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -804,12 +698,7 @@
               "$ref": "#/definitions/PagedResponse_RoomExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -817,15 +706,10 @@
         ],
         "operationId": "_RoomsExternal_Post",
         "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
+          "application/json"
         ],
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -843,12 +727,7 @@
               "$ref": "#/definitions/PagedResponse_RoomExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       }
     },
     "/SchoolHourEntriesExternal": {
@@ -858,9 +737,7 @@
         ],
         "operationId": "SchoolHourEntriesExternal_Get",
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -870,8 +747,9 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647.0,
-            "minimum": 1.0
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -880,15 +758,18 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000.0,
-            "minimum": 1.0
+            "maximum": 1000,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
             "name": "InlineCount",
             "description": "A flag indicating if total number of items should be included.",
             "required": true,
-            "type": "boolean"
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -907,12 +788,7 @@
               "$ref": "#/definitions/PagedResponse_SchoolHourEntryExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -920,15 +796,10 @@
         ],
         "operationId": "_SchoolHourEntriesExternal_Post",
         "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
+          "application/json"
         ],
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -946,12 +817,7 @@
               "$ref": "#/definitions/PagedResponse_SchoolHourEntryExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       }
     },
     "/SchoolHoursPlansExternal": {
@@ -961,9 +827,7 @@
         ],
         "operationId": "SchoolHoursPlansExternal_Get",
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -973,8 +837,9 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 2147483647.0,
-            "minimum": 1.0
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -983,15 +848,18 @@
             "required": true,
             "type": "integer",
             "format": "int32",
-            "maximum": 1000.0,
-            "minimum": 1.0
+            "maximum": 1000,
+            "minimum": 1,
+            "x-nullable": false
           },
           {
             "in": "query",
             "name": "InlineCount",
             "description": "A flag indicating if total number of items should be included.",
             "required": true,
-            "type": "boolean"
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
           },
           {
             "in": "query",
@@ -1010,12 +878,7 @@
               "$ref": "#/definitions/PagedResponse_SchoolHoursPlanExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -1023,15 +886,10 @@
         ],
         "operationId": "_SchoolHoursPlansExternal_Post",
         "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
+          "application/json"
         ],
         "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -1049,36 +907,11 @@
               "$ref": "#/definitions/PagedResponse_SchoolHoursPlanExternalResponse"
             }
           }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
+        }
       }
     }
   },
   "definitions": {
-    "PagedResponse_DepartmentsExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "uniqueItems": false,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/DepartmentsExternalResponse"
-          },
-          "readOnly": true
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer",
-          "readOnly": true
-        }
-      }
-    },
     "DepartmentsExternalResponse": {
       "title": "DepartmentsExternalResponse",
       "description": "Model of department.",
@@ -1091,11 +924,13 @@
       "properties": {
         "id": {
           "format": "uuid",
+          "title": "Guid",
           "description": "Identifier of the department.",
           "type": "string",
           "x-nullable": false
         },
         "name": {
+          "title": "String",
           "description": "Name of the department.",
           "maxLength": 255,
           "minLength": 1,
@@ -1103,16 +938,34 @@
         },
         "validFrom": {
           "format": "date",
+          "title": "Date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2020-09-30T00:00:00.0000000",
+          "example": "2020-11-10T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2020-09-30T00:00:00.0000000"
+          "example": "2020-11-10T00:00:00.0000000"
+        }
+      }
+    },
+    "PagedResponse_DepartmentsExternalResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Page of items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DepartmentsExternalResponse"
+          }
+        },
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
+          "type": "integer"
         }
       }
     },
@@ -1120,60 +973,44 @@
       "title": "ActiveDepartmentsExternalRequest",
       "description": "Returns a paged list of active departments.",
       "required": [
+        "inlineCount",
         "pageNumber",
         "pageSize",
-        "inlineCount",
         "schoolCode"
       ],
       "type": "object",
       "properties": {
         "pageNumber": {
           "format": "int32",
+          "title": "Int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647.0,
-          "minimum": 1.0,
+          "maximum": 2147483647,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
+          "title": "Int32",
           "description": "Number of objects per page.",
-          "maximum": 1000.0,
-          "minimum": 1.0,
+          "maximum": 1000,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "inlineCount": {
+          "title": "Boolean",
           "description": "A flag indicating if total number of items should be included.",
           "default": true,
           "type": "boolean",
           "x-nullable": false
         },
         "schoolCode": {
+          "title": "String",
           "description": "The school code for which to get data.",
           "maxLength": 6,
           "minLength": 6,
           "type": "string"
-        }
-      }
-    },
-    "PagedResponse_AreaOfResponsibilityExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "uniqueItems": false,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AreaOfResponsibilityExternalResponse"
-          },
-          "readOnly": true
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer",
-          "readOnly": true
         }
       }
     },
@@ -1189,11 +1026,13 @@
       "properties": {
         "id": {
           "format": "uuid",
+          "title": "Guid",
           "description": "Identifier of the area of responsibility.",
           "type": "string",
           "x-nullable": false
         },
         "name": {
+          "title": "String",
           "description": "Name of the area of responsibility.",
           "maxLength": 255,
           "minLength": 1,
@@ -1201,16 +1040,17 @@
         },
         "validFrom": {
           "format": "date",
+          "title": "Date",
           "description": "Start date of the area of responsibility.",
           "type": "string",
-          "example": "2020-09-30T00:00:00.0000000",
+          "example": "2020-11-10T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of the area of responsibiliity.",
           "type": "string",
-          "example": "2020-09-30T00:00:00.0000000"
+          "example": "2020-11-10T00:00:00.0000000"
         },
         "responsibleEmployeeId": {
           "format": "uuid",
@@ -1219,40 +1059,61 @@
         }
       }
     },
+    "PagedResponse_AreaOfResponsibilityExternalResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Page of items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AreaOfResponsibilityExternalResponse"
+          }
+        },
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
+          "type": "integer"
+        }
+      }
+    },
     "AreasOfResponsibilityExternalRequest": {
       "title": "AreasOfResponsibilityExternalRequest",
       "description": "Returns a paged list of areas of responsibility satisfying provided criteria.",
       "required": [
+        "inlineCount",
         "pageNumber",
         "pageSize",
-        "inlineCount",
         "schoolCode"
       ],
       "type": "object",
       "properties": {
         "pageNumber": {
           "format": "int32",
+          "title": "Int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647.0,
-          "minimum": 1.0,
+          "maximum": 2147483647,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
+          "title": "Int32",
           "description": "Number of objects per page.",
-          "maximum": 1000.0,
-          "minimum": 1.0,
+          "maximum": 1000,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "inlineCount": {
+          "title": "Boolean",
           "description": "A flag indicating if total number of items should be included.",
           "default": true,
           "type": "boolean",
           "x-nullable": false
         },
         "schoolCode": {
+          "title": "String",
           "description": "The school code for which to get data.",
           "maxLength": 6,
           "minLength": 6,
@@ -1273,15 +1134,16 @@
           "description": "Areas of responsibility identifiers for bulk query.",
           "maxLength": 1000,
           "minLength": 1,
-          "uniqueItems": false,
           "type": "array",
           "items": {
             "format": "uuid",
+            "title": "Guid",
             "type": "string",
             "x-nullable": false
           }
         },
         "schoolCode": {
+          "title": "String",
           "description": "The school code for which to get data.",
           "maxLength": 6,
           "minLength": 6,
@@ -1302,15 +1164,16 @@
           "description": "Department identifiers for bulk query.",
           "maxLength": 1000,
           "minLength": 1,
-          "uniqueItems": false,
           "type": "array",
           "items": {
             "format": "uuid",
+            "title": "Guid",
             "type": "string",
             "x-nullable": false
           }
         },
         "schoolCode": {
+          "title": "String",
           "description": "The school code for which to get data.",
           "maxLength": 6,
           "minLength": 6,
@@ -1331,15 +1194,16 @@
           "description": "Employees identifiers for bulk query.",
           "maxLength": 1000,
           "minLength": 1,
-          "uniqueItems": false,
           "type": "array",
           "items": {
             "format": "uuid",
+            "title": "Guid",
             "type": "string",
             "x-nullable": false
           }
         },
         "schoolCode": {
+          "title": "String",
           "description": "The school code for which to get data.",
           "maxLength": 6,
           "minLength": 6,
@@ -1351,115 +1215,133 @@
       "title": "EmployeeExternalResponse",
       "description": "Model of the employee.",
       "required": [
-        "id",
         "civilRegistrationNumber",
-        "protectedNameAndAddress",
-        "lmsIndicator",
-        "givenName",
-        "surname",
-        "email",
-        "deceased",
-        "reportToUniLogin",
         "createAdLogin",
-        "employmentStartDate"
+        "deceased",
+        "email",
+        "employmentStartDate",
+        "givenName",
+        "id",
+        "lmsIndicator",
+        "protectedNameAndAddress",
+        "reportToUniLogin",
+        "surname"
       ],
       "type": "object",
       "properties": {
         "id": {
           "format": "uuid",
+          "title": "Guid",
           "description": "Gets employee identifier in Studica.",
           "type": "string",
           "x-nullable": false
         },
         "civilRegistrationNumber": {
+          "title": "String",
           "description": "Gets employee civil registration number.",
           "type": "string"
         },
         "protectedNameAndAddress": {
+          "title": "Boolean",
           "description": "Gets a flag indicating if name and address are protected.",
           "type": "boolean",
           "x-nullable": false
         },
         "lmsIndicator": {
+          "title": "Boolean",
           "description": "Gets Learning Management System indicator.",
           "type": "boolean",
           "x-nullable": false
         },
         "givenName": {
+          "title": "String",
           "description": "Gets employee given name.",
           "type": "string"
         },
         "surname": {
+          "title": "String",
           "description": "Gets employee surname.",
           "type": "string"
         },
         "protectedGivenName": {
+          "title": "String",
           "description": "Gets employee protected given name.",
           "type": "string"
         },
         "protectedSurname": {
+          "title": "String",
           "description": "Gets employee protected surname.",
           "type": "string"
         },
         "initials": {
+          "title": "String",
           "description": "Gets employee initials.",
           "type": "string"
         },
         "email": {
+          "title": "String",
           "description": "Gets employee e-mail address.",
           "type": "string"
         },
         "phoneNumber": {
+          "title": "String",
           "description": "Gets employee phone number.",
           "type": "string"
         },
         "deceased": {
+          "title": "Boolean",
           "description": "Gets indticator if employee is deceased.",
           "type": "boolean",
           "x-nullable": false
         },
         "uniLoginUsername": {
+          "title": "String",
           "description": "Gets employee Unilogin username.",
           "type": "string"
         },
         "reportToUniLogin": {
+          "title": "Boolean",
           "description": "Flag denoting whether the employee should be created as a user in UNI-Login",
           "type": "boolean",
           "x-nullable": false
         },
         "createAdLogin": {
+          "title": "Boolean",
           "description": "Flag denoting whether the employee should be created in the local Active Directory",
           "type": "boolean",
           "x-nullable": false
         },
         "adUserName": {
+          "title": "String",
           "description": "Gets employee Active Directory username.",
           "type": "string"
         },
         "roleNames": {
           "description": "Gets employee roles.",
-          "uniqueItems": false,
           "type": "array",
           "items": {
+            "title": "String",
             "type": "string"
           }
         },
         "jobTitle": {
+          "title": "String",
           "description": "Gets employee job title.",
           "type": "string"
         },
         "employmentStartDate": {
           "format": "date",
+          "title": "Date",
           "description": "Gets employee start date.",
           "type": "string",
-          "example": "2020-09-30T00:00:00.0000000",
+          "example": "2020-11-10T00:00:00.0000000",
           "x-nullable": false
         },
         "employmentResignationDate": {
           "format": "date",
           "description": "Gets employee resignation date.",
           "type": "string",
-          "example": "2020-09-30T00:00:00.0000000"
+          "example": "2020-11-10T00:00:00.0000000"
         },
         "areaOfResponsibilityId": {
           "format": "uuid",
@@ -1468,35 +1350,41 @@
         },
         "departmentIds": {
           "description": "Gets employee department affilation.",
-          "uniqueItems": false,
           "type": "array",
           "items": {
             "format": "uuid",
+            "title": "Guid",
             "type": "string",
             "x-nullable": false
           }
         },
         "addressLine": {
+          "title": "String",
           "description": "Gets employee address line.",
           "type": "string"
         },
         "careOfAddressLine": {
+          "title": "String",
           "description": "Gets employee care of address line.",
           "type": "string"
         },
         "place": {
+          "title": "String",
           "description": "Gets employee place.",
           "type": "string"
         },
         "city": {
+          "title": "String",
           "description": "Gets employee city.",
           "type": "string"
         },
         "postalCode": {
+          "title": "String",
           "description": "Gets employee postal code.",
           "type": "string"
         },
         "country": {
+          "title": "String",
           "description": "Gets employee country.",
           "type": "string"
         }
@@ -1515,15 +1403,16 @@
           "description": "Room identifiers for bulk query.",
           "maxLength": 1000,
           "minLength": 1,
-          "uniqueItems": false,
           "type": "array",
           "items": {
             "format": "uuid",
+            "title": "Guid",
             "type": "string",
             "x-nullable": false
           }
         },
         "schoolCode": {
+          "title": "String",
           "description": "The school code for which to get data.",
           "maxLength": 6,
           "minLength": 6,
@@ -1535,32 +1424,37 @@
       "title": "RoomExternalResponse",
       "description": "Model of the room.",
       "required": [
-        "id",
+        "departmentIds",
         "designation",
-        "roomType",
-        "departmentIds"
+        "id",
+        "roomType"
       ],
       "type": "object",
       "properties": {
         "id": {
           "format": "uuid",
+          "title": "Guid",
           "description": "Id of the room.",
           "type": "string",
           "x-nullable": false
         },
         "name": {
+          "title": "String",
           "description": "Name of the room.",
           "type": "string"
         },
         "designation": {
+          "title": "String",
           "description": "The acronym or designation (user facing unique id) of the room",
           "type": "string"
         },
         "description": {
+          "title": "String",
           "description": "Description of the room.",
           "type": "string"
         },
         "roomType": {
+          "title": "RoomType",
           "description": "Type of room.",
           "enum": [
             "ClassRoom",
@@ -1585,77 +1479,33 @@
           "type": "integer"
         },
         "addressLine": {
+          "title": "String",
           "description": "Address of the building where the room is located.",
           "type": "string"
         },
         "city": {
+          "title": "String",
           "description": "City of the building where the room is located.",
           "type": "string"
         },
         "postalCode": {
+          "title": "String",
           "description": "Postal code of the building where the room is located.",
           "type": "string"
         },
         "dsDepartmentNumber": {
+          "title": "String",
           "description": "The DS-department number that room belongs to.",
           "type": "string"
         },
         "departmentIds": {
           "description": "Departments that room is used by.",
-          "uniqueItems": false,
           "type": "array",
           "items": {
             "format": "uuid",
+            "title": "Guid",
             "type": "string",
             "x-nullable": false
-          }
-        }
-      }
-    },
-    "PagedResponse_DayCalendarsExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "uniqueItems": false,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/DayCalendarsExternalResponse"
-          },
-          "readOnly": true
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer",
-          "readOnly": true
-        }
-      }
-    },
-    "DayCalendarsExternalResponse": {
-      "title": "DayCalendarsExternalResponse",
-      "required": [
-        "id",
-        "schoolDays"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "description": "Identifier of the day calendar.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "name": {
-          "description": "Name of the day calendar.",
-          "type": "string"
-        },
-        "schoolDays": {
-          "description": "List of school days.",
-          "uniqueItems": false,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SchoolDay"
           }
         }
       }
@@ -1670,19 +1520,68 @@
       "properties": {
         "date": {
           "format": "date",
+          "title": "Date",
           "description": "Date of the school day.",
           "type": "string",
-          "example": "2020-09-30T00:00:00.0000000",
+          "example": "2020-11-10T00:00:00.0000000",
           "x-nullable": false
         },
         "isSchoolDay": {
+          "title": "Boolean",
           "description": "Flag indicating if a day is a school day.",
           "type": "boolean",
           "x-nullable": false
         },
         "comment": {
+          "title": "String",
           "description": "Comments to the school day.",
           "type": "string"
+        }
+      }
+    },
+    "DayCalendarsExternalResponse": {
+      "title": "DayCalendarsExternalResponse",
+      "required": [
+        "id",
+        "schoolDays"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Identifier of the day calendar.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "name": {
+          "title": "String",
+          "description": "Name of the day calendar.",
+          "type": "string"
+        },
+        "schoolDays": {
+          "description": "List of school days.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SchoolDay"
+          }
+        }
+      }
+    },
+    "PagedResponse_DayCalendarsExternalResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Page of items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DayCalendarsExternalResponse"
+          }
+        },
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
+          "type": "integer"
         }
       }
     },
@@ -1690,36 +1589,40 @@
       "title": "DayCalendarsExternalRequest",
       "description": "Returns a paged list of day calendars satisfying provided criteria.",
       "required": [
+        "inlineCount",
         "pageNumber",
         "pageSize",
-        "inlineCount",
         "schoolCode"
       ],
       "type": "object",
       "properties": {
         "pageNumber": {
           "format": "int32",
+          "title": "Int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647.0,
-          "minimum": 1.0,
+          "maximum": 2147483647,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
+          "title": "Int32",
           "description": "Number of objects per page.",
-          "maximum": 1000.0,
-          "minimum": 1.0,
+          "maximum": 1000,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "inlineCount": {
+          "title": "Boolean",
           "description": "A flag indicating if total number of items should be included.",
           "default": true,
           "type": "boolean",
           "x-nullable": false
         },
         "schoolCode": {
+          "title": "String",
           "description": "The school code for which to get data.",
           "maxLength": 6,
           "minLength": 6,
@@ -1731,9 +1634,9 @@
       "title": "DepartmentsExternalRequest",
       "description": "Returns a paged list of departments satisfying provided criteria.",
       "required": [
+        "inlineCount",
         "pageNumber",
         "pageSize",
-        "inlineCount",
         "schoolCode"
       ],
       "type": "object",
@@ -1742,37 +1645,41 @@
           "format": "date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2020-09-30T00:00:00.0000000"
+          "example": "2020-11-10T00:00:00.0000000"
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2020-09-30T00:00:00.0000000"
+          "example": "2020-11-10T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
+          "title": "Int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647.0,
-          "minimum": 1.0,
+          "maximum": 2147483647,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
+          "title": "Int32",
           "description": "Number of objects per page.",
-          "maximum": 1000.0,
-          "minimum": 1.0,
+          "maximum": 1000,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "inlineCount": {
+          "title": "Boolean",
           "description": "A flag indicating if total number of items should be included.",
           "default": true,
           "type": "boolean",
           "x-nullable": false
         },
         "schoolCode": {
+          "title": "String",
           "description": "The school code for which to get data.",
           "maxLength": 6,
           "minLength": 6,
@@ -1785,18 +1692,15 @@
       "properties": {
         "items": {
           "description": "Page of items",
-          "uniqueItems": false,
           "type": "array",
           "items": {
             "$ref": "#/definitions/EmployeeExternalResponse"
-          },
-          "readOnly": true
+          }
         },
         "totalItems": {
           "format": "int32",
           "description": "Total number of items",
-          "type": "integer",
-          "readOnly": true
+          "type": "integer"
         }
       }
     },
@@ -1805,9 +1709,9 @@
       "description": "Returns a paged list of employees satisfying provided criteria.",
       "required": [
         "employmentStartDateTo",
+        "inlineCount",
         "pageNumber",
         "pageSize",
-        "inlineCount",
         "schoolCode"
       ],
       "type": "object",
@@ -1816,13 +1720,14 @@
           "format": "date",
           "description": "Beginning of range for start date employment.",
           "type": "string",
-          "example": "2020-09-30T00:00:00.0000000"
+          "example": "2020-11-10T00:00:00.0000000"
         },
         "employmentStartDateTo": {
           "format": "date",
+          "title": "Date",
           "description": "End of range for start date employment.",
           "type": "string",
-          "example": "2020-09-30T00:00:00.0000000",
+          "example": "2020-11-10T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1832,27 +1737,31 @@
         },
         "pageNumber": {
           "format": "int32",
+          "title": "Int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647.0,
-          "minimum": 1.0,
+          "maximum": 2147483647,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
+          "title": "Int32",
           "description": "Number of objects per page.",
-          "maximum": 1000.0,
-          "minimum": 1.0,
+          "maximum": 1000,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "inlineCount": {
+          "title": "Boolean",
           "description": "A flag indicating if total number of items should be included.",
           "default": true,
           "type": "boolean",
           "x-nullable": false
         },
         "schoolCode": {
+          "title": "String",
           "description": "The school code for which to get data.",
           "maxLength": 6,
           "minLength": 6,
@@ -1865,18 +1774,15 @@
       "properties": {
         "items": {
           "description": "Page of items",
-          "uniqueItems": false,
           "type": "array",
           "items": {
             "$ref": "#/definitions/RoomExternalResponse"
-          },
-          "readOnly": true
+          }
         },
         "totalItems": {
           "format": "int32",
           "description": "Total number of items",
-          "type": "integer",
-          "readOnly": true
+          "type": "integer"
         }
       }
     },
@@ -1884,9 +1790,9 @@
       "title": "RoomsExternalRequest",
       "description": "Returns paged list of rooms satisfying provided criteria.",
       "required": [
+        "inlineCount",
         "pageNumber",
         "pageSize",
-        "inlineCount",
         "schoolCode"
       ],
       "type": "object",
@@ -1898,27 +1804,31 @@
         },
         "pageNumber": {
           "format": "int32",
+          "title": "Int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647.0,
-          "minimum": 1.0,
+          "maximum": 2147483647,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
+          "title": "Int32",
           "description": "Number of objects per page.",
-          "maximum": 1000.0,
-          "minimum": 1.0,
+          "maximum": 1000,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "inlineCount": {
+          "title": "Boolean",
           "description": "A flag indicating if total number of items should be included.",
           "default": true,
           "type": "boolean",
           "x-nullable": false
         },
         "schoolCode": {
+          "title": "String",
           "description": "The school code for which to get data.",
           "maxLength": 6,
           "minLength": 6,
@@ -1926,42 +1836,24 @@
         }
       }
     },
-    "PagedResponse_SchoolHourEntryExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "uniqueItems": false,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SchoolHourEntryExternalResponse"
-          },
-          "readOnly": true
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer",
-          "readOnly": true
-        }
-      }
-    },
     "SchoolHourEntryExternalResponse": {
       "title": "SchoolHourEntryExternalResponse",
       "description": "Model of the school hour entry.",
       "required": [
-        "schoolHoursPlanId",
-        "entryType"
+        "entryType",
+        "schoolHoursPlanId"
       ],
       "type": "object",
       "properties": {
         "schoolHoursPlanId": {
           "format": "uuid",
+          "title": "Guid",
           "description": "Id of school hours plan where this entry belongs to.",
           "type": "string",
           "x-nullable": false
         },
         "entryType": {
+          "title": "SchoolHourEntryType",
           "description": "The type of entry.",
           "enum": [
             "Break",
@@ -1972,6 +1864,7 @@
           "x-nullable": false
         },
         "name": {
+          "title": "String",
           "description": "Optional name of this entry.",
           "maxLength": 255,
           "type": "string"
@@ -1979,8 +1872,25 @@
         "duration": {
           "format": "int32",
           "description": "Duration of this entry, only valid for breaks.",
-          "maximum": 1440.0,
-          "minimum": 1.0,
+          "maximum": 1440,
+          "minimum": 1,
+          "type": "integer"
+        }
+      }
+    },
+    "PagedResponse_SchoolHourEntryExternalResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Page of items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SchoolHourEntryExternalResponse"
+          }
+        },
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
           "type": "integer"
         }
       }
@@ -1989,40 +1899,132 @@
       "title": "SchoolHourEntriesExternalRequest",
       "description": "Returns paged list of school hour entries satisfying provided criteria.",
       "required": [
+        "inlineCount",
         "pageNumber",
         "pageSize",
-        "inlineCount",
         "schoolCode"
       ],
       "type": "object",
       "properties": {
         "pageNumber": {
           "format": "int32",
+          "title": "Int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647.0,
-          "minimum": 1.0,
+          "maximum": 2147483647,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
+          "title": "Int32",
           "description": "Number of objects per page.",
-          "maximum": 1000.0,
-          "minimum": 1.0,
+          "maximum": 1000,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "inlineCount": {
+          "title": "Boolean",
           "description": "A flag indicating if total number of items should be included.",
           "default": true,
           "type": "boolean",
           "x-nullable": false
         },
         "schoolCode": {
+          "title": "String",
           "description": "The school code for which to get data.",
           "maxLength": 6,
           "minLength": 6,
           "type": "string"
+        }
+      }
+    },
+    "SchoolHoursPlanExternalResponse": {
+      "title": "SchoolHoursPlanExternalResponse",
+      "description": "Model of the school hours plan.",
+      "required": [
+        "hasLecturesOnFridays",
+        "hasLecturesOnMondays",
+        "hasLecturesOnSaturdays",
+        "hasLecturesOnSundays",
+        "hasLecturesOnThursdays",
+        "hasLecturesOnTuesdays",
+        "hasLecturesOnWednesdays",
+        "id",
+        "lectureDurationInMinutes",
+        "name",
+        "startTime"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of the school hours plan.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "name": {
+          "title": "String",
+          "description": "Name of the school hours plan.",
+          "type": "string"
+        },
+        "startTime": {
+          "title": "String",
+          "description": "Start time for school day.",
+          "type": "string"
+        },
+        "lectureDurationInMinutes": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "Duration of a lecture in minutes.",
+          "maximum": 1440,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "hasLecturesOnMondays": {
+          "title": "Boolean",
+          "description": "Whether Mondays are school days.",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "hasLecturesOnTuesdays": {
+          "title": "Boolean",
+          "description": "Whether Tuesdays are school days.",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "hasLecturesOnWednesdays": {
+          "title": "Boolean",
+          "description": "Whether Wednesdays are school-days.",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "hasLecturesOnThursdays": {
+          "title": "Boolean",
+          "description": "Whether Thursdays are school days.",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "hasLecturesOnFridays": {
+          "title": "Boolean",
+          "description": "Whether Fridays are school days.",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "hasLecturesOnSaturdays": {
+          "title": "Boolean",
+          "description": "Whether Saturdays are school days.",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "hasLecturesOnSundays": {
+          "title": "Boolean",
+          "description": "Whether Sundays are school days.",
+          "type": "boolean",
+          "x-nullable": false
         }
       }
     },
@@ -2031,95 +2033,15 @@
       "properties": {
         "items": {
           "description": "Page of items",
-          "uniqueItems": false,
           "type": "array",
           "items": {
             "$ref": "#/definitions/SchoolHoursPlanExternalResponse"
-          },
-          "readOnly": true
+          }
         },
         "totalItems": {
           "format": "int32",
           "description": "Total number of items",
-          "type": "integer",
-          "readOnly": true
-        }
-      }
-    },
-    "SchoolHoursPlanExternalResponse": {
-      "title": "SchoolHoursPlanExternalResponse",
-      "description": "Model of the school hours plan.",
-      "required": [
-        "id",
-        "name",
-        "startTime",
-        "lectureDurationInMinutes",
-        "hasLecturesOnMondays",
-        "hasLecturesOnTuesdays",
-        "hasLecturesOnWednesdays",
-        "hasLecturesOnThursdays",
-        "hasLecturesOnFridays",
-        "hasLecturesOnSaturdays",
-        "hasLecturesOnSundays"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "description": "Id of the school hours plan.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "name": {
-          "description": "Name of the school hours plan.",
-          "type": "string"
-        },
-        "startTime": {
-          "description": "Start time for school day.",
-          "type": "string"
-        },
-        "lectureDurationInMinutes": {
-          "format": "int32",
-          "description": "Duration of a lecture in minutes.",
-          "maximum": 1440.0,
-          "minimum": 1.0,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "hasLecturesOnMondays": {
-          "description": "Whether Mondays are school days.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnTuesdays": {
-          "description": "Whether Tuesdays are school days.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnWednesdays": {
-          "description": "Whether Wednesdays are school-days.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnThursdays": {
-          "description": "Whether Thursdays are school days.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnFridays": {
-          "description": "Whether Fridays are school days.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnSaturdays": {
-          "description": "Whether Saturdays are school days.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnSundays": {
-          "description": "Whether Sundays are school days.",
-          "type": "boolean",
-          "x-nullable": false
+          "type": "integer"
         }
       }
     },
@@ -2127,36 +2049,40 @@
       "title": "SchoolHoursPlansExternalRequest",
       "description": "Returns paged list of school hours plans satisfying provided criteria.",
       "required": [
+        "inlineCount",
         "pageNumber",
         "pageSize",
-        "inlineCount",
         "schoolCode"
       ],
       "type": "object",
       "properties": {
         "pageNumber": {
           "format": "int32",
+          "title": "Int32",
           "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647.0,
-          "minimum": 1.0,
+          "maximum": 2147483647,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "pageSize": {
           "format": "int32",
+          "title": "Int32",
           "description": "Number of objects per page.",
-          "maximum": 1000.0,
-          "minimum": 1.0,
+          "maximum": 1000,
+          "minimum": 1,
           "type": "integer",
           "x-nullable": false
         },
         "inlineCount": {
+          "title": "Boolean",
           "description": "A flag indicating if total number of items should be included.",
           "default": true,
           "type": "boolean",
           "x-nullable": false
         },
         "schoolCode": {
+          "title": "String",
           "description": "The school code for which to get data.",
           "maxLength": 6,
           "minLength": 6,
@@ -2172,5 +2098,10 @@
       "in": "header",
       "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

@@ -5,7 +5,7 @@
     "version": "v1"
   },
   "host": "gateway.kmdlogic.io",
-  "basePath": "/studica-demo/school-administration/v1",
+  "basePath": "/studica/school-administration/v1",
   "schemes": [
     "https"
   ],
@@ -941,14 +941,14 @@
           "title": "Date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000"
+          "example": "2020-12-30T00:00:00.0000000"
         }
       }
     },
@@ -1043,14 +1043,14 @@
           "title": "Date",
           "description": "Start date of the area of responsibility.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of the area of responsibiliity.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000"
+          "example": "2020-12-30T00:00:00.0000000"
         },
         "responsibleEmployeeId": {
           "format": "uuid",
@@ -1334,14 +1334,14 @@
           "title": "Date",
           "description": "Gets employee start date.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "employmentResignationDate": {
           "format": "date",
           "description": "Gets employee resignation date.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000"
+          "example": "2020-12-30T00:00:00.0000000"
         },
         "areaOfResponsibilityId": {
           "format": "uuid",
@@ -1523,7 +1523,7 @@
           "title": "Date",
           "description": "Date of the school day.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "isSchoolDay": {
@@ -1645,13 +1645,13 @@
           "format": "date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000"
+          "example": "2020-12-30T00:00:00.0000000"
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000"
+          "example": "2020-12-30T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
@@ -1720,14 +1720,14 @@
           "format": "date",
           "description": "Beginning of range for start date employment.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000"
+          "example": "2020-12-30T00:00:00.0000000"
         },
         "employmentStartDateTo": {
           "format": "date",
           "title": "Date",
           "description": "End of range for start date employment.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1841,14 +1841,15 @@
       "description": "Model of the school hour entry.",
       "required": [
         "entryType",
+        "schoolHourEntryId",
         "schoolHoursPlanId"
       ],
       "type": "object",
       "properties": {
-        "schoolHoursPlanId": {
+        "schoolHourEntryId": {
           "format": "uuid",
           "title": "Guid",
-          "description": "Id of school hours plan where this entry belongs to.",
+          "description": "Id of the school hours entry",
           "type": "string",
           "x-nullable": false
         },
@@ -1875,6 +1876,13 @@
           "maximum": 1440,
           "minimum": 1,
           "type": "integer"
+        },
+        "schoolHoursPlanId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of school hours plan where this entry belongs to.",
+          "type": "string",
+          "x-nullable": false
         }
       }
     },

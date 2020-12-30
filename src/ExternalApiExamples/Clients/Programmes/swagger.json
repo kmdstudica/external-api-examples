@@ -5,7 +5,7 @@
     "version": "v1"
   },
   "host": "gateway.kmdlogic.io",
-  "basePath": "/studica-demo/programmes/v1",
+  "basePath": "/studica/programmes/v1",
   "schemes": [
     "https"
   ],
@@ -153,6 +153,103 @@
         "responses": {
           "200": {
             "description": "Success"
+          }
+        }
+      }
+    },
+    "/BulkAbsenceRegistrationsExternal": {
+      "get": {
+        "tags": [
+          "BulkAbsenceRegistrationsExternal"
+        ],
+        "operationId": "BulkAbsenceRegistrationsExternal_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "StudentIds",
+            "description": "A list of student ids to get absence for.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "format": "uuid",
+              "type": "string",
+              "x-nullable": false
+            },
+            "maxLength": 1000,
+            "minLength": 1
+          },
+          {
+            "in": "query",
+            "name": "DateFrom",
+            "description": "Beginning of the range for absence date.",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "DateTo",
+            "description": "End of the range for absence date.",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "SchoolCode",
+            "description": "The school code for which to get data.",
+            "required": true,
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AbsenceRegistrationExternalResponse"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "BulkAbsenceRegistrationsExternal"
+        ],
+        "operationId": "_BulkAbsenceRegistrationsExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/BulkAbsenceRegistrationsExternalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AbsenceRegistrationExternalResponse"
+              }
+            }
           }
         }
       }
@@ -864,7 +961,7 @@
           "title": "Date",
           "description": "Date of absence.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "minutes": {
@@ -938,7 +1035,7 @@
           "title": "Date",
           "description": "Beginning of the range for absence date.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -946,7 +1043,7 @@
           "title": "Date",
           "description": "End of the range for absence date.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
@@ -1014,14 +1111,24 @@
         },
         "roomId": {
           "format": "uuid",
-          "description": "Identifier of the room where lesson is conducted.",
+          "description": "Obsolete!\r\nIdentifier of the room where lesson is conducted.\r\nUse RoomIds instead of RoomId. RoomId will be removed in a future update.",
           "type": "string"
+        },
+        "roomIds": {
+          "description": "The Ids of the rooms where the lesson is conducted.",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
         },
         "date": {
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000"
+          "example": "2020-12-30T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -1069,6 +1176,54 @@
         "schoolCode": {
           "title": "String",
           "description": "The school code for which command is performed.",
+          "type": "string"
+        }
+      }
+    },
+    "BulkAbsenceRegistrationsExternalRequest": {
+      "title": "BulkAbsenceRegistrationsExternalRequest",
+      "description": "Returns a paged list of absences satisfying provided criteria.",
+      "required": [
+        "dateFrom",
+        "dateTo",
+        "schoolCode",
+        "studentIds"
+      ],
+      "type": "object",
+      "properties": {
+        "studentIds": {
+          "description": "A list of student ids to get absence for.",
+          "maxLength": 1000,
+          "minLength": 1,
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
+        },
+        "dateFrom": {
+          "format": "date",
+          "title": "Date",
+          "description": "Beginning of the range for absence date.",
+          "type": "string",
+          "example": "2020-12-30T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "dateTo": {
+          "format": "date",
+          "title": "Date",
+          "description": "End of the range for absence date.",
+          "type": "string",
+          "example": "2020-12-30T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
           "type": "string"
         }
       }
@@ -1139,7 +1294,7 @@
           "title": "Date",
           "description": "Start date of the educational programme.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -1147,7 +1302,7 @@
           "title": "Date",
           "description": "End date for the educational programme.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1255,15 +1410,25 @@
         },
         "roomId": {
           "format": "uuid",
-          "description": "Reference to the room where lesson is conducted.",
+          "description": "Obsolete!\r\nReference to the room where lesson is conducted.\r\nUse RoomIds instead of RoomId. RoomId will be removed in a future update.",
           "type": "string"
+        },
+        "roomIds": {
+          "description": "The ids of the rooms where the lesson is conducted.",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
         },
         "date": {
           "format": "date",
           "title": "Date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "startTime": {
@@ -1383,13 +1548,13 @@
           "format": "date",
           "description": "Possible start date of UVM subject",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000"
+          "example": "2020-12-30T00:00:00.0000000"
         },
         "endDate": {
           "format": "date",
           "description": "Possible end date of UVM subject",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000"
+          "example": "2020-12-30T00:00:00.0000000"
         },
         "canOverwriteDuration": {
           "title": "Boolean",
@@ -1449,7 +1614,7 @@
           "title": "Date",
           "description": "Start date of the period.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -1457,7 +1622,7 @@
           "title": "Date",
           "description": "End date of the period.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -1511,7 +1676,7 @@
           "title": "Date",
           "description": "Start date of the subject course.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -1519,7 +1684,7 @@
           "title": "Date",
           "description": "End date for the subject course.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -1635,14 +1800,24 @@
         },
         "roomId": {
           "format": "uuid",
-          "description": "Identifier of the room where lesson is conducted.",
+          "description": "Obsolete!\r\nIdentifier of the room where lesson is conducted.\r\nUse RoomIds instead of RoomId. RoomId will be removed in a future update.",
           "type": "string"
+        },
+        "roomIds": {
+          "description": "The Ids of the rooms where the lesson is conducted.",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
         },
         "date": {
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000"
+          "example": "2020-12-30T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -1716,7 +1891,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
@@ -1724,7 +1899,7 @@
           "title": "Date",
           "description": "End of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1806,7 +1981,7 @@
           "title": "Date",
           "description": "Beginning of range for lesson date.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -1814,7 +1989,7 @@
           "title": "Date",
           "description": "End of range for lesson date.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "hasExternalId": {
@@ -1983,7 +2158,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date subject courses.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
@@ -1991,7 +2166,7 @@
           "title": "Date",
           "description": "End of the range for start date subject courses.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000",
+          "example": "2020-12-30T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -2062,14 +2237,24 @@
         },
         "roomId": {
           "format": "uuid",
-          "description": "Reference to the room where lesson is conducted.",
+          "description": "Obsolete!\r\nReference to the room where lesson is conducted.\r\nUse RoomIds instead of RoomId. RoomId will be removed in a future update.",
           "type": "string"
+        },
+        "roomIds": {
+          "description": "The ids of the rooms where the lesson is conducted.",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
         },
         "date": {
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-11-10T00:00:00.0000000"
+          "example": "2020-12-30T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",

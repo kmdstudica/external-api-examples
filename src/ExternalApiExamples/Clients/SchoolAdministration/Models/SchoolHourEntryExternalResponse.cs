@@ -31,17 +31,19 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Initializes a new instance of the SchoolHourEntryExternalResponse
         /// class.
         /// </summary>
-        /// <param name="schoolHoursPlanId">Guid</param>
+        /// <param name="schoolHourEntryId">Guid</param>
         /// <param name="entryType">SchoolHourEntryType</param>
+        /// <param name="schoolHoursPlanId">Guid</param>
         /// <param name="name">String</param>
         /// <param name="duration">Duration of this entry, only valid for
         /// breaks.</param>
-        public SchoolHourEntryExternalResponse(System.Guid schoolHoursPlanId, string entryType, string name = default(string), int? duration = default(int?))
+        public SchoolHourEntryExternalResponse(System.Guid schoolHourEntryId, string entryType, System.Guid schoolHoursPlanId, string name = default(string), int? duration = default(int?))
         {
-            SchoolHoursPlanId = schoolHoursPlanId;
+            SchoolHourEntryId = schoolHourEntryId;
             EntryType = entryType;
             Name = name;
             Duration = duration;
+            SchoolHoursPlanId = schoolHoursPlanId;
             CustomInit();
         }
 
@@ -54,10 +56,10 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Gets or sets guid
         /// </summary>
         /// <remarks>
-        /// Id of school hours plan where this entry belongs to.
+        /// Id of the school hours entry
         /// </remarks>
-        [JsonProperty(PropertyName = "schoolHoursPlanId")]
-        public System.Guid SchoolHoursPlanId { get; set; }
+        [JsonProperty(PropertyName = "schoolHourEntryId")]
+        public System.Guid SchoolHourEntryId { get; set; }
 
         /// <summary>
         /// Gets or sets schoolHourEntryType
@@ -83,6 +85,15 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "duration")]
         public int? Duration { get; set; }
+
+        /// <summary>
+        /// Gets or sets guid
+        /// </summary>
+        /// <remarks>
+        /// Id of school hours plan where this entry belongs to.
+        /// </remarks>
+        [JsonProperty(PropertyName = "schoolHoursPlanId")]
+        public System.Guid SchoolHoursPlanId { get; set; }
 
         /// <summary>
         /// Validate the object.

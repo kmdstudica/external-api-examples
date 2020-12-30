@@ -95,8 +95,8 @@ namespace ExternalApiExamples
                         StartTime = "11:15",
                         EndTime = "12:00",
                         Date = DateTime.Now,
-                        RoomId = Guid.NewGuid(),
-                        TeacherIds = new[]{ Guid.NewGuid()},
+                        RoomIds = new[]{ Guid.NewGuid() },
+                        TeacherIds = new[]{ Guid.NewGuid() },
                     }
                 },
                 schoolCode: configuration.SchoolCode,
@@ -124,11 +124,11 @@ namespace ExternalApiExamples
                 body: new EditLessonExternalCommand(
                     id: Guid.NewGuid(),
                     subjectCourseId: Guid.NewGuid(),
-                    roomId: Guid.NewGuid(),
+                    roomIds: new[] { Guid.NewGuid() },
                     date: DateTime.Now,
                     startTime: "11:15",
                     endTime: "12:00",
-                    teacherIds: new List<Guid>(),
+                    teacherIds: new[] { Guid.NewGuid() },
                     schoolCode: configuration.SchoolCode),
                 customHeaders: new Dictionary<string, List<string>>
                 {

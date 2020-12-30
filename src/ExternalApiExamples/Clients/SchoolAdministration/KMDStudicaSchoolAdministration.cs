@@ -352,7 +352,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             RoomsExternal = new RoomsExternal(this);
             SchoolHourEntriesExternal = new SchoolHourEntriesExternal(this);
             SchoolHoursPlansExternal = new SchoolHoursPlansExternal(this);
-            BaseUri = new System.Uri("https://gateway.kmdlogic.io/studica-demo/school-administration/v1");
+            BaseUri = new System.Uri("https://gateway.kmdlogic.io/studica/school-administration/v1");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,

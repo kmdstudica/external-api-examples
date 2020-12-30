@@ -37,18 +37,23 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="id">Guid</param>
         /// <param name="subjectCourseId">Guid</param>
         /// <param name="externalLessonId">String</param>
-        /// <param name="roomId">Reference to the room where lesson is
+        /// <param name="roomId">Obsolete!
+        /// Reference to the room where lesson is conducted.
+        /// Use RoomIds instead of RoomId. RoomId will be removed in a future
+        /// update.</param>
+        /// <param name="roomIds">The ids of the rooms where the lesson is
         /// conducted.</param>
         /// <param name="date">Date of the lesson.</param>
         /// <param name="startTime">Start time of the lesson.</param>
         /// <param name="endTime">End time of the lesson.</param>
         /// <param name="teachersIds">Teachers assigned to the lesson.</param>
-        public UnscheduledLessonExternalResponse(System.Guid id, System.Guid subjectCourseId, string externalLessonId = default(string), System.Guid? roomId = default(System.Guid?), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), IList<System.Guid> teachersIds = default(IList<System.Guid>))
+        public UnscheduledLessonExternalResponse(System.Guid id, System.Guid subjectCourseId, string externalLessonId = default(string), System.Guid? roomId = default(System.Guid?), IList<System.Guid> roomIds = default(IList<System.Guid>), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), IList<System.Guid> teachersIds = default(IList<System.Guid>))
         {
             Id = id;
             ExternalLessonId = externalLessonId;
             SubjectCourseId = subjectCourseId;
             RoomId = roomId;
+            RoomIds = roomIds;
             Date = date;
             StartTime = startTime;
             EndTime = endTime;
@@ -90,10 +95,19 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.Guid SubjectCourseId { get; set; }
 
         /// <summary>
-        /// Gets or sets reference to the room where lesson is conducted.
+        /// Gets or sets obsolete!
+        /// Reference to the room where lesson is conducted.
+        /// Use RoomIds instead of RoomId. RoomId will be removed in a future
+        /// update.
         /// </summary>
         [JsonProperty(PropertyName = "roomId")]
         public System.Guid? RoomId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ids of the rooms where the lesson is conducted.
+        /// </summary>
+        [JsonProperty(PropertyName = "roomIds")]
+        public IList<System.Guid> RoomIds { get; set; }
 
         /// <summary>
         /// Gets or sets date of the lesson.

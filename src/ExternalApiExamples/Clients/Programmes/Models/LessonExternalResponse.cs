@@ -36,7 +36,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="subjectCourseId">Guid</param>
         /// <param name="date">Date</param>
         /// <param name="externalLessonId">String</param>
-        /// <param name="roomId">Reference to the room where lesson is
+        /// <param name="roomId">Obsolete!
+        /// Reference to the room where lesson is conducted.
+        /// Use RoomIds instead of RoomId. RoomId will be removed in a future
+        /// update.</param>
+        /// <param name="roomIds">The ids of the rooms where the lesson is
         /// conducted.</param>
         /// <param name="startTime">Start time of the lesson.
         /// This property is filled if the lesson is using a user defined
@@ -50,12 +54,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// SchoolHourEntryId will be null (this is the default of most of the
         /// partnering time table systems)</param>
         /// <param name="teachersIds">Teachers assigned to the lesson.</param>
-        public LessonExternalResponse(System.Guid id, System.Guid subjectCourseId, System.DateTime date, string externalLessonId = default(string), System.Guid? roomId = default(System.Guid?), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), IList<System.Guid> teachersIds = default(IList<System.Guid>))
+        public LessonExternalResponse(System.Guid id, System.Guid subjectCourseId, System.DateTime date, string externalLessonId = default(string), System.Guid? roomId = default(System.Guid?), IList<System.Guid> roomIds = default(IList<System.Guid>), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), IList<System.Guid> teachersIds = default(IList<System.Guid>))
         {
             Id = id;
             ExternalLessonId = externalLessonId;
             SubjectCourseId = subjectCourseId;
             RoomId = roomId;
+            RoomIds = roomIds;
             Date = date;
             StartTime = startTime;
             EndTime = endTime;
@@ -98,10 +103,19 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.Guid SubjectCourseId { get; set; }
 
         /// <summary>
-        /// Gets or sets reference to the room where lesson is conducted.
+        /// Gets or sets obsolete!
+        /// Reference to the room where lesson is conducted.
+        /// Use RoomIds instead of RoomId. RoomId will be removed in a future
+        /// update.
         /// </summary>
         [JsonProperty(PropertyName = "roomId")]
         public System.Guid? RoomId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ids of the rooms where the lesson is conducted.
+        /// </summary>
+        [JsonProperty(PropertyName = "roomIds")]
+        public IList<System.Guid> RoomIds { get; set; }
 
         /// <summary>
         /// Gets or sets date

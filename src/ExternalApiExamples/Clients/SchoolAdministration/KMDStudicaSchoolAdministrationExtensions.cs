@@ -200,11 +200,45 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='id'>
+            /// Guid
+            /// </param>
+            /// <param name='schoolCode'>
+            /// String The school code for which to get data.
+            /// </param>
+            public static SchoolHoursPlanDetailsExternalResponse Post7(this IKMDStudicaSchoolAdministration operations, System.Guid id, string schoolCode)
+            {
+                return operations.Post7Async(id, schoolCode).GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='id'>
+            /// Guid
+            /// </param>
+            /// <param name='schoolCode'>
+            /// String The school code for which to get data.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<SchoolHoursPlanDetailsExternalResponse> Post7Async(this IKMDStudicaSchoolAdministration operations, System.Guid id, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.Post7WithHttpMessagesAsync(id, schoolCode, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseSchoolHoursPlanExternalResponse Post7(this IKMDStudicaSchoolAdministration operations, SchoolHoursPlansExternalRequest body = default(SchoolHoursPlansExternalRequest))
+            public static PagedResponseSchoolHoursPlanExternalResponse Post8(this IKMDStudicaSchoolAdministration operations, SchoolHoursPlansExternalRequest body = default(SchoolHoursPlansExternalRequest))
             {
-                return operations.Post7Async(body).GetAwaiter().GetResult();
+                return operations.Post8Async(body).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -215,9 +249,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseSchoolHoursPlanExternalResponse> Post7Async(this IKMDStudicaSchoolAdministration operations, SchoolHoursPlansExternalRequest body = default(SchoolHoursPlansExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseSchoolHoursPlanExternalResponse> Post8Async(this IKMDStudicaSchoolAdministration operations, SchoolHoursPlansExternalRequest body = default(SchoolHoursPlansExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.Post7WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.Post8WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

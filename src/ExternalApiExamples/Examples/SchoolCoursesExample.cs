@@ -1,37 +1,40 @@
-﻿using ConsoleTables;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using ConsoleTables;
 using Kmd.Studica.Programmes.Client;
 using Microsoft.Rest;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace ExternalApiExamples
 {
-    public class SubjectCoursesExample
+    public class SchoolCoursesExample
     {
         private readonly ITokenProvider tokenProvider;
         private readonly AppConfiguration configuration;
 
-        public SubjectCoursesExample(ITokenProvider tokenProvider, AppConfiguration configuration)
+        public SchoolCoursesExample(ITokenProvider tokenProvider, AppConfiguration configuration)
         {
             this.tokenProvider = tokenProvider;
             this.configuration = configuration;
         }
 
+        /// <summary>
+        /// Use the school courses service to get a generic list of school courses
+        /// </summary>
         public async Task Execute()
         {
-            Console.WriteLine("Executing subject courses example");
+            Console.WriteLine("Executing school courses example");
 
             using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
             programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
                 ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
                 : new Uri(configuration.ProgrammesBaseUri);
 
-            var result = await programmesClient.SubjectCoursesExternal.GetWithHttpMessagesAsync(
-                startDateFrom: DateTime.Now.AddMonths(-2),
-                startDateTo: DateTime.Now.AddMonths(2),
+            var result = await programmesClient.SchoolCoursesExternal.GetWithHttpMessagesAsync(
+                periodFrom: DateTime.Now.AddMonths(-2),
+                periodTo: DateTime.Now.AddMonths(2),
                 schoolCode: configuration.SchoolCode,
-                lmsIndicator: true,
                 pageNumber: 1,
                 pageSize: 30,
                 inlineCount: true,
@@ -40,29 +43,37 @@ namespace ExternalApiExamples
                     { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
-            Console.WriteLine($"Got {result.Body.TotalItems} subject courses from API");
+            Console.WriteLine($"Got {result.Body.TotalItems} school courses courses from API");
 
             ConsoleTable
                 .From(result.Body.Items)
                 .Write();
         }
 
-        public async Task ExecuteBulk()
+        /// <summary>
+        /// Use the school courses service to get a detailed list of school courses based on a list of students and a given interval
+        /// The is e.g. used for correlating with school based internships.
+        /// </summary>
+        public async Task ExecuteStudentSchoolCourses()
         {
-            Console.WriteLine("Executing bulk subject courses example");
+            Console.WriteLine("Executing school courses example");
 
             using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
             programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
                 ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
                 : new Uri(configuration.ProgrammesBaseUri);
 
-            var result = await programmesClient.BulkSubjectCoursesExternal.PostWithHttpMessagesAsync(
-                subjectCourseIds: new[] { Guid.NewGuid() },
+            var result = await programmesClient.StudentSchoolCoursesExternal.GetWithHttpMessagesAsync(
+                studentIds: new[] { Guid.NewGuid() },
+                periodFrom: DateTime.Now.AddMonths(-2),
+                periodTo: DateTime.Now.AddMonths(2),
                 schoolCode: configuration.SchoolCode,
                 customHeaders: new Dictionary<string, List<string>>
                 {
                     { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
+
+            Console.WriteLine($"Got {result.Body.Count} school courses courses from API");
 
             ConsoleTable
                 .From(result.Body)

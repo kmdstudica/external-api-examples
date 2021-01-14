@@ -692,6 +692,292 @@
         }
       }
     },
+    "/SchoolCoursesExternal": {
+      "get": {
+        "tags": [
+          "SchoolCoursesExternal"
+        ],
+        "operationId": "SchoolCoursesExternal_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "PeriodFrom",
+            "description": "School courses start on or after this date",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "PeriodTo",
+            "description": "School courses must end on or before this date\r\nProperty is nullable",
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "in": "query",
+            "name": "PageNumber",
+            "description": "The number of the page to return (1 is the first page).",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "PageSize",
+            "description": "Number of objects per page.",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 1000,
+            "minimum": 1,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "InlineCount",
+            "description": "A flag indicating if total number of items should be included.",
+            "required": true,
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "SchoolCode",
+            "description": "The school code for which to get data.",
+            "required": true,
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_SchoolCourseExternalResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "SchoolCoursesExternal"
+        ],
+        "operationId": "_SchoolCoursesExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SchoolCoursesExternalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_SchoolCourseExternalResponse"
+            }
+          }
+        }
+      }
+    },
+    "/StudentInternshipExternal": {
+      "get": {
+        "tags": [
+          "StudentInternshipExternal"
+        ],
+        "operationId": "StudentInternshipExternal_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "PeriodFrom",
+            "description": "Beginning of the range for start date of the students' internships.",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "PeriodTo",
+            "description": "End of the range for start date of the students' internships.",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "SchoolCode",
+            "description": "The school code for which to get data.",
+            "required": true,
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StudentInternshipExternalResponse"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "StudentInternshipExternal"
+        ],
+        "operationId": "_StudentInternshipExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StudentInternshipExternalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StudentInternshipExternalResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/StudentSchoolCoursesExternal": {
+      "get": {
+        "tags": [
+          "StudentSchoolCoursesExternal"
+        ],
+        "operationId": "StudentSchoolCoursesExternal_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "StudentIds",
+            "description": "Student ids for bulk query. Must contain 1 to 1000 elements",
+            "required": true,
+            "type": "array",
+            "items": {
+              "format": "uuid",
+              "type": "string",
+              "x-nullable": false
+            },
+            "maxLength": 1000,
+            "minLength": 1
+          },
+          {
+            "in": "query",
+            "name": "PeriodFrom",
+            "description": "Beginning of the range for start date of the students' school courses.",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "PeriodTo",
+            "description": "End of the range for start date of the students' school courses.",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "SchoolCode",
+            "description": "The school code for which to get data.",
+            "required": true,
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StudentSchoolCoursesExternalResponse"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "StudentSchoolCoursesExternal"
+        ],
+        "operationId": "_StudentSchoolCoursesExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StudentSchoolCoursesExternalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StudentSchoolCoursesExternalResponse"
+              }
+            }
+          }
+        }
+      }
+    },
     "/SubjectCoursesExternal": {
       "get": {
         "tags": [
@@ -961,7 +1247,7 @@
           "title": "Date",
           "description": "Date of absence.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "minutes": {
@@ -1035,7 +1321,7 @@
           "title": "Date",
           "description": "Beginning of the range for absence date.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -1043,7 +1329,7 @@
           "title": "Date",
           "description": "End of the range for absence date.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
@@ -1128,7 +1414,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000"
+          "example": "2021-01-14T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -1208,7 +1494,7 @@
           "title": "Date",
           "description": "Beginning of the range for absence date.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -1216,7 +1502,7 @@
           "title": "Date",
           "description": "End of the range for absence date.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -1294,7 +1580,7 @@
           "title": "Date",
           "description": "Start date of the educational programme.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -1302,7 +1588,7 @@
           "title": "Date",
           "description": "End date for the educational programme.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1428,7 +1714,7 @@
           "title": "Date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "startTime": {
@@ -1548,13 +1834,13 @@
           "format": "date",
           "description": "Possible start date of UVM subject",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000"
+          "example": "2021-01-14T00:00:00.0000000"
         },
         "endDate": {
           "format": "date",
           "description": "Possible end date of UVM subject",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000"
+          "example": "2021-01-14T00:00:00.0000000"
         },
         "canOverwriteDuration": {
           "title": "Boolean",
@@ -1614,7 +1900,7 @@
           "title": "Date",
           "description": "Start date of the period.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -1622,7 +1908,7 @@
           "title": "Date",
           "description": "End date of the period.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -1676,7 +1962,7 @@
           "title": "Date",
           "description": "Start date of the subject course.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -1684,7 +1970,7 @@
           "title": "Date",
           "description": "End date for the subject course.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -1817,7 +2103,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000"
+          "example": "2021-01-14T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -1891,7 +2177,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
@@ -1899,7 +2185,7 @@
           "title": "Date",
           "description": "End of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1981,7 +2267,7 @@
           "title": "Date",
           "description": "Beginning of range for lesson date.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -1989,7 +2275,7 @@
           "title": "Date",
           "description": "End of range for lesson date.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "hasExternalId": {
@@ -2123,6 +2409,468 @@
         }
       }
     },
+    "SchoolCourse_SchoolPeriodDto": {
+      "title": "SchoolCourse_SchoolPeriodDto",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "String",
+          "description": "The name of the school period",
+          "type": "string"
+        },
+        "typeName": {
+          "title": "String",
+          "description": "The name of the school period type.",
+          "type": "string"
+        },
+        "typeCode": {
+          "title": "String",
+          "description": "The type of the school period.",
+          "type": "string"
+        }
+      }
+    },
+    "SchoolCourseExternalResponse": {
+      "title": "SchoolCourseExternalResponse",
+      "description": "Details of a school course",
+      "required": [
+        "areaOfEducationId",
+        "areaOfResponsibilityId",
+        "dayCalendarId",
+        "departmentId",
+        "endDate",
+        "schoolCourseId",
+        "startDate"
+      ],
+      "type": "object",
+      "properties": {
+        "schoolCourseId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of the school course",
+          "type": "string",
+          "x-nullable": false
+        },
+        "name": {
+          "title": "String",
+          "description": "Name of the school course",
+          "type": "string"
+        },
+        "startDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "School course start date",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "endDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "School course end date",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "schoolPeriod": {
+          "description": "School period of the school course",
+          "allOf": [
+            {
+              "$ref": "#/definitions/SchoolCourse_SchoolPeriodDto"
+            }
+          ]
+        },
+        "dayCalendarId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of the day calendar assigned to the school course",
+          "type": "string",
+          "x-nullable": false
+        },
+        "departmentId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of the Studica department the school course is assigned to",
+          "type": "string",
+          "x-nullable": false
+        },
+        "areaOfEducationId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of the area of education the school course is assigned to",
+          "type": "string",
+          "x-nullable": false
+        },
+        "areaOfResponsibilityId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of the area of responsibility the school course is assigned to",
+          "type": "string",
+          "x-nullable": false
+        },
+        "studentIds": {
+          "description": "List of ids of students that are assigned to the school course",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
+        }
+      }
+    },
+    "PagedResponse_SchoolCourseExternalResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Page of items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SchoolCourseExternalResponse"
+          }
+        },
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
+          "type": "integer"
+        }
+      }
+    },
+    "SchoolCoursesExternalRequest": {
+      "title": "SchoolCoursesExternalRequest",
+      "required": [
+        "inlineCount",
+        "pageNumber",
+        "pageSize",
+        "periodFrom",
+        "schoolCode"
+      ],
+      "type": "object",
+      "properties": {
+        "periodFrom": {
+          "format": "date",
+          "title": "Date",
+          "description": "School courses start on or after this date",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "periodTo": {
+          "format": "date",
+          "description": "School courses must end on or before this date\r\nProperty is nullable",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000"
+        },
+        "pageNumber": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "The number of the page to return (1 is the first page).",
+          "maximum": 2147483647,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "pageSize": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "Number of objects per page.",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "inlineCount": {
+          "title": "Boolean",
+          "description": "A flag indicating if total number of items should be included.",
+          "default": true,
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
+    "StudentInternship_WrittenAgreement": {
+      "title": "StudentInternship_WrittenAgreement",
+      "description": "A student's written agreement for school based internship",
+      "required": [
+        "endDate",
+        "startDate"
+      ],
+      "type": "object",
+      "properties": {
+        "agreementType": {
+          "title": "String",
+          "description": "The written agreement's internship type",
+          "type": "string"
+        },
+        "agreementTypeDescription": {
+          "title": "String",
+          "description": "Textual description of the internship type",
+          "type": "string"
+        },
+        "startDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Start date of internship",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "endDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "End date for internship",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000",
+          "x-nullable": false
+        }
+      }
+    },
+    "StudentInternship_SchoolInternship": {
+      "title": "StudentInternship_SchoolInternship",
+      "description": "Details of a school based internship for a student",
+      "required": [
+        "endDate",
+        "startDate"
+      ],
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "String",
+          "description": "Name of the school based internship",
+          "type": "string"
+        },
+        "startDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Start date of the school based internship",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "endDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "End date of the school based internship",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000",
+          "x-nullable": false
+        }
+      }
+    },
+    "StudentInternshipExternalResponse": {
+      "title": "StudentInternshipExternalResponse",
+      "description": "Model of a student's internship agreements and school based periods",
+      "required": [
+        "studentId"
+      ],
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of student",
+          "type": "string",
+          "x-nullable": false
+        },
+        "civilRegistrationNumber": {
+          "title": "String",
+          "description": "Students civil registration number",
+          "type": "string"
+        },
+        "givenName": {
+          "title": "String",
+          "description": "Student's given name.",
+          "type": "string"
+        },
+        "surname": {
+          "title": "String",
+          "description": "Student's surname.",
+          "type": "string"
+        },
+        "writtenAgreements": {
+          "description": "List of the student's written internship agreements",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentInternship_WrittenAgreement"
+          }
+        },
+        "schoolInternships": {
+          "description": "List of school based internships for the student linked to the written agreement",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentInternship_SchoolInternship"
+          }
+        }
+      }
+    },
+    "StudentInternshipExternalRequest": {
+      "title": "StudentInternshipExternalRequest",
+      "description": "Returns a list of students having written agreements and school based internships in the specified period",
+      "required": [
+        "periodFrom",
+        "periodTo",
+        "schoolCode"
+      ],
+      "type": "object",
+      "properties": {
+        "periodFrom": {
+          "format": "date",
+          "title": "Date",
+          "description": "Beginning of the range for start date of the students' internships.",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "periodTo": {
+          "format": "date",
+          "title": "Date",
+          "description": "End of the range for start date of the students' internships.",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
+    "StudentSchoolCourse_Participation": {
+      "title": "StudentSchoolCourse_Participation",
+      "description": "Details of a student's participation period of a school course",
+      "required": [
+        "participationEndDate",
+        "participationStartDate",
+        "schoolCourseId"
+      ],
+      "type": "object",
+      "properties": {
+        "schoolCourseId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of the school course referencing the participation period",
+          "type": "string",
+          "x-nullable": false
+        },
+        "participationStartDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Start date of the participation period",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "participationEndDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "End date of the participation period",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "correctedDuration": {
+          "format": "double",
+          "description": "Corrected duration of the participation period in days",
+          "type": "number"
+        },
+        "schoolPeriod": {
+          "description": "School period of the participation period",
+          "allOf": [
+            {
+              "$ref": "#/definitions/SchoolCourse_SchoolPeriodDto"
+            }
+          ]
+        }
+      }
+    },
+    "StudentSchoolCoursesExternalResponse": {
+      "title": "StudentSchoolCoursesExternalResponse",
+      "description": "Details of a students school course participation periods",
+      "required": [
+        "studentId"
+      ],
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of student",
+          "type": "string",
+          "x-nullable": false
+        },
+        "civilRegistrationNumber": {
+          "title": "String",
+          "description": "Student's civil registration number (CPR)",
+          "type": "string"
+        },
+        "schoolCourseParticipations": {
+          "description": "List of school course participation periods",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentSchoolCourse_Participation"
+          }
+        }
+      }
+    },
+    "StudentSchoolCoursesExternalRequest": {
+      "title": "StudentSchoolCoursesExternalRequest",
+      "description": "Returns a list of students with students and the school periods they are attending\r\nwhich lies within the start and end interval of the specified period",
+      "required": [
+        "periodFrom",
+        "periodTo",
+        "schoolCode",
+        "studentIds"
+      ],
+      "type": "object",
+      "properties": {
+        "studentIds": {
+          "description": "Student ids for bulk query. Must contain 1 to 1000 elements",
+          "maxLength": 1000,
+          "minLength": 1,
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
+        },
+        "periodFrom": {
+          "format": "date",
+          "title": "Date",
+          "description": "Beginning of the range for start date of the students' school courses.",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "periodTo": {
+          "format": "date",
+          "title": "Date",
+          "description": "End of the range for start date of the students' school courses.",
+          "type": "string",
+          "example": "2021-01-14T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
     "PagedResponse_SubjectCourseExternalResponse": {
       "type": "object",
       "properties": {
@@ -2158,7 +2906,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date subject courses.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
@@ -2166,7 +2914,7 @@
           "title": "Date",
           "description": "End of the range for start date subject courses.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000",
+          "example": "2021-01-14T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -2254,7 +3002,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2020-12-30T00:00:00.0000000"
+          "example": "2021-01-14T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",

@@ -11,43 +11,43 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// SchoolHourEntryExternalResponse
+    /// SchoolHourPlanDetailsSchoolHourEntry
     /// </summary>
     /// <remarks>
-    /// Model of the school hour entry.
+    /// Details about a school hours entry
     /// </remarks>
-    public partial class SchoolHourEntryExternalResponse
+    public partial class SchoolHoursPlanDetailsExternalResponseSchoolHourPlanDetailsSchoolHourEntry
     {
         /// <summary>
-        /// Initializes a new instance of the SchoolHourEntryExternalResponse
+        /// Initializes a new instance of the
+        /// SchoolHoursPlanDetailsExternalResponseSchoolHourPlanDetailsSchoolHourEntry
         /// class.
         /// </summary>
-        public SchoolHourEntryExternalResponse()
+        public SchoolHoursPlanDetailsExternalResponseSchoolHourPlanDetailsSchoolHourEntry()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the SchoolHourEntryExternalResponse
+        /// Initializes a new instance of the
+        /// SchoolHoursPlanDetailsExternalResponseSchoolHourPlanDetailsSchoolHourEntry
         /// class.
         /// </summary>
         /// <param name="schoolHourEntryId">Guid</param>
         /// <param name="entryType">SchoolHourEntryType</param>
         /// <param name="startTime">Time</param>
         /// <param name="endTime">Time</param>
-        /// <param name="schoolHoursPlanId">Guid</param>
         /// <param name="name">String</param>
         /// <param name="duration">Duration of this entry in minutes. Valid for
         /// breaks only.</param>
-        public SchoolHourEntryExternalResponse(System.Guid schoolHourEntryId, string entryType, string startTime, string endTime, System.Guid schoolHoursPlanId, string name = default(string), int? duration = default(int?))
+        public SchoolHoursPlanDetailsExternalResponseSchoolHourPlanDetailsSchoolHourEntry(System.Guid schoolHourEntryId, string entryType, string startTime, string endTime, string name = default(string), int? duration = default(int?))
         {
             SchoolHourEntryId = schoolHourEntryId;
             EntryType = entryType;
             Name = name;
-            Duration = duration;
             StartTime = startTime;
             EndTime = endTime;
-            SchoolHoursPlanId = schoolHoursPlanId;
+            Duration = duration;
             CustomInit();
         }
 
@@ -69,7 +69,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Gets or sets schoolHourEntryType
         /// </summary>
         /// <remarks>
-        /// The type of entry, e.g. break or module. Possible values include:
+        /// Type of the entry, e.g. module or break. Possible values include:
         /// 'Break', 'Module', 'Lecture'
         /// </remarks>
         [JsonProperty(PropertyName = "entryType")]
@@ -79,23 +79,16 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// Optional name of this entry.
+        /// Name of the entry
         /// </remarks>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets duration of this entry in minutes. Valid for breaks
-        /// only.
-        /// </summary>
-        [JsonProperty(PropertyName = "duration")]
-        public int? Duration { get; set; }
-
-        /// <summary>
         /// Gets or sets time
         /// </summary>
         /// <remarks>
-        /// Start time of lesson
+        /// Start time of this specific entry
         /// </remarks>
         [JsonProperty(PropertyName = "startTime")]
         public string StartTime { get; set; }
@@ -104,19 +97,17 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Gets or sets time
         /// </summary>
         /// <remarks>
-        /// End time of lesson
+        /// End time of this specific entry
         /// </remarks>
         [JsonProperty(PropertyName = "endTime")]
         public string EndTime { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets duration of this entry in minutes. Valid for breaks
+        /// only.
         /// </summary>
-        /// <remarks>
-        /// Id of school hours plan where this entry belongs to.
-        /// </remarks>
-        [JsonProperty(PropertyName = "schoolHoursPlanId")]
-        public System.Guid SchoolHoursPlanId { get; set; }
+        [JsonProperty(PropertyName = "duration")]
+        public int? Duration { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -145,14 +136,6 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
                     throw new ValidationException(ValidationRules.MaxLength, "Name", 255);
                 }
             }
-            if (Duration > 1440)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMaximum, "Duration", 1440);
-            }
-            if (Duration < 1)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMinimum, "Duration", 1);
-            }
             if (StartTime != null)
             {
                 if (!System.Text.RegularExpressions.Regex.IsMatch(StartTime, "([01]?[0-9]|2[0-3]):[0-5][0-9]"))
@@ -166,6 +149,14 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
                 {
                     throw new ValidationException(ValidationRules.Pattern, "EndTime", "([01]?[0-9]|2[0-3]):[0-5][0-9]");
                 }
+            }
+            if (Duration > 1440)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMaximum, "Duration", 1440);
+            }
+            if (Duration < 1)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMinimum, "Duration", 1);
             }
         }
     }

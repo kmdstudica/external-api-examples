@@ -3,6 +3,7 @@ using Kmd.Studica.SchoolAdministration.Client;
 using Microsoft.Rest;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ExternalApiExamples
@@ -42,6 +43,31 @@ namespace ExternalApiExamples
             ConsoleTable
                 .From(result.Body.Items)
                 .Write();
+        }
+
+        public async Task ExecuteDetailed()
+        {
+            Console.WriteLine("Executing school hours plans example");
+
+            using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+            schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
+                ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
+                : new Uri(configuration.SchoolAdministrationBaseUri);
+
+            var result = await schoolAdministrationClient.SchoolHoursPlanDetailsExternal.GetWithHttpMessagesAsync(
+                schoolCode: configuration.SchoolCode,
+                id: Guid.NewGuid(),
+                customHeaders: new Dictionary<string, List<string>>
+                {
+                            { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                });
+
+            Console.WriteLine($"Got school hour plan from API: {result.Body?.Name}");
+
+            if (result.Body?.SchoolHours.Count() > 0)
+            {
+                ConsoleTable.From(result.Body.SchoolHours).Write();
+            }
         }
     }
 }

@@ -23,7 +23,8 @@ namespace ExternalApiExamples
         {
             Console.WriteLine("Executing school hours plans example");
 
-            using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+            using var schoolAdministrationClient =
+                new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
             schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
                 ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
                 : new Uri(configuration.SchoolAdministrationBaseUri);
@@ -35,7 +36,7 @@ namespace ExternalApiExamples
                 inlineCount: true,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                    {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
                 });
 
             Console.WriteLine($"Got {result.Body.TotalItems} plans from API");
@@ -47,26 +48,36 @@ namespace ExternalApiExamples
 
         public async Task ExecuteDetailed()
         {
-            Console.WriteLine("Executing school hours plans example");
+            Console.WriteLine("Executing detailed school hours plans example");
 
-            using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+            using var schoolAdministrationClient =
+                new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
             schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
                 ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
                 : new Uri(configuration.SchoolAdministrationBaseUri);
 
-            var result = await schoolAdministrationClient.SchoolHoursPlanDetailsExternal.GetWithHttpMessagesAsync(
-                schoolCode: configuration.SchoolCode,
-                id: Guid.NewGuid(),
-                customHeaders: new Dictionary<string, List<string>>
-                {
-                            { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
-                });
-
-            Console.WriteLine($"Got school hour plan from API: {result.Body?.Name}");
-
-            if (result.Body?.SchoolHours.Count() > 0)
+            try
             {
-                ConsoleTable.From(result.Body.SchoolHours).Write();
+                var result = await schoolAdministrationClient.SchoolHoursPlanDetailsExternal.GetWithHttpMessagesAsync(
+                    schoolCode: configuration.SchoolCode,
+                    id: Guid.NewGuid(),
+                    customHeaders: new Dictionary<string, List<string>>
+                    {
+                        {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                    });
+            
+                Console.WriteLine($"Got school hour plan from API: {result.Body?.Name}");
+            
+                if (result.Body?.SchoolHours.Count() > 0)
+                {
+                    ConsoleTable.From(result.Body.SchoolHours).Write();
+                }
+            }
+            catch (HttpOperationException e)
+            {
+                // Sample error handler. If this service is called with a not-existing plan id,
+                // the service will return HTTP 404 (NotFound)
+                Console.WriteLine(e);
             }
         }
     }

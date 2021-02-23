@@ -37,7 +37,7 @@ namespace ExternalApiExamples
                 inlineCount: true,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                    {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
                 });
 
             Console.WriteLine($"Got {result.Body.TotalItems} subject courses from API");
@@ -57,15 +57,42 @@ namespace ExternalApiExamples
                 : new Uri(configuration.ProgrammesBaseUri);
 
             var result = await programmesClient.BulkSubjectCoursesExternal.PostWithHttpMessagesAsync(
-                subjectCourseIds: new[] { Guid.NewGuid() },
+                subjectCourseIds: new[] {Guid.NewGuid()},
                 schoolCode: configuration.SchoolCode,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                    {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
                 });
 
             ConsoleTable
                 .From(result.Body)
+                .Write();
+        }
+
+        public async Task ExecuteStudentSubjectCourses()
+        {
+            Console.WriteLine("Executing student subject courses example");
+
+            using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+            programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
+                ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
+                : new Uri(configuration.ProgrammesBaseUri);
+
+            var result = await programmesClient.StudentSubjectCoursesExternal.GetWithHttpMessagesAsync(
+                studentIds: new[] {Guid.NewGuid()},
+                pageNumber: 1,
+                pageSize: 10,
+                inlineCount: true,
+                schoolCode: configuration.SchoolCode,
+                customHeaders: new Dictionary<string, List<string>>
+                {
+                    {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                });
+
+            Console.WriteLine($"Got {result.Body.TotalItems} student subject courses from API");
+
+            ConsoleTable
+                .From(result.Body.Items)
                 .Write();
         }
     }

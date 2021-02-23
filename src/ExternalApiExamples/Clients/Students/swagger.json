@@ -142,6 +142,118 @@
           }
         }
       }
+    },
+    "/StudentMarksExternal": {
+      "get": {
+        "tags": [
+          "StudentMarksExternal"
+        ],
+        "operationId": "StudentMarksExternal_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "StudentIds",
+            "description": "A list of students to get marks for",
+            "required": true,
+            "type": "array",
+            "items": {
+              "format": "uuid",
+              "type": "string",
+              "x-nullable": false
+            },
+            "maxLength": 1000,
+            "minLength": 1
+          },
+          {
+            "in": "query",
+            "name": "OnlyIncludeMarksForExamPaper",
+            "description": "Flag to indicate if service should only return marks that should be included on exam paper",
+            "required": true,
+            "type": "boolean",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "PageNumber",
+            "description": "The number of the page to return (1 is the first page).",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "PageSize",
+            "description": "Number of objects per page.",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 1000,
+            "minimum": 1,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "InlineCount",
+            "description": "A flag indicating if total number of items should be included.",
+            "required": true,
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "SchoolCode",
+            "description": "The school code for which to get data.",
+            "required": true,
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_StudentMarksExternalResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "StudentMarksExternal"
+        ],
+        "operationId": "_StudentMarksExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StudentMarksExternalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_StudentMarksExternalResponse"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -267,14 +379,14 @@
           "title": "Date",
           "description": "The date from which the studenttype is valid",
           "type": "string",
-          "example": "2021-01-14T00:00:00.0000000",
+          "example": "2021-02-23T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "The end date of the studenttype",
           "type": "string",
-          "example": "2021-01-14T00:00:00.0000000"
+          "example": "2021-02-23T00:00:00.0000000"
         }
       }
     },
@@ -335,20 +447,20 @@
           "title": "Date",
           "description": "Study date of start.",
           "type": "string",
-          "example": "2021-01-14T00:00:00.0000000",
+          "example": "2021-02-23T00:00:00.0000000",
           "x-nullable": false
         },
         "studyExpectedCompletionDate": {
           "format": "date",
           "description": "Expected completion date of study.",
           "type": "string",
-          "example": "2021-01-14T00:00:00.0000000"
+          "example": "2021-02-23T00:00:00.0000000"
         },
         "studyEndDate": {
           "format": "date",
           "description": "Study end date",
           "type": "string",
-          "example": "2021-01-14T00:00:00.0000000"
+          "example": "2021-02-23T00:00:00.0000000"
         },
         "studyEndCauseId": {
           "format": "uuid",
@@ -563,7 +675,7 @@
           "title": "Date",
           "description": "Students must be active on the date or after this date\r\nThis parameter is required",
           "type": "string",
-          "example": "2021-01-14T00:00:00.0000000",
+          "example": "2021-02-23T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
@@ -620,6 +732,257 @@
             "type": "string",
             "x-nullable": false
           }
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
+    "Student_Subject": {
+      "title": "Student_Subject",
+      "description": "Description of a subject object for which a mark is given",
+      "required": [
+        "levelDesignation",
+        "levelRankOrder",
+        "subjectDesignation",
+        "subjectNumber"
+      ],
+      "type": "object",
+      "properties": {
+        "subjectDesignation": {
+          "title": "String",
+          "description": "The designation/description of the subject the mark is given in",
+          "type": "string"
+        },
+        "subjectNumber": {
+          "title": "String",
+          "description": "The numeric ID of the subject the mark is given in",
+          "type": "string"
+        },
+        "subjectCategory": {
+          "title": "String",
+          "description": "The identification of the subject category that the subject belongs to",
+          "type": "string"
+        },
+        "subjectCategoryDesignation": {
+          "title": "String",
+          "description": "The name of the subject category that the subject belongs to",
+          "type": "string"
+        },
+        "evaluationForm": {
+          "title": "String",
+          "description": "Subject evaluation form code, e.g. MDT for Oral",
+          "type": "string"
+        },
+        "evaluationFormDesignation": {
+          "title": "String",
+          "description": "Subject evaluation form description, e.g. Mundtlig evaluering",
+          "type": "string"
+        },
+        "markScaleDesignation": {
+          "title": "String",
+          "description": "Scale type for the mark given to the student, e.g. 7-trinsskala",
+          "type": "string"
+        },
+        "levelDesignation": {
+          "title": "String",
+          "description": "The designation/description of the level of the subject the mark is given in, e.g. Avanceret",
+          "type": "string"
+        },
+        "levelRankOrder": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "The order of level",
+          "type": "integer",
+          "x-nullable": false
+        }
+      }
+    },
+    "Student_Mark": {
+      "title": "Student_Mark",
+      "required": [
+        "useOnExamPaper"
+      ],
+      "type": "object",
+      "properties": {
+        "date": {
+          "format": "date",
+          "description": "Date for when mark has been given",
+          "type": "string",
+          "example": "2021-02-23T00:00:00.0000000"
+        },
+        "markCode": {
+          "title": "String",
+          "description": "Code of the mark type in the Danish educational model (UMO), e.g. DEL or STA",
+          "type": "string"
+        },
+        "markDesignation": {
+          "title": "String",
+          "description": "Designation/desciption text of the mark type in the Danish educational model (UMO), e.g. 00, Over middel or Syg",
+          "type": "string"
+        },
+        "markValue": {
+          "title": "String",
+          "description": "Value of the mark, e.g. 00, 7 or SY",
+          "type": "string"
+        },
+        "markValueEcts": {
+          "title": "String",
+          "description": "The mark value in ECTS scale",
+          "type": "string"
+        },
+        "creditText": {
+          "title": "String",
+          "description": "The text describing the credit (not set if ordinary mark)",
+          "type": "string"
+        },
+        "useOnExamPaper": {
+          "title": "Boolean",
+          "description": "Flag to describe whether the mark should be included on the student's exam paper",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "subjectCourseId": {
+          "format": "uuid",
+          "description": "The ID of the subject course for which the mark has been given\r\nIf the ID is null, then the mark has been assigned manually",
+          "type": "string"
+        },
+        "subject": {
+          "description": "Subject that the mark is given for",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Student_Subject"
+            }
+          ]
+        }
+      }
+    },
+    "StudentMarksExternalResponse": {
+      "title": "StudentMarksExternalResponse",
+      "description": "Model of student marks response",
+      "required": [
+        "civilRegistrationNumber",
+        "studentId"
+      ],
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Student's identifier.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "civilRegistrationNumber": {
+          "title": "String",
+          "description": "Student's civil registration (CPR) number.",
+          "type": "string"
+        },
+        "givenName": {
+          "title": "String",
+          "description": "Student's given name.",
+          "type": "string"
+        },
+        "surname": {
+          "title": "String",
+          "description": "Student's surname.",
+          "type": "string"
+        },
+        "protectedGivenName": {
+          "title": "String",
+          "description": "Protected given name from national registry",
+          "type": "string"
+        },
+        "protectedSurname": {
+          "title": "String",
+          "description": "Protected surname from national registry",
+          "type": "string"
+        },
+        "marks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Student_Mark"
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "PagedResponse_StudentMarksExternalResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Page of items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentMarksExternalResponse"
+          }
+        },
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
+          "type": "integer"
+        }
+      }
+    },
+    "StudentMarksExternalRequest": {
+      "title": "StudentMarksExternalRequest",
+      "description": "Returns a list of students and their marks",
+      "required": [
+        "inlineCount",
+        "onlyIncludeMarksForExamPaper",
+        "pageNumber",
+        "pageSize",
+        "schoolCode",
+        "studentIds"
+      ],
+      "type": "object",
+      "properties": {
+        "studentIds": {
+          "description": "A list of students to get marks for",
+          "maxLength": 1000,
+          "minLength": 1,
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
+        },
+        "onlyIncludeMarksForExamPaper": {
+          "title": "Boolean",
+          "description": "Flag to indicate if service should only return marks that should be included on exam paper",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "pageNumber": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "The number of the page to return (1 is the first page).",
+          "maximum": 2147483647,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "pageSize": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "Number of objects per page.",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "inlineCount": {
+          "title": "Boolean",
+          "description": "A flag indicating if total number of items should be included.",
+          "default": true,
+          "type": "boolean",
+          "x-nullable": false
         },
         "schoolCode": {
           "title": "String",

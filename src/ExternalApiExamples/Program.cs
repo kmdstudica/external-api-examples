@@ -39,9 +39,12 @@ namespace ExternalApiExamples
                 ? new LogicTokenProviderFactory(configuration.TokenProvider).GetProvider(httpClient)
                 : new LocalTestTokenProvider(configuration.LocalTestJwtToken);
 
+            // NOTE: Samples that post data to STUDICA are disabled pr. default
+
             // Students API examples
             await new StudentsExample(tokenProvider, configuration).Execute();
             await new StudentsExample(tokenProvider, configuration).ExecuteBulk();
+            await new StudentMarksExample(tokenProvider, configuration).Execute();
 
             // School administration API examples
             await new AreaOfResponsibilityExample(tokenProvider, configuration).Execute();
@@ -60,15 +63,18 @@ namespace ExternalApiExamples
             // Programmes API examples
             await new EducationalProgrammesExample(tokenProvider, configuration).Execute();
             await new EducationalProgrammesExample(tokenProvider, configuration).ExecuteBulk();
+            await new SubjectCoursesExample(tokenProvider, configuration).Execute();
+            await new SubjectCoursesExample(tokenProvider, configuration).ExecuteBulk();
+            await new SubjectCoursesExample(tokenProvider, configuration).ExecuteStudentSubjectCourses();
             await new LessonsExample(tokenProvider, configuration).ExecuteGet();
             await new LessonsExample(tokenProvider, configuration).ExecuteGetBulk();
             await new LessonsExample(tokenProvider, configuration).ExecuteGetUnscheduled();
-            await new LessonsExample(tokenProvider, configuration).ExecuteAddLessons();
-            await new LessonsExample(tokenProvider, configuration).ExecuteEditLesson();
-            await new LessonsExample(tokenProvider, configuration).ExecuteDeleteLesson();
-            await new LessonsExample(tokenProvider, configuration).ExecuteDeleteLessons();
-            await new SubjectCoursesExample(tokenProvider, configuration).Execute();
-            await new SubjectCoursesExample(tokenProvider, configuration).ExecuteBulk();
+            //await new LessonsExample(tokenProvider, configuration).ExecuteAddLessons();
+            //await new LessonsExample(tokenProvider, configuration).ExecuteEditLesson();
+            //await new LessonsExample(tokenProvider, configuration).ExecuteDeleteLesson();
+            //await new LessonsExample(tokenProvider, configuration).ExecuteDeleteLessons();
+            await new AbsenceRegistrationsExample(tokenProvider, configuration).Execute();
+            // await new AbsenceRegistrationsExample(tokenProvider, configuration).ExecuteRegisterAbsence();
             await new SchoolCoursesExample(tokenProvider, configuration).Execute();
             await new SchoolCoursesExample(tokenProvider, configuration).ExecuteStudentSchoolCourses();
             await new StudentInternshipExample(tokenProvider, configuration).Execute();

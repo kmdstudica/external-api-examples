@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using ConsoleTables;
 using Kmd.Studica.Programmes.Client;
@@ -40,7 +39,7 @@ namespace ExternalApiExamples
                 inlineCount: true,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                    {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
                 });
 
             Console.WriteLine($"Got {result.Body.TotalItems} school courses courses from API");
@@ -64,13 +63,13 @@ namespace ExternalApiExamples
                 : new Uri(configuration.ProgrammesBaseUri);
 
             var result = await programmesClient.StudentSchoolCoursesExternal.GetWithHttpMessagesAsync(
-                studentIds: new[] { Guid.NewGuid() },
+                studentIds: new[] {Guid.NewGuid()},
                 periodFrom: DateTime.Now.AddMonths(-2),
                 periodTo: DateTime.Now.AddMonths(2),
                 schoolCode: configuration.SchoolCode,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                    {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
                 });
 
             Console.WriteLine($"Got {result.Body.Count} school courses courses from API");

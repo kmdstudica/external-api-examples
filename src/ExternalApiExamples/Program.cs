@@ -54,6 +54,7 @@ namespace ExternalApiExamples
             await new DepartmentsExample(tokenProvider, configuration).ExecuteBulk();
             await new EmployeeExample(tokenProvider, configuration).Execute();
             await new EmployeeExample(tokenProvider, configuration).ExecuteBulk();
+            await new EmployeeExample(tokenProvider, configuration).ExecuteActiveEmployees();
             await new SchoolHourEntryExample(tokenProvider, configuration).Execute();
             await new SchoolHoursPlansExample(tokenProvider, configuration).Execute();
             await new SchoolHoursPlansExample(tokenProvider, configuration).ExecuteDetailed();
@@ -66,6 +67,7 @@ namespace ExternalApiExamples
             await new SubjectCoursesExample(tokenProvider, configuration).Execute();
             await new SubjectCoursesExample(tokenProvider, configuration).ExecuteBulk();
             await new SubjectCoursesExample(tokenProvider, configuration).ExecuteStudentSubjectCourses();
+            await new SubjectCoursesExample(tokenProvider, configuration).ExecuteActiveSubjectCourses();
             await new LessonsExample(tokenProvider, configuration).ExecuteGet();
             await new LessonsExample(tokenProvider, configuration).ExecuteGetBulk();
             await new LessonsExample(tokenProvider, configuration).ExecuteGetUnscheduled();

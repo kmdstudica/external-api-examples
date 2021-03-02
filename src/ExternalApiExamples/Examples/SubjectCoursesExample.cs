@@ -95,5 +95,33 @@ namespace ExternalApiExamples
                 .From(result.Body.Items)
                 .Write();
         }
+        
+        public async Task ExecuteActiveSubjectCourses()
+        {
+            Console.WriteLine("Executing active subject courses example");
+
+            using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+            programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
+                ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
+                : new Uri(configuration.ProgrammesBaseUri);
+
+            var result = await programmesClient.ActiveSubjectCoursesExternal.GetWithHttpMessagesAsync(
+                subjectCoursesActiveOnOrAfterDate: DateTime.Today, 
+                schoolCode: configuration.SchoolCode,
+                lmsIndicator: true,
+                pageNumber: 1,
+                pageSize: 30,
+                inlineCount: true,
+                customHeaders: new Dictionary<string, List<string>>
+                {
+                    {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                });
+
+            Console.WriteLine($"Got {result.Body.TotalItems} subject courses from API");
+
+            ConsoleTable
+                .From(result.Body.Items)
+                .Write();
+        }
     }
 }

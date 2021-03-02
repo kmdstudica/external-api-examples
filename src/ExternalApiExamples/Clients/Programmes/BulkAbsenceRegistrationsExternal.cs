@@ -59,6 +59,10 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='schoolCode'>
         /// The school code for which to get data.
         /// </param>
+        /// <param name='onlyAbsenceReports'>
+        /// Only retrieve reports of absence or partial absence,
+        /// defaults to false (retrieve everything)
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -80,7 +84,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<AbsenceRegistrationExternalResponse>>> GetWithHttpMessagesAsync(IList<System.Guid> studentIds, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<AbsenceRegistrationExternalResponse>>> GetWithHttpMessagesAsync(IList<System.Guid> studentIds, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, bool? onlyAbsenceReports = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (studentIds == null)
             {
@@ -111,6 +115,7 @@ namespace Kmd.Studica.Programmes.Client
                 tracingParameters.Add("studentIds", studentIds);
                 tracingParameters.Add("dateFrom", dateFrom);
                 tracingParameters.Add("dateTo", dateTo);
+                tracingParameters.Add("onlyAbsenceReports", onlyAbsenceReports);
                 tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
@@ -125,6 +130,10 @@ namespace Kmd.Studica.Programmes.Client
             }
             _queryParameters.Add(string.Format("DateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(dateFrom, new DateJsonConverter()).Trim('"'))));
             _queryParameters.Add(string.Format("DateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(dateTo, new DateJsonConverter()).Trim('"'))));
+            if (onlyAbsenceReports != null)
+            {
+                _queryParameters.Add(string.Format("OnlyAbsenceReports={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(onlyAbsenceReports, Client.SerializationSettings).Trim('"'))));
+            }
             if (schoolCode != null)
             {
                 _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));

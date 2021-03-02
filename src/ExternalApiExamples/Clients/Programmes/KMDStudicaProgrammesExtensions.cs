@@ -48,7 +48,7 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static IList<AbsenceRegistrationExternalResponse> Post1(this IKMDStudicaProgrammes operations, BulkAbsenceRegistrationsExternalRequest body = default(BulkAbsenceRegistrationsExternalRequest))
+            public static PagedResponseSubjectCourseExternalResponse Post1(this IKMDStudicaProgrammes operations, ActiveSubjectCoursesExternalRequest body = default(ActiveSubjectCoursesExternalRequest))
             {
                 return operations.Post1Async(body).GetAwaiter().GetResult();
             }
@@ -61,7 +61,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<AbsenceRegistrationExternalResponse>> Post1Async(this IKMDStudicaProgrammes operations, BulkAbsenceRegistrationsExternalRequest body = default(BulkAbsenceRegistrationsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseSubjectCourseExternalResponse> Post1Async(this IKMDStudicaProgrammes operations, ActiveSubjectCoursesExternalRequest body = default(ActiveSubjectCoursesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.Post1WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -74,7 +74,7 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseEducationalProgrammeExternalResponse Post2(this IKMDStudicaProgrammes operations, EducationalProgrammesExternalRequest body = default(EducationalProgrammesExternalRequest))
+            public static IList<AbsenceRegistrationExternalResponse> Post2(this IKMDStudicaProgrammes operations, BulkAbsenceRegistrationsExternalRequest body = default(BulkAbsenceRegistrationsExternalRequest))
             {
                 return operations.Post2Async(body).GetAwaiter().GetResult();
             }
@@ -87,7 +87,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseEducationalProgrammeExternalResponse> Post2Async(this IKMDStudicaProgrammes operations, EducationalProgrammesExternalRequest body = default(EducationalProgrammesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<AbsenceRegistrationExternalResponse>> Post2Async(this IKMDStudicaProgrammes operations, BulkAbsenceRegistrationsExternalRequest body = default(BulkAbsenceRegistrationsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.Post2WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -100,7 +100,7 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseLessonExternalResponse Post3(this IKMDStudicaProgrammes operations, LessonsExternalRequest body = default(LessonsExternalRequest))
+            public static PagedResponseEducationalProgrammeExternalResponse Post3(this IKMDStudicaProgrammes operations, EducationalProgrammesExternalRequest body = default(EducationalProgrammesExternalRequest))
             {
                 return operations.Post3Async(body).GetAwaiter().GetResult();
             }
@@ -113,7 +113,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseLessonExternalResponse> Post3Async(this IKMDStudicaProgrammes operations, LessonsExternalRequest body = default(LessonsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseEducationalProgrammeExternalResponse> Post3Async(this IKMDStudicaProgrammes operations, EducationalProgrammesExternalRequest body = default(EducationalProgrammesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.Post3WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -126,7 +126,7 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseSchoolCourseExternalResponse Post4(this IKMDStudicaProgrammes operations, SchoolCoursesExternalRequest body = default(SchoolCoursesExternalRequest))
+            public static PagedResponseLessonExternalResponse Post4(this IKMDStudicaProgrammes operations, LessonsExternalRequest body = default(LessonsExternalRequest))
             {
                 return operations.Post4Async(body).GetAwaiter().GetResult();
             }
@@ -139,7 +139,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseSchoolCourseExternalResponse> Post4Async(this IKMDStudicaProgrammes operations, SchoolCoursesExternalRequest body = default(SchoolCoursesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseLessonExternalResponse> Post4Async(this IKMDStudicaProgrammes operations, LessonsExternalRequest body = default(LessonsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.Post4WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -152,7 +152,7 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static IList<StudentInternshipExternalResponse> Post5(this IKMDStudicaProgrammes operations, StudentInternshipExternalRequest body = default(StudentInternshipExternalRequest))
+            public static PagedResponseSchoolCourseExternalResponse Post5(this IKMDStudicaProgrammes operations, SchoolCoursesExternalRequest body = default(SchoolCoursesExternalRequest))
             {
                 return operations.Post5Async(body).GetAwaiter().GetResult();
             }
@@ -165,7 +165,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<StudentInternshipExternalResponse>> Post5Async(this IKMDStudicaProgrammes operations, StudentInternshipExternalRequest body = default(StudentInternshipExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseSchoolCourseExternalResponse> Post5Async(this IKMDStudicaProgrammes operations, SchoolCoursesExternalRequest body = default(SchoolCoursesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.Post5WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -178,7 +178,7 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static IList<StudentSchoolCoursesExternalResponse> Post6(this IKMDStudicaProgrammes operations, StudentSchoolCoursesExternalRequest body = default(StudentSchoolCoursesExternalRequest))
+            public static IList<StudentInternshipExternalResponse> Post6(this IKMDStudicaProgrammes operations, StudentInternshipExternalRequest body = default(StudentInternshipExternalRequest))
             {
                 return operations.Post6Async(body).GetAwaiter().GetResult();
             }
@@ -191,7 +191,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<StudentSchoolCoursesExternalResponse>> Post6Async(this IKMDStudicaProgrammes operations, StudentSchoolCoursesExternalRequest body = default(StudentSchoolCoursesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<StudentInternshipExternalResponse>> Post6Async(this IKMDStudicaProgrammes operations, StudentInternshipExternalRequest body = default(StudentInternshipExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.Post6WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -204,7 +204,7 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseStudentSubjectCoursesExternalResponse Post7(this IKMDStudicaProgrammes operations, StudentSubjectCoursesExternalRequest body = default(StudentSubjectCoursesExternalRequest))
+            public static IList<StudentSchoolCoursesExternalResponse> Post7(this IKMDStudicaProgrammes operations, StudentSchoolCoursesExternalRequest body = default(StudentSchoolCoursesExternalRequest))
             {
                 return operations.Post7Async(body).GetAwaiter().GetResult();
             }
@@ -217,7 +217,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseStudentSubjectCoursesExternalResponse> Post7Async(this IKMDStudicaProgrammes operations, StudentSubjectCoursesExternalRequest body = default(StudentSubjectCoursesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<StudentSchoolCoursesExternalResponse>> Post7Async(this IKMDStudicaProgrammes operations, StudentSchoolCoursesExternalRequest body = default(StudentSchoolCoursesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.Post7WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -230,7 +230,7 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseSubjectCourseExternalResponse Post8(this IKMDStudicaProgrammes operations, SubjectCoursesExternalRequest body = default(SubjectCoursesExternalRequest))
+            public static PagedResponseStudentSubjectCoursesExternalResponse Post8(this IKMDStudicaProgrammes operations, StudentSubjectCoursesExternalRequest body = default(StudentSubjectCoursesExternalRequest))
             {
                 return operations.Post8Async(body).GetAwaiter().GetResult();
             }
@@ -243,7 +243,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseSubjectCourseExternalResponse> Post8Async(this IKMDStudicaProgrammes operations, SubjectCoursesExternalRequest body = default(SubjectCoursesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseStudentSubjectCoursesExternalResponse> Post8Async(this IKMDStudicaProgrammes operations, StudentSubjectCoursesExternalRequest body = default(StudentSubjectCoursesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.Post8WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -256,7 +256,7 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseUnscheduledLessonExternalResponse Post9(this IKMDStudicaProgrammes operations, LessonsExternalRequest body = default(LessonsExternalRequest))
+            public static PagedResponseSubjectCourseExternalResponse Post9(this IKMDStudicaProgrammes operations, SubjectCoursesExternalRequest body = default(SubjectCoursesExternalRequest))
             {
                 return operations.Post9Async(body).GetAwaiter().GetResult();
             }
@@ -269,9 +269,35 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseUnscheduledLessonExternalResponse> Post9Async(this IKMDStudicaProgrammes operations, LessonsExternalRequest body = default(LessonsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseSubjectCourseExternalResponse> Post9Async(this IKMDStudicaProgrammes operations, SubjectCoursesExternalRequest body = default(SubjectCoursesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.Post9WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='body'>
+            /// </param>
+            public static PagedResponseUnscheduledLessonExternalResponse Post10(this IKMDStudicaProgrammes operations, LessonsExternalRequest body = default(LessonsExternalRequest))
+            {
+                return operations.Post10Async(body).GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='body'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PagedResponseUnscheduledLessonExternalResponse> Post10Async(this IKMDStudicaProgrammes operations, LessonsExternalRequest body = default(LessonsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.Post10WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

@@ -4,7 +4,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.Programmes.Client
+namespace Kmd.Studica.SchoolAdministration.Client
 {
     using Microsoft.Rest;
     using Models;
@@ -14,25 +14,28 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// BulkAbsenceRegistrationsExternal operations.
+    /// ActiveEmployeesExternal operations.
     /// </summary>
-    public partial interface IBulkAbsenceRegistrationsExternal
+    public partial interface IActiveEmployeesExternal
     {
-        /// <param name='studentIds'>
-        /// A list of student ids to get absence for.
+        /// <param name='employeesActiveOnOrAfterDate'>
+        /// Employees must have an active employment on or after this date
+        /// This parameter is required
         /// </param>
-        /// <param name='dateFrom'>
-        /// Beginning of the range for absence date.
+        /// <param name='pageNumber'>
+        /// The number of the page to return (1 is the first page).
         /// </param>
-        /// <param name='dateTo'>
-        /// End of the range for absence date.
+        /// <param name='pageSize'>
+        /// Number of objects per page.
+        /// </param>
+        /// <param name='inlineCount'>
+        /// A flag indicating if total number of items should be included.
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
         /// </param>
-        /// <param name='onlyAbsenceReports'>
-        /// Only retrieve reports of absence or partial absence,
-        /// defaults to false (retrieve everything)
+        /// <param name='areaOfResponsibilityId'>
+        /// Option for also querying employees by area of responsibility
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -49,6 +52,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<AbsenceRegistrationExternalResponse>>> GetWithHttpMessagesAsync(IList<System.Guid> studentIds, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, bool? onlyAbsenceReports = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseEmployeeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime employeesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

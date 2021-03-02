@@ -39,7 +39,7 @@ namespace ExternalApiExamples
                     { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
-            Console.WriteLine($"Got {result.Body.TotalItems} plans from API");
+            Console.WriteLine($"Got {result.Body.TotalItems} departments from API");
 
             ConsoleTable
                 .From(result.Body.Items)
@@ -65,7 +65,7 @@ namespace ExternalApiExamples
                     { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
-            Console.WriteLine($"Got {result.Body.TotalItems} plans from API");
+            Console.WriteLine($"Got {result.Body.TotalItems} departments from API");
 
             ConsoleTable
                 .From(result.Body.Items)
@@ -89,7 +89,7 @@ namespace ExternalApiExamples
                     { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
-            Console.WriteLine($"Got {result.Body} plans from API");
+            Console.WriteLine($"Got {result.Body} departments from API");
 
             ConsoleTable
                 .From(result.Body)

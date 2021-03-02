@@ -39,11 +39,15 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="dateFrom">Date</param>
         /// <param name="dateTo">Date</param>
         /// <param name="schoolCode">String</param>
-        public BulkAbsenceRegistrationsExternalRequest(IList<System.Guid> studentIds, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode)
+        /// <param name="onlyAbsenceReports">Only retrieve reports of absence
+        /// or partial absence,
+        /// defaults to false (retrieve everything)</param>
+        public BulkAbsenceRegistrationsExternalRequest(IList<System.Guid> studentIds, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, bool? onlyAbsenceReports = default(bool?))
         {
             StudentIds = studentIds;
             DateFrom = dateFrom;
             DateTo = dateTo;
+            OnlyAbsenceReports = onlyAbsenceReports;
             SchoolCode = schoolCode;
             CustomInit();
         }
@@ -78,6 +82,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "dateTo")]
         public System.DateTime DateTo { get; set; }
+
+        /// <summary>
+        /// Gets or sets only retrieve reports of absence or partial absence,
+        /// defaults to false (retrieve everything)
+        /// </summary>
+        [JsonProperty(PropertyName = "onlyAbsenceReports")]
+        public bool? OnlyAbsenceReports { get; set; }
 
         /// <summary>
         /// Gets or sets string

@@ -100,6 +100,112 @@
         }
       }
     },
+    "/ActiveEmployeesExternal": {
+      "get": {
+        "tags": [
+          "ActiveEmployeesExternal"
+        ],
+        "operationId": "ActiveEmployeesExternal_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "EmployeesActiveOnOrAfterDate",
+            "description": "Employees must have an active employment on or after this date\r\nThis parameter is required",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "AreaOfResponsibilityId",
+            "description": "Option for also querying employees by area of responsibility",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "PageNumber",
+            "description": "The number of the page to return (1 is the first page).",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "PageSize",
+            "description": "Number of objects per page.",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 1000,
+            "minimum": 1,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "InlineCount",
+            "description": "A flag indicating if total number of items should be included.",
+            "required": true,
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "SchoolCode",
+            "description": "The school code for which to get data.",
+            "required": true,
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_EmployeeExternalResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ActiveEmployeesExternal"
+        ],
+        "operationId": "_ActiveEmployeesExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ActiveEmployeesExternalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_EmployeeExternalResponse"
+            }
+          }
+        }
+      }
+    },
     "/AreasOfResponsibilityExternal": {
       "get": {
         "tags": [
@@ -1008,14 +1114,14 @@
           "title": "Date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
+          "example": "2021-03-02T00:00:00.0000000"
         }
       }
     },
@@ -1081,6 +1187,261 @@
         }
       }
     },
+    "EmployeeExternalResponse": {
+      "title": "EmployeeExternalResponse",
+      "description": "Model of the employee.",
+      "required": [
+        "civilRegistrationNumber",
+        "createAdLogin",
+        "deceased",
+        "email",
+        "employmentStartDate",
+        "givenName",
+        "id",
+        "lmsIndicator",
+        "protectedNameAndAddress",
+        "reportToUniLogin",
+        "surname"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Gets employee identifier in Studica.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "civilRegistrationNumber": {
+          "title": "String",
+          "description": "Gets employee civil registration number.",
+          "type": "string"
+        },
+        "protectedNameAndAddress": {
+          "title": "Boolean",
+          "description": "Gets a flag indicating if name and address are protected.",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "lmsIndicator": {
+          "title": "Boolean",
+          "description": "Gets Learning Management System indicator.",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "givenName": {
+          "title": "String",
+          "description": "Gets employee given name.",
+          "type": "string"
+        },
+        "surname": {
+          "title": "String",
+          "description": "Gets employee surname.",
+          "type": "string"
+        },
+        "protectedGivenName": {
+          "title": "String",
+          "description": "Gets employee protected given name.",
+          "type": "string"
+        },
+        "protectedSurname": {
+          "title": "String",
+          "description": "Gets employee protected surname.",
+          "type": "string"
+        },
+        "initials": {
+          "title": "String",
+          "description": "Gets employee initials.",
+          "type": "string"
+        },
+        "email": {
+          "title": "String",
+          "description": "Gets employee e-mail address.",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "title": "String",
+          "description": "Gets employee phone number.",
+          "type": "string"
+        },
+        "deceased": {
+          "title": "Boolean",
+          "description": "Gets indticator if employee is deceased.",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "uniLoginUsername": {
+          "title": "String",
+          "description": "Gets employee Unilogin username.",
+          "type": "string"
+        },
+        "reportToUniLogin": {
+          "title": "Boolean",
+          "description": "Flag denoting whether the employee should be created as a user in UNI-Login",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "createAdLogin": {
+          "title": "Boolean",
+          "description": "Flag denoting whether the employee should be created in the local Active Directory",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "adUserName": {
+          "title": "String",
+          "description": "Gets employee Active Directory username.",
+          "type": "string"
+        },
+        "roleNames": {
+          "description": "Gets employee roles.",
+          "type": "array",
+          "items": {
+            "title": "String",
+            "type": "string"
+          }
+        },
+        "jobTitle": {
+          "title": "String",
+          "description": "Gets employee job title.",
+          "type": "string"
+        },
+        "employmentStartDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Gets employee start date.",
+          "type": "string",
+          "example": "2021-03-02T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "employmentResignationDate": {
+          "format": "date",
+          "description": "Gets employee resignation date.",
+          "type": "string",
+          "example": "2021-03-02T00:00:00.0000000"
+        },
+        "areaOfResponsibilityId": {
+          "format": "uuid",
+          "description": "Reference id to the area of responsibility.",
+          "type": "string"
+        },
+        "departmentIds": {
+          "description": "Gets employee department affilation.",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
+        },
+        "addressLine": {
+          "title": "String",
+          "description": "Gets employee address line.",
+          "type": "string"
+        },
+        "careOfAddressLine": {
+          "title": "String",
+          "description": "Gets employee care of address line.",
+          "type": "string"
+        },
+        "place": {
+          "title": "String",
+          "description": "Gets employee place.",
+          "type": "string"
+        },
+        "city": {
+          "title": "String",
+          "description": "Gets employee city.",
+          "type": "string"
+        },
+        "postalCode": {
+          "title": "String",
+          "description": "Gets employee postal code.",
+          "type": "string"
+        },
+        "country": {
+          "title": "String",
+          "description": "Gets employee country.",
+          "type": "string"
+        }
+      }
+    },
+    "PagedResponse_EmployeeExternalResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Page of items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmployeeExternalResponse"
+          }
+        },
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
+          "type": "integer"
+        }
+      }
+    },
+    "ActiveEmployeesExternalRequest": {
+      "title": "ActiveEmployeesExternalRequest",
+      "description": "Returns a paged list of employees satisfying provided criteria.",
+      "required": [
+        "employeesActiveOnOrAfterDate",
+        "inlineCount",
+        "pageNumber",
+        "pageSize",
+        "schoolCode"
+      ],
+      "type": "object",
+      "properties": {
+        "employeesActiveOnOrAfterDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Employees must have an active employment on or after this date\r\nThis parameter is required",
+          "type": "string",
+          "example": "2021-03-02T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "areaOfResponsibilityId": {
+          "format": "uuid",
+          "description": "Option for also querying employees by area of responsibility",
+          "type": "string"
+        },
+        "pageNumber": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "The number of the page to return (1 is the first page).",
+          "maximum": 2147483647,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "pageSize": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "Number of objects per page.",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "inlineCount": {
+          "title": "Boolean",
+          "description": "A flag indicating if total number of items should be included.",
+          "default": true,
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
     "AreaOfResponsibilityExternalResponse": {
       "title": "AreaOfResponsibilityExternalResponse",
       "description": "The model of area of responsibility.",
@@ -1110,14 +1471,14 @@
           "title": "Date",
           "description": "Start date of the area of responsibility.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of the area of responsibiliity.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
+          "example": "2021-03-02T00:00:00.0000000"
         },
         "responsibleEmployeeId": {
           "format": "uuid",
@@ -1278,185 +1639,6 @@
         }
       }
     },
-    "EmployeeExternalResponse": {
-      "title": "EmployeeExternalResponse",
-      "description": "Model of the employee.",
-      "required": [
-        "civilRegistrationNumber",
-        "createAdLogin",
-        "deceased",
-        "email",
-        "employmentStartDate",
-        "givenName",
-        "id",
-        "lmsIndicator",
-        "protectedNameAndAddress",
-        "reportToUniLogin",
-        "surname"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Gets employee identifier in Studica.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "civilRegistrationNumber": {
-          "title": "String",
-          "description": "Gets employee civil registration number.",
-          "type": "string"
-        },
-        "protectedNameAndAddress": {
-          "title": "Boolean",
-          "description": "Gets a flag indicating if name and address are protected.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "lmsIndicator": {
-          "title": "Boolean",
-          "description": "Gets Learning Management System indicator.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "givenName": {
-          "title": "String",
-          "description": "Gets employee given name.",
-          "type": "string"
-        },
-        "surname": {
-          "title": "String",
-          "description": "Gets employee surname.",
-          "type": "string"
-        },
-        "protectedGivenName": {
-          "title": "String",
-          "description": "Gets employee protected given name.",
-          "type": "string"
-        },
-        "protectedSurname": {
-          "title": "String",
-          "description": "Gets employee protected surname.",
-          "type": "string"
-        },
-        "initials": {
-          "title": "String",
-          "description": "Gets employee initials.",
-          "type": "string"
-        },
-        "email": {
-          "title": "String",
-          "description": "Gets employee e-mail address.",
-          "type": "string"
-        },
-        "phoneNumber": {
-          "title": "String",
-          "description": "Gets employee phone number.",
-          "type": "string"
-        },
-        "deceased": {
-          "title": "Boolean",
-          "description": "Gets indticator if employee is deceased.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "uniLoginUsername": {
-          "title": "String",
-          "description": "Gets employee Unilogin username.",
-          "type": "string"
-        },
-        "reportToUniLogin": {
-          "title": "Boolean",
-          "description": "Flag denoting whether the employee should be created as a user in UNI-Login",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "createAdLogin": {
-          "title": "Boolean",
-          "description": "Flag denoting whether the employee should be created in the local Active Directory",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "adUserName": {
-          "title": "String",
-          "description": "Gets employee Active Directory username.",
-          "type": "string"
-        },
-        "roleNames": {
-          "description": "Gets employee roles.",
-          "type": "array",
-          "items": {
-            "title": "String",
-            "type": "string"
-          }
-        },
-        "jobTitle": {
-          "title": "String",
-          "description": "Gets employee job title.",
-          "type": "string"
-        },
-        "employmentStartDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "Gets employee start date.",
-          "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "employmentResignationDate": {
-          "format": "date",
-          "description": "Gets employee resignation date.",
-          "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
-        },
-        "areaOfResponsibilityId": {
-          "format": "uuid",
-          "description": "Reference id to the area of responsibility.",
-          "type": "string"
-        },
-        "departmentIds": {
-          "description": "Gets employee department affilation.",
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "title": "Guid",
-            "type": "string",
-            "x-nullable": false
-          }
-        },
-        "addressLine": {
-          "title": "String",
-          "description": "Gets employee address line.",
-          "type": "string"
-        },
-        "careOfAddressLine": {
-          "title": "String",
-          "description": "Gets employee care of address line.",
-          "type": "string"
-        },
-        "place": {
-          "title": "String",
-          "description": "Gets employee place.",
-          "type": "string"
-        },
-        "city": {
-          "title": "String",
-          "description": "Gets employee city.",
-          "type": "string"
-        },
-        "postalCode": {
-          "title": "String",
-          "description": "Gets employee postal code.",
-          "type": "string"
-        },
-        "country": {
-          "title": "String",
-          "description": "Gets employee country.",
-          "type": "string"
-        }
-      }
-    },
     "BulkRoomsExternalRequest": {
       "title": "BulkRoomsExternalRequest",
       "description": "Returns list of rooms satisfying provided criteria.",
@@ -1590,7 +1772,7 @@
           "title": "Date",
           "description": "Date of the school day.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "isSchoolDay": {
@@ -1712,13 +1894,13 @@
           "format": "date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
+          "example": "2021-03-02T00:00:00.0000000"
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
+          "example": "2021-03-02T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
@@ -1754,23 +1936,6 @@
         }
       }
     },
-    "PagedResponse_EmployeeExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/EmployeeExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
     "EmployeesExternalRequest": {
       "title": "EmployeesExternalRequest",
       "description": "Returns a paged list of employees satisfying provided criteria.",
@@ -1787,14 +1952,14 @@
           "format": "date",
           "description": "Beginning of range for start date employment.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
+          "example": "2021-03-02T00:00:00.0000000"
         },
         "employmentStartDateTo": {
           "format": "date",
           "title": "Date",
           "description": "End of range for start date employment.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {

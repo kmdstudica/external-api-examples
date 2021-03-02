@@ -4,7 +4,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.Programmes.Client.Models
+namespace Kmd.Studica.SchoolAdministration.Client.Models
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Serialization;
@@ -12,44 +12,37 @@ namespace Kmd.Studica.Programmes.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// AbsenceRegistrationsExternalRequest
+    /// ActiveEmployeesExternalRequest
     /// </summary>
     /// <remarks>
-    /// Returns a paged list of absences satisfying provided criteria.
+    /// Returns a paged list of employees satisfying provided criteria.
     /// </remarks>
-    public partial class AbsenceRegistrationsExternalRequest
+    public partial class ActiveEmployeesExternalRequest
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// AbsenceRegistrationsExternalRequest class.
+        /// Initializes a new instance of the ActiveEmployeesExternalRequest
+        /// class.
         /// </summary>
-        public AbsenceRegistrationsExternalRequest()
+        public ActiveEmployeesExternalRequest()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// AbsenceRegistrationsExternalRequest class.
+        /// Initializes a new instance of the ActiveEmployeesExternalRequest
+        /// class.
         /// </summary>
-        /// <param name="dateFrom">Date</param>
-        /// <param name="dateTo">Date</param>
+        /// <param name="employeesActiveOnOrAfterDate">Date</param>
         /// <param name="pageNumber">Int32</param>
         /// <param name="pageSize">Int32</param>
         /// <param name="inlineCount">Boolean</param>
         /// <param name="schoolCode">String</param>
-        /// <param name="studentId">Absent student.</param>
-        /// <param name="lessonId">Lesson of absence.</param>
-        /// <param name="onlyAbsenceReports">Only retrieve reports of absence
-        /// or partial absence,
-        /// defaults to false (retrieve everything)</param>
-        public AbsenceRegistrationsExternalRequest(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), bool? onlyAbsenceReports = default(bool?))
+        /// <param name="areaOfResponsibilityId">Option for also querying
+        /// employees by area of responsibility</param>
+        public ActiveEmployeesExternalRequest(System.DateTime employeesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?))
         {
-            StudentId = studentId;
-            LessonId = lessonId;
-            DateFrom = dateFrom;
-            DateTo = dateTo;
-            OnlyAbsenceReports = onlyAbsenceReports;
+            EmployeesActiveOnOrAfterDate = employeesActiveOnOrAfterDate;
+            AreaOfResponsibilityId = areaOfResponsibilityId;
             PageNumber = pageNumber;
             PageSize = pageSize;
             InlineCount = inlineCount;
@@ -63,43 +56,22 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets absent student.
-        /// </summary>
-        [JsonProperty(PropertyName = "studentId")]
-        public System.Guid? StudentId { get; set; }
-
-        /// <summary>
-        /// Gets or sets lesson of absence.
-        /// </summary>
-        [JsonProperty(PropertyName = "lessonId")]
-        public System.Guid? LessonId { get; set; }
-
-        /// <summary>
         /// Gets or sets date
         /// </summary>
         /// <remarks>
-        /// Beginning of the range for absence date.
+        /// Employees must have an active employment on or after this date
+        /// This parameter is required
         /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
-        [JsonProperty(PropertyName = "dateFrom")]
-        public System.DateTime DateFrom { get; set; }
+        [JsonProperty(PropertyName = "employeesActiveOnOrAfterDate")]
+        public System.DateTime EmployeesActiveOnOrAfterDate { get; set; }
 
         /// <summary>
-        /// Gets or sets date
+        /// Gets or sets option for also querying employees by area of
+        /// responsibility
         /// </summary>
-        /// <remarks>
-        /// End of the range for absence date.
-        /// </remarks>
-        [JsonConverter(typeof(DateJsonConverter))]
-        [JsonProperty(PropertyName = "dateTo")]
-        public System.DateTime DateTo { get; set; }
-
-        /// <summary>
-        /// Gets or sets only retrieve reports of absence or partial absence,
-        /// defaults to false (retrieve everything)
-        /// </summary>
-        [JsonProperty(PropertyName = "onlyAbsenceReports")]
-        public bool? OnlyAbsenceReports { get; set; }
+        [JsonProperty(PropertyName = "areaOfResponsibilityId")]
+        public System.Guid? AreaOfResponsibilityId { get; set; }
 
         /// <summary>
         /// Gets or sets int32

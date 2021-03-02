@@ -4,7 +4,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.Programmes.Client
+namespace Kmd.Studica.SchoolAdministration.Client
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Serialization;
@@ -20,12 +20,12 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// AbsenceRegistrationsExternal operations.
+    /// ActiveEmployeesExternal operations.
     /// </summary>
-    public partial class AbsenceRegistrationsExternal : IServiceOperations<KMDStudicaProgrammes>, IAbsenceRegistrationsExternal
+    public partial class ActiveEmployeesExternal : IServiceOperations<KMDStudicaSchoolAdministration>, IActiveEmployeesExternal
     {
         /// <summary>
-        /// Initializes a new instance of the AbsenceRegistrationsExternal class.
+        /// Initializes a new instance of the ActiveEmployeesExternal class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public AbsenceRegistrationsExternal(KMDStudicaProgrammes client)
+        public ActiveEmployeesExternal(KMDStudicaSchoolAdministration client)
         {
             if (client == null)
             {
@@ -43,15 +43,13 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the KMDStudicaSchoolAdministration
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public KMDStudicaSchoolAdministration Client { get; private set; }
 
-        /// <param name='dateFrom'>
-        /// Beginning of the range for absence date.
-        /// </param>
-        /// <param name='dateTo'>
-        /// End of the range for absence date.
+        /// <param name='employeesActiveOnOrAfterDate'>
+        /// Employees must have an active employment on or after this date
+        /// This parameter is required
         /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
@@ -65,15 +63,8 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='schoolCode'>
         /// The school code for which to get data.
         /// </param>
-        /// <param name='studentId'>
-        /// Absent student.
-        /// </param>
-        /// <param name='lessonId'>
-        /// Lesson of absence.
-        /// </param>
-        /// <param name='onlyAbsenceReports'>
-        /// Only retrieve reports of absence or partial absence,
-        /// defaults to false (retrieve everything)
+        /// <param name='areaOfResponsibilityId'>
+        /// Option for also querying employees by area of responsibility
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -96,7 +87,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseAbsenceRegistrationExternalResponse>> GetWithHttpMessagesAsync(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), bool? onlyAbsenceReports = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseEmployeeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime employeesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pageNumber > 2147483647)
             {
@@ -136,11 +127,8 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("studentId", studentId);
-                tracingParameters.Add("lessonId", lessonId);
-                tracingParameters.Add("dateFrom", dateFrom);
-                tracingParameters.Add("dateTo", dateTo);
-                tracingParameters.Add("onlyAbsenceReports", onlyAbsenceReports);
+                tracingParameters.Add("employeesActiveOnOrAfterDate", employeesActiveOnOrAfterDate);
+                tracingParameters.Add("areaOfResponsibilityId", areaOfResponsibilityId);
                 tracingParameters.Add("pageNumber", pageNumber);
                 tracingParameters.Add("pageSize", pageSize);
                 tracingParameters.Add("inlineCount", inlineCount);
@@ -150,21 +138,12 @@ namespace Kmd.Studica.Programmes.Client
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "AbsenceRegistrationsExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ActiveEmployeesExternal").ToString();
             List<string> _queryParameters = new List<string>();
-            if (studentId != null)
+            _queryParameters.Add(string.Format("EmployeesActiveOnOrAfterDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(employeesActiveOnOrAfterDate, new DateJsonConverter()).Trim('"'))));
+            if (areaOfResponsibilityId != null)
             {
-                _queryParameters.Add(string.Format("StudentId={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(studentId, Client.SerializationSettings).Trim('"'))));
-            }
-            if (lessonId != null)
-            {
-                _queryParameters.Add(string.Format("LessonId={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(lessonId, Client.SerializationSettings).Trim('"'))));
-            }
-            _queryParameters.Add(string.Format("DateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(dateFrom, new DateJsonConverter()).Trim('"'))));
-            _queryParameters.Add(string.Format("DateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(dateTo, new DateJsonConverter()).Trim('"'))));
-            if (onlyAbsenceReports != null)
-            {
-                _queryParameters.Add(string.Format("OnlyAbsenceReports={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(onlyAbsenceReports, Client.SerializationSettings).Trim('"'))));
+                _queryParameters.Add(string.Format("AreaOfResponsibilityId={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(areaOfResponsibilityId, Client.SerializationSettings).Trim('"'))));
             }
             _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
@@ -242,7 +221,7 @@ namespace Kmd.Studica.Programmes.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponseAbsenceRegistrationExternalResponse>();
+            var _result = new HttpOperationResponse<PagedResponseEmployeeExternalResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -251,7 +230,7 @@ namespace Kmd.Studica.Programmes.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseAbsenceRegistrationExternalResponse>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseEmployeeExternalResponse>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

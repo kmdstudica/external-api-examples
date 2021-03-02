@@ -54,6 +54,12 @@
           },
           {
             "in": "query",
+            "name": "OnlyAbsenceReports",
+            "description": "Only retrieve reports of absence or partial absence,\r\ndefaults to false (retrieve everything)",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
             "name": "PageNumber",
             "description": "The number of the page to return (1 is the first page).",
             "required": true,
@@ -132,6 +138,111 @@
         }
       }
     },
+    "/ActiveSubjectCoursesExternal": {
+      "get": {
+        "tags": [
+          "ActiveSubjectCoursesExternal"
+        ],
+        "operationId": "ActiveSubjectCoursesExternal_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "SubjectCoursesActiveOnOrAfterDate",
+            "description": "Subject courses must be active on the date or after this date\r\nThis parameter is required",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "LmsIndicator",
+            "description": "Is the entity to be created in the LMS.\r\nIf not specified, then the value of the LMS indicator is disregarded in the filtering.",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "PageNumber",
+            "description": "The number of the page to return (1 is the first page).",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "PageSize",
+            "description": "Number of objects per page.",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 1000,
+            "minimum": 1,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "InlineCount",
+            "description": "A flag indicating if total number of items should be included.",
+            "required": true,
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "SchoolCode",
+            "description": "The school code for which to get data.",
+            "required": true,
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_SubjectCourseExternalResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ActiveSubjectCoursesExternal"
+        ],
+        "operationId": "_ActiveSubjectCoursesExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ActiveSubjectCoursesExternalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_SubjectCourseExternalResponse"
+            }
+          }
+        }
+      }
+    },
     "/AddLessonsExternal": {
       "post": {
         "tags": [
@@ -198,6 +309,12 @@
             "type": "string",
             "format": "date",
             "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "OnlyAbsenceReports",
+            "description": "Only retrieve reports of absence or partial absence,\r\ndefaults to false (retrieve everything)",
+            "type": "boolean"
           },
           {
             "in": "query",
@@ -1351,7 +1468,7 @@
           "title": "Date",
           "description": "Date of absence.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "minutes": {
@@ -1425,7 +1542,7 @@
           "title": "Date",
           "description": "Beginning of the range for absence date.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -1433,8 +1550,314 @@
           "title": "Date",
           "description": "End of the range for absence date.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
+        },
+        "onlyAbsenceReports": {
+          "description": "Only retrieve reports of absence or partial absence,\r\ndefaults to false (retrieve everything)",
+          "type": "boolean"
+        },
+        "pageNumber": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "The number of the page to return (1 is the first page).",
+          "maximum": 2147483647,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "pageSize": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "Number of objects per page.",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "inlineCount": {
+          "title": "Boolean",
+          "description": "A flag indicating if total number of items should be included.",
+          "default": true,
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
+    "LevelDetails": {
+      "title": "LevelDetails",
+      "required": [
+        "levelId"
+      ],
+      "type": "object",
+      "properties": {
+        "levelId": {
+          "format": "uuid",
+          "title": "Guid",
+          "type": "string",
+          "x-nullable": false
+        },
+        "level": {
+          "title": "String",
+          "type": "string"
+        },
+        "description": {
+          "title": "String",
+          "type": "string"
+        },
+        "levelType": {
+          "title": "String",
+          "type": "string"
+        }
+      }
+    },
+    "UVMSubjectDetails": {
+      "title": "UVMSubjectDetails",
+      "required": [
+        "canOverwriteDuration",
+        "id"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Unique identification of subject course",
+          "type": "string",
+          "x-nullable": false
+        },
+        "subject": {
+          "title": "String",
+          "description": "Subject code (Fagnummer) from UMO",
+          "type": "string"
+        },
+        "description": {
+          "title": "String",
+          "description": "UVM subject description",
+          "type": "string"
+        },
+        "startDate": {
+          "format": "date",
+          "description": "Possible start date of UVM subject",
+          "type": "string",
+          "example": "2021-03-02T00:00:00.0000000"
+        },
+        "endDate": {
+          "format": "date",
+          "description": "Possible end date of UVM subject",
+          "type": "string",
+          "example": "2021-03-02T00:00:00.0000000"
+        },
+        "canOverwriteDuration": {
+          "title": "Boolean",
+          "description": "Is it possible to have a locally defined duration of this subject",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "durationInDays": {
+          "format": "double",
+          "description": "Possible duration of subject in days. \r\nThis is used for EUD. \r\nCan be null. In this case look at Programmes.Host.ExternalApi.SubjectCourses.Queries.SubjectCourses.UVMSubjectDetails.DurationInHours",
+          "type": "number"
+        },
+        "durationInHours": {
+          "format": "double",
+          "description": "Possible duration of subject in hours. \r\nThis us used for Adult Education Center (VUC)\r\nCan be null. In this case look at Programmes.Host.ExternalApi.SubjectCourses.Queries.SubjectCourses.UVMSubjectDetails.DurationInDays",
+          "type": "number"
+        },
+        "levelDetails": {
+          "$ref": "#/definitions/LevelDetails"
+        }
+      }
+    },
+    "SubjectCourseExternalResponse_Student": {
+      "title": "SubjectCourseExternalResponse_Student",
+      "description": "Model of the student assigned to a subject course.",
+      "required": [
+        "endDate",
+        "startDate",
+        "studentId",
+        "usePeriodFromSubjectCourse"
+      ],
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of the student.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "uvmSubject": {
+          "description": "Subject that student is assigned to.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/UVMSubjectDetails"
+            }
+          ]
+        },
+        "usePeriodFromSubjectCourse": {
+          "title": "Boolean",
+          "description": "Flag indicating, whether period should be taken from subject course.",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "startDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Start date of the period.",
+          "type": "string",
+          "example": "2021-03-02T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "endDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "End date of the period.",
+          "type": "string",
+          "example": "2021-03-02T00:00:00.0000000",
+          "x-nullable": false
+        }
+      }
+    },
+    "SubjectCourseExternalResponse": {
+      "title": "SubjectCourseExternalResponse",
+      "description": "Model of the subject course.",
+      "required": [
+        "educationalProgrammeId",
+        "endDate",
+        "id",
+        "isBridgingCourse",
+        "lmsIndicator",
+        "name",
+        "startDate",
+        "students",
+        "teachersIds"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of the subject course.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "designation": {
+          "title": "String",
+          "description": "The designation (user facing unique id) of the subject course",
+          "type": "string"
+        },
+        "educationalProgrammeId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of the associated educational programme.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "defaultSubjectId": {
+          "format": "uuid",
+          "description": "The id of the default subject for this subject course.",
+          "type": "string"
+        },
+        "name": {
+          "title": "String",
+          "description": "Name of the subject course.",
+          "type": "string"
+        },
+        "startDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Start date of the subject course.",
+          "type": "string",
+          "example": "2021-03-02T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "endDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "End date for the subject course.",
+          "type": "string",
+          "example": "2021-03-02T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "lmsIndicator": {
+          "title": "Boolean",
+          "description": "Is the entity to be created in the LMS.",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "students": {
+          "description": "Assigned students.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SubjectCourseExternalResponse_Student"
+          }
+        },
+        "teachersIds": {
+          "description": "Reference ids to assigned teachers.",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
+        },
+        "isBridgingCourse": {
+          "title": "Boolean",
+          "description": "Indicates that this is a bridging course",
+          "type": "boolean",
+          "x-nullable": false
+        }
+      }
+    },
+    "PagedResponse_SubjectCourseExternalResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Page of items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SubjectCourseExternalResponse"
+          }
+        },
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
+          "type": "integer"
+        }
+      }
+    },
+    "ActiveSubjectCoursesExternalRequest": {
+      "title": "ActiveSubjectCoursesExternalRequest",
+      "description": "Returns a paged list of current or future active subject courses satisfying provided criteria.",
+      "required": [
+        "inlineCount",
+        "pageNumber",
+        "pageSize",
+        "schoolCode",
+        "subjectCoursesActiveOnOrAfterDate"
+      ],
+      "type": "object",
+      "properties": {
+        "subjectCoursesActiveOnOrAfterDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Subject courses must be active on the date or after this date\r\nThis parameter is required",
+          "type": "string",
+          "example": "2021-03-02T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "lmsIndicator": {
+          "description": "Is the entity to be created in the LMS.\r\nIf not specified, then the value of the LMS indicator is disregarded in the filtering.",
+          "type": "boolean"
         },
         "pageNumber": {
           "format": "int32",
@@ -1518,7 +1941,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
+          "example": "2021-03-02T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -1598,7 +2021,7 @@
           "title": "Date",
           "description": "Beginning of the range for absence date.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -1606,8 +2029,12 @@
           "title": "Date",
           "description": "End of the range for absence date.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
+        },
+        "onlyAbsenceReports": {
+          "description": "Only retrieve reports of absence or partial absence,\r\ndefaults to false (retrieve everything)",
+          "type": "boolean"
         },
         "schoolCode": {
           "title": "String",
@@ -1684,7 +2111,7 @@
           "title": "Date",
           "description": "Start date of the educational programme.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -1692,7 +2119,7 @@
           "title": "Date",
           "description": "End date for the educational programme.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1818,7 +2245,7 @@
           "title": "Date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "startTime": {
@@ -1879,226 +2306,6 @@
           "maxLength": 6,
           "minLength": 6,
           "type": "string"
-        }
-      }
-    },
-    "LevelDetails": {
-      "title": "LevelDetails",
-      "required": [
-        "levelId"
-      ],
-      "type": "object",
-      "properties": {
-        "levelId": {
-          "format": "uuid",
-          "title": "Guid",
-          "type": "string",
-          "x-nullable": false
-        },
-        "level": {
-          "title": "String",
-          "type": "string"
-        },
-        "description": {
-          "title": "String",
-          "type": "string"
-        },
-        "levelType": {
-          "title": "String",
-          "type": "string"
-        }
-      }
-    },
-    "UVMSubjectDetails": {
-      "title": "UVMSubjectDetails",
-      "required": [
-        "canOverwriteDuration",
-        "id"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Unique identification of subject course",
-          "type": "string",
-          "x-nullable": false
-        },
-        "subject": {
-          "title": "String",
-          "description": "Subject code (Fagnummer) from UMO",
-          "type": "string"
-        },
-        "description": {
-          "title": "String",
-          "description": "UVM subject description",
-          "type": "string"
-        },
-        "startDate": {
-          "format": "date",
-          "description": "Possible start date of UVM subject",
-          "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
-        },
-        "endDate": {
-          "format": "date",
-          "description": "Possible end date of UVM subject",
-          "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
-        },
-        "canOverwriteDuration": {
-          "title": "Boolean",
-          "description": "Is it possible to have a locally defined duration of this subject",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "durationInDays": {
-          "format": "double",
-          "description": "Possible duration of subject in days. \r\nThis is used for EUD. \r\nCan be null. In this case look at Programmes.Host.ExternalApi.SubjectCourses.Queries.SubjectCourses.UVMSubjectDetails.DurationInHours",
-          "type": "number"
-        },
-        "durationInHours": {
-          "format": "double",
-          "description": "Possible duration of subject in hours. \r\nThis us used for Adult Education Center (VUC)\r\nCan be null. In this case look at Programmes.Host.ExternalApi.SubjectCourses.Queries.SubjectCourses.UVMSubjectDetails.DurationInDays",
-          "type": "number"
-        },
-        "levelDetails": {
-          "$ref": "#/definitions/LevelDetails"
-        }
-      }
-    },
-    "SubjectCourseExternalResponse_Student": {
-      "title": "SubjectCourseExternalResponse_Student",
-      "description": "Model of the student assigned to a subject course.",
-      "required": [
-        "endDate",
-        "startDate",
-        "studentId",
-        "usePeriodFromSubjectCourse"
-      ],
-      "type": "object",
-      "properties": {
-        "studentId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of the student.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "uvmSubject": {
-          "description": "Subject that student is assigned to.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/UVMSubjectDetails"
-            }
-          ]
-        },
-        "usePeriodFromSubjectCourse": {
-          "title": "Boolean",
-          "description": "Flag indicating, whether period should be taken from subject course.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "startDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "Start date of the period.",
-          "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "endDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "End date of the period.",
-          "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
-          "x-nullable": false
-        }
-      }
-    },
-    "SubjectCourseExternalResponse": {
-      "title": "SubjectCourseExternalResponse",
-      "description": "Model of the subject course.",
-      "required": [
-        "educationalProgrammeId",
-        "endDate",
-        "id",
-        "lmsIndicator",
-        "name",
-        "startDate",
-        "students",
-        "teachersIds"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of the subject course.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "designation": {
-          "title": "String",
-          "description": "The designation (user facing unique id) of the subject course",
-          "type": "string"
-        },
-        "educationalProgrammeId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of the associated educational programme.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "defaultSubjectId": {
-          "format": "uuid",
-          "description": "The id of the default subject for this subject course.",
-          "type": "string"
-        },
-        "name": {
-          "title": "String",
-          "description": "Name of the subject course.",
-          "type": "string"
-        },
-        "startDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "Start date of the subject course.",
-          "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "endDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "End date for the subject course.",
-          "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "lmsIndicator": {
-          "title": "Boolean",
-          "description": "Is the entity to be created in the LMS.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "students": {
-          "description": "Assigned students.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SubjectCourseExternalResponse_Student"
-          }
-        },
-        "teachersIds": {
-          "description": "Reference ids to assigned teachers.",
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "title": "Guid",
-            "type": "string",
-            "x-nullable": false
-          }
         }
       }
     },
@@ -2207,7 +2414,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
+          "example": "2021-03-02T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -2281,7 +2488,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
@@ -2289,7 +2496,7 @@
           "title": "Date",
           "description": "End of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -2371,7 +2578,7 @@
           "title": "Date",
           "description": "Beginning of range for lesson date.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -2379,7 +2586,7 @@
           "title": "Date",
           "description": "End of range for lesson date.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "hasExternalId": {
@@ -2565,7 +2772,7 @@
           "title": "Date",
           "description": "School course start date",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -2573,7 +2780,7 @@
           "title": "Date",
           "description": "School course end date",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolPeriod": {
@@ -2657,14 +2864,14 @@
           "title": "Date",
           "description": "School courses start on or after this date",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
           "format": "date",
           "description": "School courses must end on or before this date\r\nProperty is nullable",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
+          "example": "2021-03-02T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
@@ -2724,7 +2931,7 @@
           "title": "Date",
           "description": "Start date of internship",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -2732,7 +2939,7 @@
           "title": "Date",
           "description": "End date for internship",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -2756,7 +2963,7 @@
           "title": "Date",
           "description": "Start date of the school based internship",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -2764,7 +2971,7 @@
           "title": "Date",
           "description": "End date of the school based internship",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -2830,7 +3037,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date of the students' internships.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -2838,7 +3045,7 @@
           "title": "Date",
           "description": "End of the range for start date of the students' internships.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -2872,7 +3079,7 @@
           "title": "Date",
           "description": "Start date of the participation period",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "participationEndDate": {
@@ -2880,7 +3087,7 @@
           "title": "Date",
           "description": "End date of the participation period",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "correctedDuration": {
@@ -2955,7 +3162,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date of the students' school courses.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -2963,7 +3170,7 @@
           "title": "Date",
           "description": "End of the range for start date of the students' school courses.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -2995,13 +3202,13 @@
           "format": "date",
           "description": "Start date for student participating in the course",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
+          "example": "2021-03-02T00:00:00.0000000"
         },
         "studentParticipationEndDate": {
           "format": "date",
           "description": "End date for student participating in the course",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
+          "example": "2021-03-02T00:00:00.0000000"
         },
         "subjectCourseId": {
           "format": "uuid",
@@ -3097,23 +3304,6 @@
         }
       }
     },
-    "PagedResponse_SubjectCourseExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SubjectCourseExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
     "SubjectCoursesExternalRequest": {
       "title": "SubjectCoursesExternalRequest",
       "description": "Returns a paged list of subject courses satisfying provided criteria.",
@@ -3132,7 +3322,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date subject courses.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
@@ -3140,7 +3330,7 @@
           "title": "Date",
           "description": "End of the range for start date subject courses.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000",
+          "example": "2021-03-02T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -3228,7 +3418,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2021-02-23T00:00:00.0000000"
+          "example": "2021-03-02T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",

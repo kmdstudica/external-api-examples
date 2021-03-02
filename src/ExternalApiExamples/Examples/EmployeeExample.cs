@@ -17,7 +17,7 @@ namespace ExternalApiExamples
             this.tokenProvider = tokenProvider;
             this.configuration = configuration;
         }
-
+        
         public async Task Execute()
         {
             Console.WriteLine("Executing employees example");
@@ -67,6 +67,32 @@ namespace ExternalApiExamples
 
             ConsoleTable
                 .From(result.Body)
+                .Write();
+        }
+
+        public async Task ExecuteActiveEmployees()
+        {
+            Console.WriteLine("Executing active employees example");
+            using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+            schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
+                ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
+                : new Uri(configuration.SchoolAdministrationBaseUri);
+
+            var result = await schoolAdministrationClient.ActiveEmployeesExternal.GetWithHttpMessagesAsync(
+                employeesActiveOnOrAfterDate: DateTime.Today, 
+                schoolCode: configuration.SchoolCode,
+                pageNumber: 1,
+                pageSize: 10,
+                inlineCount: true,
+                customHeaders: new Dictionary<string, List<string>>
+                {
+                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                });
+
+            Console.WriteLine($"Got {result.Body.TotalItems} employees from API");
+
+            ConsoleTable
+                .From(result.Body.Items)
                 .Write();
         }
     }

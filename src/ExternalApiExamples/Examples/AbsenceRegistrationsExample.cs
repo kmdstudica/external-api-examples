@@ -38,6 +38,7 @@ namespace ExternalApiExamples
             var result = await programmesClient.AbsenceRegistrationsExternal.GetWithHttpMessagesAsync(
                 dateFrom: DateTime.Now.AddMonths(-1),
                 dateTo: DateTime.Now,
+                onlyAbsenceReports: true,
                 schoolCode: configuration.SchoolCode,
                 pageNumber: 1,
                 pageSize: 10,

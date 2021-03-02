@@ -12,44 +12,39 @@ namespace Kmd.Studica.Programmes.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// AbsenceRegistrationsExternalRequest
+    /// ActiveSubjectCoursesExternalRequest
     /// </summary>
     /// <remarks>
-    /// Returns a paged list of absences satisfying provided criteria.
+    /// Returns a paged list of current or future active subject courses
+    /// satisfying provided criteria.
     /// </remarks>
-    public partial class AbsenceRegistrationsExternalRequest
+    public partial class ActiveSubjectCoursesExternalRequest
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// AbsenceRegistrationsExternalRequest class.
+        /// ActiveSubjectCoursesExternalRequest class.
         /// </summary>
-        public AbsenceRegistrationsExternalRequest()
+        public ActiveSubjectCoursesExternalRequest()
         {
             CustomInit();
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// AbsenceRegistrationsExternalRequest class.
+        /// ActiveSubjectCoursesExternalRequest class.
         /// </summary>
-        /// <param name="dateFrom">Date</param>
-        /// <param name="dateTo">Date</param>
+        /// <param name="subjectCoursesActiveOnOrAfterDate">Date</param>
         /// <param name="pageNumber">Int32</param>
         /// <param name="pageSize">Int32</param>
         /// <param name="inlineCount">Boolean</param>
         /// <param name="schoolCode">String</param>
-        /// <param name="studentId">Absent student.</param>
-        /// <param name="lessonId">Lesson of absence.</param>
-        /// <param name="onlyAbsenceReports">Only retrieve reports of absence
-        /// or partial absence,
-        /// defaults to false (retrieve everything)</param>
-        public AbsenceRegistrationsExternalRequest(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), bool? onlyAbsenceReports = default(bool?))
+        /// <param name="lmsIndicator">Is the entity to be created in the LMS.
+        /// If not specified, then the value of the LMS indicator is
+        /// disregarded in the filtering.</param>
+        public ActiveSubjectCoursesExternalRequest(System.DateTime subjectCoursesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?))
         {
-            StudentId = studentId;
-            LessonId = lessonId;
-            DateFrom = dateFrom;
-            DateTo = dateTo;
-            OnlyAbsenceReports = onlyAbsenceReports;
+            SubjectCoursesActiveOnOrAfterDate = subjectCoursesActiveOnOrAfterDate;
+            LmsIndicator = lmsIndicator;
             PageNumber = pageNumber;
             PageSize = pageSize;
             InlineCount = inlineCount;
@@ -63,43 +58,23 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets absent student.
-        /// </summary>
-        [JsonProperty(PropertyName = "studentId")]
-        public System.Guid? StudentId { get; set; }
-
-        /// <summary>
-        /// Gets or sets lesson of absence.
-        /// </summary>
-        [JsonProperty(PropertyName = "lessonId")]
-        public System.Guid? LessonId { get; set; }
-
-        /// <summary>
         /// Gets or sets date
         /// </summary>
         /// <remarks>
-        /// Beginning of the range for absence date.
+        /// Subject courses must be active on the date or after this date
+        /// This parameter is required
         /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
-        [JsonProperty(PropertyName = "dateFrom")]
-        public System.DateTime DateFrom { get; set; }
+        [JsonProperty(PropertyName = "subjectCoursesActiveOnOrAfterDate")]
+        public System.DateTime SubjectCoursesActiveOnOrAfterDate { get; set; }
 
         /// <summary>
-        /// Gets or sets date
+        /// Gets or sets is the entity to be created in the LMS.
+        /// If not specified, then the value of the LMS indicator is
+        /// disregarded in the filtering.
         /// </summary>
-        /// <remarks>
-        /// End of the range for absence date.
-        /// </remarks>
-        [JsonConverter(typeof(DateJsonConverter))]
-        [JsonProperty(PropertyName = "dateTo")]
-        public System.DateTime DateTo { get; set; }
-
-        /// <summary>
-        /// Gets or sets only retrieve reports of absence or partial absence,
-        /// defaults to false (retrieve everything)
-        /// </summary>
-        [JsonProperty(PropertyName = "onlyAbsenceReports")]
-        public bool? OnlyAbsenceReports { get; set; }
+        [JsonProperty(PropertyName = "lmsIndicator")]
+        public bool? LmsIndicator { get; set; }
 
         /// <summary>
         /// Gets or sets int32

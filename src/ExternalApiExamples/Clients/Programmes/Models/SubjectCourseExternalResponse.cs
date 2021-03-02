@@ -43,10 +43,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="students">Assigned students.</param>
         /// <param name="teachersIds">Reference ids to assigned
         /// teachers.</param>
+        /// <param name="isBridgingCourse">Boolean</param>
         /// <param name="designation">String</param>
         /// <param name="defaultSubjectId">The id of the default subject for
         /// this subject course.</param>
-        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, string designation = default(string), System.Guid? defaultSubjectId = default(System.Guid?))
+        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, bool isBridgingCourse, string designation = default(string), System.Guid? defaultSubjectId = default(System.Guid?))
         {
             Id = id;
             Designation = designation;
@@ -58,6 +59,7 @@ namespace Kmd.Studica.Programmes.Client.Models
             LmsIndicator = lmsIndicator;
             Students = students;
             TeachersIds = teachersIds;
+            IsBridgingCourse = isBridgingCourse;
             CustomInit();
         }
 
@@ -148,6 +150,15 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "teachersIds")]
         public IList<System.Guid> TeachersIds { get; set; }
+
+        /// <summary>
+        /// Gets or sets boolean
+        /// </summary>
+        /// <remarks>
+        /// Indicates that this is a bridging course
+        /// </remarks>
+        [JsonProperty(PropertyName = "isBridgingCourse")]
+        public bool IsBridgingCourse { get; set; }
 
         /// <summary>
         /// Validate the object.

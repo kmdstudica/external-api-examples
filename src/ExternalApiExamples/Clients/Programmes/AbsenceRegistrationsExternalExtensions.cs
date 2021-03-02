@@ -42,9 +42,13 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='lessonId'>
             /// Lesson of absence.
             /// </param>
-            public static PagedResponseAbsenceRegistrationExternalResponse Get(this IAbsenceRegistrationsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?))
+            /// <param name='onlyAbsenceReports'>
+            /// Only retrieve reports of absence or partial absence,
+            /// defaults to false (retrieve everything)
+            /// </param>
+            public static PagedResponseAbsenceRegistrationExternalResponse Get(this IAbsenceRegistrationsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), bool? onlyAbsenceReports = default(bool?))
             {
-                return operations.GetAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, studentId, lessonId).GetAwaiter().GetResult();
+                return operations.GetAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, studentId, lessonId, onlyAbsenceReports).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -74,12 +78,16 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='lessonId'>
             /// Lesson of absence.
             /// </param>
+            /// <param name='onlyAbsenceReports'>
+            /// Only retrieve reports of absence or partial absence,
+            /// defaults to false (retrieve everything)
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseAbsenceRegistrationExternalResponse> GetAsync(this IAbsenceRegistrationsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseAbsenceRegistrationExternalResponse> GetAsync(this IAbsenceRegistrationsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), bool? onlyAbsenceReports = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, studentId, lessonId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, studentId, lessonId, onlyAbsenceReports, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

@@ -42,7 +42,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// This us used for Adult Education Center (VUC)
         /// Can be null. In this case look at
         /// Programmes.Host.ExternalApi.SubjectCourses.Queries.SubjectCourses.UVMSubjectDetails.DurationInDays</param>
-        public UVMSubjectDetails(System.Guid id, bool canOverwriteDuration, string subject = default(string), string description = default(string), System.DateTime? startDate = default(System.DateTime?), System.DateTime? endDate = default(System.DateTime?), double? durationInDays = default(double?), double? durationInHours = default(double?), LevelDetails levelDetails = default(LevelDetails))
+        /// <param name="levelDetails">Detailed information about the level the
+        /// subject
+        /// is taken on.</param>
+        public UVMSubjectDetails(System.Guid id, bool canOverwriteDuration, string subject = default(string), string description = default(string), System.DateTime? startDate = default(System.DateTime?), System.DateTime? endDate = default(System.DateTime?), double? durationInDays = default(double?), double? durationInHours = default(double?), UVMSubjectDetailsLevelDetails levelDetails = default(UVMSubjectDetailsLevelDetails))
         {
             Id = id;
             Subject = subject;
@@ -130,9 +133,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         public double? DurationInHours { get; set; }
 
         /// <summary>
+        /// Gets or sets detailed information about the level the subject
+        /// is taken on.
         /// </summary>
         [JsonProperty(PropertyName = "levelDetails")]
-        public LevelDetails LevelDetails { get; set; }
+        public UVMSubjectDetailsLevelDetails LevelDetails { get; set; }
 
         /// <summary>
         /// Validate the object.

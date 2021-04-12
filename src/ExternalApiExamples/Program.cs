@@ -76,10 +76,12 @@ namespace ExternalApiExamples
             //await new LessonsExample(tokenProvider, configuration).ExecuteDeleteLesson();
             //await new LessonsExample(tokenProvider, configuration).ExecuteDeleteLessons();
             await new AbsenceRegistrationsExample(tokenProvider, configuration).Execute();
-            // await new AbsenceRegistrationsExample(tokenProvider, configuration).ExecuteRegisterAbsence();
+            //await new AbsenceRegistrationsExample(tokenProvider, configuration).ExecuteRegisterAbsence();
             await new SchoolCoursesExample(tokenProvider, configuration).Execute();
             await new SchoolCoursesExample(tokenProvider, configuration).ExecuteStudentSchoolCourses();
             await new StudentInternshipExample(tokenProvider, configuration).Execute();
+            await new ActivityReportsExample(tokenProvider, configuration).Execute();
+            await new BridgingCoursesExample(tokenProvider, configuration).Execute();
         }
     }
 }

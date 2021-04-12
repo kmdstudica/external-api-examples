@@ -41,7 +41,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// This us used for Adult Education Center (VUC)
         /// Can be null. In this case look at
         /// Programmes.Host.ExternalApi.SubjectCourses.Queries.SubjectCourses.UVMSubjectDetails.DurationInDays</param>
-        public SubjectCourseExternalResponseStudentUvmSubject(System.Guid id, bool canOverwriteDuration, string subject = default(string), string description = default(string), System.DateTime? startDate = default(System.DateTime?), System.DateTime? endDate = default(System.DateTime?), double? durationInDays = default(double?), double? durationInHours = default(double?), LevelDetails levelDetails = default(LevelDetails))
+        /// <param name="levelDetails">Detailed information about the level the
+        /// subject
+        /// is taken on.</param>
+        public SubjectCourseExternalResponseStudentUvmSubject(System.Guid id, bool canOverwriteDuration, string subject = default(string), string description = default(string), System.DateTime? startDate = default(System.DateTime?), System.DateTime? endDate = default(System.DateTime?), double? durationInDays = default(double?), double? durationInHours = default(double?), UVMSubjectDetailsLevelDetails levelDetails = default(UVMSubjectDetailsLevelDetails))
             : base(id, canOverwriteDuration, subject, description, startDate, endDate, durationInDays, durationInHours, levelDetails)
         {
             CustomInit();

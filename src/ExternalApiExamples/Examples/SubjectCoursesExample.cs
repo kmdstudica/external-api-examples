@@ -57,7 +57,7 @@ namespace ExternalApiExamples
                 : new Uri(configuration.ProgrammesBaseUri);
 
             var result = await programmesClient.BulkSubjectCoursesExternal.PostWithHttpMessagesAsync(
-                subjectCourseIds: new[] {Guid.NewGuid()},
+                subjectCourseIds: new[] { Guid.NewGuid() },
                 schoolCode: configuration.SchoolCode,
                 customHeaders: new Dictionary<string, List<string>>
                 {
@@ -79,7 +79,7 @@ namespace ExternalApiExamples
                 : new Uri(configuration.ProgrammesBaseUri);
 
             var result = await programmesClient.StudentSubjectCoursesExternal.GetWithHttpMessagesAsync(
-                studentIds: new[] {Guid.NewGuid()},
+                studentIds: new[] { Guid.NewGuid() },
                 pageNumber: 1,
                 pageSize: 10,
                 inlineCount: true,
@@ -95,7 +95,7 @@ namespace ExternalApiExamples
                 .From(result.Body.Items)
                 .Write();
         }
-        
+
         public async Task ExecuteActiveSubjectCourses()
         {
             Console.WriteLine("Executing active subject courses example");
@@ -106,7 +106,7 @@ namespace ExternalApiExamples
                 : new Uri(configuration.ProgrammesBaseUri);
 
             var result = await programmesClient.ActiveSubjectCoursesExternal.GetWithHttpMessagesAsync(
-                subjectCoursesActiveOnOrAfterDate: DateTime.Today, 
+                subjectCoursesActiveOnOrAfterDate: DateTime.Today,
                 schoolCode: configuration.SchoolCode,
                 lmsIndicator: true,
                 pageNumber: 1,

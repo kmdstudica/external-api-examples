@@ -46,24 +46,40 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Gets or sets guid
         /// </summary>
+        /// <remarks>
+        /// Unique identification of the level.
+        /// </remarks>
         [JsonProperty(PropertyName = "levelId")]
         public System.Guid LevelId { get; set; }
 
         /// <summary>
         /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The level indicator,
+        /// e.g. A, B, 1, 2, -.
+        /// </remarks>
         [JsonProperty(PropertyName = "level")]
         public string Level { get; set; }
 
         /// <summary>
         /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// Description of the level,
+        /// e.g. A, Begynder, Niveau 1, Uden niveau.
+        /// </remarks>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or sets string
         /// </summary>
+        /// <remarks>
+        /// The type of the level.
+        /// TEGN = Characters, TAL = Numbers,
+        /// ERHVERV, FGU almen, FGU-tema, Delmål.
+        /// </remarks>
         [JsonProperty(PropertyName = "levelType")]
         public string LevelType { get; set; }
 

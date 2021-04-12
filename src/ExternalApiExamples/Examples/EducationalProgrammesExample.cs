@@ -32,7 +32,7 @@ namespace ExternalApiExamples
                 startDateTo: DateTime.Now.AddMonths(6),
                 schoolCode: configuration.SchoolCode,
                 pageNumber: 1,
-                pageSize: 10,
+                pageSize: 100,
                 inlineCount: true,
                 customHeaders: new Dictionary<string, List<string>>
                 {
@@ -40,7 +40,7 @@ namespace ExternalApiExamples
                 });
 
             Console.WriteLine($"Got {result.Body.TotalItems} educational programmes from API");
-
+            
             ConsoleTable
                 .From(result.Body.Items)
                 .Write();

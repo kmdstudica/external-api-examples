@@ -63,7 +63,7 @@ namespace ExternalApiExamples
                 : new Uri(configuration.ProgrammesBaseUri);
 
             var result = await programmesClient.StudentSchoolCoursesExternal.GetWithHttpMessagesAsync(
-                studentIds: new[] {Guid.NewGuid()},
+                studentIds: new[] { Guid.NewGuid() },
                 periodFrom: DateTime.Now.AddMonths(-2),
                 periodTo: DateTime.Now.AddMonths(2),
                 schoolCode: configuration.SchoolCode,

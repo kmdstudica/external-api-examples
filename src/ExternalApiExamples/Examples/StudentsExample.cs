@@ -32,7 +32,7 @@ namespace ExternalApiExamples
 
             bool hasMorePages;
             int pageNumber = 0;
-            int pageSize = 1000;
+            int pageSize = 100;
             do
             {
                 var result = await studentsClient.ActiveStudentsExternal.GetWithHttpMessagesAsync(
@@ -68,7 +68,7 @@ namespace ExternalApiExamples
                 : new Uri(configuration.StudentsBaseUri);
 
             var result = await studentsClient.BulkStudentsExternal.PostWithHttpMessagesAsync(
-                studentIds: new[] {Guid.NewGuid()},
+                studentIds: new[] { Guid.NewGuid() },
                 schoolCode: configuration.SchoolCode,
                 customHeaders: new Dictionary<string, List<string>>
                 {

@@ -206,6 +206,96 @@
         }
       }
     },
+    "/AreasOfEducationExternal": {
+      "get": {
+        "tags": [
+          "AreasOfEducationExternal"
+        ],
+        "operationId": "AreasOfEducationExternal_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "PageNumber",
+            "description": "The number of the page to return (1 is the first page).",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "PageSize",
+            "description": "Number of objects per page.",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 1000,
+            "minimum": 1,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "InlineCount",
+            "description": "A flag indicating if total number of items should be included.",
+            "required": true,
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "SchoolCode",
+            "description": "The school code for which to get data.",
+            "required": true,
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_AreaOfEducationExternalResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "AreasOfEducationExternal"
+        ],
+        "operationId": "_AreasOfEducationExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AreasOfEducationExternalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_AreaOfEducationExternalResponse"
+            }
+          }
+        }
+      }
+    },
     "/AreasOfResponsibilityExternal": {
       "get": {
         "tags": [
@@ -1114,14 +1204,14 @@
           "title": "Date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2021-04-12T00:00:00.0000000",
+          "example": "2021-07-06T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2021-04-12T00:00:00.0000000"
+          "example": "2021-07-06T00:00:00.0000000"
         }
       }
     },
@@ -1310,14 +1400,14 @@
           "title": "Date",
           "description": "Gets employee start date.",
           "type": "string",
-          "example": "2021-04-12T00:00:00.0000000",
+          "example": "2021-07-06T00:00:00.0000000",
           "x-nullable": false
         },
         "employmentResignationDate": {
           "format": "date",
           "description": "Gets employee resignation date.",
           "type": "string",
-          "example": "2021-04-12T00:00:00.0000000"
+          "example": "2021-07-06T00:00:00.0000000"
         },
         "areaOfResponsibilityId": {
           "format": "uuid",
@@ -1400,7 +1490,7 @@
           "title": "Date",
           "description": "Employees must have an active employment on or after this date\r\nThis parameter is required",
           "type": "string",
-          "example": "2021-04-12T00:00:00.0000000",
+          "example": "2021-07-06T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1408,6 +1498,141 @@
           "description": "Option for also querying employees by area of responsibility",
           "type": "string"
         },
+        "pageNumber": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "The number of the page to return (1 is the first page).",
+          "maximum": 2147483647,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "pageSize": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "Number of objects per page.",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "inlineCount": {
+          "title": "Boolean",
+          "description": "A flag indicating if total number of items should be included.",
+          "default": true,
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
+    "AreaOfEducationExternalResponse": {
+      "title": "AreaOfEducationExternalResponse",
+      "description": "The model of area of education.",
+      "required": [
+        "id",
+        "name",
+        "validFrom"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Identifier of the area of education.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "name": {
+          "title": "String",
+          "description": "Name of the area of education.",
+          "type": "string"
+        },
+        "validFrom": {
+          "format": "date",
+          "title": "Date",
+          "description": "Start date of the area of education.",
+          "type": "string",
+          "example": "2021-07-06T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "validTo": {
+          "format": "date",
+          "description": "End date of the area of education.",
+          "type": "string",
+          "example": "2021-07-06T00:00:00.0000000"
+        },
+        "dayCalendarId": {
+          "format": "uuid",
+          "description": "Id of day calendar for this area of education",
+          "type": "string"
+        },
+        "schoolHoursPlanId": {
+          "format": "uuid",
+          "description": "Id of school hours plan for this area of education",
+          "type": "string"
+        },
+        "areaOfResponsibilityId": {
+          "format": "uuid",
+          "description": "Id of area of responsibility for this area of education",
+          "type": "string"
+        },
+        "educationCoesaNumber": {
+          "title": "String",
+          "description": "CØSA number for the education this area covers",
+          "type": "string"
+        },
+        "educationName": {
+          "title": "String",
+          "description": "Name of the CØSA education this area covers",
+          "type": "string"
+        },
+        "educationVersion": {
+          "format": "int32",
+          "description": "CØSA education version",
+          "type": "integer"
+        },
+        "specialisation": {
+          "title": "String",
+          "description": "Name of the CØSA specialization of the education for this area",
+          "type": "string"
+        }
+      }
+    },
+    "PagedResponse_AreaOfEducationExternalResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Page of items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AreaOfEducationExternalResponse"
+          }
+        },
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
+          "type": "integer"
+        }
+      }
+    },
+    "AreasOfEducationExternalRequest": {
+      "title": "AreasOfEducationExternalRequest",
+      "description": "Returns a paged list of areas of education for the given school.",
+      "required": [
+        "inlineCount",
+        "pageNumber",
+        "pageSize",
+        "schoolCode"
+      ],
+      "type": "object",
+      "properties": {
         "pageNumber": {
           "format": "int32",
           "title": "Int32",
@@ -1471,14 +1696,14 @@
           "title": "Date",
           "description": "Start date of the area of responsibility.",
           "type": "string",
-          "example": "2021-04-12T00:00:00.0000000",
+          "example": "2021-07-06T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of the area of responsibiliity.",
           "type": "string",
-          "example": "2021-04-12T00:00:00.0000000"
+          "example": "2021-07-06T00:00:00.0000000"
         },
         "responsibleEmployeeId": {
           "format": "uuid",
@@ -1676,7 +1901,8 @@
         "departmentIds",
         "designation",
         "id",
-        "roomType"
+        "roomType",
+        "useDsDepartmentAddress"
       ],
       "type": "object",
       "properties": {
@@ -1727,6 +1953,12 @@
           "description": "Maximum persons allowed in the room.",
           "type": "integer"
         },
+        "useDsDepartmentAddress": {
+          "title": "Boolean",
+          "description": "Denotes if the room uses the address of the DS department,\r\nor has a custom address",
+          "type": "boolean",
+          "x-nullable": false
+        },
         "addressLine": {
           "title": "String",
           "description": "Address of the building where the room is located.",
@@ -1772,7 +2004,7 @@
           "title": "Date",
           "description": "Date of the school day.",
           "type": "string",
-          "example": "2021-04-12T00:00:00.0000000",
+          "example": "2021-07-06T00:00:00.0000000",
           "x-nullable": false
         },
         "isSchoolDay": {
@@ -1894,13 +2126,13 @@
           "format": "date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2021-04-12T00:00:00.0000000"
+          "example": "2021-07-06T00:00:00.0000000"
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2021-04-12T00:00:00.0000000"
+          "example": "2021-07-06T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
@@ -1952,14 +2184,14 @@
           "format": "date",
           "description": "Beginning of range for start date employment.",
           "type": "string",
-          "example": "2021-04-12T00:00:00.0000000"
+          "example": "2021-07-06T00:00:00.0000000"
         },
         "employmentStartDateTo": {
           "format": "date",
           "title": "Date",
           "description": "End of range for start date employment.",
           "type": "string",
-          "example": "2021-04-12T00:00:00.0000000",
+          "example": "2021-07-06T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {

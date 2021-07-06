@@ -4,52 +4,39 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.Programmes.Client.Models
+namespace Kmd.Studica.SchoolAdministration.Client.Models
 {
     using Microsoft.Rest;
-    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Linq;
 
     /// <summary>
-    /// AbsenceRegistrationsExternalRequest
+    /// AreasOfEducationExternalRequest
     /// </summary>
     /// <remarks>
-    /// Returns a paged list of absences satisfying provided criteria.
+    /// Returns a paged list of areas of education for the given school.
     /// </remarks>
-    public partial class AbsenceRegistrationsExternalRequest
+    public partial class AreasOfEducationExternalRequest
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// AbsenceRegistrationsExternalRequest class.
+        /// Initializes a new instance of the AreasOfEducationExternalRequest
+        /// class.
         /// </summary>
-        public AbsenceRegistrationsExternalRequest()
+        public AreasOfEducationExternalRequest()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// AbsenceRegistrationsExternalRequest class.
+        /// Initializes a new instance of the AreasOfEducationExternalRequest
+        /// class.
         /// </summary>
-        /// <param name="dateFrom">Date</param>
-        /// <param name="dateTo">Date</param>
         /// <param name="pageNumber">Int32</param>
         /// <param name="pageSize">Int32</param>
         /// <param name="inlineCount">Boolean</param>
         /// <param name="schoolCode">String</param>
-        /// <param name="studentId">Absent student.</param>
-        /// <param name="lessonId">Lesson of absence.</param>
-        /// <param name="onlyAbsenceReports">Only retrieve reports of absence
-        /// or partial absence,
-        /// defaults to false (retrieve everything)</param>
-        public AbsenceRegistrationsExternalRequest(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), bool? onlyAbsenceReports = default(bool?))
+        public AreasOfEducationExternalRequest(int pageNumber, int pageSize, bool inlineCount, string schoolCode)
         {
-            StudentId = studentId;
-            LessonId = lessonId;
-            DateFrom = dateFrom;
-            DateTo = dateTo;
-            OnlyAbsenceReports = onlyAbsenceReports;
             PageNumber = pageNumber;
             PageSize = pageSize;
             InlineCount = inlineCount;
@@ -61,49 +48,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
-
-        /// <summary>
-        /// Gets or sets absent student.
-        /// </summary>
-        [JsonProperty(PropertyName = "studentId")]
-        public System.Guid? StudentId { get; set; }
-
-        /// <summary>
-        /// Gets or sets lesson of absence.
-        /// </summary>
-        [JsonProperty(PropertyName = "lessonId")]
-        public System.Guid? LessonId { get; set; }
-
-        /// <summary>
-        /// Gets or sets date
-        /// </summary>
-        /// <remarks>
-        /// Beginning of the range for absence date. The {DateFrom} parameter
-        /// determines date to get absence data from, as well as the school
-        /// year period
-        /// </remarks>
-        [JsonConverter(typeof(DateJsonConverter))]
-        [JsonProperty(PropertyName = "dateFrom")]
-        public System.DateTime DateFrom { get; set; }
-
-        /// <summary>
-        /// Gets or sets date
-        /// </summary>
-        /// <remarks>
-        /// End of the range for absence date.
-        /// The {DateTo} parameter must be within the same school year as
-        /// {DateFrom}
-        /// </remarks>
-        [JsonConverter(typeof(DateJsonConverter))]
-        [JsonProperty(PropertyName = "dateTo")]
-        public System.DateTime DateTo { get; set; }
-
-        /// <summary>
-        /// Gets or sets only retrieve reports of absence or partial absence,
-        /// defaults to false (retrieve everything)
-        /// </summary>
-        [JsonProperty(PropertyName = "onlyAbsenceReports")]
-        public bool? OnlyAbsenceReports { get; set; }
 
         /// <summary>
         /// Gets or sets int32

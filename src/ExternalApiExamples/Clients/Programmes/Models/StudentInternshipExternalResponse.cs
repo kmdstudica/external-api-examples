@@ -40,7 +40,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// internship agreements</param>
         /// <param name="schoolInternships">List of school based internships
         /// for the student linked to the written agreement</param>
-        public StudentInternshipExternalResponse(System.Guid studentId, string civilRegistrationNumber = default(string), string givenName = default(string), string surname = default(string), IList<StudentInternshipWrittenAgreement> writtenAgreements = default(IList<StudentInternshipWrittenAgreement>), IList<StudentInternshipSchoolInternship> schoolInternships = default(IList<StudentInternshipSchoolInternship>))
+        /// <param name="contributionPeriods">List of contribution
+        /// periods</param>
+        public StudentInternshipExternalResponse(System.Guid studentId, string civilRegistrationNumber = default(string), string givenName = default(string), string surname = default(string), IList<StudentInternshipWrittenAgreement> writtenAgreements = default(IList<StudentInternshipWrittenAgreement>), IList<StudentInternshipSchoolInternship> schoolInternships = default(IList<StudentInternshipSchoolInternship>), IList<StudentInternshipContributionPeriodDto> contributionPeriods = default(IList<StudentInternshipContributionPeriodDto>))
         {
             StudentId = studentId;
             CivilRegistrationNumber = civilRegistrationNumber;
@@ -48,6 +50,7 @@ namespace Kmd.Studica.Programmes.Client.Models
             Surname = surname;
             WrittenAgreements = writtenAgreements;
             SchoolInternships = schoolInternships;
+            ContributionPeriods = contributionPeriods;
             CustomInit();
         }
 
@@ -106,6 +109,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<StudentInternshipSchoolInternship> SchoolInternships { get; set; }
 
         /// <summary>
+        /// Gets or sets list of contribution periods
+        /// </summary>
+        [JsonProperty(PropertyName = "contributionPeriods")]
+        public IList<StudentInternshipContributionPeriodDto> ContributionPeriods { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Microsoft.Rest.ValidationException">
@@ -130,6 +139,16 @@ namespace Kmd.Studica.Programmes.Client.Models
                     if (element1 != null)
                     {
                         element1.Validate();
+                    }
+                }
+            }
+            if (ContributionPeriods != null)
+            {
+                foreach (var element2 in ContributionPeriods)
+                {
+                    if (element2 != null)
+                    {
+                        element2.Validate();
                     }
                 }
             }

@@ -101,6 +101,11 @@ namespace Kmd.Studica.Programmes.Client
         IEducationalProgrammesExternal EducationalProgrammesExternal { get; }
 
         /// <summary>
+        /// Gets the IHelloWorldExternal.
+        /// </summary>
+        IHelloWorldExternal HelloWorldExternal { get; }
+
+        /// <summary>
         /// Gets the ILessonsExternal.
         /// </summary>
         ILessonsExternal LessonsExternal { get; }
@@ -119,6 +124,11 @@ namespace Kmd.Studica.Programmes.Client
         /// Gets the IStudentActivityReportsExternal.
         /// </summary>
         IStudentActivityReportsExternal StudentActivityReportsExternal { get; }
+
+        /// <summary>
+        /// Gets the IStudentActivityReportsV2External.
+        /// </summary>
+        IStudentActivityReportsV2External StudentActivityReportsV2External { get; }
 
         /// <summary>
         /// Gets the IStudentInternshipExternal.
@@ -185,7 +195,8 @@ namespace Kmd.Studica.Programmes.Client
         /// </param>
         Task<HttpOperationResponse<PagedResponseEducationalProgrammeExternalResponse>> Post3WithHttpMessagesAsync(EducationalProgrammesExternalRequest body = default(EducationalProgrammesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        /// <param name='body'>
+        /// <param name='schoolCode'>
+        /// String The school code for which to get data.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -193,7 +204,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseLessonExternalResponse>> Post4WithHttpMessagesAsync(LessonsExternalRequest body = default(LessonsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<HelloWorldExternalResponse>> Post4WithHttpMessagesAsync(string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -203,7 +214,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseSchoolCourseExternalResponse>> Post5WithHttpMessagesAsync(SchoolCoursesExternalRequest body = default(SchoolCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseLessonExternalResponse>> Post5WithHttpMessagesAsync(LessonsExternalRequest body = default(LessonsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -213,7 +224,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<ActivityGroupDto>>> Post6WithHttpMessagesAsync(StudentActivityReportsExternalRequest body = default(StudentActivityReportsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseSchoolCourseExternalResponse>> Post6WithHttpMessagesAsync(SchoolCoursesExternalRequest body = default(SchoolCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -223,7 +234,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<StudentInternshipExternalResponse>>> Post7WithHttpMessagesAsync(StudentInternshipExternalRequest body = default(StudentInternshipExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<ActivityGroupDto>>> Post7WithHttpMessagesAsync(StudentActivityReportsExternalRequest body = default(StudentActivityReportsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -233,7 +244,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<StudentSchoolCoursesExternalResponse>>> Post8WithHttpMessagesAsync(StudentSchoolCoursesExternalRequest body = default(StudentSchoolCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<ActivityGroup2Dto>>> Post8WithHttpMessagesAsync(StudentActivityReportsV2ExternalRequest body = default(StudentActivityReportsV2ExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -243,7 +254,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseStudentSubjectCoursesExternalResponse>> Post9WithHttpMessagesAsync(StudentSubjectCoursesExternalRequest body = default(StudentSubjectCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<StudentInternshipExternalResponse>>> Post9WithHttpMessagesAsync(StudentInternshipExternalRequest body = default(StudentInternshipExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -253,7 +264,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> Post10WithHttpMessagesAsync(SubjectCoursesExternalRequest body = default(SubjectCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<StudentSchoolCoursesExternalResponse>>> Post10WithHttpMessagesAsync(StudentSchoolCoursesExternalRequest body = default(StudentSchoolCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -263,7 +274,27 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseUnscheduledLessonExternalResponse>> Post11WithHttpMessagesAsync(LessonsExternalRequest body = default(LessonsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseStudentSubjectCoursesExternalResponse>> Post11WithHttpMessagesAsync(StudentSubjectCoursesExternalRequest body = default(StudentSubjectCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <param name='body'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> Post12WithHttpMessagesAsync(SubjectCoursesExternalRequest body = default(SubjectCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <param name='body'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<PagedResponseUnscheduledLessonExternalResponse>> Post13WithHttpMessagesAsync(LessonsExternalRequest body = default(LessonsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

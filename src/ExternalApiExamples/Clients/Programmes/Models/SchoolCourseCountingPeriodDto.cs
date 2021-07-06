@@ -12,37 +12,35 @@ namespace Kmd.Studica.Programmes.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// ActivityReportsStudentActivityDto
+    /// SchoolCourse_CountingPeriodDto
     /// </summary>
-    public partial class ActivityReportsStudentActivityDto
+    public partial class SchoolCourseCountingPeriodDto
     {
         /// <summary>
-        /// Initializes a new instance of the ActivityReportsStudentActivityDto
+        /// Initializes a new instance of the SchoolCourseCountingPeriodDto
         /// class.
         /// </summary>
-        public ActivityReportsStudentActivityDto()
+        public SchoolCourseCountingPeriodDto()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ActivityReportsStudentActivityDto
+        /// Initializes a new instance of the SchoolCourseCountingPeriodDto
         /// class.
         /// </summary>
-        /// <param name="studentId">Guid</param>
-        /// <param name="contribution">Decimal</param>
+        /// <param name="number">Int32</param>
         /// <param name="startDate">Date</param>
         /// <param name="endDate">Date</param>
-        /// <param name="sourceId">Id of the source of the activity - fx. a
-        /// SchoolCourseId or BridgingCourseId</param>
-        public ActivityReportsStudentActivityDto(System.Guid studentId, double contribution, System.DateTime startDate, System.DateTime endDate, System.Guid? sourceId = default(System.Guid?), double? remainingContribution = default(double?))
+        /// <param name="countingDate">Date</param>
+        /// <param name="duration">Decimal</param>
+        public SchoolCourseCountingPeriodDto(int number, System.DateTime startDate, System.DateTime endDate, System.DateTime countingDate, double duration)
         {
-            SourceId = sourceId;
-            StudentId = studentId;
-            Contribution = contribution;
-            RemainingContribution = remainingContribution;
+            Number = number;
             StartDate = startDate;
             EndDate = endDate;
+            CountingDate = countingDate;
+            Duration = duration;
             CustomInit();
         }
 
@@ -52,28 +50,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets id of the source of the activity - fx. a
-        /// SchoolCourseId or BridgingCourseId
+        /// Gets or sets int32
         /// </summary>
-        [JsonProperty(PropertyName = "sourceId")]
-        public System.Guid? SourceId { get; set; }
-
-        /// <summary>
-        /// Gets or sets guid
-        /// </summary>
-        [JsonProperty(PropertyName = "studentId")]
-        public System.Guid StudentId { get; set; }
-
-        /// <summary>
-        /// Gets or sets decimal
-        /// </summary>
-        [JsonProperty(PropertyName = "contribution")]
-        public double Contribution { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "remainingContribution")]
-        public double? RemainingContribution { get; set; }
+        [JsonProperty(PropertyName = "number")]
+        public int Number { get; set; }
 
         /// <summary>
         /// Gets or sets date
@@ -88,6 +68,19 @@ namespace Kmd.Studica.Programmes.Client.Models
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "endDate")]
         public System.DateTime EndDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets date
+        /// </summary>
+        [JsonConverter(typeof(DateJsonConverter))]
+        [JsonProperty(PropertyName = "countingDate")]
+        public System.DateTime CountingDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets decimal
+        /// </summary>
+        [JsonProperty(PropertyName = "duration")]
+        public double Duration { get; set; }
 
         /// <summary>
         /// Validate the object.

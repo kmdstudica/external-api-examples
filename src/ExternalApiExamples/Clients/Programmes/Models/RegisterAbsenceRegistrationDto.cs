@@ -65,7 +65,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// 0 = Present
         /// 1 = Absent
         /// 2 = Partially absent. Possible values include: 'Present', 'Absent',
-        /// 'PartialAbsence'
+        /// 'PartialAbsence', 'NotRegistered'
         /// </remarks>
         [JsonProperty(PropertyName = "status")]
         public string Status { get; set; }

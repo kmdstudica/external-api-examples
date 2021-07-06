@@ -20,12 +20,12 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// StudentActivityReportsExternal operations.
+    /// StudentActivityReportsV2External operations.
     /// </summary>
-    public partial class StudentActivityReportsExternal : IServiceOperations<KMDStudicaProgrammes>, IStudentActivityReportsExternal
+    public partial class StudentActivityReportsV2External : IServiceOperations<KMDStudicaProgrammes>, IStudentActivityReportsV2External
     {
         /// <summary>
-        /// Initializes a new instance of the StudentActivityReportsExternal class.
+        /// Initializes a new instance of the StudentActivityReportsV2External class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public StudentActivityReportsExternal(KMDStudicaProgrammes client)
+        public StudentActivityReportsV2External(KMDStudicaProgrammes client)
         {
             if (client == null)
             {
@@ -48,22 +48,12 @@ namespace Kmd.Studica.Programmes.Client
         public KMDStudicaProgrammes Client { get; private set; }
 
         /// <param name='periodFrom'>
-        /// Beginning of period for activity report quarters.
-        /// The {PeriodFrom} parameter must be a date that is on or before given
-        /// activity report period
-        /// to include the desired report in the output.
-        /// E.g. if specifying PeriodFrom as 2021-01-01 and PeriodTo as 2021-06-30
-        /// you will only get the activity report for 2nd period of 2021 (March 16 to
-        /// June 15)
+        /// Includes reports for periods with a transmission period start date no
+        /// earlier than {PeriodFrom}
         /// </param>
         /// <param name='periodTo'>
-        /// End of period for activity report quarters. The {PeriodTo} parameter must
-        /// fully encompass
-        /// the end date of a given activity report quarter to include the desired
-        /// report in the output.
-        /// E.g. to get all activity reports for 2020 the PeriodFrom could be
-        /// 2019-12-15
-        /// and PeriodTo could be 2020-12-30
+        /// Includes reports for periods with a transmission period start date no later
+        /// than {PeriodFromTo}
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
@@ -89,7 +79,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<ActivityGroupDto>>> GetWithHttpMessagesAsync(System.DateTime periodFrom, System.DateTime periodTo, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<ActivityGroup2Dto>>> GetWithHttpMessagesAsync(System.DateTime periodFrom, System.DateTime periodTo, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (schoolCode == null)
             {
@@ -121,7 +111,7 @@ namespace Kmd.Studica.Programmes.Client
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "StudentActivityReportsExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "StudentActivityReportsV2External").ToString();
             List<string> _queryParameters = new List<string>();
             _queryParameters.Add(string.Format("PeriodFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodFrom, new DateJsonConverter()).Trim('"'))));
             _queryParameters.Add(string.Format("PeriodTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodTo, new DateJsonConverter()).Trim('"'))));
@@ -198,7 +188,7 @@ namespace Kmd.Studica.Programmes.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<IList<ActivityGroupDto>>();
+            var _result = new HttpOperationResponse<IList<ActivityGroup2Dto>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -207,7 +197,7 @@ namespace Kmd.Studica.Programmes.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<ActivityGroupDto>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<ActivityGroup2Dto>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

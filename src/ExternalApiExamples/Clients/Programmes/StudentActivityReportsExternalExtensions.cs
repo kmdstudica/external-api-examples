@@ -21,10 +21,22 @@ namespace Kmd.Studica.Programmes.Client
             /// The operations group for this extension method.
             /// </param>
             /// <param name='periodFrom'>
-            /// Includes reports for reporting periods starting on or after this date.
+            /// Beginning of period for activity report quarters.
+            /// The {PeriodFrom} parameter must be a date that is on or before given
+            /// activity report period
+            /// to include the desired report in the output.
+            /// E.g. if specifying PeriodFrom as 2021-01-01 and PeriodTo as 2021-06-30
+            /// you will only get the activity report for 2nd period of 2021 (March 16 to
+            /// June 15)
             /// </param>
             /// <param name='periodTo'>
-            /// Includes reports for reporting periods starting on or before this date.
+            /// End of period for activity report quarters. The {PeriodTo} parameter must
+            /// fully encompass
+            /// the end date of a given activity report quarter to include the desired
+            /// report in the output.
+            /// E.g. to get all activity reports for 2020 the PeriodFrom could be
+            /// 2019-12-15
+            /// and PeriodTo could be 2020-12-30
             /// </param>
             /// <param name='schoolCode'>
             /// The school code for which to get data.
@@ -38,10 +50,22 @@ namespace Kmd.Studica.Programmes.Client
             /// The operations group for this extension method.
             /// </param>
             /// <param name='periodFrom'>
-            /// Includes reports for reporting periods starting on or after this date.
+            /// Beginning of period for activity report quarters.
+            /// The {PeriodFrom} parameter must be a date that is on or before given
+            /// activity report period
+            /// to include the desired report in the output.
+            /// E.g. if specifying PeriodFrom as 2021-01-01 and PeriodTo as 2021-06-30
+            /// you will only get the activity report for 2nd period of 2021 (March 16 to
+            /// June 15)
             /// </param>
             /// <param name='periodTo'>
-            /// Includes reports for reporting periods starting on or before this date.
+            /// End of period for activity report quarters. The {PeriodTo} parameter must
+            /// fully encompass
+            /// the end date of a given activity report quarter to include the desired
+            /// report in the output.
+            /// E.g. to get all activity reports for 2020 the PeriodFrom could be
+            /// 2019-12-15
+            /// and PeriodTo could be 2020-12-30
             /// </param>
             /// <param name='schoolCode'>
             /// The school code for which to get data.

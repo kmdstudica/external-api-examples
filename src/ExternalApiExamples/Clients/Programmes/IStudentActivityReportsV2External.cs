@@ -14,28 +14,17 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// StudentActivityReportsExternal operations.
+    /// StudentActivityReportsV2External operations.
     /// </summary>
-    public partial interface IStudentActivityReportsExternal
+    public partial interface IStudentActivityReportsV2External
     {
         /// <param name='periodFrom'>
-        /// Beginning of period for activity report quarters.
-        /// The {PeriodFrom} parameter must be a date that is on or before
-        /// given activity report period
-        /// to include the desired report in the output.
-        /// E.g. if specifying PeriodFrom as 2021-01-01 and PeriodTo as
-        /// 2021-06-30
-        /// you will only get the activity report for 2nd period of 2021 (March
-        /// 16 to June 15)
+        /// Includes reports for periods with a transmission period start date
+        /// no earlier than {PeriodFrom}
         /// </param>
         /// <param name='periodTo'>
-        /// End of period for activity report quarters. The {PeriodTo}
-        /// parameter must fully encompass
-        /// the end date of a given activity report quarter to include the
-        /// desired report in the output.
-        /// E.g. to get all activity reports for 2020 the PeriodFrom could be
-        /// 2019-12-15
-        /// and PeriodTo could be 2020-12-30
+        /// Includes reports for periods with a transmission period start date
+        /// no later than {PeriodFromTo}
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
@@ -55,6 +44,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<ActivityGroupDto>>> GetWithHttpMessagesAsync(System.DateTime periodFrom, System.DateTime periodTo, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<ActivityGroup2Dto>>> GetWithHttpMessagesAsync(System.DateTime periodFrom, System.DateTime periodTo, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

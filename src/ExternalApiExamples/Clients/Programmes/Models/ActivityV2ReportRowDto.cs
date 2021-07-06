@@ -12,46 +12,40 @@ namespace Kmd.Studica.Programmes.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// ActivityReportRowDto
+    /// ActivityV2_ReportRowDto
     /// </summary>
-    public partial class ActivityReportRowDto
+    public partial class ActivityV2ReportRowDto
     {
         /// <summary>
-        /// Initializes a new instance of the ActivityReportRowDto class.
+        /// Initializes a new instance of the ActivityV2ReportRowDto class.
         /// </summary>
-        public ActivityReportRowDto()
+        public ActivityV2ReportRowDto()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ActivityReportRowDto class.
+        /// Initializes a new instance of the ActivityV2ReportRowDto class.
         /// </summary>
-        /// <param name="id">Guid</param>
-        /// <param name="institutionNumber">String</param>
+        /// <param name="uvmDepartmentNumber">String</param>
         /// <param name="requestor">String</param>
-        /// <param name="coesaVersion">String</param>
         /// <param name="education">String</param>
         /// <param name="specialisation">String</param>
         /// <param name="entryRoute">String</param>
         /// <param name="studentType">String</param>
         /// <param name="subject">String</param>
         /// <param name="tmk">String</param>
-        /// <param name="tmkType">String</param>
         /// <param name="schoolPeriod">String</param>
-        public ActivityReportRowDto(System.Guid id, string institutionNumber = default(string), string requestor = default(string), string coesaVersion = default(string), string education = default(string), string specialisation = default(string), string entryRoute = default(string), string studentType = default(string), string subject = default(string), string tmk = default(string), string tmkType = default(string), string schoolPeriod = default(string), int? countingPeriod = default(int?), double? numberOfGrantDays = default(double?), IList<ActivityReportsStudentActivityDto> studentActivity = default(IList<ActivityReportsStudentActivityDto>))
+        public ActivityV2ReportRowDto(string uvmDepartmentNumber = default(string), string requestor = default(string), string education = default(string), string specialisation = default(string), string entryRoute = default(string), string studentType = default(string), string subject = default(string), string tmk = default(string), string schoolPeriod = default(string), int? countingPeriod = default(int?), double? numberOfGrantDays = default(double?), IList<ActivityV2StudentActivityDto> studentActivity = default(IList<ActivityV2StudentActivityDto>))
         {
-            Id = id;
-            InstitutionNumber = institutionNumber;
+            UvmDepartmentNumber = uvmDepartmentNumber;
             Requestor = requestor;
-            CoesaVersion = coesaVersion;
             Education = education;
             Specialisation = specialisation;
             EntryRoute = entryRoute;
             StudentType = studentType;
             Subject = subject;
             Tmk = tmk;
-            TmkType = tmkType;
             SchoolPeriod = schoolPeriod;
             CountingPeriod = countingPeriod;
             NumberOfGrantDays = numberOfGrantDays;
@@ -65,28 +59,16 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
-        /// </summary>
-        [JsonProperty(PropertyName = "id")]
-        public System.Guid Id { get; set; }
-
-        /// <summary>
         /// Gets or sets string
         /// </summary>
-        [JsonProperty(PropertyName = "institutionNumber")]
-        public string InstitutionNumber { get; set; }
+        [JsonProperty(PropertyName = "uvmDepartmentNumber")]
+        public string UvmDepartmentNumber { get; set; }
 
         /// <summary>
         /// Gets or sets string
         /// </summary>
         [JsonProperty(PropertyName = "requestor")]
         public string Requestor { get; set; }
-
-        /// <summary>
-        /// Gets or sets string
-        /// </summary>
-        [JsonProperty(PropertyName = "coesaVersion")]
-        public string CoesaVersion { get; set; }
 
         /// <summary>
         /// Gets or sets string
@@ -127,12 +109,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Gets or sets string
         /// </summary>
-        [JsonProperty(PropertyName = "tmkType")]
-        public string TmkType { get; set; }
-
-        /// <summary>
-        /// Gets or sets string
-        /// </summary>
         [JsonProperty(PropertyName = "schoolPeriod")]
         public string SchoolPeriod { get; set; }
 
@@ -149,26 +125,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "studentActivity")]
-        public IList<ActivityReportsStudentActivityDto> StudentActivity { get; set; }
+        public IList<ActivityV2StudentActivityDto> StudentActivity { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (StudentActivity != null)
-            {
-                foreach (var element in StudentActivity)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
-        }
     }
 }

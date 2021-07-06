@@ -42,22 +42,29 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="areaOfEducationId">Guid</param>
         /// <param name="areaOfResponsibilityId">Guid</param>
         /// <param name="name">String</param>
+        /// <param name="uvmDepartmentNumber">String</param>
+        /// <param name="dsDepartmentNumber">String</param>
         /// <param name="schoolPeriod">School period of the school
         /// course</param>
         /// <param name="studentIds">List of ids of students that are assigned
         /// to the school course</param>
-        public SchoolCourseExternalResponse(System.Guid schoolCourseId, System.DateTime startDate, System.DateTime endDate, System.Guid dayCalendarId, System.Guid departmentId, System.Guid areaOfEducationId, System.Guid areaOfResponsibilityId, string name = default(string), SchoolCourseExternalResponseSchoolPeriod schoolPeriod = default(SchoolCourseExternalResponseSchoolPeriod), IList<System.Guid> studentIds = default(IList<System.Guid>))
+        /// <param name="countingPeriods">List of activity counting periods for
+        /// the school course</param>
+        public SchoolCourseExternalResponse(System.Guid schoolCourseId, System.DateTime startDate, System.DateTime endDate, System.Guid dayCalendarId, System.Guid departmentId, System.Guid areaOfEducationId, System.Guid areaOfResponsibilityId, string name = default(string), string uvmDepartmentNumber = default(string), string dsDepartmentNumber = default(string), SchoolCourseExternalResponseSchoolPeriod schoolPeriod = default(SchoolCourseExternalResponseSchoolPeriod), IList<System.Guid> studentIds = default(IList<System.Guid>), IList<SchoolCourseCountingPeriodDto> countingPeriods = default(IList<SchoolCourseCountingPeriodDto>))
         {
             SchoolCourseId = schoolCourseId;
             Name = name;
             StartDate = startDate;
             EndDate = endDate;
+            UvmDepartmentNumber = uvmDepartmentNumber;
+            DsDepartmentNumber = dsDepartmentNumber;
             SchoolPeriod = schoolPeriod;
             DayCalendarId = dayCalendarId;
             DepartmentId = departmentId;
             AreaOfEducationId = areaOfEducationId;
             AreaOfResponsibilityId = areaOfResponsibilityId;
             StudentIds = studentIds;
+            CountingPeriods = countingPeriods;
             CustomInit();
         }
 
@@ -103,6 +110,24 @@ namespace Kmd.Studica.Programmes.Client.Models
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "endDate")]
         public System.DateTime EndDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// UVM department number on the school course
+        /// </remarks>
+        [JsonProperty(PropertyName = "uvmDepartmentNumber")]
+        public string UvmDepartmentNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// DS department number on the school course
+        /// </remarks>
+        [JsonProperty(PropertyName = "dsDepartmentNumber")]
+        public string DsDepartmentNumber { get; set; }
 
         /// <summary>
         /// Gets or sets school period of the school course
@@ -154,6 +179,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<System.Guid> StudentIds { get; set; }
 
         /// <summary>
+        /// Gets or sets list of activity counting periods for the school
+        /// course
+        /// </summary>
+        [JsonProperty(PropertyName = "countingPeriods")]
+        public IList<SchoolCourseCountingPeriodDto> CountingPeriods { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -161,6 +193,16 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </exception>
         public virtual void Validate()
         {
+            if (CountingPeriods != null)
+            {
+                foreach (var element in CountingPeriods)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
         }
     }
 }

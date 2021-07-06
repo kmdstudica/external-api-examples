@@ -51,6 +51,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         IActiveEmployeesExternal ActiveEmployeesExternal { get; }
 
         /// <summary>
+        /// Gets the IAreasOfEducationExternal.
+        /// </summary>
+        IAreasOfEducationExternal AreasOfEducationExternal { get; }
+
+        /// <summary>
         /// Gets the IAreasOfResponsibilityExternal.
         /// </summary>
         IAreasOfResponsibilityExternal AreasOfResponsibilityExternal { get; }
@@ -138,7 +143,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseAreaOfResponsibilityExternalResponse>> Post2WithHttpMessagesAsync(AreasOfResponsibilityExternalRequest body = default(AreasOfResponsibilityExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseAreaOfEducationExternalResponse>> Post2WithHttpMessagesAsync(AreasOfEducationExternalRequest body = default(AreasOfEducationExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -148,7 +153,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseDayCalendarsExternalResponse>> Post3WithHttpMessagesAsync(DayCalendarsExternalRequest body = default(DayCalendarsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseAreaOfResponsibilityExternalResponse>> Post3WithHttpMessagesAsync(AreasOfResponsibilityExternalRequest body = default(AreasOfResponsibilityExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -158,7 +163,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseDepartmentsExternalResponse>> Post4WithHttpMessagesAsync(DepartmentsExternalRequest body = default(DepartmentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseDayCalendarsExternalResponse>> Post4WithHttpMessagesAsync(DayCalendarsExternalRequest body = default(DayCalendarsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -168,7 +173,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseEmployeeExternalResponse>> Post5WithHttpMessagesAsync(EmployeesExternalRequest body = default(EmployeesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseDepartmentsExternalResponse>> Post5WithHttpMessagesAsync(DepartmentsExternalRequest body = default(DepartmentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -178,7 +183,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseRoomExternalResponse>> Post6WithHttpMessagesAsync(RoomsExternalRequest body = default(RoomsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseEmployeeExternalResponse>> Post6WithHttpMessagesAsync(EmployeesExternalRequest body = default(EmployeesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -188,7 +193,17 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseSchoolHourEntryExternalResponse>> Post7WithHttpMessagesAsync(SchoolHourEntriesExternalRequest body = default(SchoolHourEntriesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseRoomExternalResponse>> Post7WithHttpMessagesAsync(RoomsExternalRequest body = default(RoomsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <param name='body'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<PagedResponseSchoolHourEntryExternalResponse>> Post8WithHttpMessagesAsync(SchoolHourEntriesExternalRequest body = default(SchoolHourEntriesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='id'>
         /// Guid
@@ -202,7 +217,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<SchoolHoursPlanDetailsExternalResponse>> Post8WithHttpMessagesAsync(System.Guid id, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SchoolHoursPlanDetailsExternalResponse>> Post9WithHttpMessagesAsync(System.Guid id, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -212,7 +227,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseSchoolHoursPlanExternalResponse>> Post9WithHttpMessagesAsync(SchoolHoursPlansExternalRequest body = default(SchoolHoursPlansExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseSchoolHoursPlanExternalResponse>> Post10WithHttpMessagesAsync(SchoolHoursPlansExternalRequest body = default(SchoolHoursPlansExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

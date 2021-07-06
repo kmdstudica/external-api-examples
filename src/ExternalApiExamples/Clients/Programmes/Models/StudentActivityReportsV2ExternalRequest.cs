@@ -12,30 +12,30 @@ namespace Kmd.Studica.Programmes.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// StudentActivityReportsExternalRequest
+    /// StudentActivityReportsV2ExternalRequest
     /// </summary>
     /// <remarks>
-    /// Returns reports containing activities for students
+    /// Returns V2 activity reports containing activities for students
     /// </remarks>
-    public partial class StudentActivityReportsExternalRequest
+    public partial class StudentActivityReportsV2ExternalRequest
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// StudentActivityReportsExternalRequest class.
+        /// StudentActivityReportsV2ExternalRequest class.
         /// </summary>
-        public StudentActivityReportsExternalRequest()
+        public StudentActivityReportsV2ExternalRequest()
         {
             CustomInit();
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// StudentActivityReportsExternalRequest class.
+        /// StudentActivityReportsV2ExternalRequest class.
         /// </summary>
         /// <param name="periodFrom">Date</param>
         /// <param name="periodTo">Date</param>
         /// <param name="schoolCode">String</param>
-        public StudentActivityReportsExternalRequest(System.DateTime periodFrom, System.DateTime periodTo, string schoolCode)
+        public StudentActivityReportsV2ExternalRequest(System.DateTime periodFrom, System.DateTime periodTo, string schoolCode)
         {
             PeriodFrom = periodFrom;
             PeriodTo = periodTo;
@@ -52,14 +52,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Gets or sets date
         /// </summary>
         /// <remarks>
-        /// Beginning of period for activity report quarters.
-        /// The {PeriodFrom} parameter must be a date that is on or before
-        /// given activity report period
-        /// to include the desired report in the output.
-        /// E.g. if specifying PeriodFrom as 2021-01-01 and PeriodTo as
-        /// 2021-06-30
-        /// you will only get the activity report for 2nd period of 2021 (March
-        /// 16 to June 15)
+        /// Includes reports for periods with a transmission period start date
+        /// no earlier than {PeriodFrom}
         /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "periodFrom")]
@@ -69,13 +63,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Gets or sets date
         /// </summary>
         /// <remarks>
-        /// End of period for activity report quarters. The {PeriodTo}
-        /// parameter must fully encompass
-        /// the end date of a given activity report quarter to include the
-        /// desired report in the output.
-        /// E.g. to get all activity reports for 2020 the PeriodFrom could be
-        /// 2019-12-15
-        /// and PeriodTo could be 2020-12-30
+        /// Includes reports for periods with a transmission period start date
+        /// no later than {PeriodFromTo}
         /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "periodTo")]

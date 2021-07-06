@@ -34,6 +34,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="id">Guid</param>
         /// <param name="designation">String</param>
         /// <param name="roomType">RoomType</param>
+        /// <param name="useDsDepartmentAddress">Boolean</param>
         /// <param name="departmentIds">Departments that room is used
         /// by.</param>
         /// <param name="name">String</param>
@@ -45,7 +46,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="city">String</param>
         /// <param name="postalCode">String</param>
         /// <param name="dsDepartmentNumber">String</param>
-        public RoomExternalResponse(System.Guid id, string designation, string roomType, IList<System.Guid> departmentIds, string name = default(string), string description = default(string), int? capacity = default(int?), int? maximumPersonsAllowed = default(int?), string addressLine = default(string), string city = default(string), string postalCode = default(string), string dsDepartmentNumber = default(string))
+        public RoomExternalResponse(System.Guid id, string designation, string roomType, bool useDsDepartmentAddress, IList<System.Guid> departmentIds, string name = default(string), string description = default(string), int? capacity = default(int?), int? maximumPersonsAllowed = default(int?), string addressLine = default(string), string city = default(string), string postalCode = default(string), string dsDepartmentNumber = default(string))
         {
             Id = id;
             Name = name;
@@ -54,6 +55,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             RoomType = roomType;
             Capacity = capacity;
             MaximumPersonsAllowed = maximumPersonsAllowed;
+            UseDsDepartmentAddress = useDsDepartmentAddress;
             AddressLine = addressLine;
             City = city;
             PostalCode = postalCode;
@@ -124,6 +126,16 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "maximumPersonsAllowed")]
         public int? MaximumPersonsAllowed { get; set; }
+
+        /// <summary>
+        /// Gets or sets boolean
+        /// </summary>
+        /// <remarks>
+        /// Denotes if the room uses the address of the DS department,
+        /// or has a custom address
+        /// </remarks>
+        [JsonProperty(PropertyName = "useDsDepartmentAddress")]
+        public bool UseDsDepartmentAddress { get; set; }
 
         /// <summary>
         /// Gets or sets string

@@ -28,6 +28,7 @@ namespace Kmd.Studica.Students.Client.Models
         /// Initializes a new instance of the StudentMark class.
         /// </summary>
         /// <param name="useOnExamPaper">Boolean</param>
+        /// <param name="examMarkSource">ExamMarkSource</param>
         /// <param name="date">Date for when mark has been given</param>
         /// <param name="markCode">String</param>
         /// <param name="markDesignation">String</param>
@@ -38,7 +39,7 @@ namespace Kmd.Studica.Students.Client.Models
         /// which the mark has been given
         /// If the ID is null, then the mark has been assigned manually</param>
         /// <param name="subject">Subject that the mark is given for</param>
-        public StudentMark(bool useOnExamPaper, System.DateTime? date = default(System.DateTime?), string markCode = default(string), string markDesignation = default(string), string markValue = default(string), string markValueEcts = default(string), string creditText = default(string), System.Guid? subjectCourseId = default(System.Guid?), StudentMarkSubject subject = default(StudentMarkSubject))
+        public StudentMark(bool useOnExamPaper, string examMarkSource, System.DateTime? date = default(System.DateTime?), string markCode = default(string), string markDesignation = default(string), string markValue = default(string), string markValueEcts = default(string), string creditText = default(string), System.Guid? subjectCourseId = default(System.Guid?), StudentMarkSubject subject = default(StudentMarkSubject))
         {
             Date = date;
             MarkCode = markCode;
@@ -49,6 +50,7 @@ namespace Kmd.Studica.Students.Client.Models
             UseOnExamPaper = useOnExamPaper;
             SubjectCourseId = subjectCourseId;
             Subject = subject;
+            ExamMarkSource = examMarkSource;
             CustomInit();
         }
 
@@ -136,6 +138,16 @@ namespace Kmd.Studica.Students.Client.Models
         public StudentMarkSubject Subject { get; set; }
 
         /// <summary>
+        /// Gets or sets examMarkSource
+        /// </summary>
+        /// <remarks>
+        /// What kind of mark it is. eg manual or from netproever. Possible
+        /// values include: 'Manual', 'SubjectCourse', 'DigitalExamination'
+        /// </remarks>
+        [JsonProperty(PropertyName = "examMarkSource")]
+        public string ExamMarkSource { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -143,6 +155,10 @@ namespace Kmd.Studica.Students.Client.Models
         /// </exception>
         public virtual void Validate()
         {
+            if (ExamMarkSource == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "ExamMarkSource");
+            }
             if (Subject != null)
             {
                 Subject.Validate();

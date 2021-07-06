@@ -19,10 +19,12 @@ namespace Kmd.Studica.Programmes.Client
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dateFrom'>
-            /// Beginning of the range for absence date.
+            /// Beginning of the range for absence date. The {DateFrom} parameter
+            /// determines date to get absence data from, as well as the school year period
             /// </param>
             /// <param name='dateTo'>
             /// End of the range for absence date.
+            /// The {DateTo} parameter must be within the same school year as {DateFrom}
             /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
@@ -55,10 +57,12 @@ namespace Kmd.Studica.Programmes.Client
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dateFrom'>
-            /// Beginning of the range for absence date.
+            /// Beginning of the range for absence date. The {DateFrom} parameter
+            /// determines date to get absence data from, as well as the school year period
             /// </param>
             /// <param name='dateTo'>
             /// End of the range for absence date.
+            /// The {DateTo} parameter must be within the same school year as {DateFrom}
             /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).

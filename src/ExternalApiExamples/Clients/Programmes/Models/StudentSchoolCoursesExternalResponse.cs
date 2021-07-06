@@ -36,11 +36,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="civilRegistrationNumber">String</param>
         /// <param name="schoolCourseParticipations">List of school course
         /// participation periods</param>
-        public StudentSchoolCoursesExternalResponse(System.Guid studentId, string civilRegistrationNumber = default(string), IList<StudentSchoolCourseParticipation> schoolCourseParticipations = default(IList<StudentSchoolCourseParticipation>))
+        /// <param name="contributionPeriods">List of contribution
+        /// periods</param>
+        public StudentSchoolCoursesExternalResponse(System.Guid studentId, string civilRegistrationNumber = default(string), IList<StudentSchoolCourseParticipation> schoolCourseParticipations = default(IList<StudentSchoolCourseParticipation>), IList<StudentSchoolCourseContributionPeriodDto> contributionPeriods = default(IList<StudentSchoolCourseContributionPeriodDto>))
         {
             StudentId = studentId;
             CivilRegistrationNumber = civilRegistrationNumber;
             SchoolCourseParticipations = schoolCourseParticipations;
+            ContributionPeriods = contributionPeriods;
             CustomInit();
         }
 
@@ -74,6 +77,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<StudentSchoolCourseParticipation> SchoolCourseParticipations { get; set; }
 
         /// <summary>
+        /// Gets or sets list of contribution periods
+        /// </summary>
+        [JsonProperty(PropertyName = "contributionPeriods")]
+        public IList<StudentSchoolCourseContributionPeriodDto> ContributionPeriods { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Microsoft.Rest.ValidationException">
@@ -88,6 +97,16 @@ namespace Kmd.Studica.Programmes.Client.Models
                     if (element != null)
                     {
                         element.Validate();
+                    }
+                }
+            }
+            if (ContributionPeriods != null)
+            {
+                foreach (var element1 in ContributionPeriods)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
                     }
                 }
             }

@@ -14,36 +14,36 @@ namespace Kmd.Studica.Programmes.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// ActivityGroupDto
+    /// ActivityGroup2Dto
     /// </summary>
     /// <remarks>
-    /// Activity reports for a specific type of activity, within a reporting
+    /// Activity reports for a specific type of activity, within a transmission
     /// period.
     /// </remarks>
-    public partial class ActivityGroupDto
+    public partial class ActivityGroup2Dto
     {
         /// <summary>
-        /// Initializes a new instance of the ActivityGroupDto class.
+        /// Initializes a new instance of the ActivityGroup2Dto class.
         /// </summary>
-        public ActivityGroupDto()
+        public ActivityGroup2Dto()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ActivityGroupDto class.
+        /// Initializes a new instance of the ActivityGroup2Dto class.
         /// </summary>
-        /// <param name="reportingPeriodStartDate">Date</param>
-        /// <param name="reportingPeriodEndDate">Date</param>
+        /// <param name="transmissionPeriodStartDate">Date</param>
+        /// <param name="transmissionPeriodEndDate">Date</param>
         /// <param name="exchangeType">ExchangeType</param>
-        /// <param name="originalReport">The original report.</param>
+        /// <param name="initialReport">The initial report.</param>
         /// <param name="supplementaryReports">Supplementary reports.</param>
-        public ActivityGroupDto(System.DateTime reportingPeriodStartDate, System.DateTime reportingPeriodEndDate, string exchangeType, ActivityGroupDtoOriginalReport originalReport = default(ActivityGroupDtoOriginalReport), IList<ActivityReportDto> supplementaryReports = default(IList<ActivityReportDto>))
+        public ActivityGroup2Dto(System.DateTime transmissionPeriodStartDate, System.DateTime transmissionPeriodEndDate, string exchangeType, ActivityGroup2DtoInitialReport initialReport = default(ActivityGroup2DtoInitialReport), IList<ActivityV2ReportDto> supplementaryReports = default(IList<ActivityV2ReportDto>))
         {
-            ReportingPeriodStartDate = reportingPeriodStartDate;
-            ReportingPeriodEndDate = reportingPeriodEndDate;
+            TransmissionPeriodStartDate = transmissionPeriodStartDate;
+            TransmissionPeriodEndDate = transmissionPeriodEndDate;
             ExchangeType = exchangeType;
-            OriginalReport = originalReport;
+            InitialReport = initialReport;
             SupplementaryReports = supplementaryReports;
             CustomInit();
         }
@@ -57,21 +57,21 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Gets or sets date
         /// </summary>
         /// <remarks>
-        /// Start date of the reporting period
+        /// Start date of the transmission period
         /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
-        [JsonProperty(PropertyName = "reportingPeriodStartDate")]
-        public System.DateTime ReportingPeriodStartDate { get; set; }
+        [JsonProperty(PropertyName = "transmissionPeriodStartDate")]
+        public System.DateTime TransmissionPeriodStartDate { get; set; }
 
         /// <summary>
         /// Gets or sets date
         /// </summary>
         /// <remarks>
-        /// End date of the reporting period
+        /// End date of the transmission period
         /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
-        [JsonProperty(PropertyName = "reportingPeriodEndDate")]
-        public System.DateTime ReportingPeriodEndDate { get; set; }
+        [JsonProperty(PropertyName = "transmissionPeriodEndDate")]
+        public System.DateTime TransmissionPeriodEndDate { get; set; }
 
         /// <summary>
         /// Gets or sets exchangeType
@@ -84,16 +84,16 @@ namespace Kmd.Studica.Programmes.Client.Models
         public string ExchangeType { get; set; }
 
         /// <summary>
-        /// Gets or sets the original report.
+        /// Gets or sets the initial report.
         /// </summary>
-        [JsonProperty(PropertyName = "originalReport")]
-        public ActivityGroupDtoOriginalReport OriginalReport { get; set; }
+        [JsonProperty(PropertyName = "initialReport")]
+        public ActivityGroup2DtoInitialReport InitialReport { get; set; }
 
         /// <summary>
         /// Gets or sets supplementary reports.
         /// </summary>
         [JsonProperty(PropertyName = "supplementaryReports")]
-        public IList<ActivityReportDto> SupplementaryReports { get; set; }
+        public IList<ActivityV2ReportDto> SupplementaryReports { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -107,9 +107,9 @@ namespace Kmd.Studica.Programmes.Client.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "ExchangeType");
             }
-            if (OriginalReport != null)
+            if (InitialReport != null)
             {
-                OriginalReport.Validate();
+                InitialReport.Validate();
             }
             if (SupplementaryReports != null)
             {

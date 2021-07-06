@@ -33,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// AbsenceRegistrationExternalResponse class.
         /// </summary>
         /// <param name="studentId">Guid</param>
-        /// <param name="lessonId">Guid</param>
+        /// <param name="lessonId">Lesson id.</param>
         /// <param name="absenceDate">Date</param>
         /// <param name="minutes">Int32</param>
         /// <param name="approved">Boolean</param>
@@ -64,11 +64,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.Guid StudentId { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets lesson id.
         /// </summary>
-        /// <remarks>
-        /// Lesson id.
-        /// </remarks>
         [JsonProperty(PropertyName = "lessonId")]
         public System.Guid LessonId { get; set; }
 
@@ -105,7 +102,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         /// <remarks>
         /// Type of absence. Possible values include: 'Present', 'Absent',
-        /// 'PartialAbsence'
+        /// 'PartialAbsence', 'NotRegistered'
         /// </remarks>
         [JsonProperty(PropertyName = "status")]
         public string Status { get; set; }

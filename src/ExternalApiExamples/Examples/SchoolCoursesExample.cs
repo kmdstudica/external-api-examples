@@ -31,8 +31,8 @@ namespace ExternalApiExamples
                 : new Uri(configuration.ProgrammesBaseUri);
 
             var result = await programmesClient.SchoolCoursesExternal.GetWithHttpMessagesAsync(
-                periodFrom: DateTime.Now.AddMonths(-2),
-                periodTo: DateTime.Now.AddMonths(2),
+                periodFrom: new DateTime(2021, 01, 01),
+                periodTo: new DateTime(2021, 06, 30),
                 schoolCode: configuration.SchoolCode,
                 pageNumber: 1,
                 pageSize: 30,
@@ -43,7 +43,7 @@ namespace ExternalApiExamples
                 });
 
             Console.WriteLine($"Got {result.Body.TotalItems} school courses courses from API");
-
+            
             ConsoleTable
                 .From(result.Body.Items)
                 .Write();

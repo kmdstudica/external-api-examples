@@ -4,6 +4,7 @@ using Microsoft.Rest;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Kmd.Studica.SchoolAdministration.Client.Models;
 
 namespace ExternalApiExamples
 {
@@ -17,7 +18,7 @@ namespace ExternalApiExamples
             this.tokenProvider = tokenProvider;
             this.configuration = configuration;
         }
-        
+
         public async Task Execute()
         {
             Console.WriteLine("Executing employees example");
@@ -63,7 +64,7 @@ namespace ExternalApiExamples
                     { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
-            Console.WriteLine($"Got {result.Body} employees from API");
+            Console.WriteLine($"Got {result.Body.Count} employees from API");
 
             ConsoleTable
                 .From(result.Body)
@@ -78,21 +79,32 @@ namespace ExternalApiExamples
                 ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
                 : new Uri(configuration.SchoolAdministrationBaseUri);
 
-            var result = await schoolAdministrationClient.ActiveEmployeesExternal.GetWithHttpMessagesAsync(
-                employeesActiveOnOrAfterDate: DateTime.Today, 
-                schoolCode: configuration.SchoolCode,
-                pageNumber: 1,
-                pageSize: 10,
-                inlineCount: true,
-                customHeaders: new Dictionary<string, List<string>>
-                {
-                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
-                });
+            bool hasMorePages;
+            int pageNumber = 0;
+            int pageSize = 100;
+            var employees = new List<EmployeeExternalResponse>();
 
-            Console.WriteLine($"Got {result.Body.TotalItems} employees from API");
+            do
+            {
 
+                var result = await schoolAdministrationClient.ActiveEmployeesExternal.GetWithHttpMessagesAsync(
+                    employeesActiveOnOrAfterDate: DateTime.Today,
+                    schoolCode: configuration.SchoolCode,
+                    pageNumber: ++pageNumber,
+                    pageSize: pageSize,
+                    inlineCount: true,
+                    customHeaders: new Dictionary<string, List<string>>
+                    {
+                        { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                    });
+
+                hasMorePages = pageNumber * pageSize < result.Body.TotalItems;
+                employees.AddRange(result.Body.Items);
+            } while (hasMorePages);
+
+            Console.WriteLine($"Got {employees.Count} employees from API");
             ConsoleTable
-                .From(result.Body.Items)
+                .From(employees)
                 .Write();
         }
     }

@@ -24,6 +24,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='schoolCode'>
         /// String The school code for which to get data.
         /// </param>
+        /// <param name='xSelectedSchoolCode'>
+        /// Selected school code, used when multiple impersonation permissions
+        /// are available on the token
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -39,6 +43,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<DepartmentsExternalResponse>>> PostWithHttpMessagesAsync(IList<System.Guid> departmentIds, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<DepartmentsExternalResponse>>> PostWithHttpMessagesAsync(IList<System.Guid> departmentIds, string schoolCode, string xSelectedSchoolCode = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

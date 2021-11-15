@@ -36,9 +36,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='validTo'>
             /// End date of being valid.
             /// </param>
-            public static PagedResponseDepartmentsExternalResponse Get(this IDepartmentsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? validFrom = default(System.DateTime?), System.DateTime? validTo = default(System.DateTime?))
+            /// <param name='xSelectedSchoolCode'>
+            /// Selected school code, used when multiple impersonation permissions are
+            /// available on the token
+            /// </param>
+            public static PagedResponseDepartmentsExternalResponse Get(this IDepartmentsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? validFrom = default(System.DateTime?), System.DateTime? validTo = default(System.DateTime?), string xSelectedSchoolCode = default(string))
             {
-                return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode, validFrom, validTo).GetAwaiter().GetResult();
+                return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode, validFrom, validTo, xSelectedSchoolCode).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -62,12 +66,16 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='validTo'>
             /// End date of being valid.
             /// </param>
+            /// <param name='xSelectedSchoolCode'>
+            /// Selected school code, used when multiple impersonation permissions are
+            /// available on the token
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseDepartmentsExternalResponse> GetAsync(this IDepartmentsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? validFrom = default(System.DateTime?), System.DateTime? validTo = default(System.DateTime?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseDepartmentsExternalResponse> GetAsync(this IDepartmentsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? validFrom = default(System.DateTime?), System.DateTime? validTo = default(System.DateTime?), string xSelectedSchoolCode = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(pageNumber, pageSize, inlineCount, schoolCode, validFrom, validTo, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(pageNumber, pageSize, inlineCount, schoolCode, validFrom, validTo, xSelectedSchoolCode, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

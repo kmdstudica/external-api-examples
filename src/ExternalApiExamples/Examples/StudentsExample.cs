@@ -4,7 +4,6 @@ using Microsoft.Rest;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Kmd.Studica.Students.Client.Models;
 
 namespace ExternalApiExamples
 {
@@ -28,34 +27,23 @@ namespace ExternalApiExamples
                 ? new Uri("https://gateway.kmdlogic.io/studica/students/v1")
                 : new Uri(configuration.StudentsBaseUri);
 
-            var students = new List<StudentExternalResponse>();
-
-            bool hasMorePages;
-            int pageNumber = 0;
-            int pageSize = 100;
-            do
-            {
-                var result = await studentsClient.ActiveStudentsExternal.GetWithHttpMessagesAsync(
-                    studentActiveOnOrAfterDate: new DateTime(DateTime.Today.Year, 01, 01),
-                    schoolCode: configuration.SchoolCode,
-                    pageNumber: ++pageNumber,
-                    pageSize: pageSize,
-                    inlineCount: true,
-                    customHeaders: new Dictionary<string, List<string>>
-                    {
+            var result = await studentsClient.ActiveStudentsExternal.GetWithHttpMessagesAsync(
+                studentActiveOnOrAfterDate: new DateTime(DateTime.Today.Year - 1, 08, 01),
+                schoolCode: configuration.SchoolCode,
+                pageNumber: 1,
+                pageSize: 100,
+                inlineCount: true,
+                customHeaders: new Dictionary<string, List<string>>
+                {
                         {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
-                    });
+                });
 
-                hasMorePages = pageNumber * pageSize < result.Body.TotalItems;
-                students.AddRange(result.Body.Items);
-                Console.Write(".");
-            } while (hasMorePages);
 
-            Console.WriteLine();
-            Console.WriteLine($"Got {students.Count} students from API");
+            Console.WriteLine($"Got {result.Body.TotalItems} students from API");
             ConsoleTable
-                .From(students)
+                .From(result.Body.Items)
                 .Write();
+
         }
 
         public async Task ExecuteBulk()
@@ -75,7 +63,7 @@ namespace ExternalApiExamples
                     {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
                 });
 
-            Console.WriteLine($"Got {result.Body} students from API");
+            Console.WriteLine($"Got {result.Body.Count} students from API");
 
             ConsoleTable
                 .From(result.Body)

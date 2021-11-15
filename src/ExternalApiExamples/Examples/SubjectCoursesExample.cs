@@ -3,7 +3,11 @@ using Kmd.Studica.Programmes.Client;
 using Microsoft.Rest;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using Kmd.Studica.Programmes.Client.Models;
+using Newtonsoft.Json;
 
 namespace ExternalApiExamples
 {
@@ -57,7 +61,7 @@ namespace ExternalApiExamples
                 : new Uri(configuration.ProgrammesBaseUri);
 
             var result = await programmesClient.BulkSubjectCoursesExternal.PostWithHttpMessagesAsync(
-                subjectCourseIds: new[] { Guid.NewGuid() },
+                subjectCourseIds: new[] { Guid.Parse("f5c51d83-e498-4bf9-a8eb-104e0eee76aa") },
                 schoolCode: configuration.SchoolCode,
                 customHeaders: new Dictionary<string, List<string>>
                 {
@@ -67,6 +71,8 @@ namespace ExternalApiExamples
             ConsoleTable
                 .From(result.Body)
                 .Write();
+
+            var json = JsonConvert.SerializeObject(result.Body);
         }
 
         public async Task ExecuteStudentSubjectCourses()
@@ -106,15 +112,14 @@ namespace ExternalApiExamples
                 : new Uri(configuration.ProgrammesBaseUri);
 
             var result = await programmesClient.ActiveSubjectCoursesExternal.GetWithHttpMessagesAsync(
-                subjectCoursesActiveOnOrAfterDate: DateTime.Today,
+                subjectCoursesActiveOnOrAfterDate: DateTime.MinValue,
                 schoolCode: configuration.SchoolCode,
-                lmsIndicator: true,
                 pageNumber: 1,
-                pageSize: 30,
+                pageSize: 100,
                 inlineCount: true,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                        {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
                 });
 
             Console.WriteLine($"Got {result.Body.TotalItems} subject courses from API");

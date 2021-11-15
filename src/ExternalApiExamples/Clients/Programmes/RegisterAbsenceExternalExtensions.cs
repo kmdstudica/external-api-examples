@@ -18,24 +18,32 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='xSelectedSchoolCode'>
+            /// Selected school code, used when multiple impersonation permissions are
+            /// available on the token
+            /// </param>
             /// <param name='body'>
             /// </param>
-            public static void Post(this IRegisterAbsenceExternal operations, RegisterAbsenceExternalCommand body = default(RegisterAbsenceExternalCommand))
+            public static void Post(this IRegisterAbsenceExternal operations, string xSelectedSchoolCode = default(string), RegisterAbsenceExternalCommand body = default(RegisterAbsenceExternalCommand))
             {
-                operations.PostAsync(body).GetAwaiter().GetResult();
+                operations.PostAsync(xSelectedSchoolCode, body).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
+            /// </param>
+            /// <param name='xSelectedSchoolCode'>
+            /// Selected school code, used when multiple impersonation permissions are
+            /// available on the token
             /// </param>
             /// <param name='body'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task PostAsync(this IRegisterAbsenceExternal operations, RegisterAbsenceExternalCommand body = default(RegisterAbsenceExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task PostAsync(this IRegisterAbsenceExternal operations, string xSelectedSchoolCode = default(string), RegisterAbsenceExternalCommand body = default(RegisterAbsenceExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.PostWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.PostWithHttpMessagesAsync(xSelectedSchoolCode, body, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

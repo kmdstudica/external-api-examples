@@ -1,0 +1,545 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "KMD Studica - School Internships",
+    "version": "v1"
+  },
+  "host": "gateway.kmdlogic.io",
+  "basePath": "/studica/school-internships/v1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/StudentInternshipsExternal": {
+      "get": {
+        "tags": [
+          "StudentInternshipsExternal"
+        ],
+        "operationId": "StudentInternshipsExternal_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "PeriodFrom",
+            "description": "Get all students school internships starting on or after this date",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "PeriodTo",
+            "description": "Get all students school internships ending on or before this date",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "SchoolCode",
+            "description": "The school code for which to get data.",
+            "required": true,
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          },
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StudentInternshipsExternalResponse"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "StudentInternshipsExternal"
+        ],
+        "operationId": "_StudentInternshipsExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StudentInternshipsExternalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StudentInternshipsExternalResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/StudentsInternshipAbsenceExternal": {
+      "get": {
+        "tags": [
+          "StudentsInternshipAbsenceExternal"
+        ],
+        "operationId": "StudentsInternshipAbsenceExternal_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "PeriodFrom",
+            "description": "Get all students school internships absence starting on or after this date",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "PeriodTo",
+            "description": "Get all students school internships absence ending on or before this date",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "SchoolCode",
+            "description": "The school code for which to get data.",
+            "required": true,
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          },
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StudentsInternshipAbsenceExternalResponse"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "StudentsInternshipAbsenceExternal"
+        ],
+        "operationId": "_StudentsInternshipAbsenceExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StudentsInternshipAbsenceExternalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StudentsInternshipAbsenceExternalResponse"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "StudentInternships_WrittenAgreementDto": {
+      "title": "StudentInternships_WrittenAgreementDto",
+      "description": "A student's written agreement for school based internship",
+      "required": [
+        "endDate",
+        "id",
+        "startDate"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of the written agreement",
+          "type": "string",
+          "x-nullable": false
+        },
+        "agreementType": {
+          "title": "String",
+          "description": "The written agreement's internship type",
+          "type": "string"
+        },
+        "agreementTypeDescription": {
+          "title": "String",
+          "description": "Textual description of the internship type",
+          "type": "string"
+        },
+        "startDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Start date of internship",
+          "type": "string",
+          "example": "2021-11-10T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "endDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "End date for internship",
+          "type": "string",
+          "example": "2021-11-10T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "placeOfInternshipName": {
+          "title": "String",
+          "description": "The name of the company where the internship takes place.",
+          "type": "string"
+        },
+        "placeOfInternshipCvrNumber": {
+          "title": "String",
+          "description": "The CVR number of the company where the internship takes place.",
+          "type": "string"
+        },
+        "placeOfInternshipEmail": {
+          "title": "String",
+          "description": "The contact email address of the company where the internship takes place.",
+          "type": "string"
+        },
+        "placeOfInternshipSerialNumber": {
+          "title": "String",
+          "description": "The serial number of the internship.",
+          "type": "string"
+        },
+        "seNumber": {
+          "title": "String",
+          "description": "The salary number for the internship.",
+          "type": "string"
+        },
+        "placeOfInternshipAddress": {
+          "title": "String",
+          "description": "The address of the place of internship.",
+          "type": "string"
+        },
+        "placeOfInternshipCity": {
+          "title": "String",
+          "description": "The city of the place of internship.",
+          "type": "string"
+        },
+        "placeOfInternshipPostalCode": {
+          "title": "String",
+          "description": "The postal code of the place of internship.",
+          "type": "string"
+        }
+      }
+    },
+    "StudentInternships_InternshipPeriodDto": {
+      "title": "StudentInternships_InternshipPeriodDto",
+      "required": [
+        "endDate",
+        "schoolInternshipType",
+        "startDate",
+        "writtenAgreementId"
+      ],
+      "type": "object",
+      "properties": {
+        "writtenAgreementId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "The written agreement the internship period belongs to",
+          "type": "string",
+          "x-nullable": false
+        },
+        "schoolInternshipType": {
+          "title": "SchoolInternshipType",
+          "description": "The type of the school internships (SKPS/VFU/DEL)",
+          "enum": [
+            "SKPS",
+            "DEL",
+            "VFU"
+          ],
+          "type": "string",
+          "x-nullable": false
+        },
+        "startDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Start date of the internship period",
+          "type": "string",
+          "example": "2021-11-10T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "endDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "End date of the internship period",
+          "type": "string",
+          "example": "2021-11-10T00:00:00.0000000",
+          "x-nullable": false
+        }
+      }
+    },
+    "StudentInternshipsExternalResponse": {
+      "title": "StudentInternshipsExternalResponse",
+      "required": [
+        "studentId"
+      ],
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of student",
+          "type": "string",
+          "x-nullable": false
+        },
+        "civilRegistrationNumber": {
+          "title": "String",
+          "description": "Students civil registration number",
+          "type": "string"
+        },
+        "givenName": {
+          "title": "String",
+          "description": "Students given name",
+          "type": "string"
+        },
+        "surname": {
+          "title": "String",
+          "description": "Students surname",
+          "type": "string"
+        },
+        "writtenAgreements": {
+          "description": "List of the students written internship agreements",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentInternships_WrittenAgreementDto"
+          }
+        },
+        "internshipPeriods": {
+          "description": "List of the students internship periods as split by fx. school course participation periods",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentInternships_InternshipPeriodDto"
+          }
+        }
+      }
+    },
+    "StudentInternshipsExternalRequest": {
+      "title": "StudentInternshipsExternalRequest",
+      "description": "Get a list of students having school internships within the specified period",
+      "required": [
+        "periodFrom",
+        "periodTo",
+        "schoolCode"
+      ],
+      "type": "object",
+      "properties": {
+        "periodFrom": {
+          "format": "date",
+          "title": "Date",
+          "description": "Get all students school internships starting on or after this date",
+          "type": "string",
+          "example": "2021-11-10T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "periodTo": {
+          "format": "date",
+          "title": "Date",
+          "description": "Get all students school internships ending on or before this date",
+          "type": "string",
+          "example": "2021-11-10T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
+    "StudentsInternshipAbsence_AbsenceDto": {
+      "title": "StudentsInternshipAbsence_AbsenceDto",
+      "required": [
+        "absenceType",
+        "date",
+        "durationInMinutes",
+        "isFullDayAbsence"
+      ],
+      "type": "object",
+      "properties": {
+        "date": {
+          "format": "date",
+          "title": "Date",
+          "type": "string",
+          "example": "2021-11-10T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "durationInMinutes": {
+          "format": "int32",
+          "title": "Int32",
+          "type": "integer",
+          "x-nullable": false
+        },
+        "isFullDayAbsence": {
+          "title": "Boolean",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "absenceType": {
+          "title": "AbsenceType",
+          "enum": [
+            "Illness",
+            "IllegalAbsence",
+            "LegalAbsence",
+            "PaidVacation",
+            "UnpaidVacation"
+          ],
+          "type": "string",
+          "x-nullable": false
+        }
+      }
+    },
+    "StudentsInternshipAbsenceExternalResponse": {
+      "title": "StudentsInternshipAbsenceExternalResponse",
+      "required": [
+        "studentId"
+      ],
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of student",
+          "type": "string",
+          "x-nullable": false
+        },
+        "civilRegistrationNumber": {
+          "title": "String",
+          "description": "Students civil registration number",
+          "type": "string"
+        },
+        "givenName": {
+          "title": "String",
+          "description": "Students given name",
+          "type": "string"
+        },
+        "surname": {
+          "title": "String",
+          "description": "Students surname",
+          "type": "string"
+        },
+        "absence": {
+          "description": "List of dates with absence the student has in the period specified in the request.\r\nDates where the student is present are not included.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentsInternshipAbsence_AbsenceDto"
+          }
+        }
+      }
+    },
+    "StudentsInternshipAbsenceExternalRequest": {
+      "title": "StudentsInternshipAbsenceExternalRequest",
+      "description": "Get a list of students having absence on school internships within the specified period",
+      "required": [
+        "periodFrom",
+        "periodTo",
+        "schoolCode"
+      ],
+      "type": "object",
+      "properties": {
+        "periodFrom": {
+          "format": "date",
+          "title": "Date",
+          "description": "Get all students school internships absence starting on or after this date",
+          "type": "string",
+          "example": "2021-11-10T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "periodTo": {
+          "format": "date",
+          "title": "Date",
+          "description": "Get all students school internships absence ending on or before this date",
+          "type": "string",
+          "example": "2021-11-10T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

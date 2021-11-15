@@ -55,6 +55,10 @@ namespace Kmd.Studica.Students.Client
         /// </summary>
         IStudentMarksExternal StudentMarksExternal { get; }
 
+        /// <param name='xSelectedSchoolCode'>
+        /// Selected school code, used when multiple impersonation permissions
+        /// are available on the token
+        /// </param>
         /// <param name='body'>
         /// </param>
         /// <param name='customHeaders'>
@@ -63,8 +67,12 @@ namespace Kmd.Studica.Students.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> PostWithHttpMessagesAsync(ActiveStudentsExternalRequest body = default(ActiveStudentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> PostWithHttpMessagesAsync(string xSelectedSchoolCode = default(string), ActiveStudentsExternalRequest body = default(ActiveStudentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
+        /// <param name='xSelectedSchoolCode'>
+        /// Selected school code, used when multiple impersonation permissions
+        /// are available on the token
+        /// </param>
         /// <param name='body'>
         /// </param>
         /// <param name='customHeaders'>
@@ -73,7 +81,7 @@ namespace Kmd.Studica.Students.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseStudentMarksExternalResponse>> Post1WithHttpMessagesAsync(StudentMarksExternalRequest body = default(StudentMarksExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseStudentMarksExternalResponse>> Post1WithHttpMessagesAsync(string xSelectedSchoolCode = default(string), StudentMarksExternalRequest body = default(StudentMarksExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

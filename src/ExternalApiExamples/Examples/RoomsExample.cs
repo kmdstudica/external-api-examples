@@ -30,7 +30,7 @@ namespace ExternalApiExamples
             var result = await schoolAdministrationClient.RoomsExternal.GetWithHttpMessagesAsync(
                 schoolCode: configuration.SchoolCode,
                 pageNumber: 1,
-                pageSize: 10,
+                pageSize: 1000,
                 inlineCount: true,
                 customHeaders: new Dictionary<string, List<string>>
                 {
@@ -61,7 +61,7 @@ namespace ExternalApiExamples
                     { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
-            Console.WriteLine($"Got {result.Body} rooms from API");
+            Console.WriteLine($"Got {result.Body.Count} rooms from API");
 
             ConsoleTable
                 .From(result.Body)

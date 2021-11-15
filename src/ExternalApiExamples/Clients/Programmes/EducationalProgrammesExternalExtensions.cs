@@ -40,9 +40,13 @@ namespace Kmd.Studica.Programmes.Client
             /// Option for also querying educational programmes by area of responsibility
             /// in addition to dates
             /// </param>
-            public static PagedResponseEducationalProgrammeExternalResponse Get(this IEducationalProgrammesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?))
+            /// <param name='xSelectedSchoolCode'>
+            /// Selected school code, used when multiple impersonation permissions are
+            /// available on the token
+            /// </param>
+            public static PagedResponseEducationalProgrammeExternalResponse Get(this IEducationalProgrammesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), string xSelectedSchoolCode = default(string))
             {
-                return operations.GetAsync(startDateFrom, startDateTo, pageNumber, pageSize, inlineCount, schoolCode, areaOfResponsibilityId).GetAwaiter().GetResult();
+                return operations.GetAsync(startDateFrom, startDateTo, pageNumber, pageSize, inlineCount, schoolCode, areaOfResponsibilityId, xSelectedSchoolCode).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -70,12 +74,16 @@ namespace Kmd.Studica.Programmes.Client
             /// Option for also querying educational programmes by area of responsibility
             /// in addition to dates
             /// </param>
+            /// <param name='xSelectedSchoolCode'>
+            /// Selected school code, used when multiple impersonation permissions are
+            /// available on the token
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseEducationalProgrammeExternalResponse> GetAsync(this IEducationalProgrammesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseEducationalProgrammeExternalResponse> GetAsync(this IEducationalProgrammesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), string xSelectedSchoolCode = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(startDateFrom, startDateTo, pageNumber, pageSize, inlineCount, schoolCode, areaOfResponsibilityId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(startDateFrom, startDateTo, pageNumber, pageSize, inlineCount, schoolCode, areaOfResponsibilityId, xSelectedSchoolCode, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

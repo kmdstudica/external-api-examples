@@ -28,17 +28,18 @@ namespace ExternalApiExamples
                 ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
                 : new Uri(configuration.ProgrammesBaseUri);
 
-            var result = await programmesClient.LessonsExternal.GetWithHttpMessagesAsync(
-                dateFrom: DateTime.Now.AddMonths(-12),
-                dateTo: DateTime.Now.AddMonths(6),
-                schoolCode: configuration.SchoolCode,
-                pageNumber: 1,
-                pageSize: 10,
-                inlineCount: true,
-                customHeaders: new Dictionary<string, List<string>>
-                {
-                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
-                });
+            HttpOperationResponse<PagedResponseLessonExternalResponse> result =
+                await programmesClient.LessonsExternal.GetWithHttpMessagesAsync(
+                    dateFrom: DateTime.Today,
+                    dateTo: DateTime.Today.AddMonths(1),
+                    schoolCode: configuration.SchoolCode,
+                    pageNumber: 1,
+                    pageSize: 100,
+                    inlineCount: true,
+                    customHeaders: new Dictionary<string, List<string>>
+                    {
+                            {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                    });
 
             Console.WriteLine($"Got {result.Body.TotalItems} lessons from API");
 
@@ -208,7 +209,7 @@ namespace ExternalApiExamples
                     { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
-            Console.WriteLine($"Got {result.Body} lessons from API");
+            Console.WriteLine($"Got {result.Body.Count} lessons from API");
 
             ConsoleTable
                 .From(result.Body)

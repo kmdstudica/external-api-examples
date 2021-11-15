@@ -63,6 +63,10 @@ namespace Kmd.Studica.Programmes.Client
         /// Only retrieve reports of absence or partial absence,
         /// defaults to false (retrieve everything)
         /// </param>
+        /// <param name='xSelectedSchoolCode'>
+        /// Selected school code, used when multiple impersonation permissions are
+        /// available on the token
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -84,7 +88,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<AbsenceRegistrationExternalResponse>>> GetWithHttpMessagesAsync(IList<System.Guid> studentIds, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, bool? onlyAbsenceReports = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<AbsenceRegistrationExternalResponse>>> GetWithHttpMessagesAsync(IList<System.Guid> studentIds, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, bool? onlyAbsenceReports = default(bool?), string xSelectedSchoolCode = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (studentIds == null)
             {
@@ -117,6 +121,7 @@ namespace Kmd.Studica.Programmes.Client
                 tracingParameters.Add("dateTo", dateTo);
                 tracingParameters.Add("onlyAbsenceReports", onlyAbsenceReports);
                 tracingParameters.Add("schoolCode", schoolCode);
+                tracingParameters.Add("xSelectedSchoolCode", xSelectedSchoolCode);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
@@ -148,6 +153,14 @@ namespace Kmd.Studica.Programmes.Client
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
+            if (xSelectedSchoolCode != null)
+            {
+                if (_httpRequest.Headers.Contains("X-Selected-SchoolCode"))
+                {
+                    _httpRequest.Headers.Remove("X-Selected-SchoolCode");
+                }
+                _httpRequest.Headers.TryAddWithoutValidation("X-Selected-SchoolCode", xSelectedSchoolCode);
+            }
 
 
             if (customHeaders != null)

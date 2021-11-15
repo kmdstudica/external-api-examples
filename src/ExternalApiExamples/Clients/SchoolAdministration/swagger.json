@@ -59,6 +59,12 @@
             "type": "string",
             "maxLength": 6,
             "minLength": 6
+          },
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
           }
         ],
         "responses": {
@@ -82,6 +88,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -165,6 +177,12 @@
             "type": "string",
             "maxLength": 6,
             "minLength": 6
+          },
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
           }
         ],
         "responses": {
@@ -188,6 +206,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -255,6 +279,12 @@
             "type": "string",
             "maxLength": 6,
             "minLength": 6
+          },
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
           }
         ],
         "responses": {
@@ -278,6 +308,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -345,6 +381,12 @@
             "type": "string",
             "maxLength": 6,
             "minLength": 6
+          },
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
           }
         ],
         "responses": {
@@ -368,6 +410,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -399,6 +447,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -434,6 +488,12 @@
         ],
         "parameters": [
           {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
+          {
             "in": "body",
             "name": "body",
             "schema": {
@@ -468,6 +528,12 @@
         ],
         "parameters": [
           {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
+          {
             "in": "body",
             "name": "body",
             "schema": {
@@ -501,6 +567,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -571,6 +643,12 @@
             "type": "string",
             "maxLength": 6,
             "minLength": 6
+          },
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
           }
         ],
         "responses": {
@@ -594,6 +672,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -675,6 +759,12 @@
             "type": "string",
             "maxLength": 6,
             "minLength": 6
+          },
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
           }
         ],
         "responses": {
@@ -698,6 +788,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -788,6 +884,12 @@
             "type": "string",
             "maxLength": 6,
             "minLength": 6
+          },
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
           }
         ],
         "responses": {
@@ -811,6 +913,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -885,6 +993,12 @@
             "type": "string",
             "maxLength": 6,
             "minLength": 6
+          },
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
           }
         ],
         "responses": {
@@ -908,6 +1022,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -975,6 +1095,12 @@
             "type": "string",
             "maxLength": 6,
             "minLength": 6
+          },
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
           }
         ],
         "responses": {
@@ -998,6 +1124,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1042,6 +1174,12 @@
             "type": "string",
             "maxLength": 6,
             "minLength": 6
+          },
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1065,6 +1203,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1132,6 +1276,12 @@
             "type": "string",
             "maxLength": 6,
             "minLength": 6
+          },
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1155,6 +1305,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "X-Selected-SchoolCode",
+            "description": "Selected school code, used when multiple impersonation permissions are available on the token",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1204,14 +1360,14 @@
           "title": "Date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000",
+          "example": "2021-11-10T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000"
+          "example": "2021-11-10T00:00:00.0000000"
         }
       }
     },
@@ -1400,14 +1556,14 @@
           "title": "Date",
           "description": "Gets employee start date.",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000",
+          "example": "2021-11-10T00:00:00.0000000",
           "x-nullable": false
         },
         "employmentResignationDate": {
           "format": "date",
           "description": "Gets employee resignation date.",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000"
+          "example": "2021-11-10T00:00:00.0000000"
         },
         "areaOfResponsibilityId": {
           "format": "uuid",
@@ -1490,7 +1646,7 @@
           "title": "Date",
           "description": "Employees must have an active employment on or after this date\r\nThis parameter is required",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000",
+          "example": "2021-11-10T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1559,14 +1715,14 @@
           "title": "Date",
           "description": "Start date of the area of education.",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000",
+          "example": "2021-11-10T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of the area of education.",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000"
+          "example": "2021-11-10T00:00:00.0000000"
         },
         "dayCalendarId": {
           "format": "uuid",
@@ -1696,14 +1852,14 @@
           "title": "Date",
           "description": "Start date of the area of responsibility.",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000",
+          "example": "2021-11-10T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of the area of responsibiliity.",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000"
+          "example": "2021-11-10T00:00:00.0000000"
         },
         "responsibleEmployeeId": {
           "format": "uuid",
@@ -2004,7 +2160,7 @@
           "title": "Date",
           "description": "Date of the school day.",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000",
+          "example": "2021-11-10T00:00:00.0000000",
           "x-nullable": false
         },
         "isSchoolDay": {
@@ -2126,13 +2282,13 @@
           "format": "date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000"
+          "example": "2021-11-10T00:00:00.0000000"
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000"
+          "example": "2021-11-10T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
@@ -2184,14 +2340,14 @@
           "format": "date",
           "description": "Beginning of range for start date employment.",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000"
+          "example": "2021-11-10T00:00:00.0000000"
         },
         "employmentStartDateTo": {
           "format": "date",
           "title": "Date",
           "description": "End of range for start date employment.",
           "type": "string",
-          "example": "2021-07-06T00:00:00.0000000",
+          "example": "2021-11-10T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {

@@ -12,6 +12,8 @@ namespace ExternalApiExamples
 
         public string SchoolAdministrationBaseUri { get; set; }
 
+        public string SchoolInternshipsBaseUri { get; set; }
+
         public string ProgrammesBaseUri { get; set; }
 
         public string StudentsBaseUri { get; set; }

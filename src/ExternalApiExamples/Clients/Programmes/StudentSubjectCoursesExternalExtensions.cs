@@ -35,9 +35,13 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
-            public static PagedResponseStudentSubjectCoursesExternalResponse Get(this IStudentSubjectCoursesExternal operations, IList<System.Guid> studentIds, int pageNumber, int pageSize, bool inlineCount, string schoolCode)
+            /// <param name='xSelectedSchoolCode'>
+            /// Selected school code, used when multiple impersonation permissions are
+            /// available on the token
+            /// </param>
+            public static PagedResponseStudentSubjectCoursesExternalResponse Get(this IStudentSubjectCoursesExternal operations, IList<System.Guid> studentIds, int pageNumber, int pageSize, bool inlineCount, string schoolCode, string xSelectedSchoolCode = default(string))
             {
-                return operations.GetAsync(studentIds, pageNumber, pageSize, inlineCount, schoolCode).GetAwaiter().GetResult();
+                return operations.GetAsync(studentIds, pageNumber, pageSize, inlineCount, schoolCode, xSelectedSchoolCode).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -58,12 +62,16 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
+            /// <param name='xSelectedSchoolCode'>
+            /// Selected school code, used when multiple impersonation permissions are
+            /// available on the token
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseStudentSubjectCoursesExternalResponse> GetAsync(this IStudentSubjectCoursesExternal operations, IList<System.Guid> studentIds, int pageNumber, int pageSize, bool inlineCount, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseStudentSubjectCoursesExternalResponse> GetAsync(this IStudentSubjectCoursesExternal operations, IList<System.Guid> studentIds, int pageNumber, int pageSize, bool inlineCount, string schoolCode, string xSelectedSchoolCode = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(studentIds, pageNumber, pageSize, inlineCount, schoolCode, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(studentIds, pageNumber, pageSize, inlineCount, schoolCode, xSelectedSchoolCode, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

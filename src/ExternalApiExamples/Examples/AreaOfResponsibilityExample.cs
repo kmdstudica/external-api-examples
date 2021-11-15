@@ -30,7 +30,7 @@ namespace ExternalApiExamples
             var result = await schoolAdministrationClient.AreasOfResponsibilityExternal.GetWithHttpMessagesAsync(
                 schoolCode: configuration.SchoolCode,
                 pageNumber: 1,
-                pageSize: 10,
+                pageSize: 1000,
                 inlineCount: true,
                 customHeaders: new Dictionary<string, List<string>>
                 {

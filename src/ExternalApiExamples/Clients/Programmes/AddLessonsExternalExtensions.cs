@@ -26,9 +26,13 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='schoolCode'>
             /// String The school code for which command is performed.
             /// </param>
-            public static void Post(this IAddLessonsExternal operations, IList<NewLessonExternal> newLessons, string schoolCode)
+            /// <param name='xSelectedSchoolCode'>
+            /// Selected school code, used when multiple impersonation permissions are
+            /// available on the token
+            /// </param>
+            public static void Post(this IAddLessonsExternal operations, IList<NewLessonExternal> newLessons, string schoolCode, string xSelectedSchoolCode = default(string))
             {
-                operations.PostAsync(newLessons, schoolCode).GetAwaiter().GetResult();
+                operations.PostAsync(newLessons, schoolCode, xSelectedSchoolCode).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -40,12 +44,16 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='schoolCode'>
             /// String The school code for which command is performed.
             /// </param>
+            /// <param name='xSelectedSchoolCode'>
+            /// Selected school code, used when multiple impersonation permissions are
+            /// available on the token
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task PostAsync(this IAddLessonsExternal operations, IList<NewLessonExternal> newLessons, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task PostAsync(this IAddLessonsExternal operations, IList<NewLessonExternal> newLessons, string schoolCode, string xSelectedSchoolCode = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.PostWithHttpMessagesAsync(newLessons, schoolCode, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.PostWithHttpMessagesAsync(newLessons, schoolCode, xSelectedSchoolCode, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

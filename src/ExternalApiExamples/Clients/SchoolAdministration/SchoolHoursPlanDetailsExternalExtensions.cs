@@ -23,9 +23,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
-            public static SchoolHoursPlanDetailsExternalResponse Get(this ISchoolHoursPlanDetailsExternal operations, System.Guid id, string schoolCode)
+            /// <param name='xSelectedSchoolCode'>
+            /// Selected school code, used when multiple impersonation permissions are
+            /// available on the token
+            /// </param>
+            public static SchoolHoursPlanDetailsExternalResponse Get(this ISchoolHoursPlanDetailsExternal operations, System.Guid id, string schoolCode, string xSelectedSchoolCode = default(string))
             {
-                return operations.GetAsync(id, schoolCode).GetAwaiter().GetResult();
+                return operations.GetAsync(id, schoolCode, xSelectedSchoolCode).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -36,12 +40,16 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
+            /// <param name='xSelectedSchoolCode'>
+            /// Selected school code, used when multiple impersonation permissions are
+            /// available on the token
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<SchoolHoursPlanDetailsExternalResponse> GetAsync(this ISchoolHoursPlanDetailsExternal operations, System.Guid id, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<SchoolHoursPlanDetailsExternalResponse> GetAsync(this ISchoolHoursPlanDetailsExternal operations, System.Guid id, string schoolCode, string xSelectedSchoolCode = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(id, schoolCode, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(id, schoolCode, xSelectedSchoolCode, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

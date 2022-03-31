@@ -51,6 +51,7 @@ namespace ExternalApiExamples
              */
             // await new AreaOfResponsibilityExample(tokenProvider, configuration).Execute();
             // await new AreaOfResponsibilityExample(tokenProvider, configuration).ExecuteBulk();
+            // await new AreaOfEducationExample(tokenProvider, configuration).Execute();
             // await new DayCalendarsExample(tokenProvider, configuration).Execute();
             // await new DepartmentsExample(tokenProvider, configuration).Execute();
             // await new DepartmentsExample(tokenProvider, configuration).ExecuteBulk();
@@ -83,7 +84,8 @@ namespace ExternalApiExamples
             // await new AbsenceRegistrationsExample(tokenProvider, configuration).ExecuteRegisterAbsence();
             // await new SchoolCoursesExample(tokenProvider, configuration).Execute();
             // await new SchoolCoursesExample(tokenProvider, configuration).ExecuteStudentSchoolCourses();
-            // await new ActivityReportsExample(tokenProvider, configuration).Execute();
+            // await new ActivityReportsExample(tokenProvider, configuration).ExecuteStudentActivityReports();
+            // await new ActivityReportsExample(tokenProvider, configuration).ExecuteActivitiesReport();
             // await new BridgingCoursesExample(tokenProvider, configuration).Execute();
 
             /*

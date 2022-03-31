@@ -46,11 +46,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="designation">String</param>
         /// <param name="areaOfResponsibilityId">Reference id of the area of
         /// responsibility.</param>
+        /// <param name="areaOfEducationId">Reference id of the area of
+        /// education.</param>
         /// <param name="dayCalendarId">Reference id of the day
         /// calendar.</param>
         /// <param name="schoolHoursPlanId">Reference id of the school hours
         /// plan.</param>
-        public EducationalProgrammeExternalResponse(System.Guid id, string name, System.DateTime startDate, System.DateTime endDate, System.Guid departmentId, IList<System.Guid> studentsIds, IList<System.Guid> subjectCourseIds, string designation = default(string), System.Guid? areaOfResponsibilityId = default(System.Guid?), System.Guid? dayCalendarId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?))
+        public EducationalProgrammeExternalResponse(System.Guid id, string name, System.DateTime startDate, System.DateTime endDate, System.Guid departmentId, IList<System.Guid> studentsIds, IList<System.Guid> subjectCourseIds, string designation = default(string), System.Guid? areaOfResponsibilityId = default(System.Guid?), System.Guid? areaOfEducationId = default(System.Guid?), System.Guid? dayCalendarId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?))
         {
             Id = id;
             Designation = designation;
@@ -58,6 +60,7 @@ namespace Kmd.Studica.Programmes.Client.Models
             StartDate = startDate;
             EndDate = endDate;
             AreaOfResponsibilityId = areaOfResponsibilityId;
+            AreaOfEducationId = areaOfEducationId;
             DayCalendarId = dayCalendarId;
             SchoolHoursPlanId = schoolHoursPlanId;
             DepartmentId = departmentId;
@@ -124,6 +127,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "areaOfResponsibilityId")]
         public System.Guid? AreaOfResponsibilityId { get; set; }
+
+        /// <summary>
+        /// Gets or sets reference id of the area of education.
+        /// </summary>
+        [JsonProperty(PropertyName = "areaOfEducationId")]
+        public System.Guid? AreaOfEducationId { get; set; }
 
         /// <summary>
         /// Gets or sets reference id of the day calendar.

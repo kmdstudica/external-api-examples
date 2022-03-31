@@ -18,10 +18,6 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IRegisterAbsenceExternal
     {
-        /// <param name='xSelectedSchoolCode'>
-        /// Selected school code, used when multiple impersonation permissions
-        /// are available on the token
-        /// </param>
         /// <param name='body'>
         /// </param>
         /// <param name='customHeaders'>
@@ -33,6 +29,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> PostWithHttpMessagesAsync(string xSelectedSchoolCode = default(string), RegisterAbsenceExternalCommand body = default(RegisterAbsenceExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PostWithHttpMessagesAsync(RegisterAbsenceExternalCommand body = default(RegisterAbsenceExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

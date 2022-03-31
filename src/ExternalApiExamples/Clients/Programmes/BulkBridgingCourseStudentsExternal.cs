@@ -52,10 +52,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='schoolCode'>
         /// String The school code for which to get data.
         /// </param>
-        /// <param name='xSelectedSchoolCode'>
-        /// Selected school code, used when multiple impersonation permissions are
-        /// available on the token
-        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -77,7 +73,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<BridgingCourseStudentExternalResponse>>> PostWithHttpMessagesAsync(IList<System.Guid> studentIds, string schoolCode, string xSelectedSchoolCode = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<BridgingCourseStudentExternalResponse>>> PostWithHttpMessagesAsync(IList<System.Guid> studentIds, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (studentIds == null)
             {
@@ -112,7 +108,6 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("xSelectedSchoolCode", xSelectedSchoolCode);
                 tracingParameters.Add("body", body);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
@@ -126,14 +121,6 @@ namespace Kmd.Studica.Programmes.Client
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-            if (xSelectedSchoolCode != null)
-            {
-                if (_httpRequest.Headers.Contains("X-Selected-SchoolCode"))
-                {
-                    _httpRequest.Headers.Remove("X-Selected-SchoolCode");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("X-Selected-SchoolCode", xSelectedSchoolCode);
-            }
 
 
             if (customHeaders != null)

@@ -37,7 +37,7 @@ namespace ExternalApiExamples
                     { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
-            Console.WriteLine($"Got {result.Body.TotalItems} plans from API");
+            Console.WriteLine($"Got {result.Body.TotalItems} total areas from query");
 
             ConsoleTable
                 .From(result.Body.Items)

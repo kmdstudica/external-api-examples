@@ -55,7 +55,12 @@ namespace Kmd.Studica.Students.Client.Models
         /// 'AdmissionExamNotPassedAndDidNotShowAtInterview',
         /// 'AdmissionInterviewNotPassed',
         /// 'AdmissionExamPassedButInterviewDenied',
-        /// 'AdmissionExamPassedButDidNotShowAtInterview'</param>
+        /// 'AdmissionExamPassedButDidNotShowAtInterview', 'NotStarted',
+        /// 'ProfessionalRequirements', 'PrivateReasons', 'ExamNotPassed',
+        /// 'Expelled', 'Unreachable', 'ChangeOfEducation', 'ChangeOfSchool',
+        /// 'CompletedGf1OrPlus', 'CompletedGf2', 'CancelledExchangeStudent',
+        /// 'LeaveOfAbsence', 'Completed', 'Death',
+        /// 'TeacherRelationCancelled'</param>
         public StudentStudy(System.Guid id, System.Guid departmentId, System.Guid educationId, System.DateTime studyStartDate, IList<StudyStudentType> studentTypes, string dsDepartmentNumber = default(string), string educationName = default(string), string coesa = default(string), string educationVersion = default(string), System.DateTime? studyExpectedCompletionDate = default(System.DateTime?), System.DateTime? studyEndDate = default(System.DateTime?), System.Guid? studyEndCauseId = default(System.Guid?), string studyEndCauseCode = default(string), string studyEndCause = default(string), string studyCancellationCauseCode = default(string))
         {
             Id = id;
@@ -202,7 +207,11 @@ namespace Kmd.Studica.Students.Client.Models
         /// 'AdmissionExamNotPassedAndDidNotShowAtInterview',
         /// 'AdmissionInterviewNotPassed',
         /// 'AdmissionExamPassedButInterviewDenied',
-        /// 'AdmissionExamPassedButDidNotShowAtInterview'
+        /// 'AdmissionExamPassedButDidNotShowAtInterview', 'NotStarted',
+        /// 'ProfessionalRequirements', 'PrivateReasons', 'ExamNotPassed',
+        /// 'Expelled', 'Unreachable', 'ChangeOfEducation', 'ChangeOfSchool',
+        /// 'CompletedGf1OrPlus', 'CompletedGf2', 'CancelledExchangeStudent',
+        /// 'LeaveOfAbsence', 'Completed', 'Death', 'TeacherRelationCancelled'
         /// </summary>
         [JsonProperty(PropertyName = "studyCancellationCauseCode")]
         public string StudyCancellationCauseCode { get; set; }

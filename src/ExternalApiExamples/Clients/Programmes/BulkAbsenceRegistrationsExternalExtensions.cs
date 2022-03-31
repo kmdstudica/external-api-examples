@@ -36,13 +36,9 @@ namespace Kmd.Studica.Programmes.Client
             /// Only retrieve reports of absence or partial absence,
             /// defaults to false (retrieve everything)
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
-            public static IList<AbsenceRegistrationExternalResponse> Get(this IBulkAbsenceRegistrationsExternal operations, IList<System.Guid> studentIds, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, bool? onlyAbsenceReports = default(bool?), string xSelectedSchoolCode = default(string))
+            public static IList<AbsenceRegistrationExternalResponse> Get(this IBulkAbsenceRegistrationsExternal operations, IList<System.Guid> studentIds, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, bool? onlyAbsenceReports = default(bool?))
             {
-                return operations.GetAsync(studentIds, dateFrom, dateTo, schoolCode, onlyAbsenceReports, xSelectedSchoolCode).GetAwaiter().GetResult();
+                return operations.GetAsync(studentIds, dateFrom, dateTo, schoolCode, onlyAbsenceReports).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -64,16 +60,12 @@ namespace Kmd.Studica.Programmes.Client
             /// Only retrieve reports of absence or partial absence,
             /// defaults to false (retrieve everything)
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<AbsenceRegistrationExternalResponse>> GetAsync(this IBulkAbsenceRegistrationsExternal operations, IList<System.Guid> studentIds, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, bool? onlyAbsenceReports = default(bool?), string xSelectedSchoolCode = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<AbsenceRegistrationExternalResponse>> GetAsync(this IBulkAbsenceRegistrationsExternal operations, IList<System.Guid> studentIds, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, bool? onlyAbsenceReports = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(studentIds, dateFrom, dateTo, schoolCode, onlyAbsenceReports, xSelectedSchoolCode, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(studentIds, dateFrom, dateTo, schoolCode, onlyAbsenceReports, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

@@ -39,13 +39,9 @@ namespace Kmd.Studica.Programmes.Client
             /// If not specified, then the value of the LMS indicator is disregarded in the
             /// filtering.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
-            public static PagedResponseSubjectCourseExternalResponse Get(this IActiveSubjectCoursesExternal operations, System.DateTime subjectCoursesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?), string xSelectedSchoolCode = default(string))
+            public static PagedResponseSubjectCourseExternalResponse Get(this IActiveSubjectCoursesExternal operations, System.DateTime subjectCoursesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?))
             {
-                return operations.GetAsync(subjectCoursesActiveOnOrAfterDate, pageNumber, pageSize, inlineCount, schoolCode, lmsIndicator, xSelectedSchoolCode).GetAwaiter().GetResult();
+                return operations.GetAsync(subjectCoursesActiveOnOrAfterDate, pageNumber, pageSize, inlineCount, schoolCode, lmsIndicator).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -72,16 +68,12 @@ namespace Kmd.Studica.Programmes.Client
             /// If not specified, then the value of the LMS indicator is disregarded in the
             /// filtering.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseSubjectCourseExternalResponse> GetAsync(this IActiveSubjectCoursesExternal operations, System.DateTime subjectCoursesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?), string xSelectedSchoolCode = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseSubjectCourseExternalResponse> GetAsync(this IActiveSubjectCoursesExternal operations, System.DateTime subjectCoursesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(subjectCoursesActiveOnOrAfterDate, pageNumber, pageSize, inlineCount, schoolCode, lmsIndicator, xSelectedSchoolCode, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(subjectCoursesActiveOnOrAfterDate, pageNumber, pageSize, inlineCount, schoolCode, lmsIndicator, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

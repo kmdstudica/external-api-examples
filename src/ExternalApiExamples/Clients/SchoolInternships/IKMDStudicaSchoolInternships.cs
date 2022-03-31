@@ -50,10 +50,6 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// </summary>
         IStudentsInternshipAbsenceExternal StudentsInternshipAbsenceExternal { get; }
 
-        /// <param name='xSelectedSchoolCode'>
-        /// Selected school code, used when multiple impersonation permissions
-        /// are available on the token
-        /// </param>
         /// <param name='body'>
         /// </param>
         /// <param name='customHeaders'>
@@ -62,12 +58,8 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<StudentInternshipsExternalResponse>>> PostWithHttpMessagesAsync(string xSelectedSchoolCode = default(string), StudentInternshipsExternalRequest body = default(StudentInternshipsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<StudentInternshipsExternalResponse>>> PostWithHttpMessagesAsync(StudentInternshipsExternalRequest body = default(StudentInternshipsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        /// <param name='xSelectedSchoolCode'>
-        /// Selected school code, used when multiple impersonation permissions
-        /// are available on the token
-        /// </param>
         /// <param name='body'>
         /// </param>
         /// <param name='customHeaders'>
@@ -76,7 +68,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<StudentsInternshipAbsenceExternalResponse>>> Post1WithHttpMessagesAsync(string xSelectedSchoolCode = default(string), StudentsInternshipAbsenceExternalRequest body = default(StudentsInternshipAbsenceExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<StudentsInternshipAbsenceExternalResponse>>> Post1WithHttpMessagesAsync(StudentsInternshipAbsenceExternalRequest body = default(StudentsInternshipAbsenceExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

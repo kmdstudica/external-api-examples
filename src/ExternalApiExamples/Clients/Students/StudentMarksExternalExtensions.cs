@@ -39,13 +39,9 @@ namespace Kmd.Studica.Students.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
-            public static PagedResponseStudentMarksExternalResponse Get(this IStudentMarksExternal operations, IList<System.Guid> studentIds, bool onlyIncludeMarksForExamPaper, int pageNumber, int pageSize, bool inlineCount, string schoolCode, string xSelectedSchoolCode = default(string))
+            public static PagedResponseStudentMarksExternalResponse Get(this IStudentMarksExternal operations, IList<System.Guid> studentIds, bool onlyIncludeMarksForExamPaper, int pageNumber, int pageSize, bool inlineCount, string schoolCode)
             {
-                return operations.GetAsync(studentIds, onlyIncludeMarksForExamPaper, pageNumber, pageSize, inlineCount, schoolCode, xSelectedSchoolCode).GetAwaiter().GetResult();
+                return operations.GetAsync(studentIds, onlyIncludeMarksForExamPaper, pageNumber, pageSize, inlineCount, schoolCode).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -70,16 +66,12 @@ namespace Kmd.Studica.Students.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseStudentMarksExternalResponse> GetAsync(this IStudentMarksExternal operations, IList<System.Guid> studentIds, bool onlyIncludeMarksForExamPaper, int pageNumber, int pageSize, bool inlineCount, string schoolCode, string xSelectedSchoolCode = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseStudentMarksExternalResponse> GetAsync(this IStudentMarksExternal operations, IList<System.Guid> studentIds, bool onlyIncludeMarksForExamPaper, int pageNumber, int pageSize, bool inlineCount, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(studentIds, onlyIncludeMarksForExamPaper, pageNumber, pageSize, inlineCount, schoolCode, xSelectedSchoolCode, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(studentIds, onlyIncludeMarksForExamPaper, pageNumber, pageSize, inlineCount, schoolCode, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

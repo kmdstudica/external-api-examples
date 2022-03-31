@@ -42,13 +42,9 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='hasExternalId'>
             /// Flag indicating if lesson contains external id.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
-            public static PagedResponseUnscheduledLessonExternalResponse Get(this IUnscheduledLessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?), string xSelectedSchoolCode = default(string))
+            public static PagedResponseUnscheduledLessonExternalResponse Get(this IUnscheduledLessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?))
             {
-                return operations.GetAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, departmentId, hasExternalId, xSelectedSchoolCode).GetAwaiter().GetResult();
+                return operations.GetAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, departmentId, hasExternalId).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -78,16 +74,12 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='hasExternalId'>
             /// Flag indicating if lesson contains external id.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseUnscheduledLessonExternalResponse> GetAsync(this IUnscheduledLessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?), string xSelectedSchoolCode = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseUnscheduledLessonExternalResponse> GetAsync(this IUnscheduledLessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, departmentId, hasExternalId, xSelectedSchoolCode, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, departmentId, hasExternalId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

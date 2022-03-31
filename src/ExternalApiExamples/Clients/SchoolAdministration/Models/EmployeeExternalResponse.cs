@@ -46,7 +46,10 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="protectedGivenName">String</param>
         /// <param name="protectedSurname">String</param>
         /// <param name="initials">String</param>
+        /// <param name="privateEmail">String</param>
         /// <param name="phoneNumber">String</param>
+        /// <param name="mobileNumber">String</param>
+        /// <param name="privatePhoneNumber">String</param>
         /// <param name="uniLoginUsername">String</param>
         /// <param name="adUserName">String</param>
         /// <param name="roleNames">Gets employee roles.</param>
@@ -63,7 +66,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="city">String</param>
         /// <param name="postalCode">String</param>
         /// <param name="country">String</param>
-        public EmployeeExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, bool lmsIndicator, string givenName, string surname, string email, bool deceased, bool reportToUniLogin, bool createAdLogin, System.DateTime employmentStartDate, string protectedGivenName = default(string), string protectedSurname = default(string), string initials = default(string), string phoneNumber = default(string), string uniLoginUsername = default(string), string adUserName = default(string), IList<string> roleNames = default(IList<string>), string jobTitle = default(string), System.DateTime? employmentResignationDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), IList<System.Guid> departmentIds = default(IList<System.Guid>), string addressLine = default(string), string careOfAddressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string))
+        public EmployeeExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, bool lmsIndicator, string givenName, string surname, string email, bool deceased, bool reportToUniLogin, bool createAdLogin, System.DateTime employmentStartDate, string protectedGivenName = default(string), string protectedSurname = default(string), string initials = default(string), string privateEmail = default(string), string phoneNumber = default(string), string mobileNumber = default(string), string privatePhoneNumber = default(string), string uniLoginUsername = default(string), string adUserName = default(string), IList<string> roleNames = default(IList<string>), string jobTitle = default(string), System.DateTime? employmentResignationDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), IList<System.Guid> departmentIds = default(IList<System.Guid>), string addressLine = default(string), string careOfAddressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string))
         {
             Id = id;
             CivilRegistrationNumber = civilRegistrationNumber;
@@ -75,7 +78,10 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             ProtectedSurname = protectedSurname;
             Initials = initials;
             Email = email;
+            PrivateEmail = privateEmail;
             PhoneNumber = phoneNumber;
+            MobileNumber = mobileNumber;
+            PrivatePhoneNumber = privatePhoneNumber;
             Deceased = deceased;
             UniLoginUsername = uniLoginUsername;
             ReportToUniLogin = reportToUniLogin;
@@ -195,10 +201,37 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
+        /// The employee's private e-mail address.
+        /// </remarks>
+        [JsonProperty(PropertyName = "privateEmail")]
+        public string PrivateEmail { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
         /// Gets employee phone number.
         /// </remarks>
         [JsonProperty(PropertyName = "phoneNumber")]
         public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The employee's work related mobile phone number.
+        /// </remarks>
+        [JsonProperty(PropertyName = "mobileNumber")]
+        public string MobileNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The employee's private phone number.
+        /// </remarks>
+        [JsonProperty(PropertyName = "privatePhoneNumber")]
+        public string PrivatePhoneNumber { get; set; }
 
         /// <summary>
         /// Gets or sets boolean

@@ -41,13 +41,9 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
-            public static IList<ActivityGroupDto> Get(this IStudentActivityReportsExternal operations, System.DateTime periodFrom, System.DateTime periodTo, string schoolCode, string xSelectedSchoolCode = default(string))
+            public static IList<ActivityGroupDto> Get(this IStudentActivityReportsExternal operations, System.DateTime periodFrom, System.DateTime periodTo, string schoolCode)
             {
-                return operations.GetAsync(periodFrom, periodTo, schoolCode, xSelectedSchoolCode).GetAwaiter().GetResult();
+                return operations.GetAsync(periodFrom, periodTo, schoolCode).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -74,16 +70,12 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<ActivityGroupDto>> GetAsync(this IStudentActivityReportsExternal operations, System.DateTime periodFrom, System.DateTime periodTo, string schoolCode, string xSelectedSchoolCode = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<ActivityGroupDto>> GetAsync(this IStudentActivityReportsExternal operations, System.DateTime periodFrom, System.DateTime periodTo, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(periodFrom, periodTo, schoolCode, xSelectedSchoolCode, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(periodFrom, periodTo, schoolCode, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

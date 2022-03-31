@@ -326,10 +326,6 @@ namespace Kmd.Studica.Students.Client
             };
             CustomInitialize();
         }
-        /// <param name='xSelectedSchoolCode'>
-        /// Selected school code, used when multiple impersonation permissions are
-        /// available on the token
-        /// </param>
         /// <param name='body'>
         /// </param>
         /// <param name='customHeaders'>
@@ -347,7 +343,7 @@ namespace Kmd.Studica.Students.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> PostWithHttpMessagesAsync(string xSelectedSchoolCode = default(string), ActiveStudentsExternalRequest body = default(ActiveStudentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> PostWithHttpMessagesAsync(ActiveStudentsExternalRequest body = default(ActiveStudentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body != null)
             {
@@ -360,7 +356,6 @@ namespace Kmd.Studica.Students.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("xSelectedSchoolCode", xSelectedSchoolCode);
                 tracingParameters.Add("body", body);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
@@ -374,14 +369,6 @@ namespace Kmd.Studica.Students.Client
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-            if (xSelectedSchoolCode != null)
-            {
-                if (_httpRequest.Headers.Contains("X-Selected-SchoolCode"))
-                {
-                    _httpRequest.Headers.Remove("X-Selected-SchoolCode");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("X-Selected-SchoolCode", xSelectedSchoolCode);
-            }
 
 
             if (customHeaders != null)
@@ -475,10 +462,6 @@ namespace Kmd.Studica.Students.Client
             return _result;
         }
 
-        /// <param name='xSelectedSchoolCode'>
-        /// Selected school code, used when multiple impersonation permissions are
-        /// available on the token
-        /// </param>
         /// <param name='body'>
         /// </param>
         /// <param name='customHeaders'>
@@ -496,7 +479,7 @@ namespace Kmd.Studica.Students.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseStudentMarksExternalResponse>> Post1WithHttpMessagesAsync(string xSelectedSchoolCode = default(string), StudentMarksExternalRequest body = default(StudentMarksExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseStudentMarksExternalResponse>> Post1WithHttpMessagesAsync(StudentMarksExternalRequest body = default(StudentMarksExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body != null)
             {
@@ -509,7 +492,6 @@ namespace Kmd.Studica.Students.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("xSelectedSchoolCode", xSelectedSchoolCode);
                 tracingParameters.Add("body", body);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post1", tracingParameters);
@@ -523,14 +505,6 @@ namespace Kmd.Studica.Students.Client
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-            if (xSelectedSchoolCode != null)
-            {
-                if (_httpRequest.Headers.Contains("X-Selected-SchoolCode"))
-                {
-                    _httpRequest.Headers.Remove("X-Selected-SchoolCode");
-                }
-                _httpRequest.Headers.TryAddWithoutValidation("X-Selected-SchoolCode", xSelectedSchoolCode);
-            }
 
 
             if (customHeaders != null)

@@ -18,32 +18,24 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseDepartmentsExternalResponse Post(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), ActiveDepartmentsExternalRequest body = default(ActiveDepartmentsExternalRequest))
+            public static PagedResponseDepartmentsExternalResponse Post(this IKMDStudicaSchoolAdministration operations, ActiveDepartmentsExternalRequest body = default(ActiveDepartmentsExternalRequest))
             {
-                return operations.PostAsync(xSelectedSchoolCode, body).GetAwaiter().GetResult();
+                return operations.PostAsync(body).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
             /// </param>
             /// <param name='body'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseDepartmentsExternalResponse> PostAsync(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), ActiveDepartmentsExternalRequest body = default(ActiveDepartmentsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseDepartmentsExternalResponse> PostAsync(this IKMDStudicaSchoolAdministration operations, ActiveDepartmentsExternalRequest body = default(ActiveDepartmentsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostWithHttpMessagesAsync(xSelectedSchoolCode, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -52,32 +44,24 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseEmployeeExternalResponse Post1(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), ActiveEmployeesExternalRequest body = default(ActiveEmployeesExternalRequest))
+            public static PagedResponseEmployeeExternalResponse Post1(this IKMDStudicaSchoolAdministration operations, ActiveEmployeesExternalRequest body = default(ActiveEmployeesExternalRequest))
             {
-                return operations.Post1Async(xSelectedSchoolCode, body).GetAwaiter().GetResult();
+                return operations.Post1Async(body).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
             /// </param>
             /// <param name='body'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseEmployeeExternalResponse> Post1Async(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), ActiveEmployeesExternalRequest body = default(ActiveEmployeesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseEmployeeExternalResponse> Post1Async(this IKMDStudicaSchoolAdministration operations, ActiveEmployeesExternalRequest body = default(ActiveEmployeesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.Post1WithHttpMessagesAsync(xSelectedSchoolCode, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.Post1WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -86,32 +70,24 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseAreaOfEducationExternalResponse Post2(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), AreasOfEducationExternalRequest body = default(AreasOfEducationExternalRequest))
+            public static PagedResponseAreaOfEducationExternalResponse Post2(this IKMDStudicaSchoolAdministration operations, AreasOfEducationExternalRequest body = default(AreasOfEducationExternalRequest))
             {
-                return operations.Post2Async(xSelectedSchoolCode, body).GetAwaiter().GetResult();
+                return operations.Post2Async(body).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
             /// </param>
             /// <param name='body'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseAreaOfEducationExternalResponse> Post2Async(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), AreasOfEducationExternalRequest body = default(AreasOfEducationExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseAreaOfEducationExternalResponse> Post2Async(this IKMDStudicaSchoolAdministration operations, AreasOfEducationExternalRequest body = default(AreasOfEducationExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.Post2WithHttpMessagesAsync(xSelectedSchoolCode, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.Post2WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -120,32 +96,24 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseAreaOfResponsibilityExternalResponse Post3(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), AreasOfResponsibilityExternalRequest body = default(AreasOfResponsibilityExternalRequest))
+            public static PagedResponseAreaOfResponsibilityExternalResponse Post3(this IKMDStudicaSchoolAdministration operations, AreasOfResponsibilityExternalRequest body = default(AreasOfResponsibilityExternalRequest))
             {
-                return operations.Post3Async(xSelectedSchoolCode, body).GetAwaiter().GetResult();
+                return operations.Post3Async(body).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
             /// </param>
             /// <param name='body'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseAreaOfResponsibilityExternalResponse> Post3Async(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), AreasOfResponsibilityExternalRequest body = default(AreasOfResponsibilityExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseAreaOfResponsibilityExternalResponse> Post3Async(this IKMDStudicaSchoolAdministration operations, AreasOfResponsibilityExternalRequest body = default(AreasOfResponsibilityExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.Post3WithHttpMessagesAsync(xSelectedSchoolCode, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.Post3WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -154,32 +122,24 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseDayCalendarsExternalResponse Post4(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), DayCalendarsExternalRequest body = default(DayCalendarsExternalRequest))
+            public static PagedResponseDayCalendarsExternalResponse Post4(this IKMDStudicaSchoolAdministration operations, DayCalendarsExternalRequest body = default(DayCalendarsExternalRequest))
             {
-                return operations.Post4Async(xSelectedSchoolCode, body).GetAwaiter().GetResult();
+                return operations.Post4Async(body).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
             /// </param>
             /// <param name='body'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseDayCalendarsExternalResponse> Post4Async(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), DayCalendarsExternalRequest body = default(DayCalendarsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseDayCalendarsExternalResponse> Post4Async(this IKMDStudicaSchoolAdministration operations, DayCalendarsExternalRequest body = default(DayCalendarsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.Post4WithHttpMessagesAsync(xSelectedSchoolCode, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.Post4WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -188,32 +148,24 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseDepartmentsExternalResponse Post5(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), DepartmentsExternalRequest body = default(DepartmentsExternalRequest))
+            public static PagedResponseDepartmentsExternalResponse Post5(this IKMDStudicaSchoolAdministration operations, DepartmentsExternalRequest body = default(DepartmentsExternalRequest))
             {
-                return operations.Post5Async(xSelectedSchoolCode, body).GetAwaiter().GetResult();
+                return operations.Post5Async(body).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
             /// </param>
             /// <param name='body'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseDepartmentsExternalResponse> Post5Async(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), DepartmentsExternalRequest body = default(DepartmentsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseDepartmentsExternalResponse> Post5Async(this IKMDStudicaSchoolAdministration operations, DepartmentsExternalRequest body = default(DepartmentsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.Post5WithHttpMessagesAsync(xSelectedSchoolCode, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.Post5WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -222,32 +174,24 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseEmployeeExternalResponse Post6(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), EmployeesExternalRequest body = default(EmployeesExternalRequest))
+            public static PagedResponseEmployeeExternalResponse Post6(this IKMDStudicaSchoolAdministration operations, EmployeesExternalRequest body = default(EmployeesExternalRequest))
             {
-                return operations.Post6Async(xSelectedSchoolCode, body).GetAwaiter().GetResult();
+                return operations.Post6Async(body).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
             /// </param>
             /// <param name='body'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseEmployeeExternalResponse> Post6Async(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), EmployeesExternalRequest body = default(EmployeesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseEmployeeExternalResponse> Post6Async(this IKMDStudicaSchoolAdministration operations, EmployeesExternalRequest body = default(EmployeesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.Post6WithHttpMessagesAsync(xSelectedSchoolCode, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.Post6WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -256,32 +200,24 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseRoomExternalResponse Post7(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), RoomsExternalRequest body = default(RoomsExternalRequest))
+            public static PagedResponseRoomExternalResponse Post7(this IKMDStudicaSchoolAdministration operations, RoomsExternalRequest body = default(RoomsExternalRequest))
             {
-                return operations.Post7Async(xSelectedSchoolCode, body).GetAwaiter().GetResult();
+                return operations.Post7Async(body).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
             /// </param>
             /// <param name='body'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseRoomExternalResponse> Post7Async(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), RoomsExternalRequest body = default(RoomsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseRoomExternalResponse> Post7Async(this IKMDStudicaSchoolAdministration operations, RoomsExternalRequest body = default(RoomsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.Post7WithHttpMessagesAsync(xSelectedSchoolCode, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.Post7WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -290,32 +226,24 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseSchoolHourEntryExternalResponse Post8(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), SchoolHourEntriesExternalRequest body = default(SchoolHourEntriesExternalRequest))
+            public static PagedResponseSchoolHourEntryExternalResponse Post8(this IKMDStudicaSchoolAdministration operations, SchoolHourEntriesExternalRequest body = default(SchoolHourEntriesExternalRequest))
             {
-                return operations.Post8Async(xSelectedSchoolCode, body).GetAwaiter().GetResult();
+                return operations.Post8Async(body).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
             /// </param>
             /// <param name='body'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseSchoolHourEntryExternalResponse> Post8Async(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), SchoolHourEntriesExternalRequest body = default(SchoolHourEntriesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseSchoolHourEntryExternalResponse> Post8Async(this IKMDStudicaSchoolAdministration operations, SchoolHourEntriesExternalRequest body = default(SchoolHourEntriesExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.Post8WithHttpMessagesAsync(xSelectedSchoolCode, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.Post8WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -330,13 +258,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='schoolCode'>
             /// String The school code for which to get data.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
-            public static SchoolHoursPlanDetailsExternalResponse Post9(this IKMDStudicaSchoolAdministration operations, System.Guid id, string schoolCode, string xSelectedSchoolCode = default(string))
+            public static SchoolHoursPlanDetailsExternalResponse Post9(this IKMDStudicaSchoolAdministration operations, System.Guid id, string schoolCode)
             {
-                return operations.Post9Async(id, schoolCode, xSelectedSchoolCode).GetAwaiter().GetResult();
+                return operations.Post9Async(id, schoolCode).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -348,16 +272,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='schoolCode'>
             /// String The school code for which to get data.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<SchoolHoursPlanDetailsExternalResponse> Post9Async(this IKMDStudicaSchoolAdministration operations, System.Guid id, string schoolCode, string xSelectedSchoolCode = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<SchoolHoursPlanDetailsExternalResponse> Post9Async(this IKMDStudicaSchoolAdministration operations, System.Guid id, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.Post9WithHttpMessagesAsync(id, schoolCode, xSelectedSchoolCode, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.Post9WithHttpMessagesAsync(id, schoolCode, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -366,32 +286,24 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='body'>
             /// </param>
-            public static PagedResponseSchoolHoursPlanExternalResponse Post10(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), SchoolHoursPlansExternalRequest body = default(SchoolHoursPlansExternalRequest))
+            public static PagedResponseSchoolHoursPlanExternalResponse Post10(this IKMDStudicaSchoolAdministration operations, SchoolHoursPlansExternalRequest body = default(SchoolHoursPlansExternalRequest))
             {
-                return operations.Post10Async(xSelectedSchoolCode, body).GetAwaiter().GetResult();
+                return operations.Post10Async(body).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
             /// </param>
             /// <param name='body'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseSchoolHoursPlanExternalResponse> Post10Async(this IKMDStudicaSchoolAdministration operations, string xSelectedSchoolCode = default(string), SchoolHoursPlansExternalRequest body = default(SchoolHoursPlansExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseSchoolHoursPlanExternalResponse> Post10Async(this IKMDStudicaSchoolAdministration operations, SchoolHoursPlansExternalRequest body = default(SchoolHoursPlansExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.Post10WithHttpMessagesAsync(xSelectedSchoolCode, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.Post10WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

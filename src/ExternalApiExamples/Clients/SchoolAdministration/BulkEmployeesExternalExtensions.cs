@@ -26,13 +26,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='schoolCode'>
             /// String The school code for which to get data.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
-            public static IList<EmployeeExternalResponse> Post(this IBulkEmployeesExternal operations, IList<System.Guid> employeeIds, string schoolCode, string xSelectedSchoolCode = default(string))
+            public static IList<EmployeeExternalResponse> Post(this IBulkEmployeesExternal operations, IList<System.Guid> employeeIds, string schoolCode)
             {
-                return operations.PostAsync(employeeIds, schoolCode, xSelectedSchoolCode).GetAwaiter().GetResult();
+                return operations.PostAsync(employeeIds, schoolCode).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -44,16 +40,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='schoolCode'>
             /// String The school code for which to get data.
             /// </param>
-            /// <param name='xSelectedSchoolCode'>
-            /// Selected school code, used when multiple impersonation permissions are
-            /// available on the token
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<EmployeeExternalResponse>> PostAsync(this IBulkEmployeesExternal operations, IList<System.Guid> employeeIds, string schoolCode, string xSelectedSchoolCode = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<EmployeeExternalResponse>> PostAsync(this IBulkEmployeesExternal operations, IList<System.Guid> employeeIds, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostWithHttpMessagesAsync(employeeIds, schoolCode, xSelectedSchoolCode, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostWithHttpMessagesAsync(employeeIds, schoolCode, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

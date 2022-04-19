@@ -1833,7 +1833,7 @@
           "title": "Date",
           "description": "Date of absence.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "minutes": {
@@ -1908,7 +1908,7 @@
           "title": "Date",
           "description": "Beginning of the range for absence date. The {DateFrom} parameter\r\ndetermines date to get absence data from, as well as the school year period",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -1916,7 +1916,7 @@
           "title": "Date",
           "description": "End of the range for absence date.\r\nThe {DateTo} parameter must be within the same school year as {DateFrom}",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "onlyAbsenceReports": {
@@ -2017,13 +2017,13 @@
           "format": "date",
           "description": "Possible start date of UVM subject",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "endDate": {
           "format": "date",
           "description": "Possible end date of UVM subject",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "canOverwriteDuration": {
           "title": "Boolean",
@@ -2088,7 +2088,7 @@
           "title": "Date",
           "description": "Start date of the period.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -2096,7 +2096,7 @@
           "title": "Date",
           "description": "End date of the period.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -2151,7 +2151,7 @@
           "title": "Date",
           "description": "Start date of the subject course.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -2159,7 +2159,7 @@
           "title": "Date",
           "description": "End date for the subject course.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -2227,7 +2227,7 @@
           "title": "Date",
           "description": "Subject courses must be active on the date or after this date\r\nThis parameter is required",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -2301,7 +2301,7 @@
           "title": "Date",
           "description": "Date the contribution period starts",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -2309,7 +2309,7 @@
           "title": "Date",
           "description": "Date the contribution period ends",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "countingDate": {
@@ -2317,8 +2317,14 @@
           "title": "Date",
           "description": "Date on which students are accounted for this contribution period",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
+        },
+        "qualificationDate": {
+          "format": "date",
+          "description": "Date on which students are qualified for their education",
+          "type": "string",
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "contribution": {
           "format": "double",
@@ -2388,13 +2394,13 @@
           "format": "date",
           "description": "Activity start date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "endDate": {
           "format": "date",
           "description": "Activity end date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "dayCalendarId": {
           "format": "uuid",
@@ -2449,14 +2455,14 @@
           "title": "Date",
           "description": "Activities start on or after this date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
           "format": "date",
           "description": "Activities must end on or before this date\r\nProperty is nullable",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
@@ -2540,7 +2546,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -2620,7 +2626,7 @@
           "title": "Date",
           "description": "Beginning of the range for absence date.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -2628,7 +2634,7 @@
           "title": "Date",
           "description": "End of the range for absence date.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "onlyAbsenceReports": {
@@ -2823,7 +2829,7 @@
           "title": "Date",
           "description": "Start date of the educational programme.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -2831,7 +2837,7 @@
           "title": "Date",
           "description": "End date for the educational programme.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -2962,7 +2968,7 @@
           "title": "Date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "startTime": {
@@ -3131,7 +3137,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -3205,7 +3211,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
@@ -3213,7 +3219,7 @@
           "title": "Date",
           "description": "End of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -3322,7 +3328,7 @@
           "title": "Date",
           "description": "Beginning of range for lesson date.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -3330,7 +3336,7 @@
           "title": "Date",
           "description": "End of range for lesson date.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "hasExternalId": {
@@ -3507,21 +3513,21 @@
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "countingDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "duration": {
@@ -3563,7 +3569,7 @@
           "title": "Date",
           "description": "School course start date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -3571,7 +3577,7 @@
           "title": "Date",
           "description": "School course end date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "uvmDepartmentNumber": {
@@ -3672,14 +3678,14 @@
           "title": "Date",
           "description": "School courses start on or after this date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
           "format": "date",
           "description": "School courses must end on or before this date\r\nProperty is nullable",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
@@ -3750,14 +3756,14 @@
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -3889,7 +3895,7 @@
           "title": "Date",
           "description": "Start date of the reporting period",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "reportingPeriodEndDate": {
@@ -3897,7 +3903,7 @@
           "title": "Date",
           "description": "End date of the reporting period",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "exchangeType": {
@@ -3943,7 +3949,7 @@
           "title": "Date",
           "description": "Beginning of period for activity report quarters.\r\nThe {PeriodFrom} parameter must be a date that is on or before given activity report period\r\nto include the desired report in the output.\r\nE.g. if specifying PeriodFrom as 2021-01-01 and PeriodTo as 2021-06-30\r\nyou will only get the activity report for 2nd period of 2021 (March 16 to June 15)",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -3951,7 +3957,7 @@
           "title": "Date",
           "description": "End of period for activity report quarters. The {PeriodTo} parameter must fully encompass\r\nthe end date of a given activity report quarter to include the desired report in the output.\r\nE.g. to get all activity reports for 2020 the PeriodFrom could be 2019-12-15\r\nand PeriodTo could be 2020-12-30",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -3986,12 +3992,12 @@
         "countingPeriodStartDate": {
           "format": "date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "countingPeriodEndDate": {
           "format": "date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "contribution": {
           "format": "double",
@@ -4113,7 +4119,7 @@
           "title": "Date",
           "description": "Start date of the transmission period",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "transmissionPeriodEndDate": {
@@ -4121,7 +4127,7 @@
           "title": "Date",
           "description": "End date of the transmission period",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "exchangeType": {
@@ -4167,7 +4173,7 @@
           "title": "Date",
           "description": "Includes reports for periods with a transmission period start date no earlier than {PeriodFrom}",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -4175,7 +4181,7 @@
           "title": "Date",
           "description": "Includes reports for periods with a transmission period start date no later than {PeriodFromTo}",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -4211,7 +4217,7 @@
           "title": "Date",
           "description": "Start date of internship",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -4219,7 +4225,7 @@
           "title": "Date",
           "description": "End date for internship",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "placeOfInternshipName": {
@@ -4283,7 +4289,7 @@
           "title": "Date",
           "description": "Start date of the school based internship",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -4291,7 +4297,7 @@
           "title": "Date",
           "description": "End date of the school based internship",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -4332,21 +4338,21 @@
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "countingDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "contributionDays": {
@@ -4439,7 +4445,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date of the students' internships.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -4447,7 +4453,7 @@
           "title": "Date",
           "description": "End of the range for start date of the students' internships.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -4481,7 +4487,7 @@
           "title": "Date",
           "description": "Start date of the participation period",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "participationEndDate": {
@@ -4489,7 +4495,7 @@
           "title": "Date",
           "description": "End date of the participation period",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "correctedDuration": {
@@ -4543,21 +4549,21 @@
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "countingDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "contributionDays": {
@@ -4646,7 +4652,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date of the students' school courses.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -4654,7 +4660,7 @@
           "title": "Date",
           "description": "End of the range for start date of the students' school courses.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -4686,13 +4692,13 @@
           "format": "date",
           "description": "Start date for student participating in the course",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "studentParticipationEndDate": {
           "format": "date",
           "description": "End date for student participating in the course",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "subjectCourseId": {
           "format": "uuid",
@@ -4806,7 +4812,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date subject courses.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
@@ -4814,7 +4820,7 @@
           "title": "Date",
           "description": "End of the range for start date subject courses.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -4902,7 +4908,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",

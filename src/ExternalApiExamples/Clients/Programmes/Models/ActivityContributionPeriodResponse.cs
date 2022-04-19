@@ -39,15 +39,18 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="countingDate">Date</param>
         /// <param name="contribution">Decimal</param>
         /// <param name="contributionDays">Decimal</param>
+        /// <param name="qualificationDate">Date on which students are
+        /// qualified for their education</param>
         /// <param name="remainingContribution">The remaining
         /// contribution</param>
-        public ActivityContributionPeriodResponse(System.Guid studentId, int countingPeriodNumber, System.DateTime startDate, System.DateTime endDate, System.DateTime countingDate, double contribution, double contributionDays, double? remainingContribution = default(double?))
+        public ActivityContributionPeriodResponse(System.Guid studentId, int countingPeriodNumber, System.DateTime startDate, System.DateTime endDate, System.DateTime countingDate, double contribution, double contributionDays, System.DateTime? qualificationDate = default(System.DateTime?), double? remainingContribution = default(double?))
         {
             StudentId = studentId;
             CountingPeriodNumber = countingPeriodNumber;
             StartDate = startDate;
             EndDate = endDate;
             CountingDate = countingDate;
+            QualificationDate = qualificationDate;
             Contribution = contribution;
             RemainingContribution = remainingContribution;
             ContributionDays = contributionDays;
@@ -106,6 +109,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "countingDate")]
         public System.DateTime CountingDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets date on which students are qualified for their
+        /// education
+        /// </summary>
+        [JsonConverter(typeof(DateJsonConverter))]
+        [JsonProperty(PropertyName = "qualificationDate")]
+        public System.DateTime? QualificationDate { get; set; }
 
         /// <summary>
         /// Gets or sets decimal

@@ -379,14 +379,14 @@
           "title": "Date",
           "description": "The date from which the studenttype is valid",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "The end date of the studenttype",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         }
       }
     },
@@ -447,20 +447,20 @@
           "title": "Date",
           "description": "Study date of start.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "studyExpectedCompletionDate": {
           "format": "date",
           "description": "Expected completion date of study.",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "studyEndDate": {
           "format": "date",
           "description": "Study end date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "studyEndCauseId": {
           "format": "uuid",
@@ -690,7 +690,7 @@
           "title": "Date",
           "description": "Students must be active on the date or after this date\r\nThis parameter is required",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
@@ -829,7 +829,7 @@
           "format": "date",
           "description": "Date for when mark has been given",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000"
+          "example": "2022-04-19T00:00:00.0000000"
         },
         "markCode": {
           "title": "String",

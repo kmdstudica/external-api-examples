@@ -210,7 +210,7 @@
           "title": "Date",
           "description": "Start date of internship",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -218,7 +218,7 @@
           "title": "Date",
           "description": "End date for internship",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "placeOfInternshipName": {
@@ -296,7 +296,7 @@
           "title": "Date",
           "description": "Start date of the internship period",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -304,7 +304,7 @@
           "title": "Date",
           "description": "End date of the internship period",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -369,7 +369,7 @@
           "title": "Date",
           "description": "Get all students school internships starting on or after this date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -377,7 +377,7 @@
           "title": "Date",
           "description": "Get all students school internships ending on or before this date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -403,7 +403,7 @@
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "durationInMinutes": {
@@ -484,7 +484,7 @@
           "title": "Date",
           "description": "Get all students school internships absence starting on or after this date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -492,7 +492,7 @@
           "title": "Date",
           "description": "Get all students school internships absence ending on or before this date",
           "type": "string",
-          "example": "2022-03-31T00:00:00.0000000",
+          "example": "2022-04-19T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {

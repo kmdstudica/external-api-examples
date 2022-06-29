@@ -53,7 +53,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         /// <remarks>
         /// Includes reports for periods with a transmission period start date
-        /// no earlier than {PeriodFrom}
+        /// no earlier than `PeriodFrom`
         /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "periodFrom")]
@@ -64,7 +64,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         /// <remarks>
         /// Includes reports for periods with a transmission period start date
-        /// no later than {PeriodFromTo}
+        /// no later than `PeriodFromTo`
         /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "periodTo")]

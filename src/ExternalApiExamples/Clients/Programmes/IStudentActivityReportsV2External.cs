@@ -20,11 +20,11 @@ namespace Kmd.Studica.Programmes.Client
     {
         /// <param name='periodFrom'>
         /// Includes reports for periods with a transmission period start date
-        /// no earlier than {PeriodFrom}
+        /// no earlier than `PeriodFrom`
         /// </param>
         /// <param name='periodTo'>
         /// Includes reports for periods with a transmission period start date
-        /// no later than {PeriodFromTo}
+        /// no later than `PeriodFromTo`
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.

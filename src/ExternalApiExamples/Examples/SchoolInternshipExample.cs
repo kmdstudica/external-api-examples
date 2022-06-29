@@ -91,5 +91,54 @@ namespace ExternalApiExamples
                 .From(result.Body)
                 .Write();
         }
+
+        public async Task ExecuteActiveInternshipDepartments()
+        {
+            Console.WriteLine("Executing student internship departments example");
+
+            using var internshipsClient = new KMDStudicaSchoolInternships(new TokenCredentials(tokenProvider));
+            internshipsClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolInternshipsBaseUri)
+                ? new Uri("https://gateway.kmdlogic.io/studica/school-internships/v1")
+                : new Uri(configuration.SchoolInternshipsBaseUri);
+
+            var result = await internshipsClient.ActiveInternshipDepartmentsExternal.GetWithHttpMessagesAsync(
+                pageNumber: 1,
+                pageSize: 100,
+                inlineCount: true,
+                schoolCode: configuration.SchoolCode,
+                customHeaders: new Dictionary<string, List<string>>
+                {
+                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                });
+
+            Console.WriteLine($"Got {result.Body.TotalItems} active internship departments from API");
+            ConsoleTable
+                .From(result.Body.Items)
+                .Write();
+        }
+        
+        public async Task ExecuteBulkInternshipDepartments()
+        {
+            Console.WriteLine("Executing student internship departments example");
+
+            using var internshipsClient = new KMDStudicaSchoolInternships(new TokenCredentials(tokenProvider));
+            internshipsClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolInternshipsBaseUri)
+                ? new Uri("https://gateway.kmdlogic.io/studica/school-internships/v1")
+                : new Uri(configuration.SchoolInternshipsBaseUri);
+
+            var result = await internshipsClient.BulkInternshipDepartmentsExternal.GetWithHttpMessagesAsync(
+                internshipDepartmentIds: new[] { Guid.NewGuid() },
+                schoolCode: configuration.SchoolCode,
+                customHeaders: new Dictionary<string, List<string>>
+                {
+                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                });
+
+            Console.WriteLine($"Got {result.Body.Count()} internship departments from API");
+            ConsoleTable
+                .From(result.Body)
+                .Write();
+        }
+
     }
 }

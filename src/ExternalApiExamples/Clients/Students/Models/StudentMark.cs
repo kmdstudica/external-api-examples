@@ -142,7 +142,8 @@ namespace Kmd.Studica.Students.Client.Models
         /// </summary>
         /// <remarks>
         /// What kind of mark it is. eg manual or from netproever. Possible
-        /// values include: 'Manual', 'SubjectCourse', 'DigitalExamination'
+        /// values include: 'Manual', 'SubjectCourse', 'DigitalExamination',
+        /// 'XprsExamination'
         /// </remarks>
         [JsonProperty(PropertyName = "examMarkSource")]
         public string ExamMarkSource { get; set; }

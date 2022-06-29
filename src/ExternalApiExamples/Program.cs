@@ -94,6 +94,8 @@ namespace ExternalApiExamples
             // await new SchoolInternshipExample(tokenProvider, configuration).ExecuteSchoolInternship();
             // await new SchoolInternshipExample(tokenProvider, configuration).ExecuteSchoolInternshipAbsence();
             // await new SchoolInternshipExample(tokenProvider, configuration).ExecuteStudentInternsipLegacyApi();
+            // await new SchoolInternshipExample(tokenProvider, configuration).ExecuteActiveInternshipDepartments();
+            // await new SchoolInternshipExample(tokenProvider, configuration).ExecuteBulkInternshipDepartments();
         }
     }
 }

@@ -35,6 +35,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="civilRegistrationNumber">String</param>
         /// <param name="protectedNameAndAddress">Boolean</param>
         /// <param name="bridgingcourseId">Guid</param>
+        /// <param name="educationVersion">Int32</param>
         /// <param name="givenName">String</param>
         /// <param name="surname">String</param>
         /// <param name="protectedGivenName">String</param>
@@ -44,7 +45,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="phone">String</param>
         /// <param name="mobile">String</param>
         /// <param name="email">String</param>
-        public BridgingCourseStudentExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, System.Guid bridgingcourseId, string givenName = default(string), string surname = default(string), string protectedGivenName = default(string), string protectedSurname = default(string), string addressLine = default(string), string postalCode = default(string), string phone = default(string), string mobile = default(string), string email = default(string))
+        /// <param name="dsDepartmentNumber">String</param>
+        /// <param name="education">String</param>
+        public BridgingCourseStudentExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, System.Guid bridgingcourseId, int educationVersion, string givenName = default(string), string surname = default(string), string protectedGivenName = default(string), string protectedSurname = default(string), string addressLine = default(string), string postalCode = default(string), string phone = default(string), string mobile = default(string), string email = default(string), string dsDepartmentNumber = default(string), string education = default(string))
         {
             Id = id;
             CivilRegistrationNumber = civilRegistrationNumber;
@@ -59,6 +62,9 @@ namespace Kmd.Studica.Programmes.Client.Models
             Mobile = mobile;
             Email = email;
             BridgingcourseId = bridgingcourseId;
+            DsDepartmentNumber = dsDepartmentNumber;
+            Education = education;
+            EducationVersion = educationVersion;
             CustomInit();
         }
 
@@ -184,6 +190,34 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </remarks>
         [JsonProperty(PropertyName = "bridgingcourseId")]
         public System.Guid BridgingcourseId { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The DS department number of the bridging course
+        /// which the bridging course student is on.
+        /// </remarks>
+        [JsonProperty(PropertyName = "dsDepartmentNumber")]
+        public string DsDepartmentNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The name of the education.
+        /// </remarks>
+        [JsonProperty(PropertyName = "education")]
+        public string Education { get; set; }
+
+        /// <summary>
+        /// Gets or sets int32
+        /// </summary>
+        /// <remarks>
+        /// The version of the education.
+        /// </remarks>
+        [JsonProperty(PropertyName = "educationVersion")]
+        public int EducationVersion { get; set; }
 
         /// <summary>
         /// Validate the object.

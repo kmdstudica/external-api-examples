@@ -257,271 +257,121 @@
     }
   },
   "definitions": {
-    "Student_Guardian": {
-      "title": "Student_Guardian",
+    "ActiveStudentsExternalRequest": {
+      "title": "ActiveStudentsExternalRequest",
+      "description": "Returns a paged list of students for given criteria.",
       "required": [
-        "id",
-        "protectedNameAndAddress"
+        "inlineCount",
+        "pageNumber",
+        "pageSize",
+        "schoolCode",
+        "studentActiveOnOrAfterDate"
       ],
       "type": "object",
       "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
+        "studentActiveOnOrAfterDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Students must be active on the date or after this date\r\nThis parameter is required",
           "type": "string",
+          "example": "2022-06-24T00:00:00.0000000",
           "x-nullable": false
         },
-        "civilRegistrationNumber": {
-          "title": "String",
-          "description": "The guardian's Civil Registration (CPR) number.",
-          "type": "string"
+        "pageNumber": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "The number of the page to return (1 is the first page).",
+          "maximum": 2147483647,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
         },
-        "role": {
-          "description": "The guardian's role towards the student.",
-          "enum": [
-            "Mother",
-            "Father",
-            "Other",
-            "OfficialAuthority"
-          ],
-          "type": "string"
+        "pageSize": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "Number of objects per page.",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
         },
-        "givenName": {
-          "title": "String",
-          "description": "The guardian's first- and middle names.",
-          "type": "string"
-        },
-        "surname": {
-          "title": "String",
-          "description": "The guardian's last name.",
-          "type": "string"
-        },
-        "protectedGivenName": {
-          "title": "String",
-          "description": "The given name(s) of the guardian, as registered in the national registry.",
-          "type": "string"
-        },
-        "protectedSurname": {
-          "title": "String",
-          "description": "The surname of the guardian, as registered in the national registry.",
-          "type": "string"
-        },
-        "phoneNumber": {
-          "title": "String",
-          "description": "The guardian's phone number.",
-          "type": "string"
-        },
-        "email": {
-          "title": "String",
-          "description": "The guardian's e-mail address.",
-          "type": "string"
-        },
-        "careOfAddressLine": {
-          "title": "String",
-          "description": "The C/O address line of the guardian.",
-          "type": "string"
-        },
-        "addressLine": {
-          "title": "String",
-          "description": "The guardian's full address including street, house-nr letter, etc.",
-          "type": "string"
-        },
-        "place": {
-          "title": "String",
-          "description": "The place of the guardian.",
-          "type": "string"
-        },
-        "city": {
-          "title": "String",
-          "description": "The city where the guardian lives.",
-          "type": "string"
-        },
-        "postalCode": {
-          "title": "String",
-          "description": "The matching postal code for the city.",
-          "type": "string"
-        },
-        "country": {
-          "title": "String",
-          "description": "The country where the guardian lives.",
-          "type": "string"
-        },
-        "protectedNameAndAddress": {
+        "inlineCount": {
           "title": "Boolean",
-          "description": "Whether the guardian has name and address protection.",
+          "description": "A flag indicating if total number of items should be included.",
+          "default": true,
           "type": "boolean",
           "x-nullable": false
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
         }
       }
     },
-    "Study_StudentType": {
-      "title": "Study_StudentType",
+    "BulkStudentsExternalRequest": {
+      "title": "BulkStudentsExternalRequest",
+      "description": "Returns a paged list of students for given criteria.",
       "required": [
-        "id",
-        "validFrom"
+        "schoolCode",
+        "studentIds"
       ],
       "type": "object",
       "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "The student type",
-          "type": "string",
-          "x-nullable": false
-        },
-        "name": {
-          "title": "String",
-          "description": "Name of studet type (ElevType from UMO)",
-          "type": "string"
-        },
-        "validFrom": {
-          "format": "date",
-          "title": "Date",
-          "description": "The date from which the studenttype is valid",
-          "type": "string",
-          "example": "2022-04-19T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "validTo": {
-          "format": "date",
-          "description": "The end date of the studenttype",
-          "type": "string",
-          "example": "2022-04-19T00:00:00.0000000"
-        }
-      }
-    },
-    "Student_Study": {
-      "title": "Student_Study",
-      "required": [
-        "departmentId",
-        "educationId",
-        "id",
-        "studentTypes",
-        "studyStartDate"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "The id of the study",
-          "type": "string",
-          "x-nullable": false
-        },
-        "departmentId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of the department that student is affiliated to.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "dsDepartmentNumber": {
-          "title": "String",
-          "description": "DS Department number that student is affiliated to.",
-          "type": "string"
-        },
-        "educationId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of the education (from UMO) that the study is linked to",
-          "type": "string",
-          "x-nullable": false
-        },
-        "educationName": {
-          "title": "String",
-          "description": "Name of the education from UMO",
-          "type": "string"
-        },
-        "coesa": {
-          "title": "String",
-          "description": "CØSA number of education from UMO",
-          "type": "string"
-        },
-        "educationVersion": {
-          "title": "String",
-          "description": "Education version from UMO",
-          "type": "string"
-        },
-        "studyStartDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "Study date of start.",
-          "type": "string",
-          "example": "2022-04-19T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "studyExpectedCompletionDate": {
-          "format": "date",
-          "description": "Expected completion date of study.",
-          "type": "string",
-          "example": "2022-04-19T00:00:00.0000000"
-        },
-        "studyEndDate": {
-          "format": "date",
-          "description": "Study end date",
-          "type": "string",
-          "example": "2022-04-19T00:00:00.0000000"
-        },
-        "studyEndCauseId": {
-          "format": "uuid",
-          "description": "Id of study end cause",
-          "type": "string"
-        },
-        "studyEndCauseCode": {
-          "title": "String",
-          "description": "The UMO code for ending the study",
-          "type": "string"
-        },
-        "studyEndCause": {
-          "title": "String",
-          "description": "UMO description for cause for study end.",
-          "type": "string"
-        },
-        "studyCancellationCauseCode": {
-          "description": "The cancellation code for ending the study.",
-          "enum": [
-            "StudyNotStarted",
-            "Absence",
-            "Illness",
-            "EducationalRequirements",
-            "ChangedStudy",
-            "ChangedSchool",
-            "ChangedSchoolAndChangedStudy",
-            "Other",
-            "Unknown",
-            "Deceased",
-            "WrittenAgreementTerminated",
-            "CompletedGF2NotContinuing",
-            "NotPassedFinalExam",
-            "AdmissionExamNotPassedAndInterviewDenied",
-            "AdmissionExamNotPassedAndDidNotShowAtInterview",
-            "AdmissionInterviewNotPassed",
-            "AdmissionExamPassedButInterviewDenied",
-            "AdmissionExamPassedButDidNotShowAtInterview",
-            "NotStarted",
-            "ProfessionalRequirements",
-            "PrivateReasons",
-            "ExamNotPassed",
-            "Expelled",
-            "Unreachable",
-            "ChangeOfEducation",
-            "ChangeOfSchool",
-            "CompletedGf1OrPlus",
-            "CompletedGf2",
-            "CancelledExchangeStudent",
-            "LeaveOfAbsence",
-            "Completed",
-            "Death",
-            "TeacherRelationCancelled"
-          ],
-          "type": "string"
-        },
-        "studentTypes": {
-          "description": "StudentTypes associated with the student.",
+        "studentIds": {
+          "description": "Student ids for bulk query. Must contain 1 to 1000 elements",
+          "maxLength": 1000,
+          "minLength": 1,
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Study_StudentType"
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
           }
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
+    "PagedResponse_StudentExternalResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Page of items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentExternalResponse"
+          }
+        },
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
+          "type": "integer"
+        }
+      }
+    },
+    "PagedResponse_StudentMarksExternalResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Page of items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentMarksExternalResponse"
+          }
+        },
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
+          "type": "integer"
         }
       }
     },
@@ -656,41 +506,35 @@
         }
       }
     },
-    "PagedResponse_StudentExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StudentExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
-    "ActiveStudentsExternalRequest": {
-      "title": "ActiveStudentsExternalRequest",
-      "description": "Returns a paged list of students for given criteria.",
+    "StudentMarksExternalRequest": {
+      "title": "StudentMarksExternalRequest",
+      "description": "Returns a list of students and their marks",
       "required": [
         "inlineCount",
+        "onlyIncludeMarksForExamPaper",
         "pageNumber",
         "pageSize",
         "schoolCode",
-        "studentActiveOnOrAfterDate"
+        "studentIds"
       ],
       "type": "object",
       "properties": {
-        "studentActiveOnOrAfterDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "Students must be active on the date or after this date\r\nThis parameter is required",
-          "type": "string",
-          "example": "2022-04-19T00:00:00.0000000",
+        "studentIds": {
+          "description": "A list of students to get marks for",
+          "maxLength": 1000,
+          "minLength": 1,
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
+        },
+        "onlyIncludeMarksForExamPaper": {
+          "title": "Boolean",
+          "description": "Flag to indicate if service should only return marks that should be included on exam paper",
+          "type": "boolean",
           "x-nullable": false
         },
         "pageNumber": {
@@ -727,33 +571,357 @@
         }
       }
     },
-    "BulkStudentsExternalRequest": {
-      "title": "BulkStudentsExternalRequest",
-      "description": "Returns a paged list of students for given criteria.",
+    "StudentMarksExternalResponse": {
+      "title": "StudentMarksExternalResponse",
+      "description": "Model of student marks response",
       "required": [
-        "schoolCode",
-        "studentIds"
+        "civilRegistrationNumber",
+        "studentId"
       ],
       "type": "object",
       "properties": {
-        "studentIds": {
-          "description": "Student ids for bulk query. Must contain 1 to 1000 elements",
-          "maxLength": 1000,
-          "minLength": 1,
+        "studentId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Student's identifier.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "civilRegistrationNumber": {
+          "title": "String",
+          "description": "Student's civil registration (CPR) number.",
+          "type": "string"
+        },
+        "givenName": {
+          "title": "String",
+          "description": "Student's given name.",
+          "type": "string"
+        },
+        "surname": {
+          "title": "String",
+          "description": "Student's surname.",
+          "type": "string"
+        },
+        "protectedGivenName": {
+          "title": "String",
+          "description": "Protected given name from national registry",
+          "type": "string"
+        },
+        "protectedSurname": {
+          "title": "String",
+          "description": "Protected surname from national registry",
+          "type": "string"
+        },
+        "marks": {
           "type": "array",
           "items": {
-            "format": "uuid",
-            "title": "Guid",
-            "type": "string",
-            "x-nullable": false
-          }
+            "$ref": "#/definitions/Student_Mark"
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "Student_Guardian": {
+      "title": "Student_Guardian",
+      "required": [
+        "id",
+        "protectedNameAndAddress"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "title": "Guid",
+          "type": "string",
+          "x-nullable": false
         },
-        "schoolCode": {
+        "civilRegistrationNumber": {
           "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
+          "description": "The guardian's Civil Registration (CPR) number.",
           "type": "string"
+        },
+        "role": {
+          "description": "The guardian's role towards the student.",
+          "enum": [
+            "Mother",
+            "Father",
+            "Other",
+            "OfficialAuthority"
+          ],
+          "type": "string"
+        },
+        "givenName": {
+          "title": "String",
+          "description": "The guardian's first- and middle names.",
+          "type": "string"
+        },
+        "surname": {
+          "title": "String",
+          "description": "The guardian's last name.",
+          "type": "string"
+        },
+        "protectedGivenName": {
+          "title": "String",
+          "description": "The given name(s) of the guardian, as registered in the national registry.",
+          "type": "string"
+        },
+        "protectedSurname": {
+          "title": "String",
+          "description": "The surname of the guardian, as registered in the national registry.",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "title": "String",
+          "description": "The guardian's phone number.",
+          "type": "string"
+        },
+        "email": {
+          "title": "String",
+          "description": "The guardian's e-mail address.",
+          "type": "string"
+        },
+        "careOfAddressLine": {
+          "title": "String",
+          "description": "The C/O address line of the guardian.",
+          "type": "string"
+        },
+        "addressLine": {
+          "title": "String",
+          "description": "The guardian's full address including street, house-nr letter, etc.",
+          "type": "string"
+        },
+        "place": {
+          "title": "String",
+          "description": "The place of the guardian.",
+          "type": "string"
+        },
+        "city": {
+          "title": "String",
+          "description": "The city where the guardian lives.",
+          "type": "string"
+        },
+        "postalCode": {
+          "title": "String",
+          "description": "The matching postal code for the city.",
+          "type": "string"
+        },
+        "country": {
+          "title": "String",
+          "description": "The country where the guardian lives.",
+          "type": "string"
+        },
+        "protectedNameAndAddress": {
+          "title": "Boolean",
+          "description": "Whether the guardian has name and address protection.",
+          "type": "boolean",
+          "x-nullable": false
+        }
+      }
+    },
+    "Student_Mark": {
+      "title": "Student_Mark",
+      "required": [
+        "examMarkSource",
+        "useOnExamPaper"
+      ],
+      "type": "object",
+      "properties": {
+        "date": {
+          "format": "date",
+          "description": "Date for when mark has been given",
+          "type": "string",
+          "example": "2022-06-24T00:00:00.0000000"
+        },
+        "markCode": {
+          "title": "String",
+          "description": "Code of the mark type in the Danish educational model (UMO), e.g. DEL or STA",
+          "type": "string"
+        },
+        "markDesignation": {
+          "title": "String",
+          "description": "Designation/desciption text of the mark type in the Danish educational model (UMO), e.g. 00, Over middel or Syg",
+          "type": "string"
+        },
+        "markValue": {
+          "title": "String",
+          "description": "Value of the mark, e.g. 00, 7 or SY",
+          "type": "string"
+        },
+        "markValueEcts": {
+          "title": "String",
+          "description": "The mark value in ECTS scale",
+          "type": "string"
+        },
+        "creditText": {
+          "title": "String",
+          "description": "The text describing the credit (not set if ordinary mark)",
+          "type": "string"
+        },
+        "useOnExamPaper": {
+          "title": "Boolean",
+          "description": "Flag to describe whether the mark should be included on the student's exam paper",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "subjectCourseId": {
+          "format": "uuid",
+          "description": "The ID of the subject course for which the mark has been given\r\nIf the ID is null, then the mark has been assigned manually",
+          "type": "string"
+        },
+        "subject": {
+          "description": "Subject that the mark is given for",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Student_Subject"
+            }
+          ]
+        },
+        "examMarkSource": {
+          "title": "ExamMarkSource",
+          "description": "What kind of mark it is. eg manual or from netproever",
+          "enum": [
+            "Manual",
+            "SubjectCourse",
+            "DigitalExamination",
+            "XprsExamination"
+          ],
+          "type": "string",
+          "x-nullable": false
+        }
+      }
+    },
+    "Student_Study": {
+      "title": "Student_Study",
+      "required": [
+        "departmentId",
+        "educationId",
+        "id",
+        "studentTypes",
+        "studyStartDate"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "The id of the study",
+          "type": "string",
+          "x-nullable": false
+        },
+        "departmentId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of the department that student is affiliated to.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "dsDepartmentNumber": {
+          "title": "String",
+          "description": "DS Department number that student is affiliated to.",
+          "type": "string"
+        },
+        "educationId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of the education (from UMO) that the study is linked to",
+          "type": "string",
+          "x-nullable": false
+        },
+        "educationName": {
+          "title": "String",
+          "description": "Name of the education from UMO",
+          "type": "string"
+        },
+        "coesa": {
+          "title": "String",
+          "description": "CØSA number of education from UMO",
+          "type": "string"
+        },
+        "educationVersion": {
+          "title": "String",
+          "description": "Education version from UMO",
+          "type": "string"
+        },
+        "studyStartDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Study date of start.",
+          "type": "string",
+          "example": "2022-06-24T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "studyExpectedCompletionDate": {
+          "format": "date",
+          "description": "Expected completion date of study.",
+          "type": "string",
+          "example": "2022-06-24T00:00:00.0000000"
+        },
+        "studyEndDate": {
+          "format": "date",
+          "description": "Study end date",
+          "type": "string",
+          "example": "2022-06-24T00:00:00.0000000"
+        },
+        "studyEndCauseId": {
+          "format": "uuid",
+          "description": "Id of study end cause",
+          "type": "string"
+        },
+        "studyEndCauseCode": {
+          "title": "String",
+          "description": "The UMO code for ending the study",
+          "type": "string"
+        },
+        "studyEndCause": {
+          "title": "String",
+          "description": "UMO description for cause for study end.",
+          "type": "string"
+        },
+        "studyCancellationCauseCode": {
+          "description": "The cancellation code for ending the study.",
+          "enum": [
+            "StudyNotStarted",
+            "Absence",
+            "Illness",
+            "EducationalRequirements",
+            "ChangedStudy",
+            "ChangedSchool",
+            "ChangedSchoolAndChangedStudy",
+            "Other",
+            "Unknown",
+            "Deceased",
+            "WrittenAgreementTerminated",
+            "CompletedGF2NotContinuing",
+            "NotPassedFinalExam",
+            "AdmissionExamNotPassedAndInterviewDenied",
+            "AdmissionExamNotPassedAndDidNotShowAtInterview",
+            "AdmissionInterviewNotPassed",
+            "AdmissionExamPassedButInterviewDenied",
+            "AdmissionExamPassedButDidNotShowAtInterview",
+            "NotStarted",
+            "ProfessionalRequirements",
+            "PrivateReasons",
+            "ExamNotPassed",
+            "Expelled",
+            "Unreachable",
+            "ChangeOfEducation",
+            "ChangeOfSchool",
+            "CompletedGf1OrPlus",
+            "CompletedGf2",
+            "CancelledExchangeStudent",
+            "LeaveOfAbsence",
+            "Completed",
+            "Death",
+            "TeacherRelationCancelled"
+          ],
+          "type": "string"
+        },
+        "studentTypes": {
+          "description": "StudentTypes associated with the student.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Study_StudentType"
+          }
         }
       }
     },
@@ -817,206 +985,39 @@
         }
       }
     },
-    "Student_Mark": {
-      "title": "Student_Mark",
+    "Study_StudentType": {
+      "title": "Study_StudentType",
       "required": [
-        "examMarkSource",
-        "useOnExamPaper"
+        "id",
+        "validFrom"
       ],
       "type": "object",
       "properties": {
-        "date": {
-          "format": "date",
-          "description": "Date for when mark has been given",
-          "type": "string",
-          "example": "2022-04-19T00:00:00.0000000"
-        },
-        "markCode": {
-          "title": "String",
-          "description": "Code of the mark type in the Danish educational model (UMO), e.g. DEL or STA",
-          "type": "string"
-        },
-        "markDesignation": {
-          "title": "String",
-          "description": "Designation/desciption text of the mark type in the Danish educational model (UMO), e.g. 00, Over middel or Syg",
-          "type": "string"
-        },
-        "markValue": {
-          "title": "String",
-          "description": "Value of the mark, e.g. 00, 7 or SY",
-          "type": "string"
-        },
-        "markValueEcts": {
-          "title": "String",
-          "description": "The mark value in ECTS scale",
-          "type": "string"
-        },
-        "creditText": {
-          "title": "String",
-          "description": "The text describing the credit (not set if ordinary mark)",
-          "type": "string"
-        },
-        "useOnExamPaper": {
-          "title": "Boolean",
-          "description": "Flag to describe whether the mark should be included on the student's exam paper",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "subjectCourseId": {
-          "format": "uuid",
-          "description": "The ID of the subject course for which the mark has been given\r\nIf the ID is null, then the mark has been assigned manually",
-          "type": "string"
-        },
-        "subject": {
-          "description": "Subject that the mark is given for",
-          "allOf": [
-            {
-              "$ref": "#/definitions/Student_Subject"
-            }
-          ]
-        },
-        "examMarkSource": {
-          "title": "ExamMarkSource",
-          "description": "What kind of mark it is. eg manual or from netproever",
-          "enum": [
-            "Manual",
-            "SubjectCourse",
-            "DigitalExamination"
-          ],
-          "type": "string",
-          "x-nullable": false
-        }
-      }
-    },
-    "StudentMarksExternalResponse": {
-      "title": "StudentMarksExternalResponse",
-      "description": "Model of student marks response",
-      "required": [
-        "civilRegistrationNumber",
-        "studentId"
-      ],
-      "type": "object",
-      "properties": {
-        "studentId": {
+        "id": {
           "format": "uuid",
           "title": "Guid",
-          "description": "Student's identifier.",
+          "description": "The student type",
           "type": "string",
           "x-nullable": false
         },
-        "civilRegistrationNumber": {
+        "name": {
           "title": "String",
-          "description": "Student's civil registration (CPR) number.",
+          "description": "Name of studet type (ElevType from UMO)",
           "type": "string"
         },
-        "givenName": {
-          "title": "String",
-          "description": "Student's given name.",
-          "type": "string"
-        },
-        "surname": {
-          "title": "String",
-          "description": "Student's surname.",
-          "type": "string"
-        },
-        "protectedGivenName": {
-          "title": "String",
-          "description": "Protected given name from national registry",
-          "type": "string"
-        },
-        "protectedSurname": {
-          "title": "String",
-          "description": "Protected surname from national registry",
-          "type": "string"
-        },
-        "marks": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Student_Mark"
-          },
-          "readOnly": true
-        }
-      }
-    },
-    "PagedResponse_StudentMarksExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StudentMarksExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
-    "StudentMarksExternalRequest": {
-      "title": "StudentMarksExternalRequest",
-      "description": "Returns a list of students and their marks",
-      "required": [
-        "inlineCount",
-        "onlyIncludeMarksForExamPaper",
-        "pageNumber",
-        "pageSize",
-        "schoolCode",
-        "studentIds"
-      ],
-      "type": "object",
-      "properties": {
-        "studentIds": {
-          "description": "A list of students to get marks for",
-          "maxLength": 1000,
-          "minLength": 1,
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "title": "Guid",
-            "type": "string",
-            "x-nullable": false
-          }
-        },
-        "onlyIncludeMarksForExamPaper": {
-          "title": "Boolean",
-          "description": "Flag to indicate if service should only return marks that should be included on exam paper",
-          "type": "boolean",
+        "validFrom": {
+          "format": "date",
+          "title": "Date",
+          "description": "The date from which the studenttype is valid",
+          "type": "string",
+          "example": "2022-06-24T00:00:00.0000000",
           "x-nullable": false
         },
-        "pageNumber": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "pageSize": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "inlineCount": {
-          "title": "Boolean",
-          "description": "A flag indicating if total number of items should be included.",
-          "default": true,
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
+        "validTo": {
+          "format": "date",
+          "description": "The end date of the studenttype",
+          "type": "string",
+          "example": "2022-06-24T00:00:00.0000000"
         }
       }
     }

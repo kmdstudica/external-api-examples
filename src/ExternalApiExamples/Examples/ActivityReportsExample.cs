@@ -27,7 +27,7 @@ namespace ExternalApiExamples
                 ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
                 : new Uri(configuration.ProgrammesBaseUri);
 
-            var result = await programmesClient.StudentActivityReportsExternal.GetWithHttpMessagesAsync(
+            var result = await programmesClient.StudentActivityReportsV2External.GetWithHttpMessagesAsync(
                 periodFrom: new DateTime(DateTime.Today.Year - 1, 1, 1),
                 periodTo: new DateTime(DateTime.Today.Year - 1, 12, 31),
                 schoolCode: configuration.SchoolCode,

@@ -41,6 +41,16 @@ namespace Kmd.Studica.SchoolInternships.Client
 
 
         /// <summary>
+        /// Gets the IActiveInternshipDepartmentsExternal.
+        /// </summary>
+        IActiveInternshipDepartmentsExternal ActiveInternshipDepartmentsExternal { get; }
+
+        /// <summary>
+        /// Gets the IBulkInternshipDepartmentsExternal.
+        /// </summary>
+        IBulkInternshipDepartmentsExternal BulkInternshipDepartmentsExternal { get; }
+
+        /// <summary>
         /// Gets the IStudentInternshipsExternal.
         /// </summary>
         IStudentInternshipsExternal StudentInternshipsExternal { get; }
@@ -58,7 +68,21 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<StudentInternshipsExternalResponse>>> PostWithHttpMessagesAsync(StudentInternshipsExternalRequest body = default(StudentInternshipsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseInternshipDepartmentsExternalResponse>> PostWithHttpMessagesAsync(ActiveInternshipDepartmentsExternalRequest body = default(ActiveInternshipDepartmentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <param name='internshipDepartmentIds'>
+        /// The ids of the internship departments to query for.
+        /// </param>
+        /// <param name='schoolCode'>
+        /// String The school code for which to get data.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<IList<InternshipDepartmentsExternalResponse>>> Post1WithHttpMessagesAsync(IList<System.Guid> internshipDepartmentIds, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='body'>
         /// </param>
@@ -68,7 +92,17 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<StudentsInternshipAbsenceExternalResponse>>> Post1WithHttpMessagesAsync(StudentsInternshipAbsenceExternalRequest body = default(StudentsInternshipAbsenceExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<StudentInternshipsExternalResponse>>> Post2WithHttpMessagesAsync(StudentInternshipsExternalRequest body = default(StudentInternshipsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <param name='body'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<IList<StudentsInternshipAbsenceExternalResponse>>> Post3WithHttpMessagesAsync(StudentsInternshipAbsenceExternalRequest body = default(StudentsInternshipAbsenceExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

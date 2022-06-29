@@ -22,7 +22,7 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='periodFrom'>
             /// Beginning of period for activity report quarters.
-            /// The {PeriodFrom} parameter must be a date that is on or before given
+            /// The `PeriodFrom` parameter must be a date that is on or before given
             /// activity report period
             /// to include the desired report in the output.
             /// E.g. if specifying PeriodFrom as 2021-01-01 and PeriodTo as 2021-06-30
@@ -30,7 +30,7 @@ namespace Kmd.Studica.Programmes.Client
             /// June 15)
             /// </param>
             /// <param name='periodTo'>
-            /// End of period for activity report quarters. The {PeriodTo} parameter must
+            /// End of period for activity report quarters. The `PeriodTo` parameter must
             /// fully encompass
             /// the end date of a given activity report quarter to include the desired
             /// report in the output.
@@ -51,7 +51,7 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='periodFrom'>
             /// Beginning of period for activity report quarters.
-            /// The {PeriodFrom} parameter must be a date that is on or before given
+            /// The `PeriodFrom` parameter must be a date that is on or before given
             /// activity report period
             /// to include the desired report in the output.
             /// E.g. if specifying PeriodFrom as 2021-01-01 and PeriodTo as 2021-06-30
@@ -59,7 +59,7 @@ namespace Kmd.Studica.Programmes.Client
             /// June 15)
             /// </param>
             /// <param name='periodTo'>
-            /// End of period for activity report quarters. The {PeriodTo} parameter must
+            /// End of period for activity report quarters. The `PeriodTo` parameter must
             /// fully encompass
             /// the end date of a given activity report quarter to include the desired
             /// report in the output.

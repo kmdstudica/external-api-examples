@@ -79,6 +79,17 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "areaOfResponsibilityIds");
             }
+            if (areaOfResponsibilityIds != null)
+            {
+                if (areaOfResponsibilityIds.Count > 1000)
+                {
+                    throw new ValidationException(ValidationRules.MaxItems, "areaOfResponsibilityIds", 1000);
+                }
+                if (areaOfResponsibilityIds.Count < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinItems, "areaOfResponsibilityIds", 1);
+                }
+            }
             if (schoolCode == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "schoolCode");

@@ -78,7 +78,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Gets or sets date
         /// </summary>
         /// <remarks>
-        /// Beginning of the range for absence date. The {DateFrom} parameter
+        /// Beginning of the range for absence date. The `DateFrom` parameter
         /// determines date to get absence data from, as well as the school
         /// year period
         /// </remarks>
@@ -91,8 +91,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         /// <remarks>
         /// End of the range for absence date.
-        /// The {DateTo} parameter must be within the same school year as
-        /// {DateFrom}
+        /// The `DateTo` parameter must be within the same school year as
+        /// `DateFrom`
         /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "dateTo")]

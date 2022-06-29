@@ -43,7 +43,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// qualified for their education</param>
         /// <param name="remainingContribution">The remaining
         /// contribution</param>
-        public ActivityContributionPeriodResponse(System.Guid studentId, int countingPeriodNumber, System.DateTime startDate, System.DateTime endDate, System.DateTime countingDate, double contribution, double contributionDays, System.DateTime? qualificationDate = default(System.DateTime?), double? remainingContribution = default(double?))
+        /// <param name="schoolPeriod">String</param>
+        /// <param name="tmk">String</param>
+        /// <param name="requestorType">String</param>
+        /// <param name="accountingCoesa">String</param>
+        /// <param name="education">String</param>
+        /// <param name="educationVersion">The education version.</param>
+        public ActivityContributionPeriodResponse(System.Guid studentId, int countingPeriodNumber, System.DateTime startDate, System.DateTime endDate, System.DateTime countingDate, double contribution, double contributionDays, System.DateTime? qualificationDate = default(System.DateTime?), double? remainingContribution = default(double?), string schoolPeriod = default(string), string tmk = default(string), string requestorType = default(string), string accountingCoesa = default(string), string education = default(string), int? educationVersion = default(int?))
         {
             StudentId = studentId;
             CountingPeriodNumber = countingPeriodNumber;
@@ -54,6 +60,12 @@ namespace Kmd.Studica.Programmes.Client.Models
             Contribution = contribution;
             RemainingContribution = remainingContribution;
             ContributionDays = contributionDays;
+            SchoolPeriod = schoolPeriod;
+            Tmk = tmk;
+            RequestorType = requestorType;
+            AccountingCoesa = accountingCoesa;
+            Education = education;
+            EducationVersion = educationVersion;
             CustomInit();
         }
 
@@ -141,6 +153,58 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </remarks>
         [JsonProperty(PropertyName = "contributionDays")]
         public double ContributionDays { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The UMO school period of the activity.
+        /// </remarks>
+        [JsonProperty(PropertyName = "schoolPeriod")]
+        public string SchoolPeriod { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The UMO TMK of the activity.
+        /// </remarks>
+        [JsonProperty(PropertyName = "tmk")]
+        public string Tmk { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The UMO requestor type of the activity.
+        /// </remarks>
+        [JsonProperty(PropertyName = "requestorType")]
+        public string RequestorType { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The accounting CØSA number of the activity.
+        /// </remarks>
+        [JsonProperty(PropertyName = "accountingCoesa")]
+        public string AccountingCoesa { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The name of the education which the student had at the
+        /// time of the activity.
+        /// </remarks>
+        [JsonProperty(PropertyName = "education")]
+        public string Education { get; set; }
+
+        /// <summary>
+        /// Gets or sets the education version.
+        /// </summary>
+        [JsonProperty(PropertyName = "educationVersion")]
+        public int? EducationVersion { get; set; }
 
         /// <summary>
         /// Validate the object.

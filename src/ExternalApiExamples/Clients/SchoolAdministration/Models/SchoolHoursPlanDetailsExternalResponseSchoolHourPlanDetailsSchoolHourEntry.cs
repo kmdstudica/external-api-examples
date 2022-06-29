@@ -70,7 +70,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </summary>
         /// <remarks>
         /// Type of the entry, e.g. module or break. Possible values include:
-        /// 'Break', 'Module', 'Lecture'
+        /// 'Break', 'Module'
         /// </remarks>
         [JsonProperty(PropertyName = "entryType")]
         public string EntryType { get; set; }

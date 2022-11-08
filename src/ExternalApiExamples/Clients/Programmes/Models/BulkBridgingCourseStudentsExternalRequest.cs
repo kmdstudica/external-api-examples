@@ -80,6 +80,17 @@ namespace Kmd.Studica.Programmes.Client.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "SchoolCode");
             }
+            if (StudentIds != null)
+            {
+                if (StudentIds.Count > 1000)
+                {
+                    throw new ValidationException(ValidationRules.MaxItems, "StudentIds", 1000);
+                }
+                if (StudentIds.Count < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinItems, "StudentIds", 1);
+                }
+            }
             if (SchoolCode != null)
             {
                 if (SchoolCode.Length > 6)

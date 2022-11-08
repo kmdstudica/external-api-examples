@@ -79,6 +79,17 @@ namespace Kmd.Studica.Programmes.Client
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "educationalProgrammeIds");
             }
+            if (educationalProgrammeIds != null)
+            {
+                if (educationalProgrammeIds.Count > 1000)
+                {
+                    throw new ValidationException(ValidationRules.MaxItems, "educationalProgrammeIds", 1000);
+                }
+                if (educationalProgrammeIds.Count < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinItems, "educationalProgrammeIds", 1);
+                }
+            }
             if (schoolCode == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "schoolCode");

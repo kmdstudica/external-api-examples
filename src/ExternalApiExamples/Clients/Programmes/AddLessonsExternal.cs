@@ -77,6 +77,10 @@ namespace Kmd.Studica.Programmes.Client
             }
             if (newLessons != null)
             {
+                if (newLessons.Count < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinItems, "newLessons", 1);
+                }
                 foreach (var element in newLessons)
                 {
                     if (element != null)

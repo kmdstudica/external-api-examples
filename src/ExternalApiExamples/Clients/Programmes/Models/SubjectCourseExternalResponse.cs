@@ -44,10 +44,17 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="teachersIds">Reference ids to assigned
         /// teachers.</param>
         /// <param name="isBridgingCourse">Boolean</param>
+        /// <param name="associatedEducationalProgrammeIds">Ids of all
+        /// associated educational programmes</param>
+        /// <param name="groups">The groups of students participating in the
+        /// subject course. Includes multiple
+        /// levels of groups when available.</param>
+        /// <param name="participants">The participants for the entire subject
+        /// course.</param>
         /// <param name="designation">String</param>
         /// <param name="defaultSubjectId">The id of the default subject for
         /// this subject course.</param>
-        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, bool isBridgingCourse, string designation = default(string), System.Guid? defaultSubjectId = default(System.Guid?))
+        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, bool isBridgingCourse, IList<System.Guid> associatedEducationalProgrammeIds, IList<SubjectCourseExternalResponseGroup> groups, IList<SubjectCourseExternalResponseStudent> participants, string designation = default(string), System.Guid? defaultSubjectId = default(System.Guid?))
         {
             Id = id;
             Designation = designation;
@@ -60,6 +67,9 @@ namespace Kmd.Studica.Programmes.Client.Models
             Students = students;
             TeachersIds = teachersIds;
             IsBridgingCourse = isBridgingCourse;
+            AssociatedEducationalProgrammeIds = associatedEducationalProgrammeIds;
+            Groups = groups;
+            Participants = participants;
             CustomInit();
         }
 
@@ -90,7 +100,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Gets or sets guid
         /// </summary>
         /// <remarks>
-        /// Id of the associated educational programme.
+        /// Id of the default associated educational programme.
         /// </remarks>
         [JsonProperty(PropertyName = "educationalProgrammeId")]
         public System.Guid EducationalProgrammeId { get; set; }
@@ -161,6 +171,26 @@ namespace Kmd.Studica.Programmes.Client.Models
         public bool IsBridgingCourse { get; set; }
 
         /// <summary>
+        /// Gets or sets ids of all associated educational programmes
+        /// </summary>
+        [JsonProperty(PropertyName = "associatedEducationalProgrammeIds")]
+        public IList<System.Guid> AssociatedEducationalProgrammeIds { get; set; }
+
+        /// <summary>
+        /// Gets or sets the groups of students participating in the subject
+        /// course. Includes multiple
+        /// levels of groups when available.
+        /// </summary>
+        [JsonProperty(PropertyName = "groups")]
+        public IList<SubjectCourseExternalResponseGroup> Groups { get; set; }
+
+        /// <summary>
+        /// Gets or sets the participants for the entire subject course.
+        /// </summary>
+        [JsonProperty(PropertyName = "participants")]
+        public IList<SubjectCourseExternalResponseStudent> Participants { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -180,6 +210,18 @@ namespace Kmd.Studica.Programmes.Client.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "TeachersIds");
             }
+            if (AssociatedEducationalProgrammeIds == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "AssociatedEducationalProgrammeIds");
+            }
+            if (Groups == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Groups");
+            }
+            if (Participants == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Participants");
+            }
             if (Students != null)
             {
                 foreach (var element in Students)
@@ -187,6 +229,26 @@ namespace Kmd.Studica.Programmes.Client.Models
                     if (element != null)
                     {
                         element.Validate();
+                    }
+                }
+            }
+            if (Groups != null)
+            {
+                foreach (var element1 in Groups)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
+                    }
+                }
+            }
+            if (Participants != null)
+            {
+                foreach (var element2 in Participants)
+                {
+                    if (element2 != null)
+                    {
+                        element2.Validate();
                     }
                 }
             }

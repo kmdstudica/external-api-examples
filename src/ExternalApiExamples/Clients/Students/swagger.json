@@ -4,7 +4,7 @@
     "title": "KMD Studica - Students",
     "version": "v1"
   },
-  "host": "gateway.kmdlogic.io",
+  "host": "kmd-logic-shareddev-apim.azure-api.net",
   "basePath": "/studica/students/v1",
   "schemes": [
     "https"
@@ -274,7 +274,7 @@
           "title": "Date",
           "description": "Students must be active on the date or after this date\r\nThis parameter is required",
           "type": "string",
-          "example": "2022-06-24T00:00:00.0000000",
+          "example": "2022-11-08T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
@@ -322,8 +322,8 @@
       "properties": {
         "studentIds": {
           "description": "Student ids for bulk query. Must contain 1 to 1000 elements",
-          "maxLength": 1000,
-          "minLength": 1,
+          "maxItems": 1000,
+          "minItems": 1,
           "type": "array",
           "items": {
             "format": "uuid",
@@ -521,8 +521,8 @@
       "properties": {
         "studentIds": {
           "description": "A list of students to get marks for",
-          "maxLength": 1000,
-          "minLength": 1,
+          "maxItems": 1000,
+          "minItems": 1,
           "type": "array",
           "items": {
             "format": "uuid",
@@ -730,7 +730,7 @@
           "format": "date",
           "description": "Date for when mark has been given",
           "type": "string",
-          "example": "2022-06-24T00:00:00.0000000"
+          "example": "2022-11-08T00:00:00.0000000"
         },
         "markCode": {
           "title": "String",
@@ -847,20 +847,20 @@
           "title": "Date",
           "description": "Study date of start.",
           "type": "string",
-          "example": "2022-06-24T00:00:00.0000000",
+          "example": "2022-11-08T00:00:00.0000000",
           "x-nullable": false
         },
         "studyExpectedCompletionDate": {
           "format": "date",
           "description": "Expected completion date of study.",
           "type": "string",
-          "example": "2022-06-24T00:00:00.0000000"
+          "example": "2022-11-08T00:00:00.0000000"
         },
         "studyEndDate": {
           "format": "date",
           "description": "Study end date",
           "type": "string",
-          "example": "2022-06-24T00:00:00.0000000"
+          "example": "2022-11-08T00:00:00.0000000"
         },
         "studyEndCauseId": {
           "format": "uuid",
@@ -1010,14 +1010,14 @@
           "title": "Date",
           "description": "The date from which the studenttype is valid",
           "type": "string",
-          "example": "2022-06-24T00:00:00.0000000",
+          "example": "2022-11-08T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "The end date of the studenttype",
           "type": "string",
-          "example": "2022-06-24T00:00:00.0000000"
+          "example": "2022-11-08T00:00:00.0000000"
         }
       }
     }

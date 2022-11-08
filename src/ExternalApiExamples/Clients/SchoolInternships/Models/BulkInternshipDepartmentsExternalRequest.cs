@@ -79,6 +79,17 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "SchoolCode");
             }
+            if (InternshipDepartmentIds != null)
+            {
+                if (InternshipDepartmentIds.Count > 1000)
+                {
+                    throw new ValidationException(ValidationRules.MaxItems, "InternshipDepartmentIds", 1000);
+                }
+                if (InternshipDepartmentIds.Count < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinItems, "InternshipDepartmentIds", 1);
+                }
+            }
             if (SchoolCode != null)
             {
                 if (SchoolCode.Length > 6)

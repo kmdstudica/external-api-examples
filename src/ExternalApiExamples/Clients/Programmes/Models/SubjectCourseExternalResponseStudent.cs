@@ -33,14 +33,16 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// SubjectCourseExternalResponseStudent class.
         /// </summary>
         /// <param name="studentId">Guid</param>
+        /// <param name="courseStudentType">CourseStudentType</param>
         /// <param name="usePeriodFromSubjectCourse">Boolean</param>
         /// <param name="startDate">Date</param>
         /// <param name="endDate">Date</param>
         /// <param name="uvmSubject">Subject that student is assigned
         /// to.</param>
-        public SubjectCourseExternalResponseStudent(System.Guid studentId, bool usePeriodFromSubjectCourse, System.DateTime startDate, System.DateTime endDate, SubjectCourseExternalResponseStudentUvmSubject uvmSubject = default(SubjectCourseExternalResponseStudentUvmSubject))
+        public SubjectCourseExternalResponseStudent(System.Guid studentId, string courseStudentType, bool usePeriodFromSubjectCourse, System.DateTime startDate, System.DateTime endDate, SubjectCourseExternalResponseStudentUvmSubject uvmSubject = default(SubjectCourseExternalResponseStudentUvmSubject))
         {
             StudentId = studentId;
+            CourseStudentType = courseStudentType;
             UvmSubject = uvmSubject;
             UsePeriodFromSubjectCourse = usePeriodFromSubjectCourse;
             StartDate = startDate;
@@ -61,6 +63,16 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </remarks>
         [JsonProperty(PropertyName = "studentId")]
         public System.Guid StudentId { get; set; }
+
+        /// <summary>
+        /// Gets or sets courseStudentType
+        /// </summary>
+        /// <remarks>
+        /// The type of student which the student id refers to. Possible values
+        /// include: 'Student', 'BridgingCourseStudent', 'Employee'
+        /// </remarks>
+        [JsonProperty(PropertyName = "courseStudentType")]
+        public string CourseStudentType { get; set; }
 
         /// <summary>
         /// Gets or sets subject that student is assigned to.
@@ -106,6 +118,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </exception>
         public virtual void Validate()
         {
+            if (CourseStudentType == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "CourseStudentType");
+            }
             if (UvmSubject != null)
             {
                 UvmSubject.Validate();

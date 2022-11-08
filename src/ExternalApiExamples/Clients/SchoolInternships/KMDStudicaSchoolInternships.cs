@@ -304,7 +304,7 @@ namespace Kmd.Studica.SchoolInternships.Client
             BulkInternshipDepartmentsExternal = new BulkInternshipDepartmentsExternal(this);
             StudentInternshipsExternal = new StudentInternshipsExternal(this);
             StudentsInternshipAbsenceExternal = new StudentsInternshipAbsenceExternal(this);
-            BaseUri = new System.Uri("https://gateway.kmdlogic.io/studica/school-internships/v1");
+            BaseUri = new System.Uri("https://kmd-logic-shareddev-apim.azure-api.net/studica/school-internships/v1");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,
@@ -500,6 +500,17 @@ namespace Kmd.Studica.SchoolInternships.Client
             if (internshipDepartmentIds == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "internshipDepartmentIds");
+            }
+            if (internshipDepartmentIds != null)
+            {
+                if (internshipDepartmentIds.Count > 1000)
+                {
+                    throw new ValidationException(ValidationRules.MaxItems, "internshipDepartmentIds", 1000);
+                }
+                if (internshipDepartmentIds.Count < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinItems, "internshipDepartmentIds", 1);
+                }
             }
             if (schoolCode == null)
             {

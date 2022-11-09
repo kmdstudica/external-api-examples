@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace ExternalApiExamples
 {
+    /// <summary>
+    /// Notice:
+    /// The Lessons services will become deprecated in a future release.
+    /// Please use the Sesssions services instead
+    /// </summary>
     public class LessonsExample
     {
         private readonly ITokenProvider tokenProvider;

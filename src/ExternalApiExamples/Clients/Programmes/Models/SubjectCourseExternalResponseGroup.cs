@@ -40,12 +40,16 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="numberOfSessions">Int32</param>
         /// <param name="participants">The participants for the group.</param>
         /// <param name="name">String</param>
+        /// <param name="displayName">String</param>
+        /// <param name="designation">String</param>
         /// <param name="parentGroupId">The parent group, if any. Only the top
         /// level groups will not have a parent id.</param>
-        public SubjectCourseExternalResponseGroup(System.Guid groupId, System.DateTime startDate, System.DateTime endDate, int numberOfSessions, IList<SubjectCourseExternalResponseGroupStudent> participants, string name = default(string), System.Guid? parentGroupId = default(System.Guid?))
+        public SubjectCourseExternalResponseGroup(System.Guid groupId, System.DateTime startDate, System.DateTime endDate, int numberOfSessions, IList<SubjectCourseExternalResponseGroupStudent> participants, string name = default(string), string displayName = default(string), string designation = default(string), System.Guid? parentGroupId = default(System.Guid?))
         {
             GroupId = groupId;
             Name = name;
+            DisplayName = displayName;
+            Designation = designation;
             StartDate = startDate;
             EndDate = endDate;
             ParentGroupId = parentGroupId;
@@ -76,6 +80,28 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </remarks>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The group's display name.
+        /// The name is a combination of the subject course's name and name of
+        /// the group
+        /// </remarks>
+        [JsonProperty(PropertyName = "displayName")]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The group's designation.
+        /// The designation is a combination of the subject course's
+        /// designation and name of the group
+        /// </remarks>
+        [JsonProperty(PropertyName = "designation")]
+        public string Designation { get; set; }
 
         /// <summary>
         /// Gets or sets date

@@ -52,7 +52,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// calendar.</param>
         /// <param name="schoolHoursPlanId">Reference id of the school hours
         /// plan.</param>
-        public EducationalProgrammeExternalResponse(System.Guid id, string name, System.DateTime startDate, System.DateTime endDate, System.Guid departmentId, IList<System.Guid> studentsIds, IList<System.Guid> subjectCourseIds, string designation = default(string), System.Guid? areaOfResponsibilityId = default(System.Guid?), System.Guid? areaOfEducationId = default(System.Guid?), System.Guid? dayCalendarId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?))
+        /// <param name="deletedAt">If the educational programme has been
+        /// deleted, this property will have a value</param>
+        /// <param name="insertedAt">When it was created</param>
+        /// <param name="updatedAt">Last update of the educational programme's
+        /// basic information</param>
+        public EducationalProgrammeExternalResponse(System.Guid id, string name, System.DateTime startDate, System.DateTime endDate, System.Guid departmentId, IList<System.Guid> studentsIds, IList<System.Guid> subjectCourseIds, string designation = default(string), System.Guid? areaOfResponsibilityId = default(System.Guid?), System.Guid? areaOfEducationId = default(System.Guid?), System.Guid? dayCalendarId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?), System.DateTime? deletedAt = default(System.DateTime?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             Designation = designation;
@@ -66,6 +71,9 @@ namespace Kmd.Studica.Programmes.Client.Models
             DepartmentId = departmentId;
             StudentsIds = studentsIds;
             SubjectCourseIds = subjectCourseIds;
+            DeletedAt = deletedAt;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             CustomInit();
         }
 
@@ -169,6 +177,26 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<System.Guid> SubjectCourseIds { get; set; }
 
         /// <summary>
+        /// Gets or sets if the educational programme has been deleted, this
+        /// property will have a value
+        /// </summary>
+        [JsonProperty(PropertyName = "deletedAt")]
+        public System.DateTime? DeletedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets when it was created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of the educational programme's basic
+        /// information
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -187,6 +215,13 @@ namespace Kmd.Studica.Programmes.Client.Models
             if (SubjectCourseIds == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "SubjectCourseIds");
+            }
+            if (Name != null)
+            {
+                if (Name.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "Name", 1);
+                }
             }
         }
     }

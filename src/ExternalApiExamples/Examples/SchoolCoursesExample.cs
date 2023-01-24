@@ -33,6 +33,7 @@ namespace ExternalApiExamples
             var result = await programmesClient.SchoolCoursesExternal.GetWithHttpMessagesAsync(
                 periodFrom: new DateTime(2021, 01, 01),
                 periodTo: new DateTime(2021, 06, 30),
+                includeDeletedSchoolCourses: false,
                 schoolCode: configuration.SchoolCode,
                 pageNumber: 1,
                 pageSize: 30,

@@ -38,13 +38,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="startDate">Date</param>
         /// <param name="endDate">Date</param>
         /// <param name="numberOfSessions">Int32</param>
+        /// <param name="lmsIndicator">Boolean</param>
         /// <param name="participants">The participants for the group.</param>
         /// <param name="name">String</param>
         /// <param name="displayName">String</param>
         /// <param name="designation">String</param>
         /// <param name="parentGroupId">The parent group, if any. Only the top
         /// level groups will not have a parent id.</param>
-        public SubjectCourseExternalResponseGroup(System.Guid groupId, System.DateTime startDate, System.DateTime endDate, int numberOfSessions, IList<SubjectCourseExternalResponseGroupStudent> participants, string name = default(string), string displayName = default(string), string designation = default(string), System.Guid? parentGroupId = default(System.Guid?))
+        public SubjectCourseExternalResponseGroup(System.Guid groupId, System.DateTime startDate, System.DateTime endDate, int numberOfSessions, bool lmsIndicator, IList<SubjectCourseExternalResponseGroupStudent> participants, string name = default(string), string displayName = default(string), string designation = default(string), System.Guid? parentGroupId = default(System.Guid?))
         {
             GroupId = groupId;
             Name = name;
@@ -54,6 +55,7 @@ namespace Kmd.Studica.Programmes.Client.Models
             EndDate = endDate;
             ParentGroupId = parentGroupId;
             NumberOfSessions = numberOfSessions;
+            LmsIndicator = lmsIndicator;
             Participants = participants;
             CustomInit();
         }
@@ -138,6 +140,15 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </remarks>
         [JsonProperty(PropertyName = "numberOfSessions")]
         public int NumberOfSessions { get; set; }
+
+        /// <summary>
+        /// Gets or sets boolean
+        /// </summary>
+        /// <remarks>
+        /// Is the entity to be created in the LMS.
+        /// </remarks>
+        [JsonProperty(PropertyName = "lmsIndicator")]
+        public bool LmsIndicator { get; set; }
 
         /// <summary>
         /// Gets or sets the participants for the group.

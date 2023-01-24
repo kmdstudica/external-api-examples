@@ -36,6 +36,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="subjectCourseId">Guid</param>
         /// <param name="date">Date</param>
         /// <param name="externalLessonId">String</param>
+        /// <param name="subjectCourseIds">The ids of the subject courses which
+        /// are associated with this session. If the type
+        /// is None then this value is empty.</param>
         /// <param name="roomId">Obsolete!
         /// Reference to the room where lesson is conducted.
         /// Use RoomIds instead of RoomId. RoomId will be removed in a future
@@ -54,11 +57,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// SchoolHourEntryId will be null (this is the default of most of the
         /// partnering time table systems)</param>
         /// <param name="teachersIds">Teachers assigned to the lesson.</param>
-        public LessonExternalResponse(System.Guid id, System.Guid subjectCourseId, System.DateTime date, string externalLessonId = default(string), System.Guid? roomId = default(System.Guid?), IList<System.Guid> roomIds = default(IList<System.Guid>), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), IList<System.Guid> teachersIds = default(IList<System.Guid>))
+        public LessonExternalResponse(System.Guid id, System.Guid subjectCourseId, System.DateTime date, string externalLessonId = default(string), IList<System.Guid> subjectCourseIds = default(IList<System.Guid>), System.Guid? roomId = default(System.Guid?), IList<System.Guid> roomIds = default(IList<System.Guid>), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), IList<System.Guid> teachersIds = default(IList<System.Guid>))
         {
             Id = id;
             ExternalLessonId = externalLessonId;
             SubjectCourseId = subjectCourseId;
+            SubjectCourseIds = subjectCourseIds;
             RoomId = roomId;
             RoomIds = roomIds;
             Date = date;
@@ -101,6 +105,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </remarks>
         [JsonProperty(PropertyName = "subjectCourseId")]
         public System.Guid SubjectCourseId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ids of the subject courses which are associated
+        /// with this session. If the type
+        /// is None then this value is empty.
+        /// </summary>
+        [JsonProperty(PropertyName = "subjectCourseIds")]
+        public IList<System.Guid> SubjectCourseIds { get; set; }
 
         /// <summary>
         /// Gets or sets obsolete!

@@ -55,6 +55,11 @@ namespace Kmd.Studica.Students.Client
         public virtual IStudentMarksExternal StudentMarksExternal { get; private set; }
 
         /// <summary>
+        /// Gets the IUpdateContactAndAccountInfoExternal.
+        /// </summary>
+        public virtual IUpdateContactAndAccountInfoExternal UpdateContactAndAccountInfoExternal { get; private set; }
+
+        /// <summary>
         /// Initializes a new instance of the KMDStudicaStudents class.
         /// </summary>
         /// <param name='httpClient'>
@@ -298,6 +303,7 @@ namespace Kmd.Studica.Students.Client
             ActiveStudentsExternal = new ActiveStudentsExternal(this);
             BulkStudentsExternal = new BulkStudentsExternal(this);
             StudentMarksExternal = new StudentMarksExternal(this);
+            UpdateContactAndAccountInfoExternal = new UpdateContactAndAccountInfoExternal(this);
             BaseUri = new System.Uri("https://kmd-logic-shareddev-apim.azure-api.net/studica/students/v1");
             SerializationSettings = new JsonSerializerSettings
             {

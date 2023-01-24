@@ -181,6 +181,13 @@ namespace Kmd.Studica.Programmes.Client.Models
                     throw new ValidationException(ValidationRules.MaxLength, "ExternalLessonId", 50);
                 }
             }
+            if (GroupIds != null)
+            {
+                if (GroupIds.Count < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinItems, "GroupIds", 1);
+                }
+            }
             if (StartTime != null)
             {
                 if (!System.Text.RegularExpressions.Regex.IsMatch(StartTime, "([01]?[0-9]|2[0-3]):[0-5][0-9]"))

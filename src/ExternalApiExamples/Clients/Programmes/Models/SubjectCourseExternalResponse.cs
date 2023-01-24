@@ -54,7 +54,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="designation">String</param>
         /// <param name="defaultSubjectId">The id of the default subject for
         /// this subject course.</param>
-        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, bool isBridgingCourse, IList<System.Guid> associatedEducationalProgrammeIds, IList<SubjectCourseExternalResponseGroup> groups, IList<SubjectCourseExternalResponseStudent> participants, string designation = default(string), System.Guid? defaultSubjectId = default(System.Guid?))
+        /// <param name="deletedAt">If the subject course has been deleted,
+        /// this property will have a value</param>
+        /// <param name="insertedAt">When it was created</param>
+        /// <param name="updatedAt">Last update of the subject course's basic
+        /// information</param>
+        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, bool isBridgingCourse, IList<System.Guid> associatedEducationalProgrammeIds, IList<SubjectCourseExternalResponseGroup> groups, IList<SubjectCourseExternalResponseStudent> participants, string designation = default(string), System.Guid? defaultSubjectId = default(System.Guid?), System.DateTime? deletedAt = default(System.DateTime?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             Designation = designation;
@@ -64,6 +69,9 @@ namespace Kmd.Studica.Programmes.Client.Models
             StartDate = startDate;
             EndDate = endDate;
             LmsIndicator = lmsIndicator;
+            DeletedAt = deletedAt;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             Students = students;
             TeachersIds = teachersIds;
             IsBridgingCourse = isBridgingCourse;
@@ -150,6 +158,25 @@ namespace Kmd.Studica.Programmes.Client.Models
         public bool LmsIndicator { get; set; }
 
         /// <summary>
+        /// Gets or sets if the subject course has been deleted, this property
+        /// will have a value
+        /// </summary>
+        [JsonProperty(PropertyName = "deletedAt")]
+        public System.DateTime? DeletedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets when it was created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of the subject course's basic information
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
         /// Gets or sets assigned students.
         /// </summary>
         [JsonProperty(PropertyName = "students")]
@@ -221,6 +248,13 @@ namespace Kmd.Studica.Programmes.Client.Models
             if (Participants == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Participants");
+            }
+            if (Name != null)
+            {
+                if (Name.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "Name", 1);
+                }
             }
             if (Students != null)
             {

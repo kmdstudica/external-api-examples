@@ -48,7 +48,11 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="hasLecturesOnSundays">Boolean</param>
         /// <param name="schoolHours">List of modules (school hours) for the
         /// school hours plan</param>
-        public SchoolHoursPlanDetailsExternalResponse(System.Guid id, string name, string startTime, int lectureDurationInMinutes, bool hasLecturesOnMondays, bool hasLecturesOnTuesdays, bool hasLecturesOnWednesdays, bool hasLecturesOnThursdays, bool hasLecturesOnFridays, bool hasLecturesOnSaturdays, bool hasLecturesOnSundays, IList<SchoolHoursPlanDetailsExternalResponseSchoolHourPlanDetailsSchoolHourEntry> schoolHours)
+        /// <param name="insertedAt">When was the school hours plan
+        /// created</param>
+        /// <param name="updatedAt">Last update of the school hours
+        /// plan</param>
+        public SchoolHoursPlanDetailsExternalResponse(System.Guid id, string name, string startTime, int lectureDurationInMinutes, bool hasLecturesOnMondays, bool hasLecturesOnTuesdays, bool hasLecturesOnWednesdays, bool hasLecturesOnThursdays, bool hasLecturesOnFridays, bool hasLecturesOnSaturdays, bool hasLecturesOnSundays, IList<SchoolHoursPlanDetailsExternalResponseSchoolHourPlanDetailsSchoolHourEntry> schoolHours, System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             Name = name;
@@ -61,6 +65,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             HasLecturesOnFridays = hasLecturesOnFridays;
             HasLecturesOnSaturdays = hasLecturesOnSaturdays;
             HasLecturesOnSundays = hasLecturesOnSundays;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             SchoolHours = schoolHours;
             CustomInit();
         }
@@ -170,6 +176,18 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         public bool HasLecturesOnSundays { get; set; }
 
         /// <summary>
+        /// Gets or sets when was the school hours plan created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of the school hours plan
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
         /// Gets or sets list of modules (school hours) for the school hours
         /// plan
         /// </summary>
@@ -195,6 +213,13 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             if (SchoolHours == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "SchoolHours");
+            }
+            if (Name != null)
+            {
+                if (Name.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "Name", 1);
+                }
             }
             if (StartTime != null)
             {

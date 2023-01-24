@@ -115,6 +115,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// </summary>
         ISchoolHoursPlansExternal SchoolHoursPlansExternal { get; }
 
+        /// <summary>
+        /// Gets the IUpdateContactAndAccountInfoExternal.
+        /// </summary>
+        IUpdateContactAndAccountInfoExternal UpdateContactAndAccountInfoExternal { get; }
+
         /// <param name='body'>
         /// </param>
         /// <param name='customHeaders'>

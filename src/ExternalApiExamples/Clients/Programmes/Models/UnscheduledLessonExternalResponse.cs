@@ -37,6 +37,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="id">Guid</param>
         /// <param name="subjectCourseId">Guid</param>
         /// <param name="externalLessonId">String</param>
+        /// <param name="subjectCourseIds">The ids of the subject courses which
+        /// are associated with this session.</param>
         /// <param name="roomId">Obsolete!
         /// Reference to the room where lesson is conducted.
         /// Use RoomIds instead of RoomId. RoomId will be removed in a future
@@ -47,11 +49,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="startTime">Start time of the lesson.</param>
         /// <param name="endTime">End time of the lesson.</param>
         /// <param name="teachersIds">Teachers assigned to the lesson.</param>
-        public UnscheduledLessonExternalResponse(System.Guid id, System.Guid subjectCourseId, string externalLessonId = default(string), System.Guid? roomId = default(System.Guid?), IList<System.Guid> roomIds = default(IList<System.Guid>), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), IList<System.Guid> teachersIds = default(IList<System.Guid>))
+        public UnscheduledLessonExternalResponse(System.Guid id, System.Guid subjectCourseId, string externalLessonId = default(string), IList<System.Guid> subjectCourseIds = default(IList<System.Guid>), System.Guid? roomId = default(System.Guid?), IList<System.Guid> roomIds = default(IList<System.Guid>), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), IList<System.Guid> teachersIds = default(IList<System.Guid>))
         {
             Id = id;
             ExternalLessonId = externalLessonId;
             SubjectCourseId = subjectCourseId;
+            SubjectCourseIds = subjectCourseIds;
             RoomId = roomId;
             RoomIds = roomIds;
             Date = date;
@@ -93,6 +96,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </remarks>
         [JsonProperty(PropertyName = "subjectCourseId")]
         public System.Guid SubjectCourseId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ids of the subject courses which are associated
+        /// with this session.
+        /// </summary>
+        [JsonProperty(PropertyName = "subjectCourseIds")]
+        public IList<System.Guid> SubjectCourseIds { get; set; }
 
         /// <summary>
         /// Gets or sets obsolete!

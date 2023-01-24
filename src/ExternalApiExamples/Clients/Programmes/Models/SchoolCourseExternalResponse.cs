@@ -50,7 +50,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// to the school course</param>
         /// <param name="countingPeriods">List of activity counting periods for
         /// the school course</param>
-        public SchoolCourseExternalResponse(System.Guid schoolCourseId, System.DateTime startDate, System.DateTime endDate, System.Guid dayCalendarId, System.Guid departmentId, System.Guid areaOfEducationId, System.Guid areaOfResponsibilityId, string name = default(string), string uvmDepartmentNumber = default(string), string dsDepartmentNumber = default(string), SchoolCourseExternalResponseSchoolPeriod schoolPeriod = default(SchoolCourseExternalResponseSchoolPeriod), IList<System.Guid> studentIds = default(IList<System.Guid>), IList<SchoolCourseCountingPeriodDto> countingPeriods = default(IList<SchoolCourseCountingPeriodDto>))
+        /// <param name="deletedAt">If the school course has been deleted, this
+        /// property will have a value</param>
+        /// <param name="insertedAt">When it was created</param>
+        /// <param name="updatedAt">Last update of the school course's basic
+        /// information</param>
+        public SchoolCourseExternalResponse(System.Guid schoolCourseId, System.DateTime startDate, System.DateTime endDate, System.Guid dayCalendarId, System.Guid departmentId, System.Guid areaOfEducationId, System.Guid areaOfResponsibilityId, string name = default(string), string uvmDepartmentNumber = default(string), string dsDepartmentNumber = default(string), SchoolCourseExternalResponseSchoolPeriod schoolPeriod = default(SchoolCourseExternalResponseSchoolPeriod), IList<System.Guid> studentIds = default(IList<System.Guid>), IList<SchoolCourseCountingPeriodDto> countingPeriods = default(IList<SchoolCourseCountingPeriodDto>), System.DateTime? deletedAt = default(System.DateTime?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             SchoolCourseId = schoolCourseId;
             Name = name;
@@ -65,6 +70,9 @@ namespace Kmd.Studica.Programmes.Client.Models
             AreaOfResponsibilityId = areaOfResponsibilityId;
             StudentIds = studentIds;
             CountingPeriods = countingPeriods;
+            DeletedAt = deletedAt;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             CustomInit();
         }
 
@@ -184,6 +192,25 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "countingPeriods")]
         public IList<SchoolCourseCountingPeriodDto> CountingPeriods { get; set; }
+
+        /// <summary>
+        /// Gets or sets if the school course has been deleted, this property
+        /// will have a value
+        /// </summary>
+        [JsonProperty(PropertyName = "deletedAt")]
+        public System.DateTime? DeletedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets when it was created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of the school course's basic information
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
 
         /// <summary>
         /// Validate the object.

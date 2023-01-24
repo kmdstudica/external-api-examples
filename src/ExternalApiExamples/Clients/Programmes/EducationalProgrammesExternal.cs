@@ -69,6 +69,9 @@ namespace Kmd.Studica.Programmes.Client
         /// Option for also querying educational programmes by area of responsibility
         /// in addition to dates
         /// </param>
+        /// <param name='includeDeletedProgrammes'>
+        /// Should the response include deleted educational programmes
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -90,7 +93,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseEducationalProgrammeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseEducationalProgrammeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), bool? includeDeletedProgrammes = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pageNumber > 2147483647)
             {
@@ -133,6 +136,7 @@ namespace Kmd.Studica.Programmes.Client
                 tracingParameters.Add("startDateFrom", startDateFrom);
                 tracingParameters.Add("startDateTo", startDateTo);
                 tracingParameters.Add("areaOfResponsibilityId", areaOfResponsibilityId);
+                tracingParameters.Add("includeDeletedProgrammes", includeDeletedProgrammes);
                 tracingParameters.Add("pageNumber", pageNumber);
                 tracingParameters.Add("pageSize", pageSize);
                 tracingParameters.Add("inlineCount", inlineCount);
@@ -149,6 +153,10 @@ namespace Kmd.Studica.Programmes.Client
             if (areaOfResponsibilityId != null)
             {
                 _queryParameters.Add(string.Format("AreaOfResponsibilityId={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(areaOfResponsibilityId, Client.SerializationSettings).Trim('"'))));
+            }
+            if (includeDeletedProgrammes != null)
+            {
+                _queryParameters.Add(string.Format("IncludeDeletedProgrammes={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(includeDeletedProgrammes, Client.SerializationSettings).Trim('"'))));
             }
             _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));

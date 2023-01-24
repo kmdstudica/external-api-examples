@@ -130,6 +130,11 @@ namespace Kmd.Studica.Programmes.Client
         public virtual IEducationalProgrammesExternal EducationalProgrammesExternal { get; private set; }
 
         /// <summary>
+        /// Gets the IGroupsExternal.
+        /// </summary>
+        public virtual IGroupsExternal GroupsExternal { get; private set; }
+
+        /// <summary>
         /// Gets the IHelloWorldExternal.
         /// </summary>
         public virtual IHelloWorldExternal HelloWorldExternal { get; private set; }
@@ -453,6 +458,7 @@ namespace Kmd.Studica.Programmes.Client
             EditLessonExternal = new EditLessonExternal(this);
             EditSubjectCourseSessionExternal = new EditSubjectCourseSessionExternal(this);
             EducationalProgrammesExternal = new EducationalProgrammesExternal(this);
+            GroupsExternal = new GroupsExternal(this);
             HelloWorldExternal = new HelloWorldExternal(this);
             LessonsExternal = new LessonsExternal(this);
             RegisterAbsenceExternal = new RegisterAbsenceExternal(this);
@@ -2750,7 +2756,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseUnscheduledLessonExternalResponse>> Post16WithHttpMessagesAsync(LessonsExternalRequest body = default(LessonsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseUnscheduledLessonExternalResponse>> Post16WithHttpMessagesAsync(UnscheduledLessonsExternalRequest body = default(UnscheduledLessonsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body != null)
             {

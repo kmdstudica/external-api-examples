@@ -18,12 +18,6 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='dateFrom'>
-            /// Beginning of range for lesson date.
-            /// </param>
-            /// <param name='dateTo'>
-            /// End of range for lesson date.
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -39,23 +33,14 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='departmentId'>
             /// Department where the lesson is conducted.
             /// </param>
-            /// <param name='hasExternalId'>
-            /// Flag indicating if lesson contains external id.
-            /// </param>
-            public static PagedResponseUnscheduledLessonExternalResponse Get(this IUnscheduledLessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?))
+            public static PagedResponseUnscheduledLessonExternalResponse Get(this IUnscheduledLessonsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?))
             {
-                return operations.GetAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, departmentId, hasExternalId).GetAwaiter().GetResult();
+                return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode, departmentId).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='dateFrom'>
-            /// Beginning of range for lesson date.
-            /// </param>
-            /// <param name='dateTo'>
-            /// End of range for lesson date.
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -71,15 +56,12 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='departmentId'>
             /// Department where the lesson is conducted.
             /// </param>
-            /// <param name='hasExternalId'>
-            /// Flag indicating if lesson contains external id.
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseUnscheduledLessonExternalResponse> GetAsync(this IUnscheduledLessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseUnscheduledLessonExternalResponse> GetAsync(this IUnscheduledLessonsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, departmentId, hasExternalId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(pageNumber, pageSize, inlineCount, schoolCode, departmentId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

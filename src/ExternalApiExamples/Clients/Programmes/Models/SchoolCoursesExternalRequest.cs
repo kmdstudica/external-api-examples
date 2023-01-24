@@ -30,6 +30,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// class.
         /// </summary>
         /// <param name="periodFrom">Date</param>
+        /// <param name="includeDeletedSchoolCourses">Boolean</param>
         /// <param name="pageNumber">Int32</param>
         /// <param name="pageSize">Int32</param>
         /// <param name="inlineCount">Boolean</param>
@@ -37,10 +38,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="periodTo">School courses must end on or before this
         /// date
         /// Property is nullable</param>
-        public SchoolCoursesExternalRequest(System.DateTime periodFrom, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? periodTo = default(System.DateTime?))
+        public SchoolCoursesExternalRequest(System.DateTime periodFrom, bool includeDeletedSchoolCourses, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? periodTo = default(System.DateTime?))
         {
             PeriodFrom = periodFrom;
             PeriodTo = periodTo;
+            IncludeDeletedSchoolCourses = includeDeletedSchoolCourses;
             PageNumber = pageNumber;
             PageSize = pageSize;
             InlineCount = inlineCount;
@@ -70,6 +72,15 @@ namespace Kmd.Studica.Programmes.Client.Models
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "periodTo")]
         public System.DateTime? PeriodTo { get; set; }
+
+        /// <summary>
+        /// Gets or sets boolean
+        /// </summary>
+        /// <remarks>
+        /// Should the response include deleted educational programmes
+        /// </remarks>
+        [JsonProperty(PropertyName = "includeDeletedSchoolCourses")]
+        public bool IncludeDeletedSchoolCourses { get; set; }
 
         /// <summary>
         /// Gets or sets int32

@@ -160,6 +160,27 @@ namespace Kmd.Studica.Students.Client.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "LevelDesignation");
             }
+            if (SubjectDesignation != null)
+            {
+                if (SubjectDesignation.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "SubjectDesignation", 1);
+                }
+            }
+            if (SubjectNumber != null)
+            {
+                if (SubjectNumber.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "SubjectNumber", 1);
+                }
+            }
+            if (LevelDesignation != null)
+            {
+                if (LevelDesignation.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "LevelDesignation", 1);
+                }
+            }
         }
     }
 }

@@ -87,7 +87,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <remarks>
         /// Type of the Activity. Possible values include: 'SchoolCourse',
         /// 'Pptt', 'BridgingCourse', 'DurationIndependentContribution',
-        /// 'SchoolInternship', 'BoardingFacilities'
+        /// 'SchoolInternship', 'BoardingFacilities',
+        /// 'BoardingFacilitiesExternalStudents'
         /// </remarks>
         [JsonProperty(PropertyName = "activityEntityType")]
         public string ActivityEntityType { get; set; }

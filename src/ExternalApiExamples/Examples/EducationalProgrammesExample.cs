@@ -38,6 +38,7 @@ namespace ExternalApiExamples
                 var result = await programmesClient.EducationalProgrammesExternal.GetWithHttpMessagesAsync(
                     startDateFrom: DateTime.Today.AddYears(-1),
                     startDateTo: DateTime.Today.AddYears(1),
+                    includeDeletedProgrammes: false,
                     schoolCode: configuration.SchoolCode,
                     pageNumber: ++pageNum,
                     pageSize: pageSize,

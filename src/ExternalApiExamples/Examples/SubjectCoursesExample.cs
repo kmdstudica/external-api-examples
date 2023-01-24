@@ -3,11 +3,8 @@ using Kmd.Studica.Programmes.Client;
 using Microsoft.Rest;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using Kmd.Studica.Programmes.Client.Models;
-using Newtonsoft.Json;
 
 namespace ExternalApiExamples
 {
@@ -31,23 +28,41 @@ namespace ExternalApiExamples
                 ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
                 : new Uri(configuration.ProgrammesBaseUri);
 
-            var result = await programmesClient.SubjectCoursesExternal.GetWithHttpMessagesAsync(
-                startDateFrom: DateTime.Now.AddMonths(-2),
-                startDateTo: DateTime.Now.AddMonths(2),
-                schoolCode: configuration.SchoolCode,
-                lmsIndicator: true,
-                pageNumber: 1,
-                pageSize: 30,
-                inlineCount: true,
-                customHeaders: new Dictionary<string, List<string>>
-                {
-                    {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
-                });
+            bool doContinue;
+            var pageNum = 0;
+            var pageSize = 100;
+            var courses = new List<SubjectCourseExternalResponse>();
+            do
+            {
+                var result = await programmesClient.SubjectCoursesExternal.GetWithHttpMessagesAsync(
+                    startDateFrom: DateTime.Today,
+                    startDateTo: DateTime.Today.AddMonths(6),
+                    includeDeletedSubjectCourses: false,
+                    schoolCode: configuration.SchoolCode,
+                    pageNumber: ++pageNum,
+                    pageSize: pageSize,
+                    inlineCount: true,
+                    customHeaders: new Dictionary<string, List<string>>
+                    {
+                        { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                    });
 
-            Console.WriteLine($"Got {result.Body.TotalItems} subject courses from API");
+                if (pageNum == 1)
+                {
+                    Console.WriteLine($"Reading {result.Body.TotalItems} course elements");
+                }
+
+                courses.AddRange(result.Body.Items);
+
+                Console.Write(".");
+
+                doContinue = pageNum * pageSize < result.Body.TotalItems;
+            } while (doContinue);
+
+            Console.WriteLine($"Got {courses.Count} subject courses from API");
 
             ConsoleTable
-                .From(result.Body.Items)
+                .From(courses)
                 .Write();
         }
 
@@ -61,18 +76,16 @@ namespace ExternalApiExamples
                 : new Uri(configuration.ProgrammesBaseUri);
 
             var result = await programmesClient.BulkSubjectCoursesExternal.PostWithHttpMessagesAsync(
-                subjectCourseIds: new[] { Guid.Parse("f5c51d83-e498-4bf9-a8eb-104e0eee76aa") },
+                subjectCourseIds: new[] { Guid.NewGuid() },
                 schoolCode: configuration.SchoolCode,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
             ConsoleTable
                 .From(result.Body)
                 .Write();
-
-            var json = JsonConvert.SerializeObject(result.Body);
         }
 
         public async Task ExecuteStudentSubjectCourses()
@@ -87,12 +100,12 @@ namespace ExternalApiExamples
             var result = await programmesClient.StudentSubjectCoursesExternal.GetWithHttpMessagesAsync(
                 studentIds: new[] { Guid.NewGuid() },
                 pageNumber: 1,
-                pageSize: 10,
+                pageSize: 100,
                 inlineCount: true,
                 schoolCode: configuration.SchoolCode,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
             Console.WriteLine($"Got {result.Body.TotalItems} student subject courses from API");
@@ -112,14 +125,15 @@ namespace ExternalApiExamples
                 : new Uri(configuration.ProgrammesBaseUri);
 
             var result = await programmesClient.ActiveSubjectCoursesExternal.GetWithHttpMessagesAsync(
-                subjectCoursesActiveOnOrAfterDate: DateTime.MinValue,
+                subjectCoursesActiveOnOrAfterDate: DateTime.Today,
+                includeDeletedSubjectCourses: false,
                 schoolCode: configuration.SchoolCode,
                 pageNumber: 1,
                 pageSize: 100,
                 inlineCount: true,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                        {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
             Console.WriteLine($"Got {result.Body.TotalItems} subject courses from API");

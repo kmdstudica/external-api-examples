@@ -53,7 +53,10 @@ namespace Kmd.Studica.Students.Client.Models
         /// <param name="phoneNumber">String</param>
         /// <param name="uniLoginUsername">String</param>
         /// <param name="adUsername">String</param>
-        public StudentExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, string email, bool reportToUniLogin, bool createAdLogin, IList<StudentGuardian> guardians, IList<StudentStudy> studies, string givenName = default(string), string surname = default(string), string protectedGivenName = default(string), string protectedSurname = default(string), string careOfAddress = default(string), string addressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), string uniLoginUsername = default(string), string adUsername = default(string))
+        /// <param name="insertedAt">When was student created</param>
+        /// <param name="updatedAt">Last update of the student's
+        /// information</param>
+        public StudentExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, string email, bool reportToUniLogin, bool createAdLogin, IList<StudentGuardian> guardians, IList<StudentStudy> studies, string givenName = default(string), string surname = default(string), string protectedGivenName = default(string), string protectedSurname = default(string), string careOfAddress = default(string), string addressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), string uniLoginUsername = default(string), string adUsername = default(string), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             CivilRegistrationNumber = civilRegistrationNumber;
@@ -76,6 +79,8 @@ namespace Kmd.Studica.Students.Client.Models
             CreateAdLogin = createAdLogin;
             Guardians = guardians;
             Studies = studies;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             CustomInit();
         }
 
@@ -272,6 +277,18 @@ namespace Kmd.Studica.Students.Client.Models
         public IList<StudentStudy> Studies { get; set; }
 
         /// <summary>
+        /// Gets or sets when was student created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of the student's information
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -294,6 +311,20 @@ namespace Kmd.Studica.Students.Client.Models
             if (Studies == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Studies");
+            }
+            if (CivilRegistrationNumber != null)
+            {
+                if (CivilRegistrationNumber.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "CivilRegistrationNumber", 1);
+                }
+            }
+            if (Email != null)
+            {
+                if (Email.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "Email", 1);
+                }
             }
             if (Guardians != null)
             {

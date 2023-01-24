@@ -1,18 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <UserSecretsId>2729f8d6-857d-41d4-8769-355a455831b3</UserSecretsId>
+        <LangVersion>default</LangVersion>
+        <OutputType>Exe</OutputType>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Compile Remove="Clients\Students\Students.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="Clients\Students\generate.sh" />
-    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="ConsoleTables" Version="2.3.0" />

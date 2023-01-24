@@ -47,7 +47,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="email">String</param>
         /// <param name="dsDepartmentNumber">String</param>
         /// <param name="education">String</param>
-        public BridgingCourseStudentExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, System.Guid bridgingcourseId, int educationVersion, string givenName = default(string), string surname = default(string), string protectedGivenName = default(string), string protectedSurname = default(string), string addressLine = default(string), string postalCode = default(string), string phone = default(string), string mobile = default(string), string email = default(string), string dsDepartmentNumber = default(string), string education = default(string))
+        /// <param name="insertedAt">When was the bridging course
+        /// created</param>
+        /// <param name="updatedAt">Last update of information</param>
+        public BridgingCourseStudentExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, System.Guid bridgingcourseId, int educationVersion, string givenName = default(string), string surname = default(string), string protectedGivenName = default(string), string protectedSurname = default(string), string addressLine = default(string), string postalCode = default(string), string phone = default(string), string mobile = default(string), string email = default(string), string dsDepartmentNumber = default(string), string education = default(string), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             CivilRegistrationNumber = civilRegistrationNumber;
@@ -65,6 +68,8 @@ namespace Kmd.Studica.Programmes.Client.Models
             DsDepartmentNumber = dsDepartmentNumber;
             Education = education;
             EducationVersion = educationVersion;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             CustomInit();
         }
 
@@ -220,6 +225,18 @@ namespace Kmd.Studica.Programmes.Client.Models
         public int EducationVersion { get; set; }
 
         /// <summary>
+        /// Gets or sets when was the bridging course created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of information
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -230,6 +247,13 @@ namespace Kmd.Studica.Programmes.Client.Models
             if (CivilRegistrationNumber == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "CivilRegistrationNumber");
+            }
+            if (CivilRegistrationNumber != null)
+            {
+                if (CivilRegistrationNumber.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "CivilRegistrationNumber", 1);
+                }
             }
         }
     }

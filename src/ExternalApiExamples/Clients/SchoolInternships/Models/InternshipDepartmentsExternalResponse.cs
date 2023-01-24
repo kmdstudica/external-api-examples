@@ -44,7 +44,10 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
         /// if it has been deactivated.</param>
         /// <param name="areaOfResponsibilityId">The id of the associated area
         /// of responsibility.</param>
-        public InternshipDepartmentsExternalResponse(System.Guid id, string name, System.DateTime validFrom, System.Guid dayCalendarId, string uvmDepartmentNumber, IList<InternshipDepartmentsExternalWorkWeekHoursDto> workWeekHours, System.DateTime? validTo = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?))
+        /// <param name="insertedAt">When it was created</param>
+        /// <param name="updatedAt">Last update of the department's
+        /// information</param>
+        public InternshipDepartmentsExternalResponse(System.Guid id, string name, System.DateTime validFrom, System.Guid dayCalendarId, string uvmDepartmentNumber, IList<InternshipDepartmentsExternalWorkWeekHoursDto> workWeekHours, System.DateTime? validTo = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             Name = name;
@@ -54,6 +57,8 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
             UvmDepartmentNumber = uvmDepartmentNumber;
             AreaOfResponsibilityId = areaOfResponsibilityId;
             WorkWeekHours = workWeekHours;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             CustomInit();
         }
 
@@ -129,6 +134,18 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
         public IList<InternshipDepartmentsExternalWorkWeekHoursDto> WorkWeekHours { get; set; }
 
         /// <summary>
+        /// Gets or sets when it was created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of the department's information
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -147,6 +164,20 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
             if (WorkWeekHours == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "WorkWeekHours");
+            }
+            if (Name != null)
+            {
+                if (Name.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "Name", 1);
+                }
+            }
+            if (UvmDepartmentNumber != null)
+            {
+                if (UvmDepartmentNumber.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "UvmDepartmentNumber", 1);
+                }
             }
             if (WorkWeekHours != null)
             {

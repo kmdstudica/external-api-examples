@@ -115,6 +115,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         public virtual ISchoolHoursPlansExternal SchoolHoursPlansExternal { get; private set; }
 
         /// <summary>
+        /// Gets the IUpdateContactAndAccountInfoExternal.
+        /// </summary>
+        public virtual IUpdateContactAndAccountInfoExternal UpdateContactAndAccountInfoExternal { get; private set; }
+
+        /// <summary>
         /// Initializes a new instance of the KMDStudicaSchoolAdministration class.
         /// </summary>
         /// <param name='httpClient'>
@@ -370,6 +375,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             SchoolHourEntriesExternal = new SchoolHourEntriesExternal(this);
             SchoolHoursPlanDetailsExternal = new SchoolHoursPlanDetailsExternal(this);
             SchoolHoursPlansExternal = new SchoolHoursPlansExternal(this);
+            UpdateContactAndAccountInfoExternal = new UpdateContactAndAccountInfoExternal(this);
             BaseUri = new System.Uri("https://kmd-logic-shareddev-apim.azure-api.net/studica/school-administration/v1");
             SerializationSettings = new JsonSerializerSettings
             {

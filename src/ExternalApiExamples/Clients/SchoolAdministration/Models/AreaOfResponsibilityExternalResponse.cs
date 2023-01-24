@@ -39,13 +39,19 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// responsibiliity.</param>
         /// <param name="responsibleEmployeeId">Identifier of employee
         /// responsible for area.</param>
-        public AreaOfResponsibilityExternalResponse(System.Guid id, string name, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?), System.Guid? responsibleEmployeeId = default(System.Guid?))
+        /// <param name="insertedAt">When was area of responsibility
+        /// created</param>
+        /// <param name="updatedAt">Last update of the area of
+        /// responsibility</param>
+        public AreaOfResponsibilityExternalResponse(System.Guid id, string name, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?), System.Guid? responsibleEmployeeId = default(System.Guid?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             Name = name;
             ValidFrom = validFrom;
             ValidTo = validTo;
             ResponsibleEmployeeId = responsibleEmployeeId;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             CustomInit();
         }
 
@@ -94,6 +100,18 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "responsibleEmployeeId")]
         public System.Guid? ResponsibleEmployeeId { get; set; }
+
+        /// <summary>
+        /// Gets or sets when was area of responsibility created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of the area of responsibility
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
 
         /// <summary>
         /// Validate the object.

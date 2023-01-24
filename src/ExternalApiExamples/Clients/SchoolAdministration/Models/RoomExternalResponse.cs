@@ -46,7 +46,9 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="city">String</param>
         /// <param name="postalCode">String</param>
         /// <param name="dsDepartmentNumber">String</param>
-        public RoomExternalResponse(System.Guid id, string designation, string roomType, bool useDsDepartmentAddress, IList<System.Guid> departmentIds, string name = default(string), string description = default(string), int? capacity = default(int?), int? maximumPersonsAllowed = default(int?), string addressLine = default(string), string city = default(string), string postalCode = default(string), string dsDepartmentNumber = default(string))
+        /// <param name="insertedAt">When was room created</param>
+        /// <param name="updatedAt">Last update of the room</param>
+        public RoomExternalResponse(System.Guid id, string designation, string roomType, bool useDsDepartmentAddress, IList<System.Guid> departmentIds, string name = default(string), string description = default(string), int? capacity = default(int?), int? maximumPersonsAllowed = default(int?), string addressLine = default(string), string city = default(string), string postalCode = default(string), string dsDepartmentNumber = default(string), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             Name = name;
@@ -61,6 +63,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             PostalCode = postalCode;
             DsDepartmentNumber = dsDepartmentNumber;
             DepartmentIds = departmentIds;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             CustomInit();
         }
 
@@ -180,6 +184,18 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         public IList<System.Guid> DepartmentIds { get; set; }
 
         /// <summary>
+        /// Gets or sets when was room created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of the room
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -198,6 +214,13 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             if (DepartmentIds == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "DepartmentIds");
+            }
+            if (Designation != null)
+            {
+                if (Designation.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "Designation", 1);
+                }
             }
         }
     }

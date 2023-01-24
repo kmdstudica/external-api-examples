@@ -69,7 +69,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         /// <remarks>
         /// The type of student which the student id refers to. Possible values
-        /// include: 'Student', 'BridgingCourseStudent', 'Employee'
+        /// include: 'Student', 'BridgingCourseStudent', 'Employee',
+        /// 'ExternalBoardingFacilityStudent'
         /// </remarks>
         [JsonProperty(PropertyName = "courseStudentType")]
         public string CourseStudentType { get; set; }

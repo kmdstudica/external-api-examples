@@ -131,6 +131,11 @@ namespace Kmd.Studica.Programmes.Client
         IEducationalProgrammesExternal EducationalProgrammesExternal { get; }
 
         /// <summary>
+        /// Gets the IGroupsExternal.
+        /// </summary>
+        IGroupsExternal GroupsExternal { get; }
+
+        /// <summary>
         /// Gets the IHelloWorldExternal.
         /// </summary>
         IHelloWorldExternal HelloWorldExternal { get; }
@@ -368,7 +373,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseUnscheduledLessonExternalResponse>> Post16WithHttpMessagesAsync(LessonsExternalRequest body = default(LessonsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseUnscheduledLessonExternalResponse>> Post16WithHttpMessagesAsync(UnscheduledLessonsExternalRequest body = default(UnscheduledLessonsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

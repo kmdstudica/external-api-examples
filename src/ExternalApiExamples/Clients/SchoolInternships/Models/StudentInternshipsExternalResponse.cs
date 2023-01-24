@@ -33,16 +33,21 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
         /// <param name="civilRegistrationNumber">String</param>
         /// <param name="givenName">String</param>
         /// <param name="surname">String</param>
+        /// <param name="insertedAt">When it was created</param>
+        /// <param name="updatedAt">Last update of student's
+        /// information</param>
         /// <param name="writtenAgreements">List of the students written
         /// internship agreements</param>
         /// <param name="internshipPeriods">List of the students internship
         /// periods as split by fx. school course participation periods</param>
-        public StudentInternshipsExternalResponse(System.Guid studentId, string civilRegistrationNumber = default(string), string givenName = default(string), string surname = default(string), IList<StudentInternshipsWrittenAgreementDto> writtenAgreements = default(IList<StudentInternshipsWrittenAgreementDto>), IList<StudentInternshipsInternshipPeriodDto> internshipPeriods = default(IList<StudentInternshipsInternshipPeriodDto>))
+        public StudentInternshipsExternalResponse(System.Guid studentId, string civilRegistrationNumber = default(string), string givenName = default(string), string surname = default(string), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), IList<StudentInternshipsWrittenAgreementDto> writtenAgreements = default(IList<StudentInternshipsWrittenAgreementDto>), IList<StudentInternshipsInternshipPeriodDto> internshipPeriods = default(IList<StudentInternshipsInternshipPeriodDto>))
         {
             StudentId = studentId;
             CivilRegistrationNumber = civilRegistrationNumber;
             GivenName = givenName;
             Surname = surname;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             WrittenAgreements = writtenAgreements;
             InternshipPeriods = internshipPeriods;
             CustomInit();
@@ -88,6 +93,18 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
         /// </remarks>
         [JsonProperty(PropertyName = "surname")]
         public string Surname { get; set; }
+
+        /// <summary>
+        /// Gets or sets when it was created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of student's information
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
 
         /// <summary>
         /// Gets or sets list of the students written internship agreements

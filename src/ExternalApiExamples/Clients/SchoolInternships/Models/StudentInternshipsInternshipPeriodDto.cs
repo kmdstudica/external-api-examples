@@ -33,12 +33,17 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
         /// <param name="schoolInternshipType">SchoolInternshipType</param>
         /// <param name="startDate">Date</param>
         /// <param name="endDate">Date</param>
-        public StudentInternshipsInternshipPeriodDto(System.Guid writtenAgreementId, string schoolInternshipType, System.DateTime startDate, System.DateTime endDate)
+        /// <param name="insertedAt">When it was created</param>
+        /// <param name="updatedAt">Last update of the internship
+        /// period</param>
+        public StudentInternshipsInternshipPeriodDto(System.Guid writtenAgreementId, string schoolInternshipType, System.DateTime startDate, System.DateTime endDate, System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             WrittenAgreementId = writtenAgreementId;
             SchoolInternshipType = schoolInternshipType;
             StartDate = startDate;
             EndDate = endDate;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             CustomInit();
         }
 
@@ -85,6 +90,18 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "endDate")]
         public System.DateTime EndDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets when it was created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of the internship period
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
 
         /// <summary>
         /// Validate the object.

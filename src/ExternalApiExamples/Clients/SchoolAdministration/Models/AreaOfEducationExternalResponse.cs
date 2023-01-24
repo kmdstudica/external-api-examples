@@ -46,7 +46,10 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="educationName">String</param>
         /// <param name="educationVersion">CØSA education version</param>
         /// <param name="specialisation">String</param>
-        public AreaOfEducationExternalResponse(System.Guid id, string name, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?), System.Guid? dayCalendarId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?), System.Guid? areaOfResponsibilityId = default(System.Guid?), string educationCoesaNumber = default(string), string educationName = default(string), int? educationVersion = default(int?), string specialisation = default(string))
+        /// <param name="insertedAt">When was area of education created</param>
+        /// <param name="updatedAt">Last update of the area of
+        /// education</param>
+        public AreaOfEducationExternalResponse(System.Guid id, string name, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?), System.Guid? dayCalendarId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?), System.Guid? areaOfResponsibilityId = default(System.Guid?), string educationCoesaNumber = default(string), string educationName = default(string), int? educationVersion = default(int?), string specialisation = default(string), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             Name = name;
@@ -59,6 +62,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             EducationName = educationName;
             EducationVersion = educationVersion;
             Specialisation = specialisation;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             CustomInit();
         }
 
@@ -155,6 +160,18 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         public string Specialisation { get; set; }
 
         /// <summary>
+        /// Gets or sets when was area of education created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of the area of education
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -165,6 +182,13 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             if (Name == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Name");
+            }
+            if (Name != null)
+            {
+                if (Name.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "Name", 1);
+                }
             }
         }
     }

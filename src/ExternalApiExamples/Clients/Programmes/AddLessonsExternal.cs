@@ -93,6 +93,13 @@ namespace Kmd.Studica.Programmes.Client
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "schoolCode");
             }
+            if (schoolCode != null)
+            {
+                if (schoolCode.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "schoolCode", 1);
+                }
+            }
             AddLessonsExternalCommand body = default(AddLessonsExternalCommand);
             if (newLessons != null || schoolCode != null)
             {

@@ -90,6 +90,13 @@ namespace Kmd.Studica.Programmes.Client.Models
                     }
                 }
             }
+            if (SchoolCode != null)
+            {
+                if (SchoolCode.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "SchoolCode", 1);
+                }
+            }
         }
     }
 }

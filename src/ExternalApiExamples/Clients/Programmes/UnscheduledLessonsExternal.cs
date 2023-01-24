@@ -7,7 +7,6 @@
 namespace Kmd.Studica.Programmes.Client
 {
     using Microsoft.Rest;
-    using Microsoft.Rest.Serialization;
     using Models;
     using Newtonsoft.Json;
     using System.Collections;
@@ -47,12 +46,6 @@ namespace Kmd.Studica.Programmes.Client
         /// </summary>
         public KMDStudicaProgrammes Client { get; private set; }
 
-        /// <param name='dateFrom'>
-        /// Beginning of range for lesson date.
-        /// </param>
-        /// <param name='dateTo'>
-        /// End of range for lesson date.
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -67,9 +60,6 @@ namespace Kmd.Studica.Programmes.Client
         /// </param>
         /// <param name='departmentId'>
         /// Department where the lesson is conducted.
-        /// </param>
-        /// <param name='hasExternalId'>
-        /// Flag indicating if lesson contains external id.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -92,7 +82,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseUnscheduledLessonExternalResponse>> GetWithHttpMessagesAsync(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseUnscheduledLessonExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pageNumber > 2147483647)
             {
@@ -133,9 +123,6 @@ namespace Kmd.Studica.Programmes.Client
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("departmentId", departmentId);
-                tracingParameters.Add("dateFrom", dateFrom);
-                tracingParameters.Add("dateTo", dateTo);
-                tracingParameters.Add("hasExternalId", hasExternalId);
                 tracingParameters.Add("pageNumber", pageNumber);
                 tracingParameters.Add("pageSize", pageSize);
                 tracingParameters.Add("inlineCount", inlineCount);
@@ -149,17 +136,11 @@ namespace Kmd.Studica.Programmes.Client
             List<string> _queryParameters = new List<string>();
             if (departmentId != null)
             {
-                _queryParameters.Add(string.Format("DepartmentId={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(departmentId, Client.SerializationSettings).Trim('"'))));
+                _queryParameters.Add(string.Format("DepartmentId={0}", System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(departmentId, Client.SerializationSettings).Trim('"'))));
             }
-            _queryParameters.Add(string.Format("DateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(dateFrom, new DateJsonConverter()).Trim('"'))));
-            _queryParameters.Add(string.Format("DateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(dateTo, new DateJsonConverter()).Trim('"'))));
-            if (hasExternalId != null)
-            {
-                _queryParameters.Add(string.Format("HasExternalId={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(hasExternalId, Client.SerializationSettings).Trim('"'))));
-            }
-            _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
+            _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
+            _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
+            _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
             if (schoolCode != null)
             {
                 _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
@@ -242,7 +223,7 @@ namespace Kmd.Studica.Programmes.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseUnscheduledLessonExternalResponse>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<PagedResponseUnscheduledLessonExternalResponse>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

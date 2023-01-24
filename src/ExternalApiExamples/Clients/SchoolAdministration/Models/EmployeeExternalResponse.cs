@@ -66,7 +66,9 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="city">String</param>
         /// <param name="postalCode">String</param>
         /// <param name="country">String</param>
-        public EmployeeExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, bool lmsIndicator, string givenName, string surname, string email, bool deceased, bool reportToUniLogin, bool createAdLogin, System.DateTime employmentStartDate, string protectedGivenName = default(string), string protectedSurname = default(string), string initials = default(string), string privateEmail = default(string), string phoneNumber = default(string), string mobileNumber = default(string), string privatePhoneNumber = default(string), string uniLoginUsername = default(string), string adUserName = default(string), IList<string> roleNames = default(IList<string>), string jobTitle = default(string), System.DateTime? employmentResignationDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), IList<System.Guid> departmentIds = default(IList<System.Guid>), string addressLine = default(string), string careOfAddressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string))
+        /// <param name="insertedAt">When was employee created</param>
+        /// <param name="updatedAt">Last update of the employee</param>
+        public EmployeeExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, bool lmsIndicator, string givenName, string surname, string email, bool deceased, bool reportToUniLogin, bool createAdLogin, System.DateTime employmentStartDate, string protectedGivenName = default(string), string protectedSurname = default(string), string initials = default(string), string privateEmail = default(string), string phoneNumber = default(string), string mobileNumber = default(string), string privatePhoneNumber = default(string), string uniLoginUsername = default(string), string adUserName = default(string), IList<string> roleNames = default(IList<string>), string jobTitle = default(string), System.DateTime? employmentResignationDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), IList<System.Guid> departmentIds = default(IList<System.Guid>), string addressLine = default(string), string careOfAddressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             CivilRegistrationNumber = civilRegistrationNumber;
@@ -99,6 +101,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             City = city;
             PostalCode = postalCode;
             Country = country;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             CustomInit();
         }
 
@@ -379,6 +383,18 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         public string Country { get; set; }
 
         /// <summary>
+        /// Gets or sets when was employee created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of the employee
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -401,6 +417,34 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             if (Email == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Email");
+            }
+            if (CivilRegistrationNumber != null)
+            {
+                if (CivilRegistrationNumber.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "CivilRegistrationNumber", 1);
+                }
+            }
+            if (GivenName != null)
+            {
+                if (GivenName.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "GivenName", 1);
+                }
+            }
+            if (Surname != null)
+            {
+                if (Surname.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "Surname", 1);
+                }
+            }
+            if (Email != null)
+            {
+                if (Email.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "Email", 1);
+                }
             }
         }
     }

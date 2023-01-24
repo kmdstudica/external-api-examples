@@ -445,6 +445,7 @@
         "name": {
           "title": "String",
           "description": "The name of the department.",
+          "minLength": 1,
           "type": "string"
         },
         "validFrom": {
@@ -452,14 +453,14 @@
           "title": "Date",
           "description": "The date from which the department is active.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "The date which the department is active to, if it has been deactivated.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000"
+          "example": "2023-01-24T00:00:00.0000000"
         },
         "dayCalendarId": {
           "format": "uuid",
@@ -471,6 +472,7 @@
         "uvmDepartmentNumber": {
           "title": "String",
           "description": "The associated UVM department number.",
+          "minLength": 1,
           "type": "string"
         },
         "areaOfResponsibilityId": {
@@ -484,6 +486,16 @@
           "items": {
             "$ref": "#/definitions/InternshipDepartmentsExternalWorkWeekHoursDto"
           }
+        },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When it was created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of the department's information",
+          "type": "string"
         }
       }
     },
@@ -507,7 +519,7 @@
           "title": "Date",
           "description": "The date from which the hours are effective.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "minutesOnMonday": {
@@ -593,7 +605,7 @@
           "title": "Date",
           "description": "Get all students school internships starting on or after this date",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -601,7 +613,7 @@
           "title": "Date",
           "description": "Get all students school internships ending on or before this date",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -640,6 +652,16 @@
         "surname": {
           "title": "String",
           "description": "Students surname",
+          "type": "string"
+        },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When it was created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of student's information",
           "type": "string"
         },
         "writtenAgreements": {
@@ -691,7 +713,7 @@
           "title": "Date",
           "description": "Start date of the internship period",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -699,8 +721,18 @@
           "title": "Date",
           "description": "End date of the internship period",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
+        },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When it was created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of the internship period",
+          "type": "string"
         }
       }
     },
@@ -736,7 +768,7 @@
           "title": "Date",
           "description": "Start date of internship",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -744,7 +776,7 @@
           "title": "Date",
           "description": "End date for internship",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "placeOfInternshipName": {
@@ -804,7 +836,7 @@
           "title": "Date",
           "description": "Get all students school internships absence starting on or after this date",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -812,7 +844,7 @@
           "title": "Date",
           "description": "Get all students school internships absence ending on or before this date",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -876,7 +908,7 @@
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "durationInMinutes": {

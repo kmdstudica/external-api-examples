@@ -1172,6 +1172,31 @@
           }
         }
       }
+    },
+    "/UpdateContactAndAccountInfoExternal": {
+      "post": {
+        "tags": [
+          "UpdateContactAndAccountInfoExternal"
+        ],
+        "operationId": "UpdateContactAndAccountInfoExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateContactAndAccountInfoExternalCommand"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -1237,7 +1262,7 @@
           "title": "Date",
           "description": "Employees must have an active employment on or after this date\r\nThis parameter is required",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1299,6 +1324,7 @@
         "name": {
           "title": "String",
           "description": "Name of the area of education.",
+          "minLength": 1,
           "type": "string"
         },
         "validFrom": {
@@ -1306,14 +1332,14 @@
           "title": "Date",
           "description": "Start date of the area of education.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of the area of education.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000"
+          "example": "2023-01-24T00:00:00.0000000"
         },
         "dayCalendarId": {
           "format": "uuid",
@@ -1349,6 +1375,16 @@
           "title": "String",
           "description": "Name of the CØSA specialization of the education for this area",
           "type": "string"
+        },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When was area of education created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of the area of education",
+          "type": "string"
         }
       }
     },
@@ -1381,18 +1417,28 @@
           "title": "Date",
           "description": "Start date of the area of responsibility.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of the area of responsibiliity.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000"
+          "example": "2023-01-24T00:00:00.0000000"
         },
         "responsibleEmployeeId": {
           "format": "uuid",
           "description": "Identifier of employee responsible for area.",
+          "type": "string"
+        },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When was area of responsibility created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of the area of responsibility",
           "type": "string"
         }
       }
@@ -1672,6 +1718,16 @@
           "description": "Name of the day calendar.",
           "type": "string"
         },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When was day calendar created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of the day calendar",
+          "type": "string"
+        },
         "schoolDays": {
           "description": "List of school days.",
           "type": "array",
@@ -1696,13 +1752,13 @@
           "format": "date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000"
+          "example": "2023-01-24T00:00:00.0000000"
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000"
+          "example": "2023-01-24T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
@@ -1767,14 +1823,63 @@
           "title": "Date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000"
+          "example": "2023-01-24T00:00:00.0000000"
+        },
+        "areaOfEducationIds": {
+          "description": "Identifier of the area of education",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "x-nullable": false
+          }
+        },
+        "dsDepartmentNumber": {
+          "title": "String",
+          "description": "Institution number of the place of education",
+          "type": "string"
+        },
+        "address": {
+          "title": "String",
+          "description": "DS Department address",
+          "type": "string"
+        },
+        "postalCode": {
+          "title": "String",
+          "description": "DS Department zip code",
+          "type": "string"
+        },
+        "city": {
+          "title": "String",
+          "description": "DS Department city",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "title": "String",
+          "description": "DS Department phone number",
+          "type": "string"
+        },
+        "email": {
+          "title": "String",
+          "description": "DS Department email address",
+          "type": "string"
+        },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When was department created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of the department",
+          "type": "string"
         }
       }
     },
@@ -1806,6 +1911,7 @@
         "civilRegistrationNumber": {
           "title": "String",
           "description": "Gets employee civil registration number.",
+          "minLength": 1,
           "type": "string"
         },
         "protectedNameAndAddress": {
@@ -1823,11 +1929,13 @@
         "givenName": {
           "title": "String",
           "description": "Gets employee given name.",
+          "minLength": 1,
           "type": "string"
         },
         "surname": {
           "title": "String",
           "description": "Gets employee surname.",
+          "minLength": 1,
           "type": "string"
         },
         "protectedGivenName": {
@@ -1848,6 +1956,7 @@
         "email": {
           "title": "String",
           "description": "Gets employee e-mail address.",
+          "minLength": 1,
           "type": "string"
         },
         "privateEmail": {
@@ -1916,14 +2025,14 @@
           "title": "Date",
           "description": "Gets employee start date.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "employmentResignationDate": {
           "format": "date",
           "description": "Gets employee resignation date.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000"
+          "example": "2023-01-24T00:00:00.0000000"
         },
         "areaOfResponsibilityId": {
           "format": "uuid",
@@ -1969,6 +2078,16 @@
           "title": "String",
           "description": "Gets employee country.",
           "type": "string"
+        },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When was employee created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of the employee",
+          "type": "string"
         }
       }
     },
@@ -1988,14 +2107,14 @@
           "format": "date",
           "description": "Beginning of range for start date employment.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000"
+          "example": "2023-01-24T00:00:00.0000000"
         },
         "employmentStartDateTo": {
           "format": "date",
           "title": "Date",
           "description": "End of range for start date employment.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -2200,6 +2319,7 @@
         "designation": {
           "title": "String",
           "description": "The acronym or designation (user facing unique id) of the room",
+          "minLength": 1,
           "type": "string"
         },
         "description": {
@@ -2267,6 +2387,16 @@
             "type": "string",
             "x-nullable": false
           }
+        },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When was room created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of the room",
+          "type": "string"
         }
       }
     },
@@ -2333,7 +2463,7 @@
           "title": "Date",
           "description": "Date of the school day.",
           "type": "string",
-          "example": "2022-11-30T00:00:00.0000000",
+          "example": "2023-01-24T00:00:00.0000000",
           "x-nullable": false
         },
         "isSchoolDay": {
@@ -2516,6 +2646,7 @@
         "name": {
           "title": "String",
           "description": "Name of school hours plan",
+          "minLength": 1,
           "type": "string"
         },
         "startTime": {
@@ -2577,6 +2708,16 @@
           "description": "Are there lessons on Sundays",
           "type": "boolean",
           "x-nullable": false
+        },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When was the school hours plan created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of the school hours plan",
+          "type": "string"
         },
         "schoolHours": {
           "description": "List of modules (school hours) for the school hours plan",
@@ -2676,11 +2817,13 @@
         "name": {
           "title": "String",
           "description": "Name of the school hours plan.",
+          "minLength": 1,
           "type": "string"
         },
         "startTime": {
           "title": "String",
           "description": "Start time for school day.",
+          "minLength": 1,
           "type": "string"
         },
         "lectureDurationInMinutes": {
@@ -2733,6 +2876,16 @@
           "description": "Whether Sundays are school days.",
           "type": "boolean",
           "x-nullable": false
+        },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When was the school hours plan created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of the school hours plan",
+          "type": "string"
         }
       }
     },
@@ -2777,6 +2930,184 @@
           "description": "The school code for which to get data.",
           "maxLength": 6,
           "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
+    "UpdateContactAndAccountInfoExternalCommand": {
+      "title": "UpdateContactAndAccountInfoExternalCommand",
+      "description": "Update employee contact and account information",
+      "required": [
+        "addressLineClear",
+        "careOfAddressClear",
+        "cityClear",
+        "countryClear",
+        "employeeId",
+        "mobileNumberClear",
+        "phoneNumberClear",
+        "placeClear",
+        "postalCodeClear",
+        "privateEmailClear",
+        "privatePhoneNumberClear"
+      ],
+      "type": "object",
+      "properties": {
+        "employeeId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "The ID of the employee.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "initials": {
+          "title": "String",
+          "description": "The employee's initials.",
+          "maxLength": 4,
+          "type": "string"
+        },
+        "givenName": {
+          "title": "String",
+          "description": "The employee's first- and middle names.",
+          "type": "string"
+        },
+        "surname": {
+          "title": "String",
+          "description": "The employee's last name.",
+          "type": "string"
+        },
+        "addressLine": {
+          "title": "String",
+          "description": "The address line of the employee",
+          "type": "string"
+        },
+        "addressLineClear": {
+          "title": "Boolean",
+          "description": "Indicates if the AddressLine should be cleared regardless of the value in AddressLine",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "careOfAddress": {
+          "title": "String",
+          "description": "The C/O address of the employee.",
+          "type": "string"
+        },
+        "careOfAddressClear": {
+          "title": "Boolean",
+          "description": "Indicates if the CareOfAddress should be cleared regardless of the value in CareOfAddress",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "city": {
+          "title": "String",
+          "description": "The city of the employee",
+          "type": "string"
+        },
+        "cityClear": {
+          "title": "Boolean",
+          "description": "Indicates if the City should be cleared regardless of the value in City",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "place": {
+          "title": "String",
+          "description": "The place of the employee",
+          "type": "string"
+        },
+        "placeClear": {
+          "title": "Boolean",
+          "description": "Indicates if the Place should be cleared regardless of the value in Place",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "postalCode": {
+          "title": "String",
+          "description": "The postal code of the employee",
+          "type": "string"
+        },
+        "postalCodeClear": {
+          "title": "Boolean",
+          "description": "Indicates if the PostalCode should be cleared regardless of the value in PostalCode",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "country": {
+          "title": "String",
+          "description": "The country of the employee to be created",
+          "type": "string"
+        },
+        "countryClear": {
+          "title": "Boolean",
+          "description": "Indicates if the Country should be cleared regardless of the value in Country",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "phoneNumber": {
+          "format": "tel",
+          "title": "String",
+          "description": "The employee's phone number.",
+          "type": "string"
+        },
+        "phoneNumberClear": {
+          "title": "Boolean",
+          "description": "Indicates if the PhoneNumber should be cleared regardless of the value in PhoneNumber",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "mobileNumber": {
+          "title": "String",
+          "description": "The employee's mobile number.",
+          "maxLength": 30,
+          "type": "string"
+        },
+        "mobileNumberClear": {
+          "title": "Boolean",
+          "description": "Indicates if the MobileNumber should be cleared regardless of the value in PhoneNumber",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "privatePhoneNumber": {
+          "title": "String",
+          "description": "The employee's private phone number.",
+          "maxLength": 30,
+          "type": "string"
+        },
+        "privatePhoneNumberClear": {
+          "title": "Boolean",
+          "description": "Indicates if the PrivatePhoneNumber should be cleared regardless of the value in PhoneNumber",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "privateEmail": {
+          "format": "email",
+          "title": "String",
+          "description": "The employee's private e-mail address.",
+          "maxLength": 255,
+          "type": "string"
+        },
+        "privateEmailClear": {
+          "title": "Boolean",
+          "description": "Indicates if the PrivateEmail should be cleared regardless of the value in PrivateEmail",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "emailExternalUsername": {
+          "title": "String",
+          "description": "The username part of the employee's email address",
+          "type": "string"
+        },
+        "emailDomain": {
+          "title": "String",
+          "description": "The domain part of the employee's email address",
+          "type": "string"
+        },
+        "adUsername": {
+          "title": "String",
+          "description": "The AD user name for the employee",
+          "type": "string"
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which command is performed.",
           "type": "string"
         }
       }

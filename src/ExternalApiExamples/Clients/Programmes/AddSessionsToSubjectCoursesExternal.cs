@@ -77,6 +77,10 @@ namespace Kmd.Studica.Programmes.Client
             }
             if (sessions != null)
             {
+                if (sessions.Count < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinItems, "sessions", 1);
+                }
                 foreach (var element in sessions)
                 {
                     if (element != null)

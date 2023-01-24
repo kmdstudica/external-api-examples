@@ -34,6 +34,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// ActiveSubjectCoursesExternalRequest class.
         /// </summary>
         /// <param name="subjectCoursesActiveOnOrAfterDate">Date</param>
+        /// <param name="includeDeletedSubjectCourses">Boolean</param>
         /// <param name="pageNumber">Int32</param>
         /// <param name="pageSize">Int32</param>
         /// <param name="inlineCount">Boolean</param>
@@ -41,10 +42,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="lmsIndicator">Is the entity to be created in the LMS.
         /// If not specified, then the value of the LMS indicator is
         /// disregarded in the filtering.</param>
-        public ActiveSubjectCoursesExternalRequest(System.DateTime subjectCoursesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?))
+        public ActiveSubjectCoursesExternalRequest(System.DateTime subjectCoursesActiveOnOrAfterDate, bool includeDeletedSubjectCourses, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?))
         {
             SubjectCoursesActiveOnOrAfterDate = subjectCoursesActiveOnOrAfterDate;
             LmsIndicator = lmsIndicator;
+            IncludeDeletedSubjectCourses = includeDeletedSubjectCourses;
             PageNumber = pageNumber;
             PageSize = pageSize;
             InlineCount = inlineCount;
@@ -75,6 +77,15 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "lmsIndicator")]
         public bool? LmsIndicator { get; set; }
+
+        /// <summary>
+        /// Gets or sets boolean
+        /// </summary>
+        /// <remarks>
+        /// Should the response include deleted subject courses
+        /// </remarks>
+        [JsonProperty(PropertyName = "includeDeletedSubjectCourses")]
+        public bool IncludeDeletedSubjectCourses { get; set; }
 
         /// <summary>
         /// Gets or sets int32

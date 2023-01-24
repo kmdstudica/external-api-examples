@@ -9,6 +9,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
     using Microsoft.Rest;
     using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -36,12 +38,31 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="name">String</param>
         /// <param name="validFrom">Date</param>
         /// <param name="validTo">End date of being valid.</param>
-        public DepartmentsExternalResponse(System.Guid id, string name, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?))
+        /// <param name="areaOfEducationIds">Identifier of the area of
+        /// education</param>
+        /// <param name="dsDepartmentNumber">String</param>
+        /// <param name="address">String</param>
+        /// <param name="postalCode">String</param>
+        /// <param name="city">String</param>
+        /// <param name="phoneNumber">String</param>
+        /// <param name="email">String</param>
+        /// <param name="insertedAt">When was department created</param>
+        /// <param name="updatedAt">Last update of the department</param>
+        public DepartmentsExternalResponse(System.Guid id, string name, System.DateTime validFrom, System.DateTime? validTo = default(System.DateTime?), IList<System.Guid> areaOfEducationIds = default(IList<System.Guid>), string dsDepartmentNumber = default(string), string address = default(string), string postalCode = default(string), string city = default(string), string phoneNumber = default(string), string email = default(string), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             Name = name;
             ValidFrom = validFrom;
             ValidTo = validTo;
+            AreaOfEducationIds = areaOfEducationIds;
+            DsDepartmentNumber = dsDepartmentNumber;
+            Address = address;
+            PostalCode = postalCode;
+            City = city;
+            PhoneNumber = phoneNumber;
+            Email = email;
+            InsertedAt = insertedAt;
+            UpdatedAt = updatedAt;
             CustomInit();
         }
 
@@ -84,6 +105,78 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "validTo")]
         public System.DateTime? ValidTo { get; set; }
+
+        /// <summary>
+        /// Gets or sets identifier of the area of education
+        /// </summary>
+        [JsonProperty(PropertyName = "areaOfEducationIds")]
+        public IList<System.Guid> AreaOfEducationIds { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// Institution number of the place of education
+        /// </remarks>
+        [JsonProperty(PropertyName = "dsDepartmentNumber")]
+        public string DsDepartmentNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// DS Department address
+        /// </remarks>
+        [JsonProperty(PropertyName = "address")]
+        public string Address { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// DS Department zip code
+        /// </remarks>
+        [JsonProperty(PropertyName = "postalCode")]
+        public string PostalCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// DS Department city
+        /// </remarks>
+        [JsonProperty(PropertyName = "city")]
+        public string City { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// DS Department phone number
+        /// </remarks>
+        [JsonProperty(PropertyName = "phoneNumber")]
+        public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// DS Department email address
+        /// </remarks>
+        [JsonProperty(PropertyName = "email")]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Gets or sets when was department created
+        /// </summary>
+        [JsonProperty(PropertyName = "insertedAt")]
+        public System.DateTime? InsertedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets last update of the department
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedAt")]
+        public System.DateTime? UpdatedAt { get; set; }
 
         /// <summary>
         /// Validate the object.

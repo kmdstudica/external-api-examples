@@ -127,6 +127,13 @@ namespace Kmd.Studica.Students.Client.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "CivilRegistrationNumber");
             }
+            if (CivilRegistrationNumber != null)
+            {
+                if (CivilRegistrationNumber.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "CivilRegistrationNumber", 1);
+                }
+            }
             if (Marks != null)
             {
                 foreach (var element in Marks)

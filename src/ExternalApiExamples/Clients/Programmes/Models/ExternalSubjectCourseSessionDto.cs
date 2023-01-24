@@ -32,9 +32,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// class.
         /// </summary>
         /// <param name="sessionId">Guid</param>
-        /// <param name="subjectCourseId">Guid</param>
-        /// <param name="groupIds">The groups which the session is assigned
-        /// to.</param>
+        /// <param name="groupIds">The groups which the session is assigned to.
+        /// These groups must
+        /// be related to subject courses.</param>
         /// <param name="roomIds">The Ids of the rooms where the session is
         /// conducted.</param>
         /// <param name="teacherIds">List of teacher' identifiers.</param>
@@ -45,11 +45,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="schoolHourEntryId">The school hour entry which the
         /// session is scheduled to.</param>
         /// <param name="comment">String</param>
-        public ExternalSubjectCourseSessionDto(System.Guid sessionId, System.Guid subjectCourseId, IList<System.Guid> groupIds, IList<System.Guid> roomIds, IList<System.Guid> teacherIds, string externalLessonId = default(string), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), string comment = default(string))
+        public ExternalSubjectCourseSessionDto(System.Guid sessionId, IList<System.Guid> groupIds, IList<System.Guid> roomIds, IList<System.Guid> teacherIds, string externalLessonId = default(string), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), string comment = default(string))
         {
             SessionId = sessionId;
             ExternalLessonId = externalLessonId;
-            SubjectCourseId = subjectCourseId;
             GroupIds = groupIds;
             RoomIds = roomIds;
             TeacherIds = teacherIds;
@@ -86,16 +85,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         public string ExternalLessonId { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
-        /// </summary>
-        /// <remarks>
-        /// The id of the related subject course.
-        /// </remarks>
-        [JsonProperty(PropertyName = "subjectCourseId")]
-        public System.Guid SubjectCourseId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the groups which the session is assigned to.
+        /// Gets or sets the groups which the session is assigned to. These
+        /// groups must
+        /// be related to subject courses.
         /// </summary>
         [JsonProperty(PropertyName = "groupIds")]
         public IList<System.Guid> GroupIds { get; set; }
@@ -172,6 +164,13 @@ namespace Kmd.Studica.Programmes.Client.Models
                 if (ExternalLessonId.Length > 50)
                 {
                     throw new ValidationException(ValidationRules.MaxLength, "ExternalLessonId", 50);
+                }
+            }
+            if (GroupIds != null)
+            {
+                if (GroupIds.Count < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinItems, "GroupIds", 1);
                 }
             }
             if (StartTime != null)

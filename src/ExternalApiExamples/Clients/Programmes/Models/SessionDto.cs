@@ -33,7 +33,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="sessionEntityType">SessionEntityType</param>
         /// <param name="sessionEntityId">The id of the entity which is
         /// associated with this session. If the type
-        /// is None then this value is null, otherwise it has a value.</param>
+        /// is None then this value is null, otherwise it has a value.
+        ///
+        /// If there are more than one related session entity, the first is
+        /// returned.</param>
+        /// <param name="sessionEntityIds">The ids of the entities which are
+        /// associated with this session. If the type
+        /// is None then this value is empty.</param>
         /// <param name="externalLessonId">String</param>
         /// <param name="groupIds">Ids of groups related to the
         /// session.</param>
@@ -46,11 +52,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="schoolHourEntryId">The id of the school hour entry
         /// which the session is scheduled to.</param>
         /// <param name="comment">String</param>
-        public SessionDto(System.Guid sessionId, string sessionEntityType, System.Guid? sessionEntityId = default(System.Guid?), string externalLessonId = default(string), IList<System.Guid> groupIds = default(IList<System.Guid>), IList<System.Guid> roomIds = default(IList<System.Guid>), IList<System.Guid> teacherIds = default(IList<System.Guid>), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), string comment = default(string))
+        public SessionDto(System.Guid sessionId, string sessionEntityType, System.Guid? sessionEntityId = default(System.Guid?), IList<System.Guid> sessionEntityIds = default(IList<System.Guid>), string externalLessonId = default(string), IList<System.Guid> groupIds = default(IList<System.Guid>), IList<System.Guid> roomIds = default(IList<System.Guid>), IList<System.Guid> teacherIds = default(IList<System.Guid>), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), string comment = default(string))
         {
             SessionId = sessionId;
             SessionEntityType = sessionEntityType;
             SessionEntityId = sessionEntityId;
+            SessionEntityIds = sessionEntityIds;
             ExternalLessonId = externalLessonId;
             GroupIds = groupIds;
             RoomIds = roomIds;
@@ -91,9 +98,20 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Gets or sets the id of the entity which is associated with this
         /// session. If the type
         /// is None then this value is null, otherwise it has a value.
+        ///
+        /// If there are more than one related session entity, the first is
+        /// returned.
         /// </summary>
         [JsonProperty(PropertyName = "sessionEntityId")]
         public System.Guid? SessionEntityId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ids of the entities which are associated with this
+        /// session. If the type
+        /// is None then this value is empty.
+        /// </summary>
+        [JsonProperty(PropertyName = "sessionEntityIds")]
+        public IList<System.Guid> SessionEntityIds { get; set; }
 
         /// <summary>
         /// Gets or sets string

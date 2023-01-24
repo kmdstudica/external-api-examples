@@ -55,6 +55,11 @@ namespace Kmd.Studica.Students.Client
         /// </summary>
         IStudentMarksExternal StudentMarksExternal { get; }
 
+        /// <summary>
+        /// Gets the IUpdateContactAndAccountInfoExternal.
+        /// </summary>
+        IUpdateContactAndAccountInfoExternal UpdateContactAndAccountInfoExternal { get; }
+
         /// <param name='body'>
         /// </param>
         /// <param name='customHeaders'>

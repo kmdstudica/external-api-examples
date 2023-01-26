@@ -31,7 +31,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         /// <param name="startDateFrom">Date</param>
         /// <param name="startDateTo">Date</param>
-        /// <param name="includeDeletedProgrammes">Boolean</param>
         /// <param name="pageNumber">Int32</param>
         /// <param name="pageSize">Int32</param>
         /// <param name="inlineCount">Boolean</param>
@@ -39,7 +38,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="areaOfResponsibilityId">Option for also querying
         /// educational programmes by area of responsibility in addition to
         /// dates</param>
-        public EducationalProgrammesExternalRequest(System.DateTime startDateFrom, System.DateTime startDateTo, bool includeDeletedProgrammes, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?))
+        /// <param name="includeDeletedProgrammes">Should the response include
+        /// deleted educational programmes</param>
+        public EducationalProgrammesExternalRequest(System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), bool? includeDeletedProgrammes = default(bool?))
         {
             StartDateFrom = startDateFrom;
             StartDateTo = startDateTo;
@@ -86,13 +87,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.Guid? AreaOfResponsibilityId { get; set; }
 
         /// <summary>
-        /// Gets or sets boolean
+        /// Gets or sets should the response include deleted educational
+        /// programmes
         /// </summary>
-        /// <remarks>
-        /// Should the response include deleted educational programmes
-        /// </remarks>
         [JsonProperty(PropertyName = "includeDeletedProgrammes")]
-        public bool IncludeDeletedProgrammes { get; set; }
+        public bool? IncludeDeletedProgrammes { get; set; }
 
         /// <summary>
         /// Gets or sets int32

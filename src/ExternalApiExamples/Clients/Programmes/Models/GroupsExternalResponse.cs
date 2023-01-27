@@ -30,6 +30,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the GroupsExternalResponse class.
         /// </summary>
         /// <param name="groupId">Guid</param>
+        /// <param name="groupEntityType">GroupEntityType</param>
         /// <param name="groupEntityId">Guid</param>
         /// <param name="rootGroupId">Guid</param>
         /// <param name="startDate">Date</param>
@@ -49,9 +50,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="insertedAt">When it was created</param>
         /// <param name="updatedAt">Last update of the group's basic
         /// information</param>
-        public GroupsExternalResponse(System.Guid groupId, System.Guid groupEntityId, System.Guid rootGroupId, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, System.Guid? parentGroupId = default(System.Guid?), string name = default(string), string displayName = default(string), string designation = default(string), int? numberOfSessions = default(int?), IList<GroupsExternalResponseParticipationPeriodDto> participationPeriods = default(IList<GroupsExternalResponseParticipationPeriodDto>), System.DateTime? deletedAt = default(System.DateTime?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
+        public GroupsExternalResponse(System.Guid groupId, string groupEntityType, System.Guid groupEntityId, System.Guid rootGroupId, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, System.Guid? parentGroupId = default(System.Guid?), string name = default(string), string displayName = default(string), string designation = default(string), int? numberOfSessions = default(int?), IList<GroupsExternalResponseParticipationPeriodDto> participationPeriods = default(IList<GroupsExternalResponseParticipationPeriodDto>), System.DateTime? deletedAt = default(System.DateTime?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             GroupId = groupId;
+            GroupEntityType = groupEntityType;
             GroupEntityId = groupEntityId;
             RootGroupId = rootGroupId;
             ParentGroupId = parentGroupId;
@@ -68,13 +70,6 @@ namespace Kmd.Studica.Programmes.Client.Models
             UpdatedAt = updatedAt;
             CustomInit();
         }
-        /// <summary>
-        /// Static constructor for GroupsExternalResponse class.
-        /// </summary>
-        static GroupsExternalResponse()
-        {
-            GroupEntityType = "SubjectCourse";
-        }
 
         /// <summary>
         /// An initialization method that performs custom operations like setting defaults
@@ -89,6 +84,17 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </remarks>
         [JsonProperty(PropertyName = "groupId")]
         public System.Guid GroupId { get; set; }
+
+        /// <summary>
+        /// Gets or sets groupEntityType
+        /// </summary>
+        /// <remarks>
+        /// Type of entity that this group refers to
+        /// e.g. a subject course or an educational programme. Possible values
+        /// include: 'SubjectCourse', 'EducationalProgramme'
+        /// </remarks>
+        [JsonProperty(PropertyName = "groupEntityType")]
+        public string GroupEntityType { get; set; }
 
         /// <summary>
         /// Gets or sets guid
@@ -207,13 +213,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         public System.DateTime? UpdatedAt { get; set; }
 
         /// <summary>
-        /// Type of entity that this group refers to
-        /// e.g. a subject course or an educational programme
-        /// </summary>
-        [JsonProperty(PropertyName = "groupEntityType")]
-        public static string GroupEntityType { get; private set; }
-
-        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -221,6 +220,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </exception>
         public virtual void Validate()
         {
+            if (GroupEntityType == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "GroupEntityType");
+            }
             if (ParticipationPeriods != null)
             {
                 foreach (var element in ParticipationPeriods)

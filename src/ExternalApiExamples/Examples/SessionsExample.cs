@@ -1,10 +1,10 @@
-﻿using ConsoleTables;
-using Kmd.Studica.Programmes.Client;
-using Microsoft.Rest;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ConsoleTables;
+using Kmd.Studica.Programmes.Client;
 using Kmd.Studica.Programmes.Client.Models;
+using Microsoft.Rest;
 
 namespace ExternalApiExamples;
 
@@ -98,19 +98,19 @@ public class SessionsExample
                     GroupIds = new List<Guid>
                     {
                         Guid.NewGuid(), // Root group or sub group from SubjectCourse 1
-                        Guid.NewGuid(), // Root group or sub group from SubjectCourse 2
+                        Guid.NewGuid() // Root group or sub group from SubjectCourse 2
                     },
                     RoomIds = new List<Guid>
                     {
                         Guid.NewGuid(), // Room 1 
-                        Guid.NewGuid(), // Room 2
+                        Guid.NewGuid() // Room 2
                     },
                     SchoolHourEntryId = Guid.NewGuid(),
                     TeacherIds = new List<Guid>
                     {
                         Guid.NewGuid(), // Teacher 1
-                        Guid.NewGuid(), // Teacher 2
-                    },
+                        Guid.NewGuid() // Teacher 2
+                    }
 
                     // Custom time for session - do not use if using school hours, which is preferred
                     // Date = new DateTime(),
@@ -176,19 +176,19 @@ public class SessionsExample
                 GroupIds = new List<Guid>
                 {
                     Guid.NewGuid(), // Root group or sub group from SubjectCourse 1
-                    Guid.NewGuid(), // Root group or sub group from SubjectCourse 2
+                    Guid.NewGuid() // Root group or sub group from SubjectCourse 2
                 },
                 RoomIds = new List<Guid>
                 {
                     Guid.NewGuid(), // Room 1 
-                    Guid.NewGuid(), // Room 2
+                    Guid.NewGuid() // Room 2
                 },
                 SchoolHourEntryId = Guid.NewGuid(),
                 TeacherIds = new List<Guid>
                 {
                     Guid.NewGuid(), // Teacher 1
-                    Guid.NewGuid(), // Teacher 2
-                },
+                    Guid.NewGuid() // Teacher 2
+                }
 
                 // Custom time for session - do not use if using school hours, which is preferred
                 // Date = new DateTime(),
@@ -232,17 +232,17 @@ public class SessionsExample
                     GroupIds = new List<Guid>
                     {
                         Guid.NewGuid(), // E.g. root group or sub group from educational programme
-                        Guid.NewGuid(), // E.g. group of students
+                        Guid.NewGuid() // E.g. group of students
                     },
                     RoomIds = new List<Guid>
                     {
                         Guid.NewGuid(), // Room 1 
-                        Guid.NewGuid(), // Room 2
+                        Guid.NewGuid() // Room 2
                     },
                     TeacherIds = new List<Guid>
                     {
                         Guid.NewGuid(), // Teacher 1
-                        Guid.NewGuid(), // Teacher 2
+                        Guid.NewGuid() // Teacher 2
                     },
                     // Custom time for session - independent sessions do not have school hours
                     Date = new DateTime(),
@@ -287,17 +287,17 @@ public class SessionsExample
                 GroupIds = new List<Guid>
                 {
                     Guid.NewGuid(), // E.g. root group or sub group from educational programme
-                    Guid.NewGuid(), // E.g. group of students
+                    Guid.NewGuid() // E.g. group of students
                 },
                 RoomIds = new List<Guid>
                 {
                     Guid.NewGuid(), // Room 1 
-                    Guid.NewGuid(), // Room 2
+                    Guid.NewGuid() // Room 2
                 },
                 TeacherIds = new List<Guid>
                 {
                     Guid.NewGuid(), // Teacher 1
-                    Guid.NewGuid(), // Teacher 2
+                    Guid.NewGuid() // Teacher 2
                 },
                 // Custom time for session - independent sessions do not have school hours
                 Date = new DateTime(),

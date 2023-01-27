@@ -46,11 +46,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// &lt;/example&gt;</param>
         /// <param name="groupIds">Optional array of groups to read.
         /// Must contain 1 to 1000 elements</param>
-        public GroupsExternalRequest(string schoolCode, System.DateTime? groupsActiveOnOrAfterDate = default(System.DateTime?), IList<string> groupEntityTypes = default(IList<string>), IList<System.Guid> groupIds = default(IList<System.Guid>))
+        public GroupsExternalRequest(string schoolCode, System.DateTime? groupsActiveOnOrAfterDate = default(System.DateTime?), IList<string> groupEntityTypes = default(IList<string>), IList<System.Guid> groupIds = default(IList<System.Guid>), bool? includeDeletedGroups = default(bool?))
         {
             GroupsActiveOnOrAfterDate = groupsActiveOnOrAfterDate;
             GroupEntityTypes = groupEntityTypes;
             GroupIds = groupIds;
+            IncludeDeletedGroups = includeDeletedGroups;
             SchoolCode = schoolCode;
             CustomInit();
         }
@@ -83,6 +84,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "groupIds")]
         public IList<System.Guid> GroupIds { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "includeDeletedGroups")]
+        public bool? IncludeDeletedGroups { get; set; }
 
         /// <summary>
         /// Gets or sets string

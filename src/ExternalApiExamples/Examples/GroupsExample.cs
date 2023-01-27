@@ -35,21 +35,20 @@ public class GroupsExample
                 // At least one parameter must be specified
                 GroupIds = null,
                 GroupEntityTypes = new List<string>() { GroupEntityType.SubjectCourse },
+                IncludeDeletedGroups = false,
                 // GroupsActiveOnOrAfterDate = DateTime.Today,
-                SchoolCode = configuration.SchoolCode,
+                SchoolCode = configuration.SchoolCode
             },
             customHeaders: new Dictionary<string, List<string>>
             {
                 { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
             });
 
-        Console.WriteLine($"Got {result.Body.Count} rooms from API");
+        Console.WriteLine($"Got {result.Body.Count} groups from API");
 
         ConsoleTable
             .From(result.Body)
             .Write();
-        
-        result.Body[0].GroupEntityId
     }
 
     private static class GroupEntityType

@@ -52,6 +52,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="participants">The participants for the entire subject
         /// course.</param>
         /// <param name="designation">String</param>
+        /// <param name="defaultEducationalProgrammeId">Id of the default
+        /// associated educational programme.</param>
         /// <param name="defaultSubjectId">The id of the default subject for
         /// this subject course.</param>
         /// <param name="deletedAt">If the subject course has been deleted,
@@ -59,11 +61,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="insertedAt">When it was created</param>
         /// <param name="updatedAt">Last update of the subject course's basic
         /// information</param>
-        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, bool isBridgingCourse, IList<System.Guid> associatedEducationalProgrammeIds, IList<SubjectCourseExternalResponseGroup> groups, IList<SubjectCourseExternalResponseStudent> participants, string designation = default(string), System.Guid? defaultSubjectId = default(System.Guid?), System.DateTime? deletedAt = default(System.DateTime?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
+        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, bool isBridgingCourse, IList<System.Guid> associatedEducationalProgrammeIds, IList<SubjectCourseExternalResponseGroup> groups, IList<SubjectCourseExternalResponseStudent> participants, string designation = default(string), System.Guid? defaultEducationalProgrammeId = default(System.Guid?), System.Guid? defaultSubjectId = default(System.Guid?), System.DateTime? deletedAt = default(System.DateTime?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             Designation = designation;
             EducationalProgrammeId = educationalProgrammeId;
+            DefaultEducationalProgrammeId = defaultEducationalProgrammeId;
             DefaultSubjectId = defaultSubjectId;
             Name = name;
             StartDate = startDate;
@@ -112,6 +115,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </remarks>
         [JsonProperty(PropertyName = "educationalProgrammeId")]
         public System.Guid EducationalProgrammeId { get; set; }
+
+        /// <summary>
+        /// Gets or sets id of the default associated educational programme.
+        /// </summary>
+        [JsonProperty(PropertyName = "defaultEducationalProgrammeId")]
+        public System.Guid? DefaultEducationalProgrammeId { get; set; }
 
         /// <summary>
         /// Gets or sets the id of the default subject for this subject course.

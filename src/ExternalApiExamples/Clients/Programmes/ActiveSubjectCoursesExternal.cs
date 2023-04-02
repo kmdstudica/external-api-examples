@@ -71,6 +71,9 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='includeDeletedSubjectCourses'>
         /// Should the response include deleted subject courses
         /// </param>
+        /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
+        /// Only get data inserted or updated on or after the specified date
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -92,7 +95,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> GetWithHttpMessagesAsync(System.DateTime subjectCoursesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?), bool? includeDeletedSubjectCourses = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> GetWithHttpMessagesAsync(System.DateTime subjectCoursesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?), bool? includeDeletedSubjectCourses = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pageNumber > 2147483647)
             {
@@ -135,6 +138,7 @@ namespace Kmd.Studica.Programmes.Client
                 tracingParameters.Add("subjectCoursesActiveOnOrAfterDate", subjectCoursesActiveOnOrAfterDate);
                 tracingParameters.Add("lmsIndicator", lmsIndicator);
                 tracingParameters.Add("includeDeletedSubjectCourses", includeDeletedSubjectCourses);
+                tracingParameters.Add("onlyDataInsertedOrUpdatedOnOrAfter", onlyDataInsertedOrUpdatedOnOrAfter);
                 tracingParameters.Add("pageNumber", pageNumber);
                 tracingParameters.Add("pageSize", pageSize);
                 tracingParameters.Add("inlineCount", inlineCount);
@@ -154,6 +158,10 @@ namespace Kmd.Studica.Programmes.Client
             if (includeDeletedSubjectCourses != null)
             {
                 _queryParameters.Add(string.Format("IncludeDeletedSubjectCourses={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(includeDeletedSubjectCourses, Client.SerializationSettings).Trim('"'))));
+            }
+            if (onlyDataInsertedOrUpdatedOnOrAfter != null)
+            {
+                _queryParameters.Add(string.Format("OnlyDataInsertedOrUpdatedOnOrAfter={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(onlyDataInsertedOrUpdatedOnOrAfter, Client.SerializationSettings).Trim('"'))));
             }
             _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));

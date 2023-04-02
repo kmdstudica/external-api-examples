@@ -41,6 +41,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="departmentId">Guid</param>
         /// <param name="studentsIds">Reference ids to assigned
         /// students.</param>
+        /// <param name="participants">The participants for the entire subject
+        /// course.</param>
         /// <param name="subjectCourseIds">Reference ids to the subject courses
         /// that are associated with the educational programme</param>
         /// <param name="designation">String</param>
@@ -57,7 +59,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="insertedAt">When it was created</param>
         /// <param name="updatedAt">Last update of the educational programme's
         /// basic information</param>
-        public EducationalProgrammeExternalResponse(System.Guid id, string name, System.DateTime startDate, System.DateTime endDate, System.Guid departmentId, IList<System.Guid> studentsIds, IList<System.Guid> subjectCourseIds, string designation = default(string), System.Guid? areaOfResponsibilityId = default(System.Guid?), System.Guid? areaOfEducationId = default(System.Guid?), System.Guid? dayCalendarId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?), System.DateTime? deletedAt = default(System.DateTime?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
+        public EducationalProgrammeExternalResponse(System.Guid id, string name, System.DateTime startDate, System.DateTime endDate, System.Guid departmentId, IList<System.Guid> studentsIds, IList<EducationalProgrammesExternalResponseStudentParticipation> participants, IList<System.Guid> subjectCourseIds, string designation = default(string), System.Guid? areaOfResponsibilityId = default(System.Guid?), System.Guid? areaOfEducationId = default(System.Guid?), System.Guid? dayCalendarId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?), System.DateTime? deletedAt = default(System.DateTime?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             Designation = designation;
@@ -70,6 +72,7 @@ namespace Kmd.Studica.Programmes.Client.Models
             SchoolHoursPlanId = schoolHoursPlanId;
             DepartmentId = departmentId;
             StudentsIds = studentsIds;
+            Participants = participants;
             SubjectCourseIds = subjectCourseIds;
             DeletedAt = deletedAt;
             InsertedAt = insertedAt;
@@ -170,6 +173,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<System.Guid> StudentsIds { get; set; }
 
         /// <summary>
+        /// Gets or sets the participants for the entire subject course.
+        /// </summary>
+        [JsonProperty(PropertyName = "participants")]
+        public IList<EducationalProgrammesExternalResponseStudentParticipation> Participants { get; set; }
+
+        /// <summary>
         /// Gets or sets reference ids to the subject courses that are
         /// associated with the educational programme
         /// </summary>
@@ -212,6 +221,10 @@ namespace Kmd.Studica.Programmes.Client.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "StudentsIds");
             }
+            if (Participants == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Participants");
+            }
             if (SubjectCourseIds == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "SubjectCourseIds");
@@ -221,6 +234,16 @@ namespace Kmd.Studica.Programmes.Client.Models
                 if (Name.Length < 1)
                 {
                     throw new ValidationException(ValidationRules.MinLength, "Name", 1);
+                }
+            }
+            if (Participants != null)
+            {
+                foreach (var element in Participants)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
                 }
             }
         }

@@ -56,18 +56,23 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// associated educational programme.</param>
         /// <param name="defaultSubjectId">The id of the default subject for
         /// this subject course.</param>
+        /// <param name="schoolHoursPlanId">The id of the school hours plan for
+        /// this subject course</param>
         /// <param name="deletedAt">If the subject course has been deleted,
         /// this property will have a value</param>
         /// <param name="insertedAt">When it was created</param>
         /// <param name="updatedAt">Last update of the subject course's basic
         /// information</param>
-        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, bool isBridgingCourse, IList<System.Guid> associatedEducationalProgrammeIds, IList<SubjectCourseExternalResponseGroup> groups, IList<SubjectCourseExternalResponseStudent> participants, string designation = default(string), System.Guid? defaultEducationalProgrammeId = default(System.Guid?), System.Guid? defaultSubjectId = default(System.Guid?), System.DateTime? deletedAt = default(System.DateTime?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
+        /// <param name="minimumNumberOfSessions">The minimum number of
+        /// sessions expected to be taught on this subject course</param>
+        public SubjectCourseExternalResponse(System.Guid id, System.Guid educationalProgrammeId, string name, System.DateTime startDate, System.DateTime endDate, bool lmsIndicator, IList<SubjectCourseExternalResponseStudent> students, IList<System.Guid> teachersIds, bool isBridgingCourse, IList<System.Guid> associatedEducationalProgrammeIds, IList<SubjectCourseExternalResponseGroup> groups, IList<SubjectCourseExternalResponseStudent> participants, string designation = default(string), System.Guid? defaultEducationalProgrammeId = default(System.Guid?), System.Guid? defaultSubjectId = default(System.Guid?), System.Guid? schoolHoursPlanId = default(System.Guid?), System.DateTime? deletedAt = default(System.DateTime?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), int? minimumNumberOfSessions = default(int?))
         {
             Id = id;
             Designation = designation;
             EducationalProgrammeId = educationalProgrammeId;
             DefaultEducationalProgrammeId = defaultEducationalProgrammeId;
             DefaultSubjectId = defaultSubjectId;
+            SchoolHoursPlanId = schoolHoursPlanId;
             Name = name;
             StartDate = startDate;
             EndDate = endDate;
@@ -81,6 +86,7 @@ namespace Kmd.Studica.Programmes.Client.Models
             AssociatedEducationalProgrammeIds = associatedEducationalProgrammeIds;
             Groups = groups;
             Participants = participants;
+            MinimumNumberOfSessions = minimumNumberOfSessions;
             CustomInit();
         }
 
@@ -127,6 +133,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "defaultSubjectId")]
         public System.Guid? DefaultSubjectId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the id of the school hours plan for this subject
+        /// course
+        /// </summary>
+        [JsonProperty(PropertyName = "schoolHoursPlanId")]
+        public System.Guid? SchoolHoursPlanId { get; set; }
 
         /// <summary>
         /// Gets or sets string
@@ -225,6 +238,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "participants")]
         public IList<SubjectCourseExternalResponseStudent> Participants { get; set; }
+
+        /// <summary>
+        /// Gets or sets the minimum number of sessions expected to be taught
+        /// on this subject course
+        /// </summary>
+        [JsonProperty(PropertyName = "minimumNumberOfSessions")]
+        public int? MinimumNumberOfSessions { get; set; }
 
         /// <summary>
         /// Validate the object.

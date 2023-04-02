@@ -43,11 +43,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// disregarded in the filtering.</param>
         /// <param name="includeDeletedSubjectCourses">Should the response
         /// include deleted subject courses</param>
-        public ActiveSubjectCoursesExternalRequest(System.DateTime subjectCoursesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?), bool? includeDeletedSubjectCourses = default(bool?))
+        /// <param name="onlyDataInsertedOrUpdatedOnOrAfter">Only get data
+        /// inserted or updated on or after the specified date</param>
+        public ActiveSubjectCoursesExternalRequest(System.DateTime subjectCoursesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?), bool? includeDeletedSubjectCourses = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?))
         {
             SubjectCoursesActiveOnOrAfterDate = subjectCoursesActiveOnOrAfterDate;
             LmsIndicator = lmsIndicator;
             IncludeDeletedSubjectCourses = includeDeletedSubjectCourses;
+            OnlyDataInsertedOrUpdatedOnOrAfter = onlyDataInsertedOrUpdatedOnOrAfter;
             PageNumber = pageNumber;
             PageSize = pageSize;
             InlineCount = inlineCount;
@@ -84,6 +87,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "includeDeletedSubjectCourses")]
         public bool? IncludeDeletedSubjectCourses { get; set; }
+
+        /// <summary>
+        /// Gets or sets only get data inserted or updated on or after the
+        /// specified date
+        /// </summary>
+        [JsonProperty(PropertyName = "onlyDataInsertedOrUpdatedOnOrAfter")]
+        public System.DateTime? OnlyDataInsertedOrUpdatedOnOrAfter { get; set; }
 
         /// <summary>
         /// Gets or sets int32

@@ -4,9 +4,10 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.Programmes.Client
+namespace Kmd.Studica.SchoolInternships.Client
 {
     using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Models;
     using Newtonsoft.Json;
     using System.Collections;
@@ -19,12 +20,12 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// HelloWorldExternal operations.
+    /// StudentInternshipsExternalV2 operations.
     /// </summary>
-    public partial class HelloWorldExternal : IServiceOperations<KMDStudicaProgrammes>, IHelloWorldExternal
+    public partial class StudentInternshipsExternalV2 : IServiceOperations<KMDStudicaSchoolInternships>, IStudentInternshipsExternalV2
     {
         /// <summary>
-        /// Initializes a new instance of the HelloWorldExternal class.
+        /// Initializes a new instance of the StudentInternshipsExternalV2 class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -32,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public HelloWorldExternal(KMDStudicaProgrammes client)
+        public StudentInternshipsExternalV2(KMDStudicaSchoolInternships client)
         {
             if (client == null)
             {
@@ -42,10 +43,16 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the KMDStudicaSchoolInternships
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public KMDStudicaSchoolInternships Client { get; private set; }
 
+        /// <param name='periodFrom'>
+        /// Get all students school internships starting on or after this date
+        /// </param>
+        /// <param name='periodTo'>
+        /// Get all students school internships ending on or before this date
+        /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
         /// </param>
@@ -70,7 +77,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<HelloWorldExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<StudentInternshipsExternalV2Response>>> GetWithHttpMessagesAsync(System.DateTime periodFrom, System.DateTime periodTo, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (schoolCode == null)
             {
@@ -94,14 +101,18 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("periodFrom", periodFrom);
+                tracingParameters.Add("periodTo", periodTo);
                 tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "HelloWorldExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "StudentInternshipsExternalV2").ToString();
             List<string> _queryParameters = new List<string>();
+            _queryParameters.Add(string.Format("PeriodFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodFrom, new DateJsonConverter()).Trim('"'))));
+            _queryParameters.Add(string.Format("PeriodTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodTo, new DateJsonConverter()).Trim('"'))));
             if (schoolCode != null)
             {
                 _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
@@ -175,7 +186,7 @@ namespace Kmd.Studica.Programmes.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<HelloWorldExternalResponse>();
+            var _result = new HttpOperationResponse<IList<StudentInternshipsExternalV2Response>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -184,7 +195,7 @@ namespace Kmd.Studica.Programmes.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<HelloWorldExternalResponse>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<StudentInternshipsExternalV2Response>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

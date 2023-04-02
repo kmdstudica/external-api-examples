@@ -4,31 +4,42 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.Programmes.Client.Models
+namespace Kmd.Studica.SchoolInternships.Client.Models
 {
     using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Linq;
 
     /// <summary>
-    /// HelloWorldExternalRequest
+    /// StudentInternshipsExternalV2Request
     /// </summary>
-    public partial class HelloWorldExternalRequest
+    /// <remarks>
+    /// Get a list of students having school internships within the specified
+    /// period
+    /// </remarks>
+    public partial class StudentInternshipsExternalV2Request
     {
         /// <summary>
-        /// Initializes a new instance of the HelloWorldExternalRequest class.
+        /// Initializes a new instance of the
+        /// StudentInternshipsExternalV2Request class.
         /// </summary>
-        public HelloWorldExternalRequest()
+        public StudentInternshipsExternalV2Request()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the HelloWorldExternalRequest class.
+        /// Initializes a new instance of the
+        /// StudentInternshipsExternalV2Request class.
         /// </summary>
+        /// <param name="periodFrom">Date</param>
+        /// <param name="periodTo">Date</param>
         /// <param name="schoolCode">String</param>
-        public HelloWorldExternalRequest(string schoolCode)
+        public StudentInternshipsExternalV2Request(System.DateTime periodFrom, System.DateTime periodTo, string schoolCode)
         {
+            PeriodFrom = periodFrom;
+            PeriodTo = periodTo;
             SchoolCode = schoolCode;
             CustomInit();
         }
@@ -37,6 +48,26 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
+
+        /// <summary>
+        /// Gets or sets date
+        /// </summary>
+        /// <remarks>
+        /// Get all students school internships starting on or after this date
+        /// </remarks>
+        [JsonConverter(typeof(DateJsonConverter))]
+        [JsonProperty(PropertyName = "periodFrom")]
+        public System.DateTime PeriodFrom { get; set; }
+
+        /// <summary>
+        /// Gets or sets date
+        /// </summary>
+        /// <remarks>
+        /// Get all students school internships ending on or before this date
+        /// </remarks>
+        [JsonConverter(typeof(DateJsonConverter))]
+        [JsonProperty(PropertyName = "periodTo")]
+        public System.DateTime PeriodTo { get; set; }
 
         /// <summary>
         /// Gets or sets string

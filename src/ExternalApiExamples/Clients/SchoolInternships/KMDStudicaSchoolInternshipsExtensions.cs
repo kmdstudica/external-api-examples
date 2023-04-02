@@ -108,7 +108,7 @@ namespace Kmd.Studica.SchoolInternships.Client
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static IList<StudentsInternshipAbsenceExternalResponse> Post3(this IKMDStudicaSchoolInternships operations, StudentsInternshipAbsenceExternalRequest body = default(StudentsInternshipAbsenceExternalRequest))
+            public static IList<StudentInternshipsExternalV2Response> Post3(this IKMDStudicaSchoolInternships operations, StudentInternshipsExternalV2Request body = default(StudentInternshipsExternalV2Request))
             {
                 return operations.Post3Async(body).GetAwaiter().GetResult();
             }
@@ -121,9 +121,35 @@ namespace Kmd.Studica.SchoolInternships.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<StudentsInternshipAbsenceExternalResponse>> Post3Async(this IKMDStudicaSchoolInternships operations, StudentsInternshipAbsenceExternalRequest body = default(StudentsInternshipAbsenceExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<StudentInternshipsExternalV2Response>> Post3Async(this IKMDStudicaSchoolInternships operations, StudentInternshipsExternalV2Request body = default(StudentInternshipsExternalV2Request), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.Post3WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='body'>
+            /// </param>
+            public static IList<StudentsInternshipAbsenceExternalResponse> Post4(this IKMDStudicaSchoolInternships operations, StudentsInternshipAbsenceExternalRequest body = default(StudentsInternshipAbsenceExternalRequest))
+            {
+                return operations.Post4Async(body).GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='body'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<IList<StudentsInternshipAbsenceExternalResponse>> Post4Async(this IKMDStudicaSchoolInternships operations, StudentsInternshipAbsenceExternalRequest body = default(StudentsInternshipAbsenceExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.Post4WithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

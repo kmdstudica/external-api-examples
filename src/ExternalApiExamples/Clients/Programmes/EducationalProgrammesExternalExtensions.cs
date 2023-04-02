@@ -43,9 +43,12 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='includeDeletedProgrammes'>
             /// Should the response include deleted educational programmes
             /// </param>
-            public static PagedResponseEducationalProgrammeExternalResponse Get(this IEducationalProgrammesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), bool? includeDeletedProgrammes = default(bool?))
+            /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
+            /// Only get data inserted or updated on or after the specified date
+            /// </param>
+            public static PagedResponseEducationalProgrammeExternalResponse Get(this IEducationalProgrammesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), bool? includeDeletedProgrammes = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?))
             {
-                return operations.GetAsync(startDateFrom, startDateTo, pageNumber, pageSize, inlineCount, schoolCode, areaOfResponsibilityId, includeDeletedProgrammes).GetAwaiter().GetResult();
+                return operations.GetAsync(startDateFrom, startDateTo, pageNumber, pageSize, inlineCount, schoolCode, areaOfResponsibilityId, includeDeletedProgrammes, onlyDataInsertedOrUpdatedOnOrAfter).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -76,12 +79,15 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='includeDeletedProgrammes'>
             /// Should the response include deleted educational programmes
             /// </param>
+            /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
+            /// Only get data inserted or updated on or after the specified date
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseEducationalProgrammeExternalResponse> GetAsync(this IEducationalProgrammesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), bool? includeDeletedProgrammes = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseEducationalProgrammeExternalResponse> GetAsync(this IEducationalProgrammesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), bool? includeDeletedProgrammes = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(startDateFrom, startDateTo, pageNumber, pageSize, inlineCount, schoolCode, areaOfResponsibilityId, includeDeletedProgrammes, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(startDateFrom, startDateTo, pageNumber, pageSize, inlineCount, schoolCode, areaOfResponsibilityId, includeDeletedProgrammes, onlyDataInsertedOrUpdatedOnOrAfter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

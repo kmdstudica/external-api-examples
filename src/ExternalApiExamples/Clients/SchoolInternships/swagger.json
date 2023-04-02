@@ -262,6 +262,89 @@
         }
       }
     },
+    "/StudentInternshipsExternalV2": {
+      "get": {
+        "tags": [
+          "StudentInternshipsExternalV2"
+        ],
+        "operationId": "StudentInternshipsExternalV2_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "PeriodFrom",
+            "description": "Get all students school internships starting on or after this date",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "PeriodTo",
+            "description": "Get all students school internships ending on or before this date",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "SchoolCode",
+            "description": "The school code for which to get data.",
+            "required": true,
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StudentInternshipsExternalV2Response"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "StudentInternshipsExternalV2"
+        ],
+        "operationId": "_StudentInternshipsExternalV2_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StudentInternshipsExternalV2Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StudentInternshipsExternalV2Response"
+              }
+            }
+          }
+        }
+      }
+    },
     "/StudentsInternshipAbsenceExternal": {
       "get": {
         "tags": [
@@ -453,14 +536,14 @@
           "title": "Date",
           "description": "The date from which the department is active.",
           "type": "string",
-          "example": "2023-02-01T00:00:00.0000000",
+          "example": "2023-03-31T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "The date which the department is active to, if it has been deactivated.",
           "type": "string",
-          "example": "2023-02-01T00:00:00.0000000"
+          "example": "2023-03-31T00:00:00.0000000"
         },
         "dayCalendarId": {
           "format": "uuid",
@@ -519,7 +602,7 @@
           "title": "Date",
           "description": "The date from which the hours are effective.",
           "type": "string",
-          "example": "2023-02-01T00:00:00.0000000",
+          "example": "2023-03-31T00:00:00.0000000",
           "x-nullable": false
         },
         "minutesOnMonday": {
@@ -590,6 +673,203 @@
         }
       }
     },
+    "StudentInternshipsAgreementDtoV2": {
+      "title": "StudentInternshipsAgreementDtoV2",
+      "description": "A student's agreement for school based internship",
+      "required": [
+        "agreementId",
+        "agreementType",
+        "endDate",
+        "startDate"
+      ],
+      "type": "object",
+      "properties": {
+        "agreementId": {
+          "format": "uuid",
+          "title": "Guid",
+          "type": "string",
+          "x-nullable": false
+        },
+        "schoolCode": {
+          "title": "String",
+          "type": "string"
+        },
+        "apprenticeshipEducationalProgrammeId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "startDate": {
+          "format": "date",
+          "title": "Date",
+          "type": "string",
+          "example": "2023-03-31T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "endDate": {
+          "format": "date",
+          "title": "Date",
+          "type": "string",
+          "example": "2023-03-31T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "comment": {
+          "title": "String",
+          "type": "string"
+        },
+        "agreementType": {
+          "title": "ApprenticeshipAgreementType",
+          "enum": [
+            "EducationalAgreement",
+            "CombinationAgreement",
+            "SchoolInternshipAgreement",
+            "InternshipAbroadAgreement",
+            "FguEudProgrammeAgreement",
+            "CompanyPlacedInternshipAgreement",
+            "CompanyPlacedInternshipAbroadAgreement",
+            "Breaks"
+          ],
+          "type": "string",
+          "x-nullable": false
+        },
+        "schoolInternshipAgreementId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "fguEudProgrammeAgreementId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "companyName": {
+          "title": "String",
+          "type": "string"
+        },
+        "companyAddress": {
+          "title": "String",
+          "type": "string"
+        },
+        "companyCountryCode": {
+          "title": "String",
+          "type": "string"
+        },
+        "signedDate": {
+          "format": "date",
+          "type": "string",
+          "example": "2023-03-31T00:00:00.0000000"
+        },
+        "receivedDate": {
+          "format": "date",
+          "type": "string",
+          "example": "2023-03-31T00:00:00.0000000"
+        },
+        "completedRegistrationDate": {
+          "format": "date",
+          "type": "string",
+          "example": "2023-03-31T00:00:00.0000000"
+        },
+        "creditPreApprovedDate": {
+          "format": "date",
+          "type": "string",
+          "example": "2023-03-31T00:00:00.0000000"
+        },
+        "creditFinalApprovedDate": {
+          "format": "date",
+          "type": "string",
+          "example": "2023-03-31T00:00:00.0000000"
+        },
+        "cvrNumber": {
+          "title": "String",
+          "type": "string"
+        },
+        "pNumber": {
+          "title": "String",
+          "type": "string"
+        },
+        "seNumber": {
+          "title": "String",
+          "type": "string"
+        },
+        "causeOfCompletion": {
+          "enum": [
+            "Terminated",
+            "Finished",
+            "StudentDeceased",
+            "FinishedNotSkilled",
+            "FinishedSkilled",
+            "PresumedTerminated",
+            "RepealedAfterTrialPeriodByMutualAgreement",
+            "RepealedAfterTrialPeriodByStudent",
+            "RepealedAfterTrialPeriodByCompany",
+            "RepealedAfterTrialPeriodTerminatingPartyUnknown",
+            "RepealedDuringTrial",
+            "CompetenceAssessmentCompleted",
+            "RepealedByProfessionalCommittee",
+            "TerminatedDueToOtherReason",
+            "TerminatedDueToOtherEducation",
+            "TerminatedDueToPaidWork",
+            "AgreementFulfilled",
+            "LeaveOfAbsenceForInternshipAbroad",
+            "PersonEvaluatedNotEmmaAfterStart"
+          ],
+          "type": "string"
+        },
+        "combinationAgreementId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "educationalAgreementType": {
+          "enum": [
+            "SubagreementInCombinationagreement",
+            "SubagreementInPreparationforBasiceducationEud",
+            "SubagreementInSchoolinternship",
+            "ShortAgreement",
+            "OrdinaryAgreement",
+            "RemainingAgreement"
+          ],
+          "type": "string"
+        },
+        "supplementAgreementInformation": {
+          "type": "array",
+          "items": {
+            "title": "SupplementAgreementInformation",
+            "enum": [
+              "VocationalSupplementWithExtension",
+              "VocationalSupplementWithoutExtension",
+              "Eux",
+              "FirstAgreementAfterLostAgreementWithoutFault",
+              "ExtendedDueToSicknessOrLeaveOfAbsenceOrSimilar",
+              "GfPlus",
+              "MustNotTriggerAubGrantHavredal",
+              "MustNotTriggerStateGrants",
+              "NewMasterApprenticeship",
+              "StudySupplementWithExtension",
+              "StudySupplementWithoutExtension",
+              "LostWithoutFault",
+              "UnspecifiedSupplementWithExtension",
+              "UnspecifiedSupplementWithoutExtension",
+              "AdmittedAfterLostEducationalAgreementWithoutFault"
+            ],
+            "type": "string",
+            "x-nullable": false
+          }
+        },
+        "agreementSchoolInstitutionNumber": {
+          "title": "String",
+          "type": "string"
+        },
+        "agreementDepartmentInstitutionNumber": {
+          "title": "String",
+          "type": "string"
+        },
+        "laidOutInternshipCenterInstitutionNumber": {
+          "title": "String",
+          "type": "string"
+        },
+        "laidOutInternshipCenterDepartmentInstitutionNumber": {
+          "title": "String",
+          "type": "string"
+        }
+      }
+    },
     "StudentInternshipsExternalRequest": {
       "title": "StudentInternshipsExternalRequest",
       "description": "Get a list of students having school internships within the specified period",
@@ -605,7 +885,7 @@
           "title": "Date",
           "description": "Get all students school internships starting on or after this date",
           "type": "string",
-          "example": "2023-02-01T00:00:00.0000000",
+          "example": "2023-03-31T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -613,7 +893,7 @@
           "title": "Date",
           "description": "Get all students school internships ending on or before this date",
           "type": "string",
-          "example": "2023-02-01T00:00:00.0000000",
+          "example": "2023-03-31T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -680,6 +960,152 @@
         }
       }
     },
+    "StudentInternshipsExternalV2Request": {
+      "title": "StudentInternshipsExternalV2Request",
+      "description": "Get a list of students having school internships within the specified period",
+      "required": [
+        "periodFrom",
+        "periodTo",
+        "schoolCode"
+      ],
+      "type": "object",
+      "properties": {
+        "periodFrom": {
+          "format": "date",
+          "title": "Date",
+          "description": "Get all students school internships starting on or after this date",
+          "type": "string",
+          "example": "2023-03-31T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "periodTo": {
+          "format": "date",
+          "title": "Date",
+          "description": "Get all students school internships ending on or before this date",
+          "type": "string",
+          "example": "2023-03-31T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
+    "StudentInternshipsExternalV2Response": {
+      "title": "StudentInternshipsExternalV2Response",
+      "required": [
+        "studentId"
+      ],
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Id of student.",
+          "type": "string",
+          "x-nullable": false
+        },
+        "civilRegistrationNumber": {
+          "title": "String",
+          "description": "Students civil registration number",
+          "type": "string"
+        },
+        "givenName": {
+          "title": "String",
+          "description": "Students given name",
+          "type": "string"
+        },
+        "surname": {
+          "title": "String",
+          "description": "Students surname",
+          "type": "string"
+        },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When it was created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of student's information",
+          "type": "string"
+        },
+        "agreements": {
+          "description": "List of the students internship agreements",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentInternshipsAgreementDtoV2"
+          }
+        },
+        "internshipPeriods": {
+          "description": "List of the students internship periods as split by e.g school course participation periods",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentInternshipsInternshipPeriodDtoV2"
+          }
+        }
+      }
+    },
+    "StudentInternshipsInternshipPeriodDtoV2": {
+      "title": "StudentInternshipsInternshipPeriodDtoV2",
+      "required": [
+        "agreementId",
+        "endDate",
+        "schoolInternshipType",
+        "startDate"
+      ],
+      "type": "object",
+      "properties": {
+        "agreementId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "The agreement the internship period belongs to",
+          "type": "string",
+          "x-nullable": false
+        },
+        "schoolInternshipType": {
+          "title": "SchoolInternshipType",
+          "description": "The type of the school internships (SKPS/VFU/DEL)",
+          "enum": [
+            "SKPS",
+            "DEL",
+            "VFU"
+          ],
+          "type": "string",
+          "x-nullable": false
+        },
+        "startDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Start date of the internship period",
+          "type": "string",
+          "example": "2023-03-31T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "endDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "End date of the internship period",
+          "type": "string",
+          "example": "2023-03-31T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When it was created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of the internship period",
+          "type": "string"
+        }
+      }
+    },
     "StudentInternships_InternshipPeriodDto": {
       "title": "StudentInternships_InternshipPeriodDto",
       "required": [
@@ -713,7 +1139,7 @@
           "title": "Date",
           "description": "Start date of the internship period",
           "type": "string",
-          "example": "2023-02-01T00:00:00.0000000",
+          "example": "2023-03-31T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -721,7 +1147,7 @@
           "title": "Date",
           "description": "End date of the internship period",
           "type": "string",
-          "example": "2023-02-01T00:00:00.0000000",
+          "example": "2023-03-31T00:00:00.0000000",
           "x-nullable": false
         },
         "insertedAt": {
@@ -768,7 +1194,7 @@
           "title": "Date",
           "description": "Start date of internship",
           "type": "string",
-          "example": "2023-02-01T00:00:00.0000000",
+          "example": "2023-03-31T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -776,7 +1202,7 @@
           "title": "Date",
           "description": "End date for internship",
           "type": "string",
-          "example": "2023-02-01T00:00:00.0000000",
+          "example": "2023-03-31T00:00:00.0000000",
           "x-nullable": false
         },
         "placeOfInternshipName": {
@@ -836,7 +1262,7 @@
           "title": "Date",
           "description": "Get all students school internships absence starting on or after this date",
           "type": "string",
-          "example": "2023-02-01T00:00:00.0000000",
+          "example": "2023-03-31T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -844,7 +1270,7 @@
           "title": "Date",
           "description": "Get all students school internships absence ending on or before this date",
           "type": "string",
-          "example": "2023-02-01T00:00:00.0000000",
+          "example": "2023-03-31T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -908,7 +1334,7 @@
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-02-01T00:00:00.0000000",
+          "example": "2023-03-31T00:00:00.0000000",
           "x-nullable": false
         },
         "durationInMinutes": {

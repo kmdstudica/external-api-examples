@@ -22,12 +22,36 @@ public class SchoolInternshipExample
 
     public async Task ExecuteSchoolInternship()
     {
+        // #warning Method deprecated
+        // using var internshipsClient = new KMDStudicaSchoolInternships(new TokenCredentials(tokenProvider));
+        // internshipsClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolInternshipsBaseUri)
+        //     ? new Uri("https://gateway.kmdlogic.io/studica/school-internships/v1")
+        //     : new Uri(configuration.SchoolInternshipsBaseUri);
+        //
+        // var result = await internshipsClient.StudentInternshipsExternal.GetWithHttpMessagesAsync(
+        //     periodFrom: DateTime.Now.AddMonths(-2),
+        //     periodTo: DateTime.Now.AddMonths(2),
+        //     schoolCode: configuration.SchoolCode,
+        //     customHeaders: new Dictionary<string, List<string>>
+        //     {
+        //         { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+        //     });
+        //
+        // Console.WriteLine($"Got {result.Body.Count()} student internships from API");
+        //
+        // ConsoleTable
+        //     .From(result.Body)
+        //     .Write();
+    }
+
+    public async Task ExecuteSchoolInternshipV2()
+    {
         using var internshipsClient = new KMDStudicaSchoolInternships(new TokenCredentials(tokenProvider));
         internshipsClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolInternshipsBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-internships/v1")
             : new Uri(configuration.SchoolInternshipsBaseUri);
 
-        var result = await internshipsClient.StudentInternshipsExternal.GetWithHttpMessagesAsync(
+        var result = await internshipsClient.StudentInternshipsExternalV2.GetWithHttpMessagesAsync(
             periodFrom: DateTime.Now.AddMonths(-2),
             periodTo: DateTime.Now.AddMonths(2),
             schoolCode: configuration.SchoolCode,
@@ -67,29 +91,30 @@ public class SchoolInternshipExample
             .Write();
     }
 
-    public async Task ExecuteStudentInternsipLegacyApi()
+    public async Task ExecuteStudentInternshipLegacyApi()
     {
-        Console.WriteLine("Executing student internhip legacy courses example");
-
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
-        programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
-            ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
-            : new Uri(configuration.ProgrammesBaseUri);
-
-        var result = await programmesClient.StudentInternshipExternal.GetWithHttpMessagesAsync(
-            periodFrom: DateTime.Now.AddMonths(-2),
-            periodTo: DateTime.Now.AddMonths(2),
-            schoolCode: configuration.SchoolCode,
-            customHeaders: new Dictionary<string, List<string>>
-            {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
-            });
-
-        Console.WriteLine($"Got {result.Body.Count()} student internships from API");
-
-        ConsoleTable
-            .From(result.Body)
-            .Write();
+        // #warning Method deprecated
+        // Console.WriteLine("Executing student internhip legacy courses example");
+        //
+        // using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        // programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
+        //     ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
+        //     : new Uri(configuration.ProgrammesBaseUri);
+        //
+        // var result = await programmesClient.StudentInternshipExternal.GetWithHttpMessagesAsync(
+        //     periodFrom: DateTime.Now.AddMonths(-2),
+        //     periodTo: DateTime.Now.AddMonths(2),
+        //     schoolCode: configuration.SchoolCode,
+        //     customHeaders: new Dictionary<string, List<string>>
+        //     {
+        //         { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+        //     });
+        //
+        // Console.WriteLine($"Got {result.Body.Count()} student internships from API");
+        //
+        // ConsoleTable
+        //     .From(result.Body)
+        //     .Write();
     }
 
     public async Task ExecuteActiveInternshipDepartments()

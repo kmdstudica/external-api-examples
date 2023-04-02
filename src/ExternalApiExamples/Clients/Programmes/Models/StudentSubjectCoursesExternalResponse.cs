@@ -40,7 +40,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// participating in the course</param>
         /// <param name="subjectCourseName">String</param>
         /// <param name="subjectCourseDesignation">String</param>
-        public StudentSubjectCoursesExternalResponse(System.Guid studentId, System.Guid subjectCourseId, System.DateTime? studentParticipationStartDate = default(System.DateTime?), System.DateTime? studentParticipationEndDate = default(System.DateTime?), string subjectCourseName = default(string), string subjectCourseDesignation = default(string))
+        /// <param name="subjectCourseMinimumNumberOfSessions">The minimum
+        /// number of sessions expected to be taught on this subject
+        /// course</param>
+        public StudentSubjectCoursesExternalResponse(System.Guid studentId, System.Guid subjectCourseId, System.DateTime? studentParticipationStartDate = default(System.DateTime?), System.DateTime? studentParticipationEndDate = default(System.DateTime?), string subjectCourseName = default(string), string subjectCourseDesignation = default(string), int? subjectCourseMinimumNumberOfSessions = default(int?))
         {
             StudentId = studentId;
             StudentParticipationStartDate = studentParticipationStartDate;
@@ -48,6 +51,7 @@ namespace Kmd.Studica.Programmes.Client.Models
             SubjectCourseId = subjectCourseId;
             SubjectCourseName = subjectCourseName;
             SubjectCourseDesignation = subjectCourseDesignation;
+            SubjectCourseMinimumNumberOfSessions = subjectCourseMinimumNumberOfSessions;
             CustomInit();
         }
 
@@ -105,6 +109,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </remarks>
         [JsonProperty(PropertyName = "subjectCourseDesignation")]
         public string SubjectCourseDesignation { get; set; }
+
+        /// <summary>
+        /// Gets or sets the minimum number of sessions expected to be taught
+        /// on this subject course
+        /// </summary>
+        [JsonProperty(PropertyName = "subjectCourseMinimumNumberOfSessions")]
+        public int? SubjectCourseMinimumNumberOfSessions { get; set; }
 
         /// <summary>
         /// Validate the object.

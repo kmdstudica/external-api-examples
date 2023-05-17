@@ -55,7 +55,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="insertedAt">When it was created</param>
         /// <param name="updatedAt">Last update of the school course's basic
         /// information</param>
-        public SchoolCourseExternalResponse(System.Guid schoolCourseId, System.DateTime startDate, System.DateTime endDate, System.Guid dayCalendarId, System.Guid departmentId, System.Guid areaOfEducationId, System.Guid areaOfResponsibilityId, string name = default(string), string uvmDepartmentNumber = default(string), string dsDepartmentNumber = default(string), SchoolCourseExternalResponseSchoolPeriod schoolPeriod = default(SchoolCourseExternalResponseSchoolPeriod), IList<System.Guid> studentIds = default(IList<System.Guid>), IList<SchoolCourseCountingPeriodDto> countingPeriods = default(IList<SchoolCourseCountingPeriodDto>), System.DateTime? deletedAt = default(System.DateTime?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
+        /// <param name="educationalProgrammeId">Possible link to educational
+        /// programme</param>
+        public SchoolCourseExternalResponse(System.Guid schoolCourseId, System.DateTime startDate, System.DateTime endDate, System.Guid dayCalendarId, System.Guid departmentId, System.Guid areaOfEducationId, System.Guid areaOfResponsibilityId, string name = default(string), string uvmDepartmentNumber = default(string), string dsDepartmentNumber = default(string), SchoolCourseExternalResponseSchoolPeriod schoolPeriod = default(SchoolCourseExternalResponseSchoolPeriod), IList<System.Guid> studentIds = default(IList<System.Guid>), IList<SchoolCourseCountingPeriodDto> countingPeriods = default(IList<SchoolCourseCountingPeriodDto>), System.DateTime? deletedAt = default(System.DateTime?), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?), System.Guid? educationalProgrammeId = default(System.Guid?))
         {
             SchoolCourseId = schoolCourseId;
             Name = name;
@@ -73,6 +75,7 @@ namespace Kmd.Studica.Programmes.Client.Models
             DeletedAt = deletedAt;
             InsertedAt = insertedAt;
             UpdatedAt = updatedAt;
+            EducationalProgrammeId = educationalProgrammeId;
             CustomInit();
         }
 
@@ -211,6 +214,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "updatedAt")]
         public System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible link to educational programme
+        /// </summary>
+        [JsonProperty(PropertyName = "educationalProgrammeId")]
+        public System.Guid? EducationalProgrammeId { get; set; }
 
         /// <summary>
         /// Validate the object.

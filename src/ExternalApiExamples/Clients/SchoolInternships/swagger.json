@@ -536,14 +536,14 @@
           "title": "Date",
           "description": "The date from which the department is active.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "The date which the department is active to, if it has been deactivated.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "dayCalendarId": {
           "format": "uuid",
@@ -602,7 +602,7 @@
           "title": "Date",
           "description": "The date from which the hours are effective.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "minutesOnMonday": {
@@ -702,14 +702,14 @@
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "comment": {
@@ -754,27 +754,27 @@
         "signedDate": {
           "format": "date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "receivedDate": {
           "format": "date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "completedRegistrationDate": {
           "format": "date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "creditPreApprovedDate": {
           "format": "date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "creditFinalApprovedDate": {
           "format": "date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "cvrNumber": {
           "title": "String",
@@ -885,7 +885,7 @@
           "title": "Date",
           "description": "Get all students school internships starting on or after this date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -893,7 +893,7 @@
           "title": "Date",
           "description": "Get all students school internships ending on or before this date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -975,7 +975,7 @@
           "title": "Date",
           "description": "Get all students school internships starting on or after this date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -983,7 +983,7 @@
           "title": "Date",
           "description": "Get all students school internships ending on or before this date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -1083,7 +1083,7 @@
           "title": "Date",
           "description": "Start date of the internship period",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -1091,7 +1091,7 @@
           "title": "Date",
           "description": "End date of the internship period",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "insertedAt": {
@@ -1139,7 +1139,7 @@
           "title": "Date",
           "description": "Start date of the internship period",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -1147,7 +1147,7 @@
           "title": "Date",
           "description": "End date of the internship period",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "insertedAt": {
@@ -1194,7 +1194,7 @@
           "title": "Date",
           "description": "Start date of internship",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -1202,7 +1202,7 @@
           "title": "Date",
           "description": "End date for internship",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "placeOfInternshipName": {
@@ -1262,7 +1262,7 @@
           "title": "Date",
           "description": "Get all students school internships absence starting on or after this date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -1270,7 +1270,7 @@
           "title": "Date",
           "description": "Get all students school internships absence ending on or before this date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -1334,7 +1334,7 @@
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "durationInMinutes": {

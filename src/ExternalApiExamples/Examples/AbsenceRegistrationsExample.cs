@@ -34,6 +34,7 @@ public class AbsenceRegistrationsExample
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
+        programmesClient.HttpClient.Timeout = new TimeSpan(0, 15, 0);
 
         var doContinue = true;
         var pageNum = 0;
@@ -42,8 +43,8 @@ public class AbsenceRegistrationsExample
         do
         {
             var result = await programmesClient.AbsenceRegistrationsExternal.GetWithHttpMessagesAsync(
-                dateFrom: new DateTime(2021, 08, 01),
-                dateTo: new DateTime(2022, 07, 01),
+                dateFrom: new DateTime(2022, 08, 01),
+                dateTo: new DateTime(2022, 12, 31),
                 onlyAbsenceReports: true,
                 schoolCode: configuration.SchoolCode,
                 pageNumber: ++pageNum,
@@ -66,7 +67,7 @@ public class AbsenceRegistrationsExample
             doContinue = pageNum * pageSize < result.Body.TotalItems;
         } while (doContinue);
 
-        Console.WriteLine($"Got {absence.Count} absence registrations from API");
+        Console.WriteLine($"Absence registration API has a total of {absence.Count} registrations for this query");
 
         ConsoleTable
             .From(absence)

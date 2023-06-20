@@ -22,6 +22,46 @@
         "parameters": [
           {
             "in": "query",
+            "name": "SchoolCode",
+            "description": "The school code for which to get data.",
+            "required": true,
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          },
+          {
+            "in": "query",
+            "name": "PageNumber",
+            "description": "The page number to return.",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 2147483647,
+            "minimum": 1,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "PageSize",
+            "description": "Number of objects per page.",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "maximum": 10000,
+            "minimum": 1,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "InlineCount",
+            "description": "A flag indicating if include total number of items.",
+            "required": true,
+            "type": "boolean",
+            "default": true,
+            "x-nullable": false
+          },
+          {
+            "in": "query",
             "name": "StudentId",
             "description": "Absent student.",
             "type": "string",
@@ -57,6 +97,72 @@
             "name": "OnlyAbsenceReports",
             "description": "Only retrieve reports of absence or partial absence,\r\ndefaults to false (retrieve everything)",
             "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_AbsenceRegistrationExternalResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "AbsenceRegistrationsExternal"
+        ],
+        "operationId": "_AbsenceRegistrationsExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AbsenceRegistrationsExternalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse_AbsenceRegistrationExternalResponse"
+            }
+          }
+        }
+      }
+    },
+    "/ActiveBridgingCoursesExternal": {
+      "get": {
+        "tags": [
+          "ActiveBridgingCoursesExternal"
+        ],
+        "operationId": "ActiveBridgingCoursesExternal_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "BridgingCoursesActiveOnOrAfterDate",
+            "description": "Bridging courses must be active on the date or after this date\r\nThis parameter is required",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "x-nullable": false
+          },
+          {
+            "in": "query",
+            "name": "OnlyDataInsertedOrUpdatedOnOrAfter",
+            "description": "Only get data inserted or updated on or after the specified date",
+            "type": "string",
+            "format": "date-time"
           },
           {
             "in": "query",
@@ -103,16 +209,16 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/PagedResponse_AbsenceRegistrationExternalResponse"
+              "$ref": "#/definitions/PagedResponse_BridgingCoursesExternalResponse"
             }
           }
         }
       },
       "post": {
         "tags": [
-          "AbsenceRegistrationsExternal"
+          "ActiveBridgingCoursesExternal"
         ],
-        "operationId": "_AbsenceRegistrationsExternal_Post",
+        "operationId": "_ActiveBridgingCoursesExternal_Post",
         "consumes": [
           "application/json"
         ],
@@ -124,7 +230,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "#/definitions/AbsenceRegistrationsExternalRequest"
+              "$ref": "#/definitions/ActiveBridgingCoursesExternalRequest"
             }
           }
         ],
@@ -132,7 +238,7 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/PagedResponse_AbsenceRegistrationExternalResponse"
+              "$ref": "#/definitions/PagedResponse_BridgingCoursesExternalResponse"
             }
           }
         }
@@ -2072,7 +2178,7 @@
           "title": "Date",
           "description": "Date of absence.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "minutes": {
@@ -2115,6 +2221,38 @@
       ],
       "type": "object",
       "properties": {
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        },
+        "pageNumber": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "The number of the page to return (1 is the first page).",
+          "maximum": 2147483647,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "pageSize": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "Number of objects per page.",
+          "maximum": 10000,
+          "minimum": 1,
+          "type": "integer",
+          "x-nullable": false
+        },
+        "inlineCount": {
+          "title": "Boolean",
+          "description": "A flag indicating if total number of items should be included.",
+          "default": true,
+          "type": "boolean",
+          "x-nullable": false
+        },
         "studentId": {
           "format": "uuid",
           "description": "Absent student.",
@@ -2130,7 +2268,7 @@
           "title": "Date",
           "description": "Beginning of the range for absence date. The `DateFrom` parameter\r\ndetermines date to get absence data from, as well as the school year period",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -2138,12 +2276,38 @@
           "title": "Date",
           "description": "End of the range for absence date.\r\nThe `DateTo` parameter must be within the same school year as `DateFrom`",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "onlyAbsenceReports": {
           "description": "Only retrieve reports of absence or partial absence,\r\ndefaults to false (retrieve everything)",
           "type": "boolean"
+        }
+      }
+    },
+    "ActiveBridgingCoursesExternalRequest": {
+      "title": "ActiveBridgingCoursesExternalRequest",
+      "required": [
+        "bridgingCoursesActiveOnOrAfterDate",
+        "inlineCount",
+        "pageNumber",
+        "pageSize",
+        "schoolCode"
+      ],
+      "type": "object",
+      "properties": {
+        "bridgingCoursesActiveOnOrAfterDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Bridging courses must be active on the date or after this date\r\nThis parameter is required",
+          "type": "string",
+          "example": "2023-06-15T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "onlyDataInsertedOrUpdatedOnOrAfter": {
+          "format": "date-time",
+          "description": "Only get data inserted or updated on or after the specified date",
+          "type": "string"
         },
         "pageNumber": {
           "format": "int32",
@@ -2196,7 +2360,7 @@
           "title": "Date",
           "description": "Subject courses must be active on the date or after this date\r\nThis parameter is required",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -2263,14 +2427,14 @@
           "title": "Date",
           "description": "Activities start on or after this date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
           "format": "date",
           "description": "Activities must end on or before this date\r\nProperty is nullable",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
@@ -2339,7 +2503,7 @@
           "title": "Date",
           "description": "Date the contribution period starts",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -2347,7 +2511,7 @@
           "title": "Date",
           "description": "Date the contribution period ends",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "countingDate": {
@@ -2355,14 +2519,14 @@
           "title": "Date",
           "description": "Date on which students are accounted for this contribution period",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "qualificationDate": {
           "format": "date",
           "description": "Date on which students are qualified for their education",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "contribution": {
           "format": "double",
@@ -2430,7 +2594,7 @@
           "title": "Date",
           "description": "Start date of the transmission period",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "transmissionPeriodEndDate": {
@@ -2438,7 +2602,7 @@
           "title": "Date",
           "description": "End date of the transmission period",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "exchangeType": {
@@ -2484,7 +2648,7 @@
           "title": "Date",
           "description": "Start date of the reporting period",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "reportingPeriodEndDate": {
@@ -2492,7 +2656,7 @@
           "title": "Date",
           "description": "End date of the reporting period",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "exchangeType": {
@@ -2670,14 +2834,14 @@
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -2730,13 +2894,13 @@
           "format": "date",
           "description": "Activity start date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "endDate": {
           "format": "date",
           "description": "Activity end date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "dayCalendarId": {
           "format": "uuid",
@@ -2875,12 +3039,12 @@
         "countingPeriodStartDate": {
           "format": "date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "countingPeriodEndDate": {
           "format": "date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "contribution": {
           "format": "double",
@@ -3080,6 +3244,168 @@
         }
       }
     },
+    "BridgingCoursesExternalResponse": {
+      "title": "BridgingCoursesExternalResponse",
+      "required": [
+        "endDate",
+        "id",
+        "isCancelled",
+        "isManualCreated",
+        "startDate"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "Identifier of the bridging course",
+          "type": "string",
+          "x-nullable": false
+        },
+        "name": {
+          "title": "String",
+          "description": "Name of the bridging course",
+          "type": "string"
+        },
+        "startDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "Start date of the bridging course",
+          "type": "string",
+          "example": "2023-06-15T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "endDate": {
+          "format": "date",
+          "title": "Date",
+          "description": "End date for the bridging course",
+          "type": "string",
+          "example": "2023-06-15T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "isCancelled": {
+          "title": "Boolean",
+          "description": "Has the school cancelled the course",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "isManualCreated": {
+          "title": "Boolean",
+          "description": "Has the school manually created the course\r\n(If false the course has been imported from external system)",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "departmentId": {
+          "format": "uuid",
+          "description": "Id of department hosting the course",
+          "type": "string"
+        },
+        "responsibleName": {
+          "title": "String",
+          "description": "Name of the person responsible for the course",
+          "type": "string"
+        },
+        "dayCalendarId": {
+          "format": "uuid",
+          "description": "The id of the day calendar used for this bridging course",
+          "type": "string"
+        },
+        "educationalProgrammeId": {
+          "format": "uuid",
+          "description": "Id of the educational programme this course is associated with",
+          "type": "string"
+        },
+        "areaOfResponsibilityId": {
+          "format": "uuid",
+          "description": "Id of the area of responsibility for the course",
+          "type": "string"
+        },
+        "uvmDepartmentNumber": {
+          "title": "String",
+          "description": "UVM department hosting the course (activity report)",
+          "type": "string"
+        },
+        "dsDepartmentNumber": {
+          "title": "String",
+          "description": "DS department hosting the course (location)",
+          "type": "string"
+        },
+        "address": {
+          "title": "String",
+          "description": "Address of the course",
+          "type": "string"
+        },
+        "postalCode": {
+          "title": "String",
+          "description": "Postal code of the course",
+          "type": "string"
+        },
+        "uvmSubject": {
+          "description": "Information about the UVM subject",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BridgingCoursesExternalResponse_UVMSubjectDetails"
+            }
+          ]
+        },
+        "requestorType": {
+          "title": "String",
+          "description": "The course's requestor type",
+          "type": "string"
+        },
+        "participants": {
+          "description": "List of student ids participating in the bridging course",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
+        },
+        "insertedAt": {
+          "format": "date-time",
+          "description": "When it was created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "Last update of the bridging course's basic information",
+          "type": "string"
+        }
+      }
+    },
+    "BridgingCoursesExternalResponse_UVMSubjectDetails": {
+      "title": "BridgingCoursesExternalResponse_UVMSubjectDetails",
+      "required": [
+        "version"
+      ],
+      "type": "object",
+      "properties": {
+        "subject": {
+          "title": "String",
+          "description": "Subject code (Fagnummer) from UMO",
+          "type": "string"
+        },
+        "description": {
+          "title": "String",
+          "description": "UMO subject description",
+          "type": "string"
+        },
+        "version": {
+          "format": "int32",
+          "title": "Int32",
+          "description": "UMO Version of this subject",
+          "type": "integer",
+          "x-nullable": false
+        },
+        "speciality": {
+          "title": "String",
+          "description": "Speciality of this subject",
+          "type": "string"
+        }
+      }
+    },
     "BulkAbsenceRegistrationsExternalRequest": {
       "title": "BulkAbsenceRegistrationsExternalRequest",
       "description": "Returns a paged list of absences satisfying provided criteria.",
@@ -3108,7 +3434,7 @@
           "title": "Date",
           "description": "Beginning of the range for absence date.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -3116,7 +3442,7 @@
           "title": "Date",
           "description": "End of the range for absence date.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "onlyAbsenceReports": {
@@ -3402,7 +3728,7 @@
           "format": "date",
           "description": "Date of the session.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -3475,7 +3801,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -3575,7 +3901,7 @@
           "format": "date",
           "description": "Date of the session.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -3649,7 +3975,7 @@
           "title": "Date",
           "description": "Start date of the educational programme.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -3657,7 +3983,7 @@
           "title": "Date",
           "description": "End date for the educational programme.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -3758,7 +4084,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
@@ -3766,7 +4092,7 @@
           "title": "Date",
           "description": "End of the range for start date of the educational programmes.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -3844,7 +4170,7 @@
           "title": "Date",
           "description": "Start date of the period.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -3852,7 +4178,7 @@
           "title": "Date",
           "description": "End date of the period.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -3914,7 +4240,7 @@
           "format": "date",
           "description": "Date of the session.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -3996,7 +4322,7 @@
           "format": "date",
           "description": "Date of the session.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -4037,7 +4363,7 @@
           "format": "date",
           "description": "Groups must be active on or after this date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "groupEntityTypes": {
           "description": "An array of group types (Group Entity Type) to query for\r\n<example>\r\n0 = SubjectCourse\r\n</example>",
@@ -4144,7 +4470,7 @@
           "title": "Date",
           "description": "The start date of the group.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -4152,7 +4478,7 @@
           "title": "Date",
           "description": "The end date of the group.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "numberOfSessions": {
@@ -4224,7 +4550,7 @@
           "title": "Date",
           "description": "Start date of the period.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -4232,7 +4558,7 @@
           "title": "Date",
           "description": "End date of the period.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -4296,7 +4622,7 @@
           "title": "Date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "startTime": {
@@ -4353,7 +4679,7 @@
           "title": "Date",
           "description": "Beginning of range for lesson date.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "dateTo": {
@@ -4361,7 +4687,7 @@
           "title": "Date",
           "description": "End of range for lesson date.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "hasExternalId": {
@@ -4481,7 +4807,7 @@
           "format": "date",
           "description": "Date of the lesson.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -4534,6 +4860,23 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/ActivityResponse"
+          }
+        },
+        "totalItems": {
+          "format": "int32",
+          "description": "Total number of items",
+          "type": "integer"
+        }
+      }
+    },
+    "PagedResponse_BridgingCoursesExternalResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "Page of items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BridgingCoursesExternalResponse"
           }
         },
         "totalItems": {
@@ -4770,7 +5113,7 @@
           "title": "Date",
           "description": "School course start date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -4778,7 +5121,7 @@
           "title": "Date",
           "description": "School course end date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "uvmDepartmentNumber": {
@@ -4887,21 +5230,21 @@
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "countingDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "duration": {
@@ -4949,14 +5292,14 @@
           "title": "Date",
           "description": "School courses start on or after this date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
           "format": "date",
           "description": "School courses must end on or before this date\r\nProperty is nullable",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "includeDeletedSchoolCourses": {
           "description": "Should the response include deleted educational programmes",
@@ -5075,7 +5418,7 @@
           "format": "date",
           "description": "The date when the session is held.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "startTime": {
           "format": "time",
@@ -5177,13 +5520,13 @@
           "format": "date",
           "description": "If specified, returns sessions which are planned on a date no earlier than this.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "dateTo": {
           "format": "date",
           "description": "If specified, returns sessions which are planned on a date no later than this.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
@@ -5234,7 +5577,7 @@
           "title": "Date",
           "description": "Beginning of period for activity report quarters.\r\nThe `PeriodFrom` parameter must be a date that is on or before given activity report period\r\nto include the desired report in the output.\r\nE.g. if specifying PeriodFrom as 2021-01-01 and PeriodTo as 2021-06-30\r\nyou will only get the activity report for 2nd period of 2021 (March 16 to June 15)",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -5242,7 +5585,7 @@
           "title": "Date",
           "description": "End of period for activity report quarters. The `PeriodTo` parameter must fully encompass\r\nthe end date of a given activity report quarter to include the desired report in the output.\r\nE.g. to get all activity reports for 2020 the PeriodFrom could be 2019-12-15\r\nand PeriodTo could be 2020-12-30",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -5269,7 +5612,7 @@
           "title": "Date",
           "description": "Includes reports for periods with a transmission period start date no earlier than `PeriodFrom`",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -5277,7 +5620,7 @@
           "title": "Date",
           "description": "Includes reports for periods with a transmission period start date no later than `PeriodFromTo`",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -5304,7 +5647,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date of the students' internships.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -5312,7 +5655,7 @@
           "title": "Date",
           "description": "End of the range for start date of the students' internships.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -5413,21 +5756,21 @@
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "countingDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "contributionDays": {
@@ -5471,7 +5814,7 @@
           "title": "Date",
           "description": "Start date of the school based internship",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -5479,7 +5822,7 @@
           "title": "Date",
           "description": "End date of the school based internship",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -5508,7 +5851,7 @@
           "title": "Date",
           "description": "Start date of internship",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -5516,7 +5859,7 @@
           "title": "Date",
           "description": "End date for internship",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "placeOfInternshipName": {
@@ -5597,21 +5940,21 @@
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "countingDate": {
           "format": "date",
           "title": "Date",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "contributionDays": {
@@ -5658,7 +6001,7 @@
           "title": "Date",
           "description": "Start date of the participation period",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "participationEndDate": {
@@ -5666,7 +6009,7 @@
           "title": "Date",
           "description": "End date of the participation period",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "correctedDuration": {
@@ -5712,7 +6055,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date of the students' school courses.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "periodTo": {
@@ -5720,7 +6063,7 @@
           "title": "Date",
           "description": "End of the range for start date of the students' school courses.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "schoolCode": {
@@ -5846,13 +6189,13 @@
           "format": "date",
           "description": "Start date for student participating in the course",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "studentParticipationEndDate": {
           "format": "date",
           "description": "End date for student participating in the course",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "subjectCourseId": {
           "format": "uuid",
@@ -5942,7 +6285,7 @@
           "title": "Date",
           "description": "Start date of the subject course.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -5950,7 +6293,7 @@
           "title": "Date",
           "description": "End date for the subject course.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -6068,7 +6411,7 @@
           "title": "Date",
           "description": "The start date of the group.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -6076,7 +6419,7 @@
           "title": "Date",
           "description": "The end date of the group.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "parentGroupId": {
@@ -6141,7 +6484,7 @@
           "title": "Date",
           "description": "The start date of the particiaption.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -6149,7 +6492,7 @@
           "title": "Date",
           "description": "The end date of the participation.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -6204,7 +6547,7 @@
           "title": "Date",
           "description": "Start date of the period.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "endDate": {
@@ -6212,7 +6555,7 @@
           "title": "Date",
           "description": "End date of the period.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         }
       }
@@ -6235,7 +6578,7 @@
           "title": "Date",
           "description": "Beginning of the range for start date subject courses.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "startDateTo": {
@@ -6243,7 +6586,7 @@
           "title": "Date",
           "description": "End of the range for start date subject courses.",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000",
+          "example": "2023-06-15T00:00:00.0000000",
           "x-nullable": false
         },
         "lmsIndicator": {
@@ -6322,13 +6665,13 @@
           "format": "date",
           "description": "Possible start date of UVM subject",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "endDate": {
           "format": "date",
           "description": "Possible end date of UVM subject",
           "type": "string",
-          "example": "2023-05-17T00:00:00.0000000"
+          "example": "2023-06-15T00:00:00.0000000"
         },
         "canOverwriteDuration": {
           "title": "Boolean",

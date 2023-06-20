@@ -18,6 +18,18 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IAbsenceRegistrationsExternal
     {
+        /// <param name='schoolCode'>
+        /// The school code for which to get data.
+        /// </param>
+        /// <param name='pageNumber'>
+        /// The page number to return.
+        /// </param>
+        /// <param name='pageSize'>
+        /// Number of objects per page.
+        /// </param>
+        /// <param name='inlineCount'>
+        /// A flag indicating if include total number of items.
+        /// </param>
         /// <param name='dateFrom'>
         /// Beginning of the range for absence date. The `DateFrom` parameter
         /// determines date to get absence data from, as well as the school
@@ -27,18 +39,6 @@ namespace Kmd.Studica.Programmes.Client
         /// End of the range for absence date.
         /// The `DateTo` parameter must be within the same school year as
         /// `DateFrom`
-        /// </param>
-        /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
-        /// </param>
-        /// <param name='pageSize'>
-        /// Number of objects per page.
-        /// </param>
-        /// <param name='inlineCount'>
-        /// A flag indicating if total number of items should be included.
-        /// </param>
-        /// <param name='schoolCode'>
-        /// The school code for which to get data.
         /// </param>
         /// <param name='studentId'>
         /// Absent student.
@@ -65,6 +65,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseAbsenceRegistrationExternalResponse>> GetWithHttpMessagesAsync(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), bool? onlyAbsenceReports = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseAbsenceRegistrationExternalResponse>> GetWithHttpMessagesAsync(string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.DateTime dateFrom, System.DateTime dateTo, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), bool? onlyAbsenceReports = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

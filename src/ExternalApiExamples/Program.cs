@@ -45,6 +45,7 @@ namespace ExternalApiExamples
             // await new StudentsExample(tokenProvider, configuration).Execute();
             // await new StudentsExample(tokenProvider, configuration).ExecuteBulk();
             // await new StudentMarksExample(tokenProvider, configuration).Execute();
+            // await new StudentsExample(tokenProvider, configuration).ExecuteUpdateContactInformation();
 
             /*
              * School administration API examples
@@ -85,7 +86,8 @@ namespace ExternalApiExamples
             // await new SchoolCoursesExample(tokenProvider, configuration).ExecuteStudentSchoolCourses();
             // await new ActivityReportsExample(tokenProvider, configuration).ExecuteStudentActivityReports();
             // await new ActivityReportsExample(tokenProvider, configuration).ExecuteActivitiesReport();
-            // await new BridgingCoursesExample(tokenProvider, configuration).Execute();
+            // await new BridgingCoursesExample(tokenProvider, configuration).ExecuteActiveBridgingCourses();
+            // await new BridgingCoursesExample(tokenProvider, configuration).ExecuteBridgingCourseStudents();
 
             /*
              * School Internships API examples

@@ -18,7 +18,7 @@ public class BridgingCoursesExample
         this.configuration = configuration;
     }
 
-    public async Task Execute()
+    public async Task ExecuteBridgingCourseStudents()
     {
         Console.Write("Executing bridging course students example");
 
@@ -37,6 +37,33 @@ public class BridgingCoursesExample
 
         ConsoleTable
             .From(result.Body)
+            .Write();
+    }
+
+    public async Task ExecuteActiveBridgingCourses()
+    {
+        Console.Write("Executing active bridging courses example");
+
+        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
+            ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
+            : new Uri(configuration.ProgrammesBaseUri);
+
+        var result = await programmesClient.ActiveBridgingCoursesExternal.GetWithHttpMessagesAsync(
+            bridgingCoursesActiveOnOrAfterDate: DateTime.Today, 
+            pageNumber: 1,
+            pageSize: 100,
+            inlineCount: true,
+            schoolCode: configuration.SchoolCode,
+            customHeaders: new Dictionary<string, List<string>>
+            {
+                {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+            });
+
+        Console.WriteLine($"There is a total of {result.Body.TotalItems} bridging courses active on or after {DateTime.Today}");
+
+        ConsoleTable
+            .From(result.Body.Items)
             .Write();
     }
 }

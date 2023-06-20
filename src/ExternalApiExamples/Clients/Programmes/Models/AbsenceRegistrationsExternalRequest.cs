@@ -32,28 +32,28 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the
         /// AbsenceRegistrationsExternalRequest class.
         /// </summary>
-        /// <param name="dateFrom">Date</param>
-        /// <param name="dateTo">Date</param>
+        /// <param name="schoolCode">String</param>
         /// <param name="pageNumber">Int32</param>
         /// <param name="pageSize">Int32</param>
         /// <param name="inlineCount">Boolean</param>
-        /// <param name="schoolCode">String</param>
+        /// <param name="dateFrom">Date</param>
+        /// <param name="dateTo">Date</param>
         /// <param name="studentId">Absent student.</param>
         /// <param name="lessonId">Lesson of absence.</param>
         /// <param name="onlyAbsenceReports">Only retrieve reports of absence
         /// or partial absence,
         /// defaults to false (retrieve everything)</param>
-        public AbsenceRegistrationsExternalRequest(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), bool? onlyAbsenceReports = default(bool?))
+        public AbsenceRegistrationsExternalRequest(string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.DateTime dateFrom, System.DateTime dateTo, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), bool? onlyAbsenceReports = default(bool?))
         {
+            SchoolCode = schoolCode;
+            PageNumber = pageNumber;
+            PageSize = pageSize;
+            InlineCount = inlineCount;
             StudentId = studentId;
             LessonId = lessonId;
             DateFrom = dateFrom;
             DateTo = dateTo;
             OnlyAbsenceReports = onlyAbsenceReports;
-            PageNumber = pageNumber;
-            PageSize = pageSize;
-            InlineCount = inlineCount;
-            SchoolCode = schoolCode;
             CustomInit();
         }
 
@@ -61,6 +61,42 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The school code for which to get data.
+        /// </remarks>
+        [JsonProperty(PropertyName = "schoolCode")]
+        public string SchoolCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets int32
+        /// </summary>
+        /// <remarks>
+        /// The number of the page to return (1 is the first page).
+        /// </remarks>
+        [JsonProperty(PropertyName = "pageNumber")]
+        public int PageNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets int32
+        /// </summary>
+        /// <remarks>
+        /// Number of objects per page.
+        /// </remarks>
+        [JsonProperty(PropertyName = "pageSize")]
+        public int PageSize { get; set; }
+
+        /// <summary>
+        /// Gets or sets boolean
+        /// </summary>
+        /// <remarks>
+        /// A flag indicating if total number of items should be included.
+        /// </remarks>
+        [JsonProperty(PropertyName = "inlineCount")]
+        public bool InlineCount { get; set; }
 
         /// <summary>
         /// Gets or sets absent student.
@@ -106,42 +142,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         public bool? OnlyAbsenceReports { get; set; }
 
         /// <summary>
-        /// Gets or sets int32
-        /// </summary>
-        /// <remarks>
-        /// The number of the page to return (1 is the first page).
-        /// </remarks>
-        [JsonProperty(PropertyName = "pageNumber")]
-        public int PageNumber { get; set; }
-
-        /// <summary>
-        /// Gets or sets int32
-        /// </summary>
-        /// <remarks>
-        /// Number of objects per page.
-        /// </remarks>
-        [JsonProperty(PropertyName = "pageSize")]
-        public int PageSize { get; set; }
-
-        /// <summary>
-        /// Gets or sets boolean
-        /// </summary>
-        /// <remarks>
-        /// A flag indicating if total number of items should be included.
-        /// </remarks>
-        [JsonProperty(PropertyName = "inlineCount")]
-        public bool InlineCount { get; set; }
-
-        /// <summary>
-        /// Gets or sets string
-        /// </summary>
-        /// <remarks>
-        /// The school code for which to get data.
-        /// </remarks>
-        [JsonProperty(PropertyName = "schoolCode")]
-        public string SchoolCode { get; set; }
-
-        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -153,22 +153,6 @@ namespace Kmd.Studica.Programmes.Client.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "SchoolCode");
             }
-            if (PageNumber > 2147483647)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMaximum, "PageNumber", 2147483647);
-            }
-            if (PageNumber < 1)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMinimum, "PageNumber", 1);
-            }
-            if (PageSize > 1000)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMaximum, "PageSize", 1000);
-            }
-            if (PageSize < 1)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMinimum, "PageSize", 1);
-            }
             if (SchoolCode != null)
             {
                 if (SchoolCode.Length > 6)
@@ -179,6 +163,22 @@ namespace Kmd.Studica.Programmes.Client.Models
                 {
                     throw new ValidationException(ValidationRules.MinLength, "SchoolCode", 6);
                 }
+            }
+            if (PageNumber > 2147483647)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMaximum, "PageNumber", 2147483647);
+            }
+            if (PageNumber < 1)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMinimum, "PageNumber", 1);
+            }
+            if (PageSize > 10000)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMaximum, "PageSize", 10000);
+            }
+            if (PageSize < 1)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMinimum, "PageSize", 1);
             }
         }
     }

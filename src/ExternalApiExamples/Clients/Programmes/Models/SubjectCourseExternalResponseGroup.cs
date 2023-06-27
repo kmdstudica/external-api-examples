@@ -45,7 +45,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="designation">String</param>
         /// <param name="parentGroupId">The parent group, if any. Only the top
         /// level groups will not have a parent id.</param>
-        public SubjectCourseExternalResponseGroup(System.Guid groupId, System.DateTime startDate, System.DateTime endDate, int numberOfSessions, bool lmsIndicator, IList<SubjectCourseExternalResponseGroupStudent> participants, string name = default(string), string displayName = default(string), string designation = default(string), System.Guid? parentGroupId = default(System.Guid?))
+        /// <param name="minimumNumberOfSessions">The minimum number of
+        /// sessions expected to be taught on this subject course</param>
+        public SubjectCourseExternalResponseGroup(System.Guid groupId, System.DateTime startDate, System.DateTime endDate, int numberOfSessions, bool lmsIndicator, IList<SubjectCourseExternalResponseGroupStudent> participants, string name = default(string), string displayName = default(string), string designation = default(string), System.Guid? parentGroupId = default(System.Guid?), int? minimumNumberOfSessions = default(int?))
         {
             GroupId = groupId;
             Name = name;
@@ -57,6 +59,7 @@ namespace Kmd.Studica.Programmes.Client.Models
             NumberOfSessions = numberOfSessions;
             LmsIndicator = lmsIndicator;
             Participants = participants;
+            MinimumNumberOfSessions = minimumNumberOfSessions;
             CustomInit();
         }
 
@@ -155,6 +158,13 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "participants")]
         public IList<SubjectCourseExternalResponseGroupStudent> Participants { get; set; }
+
+        /// <summary>
+        /// Gets or sets the minimum number of sessions expected to be taught
+        /// on this subject course
+        /// </summary>
+        [JsonProperty(PropertyName = "minimumNumberOfSessions")]
+        public int? MinimumNumberOfSessions { get; set; }
 
         /// <summary>
         /// Validate the object.

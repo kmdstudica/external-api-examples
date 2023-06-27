@@ -10,6 +10,8 @@ namespace ExternalApiExamples
 
         public string SchoolCode { get; set; }
 
+        public string InternshipDkBaseUri { get; set; }
+        
         public string SchoolAdministrationBaseUri { get; set; }
 
         public string SchoolInternshipsBaseUri { get; set; }

@@ -57,7 +57,7 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
         /// 'RepealedByProfessionalCommittee', 'TerminatedDueToOtherReason',
         /// 'TerminatedDueToOtherEducation', 'TerminatedDueToPaidWork',
         /// 'AgreementFulfilled', 'LeaveOfAbsenceForInternshipAbroad',
-        /// 'PersonEvaluatedNotEmmaAfterStart'</param>
+        /// 'PersonEvaluatedNotEmmaAfterStart', 'RepealedBeforeStart'</param>
         /// <param name="educationalAgreementType">Possible values include:
         /// 'SubagreementInCombinationagreement',
         /// 'SubagreementInPreparationforBasiceducationEud',
@@ -244,7 +244,7 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
         /// 'RepealedByProfessionalCommittee', 'TerminatedDueToOtherReason',
         /// 'TerminatedDueToOtherEducation', 'TerminatedDueToPaidWork',
         /// 'AgreementFulfilled', 'LeaveOfAbsenceForInternshipAbroad',
-        /// 'PersonEvaluatedNotEmmaAfterStart'
+        /// 'PersonEvaluatedNotEmmaAfterStart', 'RepealedBeforeStart'
         /// </summary>
         [JsonProperty(PropertyName = "causeOfCompletion")]
         public string CauseOfCompletion { get; set; }

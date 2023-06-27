@@ -96,6 +96,11 @@ namespace ExternalApiExamples
             // await new SchoolInternshipExample(tokenProvider, configuration).ExecuteSchoolInternshipAbsence();
             // await new SchoolInternshipExample(tokenProvider, configuration).ExecuteActiveInternshipDepartments();
             // await new SchoolInternshipExample(tokenProvider, configuration).ExecuteBulkInternshipDepartments();
+            
+            /*
+             * School Internships API examples
+             */
+            // await new InternshipDkExample(tokenProvider, configuration).Execute();
         }
     }
 }

@@ -4,7 +4,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.Programmes.Client.Models
+namespace Kmd.Studica.InternshipDk.Client.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
@@ -13,32 +13,30 @@ namespace Kmd.Studica.Programmes.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// SessionsByIdExternalRequest
+    /// AgreementsExternalRequest
     /// </summary>
     /// <remarks>
-    /// Get specific sessions by id.
+    /// Returns a list of agreements for the requested students.
     /// </remarks>
-    public partial class SessionsByIdExternalRequest
+    public partial class AgreementsExternalRequest
     {
         /// <summary>
-        /// Initializes a new instance of the SessionsByIdExternalRequest
-        /// class.
+        /// Initializes a new instance of the AgreementsExternalRequest class.
         /// </summary>
-        public SessionsByIdExternalRequest()
+        public AgreementsExternalRequest()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the SessionsByIdExternalRequest
-        /// class.
+        /// Initializes a new instance of the AgreementsExternalRequest class.
         /// </summary>
-        /// <param name="sessionIds">The ids of the sessions to
-        /// retrieve.</param>
+        /// <param name="studentIds">Student ids. Must contain 1 to 1000
+        /// elements.</param>
         /// <param name="schoolCode">String</param>
-        public SessionsByIdExternalRequest(IList<System.Guid> sessionIds, string schoolCode)
+        public AgreementsExternalRequest(IList<System.Guid> studentIds, string schoolCode)
         {
-            SessionIds = sessionIds;
+            StudentIds = studentIds;
             SchoolCode = schoolCode;
             CustomInit();
         }
@@ -49,10 +47,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the ids of the sessions to retrieve.
+        /// Gets or sets student ids. Must contain 1 to 1000 elements.
         /// </summary>
-        [JsonProperty(PropertyName = "sessionIds")]
-        public IList<System.Guid> SessionIds { get; set; }
+        [JsonProperty(PropertyName = "studentIds")]
+        public IList<System.Guid> StudentIds { get; set; }
 
         /// <summary>
         /// Gets or sets string
@@ -71,13 +69,24 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (SessionIds == null)
+            if (StudentIds == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "SessionIds");
+                throw new ValidationException(ValidationRules.CannotBeNull, "StudentIds");
             }
             if (SchoolCode == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "SchoolCode");
+            }
+            if (StudentIds != null)
+            {
+                if (StudentIds.Count > 1000)
+                {
+                    throw new ValidationException(ValidationRules.MaxItems, "StudentIds", 1000);
+                }
+                if (StudentIds.Count < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinItems, "StudentIds", 1);
+                }
             }
             if (SchoolCode != null)
             {

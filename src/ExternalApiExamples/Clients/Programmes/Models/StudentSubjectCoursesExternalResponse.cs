@@ -41,8 +41,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="subjectCourseName">String</param>
         /// <param name="subjectCourseDesignation">String</param>
         /// <param name="subjectCourseMinimumNumberOfSessions">The minimum
-        /// number of sessions expected to be taught on this subject
-        /// course</param>
+        /// number of sessions expected to be taught on this subject course
+        /// main group</param>
         public StudentSubjectCoursesExternalResponse(System.Guid studentId, System.Guid subjectCourseId, System.DateTime? studentParticipationStartDate = default(System.DateTime?), System.DateTime? studentParticipationEndDate = default(System.DateTime?), string subjectCourseName = default(string), string subjectCourseDesignation = default(string), int? subjectCourseMinimumNumberOfSessions = default(int?))
         {
             StudentId = studentId;
@@ -112,7 +112,7 @@ namespace Kmd.Studica.Programmes.Client.Models
 
         /// <summary>
         /// Gets or sets the minimum number of sessions expected to be taught
-        /// on this subject course
+        /// on this subject course main group
         /// </summary>
         [JsonProperty(PropertyName = "subjectCourseMinimumNumberOfSessions")]
         public int? SubjectCourseMinimumNumberOfSessions { get; set; }

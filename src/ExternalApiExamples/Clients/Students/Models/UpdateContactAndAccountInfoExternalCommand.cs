@@ -40,6 +40,7 @@ namespace Kmd.Studica.Students.Client.Models
         /// <param name="countryClear">Boolean</param>
         /// <param name="phoneNumberClear">Boolean</param>
         /// <param name="privateEmailClear">Boolean</param>
+        /// <param name="emailClear">Boolean</param>
         /// <param name="givenName">String</param>
         /// <param name="surname">String</param>
         /// <param name="addressLine">String</param>
@@ -50,11 +51,10 @@ namespace Kmd.Studica.Students.Client.Models
         /// <param name="country">String</param>
         /// <param name="phoneNumber">String</param>
         /// <param name="privateEmail">String</param>
-        /// <param name="emailExternalUsername">String</param>
-        /// <param name="emailDomain">String</param>
+        /// <param name="email">String</param>
         /// <param name="adUsername">String</param>
         /// <param name="schoolCode">String</param>
-        public UpdateContactAndAccountInfoExternalCommand(System.Guid studentId, bool addressLineClear, bool careOfAddressClear, bool cityClear, bool placeClear, bool postalCodeClear, bool countryClear, bool phoneNumberClear, bool privateEmailClear, string givenName = default(string), string surname = default(string), string addressLine = default(string), string careOfAddress = default(string), string city = default(string), string place = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), string privateEmail = default(string), string emailExternalUsername = default(string), string emailDomain = default(string), string adUsername = default(string), string schoolCode = default(string))
+        public UpdateContactAndAccountInfoExternalCommand(System.Guid studentId, bool addressLineClear, bool careOfAddressClear, bool cityClear, bool placeClear, bool postalCodeClear, bool countryClear, bool phoneNumberClear, bool privateEmailClear, bool emailClear, string givenName = default(string), string surname = default(string), string addressLine = default(string), string careOfAddress = default(string), string city = default(string), string place = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), string privateEmail = default(string), string email = default(string), string adUsername = default(string), string schoolCode = default(string))
         {
             StudentId = studentId;
             GivenName = givenName;
@@ -75,8 +75,8 @@ namespace Kmd.Studica.Students.Client.Models
             PhoneNumberClear = phoneNumberClear;
             PrivateEmail = privateEmail;
             PrivateEmailClear = privateEmailClear;
-            EmailExternalUsername = emailExternalUsername;
-            EmailDomain = emailDomain;
+            Email = email;
+            EmailClear = emailClear;
             AdUsername = adUsername;
             SchoolCode = schoolCode;
             CustomInit();
@@ -271,19 +271,20 @@ namespace Kmd.Studica.Students.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// The username part of the student's email address
+        /// The student's school email address
         /// </remarks>
-        [JsonProperty(PropertyName = "emailExternalUsername")]
-        public string EmailExternalUsername { get; set; }
+        [JsonProperty(PropertyName = "email")]
+        public string Email { get; set; }
 
         /// <summary>
-        /// Gets or sets string
+        /// Gets or sets boolean
         /// </summary>
         /// <remarks>
-        /// The domain part of the student's email address
+        /// Indicates if the School Email should be cleared regardless of the
+        /// value in Email
         /// </remarks>
-        [JsonProperty(PropertyName = "emailDomain")]
-        public string EmailDomain { get; set; }
+        [JsonProperty(PropertyName = "emailClear")]
+        public bool EmailClear { get; set; }
 
         /// <summary>
         /// Gets or sets string

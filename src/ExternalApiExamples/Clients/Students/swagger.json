@@ -299,7 +299,7 @@
           "title": "Date",
           "description": "Students must be active on the date or after this date\r\nThis parameter is required",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000",
+          "example": "2023-07-21T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
@@ -406,7 +406,6 @@
       "required": [
         "civilRegistrationNumber",
         "createAdLogin",
-        "email",
         "guardians",
         "id",
         "protectedNameAndAddress",
@@ -492,12 +491,16 @@
         "email": {
           "title": "String",
           "description": "Student's e-mail address.",
-          "minLength": 1,
+          "type": "string"
+        },
+        "privateEmail": {
+          "title": "String",
+          "description": "Student's private e-mail address.",
           "type": "string"
         },
         "uniLoginUsername": {
           "title": "String",
-          "description": "Student's Unilogin username.",
+          "description": "Student's Unilogin ID.",
           "type": "string"
         },
         "reportToUniLogin": {
@@ -768,7 +771,7 @@
           "format": "date",
           "description": "Date for when mark has been given",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000"
+          "example": "2023-07-21T00:00:00.0000000"
         },
         "markCode": {
           "title": "String",
@@ -885,20 +888,20 @@
           "title": "Date",
           "description": "Study date of start.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000",
+          "example": "2023-07-21T00:00:00.0000000",
           "x-nullable": false
         },
         "studyExpectedCompletionDate": {
           "format": "date",
           "description": "Expected completion date of study.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000"
+          "example": "2023-07-21T00:00:00.0000000"
         },
         "studyEndDate": {
           "format": "date",
           "description": "Study end date",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000"
+          "example": "2023-07-21T00:00:00.0000000"
         },
         "studyEndCauseId": {
           "format": "uuid",
@@ -1051,14 +1054,14 @@
           "title": "Date",
           "description": "The date from which the studenttype is valid",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000",
+          "example": "2023-07-21T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "The end date of the studenttype",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000"
+          "example": "2023-07-21T00:00:00.0000000"
         }
       }
     },
@@ -1070,6 +1073,7 @@
         "careOfAddressClear",
         "cityClear",
         "countryClear",
+        "emailClear",
         "phoneNumberClear",
         "placeClear",
         "postalCodeClear",
@@ -1200,15 +1204,16 @@
           "type": "boolean",
           "x-nullable": false
         },
-        "emailExternalUsername": {
+        "email": {
           "title": "String",
-          "description": "The username part of the student's email address",
+          "description": "The student's school email address",
           "type": "string"
         },
-        "emailDomain": {
-          "title": "String",
-          "description": "The domain part of the student's email address",
-          "type": "string"
+        "emailClear": {
+          "title": "Boolean",
+          "description": "Indicates if the School Email should be cleared regardless of the value in Email",
+          "type": "boolean",
+          "x-nullable": false
         },
         "adUsername": {
           "title": "String",

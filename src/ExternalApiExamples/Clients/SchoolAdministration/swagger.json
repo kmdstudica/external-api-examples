@@ -1262,7 +1262,7 @@
           "title": "Date",
           "description": "Employees must have an active employment on or after this date\r\nThis parameter is required",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000",
+          "example": "2023-07-21T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -1332,14 +1332,14 @@
           "title": "Date",
           "description": "Start date of the area of education.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000",
+          "example": "2023-07-21T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of the area of education.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000"
+          "example": "2023-07-21T00:00:00.0000000"
         },
         "dayCalendarId": {
           "format": "uuid",
@@ -1417,14 +1417,14 @@
           "title": "Date",
           "description": "Start date of the area of responsibility.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000",
+          "example": "2023-07-21T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of the area of responsibiliity.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000"
+          "example": "2023-07-21T00:00:00.0000000"
         },
         "responsibleEmployeeId": {
           "format": "uuid",
@@ -1752,13 +1752,13 @@
           "format": "date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000"
+          "example": "2023-07-21T00:00:00.0000000"
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000"
+          "example": "2023-07-21T00:00:00.0000000"
         },
         "pageNumber": {
           "format": "int32",
@@ -1823,14 +1823,14 @@
           "title": "Date",
           "description": "Beginning date of being valid.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000",
+          "example": "2023-07-21T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "End date of being valid.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000"
+          "example": "2023-07-21T00:00:00.0000000"
         },
         "areaOfEducationIds": {
           "description": "Identifier of the area of education",
@@ -2025,14 +2025,14 @@
           "title": "Date",
           "description": "Gets employee start date.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000",
+          "example": "2023-07-21T00:00:00.0000000",
           "x-nullable": false
         },
         "employmentResignationDate": {
           "format": "date",
           "description": "Gets employee resignation date.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000"
+          "example": "2023-07-21T00:00:00.0000000"
         },
         "areaOfResponsibilityId": {
           "format": "uuid",
@@ -2107,14 +2107,14 @@
           "format": "date",
           "description": "Beginning of range for start date employment.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000"
+          "example": "2023-07-21T00:00:00.0000000"
         },
         "employmentStartDateTo": {
           "format": "date",
           "title": "Date",
           "description": "End of range for start date employment.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000",
+          "example": "2023-07-21T00:00:00.0000000",
           "x-nullable": false
         },
         "areaOfResponsibilityId": {
@@ -2463,7 +2463,7 @@
           "title": "Date",
           "description": "Date of the school day.",
           "type": "string",
-          "example": "2023-06-27T00:00:00.0000000",
+          "example": "2023-07-21T00:00:00.0000000",
           "x-nullable": false
         },
         "isSchoolDay": {
@@ -2942,6 +2942,7 @@
         "careOfAddressClear",
         "cityClear",
         "countryClear",
+        "emailClear",
         "employeeId",
         "mobileNumberClear",
         "phoneNumberClear",
@@ -3045,6 +3046,7 @@
           "format": "tel",
           "title": "String",
           "description": "The employee's phone number.",
+          "maxLength": 30,
           "type": "string"
         },
         "phoneNumberClear": {
@@ -3054,6 +3056,7 @@
           "x-nullable": false
         },
         "mobileNumber": {
+          "format": "tel",
           "title": "String",
           "description": "The employee's mobile number.",
           "maxLength": 30,
@@ -3066,6 +3069,7 @@
           "x-nullable": false
         },
         "privatePhoneNumber": {
+          "format": "tel",
           "title": "String",
           "description": "The employee's private phone number.",
           "maxLength": 30,
@@ -3090,19 +3094,24 @@
           "type": "boolean",
           "x-nullable": false
         },
-        "emailExternalUsername": {
+        "email": {
+          "format": "email",
           "title": "String",
-          "description": "The username part of the employee's email address",
+          "description": "The employee's work e-mail address.",
+          "maxLength": 255,
           "type": "string"
         },
-        "emailDomain": {
-          "title": "String",
-          "description": "The domain part of the employee's email address",
-          "type": "string"
+        "emailClear": {
+          "title": "Boolean",
+          "description": "Indicates if the Email should be cleared regardless of the value in Email",
+          "type": "boolean",
+          "x-nullable": false
         },
         "adUsername": {
+          "format": "email",
           "title": "String",
           "description": "The AD user name for the employee",
+          "maxLength": 255,
           "type": "string"
         },
         "schoolCode": {

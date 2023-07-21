@@ -4,6 +4,8 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
+#pragma warning disable CS1998
+
 namespace ExternalApiExamples
 {
     public static class Program
@@ -59,6 +61,7 @@ namespace ExternalApiExamples
             // await new EmployeeExample(tokenProvider, configuration).Execute();
             // await new EmployeeExample(tokenProvider, configuration).ExecuteBulk();
             // await new EmployeeExample(tokenProvider, configuration).ExecuteActiveEmployees();
+            // await new EmployeeExample(tokenProvider, configuration).ExecuteUpdateContactInformation();
             // await new SchoolHourEntryExample(tokenProvider, configuration).Execute();
             // await new SchoolHoursPlansExample(tokenProvider, configuration).Execute();
             // await new SchoolHoursPlansExample(tokenProvider, configuration).ExecuteDetailed();

@@ -83,10 +83,8 @@ public class EmployeeExample
         var pageNumber = 0;
         var pageSize = 100;
         var employees = new List<EmployeeExternalResponse>();
-
         do
         {
-
             var result = await schoolAdministrationClient.ActiveEmployeesExternal.GetWithHttpMessagesAsync(
                 employeesActiveOnOrAfterDate: DateTime.Today,
                 schoolCode: configuration.SchoolCode,
@@ -106,5 +104,65 @@ public class EmployeeExample
         ConsoleTable
             .From(employees)
             .Write();
+    }
+
+    public async Task ExecuteUpdateContactInformation()
+    {
+        Console.WriteLine("Executing update student contact information example");
+
+        using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+        schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
+            ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
+            : new Uri(configuration.SchoolAdministrationBaseUri);
+
+        try
+        {
+            var result = await schoolAdministrationClient.UpdateContactAndAccountInfoExternal.PostWithHttpMessagesAsync(
+                body: new UpdateContactAndAccountInfoExternalCommand
+                {
+                    EmployeeId = Guid.Empty,
+                    SchoolCode = configuration.SchoolCode,
+                    GivenName = null,
+                    Surname = null,
+                    Initials = null,
+                    AddressLine = null,
+                    AddressLineClear = false,
+                    CareOfAddress = null,
+                    CareOfAddressClear = false,
+                    Place = null,
+                    PlaceClear = false,
+                    City = null,
+                    CityClear = false,
+                    PostalCode = null,
+                    PostalCodeClear = false,
+                    Country = null,
+                    CountryClear = false,
+                    Email = null,
+                    EmailClear = false,
+                    PrivateEmail = null,
+                    PrivateEmailClear = false,
+                    PhoneNumber = null,
+                    PhoneNumberClear = false,
+                    MobileNumber = null,
+                    MobileNumberClear = false,
+                    PrivatePhoneNumber = null,
+                    PrivatePhoneNumberClear = false,
+                    AdUsername = null
+                },
+                customHeaders: new Dictionary<string, List<string>>
+                {
+                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                });
+
+            if (result.Response.IsSuccessStatusCode)
+                Console.WriteLine("Contact information updated");
+            else
+                Console.WriteLine("Could not update contact information");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="mobileNumberClear">Boolean</param>
         /// <param name="privatePhoneNumberClear">Boolean</param>
         /// <param name="privateEmailClear">Boolean</param>
+        /// <param name="emailClear">Boolean</param>
         /// <param name="initials">String</param>
         /// <param name="givenName">String</param>
         /// <param name="surname">String</param>
@@ -55,11 +56,10 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="mobileNumber">String</param>
         /// <param name="privatePhoneNumber">String</param>
         /// <param name="privateEmail">String</param>
-        /// <param name="emailExternalUsername">String</param>
-        /// <param name="emailDomain">String</param>
+        /// <param name="email">String</param>
         /// <param name="adUsername">String</param>
         /// <param name="schoolCode">String</param>
-        public UpdateContactAndAccountInfoExternalCommand(System.Guid employeeId, bool addressLineClear, bool careOfAddressClear, bool cityClear, bool placeClear, bool postalCodeClear, bool countryClear, bool phoneNumberClear, bool mobileNumberClear, bool privatePhoneNumberClear, bool privateEmailClear, string initials = default(string), string givenName = default(string), string surname = default(string), string addressLine = default(string), string careOfAddress = default(string), string city = default(string), string place = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), string mobileNumber = default(string), string privatePhoneNumber = default(string), string privateEmail = default(string), string emailExternalUsername = default(string), string emailDomain = default(string), string adUsername = default(string), string schoolCode = default(string))
+        public UpdateContactAndAccountInfoExternalCommand(System.Guid employeeId, bool addressLineClear, bool careOfAddressClear, bool cityClear, bool placeClear, bool postalCodeClear, bool countryClear, bool phoneNumberClear, bool mobileNumberClear, bool privatePhoneNumberClear, bool privateEmailClear, bool emailClear, string initials = default(string), string givenName = default(string), string surname = default(string), string addressLine = default(string), string careOfAddress = default(string), string city = default(string), string place = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), string mobileNumber = default(string), string privatePhoneNumber = default(string), string privateEmail = default(string), string email = default(string), string adUsername = default(string), string schoolCode = default(string))
         {
             EmployeeId = employeeId;
             Initials = initials;
@@ -85,8 +85,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             PrivatePhoneNumberClear = privatePhoneNumberClear;
             PrivateEmail = privateEmail;
             PrivateEmailClear = privateEmailClear;
-            EmailExternalUsername = emailExternalUsername;
-            EmailDomain = emailDomain;
+            Email = email;
+            EmailClear = emailClear;
             AdUsername = adUsername;
             SchoolCode = schoolCode;
             CustomInit();
@@ -327,19 +327,20 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// The username part of the employee's email address
+        /// The employee's work e-mail address.
         /// </remarks>
-        [JsonProperty(PropertyName = "emailExternalUsername")]
-        public string EmailExternalUsername { get; set; }
+        [JsonProperty(PropertyName = "email")]
+        public string Email { get; set; }
 
         /// <summary>
-        /// Gets or sets string
+        /// Gets or sets boolean
         /// </summary>
         /// <remarks>
-        /// The domain part of the employee's email address
+        /// Indicates if the Email should be cleared regardless of the value in
+        /// Email
         /// </remarks>
-        [JsonProperty(PropertyName = "emailDomain")]
-        public string EmailDomain { get; set; }
+        [JsonProperty(PropertyName = "emailClear")]
+        public bool EmailClear { get; set; }
 
         /// <summary>
         /// Gets or sets string
@@ -374,6 +375,13 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
                     throw new ValidationException(ValidationRules.MaxLength, "Initials", 4);
                 }
             }
+            if (PhoneNumber != null)
+            {
+                if (PhoneNumber.Length > 30)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "PhoneNumber", 30);
+                }
+            }
             if (MobileNumber != null)
             {
                 if (MobileNumber.Length > 30)
@@ -393,6 +401,20 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
                 if (PrivateEmail.Length > 255)
                 {
                     throw new ValidationException(ValidationRules.MaxLength, "PrivateEmail", 255);
+                }
+            }
+            if (Email != null)
+            {
+                if (Email.Length > 255)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "Email", 255);
+                }
+            }
+            if (AdUsername != null)
+            {
+                if (AdUsername.Length > 255)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "AdUsername", 255);
                 }
             }
         }

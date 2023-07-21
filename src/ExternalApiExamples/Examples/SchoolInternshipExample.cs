@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ConsoleTables;
-using Kmd.Studica.Programmes.Client;
 using Kmd.Studica.SchoolInternships.Client;
 using Microsoft.Rest;
+
+#pragma warning disable CS1998
 
 namespace ExternalApiExamples;
 

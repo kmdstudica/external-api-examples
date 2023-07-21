@@ -34,7 +34,6 @@ namespace Kmd.Studica.Students.Client.Models
         /// <param name="id">Guid</param>
         /// <param name="civilRegistrationNumber">String</param>
         /// <param name="protectedNameAndAddress">Boolean</param>
-        /// <param name="email">String</param>
         /// <param name="reportToUniLogin">Boolean</param>
         /// <param name="createAdLogin">Boolean</param>
         /// <param name="guardians">The student's guardian(s).</param>
@@ -51,12 +50,14 @@ namespace Kmd.Studica.Students.Client.Models
         /// <param name="postalCode">String</param>
         /// <param name="country">String</param>
         /// <param name="phoneNumber">String</param>
+        /// <param name="email">String</param>
+        /// <param name="privateEmail">String</param>
         /// <param name="uniLoginUsername">String</param>
         /// <param name="adUsername">String</param>
         /// <param name="insertedAt">When was student created</param>
         /// <param name="updatedAt">Last update of the student's
         /// information</param>
-        public StudentExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, string email, bool reportToUniLogin, bool createAdLogin, IList<StudentGuardian> guardians, IList<StudentStudy> studies, string givenName = default(string), string surname = default(string), string protectedGivenName = default(string), string protectedSurname = default(string), string careOfAddress = default(string), string addressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), string uniLoginUsername = default(string), string adUsername = default(string), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
+        public StudentExternalResponse(System.Guid id, string civilRegistrationNumber, bool protectedNameAndAddress, bool reportToUniLogin, bool createAdLogin, IList<StudentGuardian> guardians, IList<StudentStudy> studies, string givenName = default(string), string surname = default(string), string protectedGivenName = default(string), string protectedSurname = default(string), string careOfAddress = default(string), string addressLine = default(string), string place = default(string), string city = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), string email = default(string), string privateEmail = default(string), string uniLoginUsername = default(string), string adUsername = default(string), System.DateTime? insertedAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
             CivilRegistrationNumber = civilRegistrationNumber;
@@ -73,6 +74,7 @@ namespace Kmd.Studica.Students.Client.Models
             ProtectedNameAndAddress = protectedNameAndAddress;
             PhoneNumber = phoneNumber;
             Email = email;
+            PrivateEmail = privateEmail;
             UniLoginUsername = uniLoginUsername;
             ReportToUniLogin = reportToUniLogin;
             AdUsername = adUsername;
@@ -229,7 +231,16 @@ namespace Kmd.Studica.Students.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// Student's Unilogin username.
+        /// Student's private e-mail address.
+        /// </remarks>
+        [JsonProperty(PropertyName = "privateEmail")]
+        public string PrivateEmail { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// Student's Unilogin ID.
         /// </remarks>
         [JsonProperty(PropertyName = "uniLoginUsername")]
         public string UniLoginUsername { get; set; }
@@ -300,10 +311,6 @@ namespace Kmd.Studica.Students.Client.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "CivilRegistrationNumber");
             }
-            if (Email == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Email");
-            }
             if (Guardians == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Guardians");
@@ -317,13 +324,6 @@ namespace Kmd.Studica.Students.Client.Models
                 if (CivilRegistrationNumber.Length < 1)
                 {
                     throw new ValidationException(ValidationRules.MinLength, "CivilRegistrationNumber", 1);
-                }
-            }
-            if (Email != null)
-            {
-                if (Email.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "Email", 1);
                 }
             }
             if (Guardians != null)

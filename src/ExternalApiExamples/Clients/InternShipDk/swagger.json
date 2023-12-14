@@ -135,21 +135,21 @@
           "title": "Date",
           "description": "Start date of the education the agreement belongs to.",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000",
+          "example": "2023-12-14T00:00:00.0000000",
           "x-nullable": false
         },
         "educationExpectedEndDate": {
           "format": "date",
           "description": "Expected end date of the education the agreement belongs to.",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000"
+          "example": "2023-12-14T00:00:00.0000000"
         },
         "agreementStartDate": {
           "format": "date",
           "title": "Date",
           "description": "Start date of the agreement.",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000",
+          "example": "2023-12-14T00:00:00.0000000",
           "x-nullable": false
         },
         "agreementEndDate": {
@@ -157,7 +157,7 @@
           "title": "Date",
           "description": "End date of the agreement.",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000",
+          "example": "2023-12-14T00:00:00.0000000",
           "x-nullable": false
         },
         "comment": {
@@ -217,31 +217,31 @@
           "format": "date",
           "description": "Date when the agreement was signed.",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000"
+          "example": "2023-12-14T00:00:00.0000000"
         },
         "receivedDate": {
           "format": "date",
           "description": "Date when the agreement was received.",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000"
+          "example": "2023-12-14T00:00:00.0000000"
         },
         "completedRegistrationDate": {
           "format": "date",
           "description": "Date when the agreement registration was completed.",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000"
+          "example": "2023-12-14T00:00:00.0000000"
         },
         "creditPreApprovedDate": {
           "format": "date",
           "description": "Date when the credit was pre approved.",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000"
+          "example": "2023-12-14T00:00:00.0000000"
         },
         "creditFinalApprovedDate": {
           "format": "date",
           "description": "Date when the credit got the final approval.",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000"
+          "example": "2023-12-14T00:00:00.0000000"
         },
         "cvrNumber": {
           "title": "String",

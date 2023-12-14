@@ -61,7 +61,9 @@ namespace Kmd.Studica.Students.Client.Models
         /// 'CompletedGf1OrPlus', 'CompletedGf2', 'CancelledExchangeStudent',
         /// 'LeaveOfAbsence', 'Completed', 'Death',
         /// 'TeacherRelationCancelled'</param>
-        public StudentStudy(System.Guid id, System.Guid departmentId, System.Guid educationId, System.DateTime studyStartDate, IList<StudyStudentType> studentTypes, string dsDepartmentNumber = default(string), string educationName = default(string), string coesa = default(string), string educationVersion = default(string), System.DateTime? studyExpectedCompletionDate = default(System.DateTime?), System.DateTime? studyEndDate = default(System.DateTime?), System.Guid? studyEndCauseId = default(System.Guid?), string studyEndCauseCode = default(string), string studyEndCause = default(string), string studyCancellationCauseCode = default(string))
+        /// <param name="specialisations">The specialisations that the student
+        /// has for this study</param>
+        public StudentStudy(System.Guid id, System.Guid departmentId, System.Guid educationId, System.DateTime studyStartDate, IList<StudyStudentType> studentTypes, string dsDepartmentNumber = default(string), string educationName = default(string), string coesa = default(string), string educationVersion = default(string), System.DateTime? studyExpectedCompletionDate = default(System.DateTime?), System.DateTime? studyEndDate = default(System.DateTime?), System.Guid? studyEndCauseId = default(System.Guid?), string studyEndCauseCode = default(string), string studyEndCause = default(string), string studyCancellationCauseCode = default(string), IList<StudentStudySpecialisation> specialisations = default(IList<StudentStudySpecialisation>))
         {
             Id = id;
             DepartmentId = departmentId;
@@ -78,6 +80,7 @@ namespace Kmd.Studica.Students.Client.Models
             StudyEndCause = studyEndCause;
             StudyCancellationCauseCode = studyCancellationCauseCode;
             StudentTypes = studentTypes;
+            Specialisations = specialisations;
             CustomInit();
         }
 
@@ -223,6 +226,13 @@ namespace Kmd.Studica.Students.Client.Models
         public IList<StudyStudentType> StudentTypes { get; set; }
 
         /// <summary>
+        /// Gets or sets the specialisations that the student has for this
+        /// study
+        /// </summary>
+        [JsonProperty(PropertyName = "specialisations")]
+        public IList<StudentStudySpecialisation> Specialisations { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -241,6 +251,16 @@ namespace Kmd.Studica.Students.Client.Models
                     if (element != null)
                     {
                         element.Validate();
+                    }
+                }
+            }
+            if (Specialisations != null)
+            {
+                foreach (var element1 in Specialisations)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
                     }
                 }
             }

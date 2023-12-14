@@ -58,8 +58,13 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <param name="privateEmail">String</param>
         /// <param name="email">String</param>
         /// <param name="adUsername">String</param>
+        /// <param name="createAdLogin">Specifies if the employee should have
+        /// an AD login (organisational account).
+        /// If `false`, the
+        /// SchoolAdministration.Host.ExternalApi.Employees.Commands.UpdateContactAndAccountInfo.UpdateContactAndAccountInfoExternalCommand.AdUsername
+        /// will be cleared</param>
         /// <param name="schoolCode">String</param>
-        public UpdateContactAndAccountInfoExternalCommand(System.Guid employeeId, bool addressLineClear, bool careOfAddressClear, bool cityClear, bool placeClear, bool postalCodeClear, bool countryClear, bool phoneNumberClear, bool mobileNumberClear, bool privatePhoneNumberClear, bool privateEmailClear, bool emailClear, string initials = default(string), string givenName = default(string), string surname = default(string), string addressLine = default(string), string careOfAddress = default(string), string city = default(string), string place = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), string mobileNumber = default(string), string privatePhoneNumber = default(string), string privateEmail = default(string), string email = default(string), string adUsername = default(string), string schoolCode = default(string))
+        public UpdateContactAndAccountInfoExternalCommand(System.Guid employeeId, bool addressLineClear, bool careOfAddressClear, bool cityClear, bool placeClear, bool postalCodeClear, bool countryClear, bool phoneNumberClear, bool mobileNumberClear, bool privatePhoneNumberClear, bool privateEmailClear, bool emailClear, string initials = default(string), string givenName = default(string), string surname = default(string), string addressLine = default(string), string careOfAddress = default(string), string city = default(string), string place = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), string mobileNumber = default(string), string privatePhoneNumber = default(string), string privateEmail = default(string), string email = default(string), string adUsername = default(string), bool? createAdLogin = default(bool?), string schoolCode = default(string))
         {
             EmployeeId = employeeId;
             Initials = initials;
@@ -88,6 +93,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
             Email = email;
             EmailClear = emailClear;
             AdUsername = adUsername;
+            CreateAdLogin = createAdLogin;
             SchoolCode = schoolCode;
             CustomInit();
         }
@@ -350,6 +356,16 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// </remarks>
         [JsonProperty(PropertyName = "adUsername")]
         public string AdUsername { get; set; }
+
+        /// <summary>
+        /// Gets or sets specifies if the employee should have an AD login
+        /// (organisational account).
+        /// If `false`, the
+        /// SchoolAdministration.Host.ExternalApi.Employees.Commands.UpdateContactAndAccountInfo.UpdateContactAndAccountInfoExternalCommand.AdUsername
+        /// will be cleared
+        /// </summary>
+        [JsonProperty(PropertyName = "createAdLogin")]
+        public bool? CreateAdLogin { get; set; }
 
         /// <summary>
         /// Gets or sets string

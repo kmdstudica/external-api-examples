@@ -299,7 +299,7 @@
           "title": "Date",
           "description": "Students must be active on the date or after this date\r\nThis parameter is required",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000",
+          "example": "2023-12-14T00:00:00.0000000",
           "x-nullable": false
         },
         "pageNumber": {
@@ -771,7 +771,7 @@
           "format": "date",
           "description": "Date for when mark has been given",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000"
+          "example": "2023-12-14T00:00:00.0000000"
         },
         "markCode": {
           "title": "String",
@@ -888,20 +888,20 @@
           "title": "Date",
           "description": "Study date of start.",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000",
+          "example": "2023-12-14T00:00:00.0000000",
           "x-nullable": false
         },
         "studyExpectedCompletionDate": {
           "format": "date",
           "description": "Expected completion date of study.",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000"
+          "example": "2023-12-14T00:00:00.0000000"
         },
         "studyEndDate": {
           "format": "date",
           "description": "Study end date",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000"
+          "example": "2023-12-14T00:00:00.0000000"
         },
         "studyEndCauseId": {
           "format": "uuid",
@@ -963,6 +963,41 @@
           "items": {
             "$ref": "#/definitions/Study_StudentType"
           }
+        },
+        "specialisations": {
+          "description": "The specialisations that the student has for this study",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Student_Study_Specialisation"
+          }
+        }
+      }
+    },
+    "Student_Study_Specialisation": {
+      "title": "Student_Study_Specialisation",
+      "required": [
+        "from"
+      ],
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "String",
+          "description": "The name of the specialisation.",
+          "type": "string"
+        },
+        "from": {
+          "format": "date",
+          "title": "Date",
+          "description": "Start of specialisation",
+          "type": "string",
+          "example": "2023-12-14T00:00:00.0000000",
+          "x-nullable": false
+        },
+        "to": {
+          "format": "date",
+          "description": "End of specialisation",
+          "type": "string",
+          "example": "2023-12-14T00:00:00.0000000"
         }
       }
     },
@@ -1054,14 +1089,14 @@
           "title": "Date",
           "description": "The date from which the studenttype is valid",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000",
+          "example": "2023-12-14T00:00:00.0000000",
           "x-nullable": false
         },
         "validTo": {
           "format": "date",
           "description": "The end date of the studenttype",
           "type": "string",
-          "example": "2023-07-21T00:00:00.0000000"
+          "example": "2023-12-14T00:00:00.0000000"
         }
       }
     },
@@ -1219,6 +1254,10 @@
           "title": "String",
           "description": "The AD user name for the student",
           "type": "string"
+        },
+        "createAdLogin": {
+          "description": "Specifies if the student should have an AD login (organisational account).\r\nIf `false`, the Students.Host.ExternalApi.Students.Commands.UpdateContactAndAccountInfo.UpdateContactAndAccountInfoExternalCommand.AdUsername will be cleared",
+          "type": "boolean"
         },
         "schoolCode": {
           "title": "String",

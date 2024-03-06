@@ -47,14 +47,14 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// </summary>
         public KMDStudicaSchoolInternships Client { get; private set; }
 
+        /// <param name='schoolCode'>
+        /// The school code for which to get data.
+        /// </param>
         /// <param name='periodFrom'>
         /// Get all students school internships starting on or after this date
         /// </param>
         /// <param name='periodTo'>
         /// Get all students school internships ending on or before this date
-        /// </param>
-        /// <param name='schoolCode'>
-        /// The school code for which to get data.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -77,7 +77,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<StudentInternshipsExternalResponse>>> GetWithHttpMessagesAsync(System.DateTime periodFrom, System.DateTime periodTo, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<StudentInternshipsExternalResponse>>> GetWithHttpMessagesAsync(string schoolCode, System.DateTime? periodFrom = default(System.DateTime?), System.DateTime? periodTo = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (schoolCode == null)
             {
@@ -111,8 +111,14 @@ namespace Kmd.Studica.SchoolInternships.Client
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "StudentInternshipsExternal").ToString();
             List<string> _queryParameters = new List<string>();
-            _queryParameters.Add(string.Format("PeriodFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodFrom, new DateJsonConverter()).Trim('"'))));
-            _queryParameters.Add(string.Format("PeriodTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodTo, new DateJsonConverter()).Trim('"'))));
+            if (periodFrom != null)
+            {
+                _queryParameters.Add(string.Format("PeriodFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodFrom, new DateJsonConverter()).Trim('"'))));
+            }
+            if (periodTo != null)
+            {
+                _queryParameters.Add(string.Format("PeriodTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodTo, new DateJsonConverter()).Trim('"'))));
+            }
             if (schoolCode != null)
             {
                 _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));

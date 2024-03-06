@@ -50,14 +50,14 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='studentIds'>
         /// A list of student ids to get absence for.
         /// </param>
+        /// <param name='schoolCode'>
+        /// The school code for which to get data.
+        /// </param>
         /// <param name='dateFrom'>
         /// Beginning of the range for absence date.
         /// </param>
         /// <param name='dateTo'>
         /// End of the range for absence date.
-        /// </param>
-        /// <param name='schoolCode'>
-        /// The school code for which to get data.
         /// </param>
         /// <param name='onlyAbsenceReports'>
         /// Only retrieve reports of absence or partial absence,
@@ -84,7 +84,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<AbsenceRegistrationExternalResponse>>> GetWithHttpMessagesAsync(IList<System.Guid> studentIds, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, bool? onlyAbsenceReports = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<AbsenceRegistrationExternalResponse>>> GetWithHttpMessagesAsync(IList<System.Guid> studentIds, string schoolCode, System.DateTime? dateFrom = default(System.DateTime?), System.DateTime? dateTo = default(System.DateTime?), bool? onlyAbsenceReports = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (studentIds == null)
             {
@@ -128,8 +128,14 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _queryParameters.Add(string.Format("StudentIds={0}", System.Uri.EscapeDataString(string.Join(",", studentIds))));
             }
-            _queryParameters.Add(string.Format("DateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(dateFrom, new DateJsonConverter()).Trim('"'))));
-            _queryParameters.Add(string.Format("DateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(dateTo, new DateJsonConverter()).Trim('"'))));
+            if (dateFrom != null)
+            {
+                _queryParameters.Add(string.Format("DateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(dateFrom, new DateJsonConverter()).Trim('"'))));
+            }
+            if (dateTo != null)
+            {
+                _queryParameters.Add(string.Format("DateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(dateTo, new DateJsonConverter()).Trim('"'))));
+            }
             if (onlyAbsenceReports != null)
             {
                 _queryParameters.Add(string.Format("OnlyAbsenceReports={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(onlyAbsenceReports, Client.SerializationSettings).Trim('"'))));

@@ -18,10 +18,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// </summary>
     public partial interface IActiveEmployeesExternal
     {
-        /// <param name='employeesActiveOnOrAfterDate'>
-        /// Employees must have an active employment on or after this date
-        /// This parameter is required
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -33,6 +29,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
+        /// </param>
+        /// <param name='employeesActiveOnOrAfterDate'>
+        /// Employees must have an active employment on or after this date
+        /// This parameter is required
         /// </param>
         /// <param name='areaOfResponsibilityId'>
         /// Option for also querying employees by area of responsibility
@@ -52,6 +52,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseEmployeeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime employeesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseEmployeeExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employeesActiveOnOrAfterDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

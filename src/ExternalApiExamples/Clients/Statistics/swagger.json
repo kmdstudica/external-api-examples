@@ -1,0 +1,273 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "KMD Studica - Statistics",
+    "version": "v1"
+  },
+  "host": "kmd-logic-shareddev-apim.azure-api.net",
+  "basePath": "/studica/statistics/v1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/DeleteHandinsExternal": {
+      "post": {
+        "tags": [
+          "DeleteHandinsExternal"
+        ],
+        "operationId": "DeleteHandinsExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DeleteHandinsExternalCommand"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/SubmitHandinsExternal": {
+      "post": {
+        "tags": [
+          "SubmitHandinsExternal"
+        ],
+        "operationId": "SubmitHandinsExternal_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SubmitHandinsExternalCommand"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DeleteHandinsExternalCommand": {
+      "title": "DeleteHandinsExternalCommand",
+      "description": "Delete previously uploaded handins",
+      "required": [
+        "handinIds",
+        "schoolCode"
+      ],
+      "type": "object",
+      "properties": {
+        "handinIds": {
+          "description": "IDs of the handins to delete",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    },
+    "ExternalHandinDto": {
+      "title": "ExternalHandinDto",
+      "required": [
+        "assignmentId",
+        "assignmentTitle",
+        "assignmentType",
+        "deadline",
+        "handinId",
+        "markScale",
+        "status",
+        "studentIds"
+      ],
+      "type": "object",
+      "properties": {
+        "handinId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "The ID of the handin",
+          "type": "string",
+          "x-nullable": false
+        },
+        "studentIds": {
+          "description": "ID of the student(s) that the handin relates to (Studica StudentId's)",
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "title": "Guid",
+            "type": "string",
+            "x-nullable": false
+          }
+        },
+        "assignmentId": {
+          "format": "uuid",
+          "title": "Guid",
+          "description": "ID of the assignment",
+          "type": "string",
+          "x-nullable": false
+        },
+        "assignmentTitle": {
+          "title": "String",
+          "description": "Title of the assignment",
+          "maxLength": 255,
+          "minLength": 1,
+          "type": "string"
+        },
+        "assignmentType": {
+          "title": "AssignmentType",
+          "description": "Type of assignment",
+          "enum": [
+            "Individual",
+            "TeacherCreatedGroup",
+            "StudentCreatedGroup",
+            "DifferentTasksIndividual"
+          ],
+          "type": "string",
+          "x-nullable": false
+        },
+        "deadline": {
+          "format": "date-time",
+          "title": "DateTime",
+          "description": "Deadline for the assignment",
+          "type": "string",
+          "x-nullable": false
+        },
+        "deliveryTime": {
+          "format": "date-time",
+          "description": "Timestamp of the student's delivery of the handin",
+          "type": "string"
+        },
+        "feedbackTime": {
+          "format": "date-time",
+          "description": "Timestamp of when the teacher has provided feedback",
+          "type": "string"
+        },
+        "markScale": {
+          "title": "MarkScale",
+          "description": "The mark scale used for grading",
+          "enum": [
+            "PassedNotPassed",
+            "SevenPointScale",
+            "PercentScale",
+            "NoMarks"
+          ],
+          "type": "string",
+          "x-nullable": false
+        },
+        "markValue": {
+          "title": "String",
+          "description": "The mark value given to the student(s) for the handin\r\nNote that this is mark values used in Teams, which differs somewhat from UMO mark values",
+          "type": "string"
+        },
+        "immersionTimeInMinutes": {
+          "format": "int32",
+          "description": "Time (in minutes) related to the assignment/handin",
+          "type": "integer"
+        },
+        "status": {
+          "title": "HandinStatus",
+          "description": "Status for the handin (not submitted, submitted, rejected)",
+          "enum": [
+            "NotSubmitted",
+            "Submitted",
+            "Rejected"
+          ],
+          "type": "string",
+          "x-nullable": false
+        },
+        "feedback": {
+          "title": "String",
+          "description": "Textual feedback on the handin",
+          "maxLength": 255,
+          "type": "string"
+        },
+        "rejectedReason": {
+          "title": "String",
+          "description": "Reason for rejection (if status is rejected)",
+          "maxLength": 255,
+          "type": "string"
+        },
+        "connectedTopicTitle": {
+          "title": "String",
+          "description": "Title of connected topic",
+          "maxLength": 255,
+          "type": "string"
+        },
+        "plagiarismScore": {
+          "format": "int32",
+          "description": "Plagiarism score (0 - 100)",
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "assignmentUrl": {
+          "title": "String",
+          "description": "Url to the assignment",
+          "maxLength": 255,
+          "type": "string"
+        }
+      }
+    },
+    "SubmitHandinsExternalCommand": {
+      "title": "SubmitHandinsExternalCommand",
+      "description": "Upload data about handins (to be used for statistics about written absence)",
+      "required": [
+        "handins",
+        "schoolCode"
+      ],
+      "type": "object",
+      "properties": {
+        "handins": {
+          "description": "New handins to create",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExternalHandinDto"
+          }
+        },
+        "schoolCode": {
+          "title": "String",
+          "description": "The school code for which to get data.",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

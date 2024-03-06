@@ -47,10 +47,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// </summary>
         public KMDStudicaSchoolAdministration Client { get; private set; }
 
-        /// <param name='employeesActiveOnOrAfterDate'>
-        /// Employees must have an active employment on or after this date
-        /// This parameter is required
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -62,6 +58,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
+        /// </param>
+        /// <param name='employeesActiveOnOrAfterDate'>
+        /// Employees must have an active employment on or after this date
+        /// This parameter is required
         /// </param>
         /// <param name='areaOfResponsibilityId'>
         /// Option for also querying employees by area of responsibility
@@ -87,7 +87,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseEmployeeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime employeesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseEmployeeExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employeesActiveOnOrAfterDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pageNumber > 2147483647)
             {
@@ -140,7 +140,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ActiveEmployeesExternal").ToString();
             List<string> _queryParameters = new List<string>();
-            _queryParameters.Add(string.Format("EmployeesActiveOnOrAfterDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(employeesActiveOnOrAfterDate, new DateJsonConverter()).Trim('"'))));
+            if (employeesActiveOnOrAfterDate != null)
+            {
+                _queryParameters.Add(string.Format("EmployeesActiveOnOrAfterDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(employeesActiveOnOrAfterDate, new DateJsonConverter()).Trim('"'))));
+            }
             if (areaOfResponsibilityId != null)
             {
                 _queryParameters.Add(string.Format("AreaOfResponsibilityId={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(areaOfResponsibilityId, Client.SerializationSettings).Trim('"'))));

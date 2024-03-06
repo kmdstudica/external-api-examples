@@ -18,10 +18,6 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IActiveSubjectCoursesExternal
     {
-        /// <param name='subjectCoursesActiveOnOrAfterDate'>
-        /// Subject courses must be active on the date or after this date
-        /// This parameter is required
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -33,6 +29,10 @@ namespace Kmd.Studica.Programmes.Client
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
+        /// </param>
+        /// <param name='subjectCoursesActiveOnOrAfterDate'>
+        /// Subject courses must be active on the date or after this date
+        /// This parameter is required
         /// </param>
         /// <param name='lmsIndicator'>
         /// Is the entity to be created in the LMS.
@@ -60,6 +60,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> GetWithHttpMessagesAsync(System.DateTime subjectCoursesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?), bool? includeDeletedSubjectCourses = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? subjectCoursesActiveOnOrAfterDate = default(System.DateTime?), bool? lmsIndicator = default(bool?), bool? includeDeletedSubjectCourses = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

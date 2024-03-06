@@ -18,10 +18,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='employeesActiveOnOrAfterDate'>
-            /// Employees must have an active employment on or after this date
-            /// This parameter is required
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -34,21 +30,21 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='schoolCode'>
             /// The school code for which to get data.
             /// </param>
+            /// <param name='employeesActiveOnOrAfterDate'>
+            /// Employees must have an active employment on or after this date
+            /// This parameter is required
+            /// </param>
             /// <param name='areaOfResponsibilityId'>
             /// Option for also querying employees by area of responsibility
             /// </param>
-            public static PagedResponseEmployeeExternalResponse Get(this IActiveEmployeesExternal operations, System.DateTime employeesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?))
+            public static PagedResponseEmployeeExternalResponse Get(this IActiveEmployeesExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employeesActiveOnOrAfterDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?))
             {
-                return operations.GetAsync(employeesActiveOnOrAfterDate, pageNumber, pageSize, inlineCount, schoolCode, areaOfResponsibilityId).GetAwaiter().GetResult();
+                return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode, employeesActiveOnOrAfterDate, areaOfResponsibilityId).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='employeesActiveOnOrAfterDate'>
-            /// Employees must have an active employment on or after this date
-            /// This parameter is required
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -60,6 +56,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// </param>
             /// <param name='schoolCode'>
             /// The school code for which to get data.
+            /// </param>
+            /// <param name='employeesActiveOnOrAfterDate'>
+            /// Employees must have an active employment on or after this date
+            /// This parameter is required
             /// </param>
             /// <param name='areaOfResponsibilityId'>
             /// Option for also querying employees by area of responsibility
@@ -67,9 +67,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseEmployeeExternalResponse> GetAsync(this IActiveEmployeesExternal operations, System.DateTime employeesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseEmployeeExternalResponse> GetAsync(this IActiveEmployeesExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employeesActiveOnOrAfterDate = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(employeesActiveOnOrAfterDate, pageNumber, pageSize, inlineCount, schoolCode, areaOfResponsibilityId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(pageNumber, pageSize, inlineCount, schoolCode, employeesActiveOnOrAfterDate, areaOfResponsibilityId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

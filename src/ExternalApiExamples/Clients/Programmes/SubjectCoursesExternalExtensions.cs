@@ -18,12 +18,6 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='startDateFrom'>
-            /// Beginning of the range for start date subject courses.
-            /// </param>
-            /// <param name='startDateTo'>
-            /// End of the range for start date subject courses.
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -35,6 +29,12 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='schoolCode'>
             /// The school code for which to get data.
+            /// </param>
+            /// <param name='startDateFrom'>
+            /// Beginning of the range for start date subject courses.
+            /// </param>
+            /// <param name='startDateTo'>
+            /// End of the range for start date subject courses.
             /// </param>
             /// <param name='lmsIndicator'>
             /// Is the entity to be created in the LMS.
@@ -47,19 +47,13 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
             /// Only get data inserted or updated on or after the specified date
             /// </param>
-            public static PagedResponseSubjectCourseExternalResponse Get(this ISubjectCoursesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?), bool? includeDeletedSubjectCourses = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?))
+            public static PagedResponseSubjectCourseExternalResponse Get(this ISubjectCoursesExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? startDateFrom = default(System.DateTime?), System.DateTime? startDateTo = default(System.DateTime?), bool? lmsIndicator = default(bool?), bool? includeDeletedSubjectCourses = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?))
             {
-                return operations.GetAsync(startDateFrom, startDateTo, pageNumber, pageSize, inlineCount, schoolCode, lmsIndicator, includeDeletedSubjectCourses, onlyDataInsertedOrUpdatedOnOrAfter).GetAwaiter().GetResult();
+                return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode, startDateFrom, startDateTo, lmsIndicator, includeDeletedSubjectCourses, onlyDataInsertedOrUpdatedOnOrAfter).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='startDateFrom'>
-            /// Beginning of the range for start date subject courses.
-            /// </param>
-            /// <param name='startDateTo'>
-            /// End of the range for start date subject courses.
             /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
@@ -72,6 +66,12 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='schoolCode'>
             /// The school code for which to get data.
+            /// </param>
+            /// <param name='startDateFrom'>
+            /// Beginning of the range for start date subject courses.
+            /// </param>
+            /// <param name='startDateTo'>
+            /// End of the range for start date subject courses.
             /// </param>
             /// <param name='lmsIndicator'>
             /// Is the entity to be created in the LMS.
@@ -87,9 +87,9 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseSubjectCourseExternalResponse> GetAsync(this ISubjectCoursesExternal operations, System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?), bool? includeDeletedSubjectCourses = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseSubjectCourseExternalResponse> GetAsync(this ISubjectCoursesExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? startDateFrom = default(System.DateTime?), System.DateTime? startDateTo = default(System.DateTime?), bool? lmsIndicator = default(bool?), bool? includeDeletedSubjectCourses = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(startDateFrom, startDateTo, pageNumber, pageSize, inlineCount, schoolCode, lmsIndicator, includeDeletedSubjectCourses, onlyDataInsertedOrUpdatedOnOrAfter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(pageNumber, pageSize, inlineCount, schoolCode, startDateFrom, startDateTo, lmsIndicator, includeDeletedSubjectCourses, onlyDataInsertedOrUpdatedOnOrAfter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

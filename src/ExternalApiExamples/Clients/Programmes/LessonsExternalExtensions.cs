@@ -18,12 +18,6 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='dateFrom'>
-            /// Beginning of range for lesson date.
-            /// </param>
-            /// <param name='dateTo'>
-            /// End of range for lesson date.
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -39,23 +33,23 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='departmentId'>
             /// Department where the lesson is conducted.
             /// </param>
+            /// <param name='dateFrom'>
+            /// Beginning of range for lesson date.
+            /// </param>
+            /// <param name='dateTo'>
+            /// End of range for lesson date.
+            /// </param>
             /// <param name='hasExternalId'>
             /// Flag indicating if lesson contains external id.
             /// </param>
-            public static PagedResponseLessonExternalResponse Get(this ILessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?))
+            public static PagedResponseLessonExternalResponse Get(this ILessonsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), System.DateTime? dateFrom = default(System.DateTime?), System.DateTime? dateTo = default(System.DateTime?), bool? hasExternalId = default(bool?))
             {
-                return operations.GetAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, departmentId, hasExternalId).GetAwaiter().GetResult();
+                return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode, departmentId, dateFrom, dateTo, hasExternalId).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='dateFrom'>
-            /// Beginning of range for lesson date.
-            /// </param>
-            /// <param name='dateTo'>
-            /// End of range for lesson date.
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -70,6 +64,12 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='departmentId'>
             /// Department where the lesson is conducted.
+            /// </param>
+            /// <param name='dateFrom'>
+            /// Beginning of range for lesson date.
+            /// </param>
+            /// <param name='dateTo'>
+            /// End of range for lesson date.
             /// </param>
             /// <param name='hasExternalId'>
             /// Flag indicating if lesson contains external id.
@@ -77,9 +77,9 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseLessonExternalResponse> GetAsync(this ILessonsExternal operations, System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseLessonExternalResponse> GetAsync(this ILessonsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), System.DateTime? dateFrom = default(System.DateTime?), System.DateTime? dateTo = default(System.DateTime?), bool? hasExternalId = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(dateFrom, dateTo, pageNumber, pageSize, inlineCount, schoolCode, departmentId, hasExternalId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(pageNumber, pageSize, inlineCount, schoolCode, departmentId, dateFrom, dateTo, hasExternalId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

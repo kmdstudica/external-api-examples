@@ -18,14 +18,14 @@ namespace Kmd.Studica.SchoolInternships.Client
     /// </summary>
     public partial interface IStudentInternshipsExternal
     {
+        /// <param name='schoolCode'>
+        /// The school code for which to get data.
+        /// </param>
         /// <param name='periodFrom'>
         /// Get all students school internships starting on or after this date
         /// </param>
         /// <param name='periodTo'>
         /// Get all students school internships ending on or before this date
-        /// </param>
-        /// <param name='schoolCode'>
-        /// The school code for which to get data.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -42,6 +42,6 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<StudentInternshipsExternalResponse>>> GetWithHttpMessagesAsync(System.DateTime periodFrom, System.DateTime periodTo, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<StudentInternshipsExternalResponse>>> GetWithHttpMessagesAsync(string schoolCode, System.DateTime? periodFrom = default(System.DateTime?), System.DateTime? periodTo = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

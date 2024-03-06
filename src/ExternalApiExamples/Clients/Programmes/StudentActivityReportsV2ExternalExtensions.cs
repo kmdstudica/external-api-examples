@@ -20,6 +20,9 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
+            /// </param>
             /// <param name='periodFrom'>
             /// Includes reports for periods with a transmission period start date no
             /// earlier than `PeriodFrom`
@@ -28,17 +31,17 @@ namespace Kmd.Studica.Programmes.Client
             /// Includes reports for periods with a transmission period start date no later
             /// than `PeriodFromTo`
             /// </param>
-            /// <param name='schoolCode'>
-            /// The school code for which to get data.
-            /// </param>
-            public static IList<ActivityGroup2Dto> Get(this IStudentActivityReportsV2External operations, System.DateTime periodFrom, System.DateTime periodTo, string schoolCode)
+            public static IList<ActivityGroup2Dto> Get(this IStudentActivityReportsV2External operations, string schoolCode, System.DateTime? periodFrom = default(System.DateTime?), System.DateTime? periodTo = default(System.DateTime?))
             {
-                return operations.GetAsync(periodFrom, periodTo, schoolCode).GetAwaiter().GetResult();
+                return operations.GetAsync(schoolCode, periodFrom, periodTo).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
+            /// </param>
             /// <param name='periodFrom'>
             /// Includes reports for periods with a transmission period start date no
             /// earlier than `PeriodFrom`
@@ -47,15 +50,12 @@ namespace Kmd.Studica.Programmes.Client
             /// Includes reports for periods with a transmission period start date no later
             /// than `PeriodFromTo`
             /// </param>
-            /// <param name='schoolCode'>
-            /// The school code for which to get data.
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<ActivityGroup2Dto>> GetAsync(this IStudentActivityReportsV2External operations, System.DateTime periodFrom, System.DateTime periodTo, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<ActivityGroup2Dto>> GetAsync(this IStudentActivityReportsV2External operations, string schoolCode, System.DateTime? periodFrom = default(System.DateTime?), System.DateTime? periodTo = default(System.DateTime?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(periodFrom, periodTo, schoolCode, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(schoolCode, periodFrom, periodTo, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

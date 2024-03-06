@@ -47,12 +47,6 @@ namespace Kmd.Studica.Programmes.Client
         /// </summary>
         public KMDStudicaProgrammes Client { get; private set; }
 
-        /// <param name='startDateFrom'>
-        /// Beginning of the range for start date of the educational programmes.
-        /// </param>
-        /// <param name='startDateTo'>
-        /// End of the range for start date of the educational programmes.
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -64,6 +58,12 @@ namespace Kmd.Studica.Programmes.Client
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
+        /// </param>
+        /// <param name='startDateFrom'>
+        /// Beginning of the range for start date of the educational programmes.
+        /// </param>
+        /// <param name='startDateTo'>
+        /// End of the range for start date of the educational programmes.
         /// </param>
         /// <param name='areaOfResponsibilityId'>
         /// Option for also querying educational programmes by area of responsibility
@@ -96,7 +96,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseEducationalProgrammeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), bool? includeDeletedProgrammes = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseEducationalProgrammeExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? startDateFrom = default(System.DateTime?), System.DateTime? startDateTo = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), bool? includeDeletedProgrammes = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pageNumber > 2147483647)
             {
@@ -152,8 +152,14 @@ namespace Kmd.Studica.Programmes.Client
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "EducationalProgrammesExternal").ToString();
             List<string> _queryParameters = new List<string>();
-            _queryParameters.Add(string.Format("StartDateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateFrom, new DateJsonConverter()).Trim('"'))));
-            _queryParameters.Add(string.Format("StartDateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateTo, new DateJsonConverter()).Trim('"'))));
+            if (startDateFrom != null)
+            {
+                _queryParameters.Add(string.Format("StartDateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateFrom, new DateJsonConverter()).Trim('"'))));
+            }
+            if (startDateTo != null)
+            {
+                _queryParameters.Add(string.Format("StartDateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateTo, new DateJsonConverter()).Trim('"'))));
+            }
             if (areaOfResponsibilityId != null)
             {
                 _queryParameters.Add(string.Format("AreaOfResponsibilityId={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(areaOfResponsibilityId, Client.SerializationSettings).Trim('"'))));

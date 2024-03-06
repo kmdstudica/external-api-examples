@@ -21,14 +21,14 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='studentIds'>
         /// A list of student ids to get absence for.
         /// </param>
+        /// <param name='schoolCode'>
+        /// The school code for which to get data.
+        /// </param>
         /// <param name='dateFrom'>
         /// Beginning of the range for absence date.
         /// </param>
         /// <param name='dateTo'>
         /// End of the range for absence date.
-        /// </param>
-        /// <param name='schoolCode'>
-        /// The school code for which to get data.
         /// </param>
         /// <param name='onlyAbsenceReports'>
         /// Only retrieve reports of absence or partial absence,
@@ -49,6 +49,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<AbsenceRegistrationExternalResponse>>> GetWithHttpMessagesAsync(IList<System.Guid> studentIds, System.DateTime dateFrom, System.DateTime dateTo, string schoolCode, bool? onlyAbsenceReports = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<AbsenceRegistrationExternalResponse>>> GetWithHttpMessagesAsync(IList<System.Guid> studentIds, string schoolCode, System.DateTime? dateFrom = default(System.DateTime?), System.DateTime? dateTo = default(System.DateTime?), bool? onlyAbsenceReports = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

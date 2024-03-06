@@ -47,10 +47,6 @@ namespace Kmd.Studica.Students.Client
         /// </summary>
         public KMDStudicaStudents Client { get; private set; }
 
-        /// <param name='studentActiveOnOrAfterDate'>
-        /// Students must be active on the date or after this date
-        /// This parameter is required
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -62,6 +58,10 @@ namespace Kmd.Studica.Students.Client
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
+        /// </param>
+        /// <param name='studentActiveOnOrAfterDate'>
+        /// Students must be active on the date or after this date
+        /// This parameter is required
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -84,7 +84,7 @@ namespace Kmd.Studica.Students.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> GetWithHttpMessagesAsync(System.DateTime studentActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? studentActiveOnOrAfterDate = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pageNumber > 2147483647)
             {
@@ -136,7 +136,10 @@ namespace Kmd.Studica.Students.Client
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ActiveStudentsExternal").ToString();
             List<string> _queryParameters = new List<string>();
-            _queryParameters.Add(string.Format("StudentActiveOnOrAfterDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(studentActiveOnOrAfterDate, new DateJsonConverter()).Trim('"'))));
+            if (studentActiveOnOrAfterDate != null)
+            {
+                _queryParameters.Add(string.Format("StudentActiveOnOrAfterDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(studentActiveOnOrAfterDate, new DateJsonConverter()).Trim('"'))));
+            }
             _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));

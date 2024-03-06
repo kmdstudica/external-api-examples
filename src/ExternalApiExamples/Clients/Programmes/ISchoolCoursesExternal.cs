@@ -18,9 +18,6 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface ISchoolCoursesExternal
     {
-        /// <param name='periodFrom'>
-        /// School courses start on or after this date
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -32,6 +29,9 @@ namespace Kmd.Studica.Programmes.Client
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
+        /// </param>
+        /// <param name='periodFrom'>
+        /// School courses start on or after this date
         /// </param>
         /// <param name='periodTo'>
         /// School courses must end on or before this date
@@ -55,6 +55,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseSchoolCourseExternalResponse>> GetWithHttpMessagesAsync(System.DateTime periodFrom, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? periodTo = default(System.DateTime?), bool? includeDeletedSchoolCourses = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseSchoolCourseExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? periodFrom = default(System.DateTime?), System.DateTime? periodTo = default(System.DateTime?), bool? includeDeletedSchoolCourses = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

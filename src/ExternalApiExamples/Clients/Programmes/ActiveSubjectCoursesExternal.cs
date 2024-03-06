@@ -47,10 +47,6 @@ namespace Kmd.Studica.Programmes.Client
         /// </summary>
         public KMDStudicaProgrammes Client { get; private set; }
 
-        /// <param name='subjectCoursesActiveOnOrAfterDate'>
-        /// Subject courses must be active on the date or after this date
-        /// This parameter is required
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -62,6 +58,10 @@ namespace Kmd.Studica.Programmes.Client
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
+        /// </param>
+        /// <param name='subjectCoursesActiveOnOrAfterDate'>
+        /// Subject courses must be active on the date or after this date
+        /// This parameter is required
         /// </param>
         /// <param name='lmsIndicator'>
         /// Is the entity to be created in the LMS.
@@ -95,7 +95,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> GetWithHttpMessagesAsync(System.DateTime subjectCoursesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, bool? lmsIndicator = default(bool?), bool? includeDeletedSubjectCourses = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? subjectCoursesActiveOnOrAfterDate = default(System.DateTime?), bool? lmsIndicator = default(bool?), bool? includeDeletedSubjectCourses = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pageNumber > 2147483647)
             {
@@ -150,7 +150,10 @@ namespace Kmd.Studica.Programmes.Client
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ActiveSubjectCoursesExternal").ToString();
             List<string> _queryParameters = new List<string>();
-            _queryParameters.Add(string.Format("SubjectCoursesActiveOnOrAfterDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(subjectCoursesActiveOnOrAfterDate, new DateJsonConverter()).Trim('"'))));
+            if (subjectCoursesActiveOnOrAfterDate != null)
+            {
+                _queryParameters.Add(string.Format("SubjectCoursesActiveOnOrAfterDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(subjectCoursesActiveOnOrAfterDate, new DateJsonConverter()).Trim('"'))));
+            }
             if (lmsIndicator != null)
             {
                 _queryParameters.Add(string.Format("LmsIndicator={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(lmsIndicator, Client.SerializationSettings).Trim('"'))));

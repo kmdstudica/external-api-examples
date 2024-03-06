@@ -18,6 +18,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IStudentActivityReportsV2External
     {
+        /// <param name='schoolCode'>
+        /// The school code for which to get data.
+        /// </param>
         /// <param name='periodFrom'>
         /// Includes reports for periods with a transmission period start date
         /// no earlier than `PeriodFrom`
@@ -25,9 +28,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <param name='periodTo'>
         /// Includes reports for periods with a transmission period start date
         /// no later than `PeriodFromTo`
-        /// </param>
-        /// <param name='schoolCode'>
-        /// The school code for which to get data.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -44,6 +44,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<ActivityGroup2Dto>>> GetWithHttpMessagesAsync(System.DateTime periodFrom, System.DateTime periodTo, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<ActivityGroup2Dto>>> GetWithHttpMessagesAsync(string schoolCode, System.DateTime? periodFrom = default(System.DateTime?), System.DateTime? periodTo = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

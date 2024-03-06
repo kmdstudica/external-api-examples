@@ -18,13 +18,6 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IEducationalProgrammesExternal
     {
-        /// <param name='startDateFrom'>
-        /// Beginning of the range for start date of the educational
-        /// programmes.
-        /// </param>
-        /// <param name='startDateTo'>
-        /// End of the range for start date of the educational programmes.
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -36,6 +29,13 @@ namespace Kmd.Studica.Programmes.Client
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
+        /// </param>
+        /// <param name='startDateFrom'>
+        /// Beginning of the range for start date of the educational
+        /// programmes.
+        /// </param>
+        /// <param name='startDateTo'>
+        /// End of the range for start date of the educational programmes.
         /// </param>
         /// <param name='areaOfResponsibilityId'>
         /// Option for also querying educational programmes by area of
@@ -62,6 +62,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseEducationalProgrammeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime startDateFrom, System.DateTime startDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? areaOfResponsibilityId = default(System.Guid?), bool? includeDeletedProgrammes = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseEducationalProgrammeExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? startDateFrom = default(System.DateTime?), System.DateTime? startDateTo = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), bool? includeDeletedProgrammes = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

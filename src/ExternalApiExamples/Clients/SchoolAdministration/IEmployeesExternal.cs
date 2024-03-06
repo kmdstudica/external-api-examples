@@ -18,9 +18,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// </summary>
     public partial interface IEmployeesExternal
     {
-        /// <param name='employmentStartDateTo'>
-        /// End of range for start date employment.
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -35,6 +32,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// </param>
         /// <param name='employmentStartDateFrom'>
         /// Beginning of range for start date employment.
+        /// </param>
+        /// <param name='employmentStartDateTo'>
+        /// End of range for start date employment.
         /// </param>
         /// <param name='areaOfResponsibilityId'>
         /// Option for also querying employees by area of responsibility
@@ -54,6 +54,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseEmployeeExternalResponse>> GetWithHttpMessagesAsync(System.DateTime employmentStartDateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employmentStartDateFrom = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseEmployeeExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? employmentStartDateFrom = default(System.DateTime?), System.DateTime? employmentStartDateTo = default(System.DateTime?), System.Guid? areaOfResponsibilityId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

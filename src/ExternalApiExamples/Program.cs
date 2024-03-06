@@ -101,9 +101,15 @@ namespace ExternalApiExamples
             // await new SchoolInternshipExample(tokenProvider, configuration).ExecuteBulkInternshipDepartments();
             
             /*
-             * School Internships API examples
+             * InternshipDK API examples
              */
             // await new InternshipDkExample(tokenProvider, configuration).Execute();
+            
+            /*
+             * Statistics API examples
+             */
+            // await new StatisticsExample(tokenProvider, configuration).ExecuteSubmitHandinStatistics();
+            // await new StatisticsExample(tokenProvider, configuration).ExecuteDeleteHandinsStatistics();
         }
     }
 }

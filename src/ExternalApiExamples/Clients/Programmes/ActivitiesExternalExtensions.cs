@@ -18,9 +18,6 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='periodFrom'>
-            /// Activities start on or after this date
-            /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
             /// </param>
@@ -32,21 +29,21 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='schoolCode'>
             /// The school code for which to get data.
+            /// </param>
+            /// <param name='periodFrom'>
+            /// Activities start on or after this date
             /// </param>
             /// <param name='periodTo'>
             /// Activities must end on or before this date
             /// Property is nullable
             /// </param>
-            public static PagedResponseActivityResponse Get(this IActivitiesExternal operations, System.DateTime periodFrom, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? periodTo = default(System.DateTime?))
+            public static PagedResponseActivityResponse Get(this IActivitiesExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? periodFrom = default(System.DateTime?), System.DateTime? periodTo = default(System.DateTime?))
             {
-                return operations.GetAsync(periodFrom, pageNumber, pageSize, inlineCount, schoolCode, periodTo).GetAwaiter().GetResult();
+                return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode, periodFrom, periodTo).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='periodFrom'>
-            /// Activities start on or after this date
             /// </param>
             /// <param name='pageNumber'>
             /// The number of the page to return (1 is the first page).
@@ -59,6 +56,9 @@ namespace Kmd.Studica.Programmes.Client
             /// </param>
             /// <param name='schoolCode'>
             /// The school code for which to get data.
+            /// </param>
+            /// <param name='periodFrom'>
+            /// Activities start on or after this date
             /// </param>
             /// <param name='periodTo'>
             /// Activities must end on or before this date
@@ -67,9 +67,9 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseActivityResponse> GetAsync(this IActivitiesExternal operations, System.DateTime periodFrom, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? periodTo = default(System.DateTime?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseActivityResponse> GetAsync(this IActivitiesExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? periodFrom = default(System.DateTime?), System.DateTime? periodTo = default(System.DateTime?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(periodFrom, pageNumber, pageSize, inlineCount, schoolCode, periodTo, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(pageNumber, pageSize, inlineCount, schoolCode, periodFrom, periodTo, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

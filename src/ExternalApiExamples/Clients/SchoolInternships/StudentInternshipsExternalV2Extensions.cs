@@ -20,38 +20,38 @@ namespace Kmd.Studica.SchoolInternships.Client
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
+            /// </param>
             /// <param name='periodFrom'>
             /// Get all students school internships starting on or after this date
             /// </param>
             /// <param name='periodTo'>
             /// Get all students school internships ending on or before this date
             /// </param>
-            /// <param name='schoolCode'>
-            /// The school code for which to get data.
-            /// </param>
-            public static IList<StudentInternshipsExternalV2Response> Get(this IStudentInternshipsExternalV2 operations, System.DateTime periodFrom, System.DateTime periodTo, string schoolCode)
+            public static IList<StudentInternshipsExternalV2Response> Get(this IStudentInternshipsExternalV2 operations, string schoolCode, System.DateTime? periodFrom = default(System.DateTime?), System.DateTime? periodTo = default(System.DateTime?))
             {
-                return operations.GetAsync(periodFrom, periodTo, schoolCode).GetAwaiter().GetResult();
+                return operations.GetAsync(schoolCode, periodFrom, periodTo).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='schoolCode'>
+            /// The school code for which to get data.
+            /// </param>
             /// <param name='periodFrom'>
             /// Get all students school internships starting on or after this date
             /// </param>
             /// <param name='periodTo'>
             /// Get all students school internships ending on or before this date
             /// </param>
-            /// <param name='schoolCode'>
-            /// The school code for which to get data.
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<StudentInternshipsExternalV2Response>> GetAsync(this IStudentInternshipsExternalV2 operations, System.DateTime periodFrom, System.DateTime periodTo, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<StudentInternshipsExternalV2Response>> GetAsync(this IStudentInternshipsExternalV2 operations, string schoolCode, System.DateTime? periodFrom = default(System.DateTime?), System.DateTime? periodTo = default(System.DateTime?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(periodFrom, periodTo, schoolCode, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(schoolCode, periodFrom, periodTo, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

@@ -18,10 +18,6 @@ namespace Kmd.Studica.Students.Client
     /// </summary>
     public partial interface IActiveStudentsExternal
     {
-        /// <param name='studentActiveOnOrAfterDate'>
-        /// Students must be active on the date or after this date
-        /// This parameter is required
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -33,6 +29,10 @@ namespace Kmd.Studica.Students.Client
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
+        /// </param>
+        /// <param name='studentActiveOnOrAfterDate'>
+        /// Students must be active on the date or after this date
+        /// This parameter is required
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -49,6 +49,6 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> GetWithHttpMessagesAsync(System.DateTime studentActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? studentActiveOnOrAfterDate = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

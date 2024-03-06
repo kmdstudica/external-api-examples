@@ -30,6 +30,12 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='inlineCount'>
             /// A flag indicating if include total number of items.
             /// </param>
+            /// <param name='studentId'>
+            /// Absent student.
+            /// </param>
+            /// <param name='lessonId'>
+            /// Lesson of absence.
+            /// </param>
             /// <param name='dateFrom'>
             /// Beginning of the range for absence date. The `DateFrom` parameter
             /// determines date to get absence data from, as well as the school year period
@@ -38,19 +44,13 @@ namespace Kmd.Studica.Programmes.Client
             /// End of the range for absence date.
             /// The `DateTo` parameter must be within the same school year as `DateFrom`
             /// </param>
-            /// <param name='studentId'>
-            /// Absent student.
-            /// </param>
-            /// <param name='lessonId'>
-            /// Lesson of absence.
-            /// </param>
             /// <param name='onlyAbsenceReports'>
             /// Only retrieve reports of absence or partial absence,
             /// defaults to false (retrieve everything)
             /// </param>
-            public static PagedResponseAbsenceRegistrationExternalResponse Get(this IAbsenceRegistrationsExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.DateTime dateFrom, System.DateTime dateTo, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), bool? onlyAbsenceReports = default(bool?))
+            public static PagedResponseAbsenceRegistrationExternalResponse Get(this IAbsenceRegistrationsExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), System.DateTime? dateFrom = default(System.DateTime?), System.DateTime? dateTo = default(System.DateTime?), bool? onlyAbsenceReports = default(bool?))
             {
-                return operations.GetAsync(schoolCode, pageNumber, pageSize, inlineCount, dateFrom, dateTo, studentId, lessonId, onlyAbsenceReports).GetAwaiter().GetResult();
+                return operations.GetAsync(schoolCode, pageNumber, pageSize, inlineCount, studentId, lessonId, dateFrom, dateTo, onlyAbsenceReports).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -68,6 +68,12 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='inlineCount'>
             /// A flag indicating if include total number of items.
             /// </param>
+            /// <param name='studentId'>
+            /// Absent student.
+            /// </param>
+            /// <param name='lessonId'>
+            /// Lesson of absence.
+            /// </param>
             /// <param name='dateFrom'>
             /// Beginning of the range for absence date. The `DateFrom` parameter
             /// determines date to get absence data from, as well as the school year period
@@ -76,12 +82,6 @@ namespace Kmd.Studica.Programmes.Client
             /// End of the range for absence date.
             /// The `DateTo` parameter must be within the same school year as `DateFrom`
             /// </param>
-            /// <param name='studentId'>
-            /// Absent student.
-            /// </param>
-            /// <param name='lessonId'>
-            /// Lesson of absence.
-            /// </param>
             /// <param name='onlyAbsenceReports'>
             /// Only retrieve reports of absence or partial absence,
             /// defaults to false (retrieve everything)
@@ -89,9 +89,9 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PagedResponseAbsenceRegistrationExternalResponse> GetAsync(this IAbsenceRegistrationsExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.DateTime dateFrom, System.DateTime dateTo, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), bool? onlyAbsenceReports = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PagedResponseAbsenceRegistrationExternalResponse> GetAsync(this IAbsenceRegistrationsExternal operations, string schoolCode, int pageNumber, int pageSize, bool inlineCount, System.Guid? studentId = default(System.Guid?), System.Guid? lessonId = default(System.Guid?), System.DateTime? dateFrom = default(System.DateTime?), System.DateTime? dateTo = default(System.DateTime?), bool? onlyAbsenceReports = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(schoolCode, pageNumber, pageSize, inlineCount, dateFrom, dateTo, studentId, lessonId, onlyAbsenceReports, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(schoolCode, pageNumber, pageSize, inlineCount, studentId, lessonId, dateFrom, dateTo, onlyAbsenceReports, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

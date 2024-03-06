@@ -18,12 +18,6 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface ILessonsExternal
     {
-        /// <param name='dateFrom'>
-        /// Beginning of range for lesson date.
-        /// </param>
-        /// <param name='dateTo'>
-        /// End of range for lesson date.
-        /// </param>
         /// <param name='pageNumber'>
         /// The number of the page to return (1 is the first page).
         /// </param>
@@ -38,6 +32,12 @@ namespace Kmd.Studica.Programmes.Client
         /// </param>
         /// <param name='departmentId'>
         /// Department where the lesson is conducted.
+        /// </param>
+        /// <param name='dateFrom'>
+        /// Beginning of range for lesson date.
+        /// </param>
+        /// <param name='dateTo'>
+        /// End of range for lesson date.
         /// </param>
         /// <param name='hasExternalId'>
         /// Flag indicating if lesson contains external id.
@@ -57,6 +57,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<PagedResponseLessonExternalResponse>> GetWithHttpMessagesAsync(System.DateTime dateFrom, System.DateTime dateTo, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), bool? hasExternalId = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseLessonExternalResponse>> GetWithHttpMessagesAsync(int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?), System.DateTime? dateFrom = default(System.DateTime?), System.DateTime? dateTo = default(System.DateTime?), bool? hasExternalId = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

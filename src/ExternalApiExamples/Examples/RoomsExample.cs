@@ -34,12 +34,10 @@ public class RoomsExample
             inlineCount: true,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body.TotalItems} rooms from API");
-                    { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
-
         ConsoleTable
             .From(result.Body.Items)
             .Write();

@@ -93,7 +93,7 @@ public class EmployeeExample
                 inlineCount: true,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                    { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
             hasMorePages = pageNumber * pageSize < result.Body.TotalItems;

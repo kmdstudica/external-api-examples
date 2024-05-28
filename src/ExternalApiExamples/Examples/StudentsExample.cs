@@ -36,14 +36,13 @@ public class StudentsExample
             inlineCount: true,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
-
+        
         Console.WriteLine($"Got {result.Body.TotalItems} students from API");
         ConsoleTable
             .From(result.Body.Items)
             .Write();
-                    { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
     }
 
     public async Task ExecuteBulk()

@@ -10,12 +10,12 @@ namespace ExternalApiExamples;
 public class InternshipDkExample
 {
     private readonly ITokenProvider _tokenProvider;
-    private readonly AppConfiguration _configuration;
+    private readonly AppConfiguration configuration;
 
     public InternshipDkExample(ITokenProvider tokenProvider, AppConfiguration configuration)
     {
         _tokenProvider = tokenProvider;
-        _configuration = configuration;
+        this.configuration = configuration;
     }
 
     public async Task Execute()
@@ -23,19 +23,19 @@ public class InternshipDkExample
         Console.WriteLine("Get educational agreements example");
 
         using var internshipDkClient = new KMDStudicaInternshipDK(new TokenCredentials(_tokenProvider));
-        internshipDkClient.BaseUri = string.IsNullOrEmpty(_configuration.InternshipDkBaseUri)
+        internshipDkClient.BaseUri = string.IsNullOrEmpty(configuration.InternshipDkBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/internship-dk/v1")
-            : new Uri(_configuration.InternshipDkBaseUri);
+            : new Uri(configuration.InternshipDkBaseUri);
 
         var result = await internshipDkClient.AgreementsExternal.PostWithHttpMessagesAsync(
             new List<Guid>
             {
                 Guid.NewGuid()
             },
-            schoolCode: _configuration.SchoolCode,
+            schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { _configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body.Count} agreements from API");

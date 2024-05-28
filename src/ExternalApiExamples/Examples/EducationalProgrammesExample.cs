@@ -45,7 +45,7 @@ public class EducationalProgrammesExample
                 inlineCount: true,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                    {configuration.ApiKeyName, new List<string> {configuration.StudicaExternalApiKey}}
                 });
             doContinue = pageNum * pageSize < result.Body.TotalItems;
             programmes.AddRange(result.Body.Items);
@@ -72,7 +72,7 @@ public class EducationalProgrammesExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                {configuration.ApiKeyName, new List<string> {configuration.StudicaExternalApiKey}}
             });
 
         Console.WriteLine($"Got {result.Body} educational programmes from API");

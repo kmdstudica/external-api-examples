@@ -44,7 +44,7 @@ public class SubjectCoursesExample
                 inlineCount: true,
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                    { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
             if (pageNum == 1)
@@ -80,7 +80,7 @@ public class SubjectCoursesExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         ConsoleTable
@@ -105,7 +105,7 @@ public class SubjectCoursesExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body.TotalItems} student subject courses from API");
@@ -135,6 +135,7 @@ public class SubjectCoursesExample
             {
                 { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
             });
+                    { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
 
         Console.WriteLine($"Got {result.Body.TotalItems} subject courses from API");
 

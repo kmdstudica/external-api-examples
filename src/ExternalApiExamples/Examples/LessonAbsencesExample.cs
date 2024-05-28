@@ -39,7 +39,7 @@ public class LessonAbsencesExample
             lessonId: Guid.NewGuid(),   // optional filter
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body.TotalItems} absences from API");
@@ -75,7 +75,7 @@ public class LessonAbsencesExample
                 schoolCode: configuration.SchoolCode),
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         if (result.Response.IsSuccessStatusCode)

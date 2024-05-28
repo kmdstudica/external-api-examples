@@ -36,7 +36,7 @@ public class SchoolHoursPlansExample
             inlineCount: true,
             customHeaders: new Dictionary<string, List<string>>
             {
-                {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                {configuration.ApiKeyName, new List<string> {configuration.StudicaExternalApiKey}}
             });
 
         Console.WriteLine($"Got {result.Body.TotalItems} plans from API");
@@ -63,7 +63,7 @@ public class SchoolHoursPlansExample
                 id: Guid.NewGuid(),
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                    {configuration.ApiKeyName, new List<string> {configuration.StudicaExternalApiKey}}
                 });
             
             Console.WriteLine($"Got school hour plan from API: {result.Body?.Name}");

@@ -37,7 +37,7 @@ public class EmployeeExample
             inlineCount: true,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body.TotalItems} employees from API");
@@ -61,7 +61,7 @@ public class EmployeeExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body.Count} employees from API");
@@ -151,7 +151,7 @@ public class EmployeeExample
                 },
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                    { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
             if (result.Response.IsSuccessStatusCode)

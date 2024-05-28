@@ -40,7 +40,7 @@ public class SchoolCoursesExample
             inlineCount: true,
             customHeaders: new Dictionary<string, List<string>>
             {
-                {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                {configuration.ApiKeyName, new List<string> {configuration.StudicaExternalApiKey}}
             });
 
         Console.WriteLine($"Got {result.Body.TotalItems} school courses courses from API");
@@ -70,7 +70,7 @@ public class SchoolCoursesExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                {"Logic-Api-Key", new List<string> {configuration.StudicaExternalApiKey}}
+                {configuration.ApiKeyName, new List<string> {configuration.StudicaExternalApiKey}}
             });
 
         Console.WriteLine($"Got {result.Body.Count} school courses courses from API");

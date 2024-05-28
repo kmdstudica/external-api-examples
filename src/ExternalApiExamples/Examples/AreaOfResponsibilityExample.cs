@@ -34,7 +34,7 @@ public class AreaOfResponsibilityExample
             inlineCount: true,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body.TotalItems} total areas from query");
@@ -58,7 +58,7 @@ public class AreaOfResponsibilityExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body} plans from API");

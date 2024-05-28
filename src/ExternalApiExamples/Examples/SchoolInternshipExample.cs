@@ -35,7 +35,7 @@ public class SchoolInternshipExample
         //     schoolCode: configuration.SchoolCode,
         //     customHeaders: new Dictionary<string, List<string>>
         //     {
-        //         { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+        //         { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
         //     });
         //
         // Console.WriteLine($"Got {result.Body.Count()} student internships from API");
@@ -58,7 +58,7 @@ public class SchoolInternshipExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body.Count()} student internships from API");
@@ -81,7 +81,7 @@ public class SchoolInternshipExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
 
@@ -108,7 +108,7 @@ public class SchoolInternshipExample
         //     schoolCode: configuration.SchoolCode,
         //     customHeaders: new Dictionary<string, List<string>>
         //     {
-        //         { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+        //         { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
         //     });
         //
         // Console.WriteLine($"Got {result.Body.Count()} student internships from API");
@@ -134,7 +134,7 @@ public class SchoolInternshipExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body.TotalItems} active internship departments from API");
@@ -157,7 +157,7 @@ public class SchoolInternshipExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body.Count()} internship departments from API");

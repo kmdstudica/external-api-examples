@@ -5,6 +5,8 @@ namespace ExternalApiExamples
     public class AppConfiguration
     {
         public LogicTokenProviderOptions TokenProvider { get; set; }
+        
+        public string ApiKeyName { get; set; }
 
         public string StudicaExternalApiKey { get; set; }
 

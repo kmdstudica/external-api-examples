@@ -40,7 +40,7 @@ public class SessionsExample
             inlineCount: true,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body.TotalItems} sessions from API");
@@ -67,7 +67,7 @@ public class SessionsExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body.Count} sessions from API");
@@ -121,7 +121,7 @@ public class SessionsExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         if (result.Response.IsSuccessStatusCode)
@@ -150,6 +150,7 @@ public class SessionsExample
             {
                 { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
             });
+                    { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
 
         if (result.Response.IsSuccessStatusCode)
             Console.WriteLine("Sessions deleted");
@@ -197,7 +198,7 @@ public class SessionsExample
             },
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         if (result.Response.IsSuccessStatusCode)
@@ -253,7 +254,7 @@ public class SessionsExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         if (result.Response.IsSuccessStatusCode)
@@ -306,7 +307,7 @@ public class SessionsExample
             },
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         if (result.Response.IsSuccessStatusCode)

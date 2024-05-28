@@ -22,6 +22,11 @@ namespace ExternalApiExamples
                     .Build()
                     .Get<AppConfiguration>();
 
+                if (string.IsNullOrEmpty(config.ApiKeyName))
+                {
+                    config.ApiKeyName = "Logic-Api-Key";
+                }
+
                 await Run(config).ConfigureAwait(false);
             }
 #pragma warning disable CA1031 // Do not catch general exception types

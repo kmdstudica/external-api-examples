@@ -43,6 +43,7 @@ public class StudentsExample
         ConsoleTable
             .From(result.Body.Items)
             .Write();
+                    { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
     }
 
     public async Task ExecuteBulk()
@@ -59,7 +60,7 @@ public class StudentsExample
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
-                { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
 
         Console.WriteLine($"Got {result.Body.Count} students from API");
@@ -109,7 +110,7 @@ public class StudentsExample
                 },
                 customHeaders: new Dictionary<string, List<string>>
                 {
-                    { "Logic-Api-Key", new List<string> { configuration.StudicaExternalApiKey } }
+                    { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
                 });
 
             if (result.Response.IsSuccessStatusCode)

@@ -21,7 +21,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// <summary>
     /// ActiveDepartmentsExternal operations.
     /// </summary>
-    public partial class ActiveDepartmentsExternal : IServiceOperations<KMDStudicaSchoolAdministration>, IActiveDepartmentsExternal
+    public partial class ActiveDepartmentsExternal : IServiceOperations<StudicaDemoSchoolAdministration>, IActiveDepartmentsExternal
     {
         /// <summary>
         /// Initializes a new instance of the ActiveDepartmentsExternal class.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public ActiveDepartmentsExternal(KMDStudicaSchoolAdministration client)
+        public ActiveDepartmentsExternal(StudicaDemoSchoolAdministration client)
         {
             if (client == null)
             {
@@ -42,15 +42,18 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaSchoolAdministration
+        /// Gets a reference to the StudicaDemoSchoolAdministration
         /// </summary>
-        public KMDStudicaSchoolAdministration Client { get; private set; }
+        public StudicaDemoSchoolAdministration Client { get; private set; }
 
+        /// <summary>
+        /// ActiveDepartmentsExternal_Get
+        /// </summary>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.

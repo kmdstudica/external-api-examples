@@ -16,7 +16,7 @@ namespace Kmd.Studica.Students.Client
 
     /// <summary>
     /// </summary>
-    public partial interface IKMDStudicaStudents : System.IDisposable
+    public partial interface IStudicaDemoStudents : System.IDisposable
     {
         /// <summary>
         /// The base URI of the service.
@@ -60,7 +60,10 @@ namespace Kmd.Studica.Students.Client
         /// </summary>
         IUpdateContactAndAccountInfoExternal UpdateContactAndAccountInfoExternal { get; }
 
-        /// <param name='body'>
+        /// <summary>
+        /// _ActiveStudentsExternal_Post
+        /// </summary>
+        /// <param name='activeStudentsExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -68,9 +71,12 @@ namespace Kmd.Studica.Students.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> PostWithHttpMessagesAsync(ActiveStudentsExternalRequest body = default(ActiveStudentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> PostWithHttpMessagesAsync(ActiveStudentsExternalRequest activeStudentsExternalRequest = default(ActiveStudentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        /// <param name='body'>
+        /// <summary>
+        /// _StudentMarksExternal_Post
+        /// </summary>
+        /// <param name='studentMarksExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -78,7 +84,7 @@ namespace Kmd.Studica.Students.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PagedResponseStudentMarksExternalResponse>> Post1WithHttpMessagesAsync(StudentMarksExternalRequest body = default(StudentMarksExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PagedResponseStudentMarksExternalResponse>> Post1WithHttpMessagesAsync(StudentMarksExternalRequest studentMarksExternalRequest = default(StudentMarksExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

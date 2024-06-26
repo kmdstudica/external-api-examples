@@ -1,1282 +1,1683 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "title": "KMD Studica - Students",
-    "version": "v1"
-  },
-  "host": "kmd-logic-shareddev-apim.azure-api.net",
-  "basePath": "/studica/students/v1",
-  "schemes": [
-    "https"
-  ],
-  "paths": {
-    "/ActiveStudentsExternal": {
-      "get": {
-        "tags": [
-          "ActiveStudentsExternal"
-        ],
-        "operationId": "ActiveStudentsExternal_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "StudentActiveOnOrAfterDate",
-            "description": "Students must be active on the date or after this date\r\nThis parameter is required",
-            "type": "string",
-            "format": "date",
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageNumber",
-            "description": "The number of the page to return (1 is the first page).",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageSize",
-            "description": "Number of objects per page.",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 1000,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "InlineCount",
-            "description": "A flag indicating if total number of items should be included.",
-            "required": true,
-            "type": "boolean",
-            "default": true,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_StudentExternalResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "ActiveStudentsExternal"
-        ],
-        "operationId": "_ActiveStudentsExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ActiveStudentsExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_StudentExternalResponse"
-            }
-          }
-        }
-      }
-    },
-    "/BulkStudentsExternal": {
-      "post": {
-        "tags": [
-          "BulkStudentsExternal"
-        ],
-        "operationId": "BulkStudentsExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BulkStudentsExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/StudentExternalResponse"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/StudentMarksExternal": {
-      "get": {
-        "tags": [
-          "StudentMarksExternal"
-        ],
-        "operationId": "StudentMarksExternal_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "StudentIds",
-            "description": "A list of students to get marks for",
-            "required": true,
-            "type": "array",
-            "items": {
-              "format": "uuid",
-              "type": "string",
-              "x-nullable": false
-            },
-            "maxLength": 1000,
-            "minLength": 1
-          },
-          {
-            "in": "query",
-            "name": "OnlyIncludeMarksForExamPaper",
-            "description": "Flag to indicate if service should only return marks that should be included on exam paper",
-            "required": true,
-            "type": "boolean",
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageNumber",
-            "description": "The number of the page to return (1 is the first page).",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageSize",
-            "description": "Number of objects per page.",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 1000,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "InlineCount",
-            "description": "A flag indicating if total number of items should be included.",
-            "required": true,
-            "type": "boolean",
-            "default": true,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_StudentMarksExternalResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "StudentMarksExternal"
-        ],
-        "operationId": "_StudentMarksExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/StudentMarksExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_StudentMarksExternalResponse"
-            }
-          }
-        }
-      }
-    },
-    "/UpdateContactAndAccountInfoExternal": {
-      "post": {
-        "tags": [
-          "UpdateContactAndAccountInfoExternal"
-        ],
-        "operationId": "UpdateContactAndAccountInfoExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/UpdateContactAndAccountInfoExternalCommand"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "ActiveStudentsExternalRequest": {
-      "title": "ActiveStudentsExternalRequest",
-      "description": "Returns a paged list of students for given criteria.",
-      "required": [
-        "inlineCount",
-        "pageNumber",
-        "pageSize",
-        "schoolCode",
-        "studentActiveOnOrAfterDate"
-      ],
-      "type": "object",
-      "properties": {
-        "studentActiveOnOrAfterDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "Students must be active on the date or after this date\r\nThis parameter is required",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "pageNumber": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "pageSize": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "inlineCount": {
-          "title": "Boolean",
-          "description": "A flag indicating if total number of items should be included.",
-          "default": true,
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "BulkStudentsExternalRequest": {
-      "title": "BulkStudentsExternalRequest",
-      "description": "Returns a paged list of students for given criteria.",
-      "required": [
-        "schoolCode",
-        "studentIds"
-      ],
-      "type": "object",
-      "properties": {
-        "studentIds": {
-          "description": "Student ids for bulk query. Must contain 1 to 1000 elements",
-          "maxItems": 1000,
-          "minItems": 1,
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "title": "Guid",
-            "type": "string",
-            "x-nullable": false
-          }
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "PagedResponse_StudentExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StudentExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
-    "PagedResponse_StudentMarksExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StudentMarksExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
-    "StudentExternalResponse": {
-      "title": "StudentExternalResponse",
-      "description": "Model of the student.",
-      "required": [
-        "civilRegistrationNumber",
-        "createAdLogin",
-        "guardians",
-        "id",
-        "protectedNameAndAddress",
-        "reportToUniLogin",
-        "studies"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Student's identifier.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "civilRegistrationNumber": {
-          "title": "String",
-          "description": "Student's civil registration (CPR) number.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "givenName": {
-          "title": "String",
-          "description": "Student's given name.",
-          "type": "string"
-        },
-        "surname": {
-          "title": "String",
-          "description": "Student's surname.",
-          "type": "string"
-        },
-        "protectedGivenName": {
-          "title": "String",
-          "description": "Protected given name from national registry",
-          "type": "string"
-        },
-        "protectedSurname": {
-          "title": "String",
-          "description": "Protected surname from national registry",
-          "type": "string"
-        },
-        "careOfAddress": {
-          "title": "String",
-          "description": "The C/O address line of the student.",
-          "type": "string"
-        },
-        "addressLine": {
-          "title": "String",
-          "description": "Full address including street, house-nr letter, etc. where the student lives.",
-          "type": "string"
-        },
-        "place": {
-          "title": "String",
-          "description": "The place of the student.",
-          "type": "string"
-        },
-        "city": {
-          "title": "String",
-          "description": "The city where the student lives.",
-          "type": "string"
-        },
-        "postalCode": {
-          "title": "String",
-          "description": "The matching postal code for the city.",
-          "type": "string"
-        },
-        "country": {
-          "title": "String",
-          "description": "The country where the student lives.",
-          "type": "string"
-        },
-        "protectedNameAndAddress": {
-          "title": "Boolean",
-          "description": "Whether the name and address of the applicant are protected.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "phoneNumber": {
-          "title": "String",
-          "description": "The student's phone number.",
-          "type": "string"
-        },
-        "email": {
-          "title": "String",
-          "description": "Student's e-mail address.",
-          "type": "string"
-        },
-        "privateEmail": {
-          "title": "String",
-          "description": "Student's private e-mail address.",
-          "type": "string"
-        },
-        "uniLoginUsername": {
-          "title": "String",
-          "description": "Student's Unilogin ID.",
-          "type": "string"
-        },
-        "reportToUniLogin": {
-          "title": "Boolean",
-          "description": "Flag denoting whether the student should be created as a user in UNI-Login",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "adUsername": {
-          "title": "String",
-          "description": "Student's Active Directory username.",
-          "type": "string"
-        },
-        "createAdLogin": {
-          "title": "Boolean",
-          "description": "Flag denoting whether the student should be created in the local Active Directory",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "guardians": {
-          "description": "The student's guardian(s).",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Student_Guardian"
-          }
-        },
-        "studies": {
-          "description": "The studies (educations) the student is attending or has finished",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Student_Study"
-          }
-        },
-        "insertedAt": {
-          "format": "date-time",
-          "description": "When was student created",
-          "type": "string"
-        },
-        "updatedAt": {
-          "format": "date-time",
-          "description": "Last update of the student's information",
-          "type": "string"
-        }
-      }
-    },
-    "StudentMarksExternalRequest": {
-      "title": "StudentMarksExternalRequest",
-      "description": "Returns a list of students and their marks",
-      "required": [
-        "inlineCount",
-        "onlyIncludeMarksForExamPaper",
-        "pageNumber",
-        "pageSize",
-        "schoolCode",
-        "studentIds"
-      ],
-      "type": "object",
-      "properties": {
-        "studentIds": {
-          "description": "A list of students to get marks for",
-          "maxItems": 1000,
-          "minItems": 1,
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "title": "Guid",
-            "type": "string",
-            "x-nullable": false
-          }
-        },
-        "onlyIncludeMarksForExamPaper": {
-          "title": "Boolean",
-          "description": "Flag to indicate if service should only return marks that should be included on exam paper",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "pageNumber": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "pageSize": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "inlineCount": {
-          "title": "Boolean",
-          "description": "A flag indicating if total number of items should be included.",
-          "default": true,
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "StudentMarksExternalResponse": {
-      "title": "StudentMarksExternalResponse",
-      "description": "Model of student marks response",
-      "required": [
-        "civilRegistrationNumber",
-        "studentId"
-      ],
-      "type": "object",
-      "properties": {
-        "studentId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Student's identifier.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "civilRegistrationNumber": {
-          "title": "String",
-          "description": "Student's civil registration (CPR) number.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "givenName": {
-          "title": "String",
-          "description": "Student's given name.",
-          "type": "string"
-        },
-        "surname": {
-          "title": "String",
-          "description": "Student's surname.",
-          "type": "string"
-        },
-        "protectedGivenName": {
-          "title": "String",
-          "description": "Protected given name from national registry",
-          "type": "string"
-        },
-        "protectedSurname": {
-          "title": "String",
-          "description": "Protected surname from national registry",
-          "type": "string"
-        },
-        "marks": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Student_Mark"
-          },
-          "readOnly": true
-        }
-      }
-    },
-    "Student_Guardian": {
-      "title": "Student_Guardian",
-      "required": [
-        "id",
-        "protectedNameAndAddress"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "type": "string",
-          "x-nullable": false
-        },
-        "civilRegistrationNumber": {
-          "title": "String",
-          "description": "The guardian's Civil Registration (CPR) number.",
-          "type": "string"
-        },
-        "role": {
-          "description": "The guardian's role towards the student.",
-          "enum": [
-            "Mother",
-            "Father",
-            "Other",
-            "OfficialAuthority"
-          ],
-          "type": "string"
-        },
-        "givenName": {
-          "title": "String",
-          "description": "The guardian's first- and middle names.",
-          "type": "string"
-        },
-        "surname": {
-          "title": "String",
-          "description": "The guardian's last name.",
-          "type": "string"
-        },
-        "protectedGivenName": {
-          "title": "String",
-          "description": "The given name(s) of the guardian, as registered in the national registry.",
-          "type": "string"
-        },
-        "protectedSurname": {
-          "title": "String",
-          "description": "The surname of the guardian, as registered in the national registry.",
-          "type": "string"
-        },
-        "phoneNumber": {
-          "title": "String",
-          "description": "The guardian's phone number.",
-          "type": "string"
-        },
-        "email": {
-          "title": "String",
-          "description": "The guardian's e-mail address.",
-          "type": "string"
-        },
-        "careOfAddressLine": {
-          "title": "String",
-          "description": "The C/O address line of the guardian.",
-          "type": "string"
-        },
-        "addressLine": {
-          "title": "String",
-          "description": "The guardian's full address including street, house-nr letter, etc.",
-          "type": "string"
-        },
-        "place": {
-          "title": "String",
-          "description": "The place of the guardian.",
-          "type": "string"
-        },
-        "city": {
-          "title": "String",
-          "description": "The city where the guardian lives.",
-          "type": "string"
-        },
-        "postalCode": {
-          "title": "String",
-          "description": "The matching postal code for the city.",
-          "type": "string"
-        },
-        "country": {
-          "title": "String",
-          "description": "The country where the guardian lives.",
-          "type": "string"
-        },
-        "protectedNameAndAddress": {
-          "title": "Boolean",
-          "description": "Whether the guardian has name and address protection.",
-          "type": "boolean",
-          "x-nullable": false
-        }
-      }
-    },
-    "Student_Mark": {
-      "title": "Student_Mark",
-      "required": [
-        "examMarkSource",
-        "useOnExamPaper"
-      ],
-      "type": "object",
-      "properties": {
-        "date": {
-          "format": "date",
-          "description": "Date for when mark has been given",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "markCode": {
-          "title": "String",
-          "description": "Code of the mark type in the Danish educational model (UMO), e.g. DEL or STA",
-          "type": "string"
-        },
-        "markDesignation": {
-          "title": "String",
-          "description": "Designation/desciption text of the mark type in the Danish educational model (UMO), e.g. 00, Over middel or Syg",
-          "type": "string"
-        },
-        "markValue": {
-          "title": "String",
-          "description": "Value of the mark, e.g. 00, 7 or SY",
-          "type": "string"
-        },
-        "markValueEcts": {
-          "title": "String",
-          "description": "The mark value in ECTS scale",
-          "type": "string"
-        },
-        "creditText": {
-          "title": "String",
-          "description": "The text describing the credit (not set if ordinary mark)",
-          "type": "string"
-        },
-        "useOnExamPaper": {
-          "title": "Boolean",
-          "description": "Flag to describe whether the mark should be included on the student's exam paper",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "subjectCourseId": {
-          "format": "uuid",
-          "description": "The ID of the subject course for which the mark has been given\r\nIf the ID is null, then the mark has been assigned manually",
-          "type": "string"
-        },
-        "subject": {
-          "description": "Subject that the mark is given for",
-          "allOf": [
-            {
-              "$ref": "#/definitions/Student_Subject"
-            }
-          ]
-        },
-        "examMarkSource": {
-          "title": "ExamMarkSource",
-          "description": "What kind of mark it is. eg manual or from netproever",
-          "enum": [
-            "Manual",
-            "SubjectCourse",
-            "DigitalExamination",
-            "XprsExamination"
-          ],
-          "type": "string",
-          "x-nullable": false
-        }
-      }
-    },
-    "Student_Study": {
-      "title": "Student_Study",
-      "required": [
-        "departmentId",
-        "educationId",
-        "id",
-        "studentTypes",
-        "studyStartDate"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "The id of the study",
-          "type": "string",
-          "x-nullable": false
-        },
-        "departmentId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of the department that student is affiliated to.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "dsDepartmentNumber": {
-          "title": "String",
-          "description": "DS Department number that student is affiliated to.",
-          "type": "string"
-        },
-        "educationId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of the education (from UMO) that the study is linked to",
-          "type": "string",
-          "x-nullable": false
-        },
-        "educationName": {
-          "title": "String",
-          "description": "Name of the education from UMO",
-          "type": "string"
-        },
-        "coesa": {
-          "title": "String",
-          "description": "CØSA number of education from UMO",
-          "type": "string"
-        },
-        "educationVersion": {
-          "title": "String",
-          "description": "Education version from UMO",
-          "type": "string"
-        },
-        "studyStartDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "Study date of start.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "studyExpectedCompletionDate": {
-          "format": "date",
-          "description": "Expected completion date of study.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "studyEndDate": {
-          "format": "date",
-          "description": "Study end date",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "studyEndCauseId": {
-          "format": "uuid",
-          "description": "Id of study end cause",
-          "type": "string"
-        },
-        "studyEndCauseCode": {
-          "title": "String",
-          "description": "The UMO code for ending the study",
-          "type": "string"
-        },
-        "studyEndCause": {
-          "title": "String",
-          "description": "UMO description for cause for study end.",
-          "type": "string"
-        },
-        "studyCancellationCauseCode": {
-          "description": "The cancellation code for ending the study.",
-          "enum": [
-            "StudyNotStarted",
-            "Absence",
-            "Illness",
-            "EducationalRequirements",
-            "ChangedStudy",
-            "ChangedSchool",
-            "ChangedSchoolAndChangedStudy",
-            "Other",
-            "Unknown",
-            "Deceased",
-            "WrittenAgreementTerminated",
-            "CompletedGF2NotContinuing",
-            "NotPassedFinalExam",
-            "AdmissionExamNotPassedAndInterviewDenied",
-            "AdmissionExamNotPassedAndDidNotShowAtInterview",
-            "AdmissionInterviewNotPassed",
-            "AdmissionExamPassedButInterviewDenied",
-            "AdmissionExamPassedButDidNotShowAtInterview",
-            "NotStarted",
-            "ProfessionalRequirements",
-            "PrivateReasons",
-            "ExamNotPassed",
-            "Expelled",
-            "Unreachable",
-            "ChangeOfEducation",
-            "ChangeOfSchool",
-            "CompletedGf1OrPlus",
-            "CompletedGf2",
-            "CancelledExchangeStudent",
-            "LeaveOfAbsence",
-            "Completed",
-            "Death",
-            "TeacherRelationCancelled"
-          ],
-          "type": "string"
-        },
-        "studentTypes": {
-          "description": "StudentTypes associated with the student.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Study_StudentType"
-          }
-        },
-        "specialisations": {
-          "description": "The specialisations that the student has for this study",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Student_Study_Specialisation"
-          }
-        }
-      }
-    },
-    "Student_Study_Specialisation": {
-      "title": "Student_Study_Specialisation",
-      "required": [
-        "from"
-      ],
-      "type": "object",
-      "properties": {
-        "name": {
-          "title": "String",
-          "description": "The name of the specialisation.",
-          "type": "string"
-        },
-        "from": {
-          "format": "date",
-          "title": "Date",
-          "description": "Start of specialisation",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "to": {
-          "format": "date",
-          "description": "End of specialisation",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        }
-      }
-    },
-    "Student_Subject": {
-      "title": "Student_Subject",
-      "description": "Description of a subject object for which a mark is given",
-      "required": [
-        "levelDesignation",
-        "levelRankOrder",
-        "subjectDesignation",
-        "subjectNumber"
-      ],
-      "type": "object",
-      "properties": {
-        "subjectDesignation": {
-          "title": "String",
-          "description": "The designation/description of the subject the mark is given in",
-          "minLength": 1,
-          "type": "string"
-        },
-        "subjectNumber": {
-          "title": "String",
-          "description": "The numeric ID of the subject the mark is given in",
-          "minLength": 1,
-          "type": "string"
-        },
-        "subjectCategory": {
-          "title": "String",
-          "description": "The identification of the subject category that the subject belongs to",
-          "type": "string"
-        },
-        "subjectCategoryDesignation": {
-          "title": "String",
-          "description": "The name of the subject category that the subject belongs to",
-          "type": "string"
-        },
-        "evaluationForm": {
-          "title": "String",
-          "description": "Subject evaluation form code, e.g. MDT for Oral",
-          "type": "string"
-        },
-        "evaluationFormDesignation": {
-          "title": "String",
-          "description": "Subject evaluation form description, e.g. Mundtlig evaluering",
-          "type": "string"
-        },
-        "markScaleDesignation": {
-          "title": "String",
-          "description": "Scale type for the mark given to the student, e.g. 7-trinsskala",
-          "type": "string"
-        },
-        "levelDesignation": {
-          "title": "String",
-          "description": "The designation/description of the level of the subject the mark is given in, e.g. Avanceret",
-          "minLength": 1,
-          "type": "string"
-        },
-        "levelRankOrder": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The order of level",
-          "type": "integer",
-          "x-nullable": false
-        }
-      }
-    },
-    "Study_StudentType": {
-      "title": "Study_StudentType",
-      "required": [
-        "id",
-        "validFrom"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "The student type",
-          "type": "string",
-          "x-nullable": false
-        },
-        "name": {
-          "title": "String",
-          "description": "Name of studet type (ElevType from UMO)",
-          "type": "string"
-        },
-        "validFrom": {
-          "format": "date",
-          "title": "Date",
-          "description": "The date from which the studenttype is valid",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "validTo": {
-          "format": "date",
-          "description": "The end date of the studenttype",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        }
-      }
-    },
-    "UpdateContactAndAccountInfoExternalCommand": {
-      "title": "UpdateContactAndAccountInfoExternalCommand",
-      "description": "Update student contact and account information",
-      "required": [
-        "addressLineClear",
-        "careOfAddressClear",
-        "cityClear",
-        "countryClear",
-        "emailClear",
-        "phoneNumberClear",
-        "placeClear",
-        "postalCodeClear",
-        "privateEmailClear",
-        "studentId"
-      ],
-      "type": "object",
-      "properties": {
-        "studentId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "The ID of the student.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "givenName": {
-          "title": "String",
-          "description": "The student's first- and middle names.",
-          "maxLength": 255,
-          "type": "string"
-        },
-        "surname": {
-          "title": "String",
-          "description": "The student's last name.",
-          "maxLength": 255,
-          "type": "string"
-        },
-        "addressLine": {
-          "title": "String",
-          "description": "Full address including street, house-nr letter, etc. where the student lives.",
-          "maxLength": 255,
-          "minLength": 1,
-          "type": "string"
-        },
-        "addressLineClear": {
-          "title": "Boolean",
-          "description": "Indicates if the AddressLine should be cleared regardless of the value in AddressLine",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "careOfAddress": {
-          "title": "String",
-          "description": "The C/O address of the student.",
-          "maxLength": 255,
-          "type": "string"
-        },
-        "careOfAddressClear": {
-          "title": "Boolean",
-          "description": "Indicates if the CareOfAddress should be cleared regardless of the value in CareOfAddress",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "city": {
-          "title": "String",
-          "description": "The city where the student lives.",
-          "maxLength": 255,
-          "minLength": 1,
-          "type": "string"
-        },
-        "cityClear": {
-          "title": "Boolean",
-          "description": "Indicates if the City should be cleared regardless of the value in City",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "place": {
-          "title": "String",
-          "description": "The place of the student.",
-          "maxLength": 255,
-          "type": "string"
-        },
-        "placeClear": {
-          "title": "Boolean",
-          "description": "Indicates if the Place should be cleared regardless of the value in Place",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "postalCode": {
-          "title": "String",
-          "description": "The matching postal code for the city.",
-          "maxLength": 50,
-          "type": "string"
-        },
-        "postalCodeClear": {
-          "title": "Boolean",
-          "description": "Indicates if the PostalCode should be cleared regardless of the value in PostalCode",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "country": {
-          "title": "String",
-          "description": "The country where the student lives.",
-          "maxLength": 100,
-          "minLength": 1,
-          "type": "string"
-        },
-        "countryClear": {
-          "title": "Boolean",
-          "description": "Indicates if the Country should be cleared regardless of the value in Country",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "phoneNumber": {
-          "format": "tel",
-          "title": "String",
-          "description": "The student's phone number.",
-          "maxLength": 12,
-          "minLength": 1,
-          "type": "string"
-        },
-        "phoneNumberClear": {
-          "title": "Boolean",
-          "description": "Indicates if the PhoneNumber should be cleared regardless of the value in PhoneNumber",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "privateEmail": {
-          "format": "email",
-          "title": "String",
-          "description": "The student's private e-mail address.",
-          "maxLength": 255,
-          "minLength": 1,
-          "type": "string"
-        },
-        "privateEmailClear": {
-          "title": "Boolean",
-          "description": "Indicates if the PrivateEmail should be cleared regardless of the value in PrivateEmail",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "email": {
-          "title": "String",
-          "description": "The student's school email address",
-          "type": "string"
-        },
-        "emailClear": {
-          "title": "Boolean",
-          "description": "Indicates if the School Email should be cleared regardless of the value in Email",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "adUsername": {
-          "title": "String",
-          "description": "The AD user name for the student",
-          "type": "string"
-        },
-        "createAdLogin": {
-          "description": "Specifies if the student should have an AD login (organisational account).\r\nIf `false`, the Students.Host.ExternalApi.Students.Commands.UpdateContactAndAccountInfo.UpdateContactAndAccountInfoExternalCommand.AdUsername will be cleared",
-          "type": "boolean"
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which command is performed.",
-          "type": "string"
-        }
-      }
-    }
-  },
-  "securityDefinitions": {
-    "Bearer": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header",
-      "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
-    }
-  },
-  "security": [
-    {
-      "Bearer": [ ]
-    }
-  ]
+	"swagger": "2.0",
+	"info": {
+		"title": "Studica (Demo) - Students",
+		"version": "v1"
+	},
+	"host": "api.studica.dk",
+	"basePath": "/demo/students/v1",
+	"schemes": [
+		"https"
+	],
+	"securityDefinitions": {
+		"apiKeyHeader": {
+			"type": "apiKey",
+			"name": "Ocp-Apim-Subscription-Key",
+			"in": "header"
+		},
+		"apiKeyQuery": {
+			"type": "apiKey",
+			"name": "subscription-key",
+			"in": "query"
+		}
+	},
+	"security": [
+		{
+			"apiKeyHeader": []
+		},
+		{
+			"apiKeyQuery": []
+		}
+	],
+	"paths": {
+		"/ActiveStudentsExternal": {
+			"get": {
+				"operationId": "ActiveStudentsExternal_Get",
+				"summary": "ActiveStudentsExternal_Get",
+				"tags": [
+					"ActiveStudentsExternal"
+				],
+				"parameters": [
+					{
+						"name": "PageNumber",
+						"in": "query",
+						"description": "Format - int32. The number of the page to return (1 is the first page).",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 2147483647,
+						"minimum": 1
+					},
+					{
+						"name": "PageSize",
+						"in": "query",
+						"description": "Format - int32. Number of objects per page.",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 1000,
+						"minimum": 1
+					},
+					{
+						"name": "InlineCount",
+						"in": "query",
+						"description": "A flag indicating if total number of items should be included.",
+						"required": true,
+						"type": "boolean",
+						"default": true
+					},
+					{
+						"name": "SchoolCode",
+						"in": "query",
+						"description": "The school code for which to get data.",
+						"required": true,
+						"type": "string",
+						"maxLength": 6,
+						"minLength": 6
+					},
+					{
+						"name": "StudentActiveOnOrAfterDate",
+						"in": "query",
+						"description": "Format - date (as full-date in RFC3339). Students must be active on the date or after this date\r\nThis parameter is required",
+						"type": "string",
+						"format": "date"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_StudentExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"civilRegistrationNumber": "string",
+										"givenName": "string",
+										"surname": "string",
+										"protectedGivenName": "string",
+										"protectedSurname": "string",
+										"careOfAddress": "string",
+										"addressLine": "string",
+										"place": "string",
+										"city": "string",
+										"postalCode": "string",
+										"country": "string",
+										"protectedNameAndAddress": true,
+										"phoneNumber": "string",
+										"email": "string",
+										"privateEmail": "string",
+										"uniLoginUsername": "string",
+										"reportToUniLogin": true,
+										"adUsername": "string",
+										"createAdLogin": true,
+										"guardians": [
+											{
+												"id": "string",
+												"civilRegistrationNumber": "string",
+												"role": "Mother",
+												"givenName": "string",
+												"surname": "string",
+												"protectedGivenName": "string",
+												"protectedSurname": "string",
+												"phoneNumber": "string",
+												"email": "string",
+												"careOfAddressLine": "string",
+												"addressLine": "string",
+												"place": "string",
+												"city": "string",
+												"postalCode": "string",
+												"country": "string",
+												"protectedNameAndAddress": true
+											}
+										],
+										"studies": [
+											{
+												"id": "string",
+												"departmentId": "string",
+												"dsDepartmentNumber": "string",
+												"educationId": "string",
+												"educationName": "string",
+												"coesa": "string",
+												"educationVersion": "string",
+												"studyStartDate": "2024-06-20",
+												"studyExpectedCompletionDate": "2024-06-20",
+												"studyEndDate": "2024-06-20",
+												"studyEndCauseId": "string",
+												"studyEndCauseCode": "string",
+												"studyEndCause": "string",
+												"studyCancellationCauseCode": "StudyNotStarted",
+												"studentTypes": [
+													{
+														"id": "string",
+														"name": "string",
+														"validFrom": "2024-06-20",
+														"validTo": "2024-06-20"
+													}
+												],
+												"specialisations": [
+													{
+														"name": "string",
+														"from": "2024-06-20",
+														"to": "2024-06-20"
+													}
+												]
+											}
+										],
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "_ActiveStudentsExternal_Post",
+				"summary": "_ActiveStudentsExternal_Post",
+				"tags": [
+					"ActiveStudentsExternal"
+				],
+				"parameters": [
+					{
+						"name": "activeStudentsExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/ActiveStudentsExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_StudentExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"civilRegistrationNumber": "string",
+										"givenName": "string",
+										"surname": "string",
+										"protectedGivenName": "string",
+										"protectedSurname": "string",
+										"careOfAddress": "string",
+										"addressLine": "string",
+										"place": "string",
+										"city": "string",
+										"postalCode": "string",
+										"country": "string",
+										"protectedNameAndAddress": true,
+										"phoneNumber": "string",
+										"email": "string",
+										"privateEmail": "string",
+										"uniLoginUsername": "string",
+										"reportToUniLogin": true,
+										"adUsername": "string",
+										"createAdLogin": true,
+										"guardians": [
+											{
+												"id": "string",
+												"civilRegistrationNumber": "string",
+												"role": "Mother",
+												"givenName": "string",
+												"surname": "string",
+												"protectedGivenName": "string",
+												"protectedSurname": "string",
+												"phoneNumber": "string",
+												"email": "string",
+												"careOfAddressLine": "string",
+												"addressLine": "string",
+												"place": "string",
+												"city": "string",
+												"postalCode": "string",
+												"country": "string",
+												"protectedNameAndAddress": true
+											}
+										],
+										"studies": [
+											{
+												"id": "string",
+												"departmentId": "string",
+												"dsDepartmentNumber": "string",
+												"educationId": "string",
+												"educationName": "string",
+												"coesa": "string",
+												"educationVersion": "string",
+												"studyStartDate": "2024-06-20",
+												"studyExpectedCompletionDate": "2024-06-20",
+												"studyEndDate": "2024-06-20",
+												"studyEndCauseId": "string",
+												"studyEndCauseCode": "string",
+												"studyEndCause": "string",
+												"studyCancellationCauseCode": "StudyNotStarted",
+												"studentTypes": [
+													{
+														"id": "string",
+														"name": "string",
+														"validFrom": "2024-06-20",
+														"validTo": "2024-06-20"
+													}
+												],
+												"specialisations": [
+													{
+														"name": "string",
+														"from": "2024-06-20",
+														"to": "2024-06-20"
+													}
+												]
+											}
+										],
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			}
+		},
+		"/BulkStudentsExternal": {
+			"post": {
+				"operationId": "BulkStudentsExternal_Post",
+				"summary": "BulkStudentsExternal_Post",
+				"tags": [
+					"BulkStudentsExternal"
+				],
+				"parameters": [
+					{
+						"name": "bulkStudentsExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/BulkStudentsExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/StudentExternalResponse"
+							}
+						},
+						"examples": {
+							"application/json": [
+								{
+									"id": "string",
+									"civilRegistrationNumber": "string",
+									"givenName": "string",
+									"surname": "string",
+									"protectedGivenName": "string",
+									"protectedSurname": "string",
+									"careOfAddress": "string",
+									"addressLine": "string",
+									"place": "string",
+									"city": "string",
+									"postalCode": "string",
+									"country": "string",
+									"protectedNameAndAddress": true,
+									"phoneNumber": "string",
+									"email": "string",
+									"privateEmail": "string",
+									"uniLoginUsername": "string",
+									"reportToUniLogin": true,
+									"adUsername": "string",
+									"createAdLogin": true,
+									"guardians": [
+										{
+											"id": "string",
+											"civilRegistrationNumber": "string",
+											"role": "Mother",
+											"givenName": "string",
+											"surname": "string",
+											"protectedGivenName": "string",
+											"protectedSurname": "string",
+											"phoneNumber": "string",
+											"email": "string",
+											"careOfAddressLine": "string",
+											"addressLine": "string",
+											"place": "string",
+											"city": "string",
+											"postalCode": "string",
+											"country": "string",
+											"protectedNameAndAddress": true
+										}
+									],
+									"studies": [
+										{
+											"id": "string",
+											"departmentId": "string",
+											"dsDepartmentNumber": "string",
+											"educationId": "string",
+											"educationName": "string",
+											"coesa": "string",
+											"educationVersion": "string",
+											"studyStartDate": "2024-06-20",
+											"studyExpectedCompletionDate": "2024-06-20",
+											"studyEndDate": "2024-06-20",
+											"studyEndCauseId": "string",
+											"studyEndCauseCode": "string",
+											"studyEndCause": "string",
+											"studyCancellationCauseCode": "StudyNotStarted",
+											"studentTypes": [
+												{
+													"id": "string",
+													"name": "string",
+													"validFrom": "2024-06-20",
+													"validTo": "2024-06-20"
+												}
+											],
+											"specialisations": [
+												{
+													"name": "string",
+													"from": "2024-06-20",
+													"to": "2024-06-20"
+												}
+											]
+										}
+									],
+									"insertedAt": "string",
+									"updatedAt": "string"
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		"/StudentMarksExternal": {
+			"get": {
+				"operationId": "StudentMarksExternal_Get",
+				"summary": "StudentMarksExternal_Get",
+				"tags": [
+					"StudentMarksExternal"
+				],
+				"parameters": [
+					{
+						"name": "StudentIds",
+						"in": "query",
+						"description": "A list of students to get marks for",
+						"required": true,
+						"type": "array",
+						"items": {
+							"format": "uuid",
+							"type": "string",
+							"x-nullable": false
+						}
+					},
+					{
+						"name": "OnlyIncludeMarksForExamPaper",
+						"in": "query",
+						"description": "Flag to indicate if service should only return marks that should be included on exam paper",
+						"required": true,
+						"type": "boolean"
+					},
+					{
+						"name": "PageNumber",
+						"in": "query",
+						"description": "Format - int32. The number of the page to return (1 is the first page).",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 2147483647,
+						"minimum": 1
+					},
+					{
+						"name": "PageSize",
+						"in": "query",
+						"description": "Format - int32. Number of objects per page.",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 1000,
+						"minimum": 1
+					},
+					{
+						"name": "InlineCount",
+						"in": "query",
+						"description": "A flag indicating if total number of items should be included.",
+						"required": true,
+						"type": "boolean",
+						"default": true
+					},
+					{
+						"name": "SchoolCode",
+						"in": "query",
+						"description": "The school code for which to get data.",
+						"required": true,
+						"type": "string",
+						"maxLength": 6,
+						"minLength": 6
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_StudentMarksExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"studentId": "string",
+										"civilRegistrationNumber": "string",
+										"givenName": "string",
+										"surname": "string",
+										"protectedGivenName": "string",
+										"protectedSurname": "string",
+										"marks": [
+											{
+												"date": "2024-06-20",
+												"markCode": "string",
+												"markDesignation": "string",
+												"markValue": "string",
+												"averageMarkValue": 0,
+												"markValueEcts": "string",
+												"creditText": "string",
+												"useOnExamPaper": true,
+												"subjectCourseId": "string",
+												"subject": {
+													"subjectDesignation": "string",
+													"subjectNumber": "string",
+													"subjectCategory": "string",
+													"subjectCategoryDesignation": "string",
+													"evaluationForm": "string",
+													"evaluationFormDesignation": "string",
+													"markScaleDesignation": "string",
+													"levelDesignation": "string",
+													"levelRankOrder": 0
+												},
+												"examMarkSource": "Manual"
+											}
+										]
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "_StudentMarksExternal_Post",
+				"summary": "_StudentMarksExternal_Post",
+				"tags": [
+					"StudentMarksExternal"
+				],
+				"parameters": [
+					{
+						"name": "studentMarksExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/StudentMarksExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_StudentMarksExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"studentId": "string",
+										"civilRegistrationNumber": "string",
+										"givenName": "string",
+										"surname": "string",
+										"protectedGivenName": "string",
+										"protectedSurname": "string",
+										"marks": [
+											{
+												"date": "2024-06-20",
+												"markCode": "string",
+												"markDesignation": "string",
+												"markValue": "string",
+												"averageMarkValue": 0,
+												"markValueEcts": "string",
+												"creditText": "string",
+												"useOnExamPaper": true,
+												"subjectCourseId": "string",
+												"subject": {
+													"subjectDesignation": "string",
+													"subjectNumber": "string",
+													"subjectCategory": "string",
+													"subjectCategoryDesignation": "string",
+													"evaluationForm": "string",
+													"evaluationFormDesignation": "string",
+													"markScaleDesignation": "string",
+													"levelDesignation": "string",
+													"levelRankOrder": 0
+												},
+												"examMarkSource": "Manual"
+											}
+										]
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			}
+		},
+		"/UpdateContactAndAccountInfoExternal": {
+			"post": {
+				"operationId": "UpdateContactAndAccountInfoExternal_Post",
+				"summary": "UpdateContactAndAccountInfoExternal_Post",
+				"tags": [
+					"UpdateContactAndAccountInfoExternal"
+				],
+				"parameters": [
+					{
+						"name": "updateContactAndAccountInfoExternalCommand",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/UpdateContactAndAccountInfoExternalCommand"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"ActiveStudentsExternalRequest": {
+			"title": "ActiveStudentsExternalRequest",
+			"description": "Returns a paged list of students for given criteria.",
+			"required": [
+				"inlineCount",
+				"pageNumber",
+				"pageSize",
+				"schoolCode",
+				"studentActiveOnOrAfterDate"
+			],
+			"type": "object",
+			"properties": {
+				"studentActiveOnOrAfterDate": {
+					"format": "date",
+					"title": "Date",
+					"description": "Students must be active on the date or after this date\r\nThis parameter is required",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"pageNumber": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "The number of the page to return (1 is the first page).",
+					"maximum": 2147483647,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"pageSize": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Number of objects per page.",
+					"maximum": 1000,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"inlineCount": {
+					"title": "Boolean",
+					"description": "A flag indicating if total number of items should be included.",
+					"default": true,
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"studentActiveOnOrAfterDate": "2024-06-20",
+				"pageNumber": 0,
+				"pageSize": 0,
+				"inlineCount": true,
+				"schoolCode": "string"
+			}
+		},
+		"BulkStudentsExternalRequest": {
+			"title": "BulkStudentsExternalRequest",
+			"description": "Returns a paged list of students for given criteria.",
+			"required": [
+				"schoolCode",
+				"studentIds"
+			],
+			"type": "object",
+			"properties": {
+				"studentIds": {
+					"description": "Student ids for bulk query. Must contain 1 to 1000 elements",
+					"maxItems": 1000,
+					"minItems": 1,
+					"type": "array",
+					"items": {
+						"format": "uuid",
+						"title": "Guid",
+						"type": "string",
+						"x-nullable": false
+					}
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"studentIds": [
+					"string"
+				],
+				"schoolCode": "string"
+			}
+		},
+		"PagedResponse_StudentExternalResponse": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"description": "Page of items",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/StudentExternalResponse"
+					}
+				},
+				"totalItems": {
+					"format": "int32",
+					"description": "Total number of items",
+					"type": "integer"
+				}
+			},
+			"additionalProperties": false
+		},
+		"PagedResponse_StudentMarksExternalResponse": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"description": "Page of items",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/StudentMarksExternalResponse"
+					}
+				},
+				"totalItems": {
+					"format": "int32",
+					"description": "Total number of items",
+					"type": "integer"
+				}
+			},
+			"additionalProperties": false
+		},
+		"StudentExternalResponse": {
+			"title": "StudentExternalResponse",
+			"description": "Model of the student.",
+			"required": [
+				"civilRegistrationNumber",
+				"createAdLogin",
+				"guardians",
+				"id",
+				"protectedNameAndAddress",
+				"reportToUniLogin",
+				"studies"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Student's identifier.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"civilRegistrationNumber": {
+					"title": "String",
+					"description": "Student's civil registration (CPR) number.",
+					"minLength": 1,
+					"type": "string"
+				},
+				"givenName": {
+					"title": "String",
+					"description": "Student's given name.",
+					"type": "string"
+				},
+				"surname": {
+					"title": "String",
+					"description": "Student's surname.",
+					"type": "string"
+				},
+				"protectedGivenName": {
+					"title": "String",
+					"description": "Protected given name from national registry",
+					"type": "string"
+				},
+				"protectedSurname": {
+					"title": "String",
+					"description": "Protected surname from national registry",
+					"type": "string"
+				},
+				"careOfAddress": {
+					"title": "String",
+					"description": "The C/O address line of the student.",
+					"type": "string"
+				},
+				"addressLine": {
+					"title": "String",
+					"description": "Full address including street, house-nr letter, etc. where the student lives.",
+					"type": "string"
+				},
+				"place": {
+					"title": "String",
+					"description": "The place of the student.",
+					"type": "string"
+				},
+				"city": {
+					"title": "String",
+					"description": "The city where the student lives.",
+					"type": "string"
+				},
+				"postalCode": {
+					"title": "String",
+					"description": "The matching postal code for the city.",
+					"type": "string"
+				},
+				"country": {
+					"title": "String",
+					"description": "The country where the student lives.",
+					"type": "string"
+				},
+				"protectedNameAndAddress": {
+					"title": "Boolean",
+					"description": "Whether the name and address of the applicant are protected.",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"phoneNumber": {
+					"title": "String",
+					"description": "The student's phone number.",
+					"type": "string"
+				},
+				"email": {
+					"title": "String",
+					"description": "Student's e-mail address.",
+					"type": "string"
+				},
+				"privateEmail": {
+					"title": "String",
+					"description": "Student's private e-mail address.",
+					"type": "string"
+				},
+				"uniLoginUsername": {
+					"title": "String",
+					"description": "Student's Unilogin ID.",
+					"type": "string"
+				},
+				"reportToUniLogin": {
+					"title": "Boolean",
+					"description": "Flag denoting whether the student should be created as a user in UNI-Login",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"adUsername": {
+					"title": "String",
+					"description": "Student's Active Directory username.",
+					"type": "string"
+				},
+				"createAdLogin": {
+					"title": "Boolean",
+					"description": "Flag denoting whether the student should be created in the local Active Directory",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"guardians": {
+					"description": "The student's guardian(s).",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Student_Guardian"
+					}
+				},
+				"studies": {
+					"description": "The studies (educations) the student is attending or has finished",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Student_Study"
+					}
+				},
+				"insertedAt": {
+					"format": "date-time",
+					"description": "When was student created",
+					"type": "string"
+				},
+				"updatedAt": {
+					"format": "date-time",
+					"description": "Last update of the student's information",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"StudentMarksExternalRequest": {
+			"title": "StudentMarksExternalRequest",
+			"description": "Returns a list of students and their marks",
+			"required": [
+				"inlineCount",
+				"onlyIncludeMarksForExamPaper",
+				"pageNumber",
+				"pageSize",
+				"schoolCode",
+				"studentIds"
+			],
+			"type": "object",
+			"properties": {
+				"studentIds": {
+					"description": "A list of students to get marks for",
+					"maxItems": 1000,
+					"minItems": 1,
+					"type": "array",
+					"items": {
+						"format": "uuid",
+						"title": "Guid",
+						"type": "string",
+						"x-nullable": false
+					}
+				},
+				"onlyIncludeMarksForExamPaper": {
+					"title": "Boolean",
+					"description": "Flag to indicate if service should only return marks that should be included on exam paper",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"pageNumber": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "The number of the page to return (1 is the first page).",
+					"maximum": 2147483647,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"pageSize": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Number of objects per page.",
+					"maximum": 1000,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"inlineCount": {
+					"title": "Boolean",
+					"description": "A flag indicating if total number of items should be included.",
+					"default": true,
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"studentIds": [
+					"string"
+				],
+				"onlyIncludeMarksForExamPaper": true,
+				"pageNumber": 0,
+				"pageSize": 0,
+				"inlineCount": true,
+				"schoolCode": "string"
+			}
+		},
+		"StudentMarksExternalResponse": {
+			"title": "StudentMarksExternalResponse",
+			"description": "Model of student marks response",
+			"required": [
+				"civilRegistrationNumber",
+				"studentId"
+			],
+			"type": "object",
+			"properties": {
+				"studentId": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Student's identifier.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"civilRegistrationNumber": {
+					"title": "String",
+					"description": "Student's civil registration (CPR) number.",
+					"minLength": 1,
+					"type": "string"
+				},
+				"givenName": {
+					"title": "String",
+					"description": "Student's given name.",
+					"type": "string"
+				},
+				"surname": {
+					"title": "String",
+					"description": "Student's surname.",
+					"type": "string"
+				},
+				"protectedGivenName": {
+					"title": "String",
+					"description": "Protected given name from national registry",
+					"type": "string"
+				},
+				"protectedSurname": {
+					"title": "String",
+					"description": "Protected surname from national registry",
+					"type": "string"
+				},
+				"marks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Student_Mark"
+					},
+					"readOnly": true
+				}
+			},
+			"additionalProperties": false
+		},
+		"Student_Guardian": {
+			"title": "Student_Guardian",
+			"required": [
+				"id",
+				"protectedNameAndAddress"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "uuid",
+					"title": "Guid",
+					"type": "string",
+					"x-nullable": false
+				},
+				"civilRegistrationNumber": {
+					"title": "String",
+					"description": "The guardian's Civil Registration (CPR) number.",
+					"type": "string"
+				},
+				"role": {
+					"description": "The guardian's role towards the student.",
+					"enum": [
+						"Mother",
+						"Father",
+						"Other",
+						"OfficialAuthority"
+					],
+					"type": "string"
+				},
+				"givenName": {
+					"title": "String",
+					"description": "The guardian's first- and middle names.",
+					"type": "string"
+				},
+				"surname": {
+					"title": "String",
+					"description": "The guardian's last name.",
+					"type": "string"
+				},
+				"protectedGivenName": {
+					"title": "String",
+					"description": "The given name(s) of the guardian, as registered in the national registry.",
+					"type": "string"
+				},
+				"protectedSurname": {
+					"title": "String",
+					"description": "The surname of the guardian, as registered in the national registry.",
+					"type": "string"
+				},
+				"phoneNumber": {
+					"title": "String",
+					"description": "The guardian's phone number.",
+					"type": "string"
+				},
+				"email": {
+					"title": "String",
+					"description": "The guardian's e-mail address.",
+					"type": "string"
+				},
+				"careOfAddressLine": {
+					"title": "String",
+					"description": "The C/O address line of the guardian.",
+					"type": "string"
+				},
+				"addressLine": {
+					"title": "String",
+					"description": "The guardian's full address including street, house-nr letter, etc.",
+					"type": "string"
+				},
+				"place": {
+					"title": "String",
+					"description": "The place of the guardian.",
+					"type": "string"
+				},
+				"city": {
+					"title": "String",
+					"description": "The city where the guardian lives.",
+					"type": "string"
+				},
+				"postalCode": {
+					"title": "String",
+					"description": "The matching postal code for the city.",
+					"type": "string"
+				},
+				"country": {
+					"title": "String",
+					"description": "The country where the guardian lives.",
+					"type": "string"
+				},
+				"protectedNameAndAddress": {
+					"title": "Boolean",
+					"description": "Whether the guardian has name and address protection.",
+					"type": "boolean",
+					"x-nullable": false
+				}
+			},
+			"additionalProperties": false
+		},
+		"Student_Mark": {
+			"title": "Student_Mark",
+			"required": [
+				"examMarkSource",
+				"useOnExamPaper"
+			],
+			"type": "object",
+			"properties": {
+				"date": {
+					"format": "date",
+					"description": "Date for when mark has been given",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"markCode": {
+					"title": "String",
+					"description": "Code of the mark type in the Danish educational model (UMO), e.g. DEL or STA",
+					"type": "string"
+				},
+				"markDesignation": {
+					"title": "String",
+					"description": "Designation/desciption text of the mark type in the Danish educational model (UMO), e.g. 00, Over middel or Syg",
+					"type": "string"
+				},
+				"markValue": {
+					"title": "String",
+					"description": "Value of the mark, e.g. 00, 7 or SY, if set.",
+					"type": "string"
+				},
+				"averageMarkValue": {
+					"format": "double",
+					"description": "Average value of the mark, if set.",
+					"type": "number"
+				},
+				"markValueEcts": {
+					"title": "String",
+					"description": "The mark value in ECTS scale",
+					"type": "string"
+				},
+				"creditText": {
+					"title": "String",
+					"description": "The text describing the credit (not set if ordinary mark)",
+					"type": "string"
+				},
+				"useOnExamPaper": {
+					"title": "Boolean",
+					"description": "Flag to describe whether the mark should be included on the student's exam paper",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"subjectCourseId": {
+					"format": "uuid",
+					"description": "The ID of the subject course for which the mark has been given\r\nIf the ID is null, then the mark has been assigned manually",
+					"type": "string"
+				},
+				"subject": {
+					"description": "Subject that the mark is given for",
+					"allOf": [
+						{
+							"$ref": "#/definitions/Student_Subject"
+						}
+					]
+				},
+				"examMarkSource": {
+					"title": "ExamMarkSource",
+					"description": "What kind of mark it is. eg manual or from netproever",
+					"enum": [
+						"Manual",
+						"SubjectCourse",
+						"DigitalExamination",
+						"XprsExamination"
+					],
+					"type": "string",
+					"x-nullable": false
+				}
+			},
+			"additionalProperties": false
+		},
+		"Student_Study": {
+			"title": "Student_Study",
+			"required": [
+				"departmentId",
+				"educationId",
+				"id",
+				"studentTypes",
+				"studyStartDate"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "The id of the study",
+					"type": "string",
+					"x-nullable": false
+				},
+				"departmentId": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Id of the department that student is affiliated to.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"dsDepartmentNumber": {
+					"title": "String",
+					"description": "DS Department number that student is affiliated to.",
+					"type": "string"
+				},
+				"educationId": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Id of the education (from UMO) that the study is linked to",
+					"type": "string",
+					"x-nullable": false
+				},
+				"educationName": {
+					"title": "String",
+					"description": "Name of the education from UMO",
+					"type": "string"
+				},
+				"coesa": {
+					"title": "String",
+					"description": "CÃ˜SA number of education from UMO",
+					"type": "string"
+				},
+				"educationVersion": {
+					"title": "String",
+					"description": "Education version from UMO",
+					"type": "string"
+				},
+				"studyStartDate": {
+					"format": "date",
+					"title": "Date",
+					"description": "Study date of start.",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"studyExpectedCompletionDate": {
+					"format": "date",
+					"description": "Expected completion date of study.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"studyEndDate": {
+					"format": "date",
+					"description": "Study end date",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"studyEndCauseId": {
+					"format": "uuid",
+					"description": "Id of study end cause",
+					"type": "string"
+				},
+				"studyEndCauseCode": {
+					"title": "String",
+					"description": "The UMO code for ending the study",
+					"type": "string"
+				},
+				"studyEndCause": {
+					"title": "String",
+					"description": "UMO description for cause for study end.",
+					"type": "string"
+				},
+				"studyCancellationCauseCode": {
+					"description": "The cancellation code for ending the study.",
+					"enum": [
+						"StudyNotStarted",
+						"Absence",
+						"Illness",
+						"EducationalRequirements",
+						"ChangedStudy",
+						"ChangedSchool",
+						"ChangedSchoolAndChangedStudy",
+						"Other",
+						"Unknown",
+						"Deceased",
+						"WrittenAgreementTerminated",
+						"CompletedGF2NotContinuing",
+						"NotPassedFinalExam",
+						"AdmissionExamNotPassedAndInterviewDenied",
+						"AdmissionExamNotPassedAndDidNotShowAtInterview",
+						"AdmissionInterviewNotPassed",
+						"AdmissionExamPassedButInterviewDenied",
+						"AdmissionExamPassedButDidNotShowAtInterview",
+						"NotStarted",
+						"ProfessionalRequirements",
+						"PrivateReasons",
+						"ExamNotPassed",
+						"Expelled",
+						"Unreachable",
+						"ChangeOfEducation",
+						"ChangeOfSchool",
+						"CompletedGf1OrPlus",
+						"CompletedGf2",
+						"CancelledExchangeStudent",
+						"LeaveOfAbsence",
+						"Completed",
+						"Death",
+						"TeacherRelationCancelled"
+					],
+					"type": "string"
+				},
+				"studentTypes": {
+					"description": "StudentTypes associated with the student.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Study_StudentType"
+					}
+				},
+				"specialisations": {
+					"description": "The specialisations that the student has for this study",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Student_Study_Specialisation"
+					}
+				}
+			},
+			"additionalProperties": false
+		},
+		"Student_Study_Specialisation": {
+			"title": "Student_Study_Specialisation",
+			"required": [
+				"from"
+			],
+			"type": "object",
+			"properties": {
+				"name": {
+					"title": "String",
+					"description": "The name of the specialisation.",
+					"type": "string"
+				},
+				"from": {
+					"format": "date",
+					"title": "Date",
+					"description": "Start of specialisation",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"to": {
+					"format": "date",
+					"description": "End of specialisation",
+					"type": "string",
+					"example": "2024-06-20"
+				}
+			},
+			"additionalProperties": false
+		},
+		"Student_Subject": {
+			"title": "Student_Subject",
+			"description": "Description of a subject object for which a mark is given",
+			"required": [
+				"levelDesignation",
+				"levelRankOrder",
+				"subjectDesignation",
+				"subjectNumber"
+			],
+			"type": "object",
+			"properties": {
+				"subjectDesignation": {
+					"title": "String",
+					"description": "The designation/description of the subject the mark is given in",
+					"minLength": 1,
+					"type": "string"
+				},
+				"subjectNumber": {
+					"title": "String",
+					"description": "The numeric ID of the subject the mark is given in",
+					"minLength": 1,
+					"type": "string"
+				},
+				"subjectCategory": {
+					"title": "String",
+					"description": "The identification of the subject category that the subject belongs to",
+					"type": "string"
+				},
+				"subjectCategoryDesignation": {
+					"title": "String",
+					"description": "The name of the subject category that the subject belongs to",
+					"type": "string"
+				},
+				"evaluationForm": {
+					"title": "String",
+					"description": "Subject evaluation form code, e.g. MDT for Oral",
+					"type": "string"
+				},
+				"evaluationFormDesignation": {
+					"title": "String",
+					"description": "Subject evaluation form description, e.g. Mundtlig evaluering",
+					"type": "string"
+				},
+				"markScaleDesignation": {
+					"title": "String",
+					"description": "Scale type for the mark given to the student, e.g. 7-trinsskala",
+					"type": "string"
+				},
+				"levelDesignation": {
+					"title": "String",
+					"description": "The designation/description of the level of the subject the mark is given in, e.g. Avanceret",
+					"minLength": 1,
+					"type": "string"
+				},
+				"levelRankOrder": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "The order of level",
+					"type": "integer",
+					"x-nullable": false
+				}
+			},
+			"additionalProperties": false
+		},
+		"Study_StudentType": {
+			"title": "Study_StudentType",
+			"required": [
+				"id",
+				"validFrom"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "The student type",
+					"type": "string",
+					"x-nullable": false
+				},
+				"name": {
+					"title": "String",
+					"description": "Name of studet type (ElevType from UMO)",
+					"type": "string"
+				},
+				"validFrom": {
+					"format": "date",
+					"title": "Date",
+					"description": "The date from which the studenttype is valid",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"validTo": {
+					"format": "date",
+					"description": "The end date of the studenttype",
+					"type": "string",
+					"example": "2024-06-20"
+				}
+			},
+			"additionalProperties": false
+		},
+		"UpdateContactAndAccountInfoExternalCommand": {
+			"title": "UpdateContactAndAccountInfoExternalCommand",
+			"description": "Update student contact and account information",
+			"required": [
+				"addressLineClear",
+				"careOfAddressClear",
+				"cityClear",
+				"countryClear",
+				"emailClear",
+				"phoneNumberClear",
+				"placeClear",
+				"postalCodeClear",
+				"privateEmailClear",
+				"studentId"
+			],
+			"type": "object",
+			"properties": {
+				"studentId": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "The ID of the student.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"givenName": {
+					"title": "String",
+					"description": "The student's first- and middle names.",
+					"maxLength": 255,
+					"type": "string"
+				},
+				"surname": {
+					"title": "String",
+					"description": "The student's last name.",
+					"maxLength": 255,
+					"type": "string"
+				},
+				"addressLine": {
+					"title": "String",
+					"description": "Full address including street, house-nr letter, etc. where the student lives.",
+					"maxLength": 255,
+					"minLength": 1,
+					"type": "string"
+				},
+				"addressLineClear": {
+					"title": "Boolean",
+					"description": "Indicates if the AddressLine should be cleared regardless of the value in AddressLine",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"careOfAddress": {
+					"title": "String",
+					"description": "The C/O address of the student.",
+					"maxLength": 255,
+					"type": "string"
+				},
+				"careOfAddressClear": {
+					"title": "Boolean",
+					"description": "Indicates if the CareOfAddress should be cleared regardless of the value in CareOfAddress",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"city": {
+					"title": "String",
+					"description": "The city where the student lives.",
+					"maxLength": 255,
+					"minLength": 1,
+					"type": "string"
+				},
+				"cityClear": {
+					"title": "Boolean",
+					"description": "Indicates if the City should be cleared regardless of the value in City",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"place": {
+					"title": "String",
+					"description": "The place of the student.",
+					"maxLength": 255,
+					"type": "string"
+				},
+				"placeClear": {
+					"title": "Boolean",
+					"description": "Indicates if the Place should be cleared regardless of the value in Place",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"postalCode": {
+					"title": "String",
+					"description": "The matching postal code for the city.",
+					"maxLength": 50,
+					"type": "string"
+				},
+				"postalCodeClear": {
+					"title": "Boolean",
+					"description": "Indicates if the PostalCode should be cleared regardless of the value in PostalCode",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"country": {
+					"title": "String",
+					"description": "The country where the student lives.",
+					"maxLength": 100,
+					"minLength": 1,
+					"type": "string"
+				},
+				"countryClear": {
+					"title": "Boolean",
+					"description": "Indicates if the Country should be cleared regardless of the value in Country",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"phoneNumber": {
+					"format": "tel",
+					"title": "String",
+					"description": "The student's phone number.",
+					"maxLength": 12,
+					"minLength": 1,
+					"type": "string"
+				},
+				"phoneNumberClear": {
+					"title": "Boolean",
+					"description": "Indicates if the PhoneNumber should be cleared regardless of the value in PhoneNumber",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"privateEmail": {
+					"format": "email",
+					"title": "String",
+					"description": "The student's private e-mail address.",
+					"maxLength": 255,
+					"minLength": 1,
+					"type": "string"
+				},
+				"privateEmailClear": {
+					"title": "Boolean",
+					"description": "Indicates if the PrivateEmail should be cleared regardless of the value in PrivateEmail",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"email": {
+					"title": "String",
+					"description": "The student's school email address",
+					"type": "string"
+				},
+				"emailClear": {
+					"title": "Boolean",
+					"description": "Indicates if the School Email should be cleared regardless of the value in Email",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"adUsername": {
+					"title": "String",
+					"description": "The AD user name for the student",
+					"type": "string"
+				},
+				"createAdLogin": {
+					"description": "Specifies if the student should have an AD login (organisational account).\r\nIf `false`, the Students.Host.ExternalApi.Students.Commands.UpdateContactAndAccountInfo.UpdateContactAndAccountInfoExternalCommand.AdUsername will be cleared",
+					"type": "boolean"
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which command is performed.",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"studentId": "string",
+				"givenName": "string",
+				"surname": "string",
+				"addressLine": "string",
+				"addressLineClear": true,
+				"careOfAddress": "string",
+				"careOfAddressClear": true,
+				"city": "string",
+				"cityClear": true,
+				"place": "string",
+				"placeClear": true,
+				"postalCode": "string",
+				"postalCodeClear": true,
+				"country": "string",
+				"countryClear": true,
+				"phoneNumber": "string",
+				"phoneNumberClear": true,
+				"privateEmail": "string",
+				"privateEmailClear": true,
+				"email": "string",
+				"emailClear": true,
+				"adUsername": "string",
+				"createAdLogin": true,
+				"schoolCode": "string"
+			}
+		}
+	},
+	"tags": []
 }

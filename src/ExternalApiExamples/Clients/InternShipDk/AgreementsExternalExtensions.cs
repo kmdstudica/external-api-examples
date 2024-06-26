@@ -17,6 +17,9 @@ namespace Kmd.Studica.InternshipDk.Client
     /// </summary>
     public static partial class AgreementsExternalExtensions
     {
+            /// <summary>
+            /// AgreementsExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -31,6 +34,9 @@ namespace Kmd.Studica.InternshipDk.Client
                 return operations.PostAsync(studentIds, schoolCode).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// AgreementsExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>

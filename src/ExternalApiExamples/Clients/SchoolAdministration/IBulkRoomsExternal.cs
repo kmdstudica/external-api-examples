@@ -18,6 +18,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// </summary>
     public partial interface IBulkRoomsExternal
     {
+        /// <summary>
+        /// BulkRoomsExternal_Post
+        /// </summary>
         /// <param name='roomIds'>
         /// Room identifiers for bulk query.
         /// </param>

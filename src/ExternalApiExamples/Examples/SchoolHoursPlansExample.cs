@@ -24,7 +24,7 @@ public class SchoolHoursPlansExample
         Console.WriteLine("Executing school hours plans example");
 
         using var schoolAdministrationClient =
-            new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+            new StudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
         schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
             : new Uri(configuration.SchoolAdministrationBaseUri);
@@ -51,7 +51,7 @@ public class SchoolHoursPlansExample
         Console.WriteLine("Executing detailed school hours plans example");
 
         using var schoolAdministrationClient =
-            new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+            new StudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
         schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
             : new Uri(configuration.SchoolAdministrationBaseUri);

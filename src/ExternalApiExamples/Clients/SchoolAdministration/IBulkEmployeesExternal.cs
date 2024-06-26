@@ -18,6 +18,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// </summary>
     public partial interface IBulkEmployeesExternal
     {
+        /// <summary>
+        /// BulkEmployeesExternal_Post
+        /// </summary>
         /// <param name='employeeIds'>
         /// Employees identifiers for bulk query.
         /// </param>

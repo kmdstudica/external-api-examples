@@ -21,7 +21,7 @@ namespace Kmd.Studica.InternshipDk.Client
     /// <summary>
     /// AgreementsExternal operations.
     /// </summary>
-    public partial class AgreementsExternal : IServiceOperations<KMDStudicaInternshipDK>, IAgreementsExternal
+    public partial class AgreementsExternal : IServiceOperations<StudicaDemoInternshipDK>, IAgreementsExternal
     {
         /// <summary>
         /// Initializes a new instance of the AgreementsExternal class.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.InternshipDk.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public AgreementsExternal(KMDStudicaInternshipDK client)
+        public AgreementsExternal(StudicaDemoInternshipDK client)
         {
             if (client == null)
             {
@@ -42,10 +42,13 @@ namespace Kmd.Studica.InternshipDk.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaInternshipDK
+        /// Gets a reference to the StudicaDemoInternshipDK
         /// </summary>
-        public KMDStudicaInternshipDK Client { get; private set; }
+        public StudicaDemoInternshipDK Client { get; private set; }
 
+        /// <summary>
+        /// AgreementsExternal_Post
+        /// </summary>
         /// <param name='studentIds'>
         /// Student ids. Must contain 1 to 1000 elements.
         /// </param>
@@ -105,12 +108,12 @@ namespace Kmd.Studica.InternshipDk.Client
                     throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
                 }
             }
-            AgreementsExternalRequest body = default(AgreementsExternalRequest);
+            AgreementsExternalRequest agreementsExternalRequest = default(AgreementsExternalRequest);
             if (studentIds != null || schoolCode != null)
             {
-                body = new AgreementsExternalRequest();
-                body.StudentIds = studentIds;
-                body.SchoolCode = schoolCode;
+                agreementsExternalRequest = new AgreementsExternalRequest();
+                agreementsExternalRequest.StudentIds = studentIds;
+                agreementsExternalRequest.SchoolCode = schoolCode;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -119,7 +122,7 @@ namespace Kmd.Studica.InternshipDk.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("agreementsExternalRequest", agreementsExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
@@ -148,9 +151,9 @@ namespace Kmd.Studica.InternshipDk.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(agreementsExternalRequest != null)
             {
-                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(agreementsExternalRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

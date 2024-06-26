@@ -22,7 +22,7 @@ public class SchoolHourEntryExample
     {
         Console.WriteLine("Executing school hour entry example");
 
-        using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+        using var schoolAdministrationClient = new StudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
         schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
             : new Uri(configuration.SchoolAdministrationBaseUri);

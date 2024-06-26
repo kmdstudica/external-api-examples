@@ -23,7 +23,7 @@ public class StudentsExample
     {
         Console.Write("Executing student example");
 
-        using var studentsClient = new KMDStudicaStudents(new TokenCredentials(tokenProvider));
+        using var studentsClient = new StudicaDemoStudents(new TokenCredentials(tokenProvider));
         studentsClient.BaseUri = string.IsNullOrEmpty(configuration.StudentsBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/students/v1")
             : new Uri(configuration.StudentsBaseUri);
@@ -49,7 +49,7 @@ public class StudentsExample
     {
         Console.WriteLine("Executing bulk student example");
 
-        using var studentsClient = new KMDStudicaStudents(new TokenCredentials(tokenProvider));
+        using var studentsClient = new StudicaDemoStudents(new TokenCredentials(tokenProvider));
         studentsClient.BaseUri = string.IsNullOrEmpty(configuration.StudentsBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/students/v1")
             : new Uri(configuration.StudentsBaseUri);
@@ -73,7 +73,7 @@ public class StudentsExample
     {
         Console.WriteLine("Executing update student contact information example");
 
-        using var studentsClient = new KMDStudicaStudents(new TokenCredentials(tokenProvider));
+        using var studentsClient = new StudicaDemoStudents(new TokenCredentials(tokenProvider));
         studentsClient.BaseUri = string.IsNullOrEmpty(configuration.StudentsBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/students/v1")
             : new Uri(configuration.StudentsBaseUri);
@@ -81,7 +81,7 @@ public class StudentsExample
         try
         {
             var result = await studentsClient.UpdateContactAndAccountInfoExternal.PostWithHttpMessagesAsync(
-            body: new UpdateContactAndAccountInfoExternalCommand ()
+            new UpdateContactAndAccountInfoExternalCommand ()
                 {
                     StudentId = Guid.Parse(""),
                     SchoolCode = configuration.SchoolCode,

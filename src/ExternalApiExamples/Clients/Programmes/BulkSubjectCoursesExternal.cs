@@ -21,7 +21,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// BulkSubjectCoursesExternal operations.
     /// </summary>
-    public partial class BulkSubjectCoursesExternal : IServiceOperations<KMDStudicaProgrammes>, IBulkSubjectCoursesExternal
+    public partial class BulkSubjectCoursesExternal : IServiceOperations<StudicaDemoProgrammes>, IBulkSubjectCoursesExternal
     {
         /// <summary>
         /// Initializes a new instance of the BulkSubjectCoursesExternal class.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public BulkSubjectCoursesExternal(KMDStudicaProgrammes client)
+        public BulkSubjectCoursesExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -42,10 +42,13 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
+        /// <summary>
+        /// BulkSubjectCoursesExternal_Post
+        /// </summary>
         /// <param name='subjectCourseIds'>
         /// Subject course identifiers for bulk query.
         /// </param>
@@ -105,12 +108,12 @@ namespace Kmd.Studica.Programmes.Client
                     throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
                 }
             }
-            BulkSubjectCoursesExternalRequest body = default(BulkSubjectCoursesExternalRequest);
+            BulkSubjectCoursesExternalRequest bulkSubjectCoursesExternalRequest = default(BulkSubjectCoursesExternalRequest);
             if (subjectCourseIds != null || schoolCode != null)
             {
-                body = new BulkSubjectCoursesExternalRequest();
-                body.SubjectCourseIds = subjectCourseIds;
-                body.SchoolCode = schoolCode;
+                bulkSubjectCoursesExternalRequest = new BulkSubjectCoursesExternalRequest();
+                bulkSubjectCoursesExternalRequest.SubjectCourseIds = subjectCourseIds;
+                bulkSubjectCoursesExternalRequest.SchoolCode = schoolCode;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -119,7 +122,7 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("bulkSubjectCoursesExternalRequest", bulkSubjectCoursesExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
@@ -148,9 +151,9 @@ namespace Kmd.Studica.Programmes.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(bulkSubjectCoursesExternalRequest != null)
             {
-                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(bulkSubjectCoursesExternalRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

@@ -18,16 +18,19 @@ namespace Kmd.Studica.SchoolInternships.Client
     /// </summary>
     public partial interface IStudentsInternshipAbsenceExternal
     {
+        /// <summary>
+        /// StudentsInternshipAbsenceExternal_Get
+        /// </summary>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
         /// </param>
         /// <param name='periodFrom'>
-        /// Get all students school internships absence starting on or after
-        /// this date
+        /// Format - date (as full-date in RFC3339). Get all students school
+        /// internships absence starting on or after this date
         /// </param>
         /// <param name='periodTo'>
-        /// Get all students school internships absence ending on or before
-        /// this date
+        /// Format - date (as full-date in RFC3339). Get all students school
+        /// internships absence ending on or before this date
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

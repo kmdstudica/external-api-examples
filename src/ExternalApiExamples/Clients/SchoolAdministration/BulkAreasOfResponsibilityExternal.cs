@@ -21,7 +21,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// <summary>
     /// BulkAreasOfResponsibilityExternal operations.
     /// </summary>
-    public partial class BulkAreasOfResponsibilityExternal : IServiceOperations<KMDStudicaSchoolAdministration>, IBulkAreasOfResponsibilityExternal
+    public partial class BulkAreasOfResponsibilityExternal : IServiceOperations<StudicaDemoSchoolAdministration>, IBulkAreasOfResponsibilityExternal
     {
         /// <summary>
         /// Initializes a new instance of the BulkAreasOfResponsibilityExternal class.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public BulkAreasOfResponsibilityExternal(KMDStudicaSchoolAdministration client)
+        public BulkAreasOfResponsibilityExternal(StudicaDemoSchoolAdministration client)
         {
             if (client == null)
             {
@@ -42,10 +42,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaSchoolAdministration
+        /// Gets a reference to the StudicaDemoSchoolAdministration
         /// </summary>
-        public KMDStudicaSchoolAdministration Client { get; private set; }
+        public StudicaDemoSchoolAdministration Client { get; private set; }
 
+        /// <summary>
+        /// BulkAreasOfResponsibilityExternal_Post
+        /// </summary>
         /// <param name='areaOfResponsibilityIds'>
         /// Areas of responsibility identifiers for bulk query.
         /// </param>
@@ -105,12 +108,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
                     throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
                 }
             }
-            BulkAreasOfResponsibilityExternalRequest body = default(BulkAreasOfResponsibilityExternalRequest);
+            BulkAreasOfResponsibilityExternalRequest bulkAreasOfResponsibilityExternalRequest = default(BulkAreasOfResponsibilityExternalRequest);
             if (areaOfResponsibilityIds != null || schoolCode != null)
             {
-                body = new BulkAreasOfResponsibilityExternalRequest();
-                body.AreaOfResponsibilityIds = areaOfResponsibilityIds;
-                body.SchoolCode = schoolCode;
+                bulkAreasOfResponsibilityExternalRequest = new BulkAreasOfResponsibilityExternalRequest();
+                bulkAreasOfResponsibilityExternalRequest.AreaOfResponsibilityIds = areaOfResponsibilityIds;
+                bulkAreasOfResponsibilityExternalRequest.SchoolCode = schoolCode;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -119,7 +122,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("bulkAreasOfResponsibilityExternalRequest", bulkAreasOfResponsibilityExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
@@ -148,9 +151,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(bulkAreasOfResponsibilityExternalRequest != null)
             {
-                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(bulkAreasOfResponsibilityExternalRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

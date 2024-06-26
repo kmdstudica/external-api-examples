@@ -21,7 +21,7 @@ namespace Kmd.Studica.SchoolInternships.Client
     /// <summary>
     /// BulkInternshipDepartmentsExternal operations.
     /// </summary>
-    public partial class BulkInternshipDepartmentsExternal : IServiceOperations<KMDStudicaSchoolInternships>, IBulkInternshipDepartmentsExternal
+    public partial class BulkInternshipDepartmentsExternal : IServiceOperations<StudicaDemoSchoolInternships>, IBulkInternshipDepartmentsExternal
     {
         /// <summary>
         /// Initializes a new instance of the BulkInternshipDepartmentsExternal class.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public BulkInternshipDepartmentsExternal(KMDStudicaSchoolInternships client)
+        public BulkInternshipDepartmentsExternal(StudicaDemoSchoolInternships client)
         {
             if (client == null)
             {
@@ -42,10 +42,13 @@ namespace Kmd.Studica.SchoolInternships.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaSchoolInternships
+        /// Gets a reference to the StudicaDemoSchoolInternships
         /// </summary>
-        public KMDStudicaSchoolInternships Client { get; private set; }
+        public StudicaDemoSchoolInternships Client { get; private set; }
 
+        /// <summary>
+        /// BulkInternshipDepartmentsExternal_Get
+        /// </summary>
         /// <param name='internshipDepartmentIds'>
         /// The ids of the internship departments to query for.
         /// </param>

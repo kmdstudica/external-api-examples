@@ -23,7 +23,7 @@ public class GroupsExample
     {
         Console.WriteLine("Executing groups example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.HttpClient.Timeout = new TimeSpan(0, 0, 10, 0);
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")

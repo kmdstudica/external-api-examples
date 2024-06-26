@@ -21,7 +21,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// SessionsByIdExternal operations.
     /// </summary>
-    public partial class SessionsByIdExternal : IServiceOperations<KMDStudicaProgrammes>, ISessionsByIdExternal
+    public partial class SessionsByIdExternal : IServiceOperations<StudicaDemoProgrammes>, ISessionsByIdExternal
     {
         /// <summary>
         /// Initializes a new instance of the SessionsByIdExternal class.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public SessionsByIdExternal(KMDStudicaProgrammes client)
+        public SessionsByIdExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -42,10 +42,13 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
+        /// <summary>
+        /// SessionsByIdExternal_Get
+        /// </summary>
         /// <param name='sessionIds'>
         /// The ids of the sessions to retrieve.
         /// </param>

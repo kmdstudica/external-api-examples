@@ -18,14 +18,18 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IStudentSubjectCoursesExternal
     {
+        /// <summary>
+        /// StudentSubjectCoursesExternal_Get
+        /// </summary>
         /// <param name='studentIds'>
         /// A list of students to get subject courses for
         /// </param>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first
+        /// page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.

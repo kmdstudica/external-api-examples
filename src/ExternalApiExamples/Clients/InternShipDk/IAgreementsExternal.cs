@@ -18,6 +18,9 @@ namespace Kmd.Studica.InternshipDk.Client
     /// </summary>
     public partial interface IAgreementsExternal
     {
+        /// <summary>
+        /// AgreementsExternal_Post
+        /// </summary>
         /// <param name='studentIds'>
         /// Student ids. Must contain 1 to 1000 elements.
         /// </param>

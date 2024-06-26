@@ -15,27 +15,33 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class RegisterAbsenceExternalExtensions
     {
+            /// <summary>
+            /// RegisterAbsenceExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='body'>
+            /// <param name='registerAbsenceExternalCommand'>
             /// </param>
-            public static void Post(this IRegisterAbsenceExternal operations, RegisterAbsenceExternalCommand body = default(RegisterAbsenceExternalCommand))
+            public static void Post(this IRegisterAbsenceExternal operations, RegisterAbsenceExternalCommand registerAbsenceExternalCommand = default(RegisterAbsenceExternalCommand))
             {
-                operations.PostAsync(body).GetAwaiter().GetResult();
+                operations.PostAsync(registerAbsenceExternalCommand).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// RegisterAbsenceExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='body'>
+            /// <param name='registerAbsenceExternalCommand'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task PostAsync(this IRegisterAbsenceExternal operations, RegisterAbsenceExternalCommand body = default(RegisterAbsenceExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task PostAsync(this IRegisterAbsenceExternal operations, RegisterAbsenceExternalCommand registerAbsenceExternalCommand = default(RegisterAbsenceExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.PostWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.PostWithHttpMessagesAsync(registerAbsenceExternalCommand, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

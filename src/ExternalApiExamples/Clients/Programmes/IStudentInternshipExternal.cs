@@ -18,14 +18,19 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IStudentInternshipExternal
     {
+        /// <summary>
+        /// StudentInternshipExternal_Get
+        /// </summary>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
         /// </param>
         /// <param name='periodFrom'>
-        /// Beginning of the range for start date of the students' internships.
+        /// Format - date (as full-date in RFC3339). Beginning of the range for
+        /// start date of the students' internships.
         /// </param>
         /// <param name='periodTo'>
-        /// End of the range for start date of the students' internships.
+        /// Format - date (as full-date in RFC3339). End of the range for start
+        /// date of the students' internships.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

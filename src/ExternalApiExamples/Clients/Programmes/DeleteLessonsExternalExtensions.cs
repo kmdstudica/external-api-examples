@@ -15,27 +15,33 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class DeleteLessonsExternalExtensions
     {
+            /// <summary>
+            /// DeleteLessonsExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='body'>
+            /// <param name='deleteLessonsExternalCommand'>
             /// </param>
-            public static void Post(this IDeleteLessonsExternal operations, DeleteLessonsExternalCommand body = default(DeleteLessonsExternalCommand))
+            public static void Post(this IDeleteLessonsExternal operations, DeleteLessonsExternalCommand deleteLessonsExternalCommand = default(DeleteLessonsExternalCommand))
             {
-                operations.PostAsync(body).GetAwaiter().GetResult();
+                operations.PostAsync(deleteLessonsExternalCommand).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// DeleteLessonsExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='body'>
+            /// <param name='deleteLessonsExternalCommand'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task PostAsync(this IDeleteLessonsExternal operations, DeleteLessonsExternalCommand body = default(DeleteLessonsExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task PostAsync(this IDeleteLessonsExternal operations, DeleteLessonsExternalCommand deleteLessonsExternalCommand = default(DeleteLessonsExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.PostWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.PostWithHttpMessagesAsync(deleteLessonsExternalCommand, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

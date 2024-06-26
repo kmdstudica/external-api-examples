@@ -21,7 +21,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// StudentSubjectCoursesExternal operations.
     /// </summary>
-    public partial class StudentSubjectCoursesExternal : IServiceOperations<KMDStudicaProgrammes>, IStudentSubjectCoursesExternal
+    public partial class StudentSubjectCoursesExternal : IServiceOperations<StudicaDemoProgrammes>, IStudentSubjectCoursesExternal
     {
         /// <summary>
         /// Initializes a new instance of the StudentSubjectCoursesExternal class.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public StudentSubjectCoursesExternal(KMDStudicaProgrammes client)
+        public StudentSubjectCoursesExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -42,18 +42,21 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
+        /// <summary>
+        /// StudentSubjectCoursesExternal_Get
+        /// </summary>
         /// <param name='studentIds'>
         /// A list of students to get subject courses for
         /// </param>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.

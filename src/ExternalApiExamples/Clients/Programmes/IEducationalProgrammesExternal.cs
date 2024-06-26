@@ -18,11 +18,15 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IEducationalProgrammesExternal
     {
+        /// <summary>
+        /// EducationalProgrammesExternal_Get
+        /// </summary>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first
+        /// page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
@@ -31,21 +35,23 @@ namespace Kmd.Studica.Programmes.Client
         /// The school code for which to get data.
         /// </param>
         /// <param name='startDateFrom'>
-        /// Beginning of the range for start date of the educational
-        /// programmes.
+        /// Format - date (as full-date in RFC3339). Beginning of the range for
+        /// start date of the educational programmes.
         /// </param>
         /// <param name='startDateTo'>
-        /// End of the range for start date of the educational programmes.
+        /// Format - date (as full-date in RFC3339). End of the range for start
+        /// date of the educational programmes.
         /// </param>
         /// <param name='areaOfResponsibilityId'>
-        /// Option for also querying educational programmes by area of
-        /// responsibility in addition to dates
+        /// Format - uuid. Option for also querying educational programmes by
+        /// area of responsibility in addition to dates
         /// </param>
         /// <param name='includeDeletedProgrammes'>
         /// Should the response include deleted educational programmes
         /// </param>
         /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
-        /// Only get data inserted or updated on or after the specified date
+        /// Format - date-time (as date-time in RFC3339). Only get data
+        /// inserted or updated on or after the specified date
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

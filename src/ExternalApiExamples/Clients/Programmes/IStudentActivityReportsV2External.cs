@@ -18,16 +18,21 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IStudentActivityReportsV2External
     {
+        /// <summary>
+        /// StudentActivityReportsV2External_Get
+        /// </summary>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
         /// </param>
         /// <param name='periodFrom'>
-        /// Includes reports for periods with a transmission period start date
-        /// no earlier than `PeriodFrom`
+        /// Format - date (as full-date in RFC3339). Includes reports for
+        /// periods with a transmission period start date no earlier than
+        /// `PeriodFrom`
         /// </param>
         /// <param name='periodTo'>
-        /// Includes reports for periods with a transmission period start date
-        /// no later than `PeriodFromTo`
+        /// Format - date (as full-date in RFC3339). Includes reports for
+        /// periods with a transmission period start date no later than
+        /// `PeriodFromTo`
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

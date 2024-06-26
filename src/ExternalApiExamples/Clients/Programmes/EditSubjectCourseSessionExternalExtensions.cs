@@ -15,27 +15,33 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class EditSubjectCourseSessionExternalExtensions
     {
+            /// <summary>
+            /// EditSubjectCourseSessionExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='body'>
+            /// <param name='editSubjectCourseSessionExternalCommand'>
             /// </param>
-            public static void Post(this IEditSubjectCourseSessionExternal operations, EditSubjectCourseSessionExternalCommand body = default(EditSubjectCourseSessionExternalCommand))
+            public static void Post(this IEditSubjectCourseSessionExternal operations, EditSubjectCourseSessionExternalCommand editSubjectCourseSessionExternalCommand = default(EditSubjectCourseSessionExternalCommand))
             {
-                operations.PostAsync(body).GetAwaiter().GetResult();
+                operations.PostAsync(editSubjectCourseSessionExternalCommand).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// EditSubjectCourseSessionExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='body'>
+            /// <param name='editSubjectCourseSessionExternalCommand'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task PostAsync(this IEditSubjectCourseSessionExternal operations, EditSubjectCourseSessionExternalCommand body = default(EditSubjectCourseSessionExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task PostAsync(this IEditSubjectCourseSessionExternal operations, EditSubjectCourseSessionExternalCommand editSubjectCourseSessionExternalCommand = default(EditSubjectCourseSessionExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.PostWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.PostWithHttpMessagesAsync(editSubjectCourseSessionExternalCommand, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

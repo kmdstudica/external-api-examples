@@ -22,7 +22,7 @@ namespace Kmd.Studica.Students.Client
     /// <summary>
     /// ActiveStudentsExternal operations.
     /// </summary>
-    public partial class ActiveStudentsExternal : IServiceOperations<KMDStudicaStudents>, IActiveStudentsExternal
+    public partial class ActiveStudentsExternal : IServiceOperations<StudicaDemoStudents>, IActiveStudentsExternal
     {
         /// <summary>
         /// Initializes a new instance of the ActiveStudentsExternal class.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public ActiveStudentsExternal(KMDStudicaStudents client)
+        public ActiveStudentsExternal(StudicaDemoStudents client)
         {
             if (client == null)
             {
@@ -43,15 +43,18 @@ namespace Kmd.Studica.Students.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaStudents
+        /// Gets a reference to the StudicaDemoStudents
         /// </summary>
-        public KMDStudicaStudents Client { get; private set; }
+        public StudicaDemoStudents Client { get; private set; }
 
+        /// <summary>
+        /// ActiveStudentsExternal_Get
+        /// </summary>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
@@ -60,7 +63,8 @@ namespace Kmd.Studica.Students.Client
         /// The school code for which to get data.
         /// </param>
         /// <param name='studentActiveOnOrAfterDate'>
-        /// Students must be active on the date or after this date
+        /// Format - date (as full-date in RFC3339). Students must be active on the
+        /// date or after this date
         /// This parameter is required
         /// </param>
         /// <param name='customHeaders'>
@@ -124,11 +128,11 @@ namespace Kmd.Studica.Students.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("studentActiveOnOrAfterDate", studentActiveOnOrAfterDate);
                 tracingParameters.Add("pageNumber", pageNumber);
                 tracingParameters.Add("pageSize", pageSize);
                 tracingParameters.Add("inlineCount", inlineCount);
                 tracingParameters.Add("schoolCode", schoolCode);
+                tracingParameters.Add("studentActiveOnOrAfterDate", studentActiveOnOrAfterDate);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
@@ -136,16 +140,16 @@ namespace Kmd.Studica.Students.Client
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ActiveStudentsExternal").ToString();
             List<string> _queryParameters = new List<string>();
-            if (studentActiveOnOrAfterDate != null)
-            {
-                _queryParameters.Add(string.Format("StudentActiveOnOrAfterDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(studentActiveOnOrAfterDate, new DateJsonConverter()).Trim('"'))));
-            }
             _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
             if (schoolCode != null)
             {
                 _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
+            }
+            if (studentActiveOnOrAfterDate != null)
+            {
+                _queryParameters.Add(string.Format("StudentActiveOnOrAfterDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(studentActiveOnOrAfterDate, new DateJsonConverter()).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {

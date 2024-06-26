@@ -22,7 +22,7 @@ namespace Kmd.Studica.SchoolInternships.Client
     /// <summary>
     /// StudentsInternshipAbsenceExternal operations.
     /// </summary>
-    public partial class StudentsInternshipAbsenceExternal : IServiceOperations<KMDStudicaSchoolInternships>, IStudentsInternshipAbsenceExternal
+    public partial class StudentsInternshipAbsenceExternal : IServiceOperations<StudicaDemoSchoolInternships>, IStudentsInternshipAbsenceExternal
     {
         /// <summary>
         /// Initializes a new instance of the StudentsInternshipAbsenceExternal class.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public StudentsInternshipAbsenceExternal(KMDStudicaSchoolInternships client)
+        public StudentsInternshipAbsenceExternal(StudicaDemoSchoolInternships client)
         {
             if (client == null)
             {
@@ -43,18 +43,23 @@ namespace Kmd.Studica.SchoolInternships.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaSchoolInternships
+        /// Gets a reference to the StudicaDemoSchoolInternships
         /// </summary>
-        public KMDStudicaSchoolInternships Client { get; private set; }
+        public StudicaDemoSchoolInternships Client { get; private set; }
 
+        /// <summary>
+        /// StudentsInternshipAbsenceExternal_Get
+        /// </summary>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
         /// </param>
         /// <param name='periodFrom'>
-        /// Get all students school internships absence starting on or after this date
+        /// Format - date (as full-date in RFC3339). Get all students school
+        /// internships absence starting on or after this date
         /// </param>
         /// <param name='periodTo'>
-        /// Get all students school internships absence ending on or before this date
+        /// Format - date (as full-date in RFC3339). Get all students school
+        /// internships absence ending on or before this date
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -101,9 +106,9 @@ namespace Kmd.Studica.SchoolInternships.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("periodFrom", periodFrom);
                 tracingParameters.Add("periodTo", periodTo);
-                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
@@ -111,6 +116,10 @@ namespace Kmd.Studica.SchoolInternships.Client
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "StudentsInternshipAbsenceExternal").ToString();
             List<string> _queryParameters = new List<string>();
+            if (schoolCode != null)
+            {
+                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
+            }
             if (periodFrom != null)
             {
                 _queryParameters.Add(string.Format("PeriodFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodFrom, new DateJsonConverter()).Trim('"'))));
@@ -118,10 +127,6 @@ namespace Kmd.Studica.SchoolInternships.Client
             if (periodTo != null)
             {
                 _queryParameters.Add(string.Format("PeriodTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodTo, new DateJsonConverter()).Trim('"'))));
-            }
-            if (schoolCode != null)
-            {
-                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
             }
             if (_queryParameters.Count > 0)
             {

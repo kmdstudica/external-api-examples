@@ -18,7 +18,10 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IGroupsExternal
     {
-        /// <param name='body'>
+        /// <summary>
+        /// GroupsExternal_Post
+        /// </summary>
+        /// <param name='groupsExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -32,6 +35,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IList<GroupsExternalResponse>>> PostWithHttpMessagesAsync(GroupsExternalRequest body = default(GroupsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<GroupsExternalResponse>>> PostWithHttpMessagesAsync(GroupsExternalRequest groupsExternalRequest = default(GroupsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

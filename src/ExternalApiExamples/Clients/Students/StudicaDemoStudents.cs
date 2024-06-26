@@ -17,7 +17,7 @@ namespace Kmd.Studica.Students.Client
     using System.Threading;
     using System.Threading.Tasks;
 
-    public partial class KMDStudicaStudents : ServiceClient<KMDStudicaStudents>, IKMDStudicaStudents
+    public partial class StudicaDemoStudents : ServiceClient<StudicaDemoStudents>, IStudicaDemoStudents
     {
         /// <summary>
         /// The base URI of the service.
@@ -60,31 +60,31 @@ namespace Kmd.Studica.Students.Client
         public virtual IUpdateContactAndAccountInfoExternal UpdateContactAndAccountInfoExternal { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaStudents class.
+        /// Initializes a new instance of the StudicaDemoStudents class.
         /// </summary>
         /// <param name='httpClient'>
         /// HttpClient to be used
         /// </param>
         /// <param name='disposeHttpClient'>
-        /// True: will dispose the provided httpClient on calling KMDStudicaStudents.Dispose(). False: will not dispose provided httpClient</param>
-        protected KMDStudicaStudents(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
+        /// True: will dispose the provided httpClient on calling StudicaDemoStudents.Dispose(). False: will not dispose provided httpClient</param>
+        protected StudicaDemoStudents(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaStudents class.
+        /// Initializes a new instance of the StudicaDemoStudents class.
         /// </summary>
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected KMDStudicaStudents(params DelegatingHandler[] handlers) : base(handlers)
+        protected StudicaDemoStudents(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaStudents class.
+        /// Initializes a new instance of the StudicaDemoStudents class.
         /// </summary>
         /// <param name='rootHandler'>
         /// Optional. The http client handler used to handle http transport.
@@ -92,13 +92,13 @@ namespace Kmd.Studica.Students.Client
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected KMDStudicaStudents(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        protected StudicaDemoStudents(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaStudents class.
+        /// Initializes a new instance of the StudicaDemoStudents class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -109,7 +109,7 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected KMDStudicaStudents(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        protected StudicaDemoStudents(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -119,7 +119,7 @@ namespace Kmd.Studica.Students.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaStudents class.
+        /// Initializes a new instance of the StudicaDemoStudents class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -133,7 +133,7 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected KMDStudicaStudents(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        protected StudicaDemoStudents(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {
@@ -143,7 +143,7 @@ namespace Kmd.Studica.Students.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaStudents class.
+        /// Initializes a new instance of the StudicaDemoStudents class.
         /// </summary>
         /// <param name='credentials'>
         /// Required. Subscription credentials which uniquely identify client subscription.
@@ -154,7 +154,7 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaStudents(ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
+        public StudicaDemoStudents(ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (credentials == null)
             {
@@ -168,7 +168,7 @@ namespace Kmd.Studica.Students.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaStudents class.
+        /// Initializes a new instance of the StudicaDemoStudents class.
         /// </summary>
         /// <param name='credentials'>
         /// Required. Subscription credentials which uniquely identify client subscription.
@@ -177,11 +177,11 @@ namespace Kmd.Studica.Students.Client
         /// HttpClient to be used
         /// </param>
         /// <param name='disposeHttpClient'>
-        /// True: will dispose the provided httpClient on calling KMDStudicaStudents.Dispose(). False: will not dispose provided httpClient</param>
+        /// True: will dispose the provided httpClient on calling StudicaDemoStudents.Dispose(). False: will not dispose provided httpClient</param>
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaStudents(ServiceClientCredentials credentials, HttpClient httpClient, bool disposeHttpClient) : this(httpClient, disposeHttpClient)
+        public StudicaDemoStudents(ServiceClientCredentials credentials, HttpClient httpClient, bool disposeHttpClient) : this(httpClient, disposeHttpClient)
         {
             if (credentials == null)
             {
@@ -195,7 +195,7 @@ namespace Kmd.Studica.Students.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaStudents class.
+        /// Initializes a new instance of the StudicaDemoStudents class.
         /// </summary>
         /// <param name='credentials'>
         /// Required. Subscription credentials which uniquely identify client subscription.
@@ -209,7 +209,7 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaStudents(ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public StudicaDemoStudents(ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (credentials == null)
             {
@@ -223,7 +223,7 @@ namespace Kmd.Studica.Students.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaStudents class.
+        /// Initializes a new instance of the StudicaDemoStudents class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -237,7 +237,7 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaStudents(System.Uri baseUri, ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
+        public StudicaDemoStudents(System.Uri baseUri, ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -256,7 +256,7 @@ namespace Kmd.Studica.Students.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaStudents class.
+        /// Initializes a new instance of the StudicaDemoStudents class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -273,7 +273,7 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaStudents(System.Uri baseUri, ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public StudicaDemoStudents(System.Uri baseUri, ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {
@@ -304,7 +304,7 @@ namespace Kmd.Studica.Students.Client
             BulkStudentsExternal = new BulkStudentsExternal(this);
             StudentMarksExternal = new StudentMarksExternal(this);
             UpdateContactAndAccountInfoExternal = new UpdateContactAndAccountInfoExternal(this);
-            BaseUri = new System.Uri("https://kmd-logic-shareddev-apim.azure-api.net/studica/students/v1");
+            BaseUri = new System.Uri("https://api.studica.dk/demo/students/v1");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,
@@ -332,7 +332,10 @@ namespace Kmd.Studica.Students.Client
             };
             CustomInitialize();
         }
-        /// <param name='body'>
+        /// <summary>
+        /// _ActiveStudentsExternal_Post
+        /// </summary>
+        /// <param name='activeStudentsExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -349,11 +352,11 @@ namespace Kmd.Studica.Students.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> PostWithHttpMessagesAsync(ActiveStudentsExternalRequest body = default(ActiveStudentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseStudentExternalResponse>> PostWithHttpMessagesAsync(ActiveStudentsExternalRequest activeStudentsExternalRequest = default(ActiveStudentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (activeStudentsExternalRequest != null)
             {
-                body.Validate();
+                activeStudentsExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -362,7 +365,7 @@ namespace Kmd.Studica.Students.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("activeStudentsExternalRequest", activeStudentsExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
@@ -391,9 +394,9 @@ namespace Kmd.Studica.Students.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(activeStudentsExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(activeStudentsExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -468,7 +471,10 @@ namespace Kmd.Studica.Students.Client
             return _result;
         }
 
-        /// <param name='body'>
+        /// <summary>
+        /// _StudentMarksExternal_Post
+        /// </summary>
+        /// <param name='studentMarksExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -485,11 +491,11 @@ namespace Kmd.Studica.Students.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseStudentMarksExternalResponse>> Post1WithHttpMessagesAsync(StudentMarksExternalRequest body = default(StudentMarksExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseStudentMarksExternalResponse>> Post1WithHttpMessagesAsync(StudentMarksExternalRequest studentMarksExternalRequest = default(StudentMarksExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (studentMarksExternalRequest != null)
             {
-                body.Validate();
+                studentMarksExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -498,7 +504,7 @@ namespace Kmd.Studica.Students.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("studentMarksExternalRequest", studentMarksExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post1", tracingParameters);
             }
@@ -527,9 +533,9 @@ namespace Kmd.Studica.Students.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(studentMarksExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(studentMarksExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

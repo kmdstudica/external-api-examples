@@ -18,7 +18,10 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IEditLessonExternal
     {
-        /// <param name='body'>
+        /// <summary>
+        /// EditLessonExternal_Post
+        /// </summary>
+        /// <param name='editLessonExternalCommand'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -29,6 +32,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> PostWithHttpMessagesAsync(EditLessonExternalCommand body = default(EditLessonExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PostWithHttpMessagesAsync(EditLessonExternalCommand editLessonExternalCommand = default(EditLessonExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

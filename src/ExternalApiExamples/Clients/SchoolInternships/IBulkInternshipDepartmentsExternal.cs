@@ -18,6 +18,9 @@ namespace Kmd.Studica.SchoolInternships.Client
     /// </summary>
     public partial interface IBulkInternshipDepartmentsExternal
     {
+        /// <summary>
+        /// BulkInternshipDepartmentsExternal_Get
+        /// </summary>
         /// <param name='internshipDepartmentIds'>
         /// The ids of the internship departments to query for.
         /// </param>

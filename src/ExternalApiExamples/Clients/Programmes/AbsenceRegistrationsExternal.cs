@@ -22,7 +22,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// AbsenceRegistrationsExternal operations.
     /// </summary>
-    public partial class AbsenceRegistrationsExternal : IServiceOperations<KMDStudicaProgrammes>, IAbsenceRegistrationsExternal
+    public partial class AbsenceRegistrationsExternal : IServiceOperations<StudicaDemoProgrammes>, IAbsenceRegistrationsExternal
     {
         /// <summary>
         /// Initializes a new instance of the AbsenceRegistrationsExternal class.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public AbsenceRegistrationsExternal(KMDStudicaProgrammes client)
+        public AbsenceRegistrationsExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -43,34 +43,38 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
+        /// <summary>
+        /// AbsenceRegistrationsExternal_Get
+        /// </summary>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
         /// </param>
         /// <param name='pageNumber'>
-        /// The page number to return.
+        /// Format - int32. The page number to return.
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if include total number of items.
         /// </param>
         /// <param name='studentId'>
-        /// Absent student.
+        /// Format - uuid. Absent student.
         /// </param>
         /// <param name='lessonId'>
-        /// Lesson of absence.
+        /// Format - uuid. Lesson of absence.
         /// </param>
         /// <param name='dateFrom'>
-        /// Beginning of the range for absence date. The `DateFrom` parameter
+        /// Format - date (as full-date in RFC3339). Beginning of the range for absence
+        /// date. The `DateFrom` parameter
         /// determines date to get absence data from, as well as the school year period
         /// </param>
         /// <param name='dateTo'>
-        /// End of the range for absence date.
+        /// Format - date (as full-date in RFC3339). End of the range for absence date.
         /// The `DateTo` parameter must be within the same school year as `DateFrom`
         /// </param>
         /// <param name='onlyAbsenceReports'>

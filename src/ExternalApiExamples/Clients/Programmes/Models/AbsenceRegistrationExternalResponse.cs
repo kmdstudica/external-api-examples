@@ -67,7 +67,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Gets or sets guid
         /// </summary>
         /// <remarks>
-        /// Lesson id.
+        /// Lesson (or session) id.
         /// </remarks>
         [JsonProperty(PropertyName = "lessonId")]
         public System.Guid LessonId { get; set; }

@@ -24,7 +24,7 @@ public class LessonsExample
         // #warning Method deprecated
         // Console.WriteLine("Lessons example");
         //
-        // using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        // using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         // programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
         //     ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
         //     : new Uri(configuration.ProgrammesBaseUri);
@@ -54,7 +54,7 @@ public class LessonsExample
         // #warning Method deprecated
         // Console.WriteLine("Get unscheduled lessons example");
         //
-        // using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        // using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         // programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
         //     ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
         //     : new Uri(configuration.ProgrammesBaseUri);
@@ -81,7 +81,7 @@ public class LessonsExample
         // #warning Method deprecated
         // Console.WriteLine("Add lessons example");
         //
-        // using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        // using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         // programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
         //     ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
         //     : new Uri(configuration.ProgrammesBaseUri);
@@ -118,7 +118,7 @@ public class LessonsExample
         // #warning Method deprecated
         // Console.WriteLine("Edit lesson example");
         //
-        // using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        // using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         // programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
         //     ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
         //     : new Uri(configuration.ProgrammesBaseUri);
@@ -149,7 +149,7 @@ public class LessonsExample
         // #warning Method deprecated
         // Console.WriteLine("Delete lesson example");
         //
-        // using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        // using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         // programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
         //     ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
         //     : new Uri(configuration.ProgrammesBaseUri);
@@ -175,7 +175,7 @@ public class LessonsExample
         // #warning Method deprecated
         // Console.WriteLine("Delete lessons example");
         //
-        // using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        // using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         // programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
         //     ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
         //     : new Uri(configuration.ProgrammesBaseUri);
@@ -201,7 +201,7 @@ public class LessonsExample
         // #warning Method deprecated
         // Console.WriteLine("Bulk lessons example");
         //
-        // using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        // using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         // programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
         //     ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
         //     : new Uri(configuration.ProgrammesBaseUri);

@@ -15,18 +15,22 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class ActiveBridgingCoursesExternalExtensions
     {
+            /// <summary>
+            /// ActiveBridgingCoursesExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='bridgingCoursesActiveOnOrAfterDate'>
-            /// Bridging courses must be active on the date or after this date
+            /// Format - date (as full-date in RFC3339). Bridging courses must be active on
+            /// the date or after this date
             /// This parameter is required
             /// </param>
             /// <param name='pageNumber'>
-            /// The number of the page to return (1 is the first page).
+            /// Format - int32. The number of the page to return (1 is the first page).
             /// </param>
             /// <param name='pageSize'>
-            /// Number of objects per page.
+            /// Format - int32. Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
@@ -35,25 +39,30 @@ namespace Kmd.Studica.Programmes.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
-            /// Only get data inserted or updated on or after the specified date
+            /// Format - date-time (as date-time in RFC3339). Only get data inserted or
+            /// updated on or after the specified date
             /// </param>
             public static PagedResponseBridgingCoursesExternalResponse Get(this IActiveBridgingCoursesExternal operations, System.DateTime bridgingCoursesActiveOnOrAfterDate, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?))
             {
                 return operations.GetAsync(bridgingCoursesActiveOnOrAfterDate, pageNumber, pageSize, inlineCount, schoolCode, onlyDataInsertedOrUpdatedOnOrAfter).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// ActiveBridgingCoursesExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='bridgingCoursesActiveOnOrAfterDate'>
-            /// Bridging courses must be active on the date or after this date
+            /// Format - date (as full-date in RFC3339). Bridging courses must be active on
+            /// the date or after this date
             /// This parameter is required
             /// </param>
             /// <param name='pageNumber'>
-            /// The number of the page to return (1 is the first page).
+            /// Format - int32. The number of the page to return (1 is the first page).
             /// </param>
             /// <param name='pageSize'>
-            /// Number of objects per page.
+            /// Format - int32. Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
@@ -62,7 +71,8 @@ namespace Kmd.Studica.Programmes.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
-            /// Only get data inserted or updated on or after the specified date
+            /// Format - date-time (as date-time in RFC3339). Only get data inserted or
+            /// updated on or after the specified date
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

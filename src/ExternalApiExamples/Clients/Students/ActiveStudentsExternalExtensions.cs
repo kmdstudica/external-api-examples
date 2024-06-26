@@ -15,14 +15,17 @@ namespace Kmd.Studica.Students.Client
     /// </summary>
     public static partial class ActiveStudentsExternalExtensions
     {
+            /// <summary>
+            /// ActiveStudentsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pageNumber'>
-            /// The number of the page to return (1 is the first page).
+            /// Format - int32. The number of the page to return (1 is the first page).
             /// </param>
             /// <param name='pageSize'>
-            /// Number of objects per page.
+            /// Format - int32. Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
@@ -31,7 +34,8 @@ namespace Kmd.Studica.Students.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='studentActiveOnOrAfterDate'>
-            /// Students must be active on the date or after this date
+            /// Format - date (as full-date in RFC3339). Students must be active on the
+            /// date or after this date
             /// This parameter is required
             /// </param>
             public static PagedResponseStudentExternalResponse Get(this IActiveStudentsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? studentActiveOnOrAfterDate = default(System.DateTime?))
@@ -39,14 +43,17 @@ namespace Kmd.Studica.Students.Client
                 return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode, studentActiveOnOrAfterDate).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// ActiveStudentsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pageNumber'>
-            /// The number of the page to return (1 is the first page).
+            /// Format - int32. The number of the page to return (1 is the first page).
             /// </param>
             /// <param name='pageSize'>
-            /// Number of objects per page.
+            /// Format - int32. Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
@@ -55,7 +62,8 @@ namespace Kmd.Studica.Students.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='studentActiveOnOrAfterDate'>
-            /// Students must be active on the date or after this date
+            /// Format - date (as full-date in RFC3339). Students must be active on the
+            /// date or after this date
             /// This parameter is required
             /// </param>
             /// <param name='cancellationToken'>

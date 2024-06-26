@@ -22,7 +22,7 @@ public class ActivityReportsExample
     {
         Console.Write("Executing student activity reports example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
@@ -47,7 +47,7 @@ public class ActivityReportsExample
     {
         Console.Write("Executing activity reports example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);

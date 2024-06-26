@@ -17,6 +17,9 @@ namespace Kmd.Studica.Statistics.Client
     /// </summary>
     public static partial class SubmitHandinsExternalExtensions
     {
+            /// <summary>
+            /// SubmitHandinsExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -31,6 +34,9 @@ namespace Kmd.Studica.Statistics.Client
                 operations.PostAsync(handins, schoolCode).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// SubmitHandinsExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>

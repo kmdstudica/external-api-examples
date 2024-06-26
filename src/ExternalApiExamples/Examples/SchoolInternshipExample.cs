@@ -24,7 +24,7 @@ public class SchoolInternshipExample
     public async Task ExecuteSchoolInternship()
     {
         // #warning Method deprecated
-        // using var internshipsClient = new KMDStudicaSchoolInternships(new TokenCredentials(tokenProvider));
+        // using var internshipsClient = new StudicaDemoSchoolInternships(new TokenCredentials(tokenProvider));
         // internshipsClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolInternshipsBaseUri)
         //     ? new Uri("https://gateway.kmdlogic.io/studica/school-internships/v1")
         //     : new Uri(configuration.SchoolInternshipsBaseUri);
@@ -47,7 +47,7 @@ public class SchoolInternshipExample
 
     public async Task ExecuteSchoolInternshipV2()
     {
-        using var internshipsClient = new KMDStudicaSchoolInternships(new TokenCredentials(tokenProvider));
+        using var internshipsClient = new StudicaDemoSchoolInternships(new TokenCredentials(tokenProvider));
         internshipsClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolInternshipsBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-internships/v1")
             : new Uri(configuration.SchoolInternshipsBaseUri);
@@ -70,7 +70,7 @@ public class SchoolInternshipExample
 
     public async Task ExecuteSchoolInternshipAbsence()
     {
-        using var internshipsClient = new KMDStudicaSchoolInternships(new TokenCredentials(tokenProvider));
+        using var internshipsClient = new StudicaDemoSchoolInternships(new TokenCredentials(tokenProvider));
         internshipsClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolInternshipsBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-internships/v1")
             : new Uri(configuration.SchoolInternshipsBaseUri);
@@ -97,7 +97,7 @@ public class SchoolInternshipExample
         // #warning Method deprecated
         // Console.WriteLine("Executing student internhip legacy courses example");
         //
-        // using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        // using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         // programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
         //     ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
         //     : new Uri(configuration.ProgrammesBaseUri);
@@ -122,7 +122,7 @@ public class SchoolInternshipExample
     {
         Console.WriteLine("Executing student internship departments example");
 
-        using var internshipsClient = new KMDStudicaSchoolInternships(new TokenCredentials(tokenProvider));
+        using var internshipsClient = new StudicaDemoSchoolInternships(new TokenCredentials(tokenProvider));
         internshipsClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolInternshipsBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-internships/v1")
             : new Uri(configuration.SchoolInternshipsBaseUri);
@@ -147,7 +147,7 @@ public class SchoolInternshipExample
     {
         Console.WriteLine("Executing student internship departments example");
 
-        using var internshipsClient = new KMDStudicaSchoolInternships(new TokenCredentials(tokenProvider));
+        using var internshipsClient = new StudicaDemoSchoolInternships(new TokenCredentials(tokenProvider));
         internshipsClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolInternshipsBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-internships/v1")
             : new Uri(configuration.SchoolInternshipsBaseUri);

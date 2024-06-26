@@ -23,7 +23,7 @@ public class SubjectCoursesExample
     {
         Console.WriteLine("Executing subject courses example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
@@ -70,7 +70,7 @@ public class SubjectCoursesExample
     {
         Console.WriteLine("Executing bulk subject courses example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
@@ -92,7 +92,7 @@ public class SubjectCoursesExample
     {
         Console.WriteLine("Executing student subject courses example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
@@ -119,7 +119,7 @@ public class SubjectCoursesExample
     {
         Console.WriteLine("Executing active subject courses example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);

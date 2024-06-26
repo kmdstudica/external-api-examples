@@ -21,7 +21,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// <summary>
     /// BulkRoomsExternal operations.
     /// </summary>
-    public partial class BulkRoomsExternal : IServiceOperations<KMDStudicaSchoolAdministration>, IBulkRoomsExternal
+    public partial class BulkRoomsExternal : IServiceOperations<StudicaDemoSchoolAdministration>, IBulkRoomsExternal
     {
         /// <summary>
         /// Initializes a new instance of the BulkRoomsExternal class.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public BulkRoomsExternal(KMDStudicaSchoolAdministration client)
+        public BulkRoomsExternal(StudicaDemoSchoolAdministration client)
         {
             if (client == null)
             {
@@ -42,10 +42,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaSchoolAdministration
+        /// Gets a reference to the StudicaDemoSchoolAdministration
         /// </summary>
-        public KMDStudicaSchoolAdministration Client { get; private set; }
+        public StudicaDemoSchoolAdministration Client { get; private set; }
 
+        /// <summary>
+        /// BulkRoomsExternal_Post
+        /// </summary>
         /// <param name='roomIds'>
         /// Room identifiers for bulk query.
         /// </param>
@@ -105,12 +108,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
                     throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
                 }
             }
-            BulkRoomsExternalRequest body = default(BulkRoomsExternalRequest);
+            BulkRoomsExternalRequest bulkRoomsExternalRequest = default(BulkRoomsExternalRequest);
             if (roomIds != null || schoolCode != null)
             {
-                body = new BulkRoomsExternalRequest();
-                body.RoomIds = roomIds;
-                body.SchoolCode = schoolCode;
+                bulkRoomsExternalRequest = new BulkRoomsExternalRequest();
+                bulkRoomsExternalRequest.RoomIds = roomIds;
+                bulkRoomsExternalRequest.SchoolCode = schoolCode;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -119,7 +122,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("bulkRoomsExternalRequest", bulkRoomsExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
@@ -148,9 +151,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(bulkRoomsExternalRequest != null)
             {
-                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(bulkRoomsExternalRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

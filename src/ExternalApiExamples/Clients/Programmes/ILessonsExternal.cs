@@ -18,11 +18,15 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface ILessonsExternal
     {
+        /// <summary>
+        /// LessonsExternal_Get
+        /// </summary>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first
+        /// page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
@@ -31,13 +35,15 @@ namespace Kmd.Studica.Programmes.Client
         /// The school code for which to get data.
         /// </param>
         /// <param name='departmentId'>
-        /// Department where the lesson is conducted.
+        /// Format - uuid. Department where the lesson is conducted.
         /// </param>
         /// <param name='dateFrom'>
-        /// Beginning of range for lesson date.
+        /// Format - date (as full-date in RFC3339). Beginning of range for
+        /// lesson date.
         /// </param>
         /// <param name='dateTo'>
-        /// End of range for lesson date.
+        /// Format - date (as full-date in RFC3339). End of range for lesson
+        /// date.
         /// </param>
         /// <param name='hasExternalId'>
         /// Flag indicating if lesson contains external id.

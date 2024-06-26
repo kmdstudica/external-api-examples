@@ -4,7 +4,7 @@
 // regenerated.
 // </auto-generated>
 
-namespace Kmd.Studica.SchoolAdministration.Client
+namespace Kmd.Studica.Programmes.Client
 {
     using Microsoft.Rest;
     using Microsoft.Rest.Serialization;
@@ -17,7 +17,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
     using System.Threading;
     using System.Threading.Tasks;
 
-    public partial class KMDStudicaSchoolAdministration : ServiceClient<KMDStudicaSchoolAdministration>, IKMDStudicaSchoolAdministration
+    public partial class StudicaDemoProgrammes : ServiceClient<StudicaDemoProgrammes>, IStudicaDemoProgrammes
     {
         /// <summary>
         /// The base URI of the service.
@@ -40,111 +40,236 @@ namespace Kmd.Studica.SchoolAdministration.Client
         public ServiceClientCredentials Credentials { get; private set; }
 
         /// <summary>
-        /// Gets the IActiveDepartmentsExternal.
+        /// Gets the IAbsenceRegistrationsExternal.
         /// </summary>
-        public virtual IActiveDepartmentsExternal ActiveDepartmentsExternal { get; private set; }
+        public virtual IAbsenceRegistrationsExternal AbsenceRegistrationsExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IActiveEmployeesExternal.
+        /// Gets the IActiveBridgingCoursesExternal.
         /// </summary>
-        public virtual IActiveEmployeesExternal ActiveEmployeesExternal { get; private set; }
+        public virtual IActiveBridgingCoursesExternal ActiveBridgingCoursesExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IAreasOfEducationExternal.
+        /// Gets the IActiveSubjectCoursesExternal.
         /// </summary>
-        public virtual IAreasOfEducationExternal AreasOfEducationExternal { get; private set; }
+        public virtual IActiveSubjectCoursesExternal ActiveSubjectCoursesExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IAreasOfResponsibilityExternal.
+        /// Gets the IActivitiesExternal.
         /// </summary>
-        public virtual IAreasOfResponsibilityExternal AreasOfResponsibilityExternal { get; private set; }
+        public virtual IActivitiesExternal ActivitiesExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IBulkAreasOfResponsibilityExternal.
+        /// Gets the IAddIndependentSessionsExternal.
         /// </summary>
-        public virtual IBulkAreasOfResponsibilityExternal BulkAreasOfResponsibilityExternal { get; private set; }
+        public virtual IAddIndependentSessionsExternal AddIndependentSessionsExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IBulkDepartmentsExternal.
+        /// Gets the IAddLessonsExternal.
         /// </summary>
-        public virtual IBulkDepartmentsExternal BulkDepartmentsExternal { get; private set; }
+        public virtual IAddLessonsExternal AddLessonsExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IBulkEmployeesExternal.
+        /// Gets the IAddSessionsToSubjectCoursesExternal.
         /// </summary>
-        public virtual IBulkEmployeesExternal BulkEmployeesExternal { get; private set; }
+        public virtual IAddSessionsToSubjectCoursesExternal AddSessionsToSubjectCoursesExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IBulkRoomsExternal.
+        /// Gets the IBulkAbsenceRegistrationsExternal.
         /// </summary>
-        public virtual IBulkRoomsExternal BulkRoomsExternal { get; private set; }
+        public virtual IBulkAbsenceRegistrationsExternal BulkAbsenceRegistrationsExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IDayCalendarsExternal.
+        /// Gets the IBulkBridgingCourseStudentsExternal.
         /// </summary>
-        public virtual IDayCalendarsExternal DayCalendarsExternal { get; private set; }
+        public virtual IBulkBridgingCourseStudentsExternal BulkBridgingCourseStudentsExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IDepartmentsExternal.
+        /// Gets the IBulkEducationalProgrammesExternal.
         /// </summary>
-        public virtual IDepartmentsExternal DepartmentsExternal { get; private set; }
+        public virtual IBulkEducationalProgrammesExternal BulkEducationalProgrammesExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IEmployeesExternal.
+        /// Gets the IBulkLessonsExternal.
         /// </summary>
-        public virtual IEmployeesExternal EmployeesExternal { get; private set; }
+        public virtual IBulkLessonsExternal BulkLessonsExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IRoomsExternal.
+        /// Gets the IBulkSubjectCoursesExternal.
         /// </summary>
-        public virtual IRoomsExternal RoomsExternal { get; private set; }
+        public virtual IBulkSubjectCoursesExternal BulkSubjectCoursesExternal { get; private set; }
 
         /// <summary>
-        /// Gets the ISchoolHourEntriesExternal.
+        /// Gets the IDeleteLessonExternal.
         /// </summary>
-        public virtual ISchoolHourEntriesExternal SchoolHourEntriesExternal { get; private set; }
+        public virtual IDeleteLessonExternal DeleteLessonExternal { get; private set; }
 
         /// <summary>
-        /// Gets the ISchoolHoursPlanDetailsExternal.
+        /// Gets the IDeleteLessonsExternal.
         /// </summary>
-        public virtual ISchoolHoursPlanDetailsExternal SchoolHoursPlanDetailsExternal { get; private set; }
+        public virtual IDeleteLessonsExternal DeleteLessonsExternal { get; private set; }
 
         /// <summary>
-        /// Gets the ISchoolHoursPlansExternal.
+        /// Gets the IDeleteSessionsExternal.
         /// </summary>
-        public virtual ISchoolHoursPlansExternal SchoolHoursPlansExternal { get; private set; }
+        public virtual IDeleteSessionsExternal DeleteSessionsExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IUpdateContactAndAccountInfoExternal.
+        /// Gets the IEditIndependentSessionExternal.
         /// </summary>
-        public virtual IUpdateContactAndAccountInfoExternal UpdateContactAndAccountInfoExternal { get; private set; }
+        public virtual IEditIndependentSessionExternal EditIndependentSessionExternal { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolAdministration class.
+        /// Gets the IEditLessonExternal.
+        /// </summary>
+        public virtual IEditLessonExternal EditLessonExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IEditSubjectCourseSessionExternal.
+        /// </summary>
+        public virtual IEditSubjectCourseSessionExternal EditSubjectCourseSessionExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IEducationalProgrammesExternal.
+        /// </summary>
+        public virtual IEducationalProgrammesExternal EducationalProgrammesExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IGroupsExternal.
+        /// </summary>
+        public virtual IGroupsExternal GroupsExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the ILessonsExternal.
+        /// </summary>
+        public virtual ILessonsExternal LessonsExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegisterAbsenceExternal.
+        /// </summary>
+        public virtual IRegisterAbsenceExternal RegisterAbsenceExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the ISchoolCoursesExternal.
+        /// </summary>
+        public virtual ISchoolCoursesExternal SchoolCoursesExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the ISessionsByIdExternal.
+        /// </summary>
+        public virtual ISessionsByIdExternal SessionsByIdExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the ISessionsExternal.
+        /// </summary>
+        public virtual ISessionsExternal SessionsExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IStudentActivityReportsExternal.
+        /// </summary>
+        public virtual IStudentActivityReportsExternal StudentActivityReportsExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IStudentActivityReportsV2External.
+        /// </summary>
+        public virtual IStudentActivityReportsV2External StudentActivityReportsV2External { get; private set; }
+
+        /// <summary>
+        /// Gets the IStudentInternshipExternal.
+        /// </summary>
+        public virtual IStudentInternshipExternal StudentInternshipExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IStudentSchoolCoursesExternal.
+        /// </summary>
+        public virtual IStudentSchoolCoursesExternal StudentSchoolCoursesExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IStudentSubjectCoursesExternal.
+        /// </summary>
+        public virtual IStudentSubjectCoursesExternal StudentSubjectCoursesExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the ISubjectCoursesExternal.
+        /// </summary>
+        public virtual ISubjectCoursesExternal SubjectCoursesExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IAddEducationalProgrammeSessionsExternal.
+        /// </summary>
+        public virtual IAddEducationalProgrammeSessionsExternal AddEducationalProgrammeSessionsExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IAddMeetingSessionsExternal.
+        /// </summary>
+        public virtual IAddMeetingSessionsExternal AddMeetingSessionsExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IAddOtherSessionsExternal.
+        /// </summary>
+        public virtual IAddOtherSessionsExternal AddOtherSessionsExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IAddPrivateAbsenceSessionsExternal.
+        /// </summary>
+        public virtual IAddPrivateAbsenceSessionsExternal AddPrivateAbsenceSessionsExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IAddSocialSessionsExternal.
+        /// </summary>
+        public virtual IAddSocialSessionsExternal AddSocialSessionsExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IEditEducationalProgrammeSessionExternal.
+        /// </summary>
+        public virtual IEditEducationalProgrammeSessionExternal EditEducationalProgrammeSessionExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IEditMeetingSessionExternal.
+        /// </summary>
+        public virtual IEditMeetingSessionExternal EditMeetingSessionExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IEditOtherSessionExternal.
+        /// </summary>
+        public virtual IEditOtherSessionExternal EditOtherSessionExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IEditPrivateAbsenceSessionExternal.
+        /// </summary>
+        public virtual IEditPrivateAbsenceSessionExternal EditPrivateAbsenceSessionExternal { get; private set; }
+
+        /// <summary>
+        /// Gets the IEditSocialSessionExternal.
+        /// </summary>
+        public virtual IEditSocialSessionExternal EditSocialSessionExternal { get; private set; }
+
+        /// <summary>
+        /// Initializes a new instance of the StudicaDemoProgrammes class.
         /// </summary>
         /// <param name='httpClient'>
         /// HttpClient to be used
         /// </param>
         /// <param name='disposeHttpClient'>
-        /// True: will dispose the provided httpClient on calling KMDStudicaSchoolAdministration.Dispose(). False: will not dispose provided httpClient</param>
-        protected KMDStudicaSchoolAdministration(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
+        /// True: will dispose the provided httpClient on calling StudicaDemoProgrammes.Dispose(). False: will not dispose provided httpClient</param>
+        protected StudicaDemoProgrammes(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolAdministration class.
+        /// Initializes a new instance of the StudicaDemoProgrammes class.
         /// </summary>
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected KMDStudicaSchoolAdministration(params DelegatingHandler[] handlers) : base(handlers)
+        protected StudicaDemoProgrammes(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolAdministration class.
+        /// Initializes a new instance of the StudicaDemoProgrammes class.
         /// </summary>
         /// <param name='rootHandler'>
         /// Optional. The http client handler used to handle http transport.
@@ -152,13 +277,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected KMDStudicaSchoolAdministration(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        protected StudicaDemoProgrammes(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolAdministration class.
+        /// Initializes a new instance of the StudicaDemoProgrammes class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -169,7 +294,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected KMDStudicaSchoolAdministration(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        protected StudicaDemoProgrammes(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -179,7 +304,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolAdministration class.
+        /// Initializes a new instance of the StudicaDemoProgrammes class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -193,7 +318,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected KMDStudicaSchoolAdministration(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        protected StudicaDemoProgrammes(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {
@@ -203,7 +328,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolAdministration class.
+        /// Initializes a new instance of the StudicaDemoProgrammes class.
         /// </summary>
         /// <param name='credentials'>
         /// Required. Subscription credentials which uniquely identify client subscription.
@@ -214,7 +339,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaSchoolAdministration(ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
+        public StudicaDemoProgrammes(ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (credentials == null)
             {
@@ -228,7 +353,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolAdministration class.
+        /// Initializes a new instance of the StudicaDemoProgrammes class.
         /// </summary>
         /// <param name='credentials'>
         /// Required. Subscription credentials which uniquely identify client subscription.
@@ -237,11 +362,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// HttpClient to be used
         /// </param>
         /// <param name='disposeHttpClient'>
-        /// True: will dispose the provided httpClient on calling KMDStudicaSchoolAdministration.Dispose(). False: will not dispose provided httpClient</param>
+        /// True: will dispose the provided httpClient on calling StudicaDemoProgrammes.Dispose(). False: will not dispose provided httpClient</param>
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaSchoolAdministration(ServiceClientCredentials credentials, HttpClient httpClient, bool disposeHttpClient) : this(httpClient, disposeHttpClient)
+        public StudicaDemoProgrammes(ServiceClientCredentials credentials, HttpClient httpClient, bool disposeHttpClient) : this(httpClient, disposeHttpClient)
         {
             if (credentials == null)
             {
@@ -255,7 +380,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolAdministration class.
+        /// Initializes a new instance of the StudicaDemoProgrammes class.
         /// </summary>
         /// <param name='credentials'>
         /// Required. Subscription credentials which uniquely identify client subscription.
@@ -269,7 +394,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaSchoolAdministration(ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public StudicaDemoProgrammes(ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (credentials == null)
             {
@@ -283,7 +408,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolAdministration class.
+        /// Initializes a new instance of the StudicaDemoProgrammes class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -297,7 +422,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaSchoolAdministration(System.Uri baseUri, ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
+        public StudicaDemoProgrammes(System.Uri baseUri, ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -316,7 +441,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolAdministration class.
+        /// Initializes a new instance of the StudicaDemoProgrammes class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -333,7 +458,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaSchoolAdministration(System.Uri baseUri, ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public StudicaDemoProgrammes(System.Uri baseUri, ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {
@@ -360,23 +485,48 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// </summary>
         private void Initialize()
         {
-            ActiveDepartmentsExternal = new ActiveDepartmentsExternal(this);
-            ActiveEmployeesExternal = new ActiveEmployeesExternal(this);
-            AreasOfEducationExternal = new AreasOfEducationExternal(this);
-            AreasOfResponsibilityExternal = new AreasOfResponsibilityExternal(this);
-            BulkAreasOfResponsibilityExternal = new BulkAreasOfResponsibilityExternal(this);
-            BulkDepartmentsExternal = new BulkDepartmentsExternal(this);
-            BulkEmployeesExternal = new BulkEmployeesExternal(this);
-            BulkRoomsExternal = new BulkRoomsExternal(this);
-            DayCalendarsExternal = new DayCalendarsExternal(this);
-            DepartmentsExternal = new DepartmentsExternal(this);
-            EmployeesExternal = new EmployeesExternal(this);
-            RoomsExternal = new RoomsExternal(this);
-            SchoolHourEntriesExternal = new SchoolHourEntriesExternal(this);
-            SchoolHoursPlanDetailsExternal = new SchoolHoursPlanDetailsExternal(this);
-            SchoolHoursPlansExternal = new SchoolHoursPlansExternal(this);
-            UpdateContactAndAccountInfoExternal = new UpdateContactAndAccountInfoExternal(this);
-            BaseUri = new System.Uri("https://kmd-logic-shareddev-apim.azure-api.net/studica/school-administration/v1");
+            AbsenceRegistrationsExternal = new AbsenceRegistrationsExternal(this);
+            ActiveBridgingCoursesExternal = new ActiveBridgingCoursesExternal(this);
+            ActiveSubjectCoursesExternal = new ActiveSubjectCoursesExternal(this);
+            ActivitiesExternal = new ActivitiesExternal(this);
+            AddIndependentSessionsExternal = new AddIndependentSessionsExternal(this);
+            AddLessonsExternal = new AddLessonsExternal(this);
+            AddSessionsToSubjectCoursesExternal = new AddSessionsToSubjectCoursesExternal(this);
+            BulkAbsenceRegistrationsExternal = new BulkAbsenceRegistrationsExternal(this);
+            BulkBridgingCourseStudentsExternal = new BulkBridgingCourseStudentsExternal(this);
+            BulkEducationalProgrammesExternal = new BulkEducationalProgrammesExternal(this);
+            BulkLessonsExternal = new BulkLessonsExternal(this);
+            BulkSubjectCoursesExternal = new BulkSubjectCoursesExternal(this);
+            DeleteLessonExternal = new DeleteLessonExternal(this);
+            DeleteLessonsExternal = new DeleteLessonsExternal(this);
+            DeleteSessionsExternal = new DeleteSessionsExternal(this);
+            EditIndependentSessionExternal = new EditIndependentSessionExternal(this);
+            EditLessonExternal = new EditLessonExternal(this);
+            EditSubjectCourseSessionExternal = new EditSubjectCourseSessionExternal(this);
+            EducationalProgrammesExternal = new EducationalProgrammesExternal(this);
+            GroupsExternal = new GroupsExternal(this);
+            LessonsExternal = new LessonsExternal(this);
+            RegisterAbsenceExternal = new RegisterAbsenceExternal(this);
+            SchoolCoursesExternal = new SchoolCoursesExternal(this);
+            SessionsByIdExternal = new SessionsByIdExternal(this);
+            SessionsExternal = new SessionsExternal(this);
+            StudentActivityReportsExternal = new StudentActivityReportsExternal(this);
+            StudentActivityReportsV2External = new StudentActivityReportsV2External(this);
+            StudentInternshipExternal = new StudentInternshipExternal(this);
+            StudentSchoolCoursesExternal = new StudentSchoolCoursesExternal(this);
+            StudentSubjectCoursesExternal = new StudentSubjectCoursesExternal(this);
+            SubjectCoursesExternal = new SubjectCoursesExternal(this);
+            AddEducationalProgrammeSessionsExternal = new AddEducationalProgrammeSessionsExternal(this);
+            AddMeetingSessionsExternal = new AddMeetingSessionsExternal(this);
+            AddOtherSessionsExternal = new AddOtherSessionsExternal(this);
+            AddPrivateAbsenceSessionsExternal = new AddPrivateAbsenceSessionsExternal(this);
+            AddSocialSessionsExternal = new AddSocialSessionsExternal(this);
+            EditEducationalProgrammeSessionExternal = new EditEducationalProgrammeSessionExternal(this);
+            EditMeetingSessionExternal = new EditMeetingSessionExternal(this);
+            EditOtherSessionExternal = new EditOtherSessionExternal(this);
+            EditPrivateAbsenceSessionExternal = new EditPrivateAbsenceSessionExternal(this);
+            EditSocialSessionExternal = new EditSocialSessionExternal(this);
+            BaseUri = new System.Uri("https://api.studica.dk/demo/programmes/v1");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,
@@ -404,7 +554,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
             };
             CustomInitialize();
         }
-        /// <param name='body'>
+        /// <summary>
+        /// _AbsenceRegistrationsExternal_Post
+        /// </summary>
+        /// <param name='absenceRegistrationsExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -421,11 +574,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseDepartmentsExternalResponse>> PostWithHttpMessagesAsync(ActiveDepartmentsExternalRequest body = default(ActiveDepartmentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseAbsenceRegistrationExternalResponse>> PostWithHttpMessagesAsync(AbsenceRegistrationsExternalRequest absenceRegistrationsExternalRequest = default(AbsenceRegistrationsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (absenceRegistrationsExternalRequest != null)
             {
-                body.Validate();
+                absenceRegistrationsExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -434,13 +587,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("absenceRegistrationsExternalRequest", absenceRegistrationsExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ActiveDepartmentsExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "AbsenceRegistrationsExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -463,9 +616,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(absenceRegistrationsExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(absenceRegistrationsExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -512,7 +665,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponseDepartmentsExternalResponse>();
+            var _result = new HttpOperationResponse<PagedResponseAbsenceRegistrationExternalResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -521,7 +674,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseDepartmentsExternalResponse>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseAbsenceRegistrationExternalResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -540,7 +693,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
             return _result;
         }
 
-        /// <param name='body'>
+        /// <summary>
+        /// _ActiveBridgingCoursesExternal_Post
+        /// </summary>
+        /// <param name='activeBridgingCoursesExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -557,11 +713,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseEmployeeExternalResponse>> Post1WithHttpMessagesAsync(ActiveEmployeesExternalRequest body = default(ActiveEmployeesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseBridgingCoursesExternalResponse>> Post1WithHttpMessagesAsync(ActiveBridgingCoursesExternalRequest activeBridgingCoursesExternalRequest = default(ActiveBridgingCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (activeBridgingCoursesExternalRequest != null)
             {
-                body.Validate();
+                activeBridgingCoursesExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -570,13 +726,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("activeBridgingCoursesExternalRequest", activeBridgingCoursesExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post1", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ActiveEmployeesExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ActiveBridgingCoursesExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -599,9 +755,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(activeBridgingCoursesExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(activeBridgingCoursesExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -648,7 +804,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponseEmployeeExternalResponse>();
+            var _result = new HttpOperationResponse<PagedResponseBridgingCoursesExternalResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -657,7 +813,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseEmployeeExternalResponse>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseBridgingCoursesExternalResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -676,7 +832,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
             return _result;
         }
 
-        /// <param name='body'>
+        /// <summary>
+        /// _ActiveSubjectCoursesExternal_Post
+        /// </summary>
+        /// <param name='activeSubjectCoursesExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -693,11 +852,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseAreaOfEducationExternalResponse>> Post2WithHttpMessagesAsync(AreasOfEducationExternalRequest body = default(AreasOfEducationExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> Post2WithHttpMessagesAsync(ActiveSubjectCoursesExternalRequest activeSubjectCoursesExternalRequest = default(ActiveSubjectCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (activeSubjectCoursesExternalRequest != null)
             {
-                body.Validate();
+                activeSubjectCoursesExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -706,13 +865,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("activeSubjectCoursesExternalRequest", activeSubjectCoursesExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post2", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "AreasOfEducationExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ActiveSubjectCoursesExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -735,9 +894,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(activeSubjectCoursesExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(activeSubjectCoursesExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -784,7 +943,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponseAreaOfEducationExternalResponse>();
+            var _result = new HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -793,7 +952,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseAreaOfEducationExternalResponse>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseSubjectCourseExternalResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -812,7 +971,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
             return _result;
         }
 
-        /// <param name='body'>
+        /// <summary>
+        /// _ActivitiesExternal_Post
+        /// </summary>
+        /// <param name='activitiesExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -829,11 +991,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseAreaOfResponsibilityExternalResponse>> Post3WithHttpMessagesAsync(AreasOfResponsibilityExternalRequest body = default(AreasOfResponsibilityExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseActivityResponse>> Post3WithHttpMessagesAsync(ActivitiesExternalRequest activitiesExternalRequest = default(ActivitiesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (activitiesExternalRequest != null)
             {
-                body.Validate();
+                activitiesExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -842,13 +1004,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("activitiesExternalRequest", activitiesExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post3", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "AreasOfResponsibilityExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ActivitiesExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -871,9 +1033,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(activitiesExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(activitiesExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -920,7 +1082,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponseAreaOfResponsibilityExternalResponse>();
+            var _result = new HttpOperationResponse<PagedResponseActivityResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -929,7 +1091,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseAreaOfResponsibilityExternalResponse>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseActivityResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -948,7 +1110,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
             return _result;
         }
 
-        /// <param name='body'>
+        /// <summary>
+        /// _BulkAbsenceRegistrationsExternal_Post
+        /// </summary>
+        /// <param name='bulkAbsenceRegistrationsExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -965,11 +1130,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseDayCalendarsExternalResponse>> Post4WithHttpMessagesAsync(DayCalendarsExternalRequest body = default(DayCalendarsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<AbsenceRegistrationExternalResponse>>> Post4WithHttpMessagesAsync(BulkAbsenceRegistrationsExternalRequest bulkAbsenceRegistrationsExternalRequest = default(BulkAbsenceRegistrationsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (bulkAbsenceRegistrationsExternalRequest != null)
             {
-                body.Validate();
+                bulkAbsenceRegistrationsExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -978,13 +1143,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("bulkAbsenceRegistrationsExternalRequest", bulkAbsenceRegistrationsExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post4", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "DayCalendarsExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "BulkAbsenceRegistrationsExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1007,9 +1172,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(bulkAbsenceRegistrationsExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(bulkAbsenceRegistrationsExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1056,7 +1221,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponseDayCalendarsExternalResponse>();
+            var _result = new HttpOperationResponse<IList<AbsenceRegistrationExternalResponse>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1065,7 +1230,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseDayCalendarsExternalResponse>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<AbsenceRegistrationExternalResponse>>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1084,7 +1249,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
             return _result;
         }
 
-        /// <param name='body'>
+        /// <summary>
+        /// _EducationalProgrammesExternal_Post
+        /// </summary>
+        /// <param name='educationalProgrammesExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1101,11 +1269,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseDepartmentsExternalResponse>> Post5WithHttpMessagesAsync(DepartmentsExternalRequest body = default(DepartmentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseEducationalProgrammeExternalResponse>> Post5WithHttpMessagesAsync(EducationalProgrammesExternalRequest educationalProgrammesExternalRequest = default(EducationalProgrammesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (educationalProgrammesExternalRequest != null)
             {
-                body.Validate();
+                educationalProgrammesExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1114,13 +1282,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("educationalProgrammesExternalRequest", educationalProgrammesExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post5", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "DepartmentsExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "EducationalProgrammesExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1143,9 +1311,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(educationalProgrammesExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(educationalProgrammesExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1192,7 +1360,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponseDepartmentsExternalResponse>();
+            var _result = new HttpOperationResponse<PagedResponseEducationalProgrammeExternalResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1201,7 +1369,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseDepartmentsExternalResponse>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseEducationalProgrammeExternalResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1220,7 +1388,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
             return _result;
         }
 
-        /// <param name='body'>
+        /// <summary>
+        /// _LessonsExternal_Post
+        /// </summary>
+        /// <param name='lessonsExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1237,11 +1408,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseEmployeeExternalResponse>> Post6WithHttpMessagesAsync(EmployeesExternalRequest body = default(EmployeesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseLessonExternalResponse>> Post6WithHttpMessagesAsync(LessonsExternalRequest lessonsExternalRequest = default(LessonsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (lessonsExternalRequest != null)
             {
-                body.Validate();
+                lessonsExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1250,13 +1421,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("lessonsExternalRequest", lessonsExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post6", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "EmployeesExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "LessonsExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1279,9 +1450,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(lessonsExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(lessonsExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1328,7 +1499,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponseEmployeeExternalResponse>();
+            var _result = new HttpOperationResponse<PagedResponseLessonExternalResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1337,7 +1508,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseEmployeeExternalResponse>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseLessonExternalResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1356,7 +1527,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
             return _result;
         }
 
-        /// <param name='body'>
+        /// <summary>
+        /// _SchoolCoursesExternal_Post
+        /// </summary>
+        /// <param name='schoolCoursesExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1373,11 +1547,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseRoomExternalResponse>> Post7WithHttpMessagesAsync(RoomsExternalRequest body = default(RoomsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseSchoolCourseExternalResponse>> Post7WithHttpMessagesAsync(SchoolCoursesExternalRequest schoolCoursesExternalRequest = default(SchoolCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (schoolCoursesExternalRequest != null)
             {
-                body.Validate();
+                schoolCoursesExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1386,13 +1560,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("schoolCoursesExternalRequest", schoolCoursesExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post7", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "RoomsExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SchoolCoursesExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1415,9 +1589,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(schoolCoursesExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(schoolCoursesExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1464,7 +1638,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponseRoomExternalResponse>();
+            var _result = new HttpOperationResponse<PagedResponseSchoolCourseExternalResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1473,7 +1647,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseRoomExternalResponse>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseSchoolCourseExternalResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1492,144 +1666,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
             return _result;
         }
 
-        /// <param name='body'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// Headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <return>
-        /// A response object containing the response body and response headers.
-        /// </return>
-        public async Task<HttpOperationResponse<PagedResponseSchoolHourEntryExternalResponse>> Post8WithHttpMessagesAsync(SchoolHourEntriesExternalRequest body = default(SchoolHourEntriesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            if (body != null)
-            {
-                body.Validate();
-            }
-            // Tracing
-            bool _shouldTrace = ServiceClientTracing.IsEnabled;
-            string _invocationId = null;
-            if (_shouldTrace)
-            {
-                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
-                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
-                tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "Post8", tracingParameters);
-            }
-            // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SchoolHourEntriesExternal").ToString();
-            // Create HTTP transport objects
-            var _httpRequest = new HttpRequestMessage();
-            HttpResponseMessage _httpResponse = null;
-            _httpRequest.Method = new HttpMethod("POST");
-            _httpRequest.RequestUri = new System.Uri(_url);
-            // Set Headers
-
-
-            if (customHeaders != null)
-            {
-                foreach(var _header in customHeaders)
-                {
-                    if (_httpRequest.Headers.Contains(_header.Key))
-                    {
-                        _httpRequest.Headers.Remove(_header.Key);
-                    }
-                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
-                }
-            }
-
-            // Serialize Request
-            string _requestContent = null;
-            if(body != null)
-            {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
-                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
-            }
-            // Set Credentials
-            if (Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
-            // Send Request
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
-            }
-            cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
-            }
-            HttpStatusCode _statusCode = _httpResponse.StatusCode;
-            cancellationToken.ThrowIfCancellationRequested();
-            string _responseContent = null;
-            if ((int)_statusCode != 200)
-            {
-                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
-                if (_httpResponse.Content != null) {
-                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                }
-                else {
-                    _responseContent = string.Empty;
-                }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
-                if (_shouldTrace)
-                {
-                    ServiceClientTracing.Error(_invocationId, ex);
-                }
-                _httpRequest.Dispose();
-                if (_httpResponse != null)
-                {
-                    _httpResponse.Dispose();
-                }
-                throw ex;
-            }
-            // Create Result
-            var _result = new HttpOperationResponse<PagedResponseSchoolHourEntryExternalResponse>();
-            _result.Request = _httpRequest;
-            _result.Response = _httpResponse;
-            // Deserialize Response
-            if ((int)_statusCode == 200)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseSchoolHourEntryExternalResponse>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.Exit(_invocationId, _result);
-            }
-            return _result;
-        }
-
-        /// <param name='id'>
-        /// Guid
+        /// <summary>
+        /// _SessionsByIdExternal_Post
+        /// </summary>
+        /// <param name='sessionIds'>
+        /// The ids of the sessions to retrieve.
         /// </param>
         /// <param name='schoolCode'>
         /// String The school code for which to get data.
@@ -1655,8 +1696,19 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<SchoolHoursPlanDetailsExternalResponse>> Post9WithHttpMessagesAsync(System.Guid id, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<SessionDto>>> Post8WithHttpMessagesAsync(IList<System.Guid> sessionIds, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (sessionIds == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "sessionIds");
+            }
+            if (sessionIds != null)
+            {
+                if (sessionIds.Count > 1000)
+                {
+                    throw new ValidationException(ValidationRules.MaxItems, "sessionIds", 1000);
+                }
+            }
             if (schoolCode == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "schoolCode");
@@ -1672,12 +1724,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
                     throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
                 }
             }
-            SchoolHoursPlanDetailsExternalRequest body = default(SchoolHoursPlanDetailsExternalRequest);
-            if (schoolCode != null)
+            SessionsByIdExternalRequest sessionsByIdExternalRequest = default(SessionsByIdExternalRequest);
+            if (sessionIds != null || schoolCode != null)
             {
-                body = new SchoolHoursPlanDetailsExternalRequest();
-                body.Id = id;
-                body.SchoolCode = schoolCode;
+                sessionsByIdExternalRequest = new SessionsByIdExternalRequest();
+                sessionsByIdExternalRequest.SessionIds = sessionIds;
+                sessionsByIdExternalRequest.SchoolCode = schoolCode;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1686,13 +1738,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("sessionsByIdExternalRequest", sessionsByIdExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "Post9", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "Post8", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SchoolHoursPlanDetailsExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SessionsByIdExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1715,9 +1767,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(sessionsByIdExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(sessionsByIdExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1764,7 +1816,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<SchoolHoursPlanDetailsExternalResponse>();
+            var _result = new HttpOperationResponse<IList<SessionDto>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1773,7 +1825,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<SchoolHoursPlanDetailsExternalResponse>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<SessionDto>>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1792,7 +1844,10 @@ namespace Kmd.Studica.SchoolAdministration.Client
             return _result;
         }
 
-        /// <param name='body'>
+        /// <summary>
+        /// _SessionsExternal_Post
+        /// </summary>
+        /// <param name='sessionsExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1809,11 +1864,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseSchoolHoursPlanExternalResponse>> Post10WithHttpMessagesAsync(SchoolHoursPlansExternalRequest body = default(SchoolHoursPlansExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseSessionDto>> Post9WithHttpMessagesAsync(SessionsExternalRequest sessionsExternalRequest = default(SessionsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (sessionsExternalRequest != null)
             {
-                body.Validate();
+                sessionsExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1822,13 +1877,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("sessionsExternalRequest", sessionsExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "Post10", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "Post9", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SchoolHoursPlansExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SessionsExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1851,9 +1906,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(sessionsExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(sessionsExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1900,7 +1955,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PagedResponseSchoolHoursPlanExternalResponse>();
+            var _result = new HttpOperationResponse<PagedResponseSessionDto>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1909,7 +1964,841 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseSchoolHoursPlanExternalResponse>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseSessionDto>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// _StudentActivityReportsExternal_Post
+        /// </summary>
+        /// <param name='studentActivityReportsExternalRequest'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<IList<ActivityGroupDto>>> Post10WithHttpMessagesAsync(StudentActivityReportsExternalRequest studentActivityReportsExternalRequest = default(StudentActivityReportsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (studentActivityReportsExternalRequest != null)
+            {
+                studentActivityReportsExternalRequest.Validate();
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("studentActivityReportsExternalRequest", studentActivityReportsExternalRequest);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "Post10", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "StudentActivityReportsExternal").ToString();
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("POST");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(studentActivityReportsExternalRequest != null)
+            {
+                _requestContent = SafeJsonConvert.SerializeObject(studentActivityReportsExternalRequest, SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<IList<ActivityGroupDto>>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<ActivityGroupDto>>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// _StudentActivityReportsV2External_Post
+        /// </summary>
+        /// <param name='studentActivityReportsV2ExternalRequest'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<IList<ActivityGroup2Dto>>> Post11WithHttpMessagesAsync(StudentActivityReportsV2ExternalRequest studentActivityReportsV2ExternalRequest = default(StudentActivityReportsV2ExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (studentActivityReportsV2ExternalRequest != null)
+            {
+                studentActivityReportsV2ExternalRequest.Validate();
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("studentActivityReportsV2ExternalRequest", studentActivityReportsV2ExternalRequest);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "Post11", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "StudentActivityReportsV2External").ToString();
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("POST");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(studentActivityReportsV2ExternalRequest != null)
+            {
+                _requestContent = SafeJsonConvert.SerializeObject(studentActivityReportsV2ExternalRequest, SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<IList<ActivityGroup2Dto>>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<ActivityGroup2Dto>>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// _StudentInternshipExternal_Post
+        /// </summary>
+        /// <param name='studentInternshipExternalRequest'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<IList<StudentInternshipExternalResponse>>> Post12WithHttpMessagesAsync(StudentInternshipExternalRequest studentInternshipExternalRequest = default(StudentInternshipExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (studentInternshipExternalRequest != null)
+            {
+                studentInternshipExternalRequest.Validate();
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("studentInternshipExternalRequest", studentInternshipExternalRequest);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "Post12", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "StudentInternshipExternal").ToString();
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("POST");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(studentInternshipExternalRequest != null)
+            {
+                _requestContent = SafeJsonConvert.SerializeObject(studentInternshipExternalRequest, SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<IList<StudentInternshipExternalResponse>>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<StudentInternshipExternalResponse>>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// _StudentSchoolCoursesExternal_Post
+        /// </summary>
+        /// <param name='studentSchoolCoursesExternalRequest'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<IList<StudentSchoolCoursesExternalResponse>>> Post13WithHttpMessagesAsync(StudentSchoolCoursesExternalRequest studentSchoolCoursesExternalRequest = default(StudentSchoolCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (studentSchoolCoursesExternalRequest != null)
+            {
+                studentSchoolCoursesExternalRequest.Validate();
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("studentSchoolCoursesExternalRequest", studentSchoolCoursesExternalRequest);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "Post13", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "StudentSchoolCoursesExternal").ToString();
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("POST");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(studentSchoolCoursesExternalRequest != null)
+            {
+                _requestContent = SafeJsonConvert.SerializeObject(studentSchoolCoursesExternalRequest, SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<IList<StudentSchoolCoursesExternalResponse>>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<StudentSchoolCoursesExternalResponse>>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// _StudentSubjectCoursesExternal_Post
+        /// </summary>
+        /// <param name='studentSubjectCoursesExternalRequest'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<PagedResponseStudentSubjectCoursesExternalResponse>> Post14WithHttpMessagesAsync(StudentSubjectCoursesExternalRequest studentSubjectCoursesExternalRequest = default(StudentSubjectCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (studentSubjectCoursesExternalRequest != null)
+            {
+                studentSubjectCoursesExternalRequest.Validate();
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("studentSubjectCoursesExternalRequest", studentSubjectCoursesExternalRequest);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "Post14", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "StudentSubjectCoursesExternal").ToString();
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("POST");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(studentSubjectCoursesExternalRequest != null)
+            {
+                _requestContent = SafeJsonConvert.SerializeObject(studentSubjectCoursesExternalRequest, SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<PagedResponseStudentSubjectCoursesExternalResponse>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseStudentSubjectCoursesExternalResponse>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// _SubjectCoursesExternal_Post
+        /// </summary>
+        /// <param name='subjectCoursesExternalRequest'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>> Post15WithHttpMessagesAsync(SubjectCoursesExternalRequest subjectCoursesExternalRequest = default(SubjectCoursesExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (subjectCoursesExternalRequest != null)
+            {
+                subjectCoursesExternalRequest.Validate();
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("subjectCoursesExternalRequest", subjectCoursesExternalRequest);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "Post15", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SubjectCoursesExternal").ToString();
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("POST");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(subjectCoursesExternalRequest != null)
+            {
+                _requestContent = SafeJsonConvert.SerializeObject(subjectCoursesExternalRequest, SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<PagedResponseSubjectCourseExternalResponse>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<PagedResponseSubjectCourseExternalResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

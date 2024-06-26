@@ -22,7 +22,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// <summary>
     /// EmployeesExternal operations.
     /// </summary>
-    public partial class EmployeesExternal : IServiceOperations<KMDStudicaSchoolAdministration>, IEmployeesExternal
+    public partial class EmployeesExternal : IServiceOperations<StudicaDemoSchoolAdministration>, IEmployeesExternal
     {
         /// <summary>
         /// Initializes a new instance of the EmployeesExternal class.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public EmployeesExternal(KMDStudicaSchoolAdministration client)
+        public EmployeesExternal(StudicaDemoSchoolAdministration client)
         {
             if (client == null)
             {
@@ -43,15 +43,18 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaSchoolAdministration
+        /// Gets a reference to the StudicaDemoSchoolAdministration
         /// </summary>
-        public KMDStudicaSchoolAdministration Client { get; private set; }
+        public StudicaDemoSchoolAdministration Client { get; private set; }
 
+        /// <summary>
+        /// EmployeesExternal_Get
+        /// </summary>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
@@ -60,13 +63,15 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// The school code for which to get data.
         /// </param>
         /// <param name='employmentStartDateFrom'>
-        /// Beginning of range for start date employment.
+        /// Format - date (as full-date in RFC3339). Beginning of range for start date
+        /// employment.
         /// </param>
         /// <param name='employmentStartDateTo'>
-        /// End of range for start date employment.
+        /// Format - date (as full-date in RFC3339). End of range for start date
+        /// employment.
         /// </param>
         /// <param name='areaOfResponsibilityId'>
-        /// Option for also querying employees by area of responsibility
+        /// Format - uuid. Option for also querying employees by area of responsibility
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -129,13 +134,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("employmentStartDateFrom", employmentStartDateFrom);
-                tracingParameters.Add("employmentStartDateTo", employmentStartDateTo);
-                tracingParameters.Add("areaOfResponsibilityId", areaOfResponsibilityId);
                 tracingParameters.Add("pageNumber", pageNumber);
                 tracingParameters.Add("pageSize", pageSize);
                 tracingParameters.Add("inlineCount", inlineCount);
                 tracingParameters.Add("schoolCode", schoolCode);
+                tracingParameters.Add("employmentStartDateFrom", employmentStartDateFrom);
+                tracingParameters.Add("employmentStartDateTo", employmentStartDateTo);
+                tracingParameters.Add("areaOfResponsibilityId", areaOfResponsibilityId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
@@ -143,6 +148,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "EmployeesExternal").ToString();
             List<string> _queryParameters = new List<string>();
+            _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
+            _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
+            _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
+            if (schoolCode != null)
+            {
+                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
+            }
             if (employmentStartDateFrom != null)
             {
                 _queryParameters.Add(string.Format("EmploymentStartDateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(employmentStartDateFrom, new DateJsonConverter()).Trim('"'))));
@@ -154,13 +166,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
             if (areaOfResponsibilityId != null)
             {
                 _queryParameters.Add(string.Format("AreaOfResponsibilityId={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(areaOfResponsibilityId, Client.SerializationSettings).Trim('"'))));
-            }
-            _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
-            if (schoolCode != null)
-            {
-                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
             }
             if (_queryParameters.Count > 0)
             {

@@ -18,6 +18,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IBulkLessonsExternal
     {
+        /// <summary>
+        /// BulkLessonsExternal_Post
+        /// </summary>
         /// <param name='lessonIds'>
         /// Lesson identifiers for bulk query.
         /// </param>

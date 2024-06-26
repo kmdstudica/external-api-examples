@@ -22,7 +22,7 @@ public class StudentMarksExample
     {
         Console.WriteLine("Executing student marks example");
 
-        using var studentsClient = new KMDStudicaStudents(new TokenCredentials(tokenProvider));
+        using var studentsClient = new StudicaDemoStudents(new TokenCredentials(tokenProvider));
         studentsClient.BaseUri = string.IsNullOrEmpty(configuration.StudentsBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/students/v1")
             : new Uri(configuration.StudentsBaseUri);

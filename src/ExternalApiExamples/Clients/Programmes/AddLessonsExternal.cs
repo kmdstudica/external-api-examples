@@ -20,7 +20,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// AddLessonsExternal operations.
     /// </summary>
-    public partial class AddLessonsExternal : IServiceOperations<KMDStudicaProgrammes>, IAddLessonsExternal
+    public partial class AddLessonsExternal : IServiceOperations<StudicaDemoProgrammes>, IAddLessonsExternal
     {
         /// <summary>
         /// Initializes a new instance of the AddLessonsExternal class.
@@ -31,7 +31,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public AddLessonsExternal(KMDStudicaProgrammes client)
+        public AddLessonsExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -41,10 +41,13 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
+        /// <summary>
+        /// AddLessonsExternal_Post
+        /// </summary>
         /// <param name='newLessons'>
         /// New lessons.
         /// </param>
@@ -100,12 +103,12 @@ namespace Kmd.Studica.Programmes.Client
                     throw new ValidationException(ValidationRules.MinLength, "schoolCode", 1);
                 }
             }
-            AddLessonsExternalCommand body = default(AddLessonsExternalCommand);
+            AddLessonsExternalCommand addLessonsExternalCommand = default(AddLessonsExternalCommand);
             if (newLessons != null || schoolCode != null)
             {
-                body = new AddLessonsExternalCommand();
-                body.NewLessons = newLessons;
-                body.SchoolCode = schoolCode;
+                addLessonsExternalCommand = new AddLessonsExternalCommand();
+                addLessonsExternalCommand.NewLessons = newLessons;
+                addLessonsExternalCommand.SchoolCode = schoolCode;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -114,7 +117,7 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("addLessonsExternalCommand", addLessonsExternalCommand);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
@@ -143,9 +146,9 @@ namespace Kmd.Studica.Programmes.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(addLessonsExternalCommand != null)
             {
-                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(addLessonsExternalCommand, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

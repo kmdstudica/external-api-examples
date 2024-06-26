@@ -12,7 +12,7 @@ namespace Kmd.Studica.Statistics.Client
 
     /// <summary>
     /// </summary>
-    public partial interface IKMDStudicaStatistics : System.IDisposable
+    public partial interface IStudicaDemoStatistics : System.IDisposable
     {
         /// <summary>
         /// The base URI of the service.

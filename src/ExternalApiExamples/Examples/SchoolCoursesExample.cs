@@ -25,7 +25,7 @@ public class SchoolCoursesExample
     {
         Console.WriteLine("Executing school courses example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
@@ -58,7 +58,7 @@ public class SchoolCoursesExample
     {
         Console.WriteLine("Executing school courses example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);

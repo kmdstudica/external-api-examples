@@ -33,6 +33,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the EditLessonExternalCommand class.
         /// </summary>
         /// <param name="id">Guid</param>
+        /// <param name="date">Date</param>
         /// <param name="subjectCourseId">Guid</param>
         /// <param name="teacherIds">List of teacher' identifiers.</param>
         /// <param name="externalLessonId">String</param>
@@ -42,11 +43,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// update.</param>
         /// <param name="roomIds">The Ids of the rooms where the lesson is
         /// conducted.</param>
-        /// <param name="date">Date of the lesson.</param>
         /// <param name="startTime">Start time of the lesson.</param>
         /// <param name="endTime">End time of the lesson.</param>
         /// <param name="schoolCode">String</param>
-        public EditLessonExternalCommand(System.Guid id, System.Guid subjectCourseId, IList<System.Guid> teacherIds, string externalLessonId = default(string), System.Guid? roomId = default(System.Guid?), IList<System.Guid> roomIds = default(IList<System.Guid>), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), string schoolCode = default(string))
+        public EditLessonExternalCommand(System.Guid id, System.DateTime date, System.Guid subjectCourseId, IList<System.Guid> teacherIds, string externalLessonId = default(string), System.Guid? roomId = default(System.Guid?), IList<System.Guid> roomIds = default(IList<System.Guid>), string startTime = default(string), string endTime = default(string), string schoolCode = default(string))
         {
             Id = id;
             ExternalLessonId = externalLessonId;
@@ -101,11 +101,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<System.Guid> RoomIds { get; set; }
 
         /// <summary>
-        /// Gets or sets date of the lesson.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Date of the lesson.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "date")]
-        public System.DateTime? Date { get; set; }
+        public System.DateTime Date { get; set; }
 
         /// <summary>
         /// Gets or sets start time of the lesson.

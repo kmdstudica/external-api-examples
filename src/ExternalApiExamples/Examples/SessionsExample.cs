@@ -23,7 +23,7 @@ public class SessionsExample
     {
         Console.WriteLine("Get sessions example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
@@ -54,7 +54,7 @@ public class SessionsExample
     {
         Console.WriteLine("Get sessions by id example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
@@ -81,7 +81,7 @@ public class SessionsExample
     {
         Console.WriteLine("Add sessions example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
@@ -134,7 +134,7 @@ public class SessionsExample
     {
         Console.WriteLine("Delete sessions example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
@@ -161,7 +161,7 @@ public class SessionsExample
     {
         Console.WriteLine("Edit subject course session example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
@@ -215,7 +215,7 @@ public class SessionsExample
 
         Console.WriteLine("Add independent sessions example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
@@ -272,7 +272,7 @@ public class SessionsExample
 
         Console.WriteLine("Edit independent session example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);

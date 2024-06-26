@@ -21,7 +21,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// GroupsExternal operations.
     /// </summary>
-    public partial class GroupsExternal : IServiceOperations<KMDStudicaProgrammes>, IGroupsExternal
+    public partial class GroupsExternal : IServiceOperations<StudicaDemoProgrammes>, IGroupsExternal
     {
         /// <summary>
         /// Initializes a new instance of the GroupsExternal class.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public GroupsExternal(KMDStudicaProgrammes client)
+        public GroupsExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -42,11 +42,14 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
-        /// <param name='body'>
+        /// <summary>
+        /// GroupsExternal_Post
+        /// </summary>
+        /// <param name='groupsExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -63,11 +66,11 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<GroupsExternalResponse>>> PostWithHttpMessagesAsync(GroupsExternalRequest body = default(GroupsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<GroupsExternalResponse>>> PostWithHttpMessagesAsync(GroupsExternalRequest groupsExternalRequest = default(GroupsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (groupsExternalRequest != null)
             {
-                body.Validate();
+                groupsExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -76,7 +79,7 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("groupsExternalRequest", groupsExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
@@ -105,9 +108,9 @@ namespace Kmd.Studica.Programmes.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(groupsExternalRequest != null)
             {
-                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(groupsExternalRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

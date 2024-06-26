@@ -21,7 +21,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// <summary>
     /// BulkDepartmentsExternal operations.
     /// </summary>
-    public partial class BulkDepartmentsExternal : IServiceOperations<KMDStudicaSchoolAdministration>, IBulkDepartmentsExternal
+    public partial class BulkDepartmentsExternal : IServiceOperations<StudicaDemoSchoolAdministration>, IBulkDepartmentsExternal
     {
         /// <summary>
         /// Initializes a new instance of the BulkDepartmentsExternal class.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public BulkDepartmentsExternal(KMDStudicaSchoolAdministration client)
+        public BulkDepartmentsExternal(StudicaDemoSchoolAdministration client)
         {
             if (client == null)
             {
@@ -42,10 +42,13 @@ namespace Kmd.Studica.SchoolAdministration.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaSchoolAdministration
+        /// Gets a reference to the StudicaDemoSchoolAdministration
         /// </summary>
-        public KMDStudicaSchoolAdministration Client { get; private set; }
+        public StudicaDemoSchoolAdministration Client { get; private set; }
 
+        /// <summary>
+        /// BulkDepartmentsExternal_Post
+        /// </summary>
         /// <param name='departmentIds'>
         /// Department identifiers for bulk query.
         /// </param>
@@ -105,12 +108,12 @@ namespace Kmd.Studica.SchoolAdministration.Client
                     throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
                 }
             }
-            BulkDepartmentsExternalRequest body = default(BulkDepartmentsExternalRequest);
+            BulkDepartmentsExternalRequest bulkDepartmentsExternalRequest = default(BulkDepartmentsExternalRequest);
             if (departmentIds != null || schoolCode != null)
             {
-                body = new BulkDepartmentsExternalRequest();
-                body.DepartmentIds = departmentIds;
-                body.SchoolCode = schoolCode;
+                bulkDepartmentsExternalRequest = new BulkDepartmentsExternalRequest();
+                bulkDepartmentsExternalRequest.DepartmentIds = departmentIds;
+                bulkDepartmentsExternalRequest.SchoolCode = schoolCode;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -119,7 +122,7 @@ namespace Kmd.Studica.SchoolAdministration.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("bulkDepartmentsExternalRequest", bulkDepartmentsExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
@@ -148,9 +151,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(bulkDepartmentsExternalRequest != null)
             {
-                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(bulkDepartmentsExternalRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

@@ -17,7 +17,7 @@ namespace Kmd.Studica.SchoolInternships.Client
     using System.Threading;
     using System.Threading.Tasks;
 
-    public partial class KMDStudicaSchoolInternships : ServiceClient<KMDStudicaSchoolInternships>, IKMDStudicaSchoolInternships
+    public partial class StudicaDemoSchoolInternships : ServiceClient<StudicaDemoSchoolInternships>, IStudicaDemoSchoolInternships
     {
         /// <summary>
         /// The base URI of the service.
@@ -65,31 +65,31 @@ namespace Kmd.Studica.SchoolInternships.Client
         public virtual IStudentsInternshipAbsenceExternal StudentsInternshipAbsenceExternal { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolInternships class.
+        /// Initializes a new instance of the StudicaDemoSchoolInternships class.
         /// </summary>
         /// <param name='httpClient'>
         /// HttpClient to be used
         /// </param>
         /// <param name='disposeHttpClient'>
-        /// True: will dispose the provided httpClient on calling KMDStudicaSchoolInternships.Dispose(). False: will not dispose provided httpClient</param>
-        protected KMDStudicaSchoolInternships(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
+        /// True: will dispose the provided httpClient on calling StudicaDemoSchoolInternships.Dispose(). False: will not dispose provided httpClient</param>
+        protected StudicaDemoSchoolInternships(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolInternships class.
+        /// Initializes a new instance of the StudicaDemoSchoolInternships class.
         /// </summary>
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected KMDStudicaSchoolInternships(params DelegatingHandler[] handlers) : base(handlers)
+        protected StudicaDemoSchoolInternships(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolInternships class.
+        /// Initializes a new instance of the StudicaDemoSchoolInternships class.
         /// </summary>
         /// <param name='rootHandler'>
         /// Optional. The http client handler used to handle http transport.
@@ -97,13 +97,13 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        protected KMDStudicaSchoolInternships(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        protected StudicaDemoSchoolInternships(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolInternships class.
+        /// Initializes a new instance of the StudicaDemoSchoolInternships class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -114,7 +114,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected KMDStudicaSchoolInternships(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        protected StudicaDemoSchoolInternships(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -124,7 +124,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolInternships class.
+        /// Initializes a new instance of the StudicaDemoSchoolInternships class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -138,7 +138,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        protected KMDStudicaSchoolInternships(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        protected StudicaDemoSchoolInternships(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {
@@ -148,7 +148,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolInternships class.
+        /// Initializes a new instance of the StudicaDemoSchoolInternships class.
         /// </summary>
         /// <param name='credentials'>
         /// Required. Subscription credentials which uniquely identify client subscription.
@@ -159,7 +159,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaSchoolInternships(ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
+        public StudicaDemoSchoolInternships(ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (credentials == null)
             {
@@ -173,7 +173,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolInternships class.
+        /// Initializes a new instance of the StudicaDemoSchoolInternships class.
         /// </summary>
         /// <param name='credentials'>
         /// Required. Subscription credentials which uniquely identify client subscription.
@@ -182,11 +182,11 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// HttpClient to be used
         /// </param>
         /// <param name='disposeHttpClient'>
-        /// True: will dispose the provided httpClient on calling KMDStudicaSchoolInternships.Dispose(). False: will not dispose provided httpClient</param>
+        /// True: will dispose the provided httpClient on calling StudicaDemoSchoolInternships.Dispose(). False: will not dispose provided httpClient</param>
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaSchoolInternships(ServiceClientCredentials credentials, HttpClient httpClient, bool disposeHttpClient) : this(httpClient, disposeHttpClient)
+        public StudicaDemoSchoolInternships(ServiceClientCredentials credentials, HttpClient httpClient, bool disposeHttpClient) : this(httpClient, disposeHttpClient)
         {
             if (credentials == null)
             {
@@ -200,7 +200,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolInternships class.
+        /// Initializes a new instance of the StudicaDemoSchoolInternships class.
         /// </summary>
         /// <param name='credentials'>
         /// Required. Subscription credentials which uniquely identify client subscription.
@@ -214,7 +214,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaSchoolInternships(ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public StudicaDemoSchoolInternships(ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (credentials == null)
             {
@@ -228,7 +228,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolInternships class.
+        /// Initializes a new instance of the StudicaDemoSchoolInternships class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -242,7 +242,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaSchoolInternships(System.Uri baseUri, ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
+        public StudicaDemoSchoolInternships(System.Uri baseUri, ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -261,7 +261,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         }
 
         /// <summary>
-        /// Initializes a new instance of the KMDStudicaSchoolInternships class.
+        /// Initializes a new instance of the StudicaDemoSchoolInternships class.
         /// </summary>
         /// <param name='baseUri'>
         /// Optional. The base URI of the service.
@@ -278,7 +278,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public KMDStudicaSchoolInternships(System.Uri baseUri, ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        public StudicaDemoSchoolInternships(System.Uri baseUri, ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {
@@ -310,7 +310,7 @@ namespace Kmd.Studica.SchoolInternships.Client
             StudentInternshipsExternal = new StudentInternshipsExternal(this);
             StudentInternshipsExternalV2 = new StudentInternshipsExternalV2(this);
             StudentsInternshipAbsenceExternal = new StudentsInternshipAbsenceExternal(this);
-            BaseUri = new System.Uri("https://kmd-logic-shareddev-apim.azure-api.net/studica/school-internships/v1");
+            BaseUri = new System.Uri("https://api.studica.dk/demo/school-internships/v1");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,
@@ -338,7 +338,10 @@ namespace Kmd.Studica.SchoolInternships.Client
             };
             CustomInitialize();
         }
-        /// <param name='body'>
+        /// <summary>
+        /// _ActiveInternshipDepartmentsExternal_Post
+        /// </summary>
+        /// <param name='activeInternshipDepartmentsExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -355,11 +358,11 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PagedResponseInternshipDepartmentsExternalResponse>> PostWithHttpMessagesAsync(ActiveInternshipDepartmentsExternalRequest body = default(ActiveInternshipDepartmentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PagedResponseInternshipDepartmentsExternalResponse>> PostWithHttpMessagesAsync(ActiveInternshipDepartmentsExternalRequest activeInternshipDepartmentsExternalRequest = default(ActiveInternshipDepartmentsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (activeInternshipDepartmentsExternalRequest != null)
             {
-                body.Validate();
+                activeInternshipDepartmentsExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -368,7 +371,7 @@ namespace Kmd.Studica.SchoolInternships.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("activeInternshipDepartmentsExternalRequest", activeInternshipDepartmentsExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
@@ -397,9 +400,9 @@ namespace Kmd.Studica.SchoolInternships.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(activeInternshipDepartmentsExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(activeInternshipDepartmentsExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -474,6 +477,9 @@ namespace Kmd.Studica.SchoolInternships.Client
             return _result;
         }
 
+        /// <summary>
+        /// _BulkInternshipDepartmentsExternal_Post
+        /// </summary>
         /// <param name='internshipDepartmentIds'>
         /// The ids of the internship departments to query for.
         /// </param>
@@ -533,12 +539,12 @@ namespace Kmd.Studica.SchoolInternships.Client
                     throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
                 }
             }
-            BulkInternshipDepartmentsExternalRequest body = default(BulkInternshipDepartmentsExternalRequest);
+            BulkInternshipDepartmentsExternalRequest bulkInternshipDepartmentsExternalRequest = default(BulkInternshipDepartmentsExternalRequest);
             if (internshipDepartmentIds != null || schoolCode != null)
             {
-                body = new BulkInternshipDepartmentsExternalRequest();
-                body.InternshipDepartmentIds = internshipDepartmentIds;
-                body.SchoolCode = schoolCode;
+                bulkInternshipDepartmentsExternalRequest = new BulkInternshipDepartmentsExternalRequest();
+                bulkInternshipDepartmentsExternalRequest.InternshipDepartmentIds = internshipDepartmentIds;
+                bulkInternshipDepartmentsExternalRequest.SchoolCode = schoolCode;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -547,7 +553,7 @@ namespace Kmd.Studica.SchoolInternships.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("bulkInternshipDepartmentsExternalRequest", bulkInternshipDepartmentsExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post1", tracingParameters);
             }
@@ -576,9 +582,9 @@ namespace Kmd.Studica.SchoolInternships.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(bulkInternshipDepartmentsExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(bulkInternshipDepartmentsExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -653,7 +659,10 @@ namespace Kmd.Studica.SchoolInternships.Client
             return _result;
         }
 
-        /// <param name='body'>
+        /// <summary>
+        /// _StudentInternshipsExternal_Post
+        /// </summary>
+        /// <param name='studentInternshipsExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -670,11 +679,11 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<StudentInternshipsExternalResponse>>> Post2WithHttpMessagesAsync(StudentInternshipsExternalRequest body = default(StudentInternshipsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<StudentInternshipsExternalResponse>>> Post2WithHttpMessagesAsync(StudentInternshipsExternalRequest studentInternshipsExternalRequest = default(StudentInternshipsExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (studentInternshipsExternalRequest != null)
             {
-                body.Validate();
+                studentInternshipsExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -683,7 +692,7 @@ namespace Kmd.Studica.SchoolInternships.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("studentInternshipsExternalRequest", studentInternshipsExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post2", tracingParameters);
             }
@@ -712,9 +721,9 @@ namespace Kmd.Studica.SchoolInternships.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(studentInternshipsExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(studentInternshipsExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -789,7 +798,10 @@ namespace Kmd.Studica.SchoolInternships.Client
             return _result;
         }
 
-        /// <param name='body'>
+        /// <summary>
+        /// _StudentInternshipsExternalV2_Post
+        /// </summary>
+        /// <param name='studentInternshipsExternalV2Request'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -806,11 +818,11 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<StudentInternshipsExternalV2Response>>> Post3WithHttpMessagesAsync(StudentInternshipsExternalV2Request body = default(StudentInternshipsExternalV2Request), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<StudentInternshipsExternalV2Response>>> Post3WithHttpMessagesAsync(StudentInternshipsExternalV2Request studentInternshipsExternalV2Request = default(StudentInternshipsExternalV2Request), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (studentInternshipsExternalV2Request != null)
             {
-                body.Validate();
+                studentInternshipsExternalV2Request.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -819,7 +831,7 @@ namespace Kmd.Studica.SchoolInternships.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("studentInternshipsExternalV2Request", studentInternshipsExternalV2Request);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post3", tracingParameters);
             }
@@ -848,9 +860,9 @@ namespace Kmd.Studica.SchoolInternships.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(studentInternshipsExternalV2Request != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(studentInternshipsExternalV2Request, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -925,7 +937,10 @@ namespace Kmd.Studica.SchoolInternships.Client
             return _result;
         }
 
-        /// <param name='body'>
+        /// <summary>
+        /// _StudentsInternshipAbsenceExternal_Post
+        /// </summary>
+        /// <param name='studentsInternshipAbsenceExternalRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -942,11 +957,11 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<StudentsInternshipAbsenceExternalResponse>>> Post4WithHttpMessagesAsync(StudentsInternshipAbsenceExternalRequest body = default(StudentsInternshipAbsenceExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<StudentsInternshipAbsenceExternalResponse>>> Post4WithHttpMessagesAsync(StudentsInternshipAbsenceExternalRequest studentsInternshipAbsenceExternalRequest = default(StudentsInternshipAbsenceExternalRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (studentsInternshipAbsenceExternalRequest != null)
             {
-                body.Validate();
+                studentsInternshipAbsenceExternalRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -955,7 +970,7 @@ namespace Kmd.Studica.SchoolInternships.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("studentsInternshipAbsenceExternalRequest", studentsInternshipAbsenceExternalRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post4", tracingParameters);
             }
@@ -984,9 +999,9 @@ namespace Kmd.Studica.SchoolInternships.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(studentsInternshipAbsenceExternalRequest != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(studentsInternshipAbsenceExternalRequest, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

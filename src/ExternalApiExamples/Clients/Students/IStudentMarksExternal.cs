@@ -18,6 +18,9 @@ namespace Kmd.Studica.Students.Client
     /// </summary>
     public partial interface IStudentMarksExternal
     {
+        /// <summary>
+        /// StudentMarksExternal_Get
+        /// </summary>
         /// <param name='studentIds'>
         /// A list of students to get marks for
         /// </param>
@@ -26,10 +29,11 @@ namespace Kmd.Studica.Students.Client
         /// included on exam paper
         /// </param>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first
+        /// page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.

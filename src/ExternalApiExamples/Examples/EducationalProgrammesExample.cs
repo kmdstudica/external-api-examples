@@ -23,7 +23,7 @@ public class EducationalProgrammesExample
     {
         Console.WriteLine("Executing educational programmes example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
@@ -49,6 +49,7 @@ public class EducationalProgrammesExample
                 });
             doContinue = pageNum * pageSize < result.Body.TotalItems;
             programmes.AddRange(result.Body.Items);
+            Console.Write(".");
         } while (doContinue);
 
         Console.WriteLine($"Got {programmes.Count} educational programmes from API");
@@ -62,7 +63,7 @@ public class EducationalProgrammesExample
     {
         Console.WriteLine("Executing bulk educational programmes example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);

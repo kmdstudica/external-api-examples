@@ -288,13 +288,16 @@ namespace Kmd.Studica.Statistics.Client.Models
                     throw new ValidationException(ValidationRules.MaxLength, "ConnectedTopicTitle", 255);
                 }
             }
-            if (PlagiarismScore > 100)
+            if (PlagiarismScore != null)
             {
-                throw new ValidationException(ValidationRules.InclusiveMaximum, "PlagiarismScore", 100);
-            }
-            if (PlagiarismScore < 0)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMinimum, "PlagiarismScore", 0);
+                if (PlagiarismScore > 100)
+                {
+                    throw new ValidationException(ValidationRules.InclusiveMaximum, "PlagiarismScore", 100);
+                }
+                if (PlagiarismScore < 0)
+                {
+                    throw new ValidationException(ValidationRules.InclusiveMinimum, "PlagiarismScore", 0);
+                }
             }
             if (AssignmentUrl != null)
             {

@@ -21,7 +21,7 @@ namespace Kmd.Studica.SchoolInternships.Client
     /// <summary>
     /// ActiveInternshipDepartmentsExternal operations.
     /// </summary>
-    public partial class ActiveInternshipDepartmentsExternal : IServiceOperations<KMDStudicaSchoolInternships>, IActiveInternshipDepartmentsExternal
+    public partial class ActiveInternshipDepartmentsExternal : IServiceOperations<StudicaDemoSchoolInternships>, IActiveInternshipDepartmentsExternal
     {
         /// <summary>
         /// Initializes a new instance of the ActiveInternshipDepartmentsExternal class.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.SchoolInternships.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public ActiveInternshipDepartmentsExternal(KMDStudicaSchoolInternships client)
+        public ActiveInternshipDepartmentsExternal(StudicaDemoSchoolInternships client)
         {
             if (client == null)
             {
@@ -42,15 +42,18 @@ namespace Kmd.Studica.SchoolInternships.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaSchoolInternships
+        /// Gets a reference to the StudicaDemoSchoolInternships
         /// </summary>
-        public KMDStudicaSchoolInternships Client { get; private set; }
+        public StudicaDemoSchoolInternships Client { get; private set; }
 
+        /// <summary>
+        /// ActiveInternshipDepartmentsExternal_Get
+        /// </summary>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.

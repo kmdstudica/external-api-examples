@@ -22,7 +22,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// SubjectCoursesExternal operations.
     /// </summary>
-    public partial class SubjectCoursesExternal : IServiceOperations<KMDStudicaProgrammes>, ISubjectCoursesExternal
+    public partial class SubjectCoursesExternal : IServiceOperations<StudicaDemoProgrammes>, ISubjectCoursesExternal
     {
         /// <summary>
         /// Initializes a new instance of the SubjectCoursesExternal class.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public SubjectCoursesExternal(KMDStudicaProgrammes client)
+        public SubjectCoursesExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -43,15 +43,18 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
+        /// <summary>
+        /// SubjectCoursesExternal_Get
+        /// </summary>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
@@ -60,10 +63,12 @@ namespace Kmd.Studica.Programmes.Client
         /// The school code for which to get data.
         /// </param>
         /// <param name='startDateFrom'>
-        /// Beginning of the range for start date subject courses.
+        /// Format - date (as full-date in RFC3339). Beginning of the range for start
+        /// date subject courses.
         /// </param>
         /// <param name='startDateTo'>
-        /// End of the range for start date subject courses.
+        /// Format - date (as full-date in RFC3339). End of the range for start date
+        /// subject courses.
         /// </param>
         /// <param name='lmsIndicator'>
         /// Is the entity to be created in the LMS.
@@ -74,7 +79,8 @@ namespace Kmd.Studica.Programmes.Client
         /// Should the response include deleted subject courses
         /// </param>
         /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
-        /// Only get data inserted or updated on or after the specified date
+        /// Format - date-time (as date-time in RFC3339). Only get data inserted or
+        /// updated on or after the specified date
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -137,15 +143,15 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("pageNumber", pageNumber);
+                tracingParameters.Add("pageSize", pageSize);
+                tracingParameters.Add("inlineCount", inlineCount);
+                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("startDateFrom", startDateFrom);
                 tracingParameters.Add("startDateTo", startDateTo);
                 tracingParameters.Add("lmsIndicator", lmsIndicator);
                 tracingParameters.Add("includeDeletedSubjectCourses", includeDeletedSubjectCourses);
                 tracingParameters.Add("onlyDataInsertedOrUpdatedOnOrAfter", onlyDataInsertedOrUpdatedOnOrAfter);
-                tracingParameters.Add("pageNumber", pageNumber);
-                tracingParameters.Add("pageSize", pageSize);
-                tracingParameters.Add("inlineCount", inlineCount);
-                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
@@ -153,6 +159,13 @@ namespace Kmd.Studica.Programmes.Client
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SubjectCoursesExternal").ToString();
             List<string> _queryParameters = new List<string>();
+            _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
+            _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
+            _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
+            if (schoolCode != null)
+            {
+                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
+            }
             if (startDateFrom != null)
             {
                 _queryParameters.Add(string.Format("StartDateFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(startDateFrom, new DateJsonConverter()).Trim('"'))));
@@ -172,13 +185,6 @@ namespace Kmd.Studica.Programmes.Client
             if (onlyDataInsertedOrUpdatedOnOrAfter != null)
             {
                 _queryParameters.Add(string.Format("OnlyDataInsertedOrUpdatedOnOrAfter={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(onlyDataInsertedOrUpdatedOnOrAfter, Client.SerializationSettings).Trim('"'))));
-            }
-            _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
-            if (schoolCode != null)
-            {
-                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
             }
             if (_queryParameters.Count > 0)
             {

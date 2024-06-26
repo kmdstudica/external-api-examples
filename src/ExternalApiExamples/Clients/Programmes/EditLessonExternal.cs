@@ -20,7 +20,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// EditLessonExternal operations.
     /// </summary>
-    public partial class EditLessonExternal : IServiceOperations<KMDStudicaProgrammes>, IEditLessonExternal
+    public partial class EditLessonExternal : IServiceOperations<StudicaDemoProgrammes>, IEditLessonExternal
     {
         /// <summary>
         /// Initializes a new instance of the EditLessonExternal class.
@@ -31,7 +31,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public EditLessonExternal(KMDStudicaProgrammes client)
+        public EditLessonExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -41,11 +41,14 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
-        /// <param name='body'>
+        /// <summary>
+        /// EditLessonExternal_Post
+        /// </summary>
+        /// <param name='editLessonExternalCommand'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -59,11 +62,11 @@ namespace Kmd.Studica.Programmes.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostWithHttpMessagesAsync(EditLessonExternalCommand body = default(EditLessonExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostWithHttpMessagesAsync(EditLessonExternalCommand editLessonExternalCommand = default(EditLessonExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (editLessonExternalCommand != null)
             {
-                body.Validate();
+                editLessonExternalCommand.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -72,7 +75,7 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("editLessonExternalCommand", editLessonExternalCommand);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
@@ -101,9 +104,9 @@ namespace Kmd.Studica.Programmes.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(editLessonExternalCommand != null)
             {
-                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(editLessonExternalCommand, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

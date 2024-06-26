@@ -20,7 +20,7 @@ namespace Kmd.Studica.Statistics.Client
     /// <summary>
     /// SubmitHandinsExternal operations.
     /// </summary>
-    public partial class SubmitHandinsExternal : IServiceOperations<KMDStudicaStatistics>, ISubmitHandinsExternal
+    public partial class SubmitHandinsExternal : IServiceOperations<StudicaDemoStatistics>, ISubmitHandinsExternal
     {
         /// <summary>
         /// Initializes a new instance of the SubmitHandinsExternal class.
@@ -31,7 +31,7 @@ namespace Kmd.Studica.Statistics.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public SubmitHandinsExternal(KMDStudicaStatistics client)
+        public SubmitHandinsExternal(StudicaDemoStatistics client)
         {
             if (client == null)
             {
@@ -41,10 +41,13 @@ namespace Kmd.Studica.Statistics.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaStatistics
+        /// Gets a reference to the StudicaDemoStatistics
         /// </summary>
-        public KMDStudicaStatistics Client { get; private set; }
+        public StudicaDemoStatistics Client { get; private set; }
 
+        /// <summary>
+        /// SubmitHandinsExternal_Post
+        /// </summary>
         /// <param name='handins'>
         /// New handins to create
         /// </param>
@@ -100,12 +103,12 @@ namespace Kmd.Studica.Statistics.Client
                     throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
                 }
             }
-            SubmitHandinsExternalCommand body = default(SubmitHandinsExternalCommand);
+            SubmitHandinsExternalCommand submitHandinsExternalCommand = default(SubmitHandinsExternalCommand);
             if (handins != null || schoolCode != null)
             {
-                body = new SubmitHandinsExternalCommand();
-                body.Handins = handins;
-                body.SchoolCode = schoolCode;
+                submitHandinsExternalCommand = new SubmitHandinsExternalCommand();
+                submitHandinsExternalCommand.Handins = handins;
+                submitHandinsExternalCommand.SchoolCode = schoolCode;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -114,7 +117,7 @@ namespace Kmd.Studica.Statistics.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("submitHandinsExternalCommand", submitHandinsExternalCommand);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
@@ -143,9 +146,9 @@ namespace Kmd.Studica.Statistics.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(submitHandinsExternalCommand != null)
             {
-                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(submitHandinsExternalCommand, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

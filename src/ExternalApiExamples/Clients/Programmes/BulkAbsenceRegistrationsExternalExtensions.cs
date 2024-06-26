@@ -17,6 +17,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class BulkAbsenceRegistrationsExternalExtensions
     {
+            /// <summary>
+            /// BulkAbsenceRegistrationsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -27,10 +30,11 @@ namespace Kmd.Studica.Programmes.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='dateFrom'>
-            /// Beginning of the range for absence date.
+            /// Format - date (as full-date in RFC3339). Beginning of the range for absence
+            /// date.
             /// </param>
             /// <param name='dateTo'>
-            /// End of the range for absence date.
+            /// Format - date (as full-date in RFC3339). End of the range for absence date.
             /// </param>
             /// <param name='onlyAbsenceReports'>
             /// Only retrieve reports of absence or partial absence,
@@ -41,6 +45,9 @@ namespace Kmd.Studica.Programmes.Client
                 return operations.GetAsync(studentIds, schoolCode, dateFrom, dateTo, onlyAbsenceReports).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// BulkAbsenceRegistrationsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -51,10 +58,11 @@ namespace Kmd.Studica.Programmes.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='dateFrom'>
-            /// Beginning of the range for absence date.
+            /// Format - date (as full-date in RFC3339). Beginning of the range for absence
+            /// date.
             /// </param>
             /// <param name='dateTo'>
-            /// End of the range for absence date.
+            /// Format - date (as full-date in RFC3339). End of the range for absence date.
             /// </param>
             /// <param name='onlyAbsenceReports'>
             /// Only retrieve reports of absence or partial absence,

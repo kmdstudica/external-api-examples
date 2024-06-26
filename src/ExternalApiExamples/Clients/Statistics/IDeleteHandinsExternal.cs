@@ -18,6 +18,9 @@ namespace Kmd.Studica.Statistics.Client
     /// </summary>
     public partial interface IDeleteHandinsExternal
     {
+        /// <summary>
+        /// DeleteHandinsExternal_Post
+        /// </summary>
         /// <param name='handinIds'>
         /// IDs of the handins to delete
         /// </param>

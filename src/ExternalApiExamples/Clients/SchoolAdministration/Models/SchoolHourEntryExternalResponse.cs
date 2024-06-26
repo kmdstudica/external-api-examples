@@ -145,13 +145,16 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
                     throw new ValidationException(ValidationRules.MaxLength, "Name", 255);
                 }
             }
-            if (Duration > 1440)
+            if (Duration != null)
             {
-                throw new ValidationException(ValidationRules.InclusiveMaximum, "Duration", 1440);
-            }
-            if (Duration < 1)
-            {
-                throw new ValidationException(ValidationRules.InclusiveMinimum, "Duration", 1);
+                if (Duration > 1440)
+                {
+                    throw new ValidationException(ValidationRules.InclusiveMaximum, "Duration", 1440);
+                }
+                if (Duration < 1)
+                {
+                    throw new ValidationException(ValidationRules.InclusiveMinimum, "Duration", 1);
+                }
             }
             if (StartTime != null)
             {

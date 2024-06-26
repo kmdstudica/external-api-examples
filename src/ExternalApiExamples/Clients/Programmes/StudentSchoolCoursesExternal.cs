@@ -22,7 +22,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// StudentSchoolCoursesExternal operations.
     /// </summary>
-    public partial class StudentSchoolCoursesExternal : IServiceOperations<KMDStudicaProgrammes>, IStudentSchoolCoursesExternal
+    public partial class StudentSchoolCoursesExternal : IServiceOperations<StudicaDemoProgrammes>, IStudentSchoolCoursesExternal
     {
         /// <summary>
         /// Initializes a new instance of the StudentSchoolCoursesExternal class.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public StudentSchoolCoursesExternal(KMDStudicaProgrammes client)
+        public StudentSchoolCoursesExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -43,10 +43,13 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
+        /// <summary>
+        /// StudentSchoolCoursesExternal_Get
+        /// </summary>
         /// <param name='studentIds'>
         /// Student ids for bulk query. Must contain 1 to 1000 elements
         /// </param>
@@ -54,10 +57,12 @@ namespace Kmd.Studica.Programmes.Client
         /// The school code for which to get data.
         /// </param>
         /// <param name='periodFrom'>
-        /// Beginning of the range for start date of the students' school courses.
+        /// Format - date (as full-date in RFC3339). Beginning of the range for start
+        /// date of the students' school courses.
         /// </param>
         /// <param name='periodTo'>
-        /// End of the range for start date of the students' school courses.
+        /// Format - date (as full-date in RFC3339). End of the range for start date of
+        /// the students' school courses.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -109,9 +114,9 @@ namespace Kmd.Studica.Programmes.Client
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("studentIds", studentIds);
+                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("periodFrom", periodFrom);
                 tracingParameters.Add("periodTo", periodTo);
-                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
@@ -123,6 +128,10 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _queryParameters.Add(string.Format("StudentIds={0}", System.Uri.EscapeDataString(string.Join(",", studentIds))));
             }
+            if (schoolCode != null)
+            {
+                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
+            }
             if (periodFrom != null)
             {
                 _queryParameters.Add(string.Format("PeriodFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodFrom, new DateJsonConverter()).Trim('"'))));
@@ -130,10 +139,6 @@ namespace Kmd.Studica.Programmes.Client
             if (periodTo != null)
             {
                 _queryParameters.Add(string.Format("PeriodTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodTo, new DateJsonConverter()).Trim('"'))));
-            }
-            if (schoolCode != null)
-            {
-                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
             }
             if (_queryParameters.Count > 0)
             {

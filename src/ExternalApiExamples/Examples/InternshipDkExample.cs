@@ -22,7 +22,7 @@ public class InternshipDkExample
     {
         Console.WriteLine("Get educational agreements example");
 
-        using var internshipDkClient = new KMDStudicaInternshipDK(new TokenCredentials(_tokenProvider));
+        using var internshipDkClient = new StudicaDemoInternshipDK(new TokenCredentials(_tokenProvider));
         internshipDkClient.BaseUri = string.IsNullOrEmpty(configuration.InternshipDkBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/internship-dk/v1")
             : new Uri(configuration.InternshipDkBaseUri);

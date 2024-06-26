@@ -18,11 +18,15 @@ namespace Kmd.Studica.SchoolInternships.Client
     /// </summary>
     public partial interface IActiveInternshipDepartmentsExternal
     {
+        /// <summary>
+        /// ActiveInternshipDepartmentsExternal_Get
+        /// </summary>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first
+        /// page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.

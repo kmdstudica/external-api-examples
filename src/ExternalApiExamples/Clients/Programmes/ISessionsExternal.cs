@@ -18,11 +18,15 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface ISessionsExternal
     {
+        /// <summary>
+        /// SessionsExternal_Get
+        /// </summary>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first
+        /// page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
@@ -43,12 +47,12 @@ namespace Kmd.Studica.Programmes.Client
         /// specific rooms.
         /// </param>
         /// <param name='dateFrom'>
-        /// If specified, returns sessions which are planned on a date no
-        /// earlier than this.
+        /// Format - date (as full-date in RFC3339). If specified, returns
+        /// sessions which are planned on a date no earlier than this.
         /// </param>
         /// <param name='dateTo'>
-        /// If specified, returns sessions which are planned on a date no later
-        /// than this.
+        /// Format - date (as full-date in RFC3339). If specified, returns
+        /// sessions which are planned on a date no later than this.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

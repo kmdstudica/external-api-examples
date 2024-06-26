@@ -18,6 +18,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IAddLessonsExternal
     {
+        /// <summary>
+        /// AddLessonsExternal_Post
+        /// </summary>
         /// <param name='newLessons'>
         /// New lessons.
         /// </param>

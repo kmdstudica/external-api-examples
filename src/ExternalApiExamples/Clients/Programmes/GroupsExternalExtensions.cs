@@ -17,27 +17,33 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class GroupsExternalExtensions
     {
+            /// <summary>
+            /// GroupsExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='body'>
+            /// <param name='groupsExternalRequest'>
             /// </param>
-            public static IList<GroupsExternalResponse> Post(this IGroupsExternal operations, GroupsExternalRequest body = default(GroupsExternalRequest))
+            public static IList<GroupsExternalResponse> Post(this IGroupsExternal operations, GroupsExternalRequest groupsExternalRequest = default(GroupsExternalRequest))
             {
-                return operations.PostAsync(body).GetAwaiter().GetResult();
+                return operations.PostAsync(groupsExternalRequest).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// GroupsExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='body'>
+            /// <param name='groupsExternalRequest'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<GroupsExternalResponse>> PostAsync(this IGroupsExternal operations, GroupsExternalRequest body = default(GroupsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<GroupsExternalResponse>> PostAsync(this IGroupsExternal operations, GroupsExternalRequest groupsExternalRequest = default(GroupsExternalRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostWithHttpMessagesAsync(groupsExternalRequest, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

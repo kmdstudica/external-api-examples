@@ -40,15 +40,15 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="roomIds">The Ids of the rooms where the session is
         /// conducted.</param>
         /// <param name="teacherIds">List of teacher' identifiers.</param>
+        /// <param name="date">Date</param>
         /// <param name="schoolCode">String</param>
         /// <param name="externalLessonId">String</param>
-        /// <param name="date">Date of the session.</param>
         /// <param name="startTime">Start time of the session.</param>
         /// <param name="endTime">End time of the lesson.</param>
         /// <param name="schoolHourEntryId">The school hour entry which the
         /// session is scheduled to.</param>
         /// <param name="comment">String</param>
-        public EditSubjectCourseSessionExternalCommand(System.Guid sessionId, IList<System.Guid> groupIds, IList<System.Guid> roomIds, IList<System.Guid> teacherIds, string schoolCode, string externalLessonId = default(string), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), string comment = default(string))
+        public EditSubjectCourseSessionExternalCommand(System.Guid sessionId, IList<System.Guid> groupIds, IList<System.Guid> roomIds, IList<System.Guid> teacherIds, System.DateTime date, string schoolCode, string externalLessonId = default(string), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), string comment = default(string))
         {
             SessionId = sessionId;
             ExternalLessonId = externalLessonId;
@@ -107,11 +107,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<System.Guid> TeacherIds { get; set; }
 
         /// <summary>
-        /// Gets or sets date of the session.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Date of the session.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "date")]
-        public System.DateTime? Date { get; set; }
+        public System.DateTime Date { get; set; }
 
         /// <summary>
         /// Gets or sets start time of the session.

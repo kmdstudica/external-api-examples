@@ -18,11 +18,15 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface ISubjectCoursesExternal
     {
+        /// <summary>
+        /// SubjectCoursesExternal_Get
+        /// </summary>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first
+        /// page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
@@ -31,10 +35,12 @@ namespace Kmd.Studica.Programmes.Client
         /// The school code for which to get data.
         /// </param>
         /// <param name='startDateFrom'>
-        /// Beginning of the range for start date subject courses.
+        /// Format - date (as full-date in RFC3339). Beginning of the range for
+        /// start date subject courses.
         /// </param>
         /// <param name='startDateTo'>
-        /// End of the range for start date subject courses.
+        /// Format - date (as full-date in RFC3339). End of the range for start
+        /// date subject courses.
         /// </param>
         /// <param name='lmsIndicator'>
         /// Is the entity to be created in the LMS.
@@ -45,7 +51,8 @@ namespace Kmd.Studica.Programmes.Client
         /// Should the response include deleted subject courses
         /// </param>
         /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
-        /// Only get data inserted or updated on or after the specified date
+        /// Format - date-time (as date-time in RFC3339). Only get data
+        /// inserted or updated on or after the specified date
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

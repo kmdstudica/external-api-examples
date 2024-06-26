@@ -18,6 +18,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// </summary>
     public partial interface IBulkAreasOfResponsibilityExternal
     {
+        /// <summary>
+        /// BulkAreasOfResponsibilityExternal_Post
+        /// </summary>
         /// <param name='areaOfResponsibilityIds'>
         /// Areas of responsibility identifiers for bulk query.
         /// </param>

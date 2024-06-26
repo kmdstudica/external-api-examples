@@ -18,6 +18,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IStudentSchoolCoursesExternal
     {
+        /// <summary>
+        /// StudentSchoolCoursesExternal_Get
+        /// </summary>
         /// <param name='studentIds'>
         /// Student ids for bulk query. Must contain 1 to 1000 elements
         /// </param>
@@ -25,11 +28,12 @@ namespace Kmd.Studica.Programmes.Client
         /// The school code for which to get data.
         /// </param>
         /// <param name='periodFrom'>
-        /// Beginning of the range for start date of the students' school
-        /// courses.
+        /// Format - date (as full-date in RFC3339). Beginning of the range for
+        /// start date of the students' school courses.
         /// </param>
         /// <param name='periodTo'>
-        /// End of the range for start date of the students' school courses.
+        /// Format - date (as full-date in RFC3339). End of the range for start
+        /// date of the students' school courses.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

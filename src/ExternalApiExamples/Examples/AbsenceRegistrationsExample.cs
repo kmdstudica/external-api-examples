@@ -30,7 +30,7 @@ public class AbsenceRegistrationsExample
     {
         Console.WriteLine("Executing get absence registrations example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
@@ -79,13 +79,13 @@ public class AbsenceRegistrationsExample
     {
         Console.WriteLine("Executing add absence registrations example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
 
         var result = await programmesClient.RegisterAbsenceExternal.PostWithHttpMessagesAsync(
-            body: new RegisterAbsenceExternalCommand
+            new RegisterAbsenceExternalCommand
             {
                 AbsenceRegistered = true,
                 LessonId = new Guid(),

@@ -22,7 +22,7 @@ public class StatisticsExample
     {
         Console.WriteLine("Executing handin statistics example");
 
-        using var statisticsClient = new KMDStudicaStatistics(new TokenCredentials(tokenProvider));
+        using var statisticsClient = new StudicaDemoStatistics(new TokenCredentials(tokenProvider));
         statisticsClient.BaseUri = string.IsNullOrEmpty(configuration.StatisticsBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/statistics/v1")
             : new Uri(configuration.StatisticsBaseUri);
@@ -67,7 +67,7 @@ public class StatisticsExample
     {
         Console.WriteLine("Executing delete handin statistics example");
 
-        using var statisticsClient = new KMDStudicaStatistics(new TokenCredentials(tokenProvider));
+        using var statisticsClient = new StudicaDemoStatistics(new TokenCredentials(tokenProvider));
         statisticsClient.BaseUri = string.IsNullOrEmpty(configuration.StatisticsBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/statistics/v1")
             : new Uri(configuration.StatisticsBaseUri);

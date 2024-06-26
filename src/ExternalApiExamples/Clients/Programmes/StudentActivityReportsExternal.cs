@@ -22,7 +22,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// StudentActivityReportsExternal operations.
     /// </summary>
-    public partial class StudentActivityReportsExternal : IServiceOperations<KMDStudicaProgrammes>, IStudentActivityReportsExternal
+    public partial class StudentActivityReportsExternal : IServiceOperations<StudicaDemoProgrammes>, IStudentActivityReportsExternal
     {
         /// <summary>
         /// Initializes a new instance of the StudentActivityReportsExternal class.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public StudentActivityReportsExternal(KMDStudicaProgrammes client)
+        public StudentActivityReportsExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -43,15 +43,19 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
+        /// <summary>
+        /// StudentActivityReportsExternal_Get
+        /// </summary>
         /// <param name='schoolCode'>
         /// The school code for which to get data.
         /// </param>
         /// <param name='periodFrom'>
-        /// Beginning of period for activity report quarters.
+        /// Format - date (as full-date in RFC3339). Beginning of period for activity
+        /// report quarters.
         /// The `PeriodFrom` parameter must be a date that is on or before given
         /// activity report period
         /// to include the desired report in the output.
@@ -60,8 +64,8 @@ namespace Kmd.Studica.Programmes.Client
         /// June 15)
         /// </param>
         /// <param name='periodTo'>
-        /// End of period for activity report quarters. The `PeriodTo` parameter must
-        /// fully encompass
+        /// Format - date (as full-date in RFC3339). End of period for activity report
+        /// quarters. The `PeriodTo` parameter must fully encompass
         /// the end date of a given activity report quarter to include the desired
         /// report in the output.
         /// E.g. to get all activity reports for 2020 the PeriodFrom could be
@@ -113,9 +117,9 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("periodFrom", periodFrom);
                 tracingParameters.Add("periodTo", periodTo);
-                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
@@ -123,6 +127,10 @@ namespace Kmd.Studica.Programmes.Client
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "StudentActivityReportsExternal").ToString();
             List<string> _queryParameters = new List<string>();
+            if (schoolCode != null)
+            {
+                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
+            }
             if (periodFrom != null)
             {
                 _queryParameters.Add(string.Format("PeriodFrom={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodFrom, new DateJsonConverter()).Trim('"'))));
@@ -130,10 +138,6 @@ namespace Kmd.Studica.Programmes.Client
             if (periodTo != null)
             {
                 _queryParameters.Add(string.Format("PeriodTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(periodTo, new DateJsonConverter()).Trim('"'))));
-            }
-            if (schoolCode != null)
-            {
-                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
             }
             if (_queryParameters.Count > 0)
             {

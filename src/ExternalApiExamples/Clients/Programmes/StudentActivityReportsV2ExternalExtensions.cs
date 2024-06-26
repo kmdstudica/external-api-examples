@@ -17,6 +17,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class StudentActivityReportsV2ExternalExtensions
     {
+            /// <summary>
+            /// StudentActivityReportsV2External_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -24,18 +27,21 @@ namespace Kmd.Studica.Programmes.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='periodFrom'>
-            /// Includes reports for periods with a transmission period start date no
-            /// earlier than `PeriodFrom`
+            /// Format - date (as full-date in RFC3339). Includes reports for periods with
+            /// a transmission period start date no earlier than `PeriodFrom`
             /// </param>
             /// <param name='periodTo'>
-            /// Includes reports for periods with a transmission period start date no later
-            /// than `PeriodFromTo`
+            /// Format - date (as full-date in RFC3339). Includes reports for periods with
+            /// a transmission period start date no later than `PeriodFromTo`
             /// </param>
             public static IList<ActivityGroup2Dto> Get(this IStudentActivityReportsV2External operations, string schoolCode, System.DateTime? periodFrom = default(System.DateTime?), System.DateTime? periodTo = default(System.DateTime?))
             {
                 return operations.GetAsync(schoolCode, periodFrom, periodTo).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// StudentActivityReportsV2External_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -43,12 +49,12 @@ namespace Kmd.Studica.Programmes.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='periodFrom'>
-            /// Includes reports for periods with a transmission period start date no
-            /// earlier than `PeriodFrom`
+            /// Format - date (as full-date in RFC3339). Includes reports for periods with
+            /// a transmission period start date no earlier than `PeriodFrom`
             /// </param>
             /// <param name='periodTo'>
-            /// Includes reports for periods with a transmission period start date no later
-            /// than `PeriodFromTo`
+            /// Format - date (as full-date in RFC3339). Includes reports for periods with
+            /// a transmission period start date no later than `PeriodFromTo`
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

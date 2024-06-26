@@ -37,12 +37,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <param name="roomIds">The Ids of the rooms where the session is
         /// conducted.</param>
         /// <param name="teacherIds">List of teacher' identifiers.</param>
+        /// <param name="date">Date</param>
         /// <param name="externalLessonId">String</param>
-        /// <param name="date">Date of the session.</param>
         /// <param name="startTime">Start time of the session.</param>
-        /// <param name="endTime">End time of the lesson.</param>
+        /// <param name="endTime">End time of the session.</param>
         /// <param name="comment">String</param>
-        public ExternalIndependentSessionDto(System.Guid sessionId, IList<System.Guid> groupIds, IList<System.Guid> roomIds, IList<System.Guid> teacherIds, string externalLessonId = default(string), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), string comment = default(string))
+        public ExternalIndependentSessionDto(System.Guid sessionId, IList<System.Guid> groupIds, IList<System.Guid> roomIds, IList<System.Guid> teacherIds, System.DateTime date, string externalLessonId = default(string), string startTime = default(string), string endTime = default(string), string comment = default(string))
         {
             SessionId = sessionId;
             ExternalLessonId = externalLessonId;
@@ -99,11 +99,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<System.Guid> TeacherIds { get; set; }
 
         /// <summary>
-        /// Gets or sets date of the session.
+        /// Gets or sets date
         /// </summary>
+        /// <remarks>
+        /// Date of the session.
+        /// </remarks>
         [JsonConverter(typeof(DateJsonConverter))]
         [JsonProperty(PropertyName = "date")]
-        public System.DateTime? Date { get; set; }
+        public System.DateTime Date { get; set; }
 
         /// <summary>
         /// Gets or sets start time of the session.
@@ -112,7 +115,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         public string StartTime { get; set; }
 
         /// <summary>
-        /// Gets or sets end time of the lesson.
+        /// Gets or sets end time of the session.
         /// </summary>
         [JsonProperty(PropertyName = "endTime")]
         public string EndTime { get; set; }

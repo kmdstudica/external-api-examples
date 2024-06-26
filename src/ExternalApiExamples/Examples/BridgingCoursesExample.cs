@@ -22,13 +22,13 @@ public class BridgingCoursesExample
     {
         Console.Write("Executing bridging course students example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);
 
         var result = await programmesClient.BulkBridgingCourseStudentsExternal.PostWithHttpMessagesAsync(
-            studentIds: new List<Guid> { Guid.NewGuid() },
+            studentIds: new List<Guid> { Guid.Parse("") },
             schoolCode: configuration.SchoolCode,
             customHeaders: new Dictionary<string, List<string>>
             {
@@ -44,7 +44,7 @@ public class BridgingCoursesExample
     {
         Console.Write("Executing active bridging courses example");
 
-        using var programmesClient = new KMDStudicaProgrammes(new TokenCredentials(tokenProvider));
+        using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/programmes/v1")
             : new Uri(configuration.ProgrammesBaseUri);

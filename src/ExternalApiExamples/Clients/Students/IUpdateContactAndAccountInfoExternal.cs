@@ -18,7 +18,10 @@ namespace Kmd.Studica.Students.Client
     /// </summary>
     public partial interface IUpdateContactAndAccountInfoExternal
     {
-        /// <param name='body'>
+        /// <summary>
+        /// UpdateContactAndAccountInfoExternal_Post
+        /// </summary>
+        /// <param name='updateContactAndAccountInfoExternalCommand'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -29,6 +32,6 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> PostWithHttpMessagesAsync(UpdateContactAndAccountInfoExternalCommand body = default(UpdateContactAndAccountInfoExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PostWithHttpMessagesAsync(UpdateContactAndAccountInfoExternalCommand updateContactAndAccountInfoExternalCommand = default(UpdateContactAndAccountInfoExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

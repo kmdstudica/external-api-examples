@@ -18,6 +18,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// </summary>
     public partial interface IBulkDepartmentsExternal
     {
+        /// <summary>
+        /// BulkDepartmentsExternal_Post
+        /// </summary>
         /// <param name='departmentIds'>
         /// Department identifiers for bulk query.
         /// </param>

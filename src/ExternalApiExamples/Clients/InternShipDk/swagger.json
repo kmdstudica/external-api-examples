@@ -1,344 +1,400 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "title": "KMD Studica - Internship.DK",
-    "version": "v1"
-  },
-  "host": "kmd-logic-shareddev-apim.azure-api.net",
-  "basePath": "/studica/internship-dk/v1",
-  "schemes": [
-    "https"
-  ],
-  "paths": {
-    "/AgreementsExternal": {
-      "post": {
-        "tags": [
-          "AgreementsExternal"
-        ],
-        "operationId": "AgreementsExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AgreementsExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/AgreementsExternalResponse"
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "AgreementsExternalRequest": {
-      "title": "AgreementsExternalRequest",
-      "description": "Returns a list of agreements for the requested students.",
-      "required": [
-        "schoolCode",
-        "studentIds"
-      ],
-      "type": "object",
-      "properties": {
-        "studentIds": {
-          "description": "Student ids. Must contain 1 to 1000 elements.",
-          "maxItems": 1000,
-          "minItems": 1,
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "title": "Guid",
-            "type": "string",
-            "x-nullable": false
-          }
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "AgreementsExternalResponse": {
-      "title": "AgreementsExternalResponse",
-      "required": [
-        "agreementEndDate",
-        "agreementId",
-        "agreementStartDate",
-        "agreementType",
-        "educationStartDate",
-        "educationVersion",
-        "studentId"
-      ],
-      "type": "object",
-      "properties": {
-        "studentId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of the student.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "agreementId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of the agreement.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "coesaPurpose": {
-          "title": "String",
-          "description": "Coesa purpose code of the education the agreement belongs to.",
-          "type": "string"
-        },
-        "speciality": {
-          "title": "String",
-          "description": "Speciality of the agreement.",
-          "type": "string"
-        },
-        "educationVersion": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Version of the education the agreement belongs to.",
-          "type": "integer",
-          "x-nullable": false
-        },
-        "studentType": {
-          "title": "String",
-          "description": "Student type the agreement is associated with.",
-          "type": "string"
-        },
-        "entryRoute": {
-          "title": "String",
-          "description": "Entry route the agreement is associated with.",
-          "type": "string"
-        },
-        "educationStartDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "Start date of the education the agreement belongs to.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "educationExpectedEndDate": {
-          "format": "date",
-          "description": "Expected end date of the education the agreement belongs to.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "agreementStartDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "Start date of the agreement.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "agreementEndDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "End date of the agreement.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "comment": {
-          "title": "String",
-          "description": "Comment on the agreement.",
-          "type": "string"
-        },
-        "agreementType": {
-          "title": "ApprenticeshipAgreementType",
-          "description": "Type of agreement.",
-          "enum": [
-            "EducationalAgreement",
-            "CombinationAgreement",
-            "SchoolInternshipAgreement",
-            "InternshipAbroadAgreement",
-            "FguEudProgrammeAgreement",
-            "CompanyPlacedInternshipAgreement",
-            "CompanyPlacedInternshipAbroadAgreement",
-            "Breaks"
-          ],
-          "type": "string",
-          "x-nullable": false
-        },
-        "educationalAgreementType": {
-          "description": "Type of educational agreement, if AgreementType is EducationalAgreement.\r\nIf not, then it's null.",
-          "enum": [
-            "SubagreementInCombinationagreement",
-            "SubagreementInPreparationforBasiceducationEud",
-            "SubagreementInSchoolinternship",
-            "ShortAgreement",
-            "OrdinaryAgreement",
-            "RemainingAgreement"
-          ],
-          "type": "string"
-        },
-        "fguEudProgrammeAgreementId": {
-          "format": "uuid",
-          "description": "Id of the Fgu Eud programme agreement, if there is any.",
-          "type": "string"
-        },
-        "companyName": {
-          "title": "String",
-          "description": "Name of the company associated to the agreement.",
-          "type": "string"
-        },
-        "companyAddress": {
-          "title": "String",
-          "description": "Address of the company associated to the agreement.",
-          "type": "string"
-        },
-        "companyCountryCode": {
-          "title": "String",
-          "description": "Country code of the company associated to the agreement.",
-          "type": "string"
-        },
-        "signedDate": {
-          "format": "date",
-          "description": "Date when the agreement was signed.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "receivedDate": {
-          "format": "date",
-          "description": "Date when the agreement was received.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "completedRegistrationDate": {
-          "format": "date",
-          "description": "Date when the agreement registration was completed.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "creditPreApprovedDate": {
-          "format": "date",
-          "description": "Date when the credit was pre approved.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "creditFinalApprovedDate": {
-          "format": "date",
-          "description": "Date when the credit got the final approval.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "cvrNumber": {
-          "title": "String",
-          "description": "Cvr number.",
-          "type": "string"
-        },
-        "pNumber": {
-          "title": "String",
-          "description": "PNumber",
-          "type": "string"
-        },
-        "seNumber": {
-          "title": "String",
-          "description": "SeNumber",
-          "type": "string"
-        },
-        "causeOfCompletion": {
-          "description": "Cause of completion of the agreement.",
-          "enum": [
-            "Terminated",
-            "Finished",
-            "StudentDeceased",
-            "FinishedNotSkilled",
-            "FinishedSkilled",
-            "PresumedTerminated",
-            "RepealedAfterTrialPeriodByMutualAgreement",
-            "RepealedAfterTrialPeriodByStudent",
-            "RepealedAfterTrialPeriodByCompany",
-            "RepealedAfterTrialPeriodTerminatingPartyUnknown",
-            "RepealedDuringTrial",
-            "CompetenceAssessmentCompleted",
-            "RepealedByProfessionalCommittee",
-            "TerminatedDueToOtherReason",
-            "TerminatedDueToOtherEducation",
-            "TerminatedDueToPaidWork",
-            "AgreementFulfilled",
-            "LeaveOfAbsenceForInternshipAbroad",
-            "PersonEvaluatedNotEmmaAfterStart",
-            "RepealedBeforeStart"
-          ],
-          "type": "string"
-        },
-        "combinationAgreementId": {
-          "format": "uuid",
-          "description": "If specified, then the id of the agreement used in combination with this agreement.",
-          "type": "string"
-        },
-        "supplementAgreementInformation": {
-          "description": "If specified, then adds supplementary information about this agreement.",
-          "type": "array",
-          "items": {
-            "title": "SupplementAgreementInformation",
-            "enum": [
-              "VocationalSupplementWithExtension",
-              "VocationalSupplementWithoutExtension",
-              "Eux",
-              "FirstAgreementAfterLostAgreementWithoutFault",
-              "ExtendedDueToSicknessOrLeaveOfAbsenceOrSimilar",
-              "GfPlus",
-              "MustNotTriggerAubGrantHavredal",
-              "MustNotTriggerStateGrants",
-              "NewMasterApprenticeship",
-              "StudySupplementWithExtension",
-              "StudySupplementWithoutExtension",
-              "LostWithoutFault",
-              "UnspecifiedSupplementWithExtension",
-              "UnspecifiedSupplementWithoutExtension",
-              "AdmittedAfterLostEducationalAgreementWithoutFault"
-            ],
-            "type": "string",
-            "x-nullable": false
-          }
-        },
-        "agreementSchoolInstitutionNumber": {
-          "title": "String",
-          "description": "Institution number of the school the agreement is associated with.",
-          "type": "string"
-        },
-        "agreementDepartmentInstitutionNumber": {
-          "title": "String",
-          "description": "Institution number of the department the agreement is associated with.",
-          "type": "string"
-        }
-      }
-    }
-  },
-  "securityDefinitions": {
-    "Bearer": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header",
-      "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
-    }
-  },
-  "security": [
-    {
-      "Bearer": [ ]
-    }
-  ]
+	"swagger": "2.0",
+	"info": {
+		"title": "Studica (Demo) - Internship DK",
+		"version": "v1"
+	},
+	"host": "api.studica.dk",
+	"basePath": "/demo/internship-dk/v1",
+	"schemes": [
+		"https"
+	],
+	"securityDefinitions": {
+		"apiKeyHeader": {
+			"type": "apiKey",
+			"name": "Ocp-Apim-Subscription-Key",
+			"in": "header"
+		},
+		"apiKeyQuery": {
+			"type": "apiKey",
+			"name": "subscription-key",
+			"in": "query"
+		}
+	},
+	"security": [
+		{
+			"apiKeyHeader": []
+		},
+		{
+			"apiKeyQuery": []
+		}
+	],
+	"paths": {
+		"/AgreementsExternal": {
+			"post": {
+				"operationId": "AgreementsExternal_Post",
+				"summary": "AgreementsExternal_Post",
+				"tags": [
+					"AgreementsExternal"
+				],
+				"parameters": [
+					{
+						"name": "agreementsExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/AgreementsExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/AgreementsExternalResponse"
+							}
+						},
+						"examples": {
+							"application/json": [
+								{
+									"studentId": "string",
+									"agreementId": "string",
+									"coesaPurpose": "string",
+									"speciality": "string",
+									"educationVersion": 0,
+									"studentType": "string",
+									"entryRoute": "string",
+									"educationStartDate": "2024-06-20",
+									"educationExpectedEndDate": "2024-06-20",
+									"agreementStartDate": "2024-06-20",
+									"agreementEndDate": "2024-06-20",
+									"comment": "string",
+									"agreementType": "EducationalAgreement",
+									"educationalAgreementType": "SubagreementInCombinationagreement",
+									"fguEudProgrammeAgreementId": "string",
+									"companyName": "string",
+									"companyAddress": "string",
+									"companyCountryCode": "string",
+									"signedDate": "2024-06-20",
+									"receivedDate": "2024-06-20",
+									"completedRegistrationDate": "2024-06-20",
+									"creditPreApprovedDate": "2024-06-20",
+									"creditFinalApprovedDate": "2024-06-20",
+									"cvrNumber": "string",
+									"pNumber": "string",
+									"seNumber": "string",
+									"causeOfCompletion": "Terminated",
+									"combinationAgreementId": "string",
+									"supplementAgreementInformation": [
+										"VocationalSupplementWithExtension"
+									],
+									"agreementSchoolInstitutionNumber": "string",
+									"agreementDepartmentInstitutionNumber": "string"
+								}
+							]
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"AgreementsExternalRequest": {
+			"title": "AgreementsExternalRequest",
+			"description": "Returns a list of agreements for the requested students.",
+			"required": [
+				"schoolCode",
+				"studentIds"
+			],
+			"type": "object",
+			"properties": {
+				"studentIds": {
+					"description": "Student ids. Must contain 1 to 1000 elements.",
+					"maxItems": 1000,
+					"minItems": 1,
+					"type": "array",
+					"items": {
+						"format": "uuid",
+						"title": "Guid",
+						"type": "string",
+						"x-nullable": false
+					}
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"studentIds": [
+					"string"
+				],
+				"schoolCode": "string"
+			}
+		},
+		"AgreementsExternalResponse": {
+			"title": "AgreementsExternalResponse",
+			"required": [
+				"agreementEndDate",
+				"agreementId",
+				"agreementStartDate",
+				"agreementType",
+				"educationStartDate",
+				"educationVersion",
+				"studentId"
+			],
+			"type": "object",
+			"properties": {
+				"studentId": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Id of the student.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"agreementId": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Id of the agreement.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"coesaPurpose": {
+					"title": "String",
+					"description": "Coesa purpose code of the education the agreement belongs to.",
+					"type": "string"
+				},
+				"speciality": {
+					"title": "String",
+					"description": "Speciality of the agreement.",
+					"type": "string"
+				},
+				"educationVersion": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Version of the education the agreement belongs to.",
+					"type": "integer",
+					"x-nullable": false
+				},
+				"studentType": {
+					"title": "String",
+					"description": "Student type the agreement is associated with.",
+					"type": "string"
+				},
+				"entryRoute": {
+					"title": "String",
+					"description": "Entry route the agreement is associated with.",
+					"type": "string"
+				},
+				"educationStartDate": {
+					"format": "date",
+					"title": "Date",
+					"description": "Start date of the education the agreement belongs to.",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"educationExpectedEndDate": {
+					"format": "date",
+					"description": "Expected end date of the education the agreement belongs to.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"agreementStartDate": {
+					"format": "date",
+					"title": "Date",
+					"description": "Start date of the agreement.",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"agreementEndDate": {
+					"format": "date",
+					"title": "Date",
+					"description": "End date of the agreement.",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"comment": {
+					"title": "String",
+					"description": "Comment on the agreement.",
+					"type": "string"
+				},
+				"agreementType": {
+					"title": "ApprenticeshipAgreementType",
+					"description": "Type of agreement.",
+					"enum": [
+						"EducationalAgreement",
+						"CombinationAgreement",
+						"SchoolInternshipAgreement",
+						"InternshipAbroadAgreement",
+						"FguEudProgrammeAgreement",
+						"CompanyPlacedInternshipAgreement",
+						"CompanyPlacedInternshipAbroadAgreement",
+						"Breaks"
+					],
+					"type": "string",
+					"x-nullable": false
+				},
+				"educationalAgreementType": {
+					"description": "Type of educational agreement, if AgreementType is EducationalAgreement.\r\nIf not, then it's null.",
+					"enum": [
+						"SubagreementInCombinationagreement",
+						"SubagreementInPreparationforBasiceducationEud",
+						"SubagreementInSchoolinternship",
+						"ShortAgreement",
+						"OrdinaryAgreement",
+						"RemainingAgreement"
+					],
+					"type": "string"
+				},
+				"fguEudProgrammeAgreementId": {
+					"format": "uuid",
+					"description": "Id of the Fgu Eud programme agreement, if there is any.",
+					"type": "string"
+				},
+				"companyName": {
+					"title": "String",
+					"description": "Name of the company associated to the agreement.",
+					"type": "string"
+				},
+				"companyAddress": {
+					"title": "String",
+					"description": "Address of the company associated to the agreement.",
+					"type": "string"
+				},
+				"companyCountryCode": {
+					"title": "String",
+					"description": "Country code of the company associated to the agreement.",
+					"type": "string"
+				},
+				"signedDate": {
+					"format": "date",
+					"description": "Date when the agreement was signed.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"receivedDate": {
+					"format": "date",
+					"description": "Date when the agreement was received.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"completedRegistrationDate": {
+					"format": "date",
+					"description": "Date when the agreement registration was completed.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"creditPreApprovedDate": {
+					"format": "date",
+					"description": "Date when the credit was pre approved.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"creditFinalApprovedDate": {
+					"format": "date",
+					"description": "Date when the credit got the final approval.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"cvrNumber": {
+					"title": "String",
+					"description": "Cvr number.",
+					"type": "string"
+				},
+				"pNumber": {
+					"title": "String",
+					"description": "PNumber",
+					"type": "string"
+				},
+				"seNumber": {
+					"title": "String",
+					"description": "SeNumber",
+					"type": "string"
+				},
+				"causeOfCompletion": {
+					"description": "Cause of completion of the agreement.",
+					"enum": [
+						"Terminated",
+						"Finished",
+						"StudentDeceased",
+						"FinishedNotSkilled",
+						"FinishedSkilled",
+						"PresumedTerminated",
+						"RepealedAfterTrialPeriodByMutualAgreement",
+						"RepealedAfterTrialPeriodByStudent",
+						"RepealedAfterTrialPeriodByCompany",
+						"RepealedAfterTrialPeriodTerminatingPartyUnknown",
+						"RepealedDuringTrial",
+						"CompetenceAssessmentCompleted",
+						"RepealedByProfessionalCommittee",
+						"TerminatedDueToOtherReason",
+						"TerminatedDueToOtherEducation",
+						"TerminatedDueToPaidWork",
+						"AgreementFulfilled",
+						"LeaveOfAbsenceForInternshipAbroad",
+						"PersonEvaluatedNotEmmaAfterStart",
+						"RepealedBeforeStart"
+					],
+					"type": "string"
+				},
+				"combinationAgreementId": {
+					"format": "uuid",
+					"description": "If specified, then the id of the agreement used in combination with this agreement.",
+					"type": "string"
+				},
+				"supplementAgreementInformation": {
+					"description": "If specified, then adds supplementary information about this agreement.",
+					"type": "array",
+					"items": {
+						"title": "SupplementAgreementInformation",
+						"enum": [
+							"VocationalSupplementWithExtension",
+							"VocationalSupplementWithoutExtension",
+							"Eux",
+							"FirstAgreementAfterLostAgreementWithoutFault",
+							"ExtendedDueToSicknessOrLeaveOfAbsenceOrSimilar",
+							"GfPlus",
+							"MustNotTriggerAubGrantHavredal",
+							"MustNotTriggerStateGrants",
+							"NewMasterApprenticeship",
+							"StudySupplementWithExtension",
+							"StudySupplementWithoutExtension",
+							"LostWithoutFault",
+							"UnspecifiedSupplementWithExtension",
+							"UnspecifiedSupplementWithoutExtension",
+							"AdmittedAfterLostEducationalAgreementWithoutFault"
+						],
+						"type": "string",
+						"x-nullable": false
+					}
+				},
+				"agreementSchoolInstitutionNumber": {
+					"title": "String",
+					"description": "Institution number of the school the agreement is associated with.",
+					"type": "string"
+				},
+				"agreementDepartmentInstitutionNumber": {
+					"title": "String",
+					"description": "Institution number of the department the agreement is associated with.",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"tags": []
 }

@@ -18,6 +18,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IBulkEducationalProgrammesExternal
     {
+        /// <summary>
+        /// BulkEducationalProgrammesExternal_Post
+        /// </summary>
         /// <param name='educationalProgrammeIds'>
         /// Educational programme identifiers for bulk query.
         /// </param>

@@ -20,7 +20,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// AddIndependentSessionsExternal operations.
     /// </summary>
-    public partial class AddIndependentSessionsExternal : IServiceOperations<KMDStudicaProgrammes>, IAddIndependentSessionsExternal
+    public partial class AddIndependentSessionsExternal : IServiceOperations<StudicaDemoProgrammes>, IAddIndependentSessionsExternal
     {
         /// <summary>
         /// Initializes a new instance of the AddIndependentSessionsExternal class.
@@ -31,7 +31,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public AddIndependentSessionsExternal(KMDStudicaProgrammes client)
+        public AddIndependentSessionsExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -41,10 +41,13 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
+        /// <summary>
+        /// AddIndependentSessionsExternal_Post
+        /// </summary>
         /// <param name='sessions'>
         /// New sessions to create.
         /// </param>
@@ -100,12 +103,12 @@ namespace Kmd.Studica.Programmes.Client
                     throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
                 }
             }
-            AddIndependentSessionsExternalCommand body = default(AddIndependentSessionsExternalCommand);
+            AddIndependentSessionsExternalCommand addIndependentSessionsExternalCommand = default(AddIndependentSessionsExternalCommand);
             if (sessions != null || schoolCode != null)
             {
-                body = new AddIndependentSessionsExternalCommand();
-                body.Sessions = sessions;
-                body.SchoolCode = schoolCode;
+                addIndependentSessionsExternalCommand = new AddIndependentSessionsExternalCommand();
+                addIndependentSessionsExternalCommand.Sessions = sessions;
+                addIndependentSessionsExternalCommand.SchoolCode = schoolCode;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -114,7 +117,7 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("addIndependentSessionsExternalCommand", addIndependentSessionsExternalCommand);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
@@ -143,9 +146,9 @@ namespace Kmd.Studica.Programmes.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(addIndependentSessionsExternalCommand != null)
             {
-                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(addIndependentSessionsExternalCommand, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

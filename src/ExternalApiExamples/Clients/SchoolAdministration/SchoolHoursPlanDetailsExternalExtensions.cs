@@ -15,10 +15,14 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// </summary>
     public static partial class SchoolHoursPlanDetailsExternalExtensions
     {
+            /// <summary>
+            /// SchoolHoursPlanDetailsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='id'>
+            /// Format - uuid.
             /// </param>
             /// <param name='schoolCode'>
             /// The school code for which to get data.
@@ -28,10 +32,14 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 return operations.GetAsync(id, schoolCode).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// SchoolHoursPlanDetailsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='id'>
+            /// Format - uuid.
             /// </param>
             /// <param name='schoolCode'>
             /// The school code for which to get data.

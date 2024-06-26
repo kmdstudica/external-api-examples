@@ -17,6 +17,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class StudentActivityReportsExternalExtensions
     {
+            /// <summary>
+            /// StudentActivityReportsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -24,7 +27,8 @@ namespace Kmd.Studica.Programmes.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='periodFrom'>
-            /// Beginning of period for activity report quarters.
+            /// Format - date (as full-date in RFC3339). Beginning of period for activity
+            /// report quarters.
             /// The `PeriodFrom` parameter must be a date that is on or before given
             /// activity report period
             /// to include the desired report in the output.
@@ -33,8 +37,8 @@ namespace Kmd.Studica.Programmes.Client
             /// June 15)
             /// </param>
             /// <param name='periodTo'>
-            /// End of period for activity report quarters. The `PeriodTo` parameter must
-            /// fully encompass
+            /// Format - date (as full-date in RFC3339). End of period for activity report
+            /// quarters. The `PeriodTo` parameter must fully encompass
             /// the end date of a given activity report quarter to include the desired
             /// report in the output.
             /// E.g. to get all activity reports for 2020 the PeriodFrom could be
@@ -46,6 +50,9 @@ namespace Kmd.Studica.Programmes.Client
                 return operations.GetAsync(schoolCode, periodFrom, periodTo).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// StudentActivityReportsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -53,7 +60,8 @@ namespace Kmd.Studica.Programmes.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='periodFrom'>
-            /// Beginning of period for activity report quarters.
+            /// Format - date (as full-date in RFC3339). Beginning of period for activity
+            /// report quarters.
             /// The `PeriodFrom` parameter must be a date that is on or before given
             /// activity report period
             /// to include the desired report in the output.
@@ -62,8 +70,8 @@ namespace Kmd.Studica.Programmes.Client
             /// June 15)
             /// </param>
             /// <param name='periodTo'>
-            /// End of period for activity report quarters. The `PeriodTo` parameter must
-            /// fully encompass
+            /// Format - date (as full-date in RFC3339). End of period for activity report
+            /// quarters. The `PeriodTo` parameter must fully encompass
             /// the end date of a given activity report quarter to include the desired
             /// report in the output.
             /// E.g. to get all activity reports for 2020 the PeriodFrom could be

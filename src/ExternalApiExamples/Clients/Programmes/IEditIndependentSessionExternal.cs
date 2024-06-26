@@ -18,7 +18,10 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IEditIndependentSessionExternal
     {
-        /// <param name='body'>
+        /// <summary>
+        /// EditIndependentSessionExternal_Post
+        /// </summary>
+        /// <param name='editIndependentSessionExternalCommand'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -29,6 +32,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> PostWithHttpMessagesAsync(EditIndependentSessionExternalCommand body = default(EditIndependentSessionExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PostWithHttpMessagesAsync(EditIndependentSessionExternalCommand editIndependentSessionExternalCommand = default(EditIndependentSessionExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

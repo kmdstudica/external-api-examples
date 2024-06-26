@@ -1,3140 +1,3984 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "title": "KMD Studica - School Administration",
-    "version": "v1"
-  },
-  "host": "kmd-logic-shareddev-apim.azure-api.net",
-  "basePath": "/studica/school-administration/v1",
-  "schemes": [
-    "https"
-  ],
-  "paths": {
-    "/ActiveDepartmentsExternal": {
-      "get": {
-        "tags": [
-          "ActiveDepartmentsExternal"
-        ],
-        "operationId": "ActiveDepartmentsExternal_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "PageNumber",
-            "description": "The number of the page to return (1 is the first page).",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageSize",
-            "description": "Number of objects per page.",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 1000,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "InlineCount",
-            "description": "A flag indicating if total number of items should be included.",
-            "required": true,
-            "type": "boolean",
-            "default": true,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_DepartmentsExternalResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "ActiveDepartmentsExternal"
-        ],
-        "operationId": "_ActiveDepartmentsExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ActiveDepartmentsExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_DepartmentsExternalResponse"
-            }
-          }
-        }
-      }
-    },
-    "/ActiveEmployeesExternal": {
-      "get": {
-        "tags": [
-          "ActiveEmployeesExternal"
-        ],
-        "operationId": "ActiveEmployeesExternal_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "EmployeesActiveOnOrAfterDate",
-            "description": "Employees must have an active employment on or after this date\r\nThis parameter is required",
-            "type": "string",
-            "format": "date",
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "AreaOfResponsibilityId",
-            "description": "Option for also querying employees by area of responsibility",
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "in": "query",
-            "name": "PageNumber",
-            "description": "The number of the page to return (1 is the first page).",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageSize",
-            "description": "Number of objects per page.",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 1000,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "InlineCount",
-            "description": "A flag indicating if total number of items should be included.",
-            "required": true,
-            "type": "boolean",
-            "default": true,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_EmployeeExternalResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "ActiveEmployeesExternal"
-        ],
-        "operationId": "_ActiveEmployeesExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ActiveEmployeesExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_EmployeeExternalResponse"
-            }
-          }
-        }
-      }
-    },
-    "/AreasOfEducationExternal": {
-      "get": {
-        "tags": [
-          "AreasOfEducationExternal"
-        ],
-        "operationId": "AreasOfEducationExternal_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "PageNumber",
-            "description": "The number of the page to return (1 is the first page).",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageSize",
-            "description": "Number of objects per page.",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 1000,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "InlineCount",
-            "description": "A flag indicating if total number of items should be included.",
-            "required": true,
-            "type": "boolean",
-            "default": true,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_AreaOfEducationExternalResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "AreasOfEducationExternal"
-        ],
-        "operationId": "_AreasOfEducationExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AreasOfEducationExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_AreaOfEducationExternalResponse"
-            }
-          }
-        }
-      }
-    },
-    "/AreasOfResponsibilityExternal": {
-      "get": {
-        "tags": [
-          "AreasOfResponsibilityExternal"
-        ],
-        "operationId": "AreasOfResponsibilityExternal_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "PageNumber",
-            "description": "The number of the page to return (1 is the first page).",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageSize",
-            "description": "Number of objects per page.",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 1000,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "InlineCount",
-            "description": "A flag indicating if total number of items should be included.",
-            "required": true,
-            "type": "boolean",
-            "default": true,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_AreaOfResponsibilityExternalResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "AreasOfResponsibilityExternal"
-        ],
-        "operationId": "_AreasOfResponsibilityExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AreasOfResponsibilityExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_AreaOfResponsibilityExternalResponse"
-            }
-          }
-        }
-      }
-    },
-    "/BulkAreasOfResponsibilityExternal": {
-      "post": {
-        "tags": [
-          "BulkAreasOfResponsibilityExternal"
-        ],
-        "operationId": "BulkAreasOfResponsibilityExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BulkAreasOfResponsibilityExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/AreaOfResponsibilityExternalResponse"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/BulkDepartmentsExternal": {
-      "post": {
-        "tags": [
-          "BulkDepartmentsExternal"
-        ],
-        "operationId": "BulkDepartmentsExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BulkDepartmentsExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/DepartmentsExternalResponse"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/BulkEmployeesExternal": {
-      "post": {
-        "tags": [
-          "BulkEmployeesExternal"
-        ],
-        "operationId": "BulkEmployeesExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BulkEmployeesExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/EmployeeExternalResponse"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/BulkRoomsExternal": {
-      "post": {
-        "tags": [
-          "BulkRoomsExternal"
-        ],
-        "operationId": "BulkRoomsExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BulkRoomsExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/RoomExternalResponse"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/DayCalendarsExternal": {
-      "get": {
-        "tags": [
-          "DayCalendarsExternal"
-        ],
-        "operationId": "DayCalendarsExternal_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "PageNumber",
-            "description": "The number of the page to return (1 is the first page).",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageSize",
-            "description": "Number of objects per page.",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 1000,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "InlineCount",
-            "description": "A flag indicating if total number of items should be included.",
-            "required": true,
-            "type": "boolean",
-            "default": true,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_DayCalendarsExternalResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "DayCalendarsExternal"
-        ],
-        "operationId": "_DayCalendarsExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DayCalendarsExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_DayCalendarsExternalResponse"
-            }
-          }
-        }
-      }
-    },
-    "/DepartmentsExternal": {
-      "get": {
-        "tags": [
-          "DepartmentsExternal"
-        ],
-        "operationId": "DepartmentsExternal_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "ValidFrom",
-            "description": "Beginning date of being valid.",
-            "type": "string",
-            "format": "date"
-          },
-          {
-            "in": "query",
-            "name": "ValidTo",
-            "description": "End date of being valid.",
-            "type": "string",
-            "format": "date"
-          },
-          {
-            "in": "query",
-            "name": "PageNumber",
-            "description": "The number of the page to return (1 is the first page).",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageSize",
-            "description": "Number of objects per page.",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 1000,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "InlineCount",
-            "description": "A flag indicating if total number of items should be included.",
-            "required": true,
-            "type": "boolean",
-            "default": true,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_DepartmentsExternalResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "DepartmentsExternal"
-        ],
-        "operationId": "_DepartmentsExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DepartmentsExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_DepartmentsExternalResponse"
-            }
-          }
-        }
-      }
-    },
-    "/EmployeesExternal": {
-      "get": {
-        "tags": [
-          "EmployeesExternal"
-        ],
-        "operationId": "EmployeesExternal_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "EmploymentStartDateFrom",
-            "description": "Beginning of range for start date employment.",
-            "type": "string",
-            "format": "date"
-          },
-          {
-            "in": "query",
-            "name": "EmploymentStartDateTo",
-            "description": "End of range for start date employment.",
-            "type": "string",
-            "format": "date",
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "AreaOfResponsibilityId",
-            "description": "Option for also querying employees by area of responsibility",
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "in": "query",
-            "name": "PageNumber",
-            "description": "The number of the page to return (1 is the first page).",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageSize",
-            "description": "Number of objects per page.",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 1000,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "InlineCount",
-            "description": "A flag indicating if total number of items should be included.",
-            "required": true,
-            "type": "boolean",
-            "default": true,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_EmployeeExternalResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "EmployeesExternal"
-        ],
-        "operationId": "_EmployeesExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/EmployeesExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_EmployeeExternalResponse"
-            }
-          }
-        }
-      }
-    },
-    "/RoomsExternal": {
-      "get": {
-        "tags": [
-          "RoomsExternal"
-        ],
-        "operationId": "RoomsExternal_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "DepartmentId",
-            "description": "Department identifiers for querying only rooms in a specific department",
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "in": "query",
-            "name": "PageNumber",
-            "description": "The number of the page to return (1 is the first page).",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageSize",
-            "description": "Number of objects per page.",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 1000,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "InlineCount",
-            "description": "A flag indicating if total number of items should be included.",
-            "required": true,
-            "type": "boolean",
-            "default": true,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_RoomExternalResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "RoomsExternal"
-        ],
-        "operationId": "_RoomsExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/RoomsExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_RoomExternalResponse"
-            }
-          }
-        }
-      }
-    },
-    "/SchoolHourEntriesExternal": {
-      "get": {
-        "tags": [
-          "SchoolHourEntriesExternal"
-        ],
-        "operationId": "SchoolHourEntriesExternal_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "PageNumber",
-            "description": "The number of the page to return (1 is the first page).",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageSize",
-            "description": "Number of objects per page.",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 1000,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "InlineCount",
-            "description": "A flag indicating if total number of items should be included.",
-            "required": true,
-            "type": "boolean",
-            "default": true,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_SchoolHourEntryExternalResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "SchoolHourEntriesExternal"
-        ],
-        "operationId": "_SchoolHourEntriesExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SchoolHourEntriesExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_SchoolHourEntryExternalResponse"
-            }
-          }
-        }
-      }
-    },
-    "/SchoolHoursPlanDetailsExternal": {
-      "get": {
-        "tags": [
-          "SchoolHoursPlanDetailsExternal"
-        ],
-        "operationId": "SchoolHoursPlanDetailsExternal_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "Id",
-            "required": true,
-            "type": "string",
-            "format": "uuid",
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/SchoolHoursPlanDetailsExternalResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "SchoolHoursPlanDetailsExternal"
-        ],
-        "operationId": "_SchoolHoursPlanDetailsExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SchoolHoursPlanDetailsExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/SchoolHoursPlanDetailsExternalResponse"
-            }
-          }
-        }
-      }
-    },
-    "/SchoolHoursPlansExternal": {
-      "get": {
-        "tags": [
-          "SchoolHoursPlansExternal"
-        ],
-        "operationId": "SchoolHoursPlansExternal_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "PageNumber",
-            "description": "The number of the page to return (1 is the first page).",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 2147483647,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "PageSize",
-            "description": "Number of objects per page.",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "maximum": 1000,
-            "minimum": 1,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "InlineCount",
-            "description": "A flag indicating if total number of items should be included.",
-            "required": true,
-            "type": "boolean",
-            "default": true,
-            "x-nullable": false
-          },
-          {
-            "in": "query",
-            "name": "SchoolCode",
-            "description": "The school code for which to get data.",
-            "required": true,
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_SchoolHoursPlanExternalResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "SchoolHoursPlansExternal"
-        ],
-        "operationId": "_SchoolHoursPlansExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SchoolHoursPlansExternalRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResponse_SchoolHoursPlanExternalResponse"
-            }
-          }
-        }
-      }
-    },
-    "/UpdateContactAndAccountInfoExternal": {
-      "post": {
-        "tags": [
-          "UpdateContactAndAccountInfoExternal"
-        ],
-        "operationId": "UpdateContactAndAccountInfoExternal_Post",
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/UpdateContactAndAccountInfoExternalCommand"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "ActiveDepartmentsExternalRequest": {
-      "title": "ActiveDepartmentsExternalRequest",
-      "description": "Returns a paged list of active departments.",
-      "required": [
-        "inlineCount",
-        "pageNumber",
-        "pageSize",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "pageNumber": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "pageSize": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "inlineCount": {
-          "title": "Boolean",
-          "description": "A flag indicating if total number of items should be included.",
-          "default": true,
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "ActiveEmployeesExternalRequest": {
-      "title": "ActiveEmployeesExternalRequest",
-      "description": "Returns a paged list of employees satisfying provided criteria.",
-      "required": [
-        "employeesActiveOnOrAfterDate",
-        "inlineCount",
-        "pageNumber",
-        "pageSize",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "employeesActiveOnOrAfterDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "Employees must have an active employment on or after this date\r\nThis parameter is required",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "areaOfResponsibilityId": {
-          "format": "uuid",
-          "description": "Option for also querying employees by area of responsibility",
-          "type": "string"
-        },
-        "pageNumber": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "pageSize": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "inlineCount": {
-          "title": "Boolean",
-          "description": "A flag indicating if total number of items should be included.",
-          "default": true,
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "AreaOfEducationExternalResponse": {
-      "title": "AreaOfEducationExternalResponse",
-      "description": "The model of area of education.",
-      "required": [
-        "id",
-        "name",
-        "validFrom"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Identifier of the area of education.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "name": {
-          "title": "String",
-          "description": "Name of the area of education.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "validFrom": {
-          "format": "date",
-          "title": "Date",
-          "description": "Start date of the area of education.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "validTo": {
-          "format": "date",
-          "description": "End date of the area of education.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "dayCalendarId": {
-          "format": "uuid",
-          "description": "Id of day calendar for this area of education",
-          "type": "string"
-        },
-        "schoolHoursPlanId": {
-          "format": "uuid",
-          "description": "Id of school hours plan for this area of education",
-          "type": "string"
-        },
-        "areaOfResponsibilityId": {
-          "format": "uuid",
-          "description": "Id of area of responsibility for this area of education",
-          "type": "string"
-        },
-        "educationCoesaNumber": {
-          "title": "String",
-          "description": "CØSA number for the education this area covers",
-          "type": "string"
-        },
-        "educationName": {
-          "title": "String",
-          "description": "Name of the CØSA education this area covers",
-          "type": "string"
-        },
-        "educationVersion": {
-          "format": "int32",
-          "description": "CØSA education version",
-          "type": "integer"
-        },
-        "specialisation": {
-          "title": "String",
-          "description": "Name of the CØSA specialization of the education for this area",
-          "type": "string"
-        },
-        "insertedAt": {
-          "format": "date-time",
-          "description": "When was area of education created",
-          "type": "string"
-        },
-        "updatedAt": {
-          "format": "date-time",
-          "description": "Last update of the area of education",
-          "type": "string"
-        }
-      }
-    },
-    "AreaOfResponsibilityExternalResponse": {
-      "title": "AreaOfResponsibilityExternalResponse",
-      "description": "The model of area of responsibility.",
-      "required": [
-        "id",
-        "name",
-        "validFrom"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Identifier of the area of responsibility.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "name": {
-          "title": "String",
-          "description": "Name of the area of responsibility.",
-          "maxLength": 255,
-          "minLength": 1,
-          "type": "string"
-        },
-        "validFrom": {
-          "format": "date",
-          "title": "Date",
-          "description": "Start date of the area of responsibility.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "validTo": {
-          "format": "date",
-          "description": "End date of the area of responsibiliity.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "responsibleEmployeeId": {
-          "format": "uuid",
-          "description": "Identifier of employee responsible for area.",
-          "type": "string"
-        },
-        "insertedAt": {
-          "format": "date-time",
-          "description": "When was area of responsibility created",
-          "type": "string"
-        },
-        "updatedAt": {
-          "format": "date-time",
-          "description": "Last update of the area of responsibility",
-          "type": "string"
-        }
-      }
-    },
-    "AreasOfEducationExternalRequest": {
-      "title": "AreasOfEducationExternalRequest",
-      "description": "Returns a paged list of areas of education for the given school.",
-      "required": [
-        "inlineCount",
-        "pageNumber",
-        "pageSize",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "pageNumber": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "pageSize": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "inlineCount": {
-          "title": "Boolean",
-          "description": "A flag indicating if total number of items should be included.",
-          "default": true,
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "AreasOfResponsibilityExternalRequest": {
-      "title": "AreasOfResponsibilityExternalRequest",
-      "description": "Returns a paged list of areas of responsibility satisfying provided criteria.",
-      "required": [
-        "inlineCount",
-        "pageNumber",
-        "pageSize",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "pageNumber": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "pageSize": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "inlineCount": {
-          "title": "Boolean",
-          "description": "A flag indicating if total number of items should be included.",
-          "default": true,
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "BulkAreasOfResponsibilityExternalRequest": {
-      "title": "BulkAreasOfResponsibilityExternalRequest",
-      "description": "Returns a list of areas of responsibility satisfying provided criteria.",
-      "required": [
-        "areaOfResponsibilityIds",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "areaOfResponsibilityIds": {
-          "description": "Areas of responsibility identifiers for bulk query.",
-          "maxItems": 1000,
-          "minItems": 1,
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "title": "Guid",
-            "type": "string",
-            "x-nullable": false
-          }
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "BulkDepartmentsExternalRequest": {
-      "title": "BulkDepartmentsExternalRequest",
-      "description": "Returns a list of departments satisfying provided criteria.",
-      "required": [
-        "departmentIds",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "departmentIds": {
-          "description": "Department identifiers for bulk query.",
-          "maxItems": 1000,
-          "minItems": 1,
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "title": "Guid",
-            "type": "string",
-            "x-nullable": false
-          }
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "BulkEmployeesExternalRequest": {
-      "title": "BulkEmployeesExternalRequest",
-      "description": "Returns a list of employees satisfying provided criteria.",
-      "required": [
-        "employeeIds",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "employeeIds": {
-          "description": "Employees identifiers for bulk query.",
-          "maxItems": 1000,
-          "minItems": 1,
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "title": "Guid",
-            "type": "string",
-            "x-nullable": false
-          }
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "BulkRoomsExternalRequest": {
-      "title": "BulkRoomsExternalRequest",
-      "description": "Returns list of rooms satisfying provided criteria.",
-      "required": [
-        "roomIds",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "roomIds": {
-          "description": "Room identifiers for bulk query.",
-          "maxItems": 1000,
-          "minItems": 1,
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "title": "Guid",
-            "type": "string",
-            "x-nullable": false
-          }
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "DayCalendarsExternalRequest": {
-      "title": "DayCalendarsExternalRequest",
-      "description": "Returns a paged list of day calendars satisfying provided criteria.",
-      "required": [
-        "inlineCount",
-        "pageNumber",
-        "pageSize",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "pageNumber": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "pageSize": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "inlineCount": {
-          "title": "Boolean",
-          "description": "A flag indicating if total number of items should be included.",
-          "default": true,
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "DayCalendarsExternalResponse": {
-      "title": "DayCalendarsExternalResponse",
-      "required": [
-        "id",
-        "schoolDays"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Identifier of the day calendar.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "name": {
-          "title": "String",
-          "description": "Name of the day calendar.",
-          "type": "string"
-        },
-        "insertedAt": {
-          "format": "date-time",
-          "description": "When was day calendar created",
-          "type": "string"
-        },
-        "updatedAt": {
-          "format": "date-time",
-          "description": "Last update of the day calendar",
-          "type": "string"
-        },
-        "schoolDays": {
-          "description": "List of school days.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SchoolDay"
-          }
-        }
-      }
-    },
-    "DepartmentsExternalRequest": {
-      "title": "DepartmentsExternalRequest",
-      "description": "Returns a paged list of departments satisfying provided criteria.",
-      "required": [
-        "inlineCount",
-        "pageNumber",
-        "pageSize",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "validFrom": {
-          "format": "date",
-          "description": "Beginning date of being valid.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "validTo": {
-          "format": "date",
-          "description": "End date of being valid.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "pageNumber": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "pageSize": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "inlineCount": {
-          "title": "Boolean",
-          "description": "A flag indicating if total number of items should be included.",
-          "default": true,
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "DepartmentsExternalResponse": {
-      "title": "DepartmentsExternalResponse",
-      "description": "Model of department.",
-      "required": [
-        "id",
-        "name",
-        "validFrom"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Identifier of the department.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "name": {
-          "title": "String",
-          "description": "Name of the department.",
-          "maxLength": 255,
-          "minLength": 1,
-          "type": "string"
-        },
-        "validFrom": {
-          "format": "date",
-          "title": "Date",
-          "description": "Beginning date of being valid.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "validTo": {
-          "format": "date",
-          "description": "End date of being valid.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "areaOfEducationIds": {
-          "description": "Identifier of the area of education",
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "type": "string",
-            "x-nullable": false
-          }
-        },
-        "dsDepartmentNumber": {
-          "title": "String",
-          "description": "Institution number of the place of education",
-          "type": "string"
-        },
-        "address": {
-          "title": "String",
-          "description": "DS Department address",
-          "type": "string"
-        },
-        "postalCode": {
-          "title": "String",
-          "description": "DS Department zip code",
-          "type": "string"
-        },
-        "city": {
-          "title": "String",
-          "description": "DS Department city",
-          "type": "string"
-        },
-        "phoneNumber": {
-          "title": "String",
-          "description": "DS Department phone number",
-          "type": "string"
-        },
-        "email": {
-          "title": "String",
-          "description": "DS Department email address",
-          "type": "string"
-        },
-        "insertedAt": {
-          "format": "date-time",
-          "description": "When was department created",
-          "type": "string"
-        },
-        "updatedAt": {
-          "format": "date-time",
-          "description": "Last update of the department",
-          "type": "string"
-        }
-      }
-    },
-    "EmployeeExternalResponse": {
-      "title": "EmployeeExternalResponse",
-      "description": "Model of the employee.",
-      "required": [
-        "civilRegistrationNumber",
-        "createAdLogin",
-        "deceased",
-        "email",
-        "employmentStartDate",
-        "givenName",
-        "id",
-        "lmsIndicator",
-        "protectedNameAndAddress",
-        "reportToUniLogin",
-        "surname"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Gets employee identifier in Studica.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "civilRegistrationNumber": {
-          "title": "String",
-          "description": "Gets employee civil registration number.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "protectedNameAndAddress": {
-          "title": "Boolean",
-          "description": "Gets a flag indicating if name and address are protected.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "lmsIndicator": {
-          "title": "Boolean",
-          "description": "Gets Learning Management System indicator.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "givenName": {
-          "title": "String",
-          "description": "Gets employee given name.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "surname": {
-          "title": "String",
-          "description": "Gets employee surname.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "protectedGivenName": {
-          "title": "String",
-          "description": "Gets employee protected given name.",
-          "type": "string"
-        },
-        "protectedSurname": {
-          "title": "String",
-          "description": "Gets employee protected surname.",
-          "type": "string"
-        },
-        "initials": {
-          "title": "String",
-          "description": "Gets employee initials.",
-          "type": "string"
-        },
-        "email": {
-          "title": "String",
-          "description": "Gets employee e-mail address.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "privateEmail": {
-          "title": "String",
-          "description": "The employee's private e-mail address.",
-          "type": "string"
-        },
-        "phoneNumber": {
-          "title": "String",
-          "description": "Gets employee phone number.",
-          "type": "string"
-        },
-        "mobileNumber": {
-          "title": "String",
-          "description": "The employee's work related mobile phone number.",
-          "type": "string"
-        },
-        "privatePhoneNumber": {
-          "title": "String",
-          "description": "The employee's private phone number.",
-          "type": "string"
-        },
-        "deceased": {
-          "title": "Boolean",
-          "description": "Gets indticator if employee is deceased.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "uniLoginUsername": {
-          "title": "String",
-          "description": "Gets employee Unilogin username.",
-          "type": "string"
-        },
-        "reportToUniLogin": {
-          "title": "Boolean",
-          "description": "Flag denoting whether the employee should be created as a user in UNI-Login",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "createAdLogin": {
-          "title": "Boolean",
-          "description": "Flag denoting whether the employee should be created in the local Active Directory",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "adUserName": {
-          "title": "String",
-          "description": "Gets employee Active Directory username.",
-          "type": "string"
-        },
-        "roleNames": {
-          "description": "Gets employee roles.",
-          "type": "array",
-          "items": {
-            "title": "String",
-            "type": "string"
-          }
-        },
-        "jobTitle": {
-          "title": "String",
-          "description": "Gets employee job title.",
-          "type": "string"
-        },
-        "employmentStartDate": {
-          "format": "date",
-          "title": "Date",
-          "description": "Gets employee start date.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "employmentResignationDate": {
-          "format": "date",
-          "description": "Gets employee resignation date.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "areaOfResponsibilityId": {
-          "format": "uuid",
-          "description": "Reference id to the area of responsibility.",
-          "type": "string"
-        },
-        "departmentIds": {
-          "description": "Gets employee department affilation.",
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "title": "Guid",
-            "type": "string",
-            "x-nullable": false
-          }
-        },
-        "addressLine": {
-          "title": "String",
-          "description": "Gets employee address line.",
-          "type": "string"
-        },
-        "careOfAddressLine": {
-          "title": "String",
-          "description": "Gets employee care of address line.",
-          "type": "string"
-        },
-        "place": {
-          "title": "String",
-          "description": "Gets employee place.",
-          "type": "string"
-        },
-        "city": {
-          "title": "String",
-          "description": "Gets employee city.",
-          "type": "string"
-        },
-        "postalCode": {
-          "title": "String",
-          "description": "Gets employee postal code.",
-          "type": "string"
-        },
-        "country": {
-          "title": "String",
-          "description": "Gets employee country.",
-          "type": "string"
-        },
-        "insertedAt": {
-          "format": "date-time",
-          "description": "When was employee created",
-          "type": "string"
-        },
-        "updatedAt": {
-          "format": "date-time",
-          "description": "Last update of the employee",
-          "type": "string"
-        }
-      }
-    },
-    "EmployeesExternalRequest": {
-      "title": "EmployeesExternalRequest",
-      "description": "Returns a paged list of employees satisfying provided criteria.",
-      "required": [
-        "employmentStartDateTo",
-        "inlineCount",
-        "pageNumber",
-        "pageSize",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "employmentStartDateFrom": {
-          "format": "date",
-          "description": "Beginning of range for start date employment.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000"
-        },
-        "employmentStartDateTo": {
-          "format": "date",
-          "title": "Date",
-          "description": "End of range for start date employment.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "areaOfResponsibilityId": {
-          "format": "uuid",
-          "description": "Option for also querying employees by area of responsibility",
-          "type": "string"
-        },
-        "pageNumber": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "pageSize": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "inlineCount": {
-          "title": "Boolean",
-          "description": "A flag indicating if total number of items should be included.",
-          "default": true,
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "PagedResponse_AreaOfEducationExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AreaOfEducationExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
-    "PagedResponse_AreaOfResponsibilityExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AreaOfResponsibilityExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
-    "PagedResponse_DayCalendarsExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/DayCalendarsExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
-    "PagedResponse_DepartmentsExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/DepartmentsExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
-    "PagedResponse_EmployeeExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/EmployeeExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
-    "PagedResponse_RoomExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RoomExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
-    "PagedResponse_SchoolHourEntryExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SchoolHourEntryExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
-    "PagedResponse_SchoolHoursPlanExternalResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "description": "Page of items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SchoolHoursPlanExternalResponse"
-          }
-        },
-        "totalItems": {
-          "format": "int32",
-          "description": "Total number of items",
-          "type": "integer"
-        }
-      }
-    },
-    "RoomExternalResponse": {
-      "title": "RoomExternalResponse",
-      "description": "Model of the room.",
-      "required": [
-        "departmentIds",
-        "designation",
-        "id",
-        "roomType",
-        "useDsDepartmentAddress"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of the room.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "name": {
-          "title": "String",
-          "description": "Name of the room.",
-          "type": "string"
-        },
-        "designation": {
-          "title": "String",
-          "description": "The acronym or designation (user facing unique id) of the room",
-          "minLength": 1,
-          "type": "string"
-        },
-        "description": {
-          "title": "String",
-          "description": "Description of the room.",
-          "type": "string"
-        },
-        "roomType": {
-          "title": "RoomType",
-          "description": "Type of room.",
-          "enum": [
-            "ClassRoom",
-            "Lab",
-            "Workshop",
-            "Gym",
-            "Auditorium",
-            "MeetingRoom",
-            "Other"
-          ],
-          "type": "string",
-          "x-nullable": false
-        },
-        "capacity": {
-          "format": "int32",
-          "description": "Capacity for meetings.",
-          "type": "integer"
-        },
-        "maximumPersonsAllowed": {
-          "format": "int32",
-          "description": "Maximum persons allowed in the room.",
-          "type": "integer"
-        },
-        "useDsDepartmentAddress": {
-          "title": "Boolean",
-          "description": "Denotes if the room uses the address of the DS department,\r\nor has a custom address",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "addressLine": {
-          "title": "String",
-          "description": "Address of the building where the room is located.",
-          "type": "string"
-        },
-        "city": {
-          "title": "String",
-          "description": "City of the building where the room is located.",
-          "type": "string"
-        },
-        "postalCode": {
-          "title": "String",
-          "description": "Postal code of the building where the room is located.",
-          "type": "string"
-        },
-        "dsDepartmentNumber": {
-          "title": "String",
-          "description": "The DS-department number that room belongs to.",
-          "type": "string"
-        },
-        "departmentIds": {
-          "description": "Departments that room is used by.",
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "title": "Guid",
-            "type": "string",
-            "x-nullable": false
-          }
-        },
-        "insertedAt": {
-          "format": "date-time",
-          "description": "When was room created",
-          "type": "string"
-        },
-        "updatedAt": {
-          "format": "date-time",
-          "description": "Last update of the room",
-          "type": "string"
-        }
-      }
-    },
-    "RoomsExternalRequest": {
-      "title": "RoomsExternalRequest",
-      "description": "Returns paged list of rooms satisfying provided criteria.",
-      "required": [
-        "inlineCount",
-        "pageNumber",
-        "pageSize",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "departmentId": {
-          "format": "uuid",
-          "description": "Department identifiers for querying only rooms in a specific department",
-          "type": "string"
-        },
-        "pageNumber": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "pageSize": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "inlineCount": {
-          "title": "Boolean",
-          "description": "A flag indicating if total number of items should be included.",
-          "default": true,
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "SchoolDay": {
-      "title": "SchoolDay",
-      "required": [
-        "date",
-        "isSchoolDay"
-      ],
-      "type": "object",
-      "properties": {
-        "date": {
-          "format": "date",
-          "title": "Date",
-          "description": "Date of the school day.",
-          "type": "string",
-          "example": "2024-03-06T00:00:00.0000000",
-          "x-nullable": false
-        },
-        "isSchoolDay": {
-          "title": "Boolean",
-          "description": "Flag indicating if a day is a school day.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "comment": {
-          "title": "String",
-          "description": "Comments to the school day.",
-          "type": "string"
-        }
-      }
-    },
-    "SchoolHourEntriesExternalRequest": {
-      "title": "SchoolHourEntriesExternalRequest",
-      "description": "Returns paged list of school hour entries satisfying provided criteria.",
-      "required": [
-        "inlineCount",
-        "pageNumber",
-        "pageSize",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "pageNumber": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "pageSize": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "inlineCount": {
-          "title": "Boolean",
-          "description": "A flag indicating if total number of items should be included.",
-          "default": true,
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "SchoolHourEntryExternalResponse": {
-      "title": "SchoolHourEntryExternalResponse",
-      "description": "Model of the school hour entry.",
-      "required": [
-        "endTime",
-        "entryType",
-        "schoolHourEntryId",
-        "schoolHoursPlanId",
-        "startTime"
-      ],
-      "type": "object",
-      "properties": {
-        "schoolHourEntryId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of the school hours entry",
-          "type": "string",
-          "x-nullable": false
-        },
-        "entryType": {
-          "title": "SchoolHourEntryType",
-          "description": "The type of entry, e.g. break or module",
-          "enum": [
-            "Break",
-            "Module"
-          ],
-          "type": "string",
-          "x-nullable": false
-        },
-        "name": {
-          "title": "String",
-          "description": "Optional name of this entry.",
-          "maxLength": 255,
-          "type": "string"
-        },
-        "duration": {
-          "format": "int32",
-          "description": "Duration of this entry in minutes. Valid for breaks only.",
-          "maximum": 1440,
-          "minimum": 1,
-          "type": "integer"
-        },
-        "startTime": {
-          "format": "time",
-          "title": "Time",
-          "description": "Start time of lesson",
-          "pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
-          "type": "string",
-          "example": "14:15",
-          "x-nullable": false
-        },
-        "endTime": {
-          "format": "time",
-          "title": "Time",
-          "description": "End time of lesson",
-          "pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
-          "type": "string",
-          "example": "14:15",
-          "x-nullable": false
-        },
-        "schoolHoursPlanId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of school hours plan where this entry belongs to.",
-          "type": "string",
-          "x-nullable": false
-        }
-      }
-    },
-    "SchoolHoursPlanDetailsExternalRequest": {
-      "title": "SchoolHoursPlanDetailsExternalRequest",
-      "description": "Returns a details school hours plan containing\r\nstart and end times of the individual entries",
-      "required": [
-        "id",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "type": "string",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "SchoolHoursPlanDetailsExternalResponse": {
-      "title": "SchoolHoursPlanDetailsExternalResponse",
-      "description": "Model for a school hour plan, containing the name, start time, lesson length,\r\nschool days, and individual lesson modules",
-      "required": [
-        "hasLecturesOnFridays",
-        "hasLecturesOnMondays",
-        "hasLecturesOnSaturdays",
-        "hasLecturesOnSundays",
-        "hasLecturesOnThursdays",
-        "hasLecturesOnTuesdays",
-        "hasLecturesOnWednesdays",
-        "id",
-        "lectureDurationInMinutes",
-        "name",
-        "schoolHours",
-        "startTime"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of school hours plan",
-          "type": "string",
-          "x-nullable": false
-        },
-        "name": {
-          "title": "String",
-          "description": "Name of school hours plan",
-          "minLength": 1,
-          "type": "string"
-        },
-        "startTime": {
-          "format": "time",
-          "title": "Time",
-          "description": "Time of day when the school hours start",
-          "pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
-          "type": "string",
-          "example": "14:15",
-          "x-nullable": false
-        },
-        "lectureDurationInMinutes": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Duration of each lesson in minutes",
-          "maximum": 1440,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "hasLecturesOnMondays": {
-          "title": "Boolean",
-          "description": "Are there lessons on Mondays",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnTuesdays": {
-          "title": "Boolean",
-          "description": "Are there lessons on Tuesdays",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnWednesdays": {
-          "title": "Boolean",
-          "description": "Are there lessons on Wednesdays",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnThursdays": {
-          "title": "Boolean",
-          "description": "Are there lessons on Thursdays",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnFridays": {
-          "title": "Boolean",
-          "description": "Are there lessons on Fridays",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnSaturdays": {
-          "title": "Boolean",
-          "description": "Are there lessons on Saturdays",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnSundays": {
-          "title": "Boolean",
-          "description": "Are there lessons on Sundays",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "insertedAt": {
-          "format": "date-time",
-          "description": "When was the school hours plan created",
-          "type": "string"
-        },
-        "updatedAt": {
-          "format": "date-time",
-          "description": "Last update of the school hours plan",
-          "type": "string"
-        },
-        "schoolHours": {
-          "description": "List of modules (school hours) for the school hours plan",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SchoolHoursPlanDetailsExternalResponse_SchoolHourPlanDetailsSchoolHourEntry"
-          }
-        }
-      }
-    },
-    "SchoolHoursPlanDetailsExternalResponse_SchoolHourPlanDetailsSchoolHourEntry": {
-      "title": "SchoolHourPlanDetailsSchoolHourEntry",
-      "description": "Details about a school hours entry",
-      "required": [
-        "endTime",
-        "entryType",
-        "schoolHourEntryId",
-        "startTime"
-      ],
-      "type": "object",
-      "properties": {
-        "schoolHourEntryId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of the school hours entry",
-          "type": "string",
-          "x-nullable": false
-        },
-        "entryType": {
-          "title": "SchoolHourEntryType",
-          "description": "Type of the entry, e.g. module or break",
-          "enum": [
-            "Break",
-            "Module"
-          ],
-          "type": "string",
-          "x-nullable": false
-        },
-        "name": {
-          "title": "String",
-          "description": "Name of the entry",
-          "maxLength": 255,
-          "type": "string"
-        },
-        "startTime": {
-          "format": "time",
-          "title": "Time",
-          "description": "Start time of this specific entry",
-          "pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
-          "type": "string",
-          "example": "14:15",
-          "x-nullable": false
-        },
-        "endTime": {
-          "format": "time",
-          "title": "Time",
-          "description": "End time of this specific entry",
-          "pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
-          "type": "string",
-          "example": "14:15",
-          "x-nullable": false
-        },
-        "duration": {
-          "format": "int32",
-          "description": "Duration of this entry in minutes. Valid for breaks only.",
-          "maximum": 1440,
-          "minimum": 1,
-          "type": "integer"
-        }
-      }
-    },
-    "SchoolHoursPlanExternalResponse": {
-      "title": "SchoolHoursPlanExternalResponse",
-      "description": "Model of the school hours plan.",
-      "required": [
-        "hasLecturesOnFridays",
-        "hasLecturesOnMondays",
-        "hasLecturesOnSaturdays",
-        "hasLecturesOnSundays",
-        "hasLecturesOnThursdays",
-        "hasLecturesOnTuesdays",
-        "hasLecturesOnWednesdays",
-        "id",
-        "lectureDurationInMinutes",
-        "name",
-        "startTime"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "Id of the school hours plan.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "name": {
-          "title": "String",
-          "description": "Name of the school hours plan.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "startTime": {
-          "title": "String",
-          "description": "Start time for school day.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "lectureDurationInMinutes": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Duration of a lecture in minutes.",
-          "maximum": 1440,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "hasLecturesOnMondays": {
-          "title": "Boolean",
-          "description": "Whether Mondays are school days.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnTuesdays": {
-          "title": "Boolean",
-          "description": "Whether Tuesdays are school days.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnWednesdays": {
-          "title": "Boolean",
-          "description": "Whether Wednesdays are school-days.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnThursdays": {
-          "title": "Boolean",
-          "description": "Whether Thursdays are school days.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnFridays": {
-          "title": "Boolean",
-          "description": "Whether Fridays are school days.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnSaturdays": {
-          "title": "Boolean",
-          "description": "Whether Saturdays are school days.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "hasLecturesOnSundays": {
-          "title": "Boolean",
-          "description": "Whether Sundays are school days.",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "insertedAt": {
-          "format": "date-time",
-          "description": "When was the school hours plan created",
-          "type": "string"
-        },
-        "updatedAt": {
-          "format": "date-time",
-          "description": "Last update of the school hours plan",
-          "type": "string"
-        }
-      }
-    },
-    "SchoolHoursPlansExternalRequest": {
-      "title": "SchoolHoursPlansExternalRequest",
-      "description": "Returns paged list of school hours plans satisfying provided criteria.",
-      "required": [
-        "inlineCount",
-        "pageNumber",
-        "pageSize",
-        "schoolCode"
-      ],
-      "type": "object",
-      "properties": {
-        "pageNumber": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "The number of the page to return (1 is the first page).",
-          "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "pageSize": {
-          "format": "int32",
-          "title": "Int32",
-          "description": "Number of objects per page.",
-          "maximum": 1000,
-          "minimum": 1,
-          "type": "integer",
-          "x-nullable": false
-        },
-        "inlineCount": {
-          "title": "Boolean",
-          "description": "A flag indicating if total number of items should be included.",
-          "default": true,
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which to get data.",
-          "maxLength": 6,
-          "minLength": 6,
-          "type": "string"
-        }
-      }
-    },
-    "UpdateContactAndAccountInfoExternalCommand": {
-      "title": "UpdateContactAndAccountInfoExternalCommand",
-      "description": "Update employee contact and account information",
-      "required": [
-        "addressLineClear",
-        "careOfAddressClear",
-        "cityClear",
-        "countryClear",
-        "emailClear",
-        "employeeId",
-        "mobileNumberClear",
-        "phoneNumberClear",
-        "placeClear",
-        "postalCodeClear",
-        "privateEmailClear",
-        "privatePhoneNumberClear"
-      ],
-      "type": "object",
-      "properties": {
-        "employeeId": {
-          "format": "uuid",
-          "title": "Guid",
-          "description": "The ID of the employee.",
-          "type": "string",
-          "x-nullable": false
-        },
-        "initials": {
-          "title": "String",
-          "description": "The employee's initials.",
-          "maxLength": 4,
-          "type": "string"
-        },
-        "givenName": {
-          "title": "String",
-          "description": "The employee's first- and middle names.",
-          "type": "string"
-        },
-        "surname": {
-          "title": "String",
-          "description": "The employee's last name.",
-          "type": "string"
-        },
-        "addressLine": {
-          "title": "String",
-          "description": "The address line of the employee",
-          "type": "string"
-        },
-        "addressLineClear": {
-          "title": "Boolean",
-          "description": "Indicates if the AddressLine should be cleared regardless of the value in AddressLine",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "careOfAddress": {
-          "title": "String",
-          "description": "The C/O address of the employee.",
-          "type": "string"
-        },
-        "careOfAddressClear": {
-          "title": "Boolean",
-          "description": "Indicates if the CareOfAddress should be cleared regardless of the value in CareOfAddress",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "city": {
-          "title": "String",
-          "description": "The city of the employee",
-          "type": "string"
-        },
-        "cityClear": {
-          "title": "Boolean",
-          "description": "Indicates if the City should be cleared regardless of the value in City",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "place": {
-          "title": "String",
-          "description": "The place of the employee",
-          "type": "string"
-        },
-        "placeClear": {
-          "title": "Boolean",
-          "description": "Indicates if the Place should be cleared regardless of the value in Place",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "postalCode": {
-          "title": "String",
-          "description": "The postal code of the employee",
-          "type": "string"
-        },
-        "postalCodeClear": {
-          "title": "Boolean",
-          "description": "Indicates if the PostalCode should be cleared regardless of the value in PostalCode",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "country": {
-          "title": "String",
-          "description": "The country of the employee to be created",
-          "type": "string"
-        },
-        "countryClear": {
-          "title": "Boolean",
-          "description": "Indicates if the Country should be cleared regardless of the value in Country",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "phoneNumber": {
-          "format": "tel",
-          "title": "String",
-          "description": "The employee's phone number.",
-          "maxLength": 30,
-          "type": "string"
-        },
-        "phoneNumberClear": {
-          "title": "Boolean",
-          "description": "Indicates if the PhoneNumber should be cleared regardless of the value in PhoneNumber",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "mobileNumber": {
-          "format": "tel",
-          "title": "String",
-          "description": "The employee's mobile number.",
-          "maxLength": 30,
-          "type": "string"
-        },
-        "mobileNumberClear": {
-          "title": "Boolean",
-          "description": "Indicates if the MobileNumber should be cleared regardless of the value in PhoneNumber",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "privatePhoneNumber": {
-          "format": "tel",
-          "title": "String",
-          "description": "The employee's private phone number.",
-          "maxLength": 30,
-          "type": "string"
-        },
-        "privatePhoneNumberClear": {
-          "title": "Boolean",
-          "description": "Indicates if the PrivatePhoneNumber should be cleared regardless of the value in PhoneNumber",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "privateEmail": {
-          "format": "email",
-          "title": "String",
-          "description": "The employee's private e-mail address.",
-          "maxLength": 255,
-          "type": "string"
-        },
-        "privateEmailClear": {
-          "title": "Boolean",
-          "description": "Indicates if the PrivateEmail should be cleared regardless of the value in PrivateEmail",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "email": {
-          "format": "email",
-          "title": "String",
-          "description": "The employee's work e-mail address.",
-          "maxLength": 255,
-          "type": "string"
-        },
-        "emailClear": {
-          "title": "Boolean",
-          "description": "Indicates if the Email should be cleared regardless of the value in Email",
-          "type": "boolean",
-          "x-nullable": false
-        },
-        "adUsername": {
-          "format": "email",
-          "title": "String",
-          "description": "The AD user name for the employee",
-          "maxLength": 255,
-          "type": "string"
-        },
-        "createAdLogin": {
-          "description": "Specifies if the employee should have an AD login (organisational account).\r\nIf `false`, the SchoolAdministration.Host.ExternalApi.Employees.Commands.UpdateContactAndAccountInfo.UpdateContactAndAccountInfoExternalCommand.AdUsername will be cleared",
-          "type": "boolean"
-        },
-        "schoolCode": {
-          "title": "String",
-          "description": "The school code for which command is performed.",
-          "type": "string"
-        }
-      }
-    }
-  },
-  "securityDefinitions": {
-    "Bearer": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header",
-      "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
-    }
-  },
-  "security": [
-    {
-      "Bearer": [ ]
-    }
-  ]
+	"swagger": "2.0",
+	"info": {
+		"title": "Studica (Demo) - School Administration",
+		"version": "v1"
+	},
+	"host": "api.studica.dk",
+	"basePath": "/demo/school-administration/v1",
+	"schemes": [
+		"https"
+	],
+	"securityDefinitions": {
+		"apiKeyHeader": {
+			"type": "apiKey",
+			"name": "Ocp-Apim-Subscription-Key",
+			"in": "header"
+		},
+		"apiKeyQuery": {
+			"type": "apiKey",
+			"name": "subscription-key",
+			"in": "query"
+		}
+	},
+	"security": [
+		{
+			"apiKeyHeader": []
+		},
+		{
+			"apiKeyQuery": []
+		}
+	],
+	"paths": {
+		"/ActiveDepartmentsExternal": {
+			"get": {
+				"operationId": "ActiveDepartmentsExternal_Get",
+				"summary": "ActiveDepartmentsExternal_Get",
+				"tags": [
+					"ActiveDepartmentsExternal"
+				],
+				"parameters": [
+					{
+						"name": "PageNumber",
+						"in": "query",
+						"description": "Format - int32. The number of the page to return (1 is the first page).",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 2147483647,
+						"minimum": 1
+					},
+					{
+						"name": "PageSize",
+						"in": "query",
+						"description": "Format - int32. Number of objects per page.",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 1000,
+						"minimum": 1
+					},
+					{
+						"name": "InlineCount",
+						"in": "query",
+						"description": "A flag indicating if total number of items should be included.",
+						"required": true,
+						"type": "boolean",
+						"default": true
+					},
+					{
+						"name": "SchoolCode",
+						"in": "query",
+						"description": "The school code for which to get data.",
+						"required": true,
+						"type": "string",
+						"maxLength": 6,
+						"minLength": 6
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_DepartmentsExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"validFrom": "2024-06-20",
+										"validTo": "2024-06-20",
+										"areaOfEducationIds": [
+											"string"
+										],
+										"dsDepartmentNumber": "string",
+										"address": "string",
+										"postalCode": "string",
+										"city": "string",
+										"phoneNumber": "string",
+										"email": "string",
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "_ActiveDepartmentsExternal_Post",
+				"summary": "_ActiveDepartmentsExternal_Post",
+				"tags": [
+					"ActiveDepartmentsExternal"
+				],
+				"parameters": [
+					{
+						"name": "activeDepartmentsExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/ActiveDepartmentsExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_DepartmentsExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"validFrom": "2024-06-20",
+										"validTo": "2024-06-20",
+										"areaOfEducationIds": [
+											"string"
+										],
+										"dsDepartmentNumber": "string",
+										"address": "string",
+										"postalCode": "string",
+										"city": "string",
+										"phoneNumber": "string",
+										"email": "string",
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			}
+		},
+		"/ActiveEmployeesExternal": {
+			"get": {
+				"operationId": "ActiveEmployeesExternal_Get",
+				"summary": "ActiveEmployeesExternal_Get",
+				"tags": [
+					"ActiveEmployeesExternal"
+				],
+				"parameters": [
+					{
+						"name": "PageNumber",
+						"in": "query",
+						"description": "Format - int32. The number of the page to return (1 is the first page).",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 2147483647,
+						"minimum": 1
+					},
+					{
+						"name": "PageSize",
+						"in": "query",
+						"description": "Format - int32. Number of objects per page.",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 1000,
+						"minimum": 1
+					},
+					{
+						"name": "InlineCount",
+						"in": "query",
+						"description": "A flag indicating if total number of items should be included.",
+						"required": true,
+						"type": "boolean",
+						"default": true
+					},
+					{
+						"name": "SchoolCode",
+						"in": "query",
+						"description": "The school code for which to get data.",
+						"required": true,
+						"type": "string",
+						"maxLength": 6,
+						"minLength": 6
+					},
+					{
+						"name": "EmployeesActiveOnOrAfterDate",
+						"in": "query",
+						"description": "Format - date (as full-date in RFC3339). Employees must have an active employment on or after this date\r\nThis parameter is required",
+						"type": "string",
+						"format": "date"
+					},
+					{
+						"name": "AreaOfResponsibilityId",
+						"in": "query",
+						"description": "Format - uuid. Option for also querying employees by area of responsibility",
+						"type": "string",
+						"format": "uuid"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_EmployeeExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"civilRegistrationNumber": "string",
+										"protectedNameAndAddress": true,
+										"lmsIndicator": true,
+										"givenName": "string",
+										"surname": "string",
+										"protectedGivenName": "string",
+										"protectedSurname": "string",
+										"initials": "string",
+										"email": "string",
+										"privateEmail": "string",
+										"phoneNumber": "string",
+										"mobileNumber": "string",
+										"privatePhoneNumber": "string",
+										"deceased": true,
+										"uniLoginUsername": "string",
+										"reportToUniLogin": true,
+										"createAdLogin": true,
+										"adUserName": "string",
+										"roleNames": [
+											"string"
+										],
+										"jobTitle": "string",
+										"employmentStartDate": "2024-06-20",
+										"employmentResignationDate": "2024-06-20",
+										"areaOfResponsibilityId": "string",
+										"departmentIds": [
+											"string"
+										],
+										"addressLine": "string",
+										"careOfAddressLine": "string",
+										"place": "string",
+										"city": "string",
+										"postalCode": "string",
+										"country": "string",
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "_ActiveEmployeesExternal_Post",
+				"summary": "_ActiveEmployeesExternal_Post",
+				"tags": [
+					"ActiveEmployeesExternal"
+				],
+				"parameters": [
+					{
+						"name": "activeEmployeesExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/ActiveEmployeesExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_EmployeeExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"civilRegistrationNumber": "string",
+										"protectedNameAndAddress": true,
+										"lmsIndicator": true,
+										"givenName": "string",
+										"surname": "string",
+										"protectedGivenName": "string",
+										"protectedSurname": "string",
+										"initials": "string",
+										"email": "string",
+										"privateEmail": "string",
+										"phoneNumber": "string",
+										"mobileNumber": "string",
+										"privatePhoneNumber": "string",
+										"deceased": true,
+										"uniLoginUsername": "string",
+										"reportToUniLogin": true,
+										"createAdLogin": true,
+										"adUserName": "string",
+										"roleNames": [
+											"string"
+										],
+										"jobTitle": "string",
+										"employmentStartDate": "2024-06-20",
+										"employmentResignationDate": "2024-06-20",
+										"areaOfResponsibilityId": "string",
+										"departmentIds": [
+											"string"
+										],
+										"addressLine": "string",
+										"careOfAddressLine": "string",
+										"place": "string",
+										"city": "string",
+										"postalCode": "string",
+										"country": "string",
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			}
+		},
+		"/AreasOfEducationExternal": {
+			"get": {
+				"operationId": "AreasOfEducationExternal_Get",
+				"summary": "AreasOfEducationExternal_Get",
+				"tags": [
+					"AreasOfEducationExternal"
+				],
+				"parameters": [
+					{
+						"name": "PageNumber",
+						"in": "query",
+						"description": "Format - int32. The number of the page to return (1 is the first page).",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 2147483647,
+						"minimum": 1
+					},
+					{
+						"name": "PageSize",
+						"in": "query",
+						"description": "Format - int32. Number of objects per page.",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 1000,
+						"minimum": 1
+					},
+					{
+						"name": "InlineCount",
+						"in": "query",
+						"description": "A flag indicating if total number of items should be included.",
+						"required": true,
+						"type": "boolean",
+						"default": true
+					},
+					{
+						"name": "SchoolCode",
+						"in": "query",
+						"description": "The school code for which to get data.",
+						"required": true,
+						"type": "string",
+						"maxLength": 6,
+						"minLength": 6
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_AreaOfEducationExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"validFrom": "2024-06-20",
+										"validTo": "2024-06-20",
+										"dayCalendarId": "string",
+										"schoolHoursPlanId": "string",
+										"areaOfResponsibilityId": "string",
+										"educationCoesaNumber": "string",
+										"educationName": "string",
+										"educationVersion": 0,
+										"specialisation": "string",
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "_AreasOfEducationExternal_Post",
+				"summary": "_AreasOfEducationExternal_Post",
+				"tags": [
+					"AreasOfEducationExternal"
+				],
+				"parameters": [
+					{
+						"name": "areasOfEducationExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/AreasOfEducationExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_AreaOfEducationExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"validFrom": "2024-06-20",
+										"validTo": "2024-06-20",
+										"dayCalendarId": "string",
+										"schoolHoursPlanId": "string",
+										"areaOfResponsibilityId": "string",
+										"educationCoesaNumber": "string",
+										"educationName": "string",
+										"educationVersion": 0,
+										"specialisation": "string",
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			}
+		},
+		"/AreasOfResponsibilityExternal": {
+			"get": {
+				"operationId": "AreasOfResponsibilityExternal_Get",
+				"summary": "AreasOfResponsibilityExternal_Get",
+				"tags": [
+					"AreasOfResponsibilityExternal"
+				],
+				"parameters": [
+					{
+						"name": "PageNumber",
+						"in": "query",
+						"description": "Format - int32. The number of the page to return (1 is the first page).",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 2147483647,
+						"minimum": 1
+					},
+					{
+						"name": "PageSize",
+						"in": "query",
+						"description": "Format - int32. Number of objects per page.",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 1000,
+						"minimum": 1
+					},
+					{
+						"name": "InlineCount",
+						"in": "query",
+						"description": "A flag indicating if total number of items should be included.",
+						"required": true,
+						"type": "boolean",
+						"default": true
+					},
+					{
+						"name": "SchoolCode",
+						"in": "query",
+						"description": "The school code for which to get data.",
+						"required": true,
+						"type": "string",
+						"maxLength": 6,
+						"minLength": 6
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_AreaOfResponsibilityExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"validFrom": "2024-06-20",
+										"validTo": "2024-06-20",
+										"responsibleEmployeeId": "string",
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "_AreasOfResponsibilityExternal_Post",
+				"summary": "_AreasOfResponsibilityExternal_Post",
+				"tags": [
+					"AreasOfResponsibilityExternal"
+				],
+				"parameters": [
+					{
+						"name": "areasOfResponsibilityExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/AreasOfResponsibilityExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_AreaOfResponsibilityExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"validFrom": "2024-06-20",
+										"validTo": "2024-06-20",
+										"responsibleEmployeeId": "string",
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			}
+		},
+		"/BulkAreasOfResponsibilityExternal": {
+			"post": {
+				"operationId": "BulkAreasOfResponsibilityExternal_Post",
+				"summary": "BulkAreasOfResponsibilityExternal_Post",
+				"tags": [
+					"BulkAreasOfResponsibilityExternal"
+				],
+				"parameters": [
+					{
+						"name": "bulkAreasOfResponsibilityExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/BulkAreasOfResponsibilityExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/AreaOfResponsibilityExternalResponse"
+							}
+						},
+						"examples": {
+							"application/json": [
+								{
+									"id": "string",
+									"name": "string",
+									"validFrom": "2024-06-20",
+									"validTo": "2024-06-20",
+									"responsibleEmployeeId": "string",
+									"insertedAt": "string",
+									"updatedAt": "string"
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		"/BulkDepartmentsExternal": {
+			"post": {
+				"operationId": "BulkDepartmentsExternal_Post",
+				"summary": "BulkDepartmentsExternal_Post",
+				"tags": [
+					"BulkDepartmentsExternal"
+				],
+				"parameters": [
+					{
+						"name": "bulkDepartmentsExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/BulkDepartmentsExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/DepartmentsExternalResponse"
+							}
+						},
+						"examples": {
+							"application/json": [
+								{
+									"id": "string",
+									"name": "string",
+									"validFrom": "2024-06-20",
+									"validTo": "2024-06-20",
+									"areaOfEducationIds": [
+										"string"
+									],
+									"dsDepartmentNumber": "string",
+									"address": "string",
+									"postalCode": "string",
+									"city": "string",
+									"phoneNumber": "string",
+									"email": "string",
+									"insertedAt": "string",
+									"updatedAt": "string"
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		"/BulkEmployeesExternal": {
+			"post": {
+				"operationId": "BulkEmployeesExternal_Post",
+				"summary": "BulkEmployeesExternal_Post",
+				"tags": [
+					"BulkEmployeesExternal"
+				],
+				"parameters": [
+					{
+						"name": "bulkEmployeesExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/BulkEmployeesExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/EmployeeExternalResponse"
+							}
+						},
+						"examples": {
+							"application/json": [
+								{
+									"id": "string",
+									"civilRegistrationNumber": "string",
+									"protectedNameAndAddress": true,
+									"lmsIndicator": true,
+									"givenName": "string",
+									"surname": "string",
+									"protectedGivenName": "string",
+									"protectedSurname": "string",
+									"initials": "string",
+									"email": "string",
+									"privateEmail": "string",
+									"phoneNumber": "string",
+									"mobileNumber": "string",
+									"privatePhoneNumber": "string",
+									"deceased": true,
+									"uniLoginUsername": "string",
+									"reportToUniLogin": true,
+									"createAdLogin": true,
+									"adUserName": "string",
+									"roleNames": [
+										"string"
+									],
+									"jobTitle": "string",
+									"employmentStartDate": "2024-06-20",
+									"employmentResignationDate": "2024-06-20",
+									"areaOfResponsibilityId": "string",
+									"departmentIds": [
+										"string"
+									],
+									"addressLine": "string",
+									"careOfAddressLine": "string",
+									"place": "string",
+									"city": "string",
+									"postalCode": "string",
+									"country": "string",
+									"insertedAt": "string",
+									"updatedAt": "string"
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		"/BulkRoomsExternal": {
+			"post": {
+				"operationId": "BulkRoomsExternal_Post",
+				"summary": "BulkRoomsExternal_Post",
+				"tags": [
+					"BulkRoomsExternal"
+				],
+				"parameters": [
+					{
+						"name": "bulkRoomsExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/BulkRoomsExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/RoomExternalResponse"
+							}
+						},
+						"examples": {
+							"application/json": [
+								{
+									"id": "string",
+									"name": "string",
+									"designation": "string",
+									"description": "string",
+									"roomType": "ClassRoom",
+									"capacity": 0,
+									"maximumPersonsAllowed": 0,
+									"useDsDepartmentAddress": true,
+									"addressLine": "string",
+									"city": "string",
+									"postalCode": "string",
+									"dsDepartmentNumber": "string",
+									"departmentIds": [
+										"string"
+									],
+									"insertedAt": "string",
+									"updatedAt": "string"
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		"/DayCalendarsExternal": {
+			"get": {
+				"operationId": "DayCalendarsExternal_Get",
+				"summary": "DayCalendarsExternal_Get",
+				"tags": [
+					"DayCalendarsExternal"
+				],
+				"parameters": [
+					{
+						"name": "PageNumber",
+						"in": "query",
+						"description": "Format - int32. The number of the page to return (1 is the first page).",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 2147483647,
+						"minimum": 1
+					},
+					{
+						"name": "PageSize",
+						"in": "query",
+						"description": "Format - int32. Number of objects per page.",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 1000,
+						"minimum": 1
+					},
+					{
+						"name": "InlineCount",
+						"in": "query",
+						"description": "A flag indicating if total number of items should be included.",
+						"required": true,
+						"type": "boolean",
+						"default": true
+					},
+					{
+						"name": "SchoolCode",
+						"in": "query",
+						"description": "The school code for which to get data.",
+						"required": true,
+						"type": "string",
+						"maxLength": 6,
+						"minLength": 6
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_DayCalendarsExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"insertedAt": "string",
+										"updatedAt": "string",
+										"schoolDays": [
+											{
+												"date": "2024-06-20",
+												"isSchoolDay": true,
+												"comment": "string"
+											}
+										]
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "_DayCalendarsExternal_Post",
+				"summary": "_DayCalendarsExternal_Post",
+				"tags": [
+					"DayCalendarsExternal"
+				],
+				"parameters": [
+					{
+						"name": "dayCalendarsExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/DayCalendarsExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_DayCalendarsExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"insertedAt": "string",
+										"updatedAt": "string",
+										"schoolDays": [
+											{
+												"date": "2024-06-20",
+												"isSchoolDay": true,
+												"comment": "string"
+											}
+										]
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			}
+		},
+		"/DepartmentsExternal": {
+			"get": {
+				"operationId": "DepartmentsExternal_Get",
+				"summary": "DepartmentsExternal_Get",
+				"tags": [
+					"DepartmentsExternal"
+				],
+				"parameters": [
+					{
+						"name": "PageNumber",
+						"in": "query",
+						"description": "Format - int32. The number of the page to return (1 is the first page).",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 2147483647,
+						"minimum": 1
+					},
+					{
+						"name": "PageSize",
+						"in": "query",
+						"description": "Format - int32. Number of objects per page.",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 1000,
+						"minimum": 1
+					},
+					{
+						"name": "InlineCount",
+						"in": "query",
+						"description": "A flag indicating if total number of items should be included.",
+						"required": true,
+						"type": "boolean",
+						"default": true
+					},
+					{
+						"name": "SchoolCode",
+						"in": "query",
+						"description": "The school code for which to get data.",
+						"required": true,
+						"type": "string",
+						"maxLength": 6,
+						"minLength": 6
+					},
+					{
+						"name": "ValidFrom",
+						"in": "query",
+						"description": "Format - date (as full-date in RFC3339). Beginning date of being valid.",
+						"type": "string",
+						"format": "date"
+					},
+					{
+						"name": "ValidTo",
+						"in": "query",
+						"description": "Format - date (as full-date in RFC3339). End date of being valid.",
+						"type": "string",
+						"format": "date"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_DepartmentsExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"validFrom": "2024-06-20",
+										"validTo": "2024-06-20",
+										"areaOfEducationIds": [
+											"string"
+										],
+										"dsDepartmentNumber": "string",
+										"address": "string",
+										"postalCode": "string",
+										"city": "string",
+										"phoneNumber": "string",
+										"email": "string",
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "_DepartmentsExternal_Post",
+				"summary": "_DepartmentsExternal_Post",
+				"tags": [
+					"DepartmentsExternal"
+				],
+				"parameters": [
+					{
+						"name": "departmentsExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/DepartmentsExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_DepartmentsExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"validFrom": "2024-06-20",
+										"validTo": "2024-06-20",
+										"areaOfEducationIds": [
+											"string"
+										],
+										"dsDepartmentNumber": "string",
+										"address": "string",
+										"postalCode": "string",
+										"city": "string",
+										"phoneNumber": "string",
+										"email": "string",
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			}
+		},
+		"/EmployeesExternal": {
+			"get": {
+				"operationId": "EmployeesExternal_Get",
+				"summary": "EmployeesExternal_Get",
+				"tags": [
+					"EmployeesExternal"
+				],
+				"parameters": [
+					{
+						"name": "PageNumber",
+						"in": "query",
+						"description": "Format - int32. The number of the page to return (1 is the first page).",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 2147483647,
+						"minimum": 1
+					},
+					{
+						"name": "PageSize",
+						"in": "query",
+						"description": "Format - int32. Number of objects per page.",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 1000,
+						"minimum": 1
+					},
+					{
+						"name": "InlineCount",
+						"in": "query",
+						"description": "A flag indicating if total number of items should be included.",
+						"required": true,
+						"type": "boolean",
+						"default": true
+					},
+					{
+						"name": "SchoolCode",
+						"in": "query",
+						"description": "The school code for which to get data.",
+						"required": true,
+						"type": "string",
+						"maxLength": 6,
+						"minLength": 6
+					},
+					{
+						"name": "EmploymentStartDateFrom",
+						"in": "query",
+						"description": "Format - date (as full-date in RFC3339). Beginning of range for start date employment.",
+						"type": "string",
+						"format": "date"
+					},
+					{
+						"name": "EmploymentStartDateTo",
+						"in": "query",
+						"description": "Format - date (as full-date in RFC3339). End of range for start date employment.",
+						"type": "string",
+						"format": "date"
+					},
+					{
+						"name": "AreaOfResponsibilityId",
+						"in": "query",
+						"description": "Format - uuid. Option for also querying employees by area of responsibility",
+						"type": "string",
+						"format": "uuid"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_EmployeeExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"civilRegistrationNumber": "string",
+										"protectedNameAndAddress": true,
+										"lmsIndicator": true,
+										"givenName": "string",
+										"surname": "string",
+										"protectedGivenName": "string",
+										"protectedSurname": "string",
+										"initials": "string",
+										"email": "string",
+										"privateEmail": "string",
+										"phoneNumber": "string",
+										"mobileNumber": "string",
+										"privatePhoneNumber": "string",
+										"deceased": true,
+										"uniLoginUsername": "string",
+										"reportToUniLogin": true,
+										"createAdLogin": true,
+										"adUserName": "string",
+										"roleNames": [
+											"string"
+										],
+										"jobTitle": "string",
+										"employmentStartDate": "2024-06-20",
+										"employmentResignationDate": "2024-06-20",
+										"areaOfResponsibilityId": "string",
+										"departmentIds": [
+											"string"
+										],
+										"addressLine": "string",
+										"careOfAddressLine": "string",
+										"place": "string",
+										"city": "string",
+										"postalCode": "string",
+										"country": "string",
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "_EmployeesExternal_Post",
+				"summary": "_EmployeesExternal_Post",
+				"tags": [
+					"EmployeesExternal"
+				],
+				"parameters": [
+					{
+						"name": "employeesExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/EmployeesExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_EmployeeExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"civilRegistrationNumber": "string",
+										"protectedNameAndAddress": true,
+										"lmsIndicator": true,
+										"givenName": "string",
+										"surname": "string",
+										"protectedGivenName": "string",
+										"protectedSurname": "string",
+										"initials": "string",
+										"email": "string",
+										"privateEmail": "string",
+										"phoneNumber": "string",
+										"mobileNumber": "string",
+										"privatePhoneNumber": "string",
+										"deceased": true,
+										"uniLoginUsername": "string",
+										"reportToUniLogin": true,
+										"createAdLogin": true,
+										"adUserName": "string",
+										"roleNames": [
+											"string"
+										],
+										"jobTitle": "string",
+										"employmentStartDate": "2024-06-20",
+										"employmentResignationDate": "2024-06-20",
+										"areaOfResponsibilityId": "string",
+										"departmentIds": [
+											"string"
+										],
+										"addressLine": "string",
+										"careOfAddressLine": "string",
+										"place": "string",
+										"city": "string",
+										"postalCode": "string",
+										"country": "string",
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			}
+		},
+		"/RoomsExternal": {
+			"get": {
+				"operationId": "RoomsExternal_Get",
+				"summary": "RoomsExternal_Get",
+				"tags": [
+					"RoomsExternal"
+				],
+				"parameters": [
+					{
+						"name": "PageNumber",
+						"in": "query",
+						"description": "Format - int32. The number of the page to return (1 is the first page).",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 2147483647,
+						"minimum": 1
+					},
+					{
+						"name": "PageSize",
+						"in": "query",
+						"description": "Format - int32. Number of objects per page.",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 1000,
+						"minimum": 1
+					},
+					{
+						"name": "InlineCount",
+						"in": "query",
+						"description": "A flag indicating if total number of items should be included.",
+						"required": true,
+						"type": "boolean",
+						"default": true
+					},
+					{
+						"name": "SchoolCode",
+						"in": "query",
+						"description": "The school code for which to get data.",
+						"required": true,
+						"type": "string",
+						"maxLength": 6,
+						"minLength": 6
+					},
+					{
+						"name": "DepartmentId",
+						"in": "query",
+						"description": "Format - uuid. Department identifiers for querying only rooms in a specific department",
+						"type": "string",
+						"format": "uuid"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_RoomExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"designation": "string",
+										"description": "string",
+										"roomType": "ClassRoom",
+										"capacity": 0,
+										"maximumPersonsAllowed": 0,
+										"useDsDepartmentAddress": true,
+										"addressLine": "string",
+										"city": "string",
+										"postalCode": "string",
+										"dsDepartmentNumber": "string",
+										"departmentIds": [
+											"string"
+										],
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "_RoomsExternal_Post",
+				"summary": "_RoomsExternal_Post",
+				"tags": [
+					"RoomsExternal"
+				],
+				"parameters": [
+					{
+						"name": "roomsExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/RoomsExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_RoomExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"designation": "string",
+										"description": "string",
+										"roomType": "ClassRoom",
+										"capacity": 0,
+										"maximumPersonsAllowed": 0,
+										"useDsDepartmentAddress": true,
+										"addressLine": "string",
+										"city": "string",
+										"postalCode": "string",
+										"dsDepartmentNumber": "string",
+										"departmentIds": [
+											"string"
+										],
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			}
+		},
+		"/SchoolHourEntriesExternal": {
+			"get": {
+				"operationId": "SchoolHourEntriesExternal_Get",
+				"summary": "SchoolHourEntriesExternal_Get",
+				"tags": [
+					"SchoolHourEntriesExternal"
+				],
+				"parameters": [
+					{
+						"name": "PageNumber",
+						"in": "query",
+						"description": "Format - int32. The number of the page to return (1 is the first page).",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 2147483647,
+						"minimum": 1
+					},
+					{
+						"name": "PageSize",
+						"in": "query",
+						"description": "Format - int32. Number of objects per page.",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 1000,
+						"minimum": 1
+					},
+					{
+						"name": "InlineCount",
+						"in": "query",
+						"description": "A flag indicating if total number of items should be included.",
+						"required": true,
+						"type": "boolean",
+						"default": true
+					},
+					{
+						"name": "SchoolCode",
+						"in": "query",
+						"description": "The school code for which to get data.",
+						"required": true,
+						"type": "string",
+						"maxLength": 6,
+						"minLength": 6
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_SchoolHourEntryExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"schoolHourEntryId": "string",
+										"entryType": "Break",
+										"name": "string",
+										"duration": 0,
+										"startTime": "14:15",
+										"endTime": "14:15",
+										"schoolHoursPlanId": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "_SchoolHourEntriesExternal_Post",
+				"summary": "_SchoolHourEntriesExternal_Post",
+				"tags": [
+					"SchoolHourEntriesExternal"
+				],
+				"parameters": [
+					{
+						"name": "schoolHourEntriesExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/SchoolHourEntriesExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_SchoolHourEntryExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"schoolHourEntryId": "string",
+										"entryType": "Break",
+										"name": "string",
+										"duration": 0,
+										"startTime": "14:15",
+										"endTime": "14:15",
+										"schoolHoursPlanId": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			}
+		},
+		"/SchoolHoursPlanDetailsExternal": {
+			"get": {
+				"operationId": "SchoolHoursPlanDetailsExternal_Get",
+				"summary": "SchoolHoursPlanDetailsExternal_Get",
+				"tags": [
+					"SchoolHoursPlanDetailsExternal"
+				],
+				"parameters": [
+					{
+						"name": "Id",
+						"in": "query",
+						"description": "Format - uuid.",
+						"required": true,
+						"type": "string",
+						"format": "uuid"
+					},
+					{
+						"name": "SchoolCode",
+						"in": "query",
+						"description": "The school code for which to get data.",
+						"required": true,
+						"type": "string",
+						"maxLength": 6,
+						"minLength": 6
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/SchoolHoursPlanDetailsExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"id": "string",
+								"name": "string",
+								"startTime": "14:15",
+								"lectureDurationInMinutes": 0,
+								"hasLecturesOnMondays": true,
+								"hasLecturesOnTuesdays": true,
+								"hasLecturesOnWednesdays": true,
+								"hasLecturesOnThursdays": true,
+								"hasLecturesOnFridays": true,
+								"hasLecturesOnSaturdays": true,
+								"hasLecturesOnSundays": true,
+								"insertedAt": "string",
+								"updatedAt": "string",
+								"schoolHours": [
+									{
+										"schoolHourEntryId": "string",
+										"entryType": "Break",
+										"name": "string",
+										"startTime": "14:15",
+										"endTime": "14:15",
+										"duration": 0
+									}
+								]
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "_SchoolHoursPlanDetailsExternal_Post",
+				"summary": "_SchoolHoursPlanDetailsExternal_Post",
+				"tags": [
+					"SchoolHoursPlanDetailsExternal"
+				],
+				"parameters": [
+					{
+						"name": "schoolHoursPlanDetailsExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/SchoolHoursPlanDetailsExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/SchoolHoursPlanDetailsExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"id": "string",
+								"name": "string",
+								"startTime": "14:15",
+								"lectureDurationInMinutes": 0,
+								"hasLecturesOnMondays": true,
+								"hasLecturesOnTuesdays": true,
+								"hasLecturesOnWednesdays": true,
+								"hasLecturesOnThursdays": true,
+								"hasLecturesOnFridays": true,
+								"hasLecturesOnSaturdays": true,
+								"hasLecturesOnSundays": true,
+								"insertedAt": "string",
+								"updatedAt": "string",
+								"schoolHours": [
+									{
+										"schoolHourEntryId": "string",
+										"entryType": "Break",
+										"name": "string",
+										"startTime": "14:15",
+										"endTime": "14:15",
+										"duration": 0
+									}
+								]
+							}
+						}
+					}
+				}
+			}
+		},
+		"/SchoolHoursPlansExternal": {
+			"get": {
+				"operationId": "SchoolHoursPlansExternal_Get",
+				"summary": "SchoolHoursPlansExternal_Get",
+				"tags": [
+					"SchoolHoursPlansExternal"
+				],
+				"parameters": [
+					{
+						"name": "PageNumber",
+						"in": "query",
+						"description": "Format - int32. The number of the page to return (1 is the first page).",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 2147483647,
+						"minimum": 1
+					},
+					{
+						"name": "PageSize",
+						"in": "query",
+						"description": "Format - int32. Number of objects per page.",
+						"required": true,
+						"type": "integer",
+						"format": "int32",
+						"maximum": 1000,
+						"minimum": 1
+					},
+					{
+						"name": "InlineCount",
+						"in": "query",
+						"description": "A flag indicating if total number of items should be included.",
+						"required": true,
+						"type": "boolean",
+						"default": true
+					},
+					{
+						"name": "SchoolCode",
+						"in": "query",
+						"description": "The school code for which to get data.",
+						"required": true,
+						"type": "string",
+						"maxLength": 6,
+						"minLength": 6
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_SchoolHoursPlanExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"startTime": "string",
+										"lectureDurationInMinutes": 0,
+										"hasLecturesOnMondays": true,
+										"hasLecturesOnTuesdays": true,
+										"hasLecturesOnWednesdays": true,
+										"hasLecturesOnThursdays": true,
+										"hasLecturesOnFridays": true,
+										"hasLecturesOnSaturdays": true,
+										"hasLecturesOnSundays": true,
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "_SchoolHoursPlansExternal_Post",
+				"summary": "_SchoolHoursPlansExternal_Post",
+				"tags": [
+					"SchoolHoursPlansExternal"
+				],
+				"parameters": [
+					{
+						"name": "schoolHoursPlansExternalRequest",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/SchoolHoursPlansExternalRequest"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/PagedResponse_SchoolHoursPlanExternalResponse"
+						},
+						"examples": {
+							"application/json": {
+								"items": [
+									{
+										"id": "string",
+										"name": "string",
+										"startTime": "string",
+										"lectureDurationInMinutes": 0,
+										"hasLecturesOnMondays": true,
+										"hasLecturesOnTuesdays": true,
+										"hasLecturesOnWednesdays": true,
+										"hasLecturesOnThursdays": true,
+										"hasLecturesOnFridays": true,
+										"hasLecturesOnSaturdays": true,
+										"hasLecturesOnSundays": true,
+										"insertedAt": "string",
+										"updatedAt": "string"
+									}
+								],
+								"totalItems": 0
+							}
+						}
+					}
+				}
+			}
+		},
+		"/UpdateContactAndAccountInfoExternal": {
+			"post": {
+				"operationId": "UpdateContactAndAccountInfoExternal_Post",
+				"summary": "UpdateContactAndAccountInfoExternal_Post",
+				"tags": [
+					"UpdateContactAndAccountInfoExternal"
+				],
+				"parameters": [
+					{
+						"name": "updateContactAndAccountInfoExternalCommand",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/UpdateContactAndAccountInfoExternalCommand"
+						}
+					}
+				],
+				"consumes": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"ActiveDepartmentsExternalRequest": {
+			"title": "ActiveDepartmentsExternalRequest",
+			"description": "Returns a paged list of active departments.",
+			"required": [
+				"inlineCount",
+				"pageNumber",
+				"pageSize",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"pageNumber": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "The number of the page to return (1 is the first page).",
+					"maximum": 2147483647,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"pageSize": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Number of objects per page.",
+					"maximum": 1000,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"inlineCount": {
+					"title": "Boolean",
+					"description": "A flag indicating if total number of items should be included.",
+					"default": true,
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"pageNumber": 0,
+				"pageSize": 0,
+				"inlineCount": true,
+				"schoolCode": "string"
+			}
+		},
+		"ActiveEmployeesExternalRequest": {
+			"title": "ActiveEmployeesExternalRequest",
+			"description": "Returns a paged list of employees satisfying provided criteria.",
+			"required": [
+				"employeesActiveOnOrAfterDate",
+				"inlineCount",
+				"pageNumber",
+				"pageSize",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"employeesActiveOnOrAfterDate": {
+					"format": "date",
+					"title": "Date",
+					"description": "Employees must have an active employment on or after this date\r\nThis parameter is required",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"areaOfResponsibilityId": {
+					"format": "uuid",
+					"description": "Option for also querying employees by area of responsibility",
+					"type": "string"
+				},
+				"pageNumber": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "The number of the page to return (1 is the first page).",
+					"maximum": 2147483647,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"pageSize": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Number of objects per page.",
+					"maximum": 1000,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"inlineCount": {
+					"title": "Boolean",
+					"description": "A flag indicating if total number of items should be included.",
+					"default": true,
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"employeesActiveOnOrAfterDate": "2024-06-20",
+				"areaOfResponsibilityId": "string",
+				"pageNumber": 0,
+				"pageSize": 0,
+				"inlineCount": true,
+				"schoolCode": "string"
+			}
+		},
+		"AreaOfEducationExternalResponse": {
+			"title": "AreaOfEducationExternalResponse",
+			"description": "The model of area of education.",
+			"required": [
+				"id",
+				"name",
+				"validFrom"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Identifier of the area of education.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"name": {
+					"title": "String",
+					"description": "Name of the area of education.",
+					"minLength": 1,
+					"type": "string"
+				},
+				"validFrom": {
+					"format": "date",
+					"title": "Date",
+					"description": "Start date of the area of education.",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"validTo": {
+					"format": "date",
+					"description": "End date of the area of education.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"dayCalendarId": {
+					"format": "uuid",
+					"description": "Id of day calendar for this area of education",
+					"type": "string"
+				},
+				"schoolHoursPlanId": {
+					"format": "uuid",
+					"description": "Id of school hours plan for this area of education",
+					"type": "string"
+				},
+				"areaOfResponsibilityId": {
+					"format": "uuid",
+					"description": "Id of area of responsibility for this area of education",
+					"type": "string"
+				},
+				"educationCoesaNumber": {
+					"title": "String",
+					"description": "CÃ˜SA number for the education this area covers",
+					"type": "string"
+				},
+				"educationName": {
+					"title": "String",
+					"description": "Name of the CÃ˜SA education this area covers",
+					"type": "string"
+				},
+				"educationVersion": {
+					"format": "int32",
+					"description": "CÃ˜SA education version",
+					"type": "integer"
+				},
+				"specialisation": {
+					"title": "String",
+					"description": "Name of the CÃ˜SA specialization of the education for this area",
+					"type": "string"
+				},
+				"insertedAt": {
+					"format": "date-time",
+					"description": "When was area of education created",
+					"type": "string"
+				},
+				"updatedAt": {
+					"format": "date-time",
+					"description": "Last update of the area of education",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"AreaOfResponsibilityExternalResponse": {
+			"title": "AreaOfResponsibilityExternalResponse",
+			"description": "The model of area of responsibility.",
+			"required": [
+				"id",
+				"name",
+				"validFrom"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Identifier of the area of responsibility.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"name": {
+					"title": "String",
+					"description": "Name of the area of responsibility.",
+					"maxLength": 255,
+					"minLength": 1,
+					"type": "string"
+				},
+				"validFrom": {
+					"format": "date",
+					"title": "Date",
+					"description": "Start date of the area of responsibility.",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"validTo": {
+					"format": "date",
+					"description": "End date of the area of responsibiliity.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"responsibleEmployeeId": {
+					"format": "uuid",
+					"description": "Identifier of employee responsible for area.",
+					"type": "string"
+				},
+				"insertedAt": {
+					"format": "date-time",
+					"description": "When was area of responsibility created",
+					"type": "string"
+				},
+				"updatedAt": {
+					"format": "date-time",
+					"description": "Last update of the area of responsibility",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"AreasOfEducationExternalRequest": {
+			"title": "AreasOfEducationExternalRequest",
+			"description": "Returns a paged list of areas of education for the given school.",
+			"required": [
+				"inlineCount",
+				"pageNumber",
+				"pageSize",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"pageNumber": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "The number of the page to return (1 is the first page).",
+					"maximum": 2147483647,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"pageSize": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Number of objects per page.",
+					"maximum": 1000,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"inlineCount": {
+					"title": "Boolean",
+					"description": "A flag indicating if total number of items should be included.",
+					"default": true,
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"pageNumber": 0,
+				"pageSize": 0,
+				"inlineCount": true,
+				"schoolCode": "string"
+			}
+		},
+		"AreasOfResponsibilityExternalRequest": {
+			"title": "AreasOfResponsibilityExternalRequest",
+			"description": "Returns a paged list of areas of responsibility satisfying provided criteria.",
+			"required": [
+				"inlineCount",
+				"pageNumber",
+				"pageSize",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"pageNumber": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "The number of the page to return (1 is the first page).",
+					"maximum": 2147483647,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"pageSize": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Number of objects per page.",
+					"maximum": 1000,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"inlineCount": {
+					"title": "Boolean",
+					"description": "A flag indicating if total number of items should be included.",
+					"default": true,
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"pageNumber": 0,
+				"pageSize": 0,
+				"inlineCount": true,
+				"schoolCode": "string"
+			}
+		},
+		"BulkAreasOfResponsibilityExternalRequest": {
+			"title": "BulkAreasOfResponsibilityExternalRequest",
+			"description": "Returns a list of areas of responsibility satisfying provided criteria.",
+			"required": [
+				"areaOfResponsibilityIds",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"areaOfResponsibilityIds": {
+					"description": "Areas of responsibility identifiers for bulk query.",
+					"maxItems": 1000,
+					"minItems": 1,
+					"type": "array",
+					"items": {
+						"format": "uuid",
+						"title": "Guid",
+						"type": "string",
+						"x-nullable": false
+					}
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"areaOfResponsibilityIds": [
+					"string"
+				],
+				"schoolCode": "string"
+			}
+		},
+		"BulkDepartmentsExternalRequest": {
+			"title": "BulkDepartmentsExternalRequest",
+			"description": "Returns a list of departments satisfying provided criteria.",
+			"required": [
+				"departmentIds",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"departmentIds": {
+					"description": "Department identifiers for bulk query.",
+					"maxItems": 1000,
+					"minItems": 1,
+					"type": "array",
+					"items": {
+						"format": "uuid",
+						"title": "Guid",
+						"type": "string",
+						"x-nullable": false
+					}
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"departmentIds": [
+					"string"
+				],
+				"schoolCode": "string"
+			}
+		},
+		"BulkEmployeesExternalRequest": {
+			"title": "BulkEmployeesExternalRequest",
+			"description": "Returns a list of employees satisfying provided criteria.",
+			"required": [
+				"employeeIds",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"employeeIds": {
+					"description": "Employees identifiers for bulk query.",
+					"maxItems": 1000,
+					"minItems": 1,
+					"type": "array",
+					"items": {
+						"format": "uuid",
+						"title": "Guid",
+						"type": "string",
+						"x-nullable": false
+					}
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"employeeIds": [
+					"string"
+				],
+				"schoolCode": "string"
+			}
+		},
+		"BulkRoomsExternalRequest": {
+			"title": "BulkRoomsExternalRequest",
+			"description": "Returns list of rooms satisfying provided criteria.",
+			"required": [
+				"roomIds",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"roomIds": {
+					"description": "Room identifiers for bulk query.",
+					"maxItems": 1000,
+					"minItems": 1,
+					"type": "array",
+					"items": {
+						"format": "uuid",
+						"title": "Guid",
+						"type": "string",
+						"x-nullable": false
+					}
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"roomIds": [
+					"string"
+				],
+				"schoolCode": "string"
+			}
+		},
+		"DayCalendarsExternalRequest": {
+			"title": "DayCalendarsExternalRequest",
+			"description": "Returns a paged list of day calendars satisfying provided criteria.",
+			"required": [
+				"inlineCount",
+				"pageNumber",
+				"pageSize",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"pageNumber": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "The number of the page to return (1 is the first page).",
+					"maximum": 2147483647,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"pageSize": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Number of objects per page.",
+					"maximum": 1000,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"inlineCount": {
+					"title": "Boolean",
+					"description": "A flag indicating if total number of items should be included.",
+					"default": true,
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"pageNumber": 0,
+				"pageSize": 0,
+				"inlineCount": true,
+				"schoolCode": "string"
+			}
+		},
+		"DayCalendarsExternalResponse": {
+			"title": "DayCalendarsExternalResponse",
+			"required": [
+				"id",
+				"schoolDays"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Identifier of the day calendar.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"name": {
+					"title": "String",
+					"description": "Name of the day calendar.",
+					"type": "string"
+				},
+				"insertedAt": {
+					"format": "date-time",
+					"description": "When was day calendar created",
+					"type": "string"
+				},
+				"updatedAt": {
+					"format": "date-time",
+					"description": "Last update of the day calendar",
+					"type": "string"
+				},
+				"schoolDays": {
+					"description": "List of school days.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/SchoolDay"
+					}
+				}
+			},
+			"additionalProperties": false
+		},
+		"DepartmentsExternalRequest": {
+			"title": "DepartmentsExternalRequest",
+			"description": "Returns a paged list of departments satisfying provided criteria.",
+			"required": [
+				"inlineCount",
+				"pageNumber",
+				"pageSize",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"validFrom": {
+					"format": "date",
+					"description": "Beginning date of being valid.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"validTo": {
+					"format": "date",
+					"description": "End date of being valid.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"pageNumber": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "The number of the page to return (1 is the first page).",
+					"maximum": 2147483647,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"pageSize": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Number of objects per page.",
+					"maximum": 1000,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"inlineCount": {
+					"title": "Boolean",
+					"description": "A flag indicating if total number of items should be included.",
+					"default": true,
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"validFrom": "2024-06-20",
+				"validTo": "2024-06-20",
+				"pageNumber": 0,
+				"pageSize": 0,
+				"inlineCount": true,
+				"schoolCode": "string"
+			}
+		},
+		"DepartmentsExternalResponse": {
+			"title": "DepartmentsExternalResponse",
+			"description": "Model of department.",
+			"required": [
+				"id",
+				"name",
+				"validFrom"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Identifier of the department.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"name": {
+					"title": "String",
+					"description": "Name of the department.",
+					"maxLength": 255,
+					"minLength": 1,
+					"type": "string"
+				},
+				"validFrom": {
+					"format": "date",
+					"title": "Date",
+					"description": "Beginning date of being valid.",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"validTo": {
+					"format": "date",
+					"description": "End date of being valid.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"areaOfEducationIds": {
+					"description": "Identifier of the area of education",
+					"type": "array",
+					"items": {
+						"format": "uuid",
+						"title": "Guid",
+						"type": "string",
+						"x-nullable": false
+					}
+				},
+				"dsDepartmentNumber": {
+					"title": "String",
+					"description": "Institution number of the place of education",
+					"type": "string"
+				},
+				"address": {
+					"title": "String",
+					"description": "DS Department address",
+					"type": "string"
+				},
+				"postalCode": {
+					"title": "String",
+					"description": "DS Department zip code",
+					"type": "string"
+				},
+				"city": {
+					"title": "String",
+					"description": "DS Department city",
+					"type": "string"
+				},
+				"phoneNumber": {
+					"title": "String",
+					"description": "DS Department phone number",
+					"type": "string"
+				},
+				"email": {
+					"title": "String",
+					"description": "DS Department email address",
+					"type": "string"
+				},
+				"insertedAt": {
+					"format": "date-time",
+					"description": "When was department created",
+					"type": "string"
+				},
+				"updatedAt": {
+					"format": "date-time",
+					"description": "Last update of the department",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"EmployeeExternalResponse": {
+			"title": "EmployeeExternalResponse",
+			"description": "Model of the employee.",
+			"required": [
+				"civilRegistrationNumber",
+				"createAdLogin",
+				"deceased",
+				"email",
+				"employmentStartDate",
+				"givenName",
+				"id",
+				"lmsIndicator",
+				"protectedNameAndAddress",
+				"reportToUniLogin",
+				"surname"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Gets employee identifier in Studica.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"civilRegistrationNumber": {
+					"title": "String",
+					"description": "Gets employee civil registration number.",
+					"minLength": 1,
+					"type": "string"
+				},
+				"protectedNameAndAddress": {
+					"title": "Boolean",
+					"description": "Gets a flag indicating if name and address are protected.",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"lmsIndicator": {
+					"title": "Boolean",
+					"description": "Gets Learning Management System indicator.",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"givenName": {
+					"title": "String",
+					"description": "Gets employee given name.",
+					"minLength": 1,
+					"type": "string"
+				},
+				"surname": {
+					"title": "String",
+					"description": "Gets employee surname.",
+					"minLength": 1,
+					"type": "string"
+				},
+				"protectedGivenName": {
+					"title": "String",
+					"description": "Gets employee protected given name.",
+					"type": "string"
+				},
+				"protectedSurname": {
+					"title": "String",
+					"description": "Gets employee protected surname.",
+					"type": "string"
+				},
+				"initials": {
+					"title": "String",
+					"description": "Gets employee initials.",
+					"type": "string"
+				},
+				"email": {
+					"title": "String",
+					"description": "Gets employee e-mail address.",
+					"minLength": 1,
+					"type": "string"
+				},
+				"privateEmail": {
+					"title": "String",
+					"description": "The employee's private e-mail address.",
+					"type": "string"
+				},
+				"phoneNumber": {
+					"title": "String",
+					"description": "Gets employee phone number.",
+					"type": "string"
+				},
+				"mobileNumber": {
+					"title": "String",
+					"description": "The employee's work related mobile phone number.",
+					"type": "string"
+				},
+				"privatePhoneNumber": {
+					"title": "String",
+					"description": "The employee's private phone number.",
+					"type": "string"
+				},
+				"deceased": {
+					"title": "Boolean",
+					"description": "Gets indticator if employee is deceased.",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"uniLoginUsername": {
+					"title": "String",
+					"description": "Gets employee Unilogin username.",
+					"type": "string"
+				},
+				"reportToUniLogin": {
+					"title": "Boolean",
+					"description": "Flag denoting whether the employee should be created as a user in UNI-Login",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"createAdLogin": {
+					"title": "Boolean",
+					"description": "Flag denoting whether the employee should be created in the local Active Directory",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"adUserName": {
+					"title": "String",
+					"description": "Gets employee Active Directory username.",
+					"type": "string"
+				},
+				"roleNames": {
+					"description": "Gets employee roles.",
+					"type": "array",
+					"items": {
+						"title": "String",
+						"type": "string"
+					}
+				},
+				"jobTitle": {
+					"title": "String",
+					"description": "Gets employee job title.",
+					"type": "string"
+				},
+				"employmentStartDate": {
+					"format": "date",
+					"title": "Date",
+					"description": "Gets employee start date.",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"employmentResignationDate": {
+					"format": "date",
+					"description": "Gets employee resignation date.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"areaOfResponsibilityId": {
+					"format": "uuid",
+					"description": "Reference id to the area of responsibility.",
+					"type": "string"
+				},
+				"departmentIds": {
+					"description": "Gets employee department affilation.",
+					"type": "array",
+					"items": {
+						"format": "uuid",
+						"title": "Guid",
+						"type": "string",
+						"x-nullable": false
+					}
+				},
+				"addressLine": {
+					"title": "String",
+					"description": "Gets employee address line.",
+					"type": "string"
+				},
+				"careOfAddressLine": {
+					"title": "String",
+					"description": "Gets employee care of address line.",
+					"type": "string"
+				},
+				"place": {
+					"title": "String",
+					"description": "Gets employee place.",
+					"type": "string"
+				},
+				"city": {
+					"title": "String",
+					"description": "Gets employee city.",
+					"type": "string"
+				},
+				"postalCode": {
+					"title": "String",
+					"description": "Gets employee postal code.",
+					"type": "string"
+				},
+				"country": {
+					"title": "String",
+					"description": "Gets employee country.",
+					"type": "string"
+				},
+				"insertedAt": {
+					"format": "date-time",
+					"description": "When was employee created",
+					"type": "string"
+				},
+				"updatedAt": {
+					"format": "date-time",
+					"description": "Last update of the employee",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"EmployeesExternalRequest": {
+			"title": "EmployeesExternalRequest",
+			"description": "Returns a paged list of employees satisfying provided criteria.",
+			"required": [
+				"employmentStartDateTo",
+				"inlineCount",
+				"pageNumber",
+				"pageSize",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"employmentStartDateFrom": {
+					"format": "date",
+					"description": "Beginning of range for start date employment.",
+					"type": "string",
+					"example": "2024-06-20"
+				},
+				"employmentStartDateTo": {
+					"format": "date",
+					"title": "Date",
+					"description": "End of range for start date employment.",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"areaOfResponsibilityId": {
+					"format": "uuid",
+					"description": "Option for also querying employees by area of responsibility",
+					"type": "string"
+				},
+				"pageNumber": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "The number of the page to return (1 is the first page).",
+					"maximum": 2147483647,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"pageSize": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Number of objects per page.",
+					"maximum": 1000,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"inlineCount": {
+					"title": "Boolean",
+					"description": "A flag indicating if total number of items should be included.",
+					"default": true,
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"employmentStartDateFrom": "2024-06-20",
+				"employmentStartDateTo": "2024-06-20",
+				"areaOfResponsibilityId": "string",
+				"pageNumber": 0,
+				"pageSize": 0,
+				"inlineCount": true,
+				"schoolCode": "string"
+			}
+		},
+		"PagedResponse_AreaOfEducationExternalResponse": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"description": "Page of items",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AreaOfEducationExternalResponse"
+					}
+				},
+				"totalItems": {
+					"format": "int32",
+					"description": "Total number of items",
+					"type": "integer"
+				}
+			},
+			"additionalProperties": false
+		},
+		"PagedResponse_AreaOfResponsibilityExternalResponse": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"description": "Page of items",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AreaOfResponsibilityExternalResponse"
+					}
+				},
+				"totalItems": {
+					"format": "int32",
+					"description": "Total number of items",
+					"type": "integer"
+				}
+			},
+			"additionalProperties": false
+		},
+		"PagedResponse_DayCalendarsExternalResponse": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"description": "Page of items",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/DayCalendarsExternalResponse"
+					}
+				},
+				"totalItems": {
+					"format": "int32",
+					"description": "Total number of items",
+					"type": "integer"
+				}
+			},
+			"additionalProperties": false
+		},
+		"PagedResponse_DepartmentsExternalResponse": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"description": "Page of items",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/DepartmentsExternalResponse"
+					}
+				},
+				"totalItems": {
+					"format": "int32",
+					"description": "Total number of items",
+					"type": "integer"
+				}
+			},
+			"additionalProperties": false
+		},
+		"PagedResponse_EmployeeExternalResponse": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"description": "Page of items",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/EmployeeExternalResponse"
+					}
+				},
+				"totalItems": {
+					"format": "int32",
+					"description": "Total number of items",
+					"type": "integer"
+				}
+			},
+			"additionalProperties": false
+		},
+		"PagedResponse_RoomExternalResponse": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"description": "Page of items",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RoomExternalResponse"
+					}
+				},
+				"totalItems": {
+					"format": "int32",
+					"description": "Total number of items",
+					"type": "integer"
+				}
+			},
+			"additionalProperties": false
+		},
+		"PagedResponse_SchoolHourEntryExternalResponse": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"description": "Page of items",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/SchoolHourEntryExternalResponse"
+					}
+				},
+				"totalItems": {
+					"format": "int32",
+					"description": "Total number of items",
+					"type": "integer"
+				}
+			},
+			"additionalProperties": false
+		},
+		"PagedResponse_SchoolHoursPlanExternalResponse": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"description": "Page of items",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/SchoolHoursPlanExternalResponse"
+					}
+				},
+				"totalItems": {
+					"format": "int32",
+					"description": "Total number of items",
+					"type": "integer"
+				}
+			},
+			"additionalProperties": false
+		},
+		"RoomExternalResponse": {
+			"title": "RoomExternalResponse",
+			"description": "Model of the room.",
+			"required": [
+				"departmentIds",
+				"designation",
+				"id",
+				"roomType",
+				"useDsDepartmentAddress"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Id of the room.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"name": {
+					"title": "String",
+					"description": "Name of the room.",
+					"type": "string"
+				},
+				"designation": {
+					"title": "String",
+					"description": "The acronym or designation (user facing unique id) of the room",
+					"minLength": 1,
+					"type": "string"
+				},
+				"description": {
+					"title": "String",
+					"description": "Description of the room.",
+					"type": "string"
+				},
+				"roomType": {
+					"title": "RoomType",
+					"description": "Type of room.",
+					"enum": [
+						"ClassRoom",
+						"Lab",
+						"Workshop",
+						"Gym",
+						"Auditorium",
+						"MeetingRoom",
+						"Other"
+					],
+					"type": "string",
+					"x-nullable": false
+				},
+				"capacity": {
+					"format": "int32",
+					"description": "Capacity for meetings.",
+					"type": "integer"
+				},
+				"maximumPersonsAllowed": {
+					"format": "int32",
+					"description": "Maximum persons allowed in the room.",
+					"type": "integer"
+				},
+				"useDsDepartmentAddress": {
+					"title": "Boolean",
+					"description": "Denotes if the room uses the address of the DS department,\r\nor has a custom address",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"addressLine": {
+					"title": "String",
+					"description": "Address of the building where the room is located.",
+					"type": "string"
+				},
+				"city": {
+					"title": "String",
+					"description": "City of the building where the room is located.",
+					"type": "string"
+				},
+				"postalCode": {
+					"title": "String",
+					"description": "Postal code of the building where the room is located.",
+					"type": "string"
+				},
+				"dsDepartmentNumber": {
+					"title": "String",
+					"description": "The DS-department number that room belongs to.",
+					"type": "string"
+				},
+				"departmentIds": {
+					"description": "Departments that room is used by.",
+					"type": "array",
+					"items": {
+						"format": "uuid",
+						"title": "Guid",
+						"type": "string",
+						"x-nullable": false
+					}
+				},
+				"insertedAt": {
+					"format": "date-time",
+					"description": "When was room created",
+					"type": "string"
+				},
+				"updatedAt": {
+					"format": "date-time",
+					"description": "Last update of the room",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"RoomsExternalRequest": {
+			"title": "RoomsExternalRequest",
+			"description": "Returns paged list of rooms satisfying provided criteria.",
+			"required": [
+				"inlineCount",
+				"pageNumber",
+				"pageSize",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"departmentId": {
+					"format": "uuid",
+					"description": "Department identifiers for querying only rooms in a specific department",
+					"type": "string"
+				},
+				"pageNumber": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "The number of the page to return (1 is the first page).",
+					"maximum": 2147483647,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"pageSize": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Number of objects per page.",
+					"maximum": 1000,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"inlineCount": {
+					"title": "Boolean",
+					"description": "A flag indicating if total number of items should be included.",
+					"default": true,
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"departmentId": "string",
+				"pageNumber": 0,
+				"pageSize": 0,
+				"inlineCount": true,
+				"schoolCode": "string"
+			}
+		},
+		"SchoolDay": {
+			"title": "SchoolDay",
+			"required": [
+				"date",
+				"isSchoolDay"
+			],
+			"type": "object",
+			"properties": {
+				"date": {
+					"format": "date",
+					"title": "Date",
+					"description": "Date of the school day.",
+					"type": "string",
+					"example": "2024-06-20",
+					"x-nullable": false
+				},
+				"isSchoolDay": {
+					"title": "Boolean",
+					"description": "Flag indicating if a day is a school day.",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"comment": {
+					"title": "String",
+					"description": "Comments to the school day.",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"SchoolHourEntriesExternalRequest": {
+			"title": "SchoolHourEntriesExternalRequest",
+			"description": "Returns paged list of school hour entries satisfying provided criteria.",
+			"required": [
+				"inlineCount",
+				"pageNumber",
+				"pageSize",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"pageNumber": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "The number of the page to return (1 is the first page).",
+					"maximum": 2147483647,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"pageSize": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Number of objects per page.",
+					"maximum": 1000,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"inlineCount": {
+					"title": "Boolean",
+					"description": "A flag indicating if total number of items should be included.",
+					"default": true,
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"pageNumber": 0,
+				"pageSize": 0,
+				"inlineCount": true,
+				"schoolCode": "string"
+			}
+		},
+		"SchoolHourEntryExternalResponse": {
+			"title": "SchoolHourEntryExternalResponse",
+			"description": "Model of the school hour entry.",
+			"required": [
+				"endTime",
+				"entryType",
+				"schoolHourEntryId",
+				"schoolHoursPlanId",
+				"startTime"
+			],
+			"type": "object",
+			"properties": {
+				"schoolHourEntryId": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Id of the school hours entry",
+					"type": "string",
+					"x-nullable": false
+				},
+				"entryType": {
+					"title": "SchoolHourEntryType",
+					"description": "The type of entry, e.g. break or module",
+					"enum": [
+						"Break",
+						"Module"
+					],
+					"type": "string",
+					"x-nullable": false
+				},
+				"name": {
+					"title": "String",
+					"description": "Optional name of this entry.",
+					"maxLength": 255,
+					"type": "string"
+				},
+				"duration": {
+					"format": "int32",
+					"description": "Duration of this entry in minutes. Valid for breaks only.",
+					"maximum": 1440,
+					"minimum": 1,
+					"type": "integer"
+				},
+				"startTime": {
+					"format": "time",
+					"title": "Time",
+					"description": "Start time of lesson",
+					"pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
+					"type": "string",
+					"example": "14:15",
+					"x-nullable": false
+				},
+				"endTime": {
+					"format": "time",
+					"title": "Time",
+					"description": "End time of lesson",
+					"pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
+					"type": "string",
+					"example": "14:15",
+					"x-nullable": false
+				},
+				"schoolHoursPlanId": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Id of school hours plan where this entry belongs to.",
+					"type": "string",
+					"x-nullable": false
+				}
+			},
+			"additionalProperties": false
+		},
+		"SchoolHoursPlanDetailsExternalRequest": {
+			"title": "SchoolHoursPlanDetailsExternalRequest",
+			"description": "Returns a details school hours plan containing\r\nstart and end times of the individual entries",
+			"required": [
+				"id",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "uuid",
+					"title": "Guid",
+					"type": "string",
+					"x-nullable": false
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"id": "string",
+				"schoolCode": "string"
+			}
+		},
+		"SchoolHoursPlanDetailsExternalResponse": {
+			"title": "SchoolHoursPlanDetailsExternalResponse",
+			"description": "Model for a school hour plan, containing the name, start time, lesson length,\r\nschool days, and individual lesson modules",
+			"required": [
+				"hasLecturesOnFridays",
+				"hasLecturesOnMondays",
+				"hasLecturesOnSaturdays",
+				"hasLecturesOnSundays",
+				"hasLecturesOnThursdays",
+				"hasLecturesOnTuesdays",
+				"hasLecturesOnWednesdays",
+				"id",
+				"lectureDurationInMinutes",
+				"name",
+				"schoolHours",
+				"startTime"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Id of school hours plan",
+					"type": "string",
+					"x-nullable": false
+				},
+				"name": {
+					"title": "String",
+					"description": "Name of school hours plan",
+					"minLength": 1,
+					"type": "string"
+				},
+				"startTime": {
+					"format": "time",
+					"title": "Time",
+					"description": "Time of day when the school hours start",
+					"pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
+					"type": "string",
+					"example": "14:15",
+					"x-nullable": false
+				},
+				"lectureDurationInMinutes": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Duration of each lesson in minutes",
+					"maximum": 1440,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"hasLecturesOnMondays": {
+					"title": "Boolean",
+					"description": "Are there lessons on Mondays",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"hasLecturesOnTuesdays": {
+					"title": "Boolean",
+					"description": "Are there lessons on Tuesdays",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"hasLecturesOnWednesdays": {
+					"title": "Boolean",
+					"description": "Are there lessons on Wednesdays",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"hasLecturesOnThursdays": {
+					"title": "Boolean",
+					"description": "Are there lessons on Thursdays",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"hasLecturesOnFridays": {
+					"title": "Boolean",
+					"description": "Are there lessons on Fridays",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"hasLecturesOnSaturdays": {
+					"title": "Boolean",
+					"description": "Are there lessons on Saturdays",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"hasLecturesOnSundays": {
+					"title": "Boolean",
+					"description": "Are there lessons on Sundays",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"insertedAt": {
+					"format": "date-time",
+					"description": "When was the school hours plan created",
+					"type": "string"
+				},
+				"updatedAt": {
+					"format": "date-time",
+					"description": "Last update of the school hours plan",
+					"type": "string"
+				},
+				"schoolHours": {
+					"description": "List of modules (school hours) for the school hours plan",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/SchoolHoursPlanDetailsExternalResponse_SchoolHourPlanDetailsSchoolHourEntry"
+					}
+				}
+			},
+			"additionalProperties": false
+		},
+		"SchoolHoursPlanDetailsExternalResponse_SchoolHourPlanDetailsSchoolHourEntry": {
+			"title": "SchoolHourPlanDetailsSchoolHourEntry",
+			"description": "Details about a school hours entry",
+			"required": [
+				"endTime",
+				"entryType",
+				"schoolHourEntryId",
+				"startTime"
+			],
+			"type": "object",
+			"properties": {
+				"schoolHourEntryId": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Id of the school hours entry",
+					"type": "string",
+					"x-nullable": false
+				},
+				"entryType": {
+					"title": "SchoolHourEntryType",
+					"description": "Type of the entry, e.g. module or break",
+					"enum": [
+						"Break",
+						"Module"
+					],
+					"type": "string",
+					"x-nullable": false
+				},
+				"name": {
+					"title": "String",
+					"description": "Name of the entry",
+					"maxLength": 255,
+					"type": "string"
+				},
+				"startTime": {
+					"format": "time",
+					"title": "Time",
+					"description": "Start time of this specific entry",
+					"pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
+					"type": "string",
+					"example": "14:15",
+					"x-nullable": false
+				},
+				"endTime": {
+					"format": "time",
+					"title": "Time",
+					"description": "End time of this specific entry",
+					"pattern": "([01]?[0-9]|2[0-3]):[0-5][0-9]",
+					"type": "string",
+					"example": "14:15",
+					"x-nullable": false
+				},
+				"duration": {
+					"format": "int32",
+					"description": "Duration of this entry in minutes. Valid for breaks only.",
+					"maximum": 1440,
+					"minimum": 1,
+					"type": "integer"
+				}
+			},
+			"additionalProperties": false
+		},
+		"SchoolHoursPlanExternalResponse": {
+			"title": "SchoolHoursPlanExternalResponse",
+			"description": "Model of the school hours plan.",
+			"required": [
+				"hasLecturesOnFridays",
+				"hasLecturesOnMondays",
+				"hasLecturesOnSaturdays",
+				"hasLecturesOnSundays",
+				"hasLecturesOnThursdays",
+				"hasLecturesOnTuesdays",
+				"hasLecturesOnWednesdays",
+				"id",
+				"lectureDurationInMinutes",
+				"name",
+				"startTime"
+			],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "Id of the school hours plan.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"name": {
+					"title": "String",
+					"description": "Name of the school hours plan.",
+					"minLength": 1,
+					"type": "string"
+				},
+				"startTime": {
+					"title": "String",
+					"description": "Start time for school day.",
+					"minLength": 1,
+					"type": "string"
+				},
+				"lectureDurationInMinutes": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Duration of a lecture in minutes.",
+					"maximum": 1440,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"hasLecturesOnMondays": {
+					"title": "Boolean",
+					"description": "Whether Mondays are school days.",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"hasLecturesOnTuesdays": {
+					"title": "Boolean",
+					"description": "Whether Tuesdays are school days.",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"hasLecturesOnWednesdays": {
+					"title": "Boolean",
+					"description": "Whether Wednesdays are school-days.",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"hasLecturesOnThursdays": {
+					"title": "Boolean",
+					"description": "Whether Thursdays are school days.",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"hasLecturesOnFridays": {
+					"title": "Boolean",
+					"description": "Whether Fridays are school days.",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"hasLecturesOnSaturdays": {
+					"title": "Boolean",
+					"description": "Whether Saturdays are school days.",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"hasLecturesOnSundays": {
+					"title": "Boolean",
+					"description": "Whether Sundays are school days.",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"insertedAt": {
+					"format": "date-time",
+					"description": "When was the school hours plan created",
+					"type": "string"
+				},
+				"updatedAt": {
+					"format": "date-time",
+					"description": "Last update of the school hours plan",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"SchoolHoursPlansExternalRequest": {
+			"title": "SchoolHoursPlansExternalRequest",
+			"description": "Returns paged list of school hours plans satisfying provided criteria.",
+			"required": [
+				"inlineCount",
+				"pageNumber",
+				"pageSize",
+				"schoolCode"
+			],
+			"type": "object",
+			"properties": {
+				"pageNumber": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "The number of the page to return (1 is the first page).",
+					"maximum": 2147483647,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"pageSize": {
+					"format": "int32",
+					"title": "Int32",
+					"description": "Number of objects per page.",
+					"maximum": 1000,
+					"minimum": 1,
+					"type": "integer",
+					"x-nullable": false
+				},
+				"inlineCount": {
+					"title": "Boolean",
+					"description": "A flag indicating if total number of items should be included.",
+					"default": true,
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which to get data.",
+					"maxLength": 6,
+					"minLength": 6,
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"pageNumber": 0,
+				"pageSize": 0,
+				"inlineCount": true,
+				"schoolCode": "string"
+			}
+		},
+		"UpdateContactAndAccountInfoExternalCommand": {
+			"title": "UpdateContactAndAccountInfoExternalCommand",
+			"description": "Update employee contact and account information",
+			"required": [
+				"addressLineClear",
+				"careOfAddressClear",
+				"cityClear",
+				"countryClear",
+				"emailClear",
+				"employeeId",
+				"mobileNumberClear",
+				"phoneNumberClear",
+				"placeClear",
+				"postalCodeClear",
+				"privateEmailClear",
+				"privatePhoneNumberClear"
+			],
+			"type": "object",
+			"properties": {
+				"employeeId": {
+					"format": "uuid",
+					"title": "Guid",
+					"description": "The ID of the employee.",
+					"type": "string",
+					"x-nullable": false
+				},
+				"initials": {
+					"title": "String",
+					"description": "The employee's initials.",
+					"maxLength": 4,
+					"type": "string"
+				},
+				"givenName": {
+					"title": "String",
+					"description": "The employee's first- and middle names.",
+					"type": "string"
+				},
+				"surname": {
+					"title": "String",
+					"description": "The employee's last name.",
+					"type": "string"
+				},
+				"addressLine": {
+					"title": "String",
+					"description": "The address line of the employee",
+					"type": "string"
+				},
+				"addressLineClear": {
+					"title": "Boolean",
+					"description": "Indicates if the AddressLine should be cleared regardless of the value in AddressLine",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"careOfAddress": {
+					"title": "String",
+					"description": "The C/O address of the employee.",
+					"type": "string"
+				},
+				"careOfAddressClear": {
+					"title": "Boolean",
+					"description": "Indicates if the CareOfAddress should be cleared regardless of the value in CareOfAddress",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"city": {
+					"title": "String",
+					"description": "The city of the employee",
+					"type": "string"
+				},
+				"cityClear": {
+					"title": "Boolean",
+					"description": "Indicates if the City should be cleared regardless of the value in City",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"place": {
+					"title": "String",
+					"description": "The place of the employee",
+					"type": "string"
+				},
+				"placeClear": {
+					"title": "Boolean",
+					"description": "Indicates if the Place should be cleared regardless of the value in Place",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"postalCode": {
+					"title": "String",
+					"description": "The postal code of the employee",
+					"type": "string"
+				},
+				"postalCodeClear": {
+					"title": "Boolean",
+					"description": "Indicates if the PostalCode should be cleared regardless of the value in PostalCode",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"country": {
+					"title": "String",
+					"description": "The country of the employee to be created",
+					"type": "string"
+				},
+				"countryClear": {
+					"title": "Boolean",
+					"description": "Indicates if the Country should be cleared regardless of the value in Country",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"phoneNumber": {
+					"format": "tel",
+					"title": "String",
+					"description": "The employee's phone number.",
+					"maxLength": 30,
+					"type": "string"
+				},
+				"phoneNumberClear": {
+					"title": "Boolean",
+					"description": "Indicates if the PhoneNumber should be cleared regardless of the value in PhoneNumber",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"mobileNumber": {
+					"format": "tel",
+					"title": "String",
+					"description": "The employee's mobile number.",
+					"maxLength": 30,
+					"type": "string"
+				},
+				"mobileNumberClear": {
+					"title": "Boolean",
+					"description": "Indicates if the MobileNumber should be cleared regardless of the value in PhoneNumber",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"privatePhoneNumber": {
+					"format": "tel",
+					"title": "String",
+					"description": "The employee's private phone number.",
+					"maxLength": 30,
+					"type": "string"
+				},
+				"privatePhoneNumberClear": {
+					"title": "Boolean",
+					"description": "Indicates if the PrivatePhoneNumber should be cleared regardless of the value in PhoneNumber",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"privateEmail": {
+					"format": "email",
+					"title": "String",
+					"description": "The employee's private e-mail address.",
+					"maxLength": 255,
+					"type": "string"
+				},
+				"privateEmailClear": {
+					"title": "Boolean",
+					"description": "Indicates if the PrivateEmail should be cleared regardless of the value in PrivateEmail",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"email": {
+					"format": "email",
+					"title": "String",
+					"description": "The employee's work e-mail address.",
+					"maxLength": 255,
+					"type": "string"
+				},
+				"emailClear": {
+					"title": "Boolean",
+					"description": "Indicates if the Email should be cleared regardless of the value in Email",
+					"type": "boolean",
+					"x-nullable": false
+				},
+				"adUsername": {
+					"format": "email",
+					"title": "String",
+					"description": "The AD user name for the employee",
+					"maxLength": 255,
+					"type": "string"
+				},
+				"createAdLogin": {
+					"description": "Specifies if the employee should have an AD login (organisational account).\r\nIf `false`, the SchoolAdministration.Host.ExternalApi.Employees.Commands.UpdateContactAndAccountInfo.UpdateContactAndAccountInfoExternalCommand.AdUsername will be cleared",
+					"type": "boolean"
+				},
+				"schoolCode": {
+					"title": "String",
+					"description": "The school code for which command is performed.",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"example": {
+				"employeeId": "string",
+				"initials": "string",
+				"givenName": "string",
+				"surname": "string",
+				"addressLine": "string",
+				"addressLineClear": true,
+				"careOfAddress": "string",
+				"careOfAddressClear": true,
+				"city": "string",
+				"cityClear": true,
+				"place": "string",
+				"placeClear": true,
+				"postalCode": "string",
+				"postalCodeClear": true,
+				"country": "string",
+				"countryClear": true,
+				"phoneNumber": "string",
+				"phoneNumberClear": true,
+				"mobileNumber": "string",
+				"mobileNumberClear": true,
+				"privatePhoneNumber": "string",
+				"privatePhoneNumberClear": true,
+				"privateEmail": "string",
+				"privateEmailClear": true,
+				"email": "string",
+				"emailClear": true,
+				"adUsername": "string",
+				"createAdLogin": true,
+				"schoolCode": "string"
+			}
+		}
+	},
+	"tags": []
 }

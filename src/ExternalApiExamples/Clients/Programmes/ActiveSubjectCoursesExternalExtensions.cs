@@ -15,14 +15,17 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class ActiveSubjectCoursesExternalExtensions
     {
+            /// <summary>
+            /// ActiveSubjectCoursesExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pageNumber'>
-            /// The number of the page to return (1 is the first page).
+            /// Format - int32. The number of the page to return (1 is the first page).
             /// </param>
             /// <param name='pageSize'>
-            /// Number of objects per page.
+            /// Format - int32. Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
@@ -31,7 +34,8 @@ namespace Kmd.Studica.Programmes.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='subjectCoursesActiveOnOrAfterDate'>
-            /// Subject courses must be active on the date or after this date
+            /// Format - date (as full-date in RFC3339). Subject courses must be active on
+            /// the date or after this date
             /// This parameter is required
             /// </param>
             /// <param name='lmsIndicator'>
@@ -43,21 +47,25 @@ namespace Kmd.Studica.Programmes.Client
             /// Should the response include deleted subject courses
             /// </param>
             /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
-            /// Only get data inserted or updated on or after the specified date
+            /// Format - date-time (as date-time in RFC3339). Only get data inserted or
+            /// updated on or after the specified date
             /// </param>
             public static PagedResponseSubjectCourseExternalResponse Get(this IActiveSubjectCoursesExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.DateTime? subjectCoursesActiveOnOrAfterDate = default(System.DateTime?), bool? lmsIndicator = default(bool?), bool? includeDeletedSubjectCourses = default(bool?), System.DateTime? onlyDataInsertedOrUpdatedOnOrAfter = default(System.DateTime?))
             {
                 return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode, subjectCoursesActiveOnOrAfterDate, lmsIndicator, includeDeletedSubjectCourses, onlyDataInsertedOrUpdatedOnOrAfter).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// ActiveSubjectCoursesExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pageNumber'>
-            /// The number of the page to return (1 is the first page).
+            /// Format - int32. The number of the page to return (1 is the first page).
             /// </param>
             /// <param name='pageSize'>
-            /// Number of objects per page.
+            /// Format - int32. Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
@@ -66,7 +74,8 @@ namespace Kmd.Studica.Programmes.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='subjectCoursesActiveOnOrAfterDate'>
-            /// Subject courses must be active on the date or after this date
+            /// Format - date (as full-date in RFC3339). Subject courses must be active on
+            /// the date or after this date
             /// This parameter is required
             /// </param>
             /// <param name='lmsIndicator'>
@@ -78,7 +87,8 @@ namespace Kmd.Studica.Programmes.Client
             /// Should the response include deleted subject courses
             /// </param>
             /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
-            /// Only get data inserted or updated on or after the specified date
+            /// Format - date-time (as date-time in RFC3339). Only get data inserted or
+            /// updated on or after the specified date
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

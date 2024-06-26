@@ -17,6 +17,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// </summary>
     public static partial class BulkRoomsExternalExtensions
     {
+            /// <summary>
+            /// BulkRoomsExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -31,6 +34,9 @@ namespace Kmd.Studica.SchoolAdministration.Client
                 return operations.PostAsync(roomIds, schoolCode).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// BulkRoomsExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>

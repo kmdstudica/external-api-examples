@@ -17,6 +17,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class AddLessonsExternalExtensions
     {
+            /// <summary>
+            /// AddLessonsExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -31,6 +34,9 @@ namespace Kmd.Studica.Programmes.Client
                 operations.PostAsync(newLessons, schoolCode).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// AddLessonsExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>

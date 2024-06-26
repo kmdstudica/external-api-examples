@@ -17,14 +17,17 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class SessionsExternalExtensions
     {
+            /// <summary>
+            /// SessionsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pageNumber'>
-            /// The number of the page to return (1 is the first page).
+            /// Format - int32. The number of the page to return (1 is the first page).
             /// </param>
             /// <param name='pageSize'>
-            /// Number of objects per page.
+            /// Format - int32. Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
@@ -45,26 +48,29 @@ namespace Kmd.Studica.Programmes.Client
             /// rooms.
             /// </param>
             /// <param name='dateFrom'>
-            /// If specified, returns sessions which are planned on a date no earlier than
-            /// this.
+            /// Format - date (as full-date in RFC3339). If specified, returns sessions
+            /// which are planned on a date no earlier than this.
             /// </param>
             /// <param name='dateTo'>
-            /// If specified, returns sessions which are planned on a date no later than
-            /// this.
+            /// Format - date (as full-date in RFC3339). If specified, returns sessions
+            /// which are planned on a date no later than this.
             /// </param>
             public static PagedResponseSessionDto Get(this ISessionsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, IList<System.Guid> groupIds = default(IList<System.Guid>), IList<System.Guid> teacherIds = default(IList<System.Guid>), IList<System.Guid> roomIds = default(IList<System.Guid>), System.DateTime? dateFrom = default(System.DateTime?), System.DateTime? dateTo = default(System.DateTime?))
             {
                 return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode, groupIds, teacherIds, roomIds, dateFrom, dateTo).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// SessionsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pageNumber'>
-            /// The number of the page to return (1 is the first page).
+            /// Format - int32. The number of the page to return (1 is the first page).
             /// </param>
             /// <param name='pageSize'>
-            /// Number of objects per page.
+            /// Format - int32. Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
@@ -85,12 +91,12 @@ namespace Kmd.Studica.Programmes.Client
             /// rooms.
             /// </param>
             /// <param name='dateFrom'>
-            /// If specified, returns sessions which are planned on a date no earlier than
-            /// this.
+            /// Format - date (as full-date in RFC3339). If specified, returns sessions
+            /// which are planned on a date no earlier than this.
             /// </param>
             /// <param name='dateTo'>
-            /// If specified, returns sessions which are planned on a date no later than
-            /// this.
+            /// Format - date (as full-date in RFC3339). If specified, returns sessions
+            /// which are planned on a date no later than this.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

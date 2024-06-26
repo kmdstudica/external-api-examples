@@ -15,27 +15,33 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// </summary>
     public static partial class UpdateContactAndAccountInfoExternalExtensions
     {
+            /// <summary>
+            /// UpdateContactAndAccountInfoExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='body'>
+            /// <param name='updateContactAndAccountInfoExternalCommand'>
             /// </param>
-            public static void Post(this IUpdateContactAndAccountInfoExternal operations, UpdateContactAndAccountInfoExternalCommand body = default(UpdateContactAndAccountInfoExternalCommand))
+            public static void Post(this IUpdateContactAndAccountInfoExternal operations, UpdateContactAndAccountInfoExternalCommand updateContactAndAccountInfoExternalCommand = default(UpdateContactAndAccountInfoExternalCommand))
             {
-                operations.PostAsync(body).GetAwaiter().GetResult();
+                operations.PostAsync(updateContactAndAccountInfoExternalCommand).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// UpdateContactAndAccountInfoExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='body'>
+            /// <param name='updateContactAndAccountInfoExternalCommand'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task PostAsync(this IUpdateContactAndAccountInfoExternal operations, UpdateContactAndAccountInfoExternalCommand body = default(UpdateContactAndAccountInfoExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task PostAsync(this IUpdateContactAndAccountInfoExternal operations, UpdateContactAndAccountInfoExternalCommand updateContactAndAccountInfoExternalCommand = default(UpdateContactAndAccountInfoExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.PostWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.PostWithHttpMessagesAsync(updateContactAndAccountInfoExternalCommand, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

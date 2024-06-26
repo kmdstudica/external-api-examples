@@ -185,7 +185,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// The accounting CØSA number of the activity.
+        /// The accounting CÃ˜SA number of the activity.
         /// </remarks>
         [JsonProperty(PropertyName = "accountingCoesa")]
         public string AccountingCoesa { get; set; }

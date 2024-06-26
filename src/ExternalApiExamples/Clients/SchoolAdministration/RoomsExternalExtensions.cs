@@ -15,14 +15,17 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// </summary>
     public static partial class RoomsExternalExtensions
     {
+            /// <summary>
+            /// RoomsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pageNumber'>
-            /// The number of the page to return (1 is the first page).
+            /// Format - int32. The number of the page to return (1 is the first page).
             /// </param>
             /// <param name='pageSize'>
-            /// Number of objects per page.
+            /// Format - int32. Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
@@ -31,21 +34,25 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='departmentId'>
-            /// Department identifiers for querying only rooms in a specific department
+            /// Format - uuid. Department identifiers for querying only rooms in a specific
+            /// department
             /// </param>
             public static PagedResponseRoomExternalResponse Get(this IRoomsExternal operations, int pageNumber, int pageSize, bool inlineCount, string schoolCode, System.Guid? departmentId = default(System.Guid?))
             {
                 return operations.GetAsync(pageNumber, pageSize, inlineCount, schoolCode, departmentId).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// RoomsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pageNumber'>
-            /// The number of the page to return (1 is the first page).
+            /// Format - int32. The number of the page to return (1 is the first page).
             /// </param>
             /// <param name='pageSize'>
-            /// Number of objects per page.
+            /// Format - int32. Number of objects per page.
             /// </param>
             /// <param name='inlineCount'>
             /// A flag indicating if total number of items should be included.
@@ -54,7 +61,8 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='departmentId'>
-            /// Department identifiers for querying only rooms in a specific department
+            /// Format - uuid. Department identifiers for querying only rooms in a specific
+            /// department
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

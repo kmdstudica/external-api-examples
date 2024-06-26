@@ -17,6 +17,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class SessionsByIdExternalExtensions
     {
+            /// <summary>
+            /// SessionsByIdExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -31,6 +34,9 @@ namespace Kmd.Studica.Programmes.Client
                 return operations.GetAsync(sessionIds, schoolCode).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// SessionsByIdExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>

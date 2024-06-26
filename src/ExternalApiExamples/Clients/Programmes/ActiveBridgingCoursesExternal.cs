@@ -22,7 +22,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// ActiveBridgingCoursesExternal operations.
     /// </summary>
-    public partial class ActiveBridgingCoursesExternal : IServiceOperations<KMDStudicaProgrammes>, IActiveBridgingCoursesExternal
+    public partial class ActiveBridgingCoursesExternal : IServiceOperations<StudicaDemoProgrammes>, IActiveBridgingCoursesExternal
     {
         /// <summary>
         /// Initializes a new instance of the ActiveBridgingCoursesExternal class.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public ActiveBridgingCoursesExternal(KMDStudicaProgrammes client)
+        public ActiveBridgingCoursesExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -43,19 +43,23 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
+        /// <summary>
+        /// ActiveBridgingCoursesExternal_Get
+        /// </summary>
         /// <param name='bridgingCoursesActiveOnOrAfterDate'>
-        /// Bridging courses must be active on the date or after this date
+        /// Format - date (as full-date in RFC3339). Bridging courses must be active on
+        /// the date or after this date
         /// This parameter is required
         /// </param>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
@@ -64,7 +68,8 @@ namespace Kmd.Studica.Programmes.Client
         /// The school code for which to get data.
         /// </param>
         /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
-        /// Only get data inserted or updated on or after the specified date
+        /// Format - date-time (as date-time in RFC3339). Only get data inserted or
+        /// updated on or after the specified date
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -128,11 +133,11 @@ namespace Kmd.Studica.Programmes.Client
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("bridgingCoursesActiveOnOrAfterDate", bridgingCoursesActiveOnOrAfterDate);
-                tracingParameters.Add("onlyDataInsertedOrUpdatedOnOrAfter", onlyDataInsertedOrUpdatedOnOrAfter);
                 tracingParameters.Add("pageNumber", pageNumber);
                 tracingParameters.Add("pageSize", pageSize);
                 tracingParameters.Add("inlineCount", inlineCount);
                 tracingParameters.Add("schoolCode", schoolCode);
+                tracingParameters.Add("onlyDataInsertedOrUpdatedOnOrAfter", onlyDataInsertedOrUpdatedOnOrAfter);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
@@ -141,16 +146,16 @@ namespace Kmd.Studica.Programmes.Client
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ActiveBridgingCoursesExternal").ToString();
             List<string> _queryParameters = new List<string>();
             _queryParameters.Add(string.Format("BridgingCoursesActiveOnOrAfterDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(bridgingCoursesActiveOnOrAfterDate, new DateJsonConverter()).Trim('"'))));
-            if (onlyDataInsertedOrUpdatedOnOrAfter != null)
-            {
-                _queryParameters.Add(string.Format("OnlyDataInsertedOrUpdatedOnOrAfter={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(onlyDataInsertedOrUpdatedOnOrAfter, Client.SerializationSettings).Trim('"'))));
-            }
             _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
             if (schoolCode != null)
             {
                 _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
+            }
+            if (onlyDataInsertedOrUpdatedOnOrAfter != null)
+            {
+                _queryParameters.Add(string.Format("OnlyDataInsertedOrUpdatedOnOrAfter={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(onlyDataInsertedOrUpdatedOnOrAfter, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {

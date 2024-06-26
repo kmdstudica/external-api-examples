@@ -15,27 +15,33 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class EditIndependentSessionExternalExtensions
     {
+            /// <summary>
+            /// EditIndependentSessionExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='body'>
+            /// <param name='editIndependentSessionExternalCommand'>
             /// </param>
-            public static void Post(this IEditIndependentSessionExternal operations, EditIndependentSessionExternalCommand body = default(EditIndependentSessionExternalCommand))
+            public static void Post(this IEditIndependentSessionExternal operations, EditIndependentSessionExternalCommand editIndependentSessionExternalCommand = default(EditIndependentSessionExternalCommand))
             {
-                operations.PostAsync(body).GetAwaiter().GetResult();
+                operations.PostAsync(editIndependentSessionExternalCommand).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// EditIndependentSessionExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='body'>
+            /// <param name='editIndependentSessionExternalCommand'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task PostAsync(this IEditIndependentSessionExternal operations, EditIndependentSessionExternalCommand body = default(EditIndependentSessionExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task PostAsync(this IEditIndependentSessionExternal operations, EditIndependentSessionExternalCommand editIndependentSessionExternalCommand = default(EditIndependentSessionExternalCommand), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.PostWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.PostWithHttpMessagesAsync(editIndependentSessionExternalCommand, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

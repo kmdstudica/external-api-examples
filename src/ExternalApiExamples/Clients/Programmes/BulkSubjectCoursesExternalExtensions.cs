@@ -17,6 +17,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class BulkSubjectCoursesExternalExtensions
     {
+            /// <summary>
+            /// BulkSubjectCoursesExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -31,6 +34,9 @@ namespace Kmd.Studica.Programmes.Client
                 return operations.PostAsync(subjectCourseIds, schoolCode).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// BulkSubjectCoursesExternal_Post
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>

@@ -22,7 +22,7 @@ public class DepartmentsExample
     {
         Console.WriteLine("Executing departments example");
 
-        using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+        using var schoolAdministrationClient = new StudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
         schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
             : new Uri(configuration.SchoolAdministrationBaseUri);
@@ -50,7 +50,7 @@ public class DepartmentsExample
     {
         Console.WriteLine("Executing active departments example");
 
-        using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+        using var schoolAdministrationClient = new StudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
         schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
             : new Uri(configuration.SchoolAdministrationBaseUri);
@@ -76,7 +76,7 @@ public class DepartmentsExample
     {
         Console.WriteLine("Executing bulk departments example");
 
-        using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+        using var schoolAdministrationClient = new StudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
         schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
             : new Uri(configuration.SchoolAdministrationBaseUri);

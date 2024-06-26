@@ -20,7 +20,7 @@ namespace Kmd.Studica.Students.Client
     /// <summary>
     /// UpdateContactAndAccountInfoExternal operations.
     /// </summary>
-    public partial class UpdateContactAndAccountInfoExternal : IServiceOperations<KMDStudicaStudents>, IUpdateContactAndAccountInfoExternal
+    public partial class UpdateContactAndAccountInfoExternal : IServiceOperations<StudicaDemoStudents>, IUpdateContactAndAccountInfoExternal
     {
         /// <summary>
         /// Initializes a new instance of the UpdateContactAndAccountInfoExternal class.
@@ -31,7 +31,7 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public UpdateContactAndAccountInfoExternal(KMDStudicaStudents client)
+        public UpdateContactAndAccountInfoExternal(StudicaDemoStudents client)
         {
             if (client == null)
             {
@@ -41,11 +41,14 @@ namespace Kmd.Studica.Students.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaStudents
+        /// Gets a reference to the StudicaDemoStudents
         /// </summary>
-        public KMDStudicaStudents Client { get; private set; }
+        public StudicaDemoStudents Client { get; private set; }
 
-        /// <param name='body'>
+        /// <summary>
+        /// UpdateContactAndAccountInfoExternal_Post
+        /// </summary>
+        /// <param name='updateContactAndAccountInfoExternalCommand'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -59,11 +62,11 @@ namespace Kmd.Studica.Students.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostWithHttpMessagesAsync(UpdateContactAndAccountInfoExternalCommand body = default(UpdateContactAndAccountInfoExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostWithHttpMessagesAsync(UpdateContactAndAccountInfoExternalCommand updateContactAndAccountInfoExternalCommand = default(UpdateContactAndAccountInfoExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (body != null)
+            if (updateContactAndAccountInfoExternalCommand != null)
             {
-                body.Validate();
+                updateContactAndAccountInfoExternalCommand.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -72,7 +75,7 @@ namespace Kmd.Studica.Students.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("updateContactAndAccountInfoExternalCommand", updateContactAndAccountInfoExternalCommand);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
@@ -101,9 +104,9 @@ namespace Kmd.Studica.Students.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(updateContactAndAccountInfoExternalCommand != null)
             {
-                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(updateContactAndAccountInfoExternalCommand, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

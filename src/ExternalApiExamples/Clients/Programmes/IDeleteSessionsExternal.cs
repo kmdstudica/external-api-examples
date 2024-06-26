@@ -18,6 +18,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IDeleteSessionsExternal
     {
+        /// <summary>
+        /// DeleteSessionsExternal_Post
+        /// </summary>
         /// <param name='sessionIds'>
         /// The sessions to delete.
         /// </param>

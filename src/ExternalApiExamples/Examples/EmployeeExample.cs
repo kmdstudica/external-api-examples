@@ -23,7 +23,7 @@ public class EmployeeExample
     {
         Console.WriteLine("Executing employees example");
 
-        using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+        using var schoolAdministrationClient = new StudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
         schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
             : new Uri(configuration.SchoolAdministrationBaseUri);
@@ -51,7 +51,7 @@ public class EmployeeExample
     {
         Console.WriteLine("Executing bulk employees example");
 
-        using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+        using var schoolAdministrationClient = new StudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
         schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
             : new Uri(configuration.SchoolAdministrationBaseUri);
@@ -74,7 +74,7 @@ public class EmployeeExample
     public async Task ExecuteActiveEmployees()
     {
         Console.WriteLine("Executing active employees example");
-        using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+        using var schoolAdministrationClient = new StudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
         schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
             : new Uri(configuration.SchoolAdministrationBaseUri);
@@ -98,6 +98,7 @@ public class EmployeeExample
 
             hasMorePages = pageNumber * pageSize < result.Body.TotalItems;
             employees.AddRange(result.Body.Items);
+            Console.Write(".");
         } while (hasMorePages);
 
         Console.WriteLine($"Got {employees.Count} employees from API");
@@ -110,7 +111,7 @@ public class EmployeeExample
     {
         Console.WriteLine("Executing update student contact information example");
 
-        using var schoolAdministrationClient = new KMDStudicaSchoolAdministration(new TokenCredentials(tokenProvider));
+        using var schoolAdministrationClient = new StudicaDemoSchoolAdministration(new TokenCredentials(tokenProvider));
         schoolAdministrationClient.BaseUri = string.IsNullOrEmpty(configuration.SchoolAdministrationBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/school-administration/v1")
             : new Uri(configuration.SchoolAdministrationBaseUri);
@@ -118,7 +119,7 @@ public class EmployeeExample
         try
         {
             var result = await schoolAdministrationClient.UpdateContactAndAccountInfoExternal.PostWithHttpMessagesAsync(
-                body: new UpdateContactAndAccountInfoExternalCommand
+                new UpdateContactAndAccountInfoExternalCommand
                 {
                     EmployeeId = Guid.Empty,
                     SchoolCode = configuration.SchoolCode,

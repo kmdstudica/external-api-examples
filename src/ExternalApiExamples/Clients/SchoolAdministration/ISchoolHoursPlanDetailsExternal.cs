@@ -18,7 +18,11 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// </summary>
     public partial interface ISchoolHoursPlanDetailsExternal
     {
+        /// <summary>
+        /// SchoolHoursPlanDetailsExternal_Get
+        /// </summary>
         /// <param name='id'>
+        /// Format - uuid.
         /// </param>
         /// <param name='schoolCode'>
         /// The school code for which to get data.

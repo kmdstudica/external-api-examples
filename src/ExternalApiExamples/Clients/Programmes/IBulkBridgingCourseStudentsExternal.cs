@@ -18,6 +18,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IBulkBridgingCourseStudentsExternal
     {
+        /// <summary>
+        /// BulkBridgingCourseStudentsExternal_Post
+        /// </summary>
         /// <param name='studentIds'>
         /// Student ids for bulk query. Must contain 1 to 1000 elements
         /// </param>

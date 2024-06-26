@@ -17,6 +17,9 @@ namespace Kmd.Studica.SchoolInternships.Client
     /// </summary>
     public static partial class StudentInternshipsExternalV2Extensions
     {
+            /// <summary>
+            /// StudentInternshipsExternalV2_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -24,16 +27,21 @@ namespace Kmd.Studica.SchoolInternships.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='periodFrom'>
-            /// Get all students school internships starting on or after this date
+            /// Format - date (as full-date in RFC3339). Get all students school
+            /// internships starting on or after this date
             /// </param>
             /// <param name='periodTo'>
-            /// Get all students school internships ending on or before this date
+            /// Format - date (as full-date in RFC3339). Get all students school
+            /// internships ending on or before this date
             /// </param>
             public static IList<StudentInternshipsExternalV2Response> Get(this IStudentInternshipsExternalV2 operations, string schoolCode, System.DateTime? periodFrom = default(System.DateTime?), System.DateTime? periodTo = default(System.DateTime?))
             {
                 return operations.GetAsync(schoolCode, periodFrom, periodTo).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// StudentInternshipsExternalV2_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -41,10 +49,12 @@ namespace Kmd.Studica.SchoolInternships.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='periodFrom'>
-            /// Get all students school internships starting on or after this date
+            /// Format - date (as full-date in RFC3339). Get all students school
+            /// internships starting on or after this date
             /// </param>
             /// <param name='periodTo'>
-            /// Get all students school internships ending on or before this date
+            /// Format - date (as full-date in RFC3339). Get all students school
+            /// internships ending on or before this date
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

@@ -44,7 +44,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// for this area of education</param>
         /// <param name="educationCoesaNumber">String</param>
         /// <param name="educationName">String</param>
-        /// <param name="educationVersion">CØSA education version</param>
+        /// <param name="educationVersion">CÃ˜SA education version</param>
         /// <param name="specialisation">String</param>
         /// <param name="insertedAt">When was area of education created</param>
         /// <param name="updatedAt">Last update of the area of
@@ -130,7 +130,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// CØSA number for the education this area covers
+        /// CÃ˜SA number for the education this area covers
         /// </remarks>
         [JsonProperty(PropertyName = "educationCoesaNumber")]
         public string EducationCoesaNumber { get; set; }
@@ -139,13 +139,13 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// Name of the CØSA education this area covers
+        /// Name of the CÃ˜SA education this area covers
         /// </remarks>
         [JsonProperty(PropertyName = "educationName")]
         public string EducationName { get; set; }
 
         /// <summary>
-        /// Gets or sets CØSA education version
+        /// Gets or sets CÃ˜SA education version
         /// </summary>
         [JsonProperty(PropertyName = "educationVersion")]
         public int? EducationVersion { get; set; }
@@ -154,7 +154,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// Name of the CØSA specialization of the education for this area
+        /// Name of the CÃ˜SA specialization of the education for this area
         /// </remarks>
         [JsonProperty(PropertyName = "specialisation")]
         public string Specialisation { get; set; }

@@ -18,6 +18,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface ISessionsByIdExternal
     {
+        /// <summary>
+        /// SessionsByIdExternal_Get
+        /// </summary>
         /// <param name='sessionIds'>
         /// The ids of the sessions to retrieve.
         /// </param>

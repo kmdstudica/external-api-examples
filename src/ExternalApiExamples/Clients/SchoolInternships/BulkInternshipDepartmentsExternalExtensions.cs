@@ -17,6 +17,9 @@ namespace Kmd.Studica.SchoolInternships.Client
     /// </summary>
     public static partial class BulkInternshipDepartmentsExternalExtensions
     {
+            /// <summary>
+            /// BulkInternshipDepartmentsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -31,6 +34,9 @@ namespace Kmd.Studica.SchoolInternships.Client
                 return operations.GetAsync(internshipDepartmentIds, schoolCode).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// BulkInternshipDepartmentsExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>

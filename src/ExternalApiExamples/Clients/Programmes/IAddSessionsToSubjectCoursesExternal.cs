@@ -18,6 +18,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IAddSessionsToSubjectCoursesExternal
     {
+        /// <summary>
+        /// AddSessionsToSubjectCoursesExternal_Post
+        /// </summary>
         /// <param name='sessions'>
         /// New sessions to create.
         /// </param>

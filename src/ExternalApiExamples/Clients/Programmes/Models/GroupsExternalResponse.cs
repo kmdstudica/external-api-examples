@@ -91,7 +91,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <remarks>
         /// Type of entity that this group refers to
         /// e.g. a subject course or an educational programme. Possible values
-        /// include: 'SubjectCourse', 'EducationalProgramme'
+        /// include: 'SubjectCourse', 'EducationalProgramme', 'Custom'
         /// </remarks>
         [JsonProperty(PropertyName = "groupEntityType")]
         public string GroupEntityType { get; set; }

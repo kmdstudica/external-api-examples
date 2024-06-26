@@ -18,11 +18,15 @@ namespace Kmd.Studica.SchoolAdministration.Client
     /// </summary>
     public partial interface IEmployeesExternal
     {
+        /// <summary>
+        /// EmployeesExternal_Get
+        /// </summary>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first
+        /// page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
@@ -31,13 +35,16 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// The school code for which to get data.
         /// </param>
         /// <param name='employmentStartDateFrom'>
-        /// Beginning of range for start date employment.
+        /// Format - date (as full-date in RFC3339). Beginning of range for
+        /// start date employment.
         /// </param>
         /// <param name='employmentStartDateTo'>
-        /// End of range for start date employment.
+        /// Format - date (as full-date in RFC3339). End of range for start
+        /// date employment.
         /// </param>
         /// <param name='areaOfResponsibilityId'>
-        /// Option for also querying employees by area of responsibility
+        /// Format - uuid. Option for also querying employees by area of
+        /// responsibility
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

@@ -18,6 +18,9 @@ namespace Kmd.Studica.Statistics.Client
     /// </summary>
     public partial interface ISubmitHandinsExternal
     {
+        /// <summary>
+        /// SubmitHandinsExternal_Post
+        /// </summary>
         /// <param name='handins'>
         /// New handins to create
         /// </param>

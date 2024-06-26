@@ -17,6 +17,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public static partial class StudentSchoolCoursesExternalExtensions
     {
+            /// <summary>
+            /// StudentSchoolCoursesExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -27,16 +30,21 @@ namespace Kmd.Studica.Programmes.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='periodFrom'>
-            /// Beginning of the range for start date of the students' school courses.
+            /// Format - date (as full-date in RFC3339). Beginning of the range for start
+            /// date of the students' school courses.
             /// </param>
             /// <param name='periodTo'>
-            /// End of the range for start date of the students' school courses.
+            /// Format - date (as full-date in RFC3339). End of the range for start date of
+            /// the students' school courses.
             /// </param>
             public static IList<StudentSchoolCoursesExternalResponse> Get(this IStudentSchoolCoursesExternal operations, IList<System.Guid> studentIds, string schoolCode, System.DateTime? periodFrom = default(System.DateTime?), System.DateTime? periodTo = default(System.DateTime?))
             {
                 return operations.GetAsync(studentIds, schoolCode, periodFrom, periodTo).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// StudentSchoolCoursesExternal_Get
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -47,10 +55,12 @@ namespace Kmd.Studica.Programmes.Client
             /// The school code for which to get data.
             /// </param>
             /// <param name='periodFrom'>
-            /// Beginning of the range for start date of the students' school courses.
+            /// Format - date (as full-date in RFC3339). Beginning of the range for start
+            /// date of the students' school courses.
             /// </param>
             /// <param name='periodTo'>
-            /// End of the range for start date of the students' school courses.
+            /// Format - date (as full-date in RFC3339). End of the range for start date of
+            /// the students' school courses.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

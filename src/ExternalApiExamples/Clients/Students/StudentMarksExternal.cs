@@ -21,7 +21,7 @@ namespace Kmd.Studica.Students.Client
     /// <summary>
     /// StudentMarksExternal operations.
     /// </summary>
-    public partial class StudentMarksExternal : IServiceOperations<KMDStudicaStudents>, IStudentMarksExternal
+    public partial class StudentMarksExternal : IServiceOperations<StudicaDemoStudents>, IStudentMarksExternal
     {
         /// <summary>
         /// Initializes a new instance of the StudentMarksExternal class.
@@ -32,7 +32,7 @@ namespace Kmd.Studica.Students.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public StudentMarksExternal(KMDStudicaStudents client)
+        public StudentMarksExternal(StudicaDemoStudents client)
         {
             if (client == null)
             {
@@ -42,10 +42,13 @@ namespace Kmd.Studica.Students.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaStudents
+        /// Gets a reference to the StudicaDemoStudents
         /// </summary>
-        public KMDStudicaStudents Client { get; private set; }
+        public StudicaDemoStudents Client { get; private set; }
 
+        /// <summary>
+        /// StudentMarksExternal_Get
+        /// </summary>
         /// <param name='studentIds'>
         /// A list of students to get marks for
         /// </param>
@@ -54,10 +57,10 @@ namespace Kmd.Studica.Students.Client
         /// included on exam paper
         /// </param>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.

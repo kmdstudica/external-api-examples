@@ -18,6 +18,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IBulkAbsenceRegistrationsExternal
     {
+        /// <summary>
+        /// BulkAbsenceRegistrationsExternal_Get
+        /// </summary>
         /// <param name='studentIds'>
         /// A list of student ids to get absence for.
         /// </param>
@@ -25,10 +28,12 @@ namespace Kmd.Studica.Programmes.Client
         /// The school code for which to get data.
         /// </param>
         /// <param name='dateFrom'>
-        /// Beginning of the range for absence date.
+        /// Format - date (as full-date in RFC3339). Beginning of the range for
+        /// absence date.
         /// </param>
         /// <param name='dateTo'>
-        /// End of the range for absence date.
+        /// Format - date (as full-date in RFC3339). End of the range for
+        /// absence date.
         /// </param>
         /// <param name='onlyAbsenceReports'>
         /// Only retrieve reports of absence or partial absence,

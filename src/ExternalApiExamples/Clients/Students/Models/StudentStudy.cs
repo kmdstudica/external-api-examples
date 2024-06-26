@@ -138,7 +138,7 @@ namespace Kmd.Studica.Students.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// CØSA number of education from UMO
+        /// CÃ˜SA number of education from UMO
         /// </remarks>
         [JsonProperty(PropertyName = "coesa")]
         public string Coesa { get; set; }

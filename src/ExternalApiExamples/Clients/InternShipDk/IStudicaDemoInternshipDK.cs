@@ -12,7 +12,7 @@ namespace Kmd.Studica.InternshipDk.Client
 
     /// <summary>
     /// </summary>
-    public partial interface IKMDStudicaInternshipDK : System.IDisposable
+    public partial interface IStudicaDemoInternshipDK : System.IDisposable
     {
         /// <summary>
         /// The base URI of the service.

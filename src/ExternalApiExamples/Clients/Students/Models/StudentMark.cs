@@ -33,18 +33,21 @@ namespace Kmd.Studica.Students.Client.Models
         /// <param name="markCode">String</param>
         /// <param name="markDesignation">String</param>
         /// <param name="markValue">String</param>
+        /// <param name="averageMarkValue">Average value of the mark, if
+        /// set.</param>
         /// <param name="markValueEcts">String</param>
         /// <param name="creditText">String</param>
         /// <param name="subjectCourseId">The ID of the subject course for
         /// which the mark has been given
         /// If the ID is null, then the mark has been assigned manually</param>
         /// <param name="subject">Subject that the mark is given for</param>
-        public StudentMark(bool useOnExamPaper, string examMarkSource, System.DateTime? date = default(System.DateTime?), string markCode = default(string), string markDesignation = default(string), string markValue = default(string), string markValueEcts = default(string), string creditText = default(string), System.Guid? subjectCourseId = default(System.Guid?), StudentMarkSubject subject = default(StudentMarkSubject))
+        public StudentMark(bool useOnExamPaper, string examMarkSource, System.DateTime? date = default(System.DateTime?), string markCode = default(string), string markDesignation = default(string), string markValue = default(string), double? averageMarkValue = default(double?), string markValueEcts = default(string), string creditText = default(string), System.Guid? subjectCourseId = default(System.Guid?), StudentMarkSubject subject = default(StudentMarkSubject))
         {
             Date = date;
             MarkCode = markCode;
             MarkDesignation = markDesignation;
             MarkValue = markValue;
+            AverageMarkValue = averageMarkValue;
             MarkValueEcts = markValueEcts;
             CreditText = creditText;
             UseOnExamPaper = useOnExamPaper;
@@ -90,10 +93,16 @@ namespace Kmd.Studica.Students.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// Value of the mark, e.g. 00, 7 or SY
+        /// Value of the mark, e.g. 00, 7 or SY, if set.
         /// </remarks>
         [JsonProperty(PropertyName = "markValue")]
         public string MarkValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets average value of the mark, if set.
+        /// </summary>
+        [JsonProperty(PropertyName = "averageMarkValue")]
+        public double? AverageMarkValue { get; set; }
 
         /// <summary>
         /// Gets or sets string

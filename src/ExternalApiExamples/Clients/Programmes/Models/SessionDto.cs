@@ -31,6 +31,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         /// <param name="sessionId">Guid</param>
         /// <param name="sessionEntityType">SessionEntityType</param>
+        /// <param name="title">String</param>
+        /// <param name="isPrivate">Boolean</param>
+        /// <param name="isMandatory">Boolean</param>
+        /// <param name="isCancelled">Boolean</param>
         /// <param name="sessionEntityId">The id of the entity which is
         /// associated with this session. If the type
         /// is None then this value is null, otherwise it has a value.
@@ -38,21 +42,23 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// If there are more than one related session entity, the first is
         /// returned.</param>
         /// <param name="sessionEntityIds">The ids of the entities which are
-        /// associated with this session. If the type
-        /// is None then this value is empty.</param>
+        /// associated with this session. For some types
+        /// (e.g. None) this value is empty.</param>
         /// <param name="externalLessonId">String</param>
         /// <param name="groupIds">Ids of groups related to the
         /// session.</param>
         /// <param name="roomIds">Ids of rooms related to the session.</param>
-        /// <param name="teacherIds">Ids of teachers related to the
-        /// session.</param>
+        /// <param name="teacherIds">Ids of teachers (or employees) related to
+        /// the session.</param>
         /// <param name="date">The date when the session is held.</param>
         /// <param name="startTime">The time when the session starts.</param>
         /// <param name="endTime">The time when the session ends.</param>
         /// <param name="schoolHourEntryId">The id of the school hour entry
         /// which the session is scheduled to.</param>
         /// <param name="comment">String</param>
-        public SessionDto(System.Guid sessionId, string sessionEntityType, System.Guid? sessionEntityId = default(System.Guid?), IList<System.Guid> sessionEntityIds = default(IList<System.Guid>), string externalLessonId = default(string), IList<System.Guid> groupIds = default(IList<System.Guid>), IList<System.Guid> roomIds = default(IList<System.Guid>), IList<System.Guid> teacherIds = default(IList<System.Guid>), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), string comment = default(string))
+        /// <param name="recurrenceId">The recurrence id of the session, if
+        /// any</param>
+        public SessionDto(System.Guid sessionId, string sessionEntityType, string title, bool isPrivate, bool isMandatory, bool isCancelled, System.Guid? sessionEntityId = default(System.Guid?), IList<System.Guid> sessionEntityIds = default(IList<System.Guid>), string externalLessonId = default(string), IList<System.Guid> groupIds = default(IList<System.Guid>), IList<System.Guid> roomIds = default(IList<System.Guid>), IList<System.Guid> teacherIds = default(IList<System.Guid>), System.DateTime? date = default(System.DateTime?), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), string comment = default(string), System.Guid? recurrenceId = default(System.Guid?))
         {
             SessionId = sessionId;
             SessionEntityType = sessionEntityType;
@@ -67,6 +73,11 @@ namespace Kmd.Studica.Programmes.Client.Models
             EndTime = endTime;
             SchoolHourEntryId = schoolHourEntryId;
             Comment = comment;
+            Title = title;
+            IsPrivate = isPrivate;
+            IsMandatory = isMandatory;
+            IsCancelled = isCancelled;
+            RecurrenceId = recurrenceId;
             CustomInit();
         }
 
@@ -89,7 +100,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// </summary>
         /// <remarks>
         /// The type of session entity which is associated with this session.
-        /// Possible values include: 'SubjectCourse', 'None'
+        /// Possible values include: 'SubjectCourse', 'None',
+        /// 'EducationalProgramme', 'PrivateAbsence', 'Meeting', 'Social',
+        /// 'Other'
         /// </remarks>
         [JsonProperty(PropertyName = "sessionEntityType")]
         public string SessionEntityType { get; set; }
@@ -107,8 +120,8 @@ namespace Kmd.Studica.Programmes.Client.Models
 
         /// <summary>
         /// Gets or sets the ids of the entities which are associated with this
-        /// session. If the type
-        /// is None then this value is empty.
+        /// session. For some types
+        /// (e.g. None) this value is empty.
         /// </summary>
         [JsonProperty(PropertyName = "sessionEntityIds")]
         public IList<System.Guid> SessionEntityIds { get; set; }
@@ -135,7 +148,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<System.Guid> RoomIds { get; set; }
 
         /// <summary>
-        /// Gets or sets ids of teachers related to the session.
+        /// Gets or sets ids of teachers (or employees) related to the session.
         /// </summary>
         [JsonProperty(PropertyName = "teacherIds")]
         public IList<System.Guid> TeacherIds { get; set; }
@@ -170,10 +183,52 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// Any comments for the session.
+        /// Any comments (or description) for the session.
         /// </remarks>
         [JsonProperty(PropertyName = "comment")]
         public string Comment { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// Title of the session
+        /// </remarks>
+        [JsonProperty(PropertyName = "title")]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// Gets or sets boolean
+        /// </summary>
+        /// <remarks>
+        /// Whether the session is private
+        /// </remarks>
+        [JsonProperty(PropertyName = "isPrivate")]
+        public bool IsPrivate { get; set; }
+
+        /// <summary>
+        /// Gets or sets boolean
+        /// </summary>
+        /// <remarks>
+        /// Whether the session is mandatory
+        /// </remarks>
+        [JsonProperty(PropertyName = "isMandatory")]
+        public bool IsMandatory { get; set; }
+
+        /// <summary>
+        /// Gets or sets boolean
+        /// </summary>
+        /// <remarks>
+        /// Whether the session is cancelled
+        /// </remarks>
+        [JsonProperty(PropertyName = "isCancelled")]
+        public bool IsCancelled { get; set; }
+
+        /// <summary>
+        /// Gets or sets the recurrence id of the session, if any
+        /// </summary>
+        [JsonProperty(PropertyName = "recurrenceId")]
+        public System.Guid? RecurrenceId { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -187,6 +242,10 @@ namespace Kmd.Studica.Programmes.Client.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "SessionEntityType");
             }
+            if (Title == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Title");
+            }
             if (StartTime != null)
             {
                 if (!System.Text.RegularExpressions.Regex.IsMatch(StartTime, "([01]?[0-9]|2[0-3]):[0-5][0-9]"))
@@ -199,6 +258,13 @@ namespace Kmd.Studica.Programmes.Client.Models
                 if (!System.Text.RegularExpressions.Regex.IsMatch(EndTime, "([01]?[0-9]|2[0-3]):[0-5][0-9]"))
                 {
                     throw new ValidationException(ValidationRules.Pattern, "EndTime", "([01]?[0-9]|2[0-3]):[0-5][0-9]");
+                }
+            }
+            if (Title != null)
+            {
+                if (Title.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "Title", 1);
                 }
             }
         }

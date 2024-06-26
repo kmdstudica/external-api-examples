@@ -22,7 +22,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// SessionsExternal operations.
     /// </summary>
-    public partial class SessionsExternal : IServiceOperations<KMDStudicaProgrammes>, ISessionsExternal
+    public partial class SessionsExternal : IServiceOperations<StudicaDemoProgrammes>, ISessionsExternal
     {
         /// <summary>
         /// Initializes a new instance of the SessionsExternal class.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public SessionsExternal(KMDStudicaProgrammes client)
+        public SessionsExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -43,15 +43,18 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
+        /// <summary>
+        /// SessionsExternal_Get
+        /// </summary>
         /// <param name='pageNumber'>
-        /// The number of the page to return (1 is the first page).
+        /// Format - int32. The number of the page to return (1 is the first page).
         /// </param>
         /// <param name='pageSize'>
-        /// Number of objects per page.
+        /// Format - int32. Number of objects per page.
         /// </param>
         /// <param name='inlineCount'>
         /// A flag indicating if total number of items should be included.
@@ -72,12 +75,12 @@ namespace Kmd.Studica.Programmes.Client
         /// rooms.
         /// </param>
         /// <param name='dateFrom'>
-        /// If specified, returns sessions which are planned on a date no earlier than
-        /// this.
+        /// Format - date (as full-date in RFC3339). If specified, returns sessions
+        /// which are planned on a date no earlier than this.
         /// </param>
         /// <param name='dateTo'>
-        /// If specified, returns sessions which are planned on a date no later than
-        /// this.
+        /// Format - date (as full-date in RFC3339). If specified, returns sessions
+        /// which are planned on a date no later than this.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -140,15 +143,15 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("pageNumber", pageNumber);
+                tracingParameters.Add("pageSize", pageSize);
+                tracingParameters.Add("inlineCount", inlineCount);
+                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("groupIds", groupIds);
                 tracingParameters.Add("teacherIds", teacherIds);
                 tracingParameters.Add("roomIds", roomIds);
                 tracingParameters.Add("dateFrom", dateFrom);
                 tracingParameters.Add("dateTo", dateTo);
-                tracingParameters.Add("pageNumber", pageNumber);
-                tracingParameters.Add("pageSize", pageSize);
-                tracingParameters.Add("inlineCount", inlineCount);
-                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
@@ -156,6 +159,13 @@ namespace Kmd.Studica.Programmes.Client
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SessionsExternal").ToString();
             List<string> _queryParameters = new List<string>();
+            _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
+            _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
+            _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
+            if (schoolCode != null)
+            {
+                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
+            }
             if (groupIds != null)
             {
                 _queryParameters.Add(string.Format("GroupIds={0}", System.Uri.EscapeDataString(string.Join(",", groupIds))));
@@ -175,13 +185,6 @@ namespace Kmd.Studica.Programmes.Client
             if (dateTo != null)
             {
                 _queryParameters.Add(string.Format("DateTo={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(dateTo, new DateJsonConverter()).Trim('"'))));
-            }
-            _queryParameters.Add(string.Format("PageNumber={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageNumber, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("PageSize={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(pageSize, Client.SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("InlineCount={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(inlineCount, Client.SerializationSettings).Trim('"'))));
-            if (schoolCode != null)
-            {
-                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
             }
             if (_queryParameters.Count > 0)
             {

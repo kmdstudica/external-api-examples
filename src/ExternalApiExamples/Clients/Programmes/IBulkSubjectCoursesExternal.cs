@@ -18,6 +18,9 @@ namespace Kmd.Studica.Programmes.Client
     /// </summary>
     public partial interface IBulkSubjectCoursesExternal
     {
+        /// <summary>
+        /// BulkSubjectCoursesExternal_Post
+        /// </summary>
         /// <param name='subjectCourseIds'>
         /// Subject course identifiers for bulk query.
         /// </param>

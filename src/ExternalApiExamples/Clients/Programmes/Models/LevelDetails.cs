@@ -78,7 +78,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <remarks>
         /// The type of the level.
         /// TEGN = Characters, TAL = Numbers,
-        /// ERHVERV, FGU almen, FGU-tema, Delmål.
+        /// ERHVERV, FGU almen, FGU-tema, DelmÃ¥l.
         /// </remarks>
         [JsonProperty(PropertyName = "levelType")]
         public string LevelType { get; set; }

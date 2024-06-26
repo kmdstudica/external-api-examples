@@ -22,7 +22,7 @@ namespace Kmd.Studica.Programmes.Client
     /// <summary>
     /// BulkAbsenceRegistrationsExternal operations.
     /// </summary>
-    public partial class BulkAbsenceRegistrationsExternal : IServiceOperations<KMDStudicaProgrammes>, IBulkAbsenceRegistrationsExternal
+    public partial class BulkAbsenceRegistrationsExternal : IServiceOperations<StudicaDemoProgrammes>, IBulkAbsenceRegistrationsExternal
     {
         /// <summary>
         /// Initializes a new instance of the BulkAbsenceRegistrationsExternal class.
@@ -33,7 +33,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public BulkAbsenceRegistrationsExternal(KMDStudicaProgrammes client)
+        public BulkAbsenceRegistrationsExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -43,10 +43,13 @@ namespace Kmd.Studica.Programmes.Client
         }
 
         /// <summary>
-        /// Gets a reference to the KMDStudicaProgrammes
+        /// Gets a reference to the StudicaDemoProgrammes
         /// </summary>
-        public KMDStudicaProgrammes Client { get; private set; }
+        public StudicaDemoProgrammes Client { get; private set; }
 
+        /// <summary>
+        /// BulkAbsenceRegistrationsExternal_Get
+        /// </summary>
         /// <param name='studentIds'>
         /// A list of student ids to get absence for.
         /// </param>
@@ -54,10 +57,11 @@ namespace Kmd.Studica.Programmes.Client
         /// The school code for which to get data.
         /// </param>
         /// <param name='dateFrom'>
-        /// Beginning of the range for absence date.
+        /// Format - date (as full-date in RFC3339). Beginning of the range for absence
+        /// date.
         /// </param>
         /// <param name='dateTo'>
-        /// End of the range for absence date.
+        /// Format - date (as full-date in RFC3339). End of the range for absence date.
         /// </param>
         /// <param name='onlyAbsenceReports'>
         /// Only retrieve reports of absence or partial absence,
@@ -113,10 +117,10 @@ namespace Kmd.Studica.Programmes.Client
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("studentIds", studentIds);
+                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("dateFrom", dateFrom);
                 tracingParameters.Add("dateTo", dateTo);
                 tracingParameters.Add("onlyAbsenceReports", onlyAbsenceReports);
-                tracingParameters.Add("schoolCode", schoolCode);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
@@ -127,6 +131,10 @@ namespace Kmd.Studica.Programmes.Client
             if (studentIds != null)
             {
                 _queryParameters.Add(string.Format("StudentIds={0}", System.Uri.EscapeDataString(string.Join(",", studentIds))));
+            }
+            if (schoolCode != null)
+            {
+                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
             }
             if (dateFrom != null)
             {
@@ -139,10 +147,6 @@ namespace Kmd.Studica.Programmes.Client
             if (onlyAbsenceReports != null)
             {
                 _queryParameters.Add(string.Format("OnlyAbsenceReports={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(onlyAbsenceReports, Client.SerializationSettings).Trim('"'))));
-            }
-            if (schoolCode != null)
-            {
-                _queryParameters.Add(string.Format("SchoolCode={0}", System.Uri.EscapeDataString(schoolCode)));
             }
             if (_queryParameters.Count > 0)
             {

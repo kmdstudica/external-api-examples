@@ -45,8 +45,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 2147483647,
-						"minimum": 1
+						"maximum": 2147483647.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "PageSize",
@@ -55,8 +55,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 1000,
-						"minimum": 1
+						"maximum": 1000.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "InlineCount",
@@ -91,8 +91,8 @@
 									{
 										"id": "string",
 										"name": "string",
-										"validFrom": "2024-06-20",
-										"validTo": "2024-06-20",
+										"validFrom": "2024-07-03",
+										"validTo": "2024-07-03",
 										"areaOfEducationIds": [
 											"string"
 										],
@@ -145,8 +145,8 @@
 									{
 										"id": "string",
 										"name": "string",
-										"validFrom": "2024-06-20",
-										"validTo": "2024-06-20",
+										"validFrom": "2024-07-03",
+										"validTo": "2024-07-03",
 										"areaOfEducationIds": [
 											"string"
 										],
@@ -182,8 +182,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 2147483647,
-						"minimum": 1
+						"maximum": 2147483647.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "PageSize",
@@ -192,8 +192,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 1000,
-						"minimum": 1
+						"maximum": 1000.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "InlineCount",
@@ -263,8 +263,8 @@
 											"string"
 										],
 										"jobTitle": "string",
-										"employmentStartDate": "2024-06-20",
-										"employmentResignationDate": "2024-06-20",
+										"employmentStartDate": "2024-07-03",
+										"employmentResignationDate": "2024-07-03",
 										"areaOfResponsibilityId": "string",
 										"departmentIds": [
 											"string"
@@ -339,8 +339,8 @@
 											"string"
 										],
 										"jobTitle": "string",
-										"employmentStartDate": "2024-06-20",
-										"employmentResignationDate": "2024-06-20",
+										"employmentStartDate": "2024-07-03",
+										"employmentResignationDate": "2024-07-03",
 										"areaOfResponsibilityId": "string",
 										"departmentIds": [
 											"string"
@@ -377,8 +377,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 2147483647,
-						"minimum": 1
+						"maximum": 2147483647.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "PageSize",
@@ -387,8 +387,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 1000,
-						"minimum": 1
+						"maximum": 1000.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "InlineCount",
@@ -423,8 +423,8 @@
 									{
 										"id": "string",
 										"name": "string",
-										"validFrom": "2024-06-20",
-										"validTo": "2024-06-20",
+										"validFrom": "2024-07-03",
+										"validTo": "2024-07-03",
 										"dayCalendarId": "string",
 										"schoolHoursPlanId": "string",
 										"areaOfResponsibilityId": "string",
@@ -475,8 +475,8 @@
 									{
 										"id": "string",
 										"name": "string",
-										"validFrom": "2024-06-20",
-										"validTo": "2024-06-20",
+										"validFrom": "2024-07-03",
+										"validTo": "2024-07-03",
 										"dayCalendarId": "string",
 										"schoolHoursPlanId": "string",
 										"areaOfResponsibilityId": "string",
@@ -510,8 +510,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 2147483647,
-						"minimum": 1
+						"maximum": 2147483647.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "PageSize",
@@ -520,8 +520,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 1000,
-						"minimum": 1
+						"maximum": 1000.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "InlineCount",
@@ -556,8 +556,8 @@
 									{
 										"id": "string",
 										"name": "string",
-										"validFrom": "2024-06-20",
-										"validTo": "2024-06-20",
+										"validFrom": "2024-07-03",
+										"validTo": "2024-07-03",
 										"responsibleEmployeeId": "string",
 										"insertedAt": "string",
 										"updatedAt": "string"
@@ -602,8 +602,8 @@
 									{
 										"id": "string",
 										"name": "string",
-										"validFrom": "2024-06-20",
-										"validTo": "2024-06-20",
+										"validFrom": "2024-07-03",
+										"validTo": "2024-07-03",
 										"responsibleEmployeeId": "string",
 										"insertedAt": "string",
 										"updatedAt": "string"
@@ -652,8 +652,8 @@
 								{
 									"id": "string",
 									"name": "string",
-									"validFrom": "2024-06-20",
-									"validTo": "2024-06-20",
+									"validFrom": "2024-07-03",
+									"validTo": "2024-07-03",
 									"responsibleEmployeeId": "string",
 									"insertedAt": "string",
 									"updatedAt": "string"
@@ -700,8 +700,8 @@
 								{
 									"id": "string",
 									"name": "string",
-									"validFrom": "2024-06-20",
-									"validTo": "2024-06-20",
+									"validFrom": "2024-07-03",
+									"validTo": "2024-07-03",
 									"areaOfEducationIds": [
 										"string"
 									],
@@ -777,8 +777,8 @@
 										"string"
 									],
 									"jobTitle": "string",
-									"employmentStartDate": "2024-06-20",
-									"employmentResignationDate": "2024-06-20",
+									"employmentStartDate": "2024-07-03",
+									"employmentResignationDate": "2024-07-03",
 									"areaOfResponsibilityId": "string",
 									"departmentIds": [
 										"string"
@@ -871,8 +871,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 2147483647,
-						"minimum": 1
+						"maximum": 2147483647.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "PageSize",
@@ -881,8 +881,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 1000,
-						"minimum": 1
+						"maximum": 1000.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "InlineCount",
@@ -921,7 +921,7 @@
 										"updatedAt": "string",
 										"schoolDays": [
 											{
-												"date": "2024-06-20",
+												"date": "2024-07-03",
 												"isSchoolDay": true,
 												"comment": "string"
 											}
@@ -971,7 +971,7 @@
 										"updatedAt": "string",
 										"schoolDays": [
 											{
-												"date": "2024-06-20",
+												"date": "2024-07-03",
 												"isSchoolDay": true,
 												"comment": "string"
 											}
@@ -1000,8 +1000,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 2147483647,
-						"minimum": 1
+						"maximum": 2147483647.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "PageSize",
@@ -1010,8 +1010,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 1000,
-						"minimum": 1
+						"maximum": 1000.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "InlineCount",
@@ -1060,8 +1060,8 @@
 									{
 										"id": "string",
 										"name": "string",
-										"validFrom": "2024-06-20",
-										"validTo": "2024-06-20",
+										"validFrom": "2024-07-03",
+										"validTo": "2024-07-03",
 										"areaOfEducationIds": [
 											"string"
 										],
@@ -1114,8 +1114,8 @@
 									{
 										"id": "string",
 										"name": "string",
-										"validFrom": "2024-06-20",
-										"validTo": "2024-06-20",
+										"validFrom": "2024-07-03",
+										"validTo": "2024-07-03",
 										"areaOfEducationIds": [
 											"string"
 										],
@@ -1151,8 +1151,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 2147483647,
-						"minimum": 1
+						"maximum": 2147483647.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "PageSize",
@@ -1161,8 +1161,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 1000,
-						"minimum": 1
+						"maximum": 1000.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "InlineCount",
@@ -1239,8 +1239,8 @@
 											"string"
 										],
 										"jobTitle": "string",
-										"employmentStartDate": "2024-06-20",
-										"employmentResignationDate": "2024-06-20",
+										"employmentStartDate": "2024-07-03",
+										"employmentResignationDate": "2024-07-03",
 										"areaOfResponsibilityId": "string",
 										"departmentIds": [
 											"string"
@@ -1315,8 +1315,8 @@
 											"string"
 										],
 										"jobTitle": "string",
-										"employmentStartDate": "2024-06-20",
-										"employmentResignationDate": "2024-06-20",
+										"employmentStartDate": "2024-07-03",
+										"employmentResignationDate": "2024-07-03",
 										"areaOfResponsibilityId": "string",
 										"departmentIds": [
 											"string"
@@ -1353,8 +1353,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 2147483647,
-						"minimum": 1
+						"maximum": 2147483647.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "PageSize",
@@ -1363,8 +1363,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 1000,
-						"minimum": 1
+						"maximum": 1000.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "InlineCount",
@@ -1501,8 +1501,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 2147483647,
-						"minimum": 1
+						"maximum": 2147483647.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "PageSize",
@@ -1511,8 +1511,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 1000,
-						"minimum": 1
+						"maximum": 1000.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "InlineCount",
@@ -1745,8 +1745,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 2147483647,
-						"minimum": 1
+						"maximum": 2147483647.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "PageSize",
@@ -1755,8 +1755,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 1000,
-						"minimum": 1
+						"maximum": 1000.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "InlineCount",
@@ -1906,8 +1906,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "The number of the page to return (1 is the first page).",
-					"maximum": 2147483647,
-					"minimum": 1,
+					"maximum": 2147483647.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -1915,8 +1915,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Number of objects per page.",
-					"maximum": 1000,
-					"minimum": 1,
+					"maximum": 1000.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -1960,7 +1960,7 @@
 					"title": "Date",
 					"description": "Employees must have an active employment on or after this date\r\nThis parameter is required",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"areaOfResponsibilityId": {
@@ -1972,8 +1972,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "The number of the page to return (1 is the first page).",
-					"maximum": 2147483647,
-					"minimum": 1,
+					"maximum": 2147483647.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -1981,8 +1981,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Number of objects per page.",
-					"maximum": 1000,
-					"minimum": 1,
+					"maximum": 1000.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -2003,7 +2003,7 @@
 			},
 			"additionalProperties": false,
 			"example": {
-				"employeesActiveOnOrAfterDate": "2024-06-20",
+				"employeesActiveOnOrAfterDate": "2024-07-03",
 				"areaOfResponsibilityId": "string",
 				"pageNumber": 0,
 				"pageSize": 0,
@@ -2039,14 +2039,14 @@
 					"title": "Date",
 					"description": "Start date of the area of education.",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"validTo": {
 					"format": "date",
 					"description": "End date of the area of education.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"dayCalendarId": {
 					"format": "uuid",
@@ -2125,14 +2125,14 @@
 					"title": "Date",
 					"description": "Start date of the area of responsibility.",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"validTo": {
 					"format": "date",
 					"description": "End date of the area of responsibiliity.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"responsibleEmployeeId": {
 					"format": "uuid",
@@ -2167,8 +2167,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "The number of the page to return (1 is the first page).",
-					"maximum": 2147483647,
-					"minimum": 1,
+					"maximum": 2147483647.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -2176,8 +2176,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Number of objects per page.",
-					"maximum": 1000,
-					"minimum": 1,
+					"maximum": 1000.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -2219,8 +2219,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "The number of the page to return (1 is the first page).",
-					"maximum": 2147483647,
-					"minimum": 1,
+					"maximum": 2147483647.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -2228,8 +2228,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Number of objects per page.",
-					"maximum": 1000,
-					"minimum": 1,
+					"maximum": 1000.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -2419,8 +2419,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "The number of the page to return (1 is the first page).",
-					"maximum": 2147483647,
-					"minimum": 1,
+					"maximum": 2147483647.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -2428,8 +2428,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Number of objects per page.",
-					"maximum": 1000,
-					"minimum": 1,
+					"maximum": 1000.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -2511,20 +2511,20 @@
 					"format": "date",
 					"description": "Beginning date of being valid.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"validTo": {
 					"format": "date",
 					"description": "End date of being valid.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"pageNumber": {
 					"format": "int32",
 					"title": "Int32",
 					"description": "The number of the page to return (1 is the first page).",
-					"maximum": 2147483647,
-					"minimum": 1,
+					"maximum": 2147483647.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -2532,8 +2532,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Number of objects per page.",
-					"maximum": 1000,
-					"minimum": 1,
+					"maximum": 1000.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -2554,8 +2554,8 @@
 			},
 			"additionalProperties": false,
 			"example": {
-				"validFrom": "2024-06-20",
-				"validTo": "2024-06-20",
+				"validFrom": "2024-07-03",
+				"validTo": "2024-07-03",
 				"pageNumber": 0,
 				"pageSize": 0,
 				"inlineCount": true,
@@ -2591,14 +2591,14 @@
 					"title": "Date",
 					"description": "Beginning date of being valid.",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"validTo": {
 					"format": "date",
 					"description": "End date of being valid.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"areaOfEducationIds": {
 					"description": "Identifier of the area of education",
@@ -2795,14 +2795,14 @@
 					"title": "Date",
 					"description": "Gets employee start date.",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"employmentResignationDate": {
 					"format": "date",
 					"description": "Gets employee resignation date.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"areaOfResponsibilityId": {
 					"format": "uuid",
@@ -2878,14 +2878,14 @@
 					"format": "date",
 					"description": "Beginning of range for start date employment.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"employmentStartDateTo": {
 					"format": "date",
 					"title": "Date",
 					"description": "End of range for start date employment.",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"areaOfResponsibilityId": {
@@ -2897,8 +2897,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "The number of the page to return (1 is the first page).",
-					"maximum": 2147483647,
-					"minimum": 1,
+					"maximum": 2147483647.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -2906,8 +2906,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Number of objects per page.",
-					"maximum": 1000,
-					"minimum": 1,
+					"maximum": 1000.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -2928,8 +2928,8 @@
 			},
 			"additionalProperties": false,
 			"example": {
-				"employmentStartDateFrom": "2024-06-20",
-				"employmentStartDateTo": "2024-06-20",
+				"employmentStartDateFrom": "2024-07-03",
+				"employmentStartDateTo": "2024-07-03",
 				"areaOfResponsibilityId": "string",
 				"pageNumber": 0,
 				"pageSize": 0,
@@ -3210,8 +3210,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "The number of the page to return (1 is the first page).",
-					"maximum": 2147483647,
-					"minimum": 1,
+					"maximum": 2147483647.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -3219,8 +3219,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Number of objects per page.",
-					"maximum": 1000,
-					"minimum": 1,
+					"maximum": 1000.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -3261,7 +3261,7 @@
 					"title": "Date",
 					"description": "Date of the school day.",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"isSchoolDay": {
@@ -3293,8 +3293,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "The number of the page to return (1 is the first page).",
-					"maximum": 2147483647,
-					"minimum": 1,
+					"maximum": 2147483647.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -3302,8 +3302,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Number of objects per page.",
-					"maximum": 1000,
-					"minimum": 1,
+					"maximum": 1000.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -3368,8 +3368,8 @@
 				"duration": {
 					"format": "int32",
 					"description": "Duration of this entry in minutes. Valid for breaks only.",
-					"maximum": 1440,
-					"minimum": 1,
+					"maximum": 1440.0,
+					"minimum": 1.0,
 					"type": "integer"
 				},
 				"startTime": {
@@ -3474,8 +3474,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Duration of each lesson in minutes",
-					"maximum": 1440,
-					"minimum": 1,
+					"maximum": 1440.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -3596,8 +3596,8 @@
 				"duration": {
 					"format": "int32",
 					"description": "Duration of this entry in minutes. Valid for breaks only.",
-					"maximum": 1440,
-					"minimum": 1,
+					"maximum": 1440.0,
+					"minimum": 1.0,
 					"type": "integer"
 				}
 			},
@@ -3644,8 +3644,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Duration of a lecture in minutes.",
-					"maximum": 1440,
-					"minimum": 1,
+					"maximum": 1440.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -3719,8 +3719,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "The number of the page to return (1 is the first page).",
-					"maximum": 2147483647,
-					"minimum": 1,
+					"maximum": 2147483647.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -3728,8 +3728,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Number of objects per page.",
-					"maximum": 1000,
-					"minimum": 1,
+					"maximum": 1000.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},

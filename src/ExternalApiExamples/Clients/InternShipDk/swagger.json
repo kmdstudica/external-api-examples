@@ -71,10 +71,10 @@
 									"educationVersion": 0,
 									"studentType": "string",
 									"entryRoute": "string",
-									"educationStartDate": "2024-06-20",
-									"educationExpectedEndDate": "2024-06-20",
-									"agreementStartDate": "2024-06-20",
-									"agreementEndDate": "2024-06-20",
+									"educationStartDate": "2024-07-03",
+									"educationExpectedEndDate": "2024-07-03",
+									"agreementStartDate": "2024-07-03",
+									"agreementEndDate": "2024-07-03",
 									"comment": "string",
 									"agreementType": "EducationalAgreement",
 									"educationalAgreementType": "SubagreementInCombinationagreement",
@@ -82,11 +82,11 @@
 									"companyName": "string",
 									"companyAddress": "string",
 									"companyCountryCode": "string",
-									"signedDate": "2024-06-20",
-									"receivedDate": "2024-06-20",
-									"completedRegistrationDate": "2024-06-20",
-									"creditPreApprovedDate": "2024-06-20",
-									"creditFinalApprovedDate": "2024-06-20",
+									"signedDate": "2024-07-03",
+									"receivedDate": "2024-07-03",
+									"completedRegistrationDate": "2024-07-03",
+									"creditPreApprovedDate": "2024-07-03",
+									"creditFinalApprovedDate": "2024-07-03",
 									"cvrNumber": "string",
 									"pNumber": "string",
 									"seNumber": "string",
@@ -202,21 +202,21 @@
 					"title": "Date",
 					"description": "Start date of the education the agreement belongs to.",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"educationExpectedEndDate": {
 					"format": "date",
 					"description": "Expected end date of the education the agreement belongs to.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"agreementStartDate": {
 					"format": "date",
 					"title": "Date",
 					"description": "Start date of the agreement.",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"agreementEndDate": {
@@ -224,7 +224,7 @@
 					"title": "Date",
 					"description": "End date of the agreement.",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"comment": {
@@ -284,31 +284,31 @@
 					"format": "date",
 					"description": "Date when the agreement was signed.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"receivedDate": {
 					"format": "date",
 					"description": "Date when the agreement was received.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"completedRegistrationDate": {
 					"format": "date",
 					"description": "Date when the agreement registration was completed.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"creditPreApprovedDate": {
 					"format": "date",
 					"description": "Date when the credit was pre approved.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"creditFinalApprovedDate": {
 					"format": "date",
 					"description": "Date when the credit got the final approval.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"cvrNumber": {
 					"title": "String",

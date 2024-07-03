@@ -195,54 +195,14 @@ namespace Kmd.Studica.Programmes.Client
         public virtual ISubjectCoursesExternal SubjectCoursesExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IAddEducationalProgrammeSessionsExternal.
+        /// Gets the IAddExtracurricularSessionsExternal.
         /// </summary>
-        public virtual IAddEducationalProgrammeSessionsExternal AddEducationalProgrammeSessionsExternal { get; private set; }
+        public virtual IAddExtracurricularSessionsExternal AddExtracurricularSessionsExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IAddMeetingSessionsExternal.
+        /// Gets the IEditExtracurricularSessionExternal.
         /// </summary>
-        public virtual IAddMeetingSessionsExternal AddMeetingSessionsExternal { get; private set; }
-
-        /// <summary>
-        /// Gets the IAddOtherSessionsExternal.
-        /// </summary>
-        public virtual IAddOtherSessionsExternal AddOtherSessionsExternal { get; private set; }
-
-        /// <summary>
-        /// Gets the IAddPrivateAbsenceSessionsExternal.
-        /// </summary>
-        public virtual IAddPrivateAbsenceSessionsExternal AddPrivateAbsenceSessionsExternal { get; private set; }
-
-        /// <summary>
-        /// Gets the IAddSocialSessionsExternal.
-        /// </summary>
-        public virtual IAddSocialSessionsExternal AddSocialSessionsExternal { get; private set; }
-
-        /// <summary>
-        /// Gets the IEditEducationalProgrammeSessionExternal.
-        /// </summary>
-        public virtual IEditEducationalProgrammeSessionExternal EditEducationalProgrammeSessionExternal { get; private set; }
-
-        /// <summary>
-        /// Gets the IEditMeetingSessionExternal.
-        /// </summary>
-        public virtual IEditMeetingSessionExternal EditMeetingSessionExternal { get; private set; }
-
-        /// <summary>
-        /// Gets the IEditOtherSessionExternal.
-        /// </summary>
-        public virtual IEditOtherSessionExternal EditOtherSessionExternal { get; private set; }
-
-        /// <summary>
-        /// Gets the IEditPrivateAbsenceSessionExternal.
-        /// </summary>
-        public virtual IEditPrivateAbsenceSessionExternal EditPrivateAbsenceSessionExternal { get; private set; }
-
-        /// <summary>
-        /// Gets the IEditSocialSessionExternal.
-        /// </summary>
-        public virtual IEditSocialSessionExternal EditSocialSessionExternal { get; private set; }
+        public virtual IEditExtracurricularSessionExternal EditExtracurricularSessionExternal { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the StudicaDemoProgrammes class.
@@ -516,16 +476,8 @@ namespace Kmd.Studica.Programmes.Client
             StudentSchoolCoursesExternal = new StudentSchoolCoursesExternal(this);
             StudentSubjectCoursesExternal = new StudentSubjectCoursesExternal(this);
             SubjectCoursesExternal = new SubjectCoursesExternal(this);
-            AddEducationalProgrammeSessionsExternal = new AddEducationalProgrammeSessionsExternal(this);
-            AddMeetingSessionsExternal = new AddMeetingSessionsExternal(this);
-            AddOtherSessionsExternal = new AddOtherSessionsExternal(this);
-            AddPrivateAbsenceSessionsExternal = new AddPrivateAbsenceSessionsExternal(this);
-            AddSocialSessionsExternal = new AddSocialSessionsExternal(this);
-            EditEducationalProgrammeSessionExternal = new EditEducationalProgrammeSessionExternal(this);
-            EditMeetingSessionExternal = new EditMeetingSessionExternal(this);
-            EditOtherSessionExternal = new EditOtherSessionExternal(this);
-            EditPrivateAbsenceSessionExternal = new EditPrivateAbsenceSessionExternal(this);
-            EditSocialSessionExternal = new EditSocialSessionExternal(this);
+            AddExtracurricularSessionsExternal = new AddExtracurricularSessionsExternal(this);
+            EditExtracurricularSessionExternal = new EditExtracurricularSessionExternal(this);
             BaseUri = new System.Uri("https://api.studica.dk/demo/programmes/v1");
             SerializationSettings = new JsonSerializerSettings
             {

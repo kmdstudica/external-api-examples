@@ -45,8 +45,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 2147483647,
-						"minimum": 1
+						"maximum": 2147483647.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "PageSize",
@@ -55,8 +55,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 1000,
-						"minimum": 1
+						"maximum": 1000.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "InlineCount",
@@ -91,14 +91,14 @@
 									{
 										"id": "string",
 										"name": "string",
-										"validFrom": "2024-06-20",
-										"validTo": "2024-06-20",
+										"validFrom": "2024-07-03",
+										"validTo": "2024-07-03",
 										"dayCalendarId": "string",
 										"uvmDepartmentNumber": "string",
 										"areaOfResponsibilityId": "string",
 										"workWeekHours": [
 											{
-												"validFrom": "2024-06-20",
+												"validFrom": "2024-07-03",
 												"minutesOnMonday": 0,
 												"minutesOnTuesday": 0,
 												"minutesOnWednesday": 0,
@@ -151,14 +151,14 @@
 									{
 										"id": "string",
 										"name": "string",
-										"validFrom": "2024-06-20",
-										"validTo": "2024-06-20",
+										"validFrom": "2024-07-03",
+										"validTo": "2024-07-03",
 										"dayCalendarId": "string",
 										"uvmDepartmentNumber": "string",
 										"areaOfResponsibilityId": "string",
 										"workWeekHours": [
 											{
-												"validFrom": "2024-06-20",
+												"validFrom": "2024-07-03",
 												"minutesOnMonday": 0,
 												"minutesOnTuesday": 0,
 												"minutesOnWednesday": 0,
@@ -193,6 +193,8 @@
 						"description": "The ids of the internship departments to query for.",
 						"required": true,
 						"type": "array",
+						"maxLength": 1000,
+						"minLength": 1,
 						"items": {
 							"format": "uuid",
 							"type": "string",
@@ -226,14 +228,14 @@
 								{
 									"id": "string",
 									"name": "string",
-									"validFrom": "2024-06-20",
-									"validTo": "2024-06-20",
+									"validFrom": "2024-07-03",
+									"validTo": "2024-07-03",
 									"dayCalendarId": "string",
 									"uvmDepartmentNumber": "string",
 									"areaOfResponsibilityId": "string",
 									"workWeekHours": [
 										{
-											"validFrom": "2024-06-20",
+											"validFrom": "2024-07-03",
 											"minutesOnMonday": 0,
 											"minutesOnTuesday": 0,
 											"minutesOnWednesday": 0,
@@ -286,14 +288,14 @@
 								{
 									"id": "string",
 									"name": "string",
-									"validFrom": "2024-06-20",
-									"validTo": "2024-06-20",
+									"validFrom": "2024-07-03",
+									"validTo": "2024-07-03",
 									"dayCalendarId": "string",
 									"uvmDepartmentNumber": "string",
 									"areaOfResponsibilityId": "string",
 									"workWeekHours": [
 										{
-											"validFrom": "2024-06-20",
+											"validFrom": "2024-07-03",
 											"minutesOnMonday": 0,
 											"minutesOnTuesday": 0,
 											"minutesOnWednesday": 0,
@@ -370,8 +372,8 @@
 											"id": "string",
 											"agreementType": "string",
 											"agreementTypeDescription": "string",
-											"startDate": "2024-06-20",
-											"endDate": "2024-06-20",
+											"startDate": "2024-07-03",
+											"endDate": "2024-07-03",
 											"placeOfInternshipName": "string",
 											"placeOfInternshipCvrNumber": "string",
 											"placeOfInternshipEmail": "string",
@@ -386,8 +388,8 @@
 										{
 											"writtenAgreementId": "string",
 											"schoolInternshipType": "SKPS",
-											"startDate": "2024-06-20",
-											"endDate": "2024-06-20",
+											"startDate": "2024-07-03",
+											"endDate": "2024-07-03",
 											"insertedAt": "string",
 											"updatedAt": "string"
 										}
@@ -442,8 +444,8 @@
 											"id": "string",
 											"agreementType": "string",
 											"agreementTypeDescription": "string",
-											"startDate": "2024-06-20",
-											"endDate": "2024-06-20",
+											"startDate": "2024-07-03",
+											"endDate": "2024-07-03",
 											"placeOfInternshipName": "string",
 											"placeOfInternshipCvrNumber": "string",
 											"placeOfInternshipEmail": "string",
@@ -458,8 +460,8 @@
 										{
 											"writtenAgreementId": "string",
 											"schoolInternshipType": "SKPS",
-											"startDate": "2024-06-20",
-											"endDate": "2024-06-20",
+											"startDate": "2024-07-03",
+											"endDate": "2024-07-03",
 											"insertedAt": "string",
 											"updatedAt": "string"
 										}
@@ -529,8 +531,8 @@
 											"agreementId": "string",
 											"schoolCode": "string",
 											"apprenticeshipEducationalProgrammeId": "string",
-											"startDate": "2024-06-20",
-											"endDate": "2024-06-20",
+											"startDate": "2024-07-03",
+											"endDate": "2024-07-03",
 											"comment": "string",
 											"agreementType": "EducationalAgreement",
 											"schoolInternshipAgreementId": "string",
@@ -538,11 +540,11 @@
 											"companyName": "string",
 											"companyAddress": "string",
 											"companyCountryCode": "string",
-											"signedDate": "2024-06-20",
-											"receivedDate": "2024-06-20",
-											"completedRegistrationDate": "2024-06-20",
-											"creditPreApprovedDate": "2024-06-20",
-											"creditFinalApprovedDate": "2024-06-20",
+											"signedDate": "2024-07-03",
+											"receivedDate": "2024-07-03",
+											"completedRegistrationDate": "2024-07-03",
+											"creditPreApprovedDate": "2024-07-03",
+											"creditFinalApprovedDate": "2024-07-03",
 											"cvrNumber": "string",
 											"pNumber": "string",
 											"seNumber": "string",
@@ -562,8 +564,8 @@
 										{
 											"agreementId": "string",
 											"schoolInternshipType": "SKPS",
-											"startDate": "2024-06-20",
-											"endDate": "2024-06-20",
+											"startDate": "2024-07-03",
+											"endDate": "2024-07-03",
 											"insertedAt": "string",
 											"updatedAt": "string",
 											"internshipDepartmentId": "string"
@@ -619,8 +621,8 @@
 											"agreementId": "string",
 											"schoolCode": "string",
 											"apprenticeshipEducationalProgrammeId": "string",
-											"startDate": "2024-06-20",
-											"endDate": "2024-06-20",
+											"startDate": "2024-07-03",
+											"endDate": "2024-07-03",
 											"comment": "string",
 											"agreementType": "EducationalAgreement",
 											"schoolInternshipAgreementId": "string",
@@ -628,11 +630,11 @@
 											"companyName": "string",
 											"companyAddress": "string",
 											"companyCountryCode": "string",
-											"signedDate": "2024-06-20",
-											"receivedDate": "2024-06-20",
-											"completedRegistrationDate": "2024-06-20",
-											"creditPreApprovedDate": "2024-06-20",
-											"creditFinalApprovedDate": "2024-06-20",
+											"signedDate": "2024-07-03",
+											"receivedDate": "2024-07-03",
+											"completedRegistrationDate": "2024-07-03",
+											"creditPreApprovedDate": "2024-07-03",
+											"creditFinalApprovedDate": "2024-07-03",
 											"cvrNumber": "string",
 											"pNumber": "string",
 											"seNumber": "string",
@@ -652,8 +654,8 @@
 										{
 											"agreementId": "string",
 											"schoolInternshipType": "SKPS",
-											"startDate": "2024-06-20",
-											"endDate": "2024-06-20",
+											"startDate": "2024-07-03",
+											"endDate": "2024-07-03",
 											"insertedAt": "string",
 											"updatedAt": "string",
 											"internshipDepartmentId": "string"
@@ -719,7 +721,7 @@
 									"surname": "string",
 									"absence": [
 										{
-											"date": "2024-06-20",
+											"date": "2024-07-03",
 											"durationInMinutes": 0,
 											"isFullDayAbsence": true,
 											"absenceType": "Illness"
@@ -770,7 +772,7 @@
 									"surname": "string",
 									"absence": [
 										{
-											"date": "2024-06-20",
+											"date": "2024-07-03",
 											"durationInMinutes": 0,
 											"isFullDayAbsence": true,
 											"absenceType": "Illness"
@@ -800,8 +802,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "The number of the page to return (1 is the first page).",
-					"maximum": 2147483647,
-					"minimum": 1,
+					"maximum": 2147483647.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -809,8 +811,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Number of objects per page.",
-					"maximum": 1000,
-					"minimum": 1,
+					"maximum": 1000.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -905,14 +907,14 @@
 					"title": "Date",
 					"description": "The date from which the department is active.",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"validTo": {
 					"format": "date",
 					"description": "The date which the department is active to, if it has been deactivated.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"dayCalendarId": {
 					"format": "uuid",
@@ -972,7 +974,7 @@
 					"title": "Date",
 					"description": "The date from which the hours are effective.",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"minutesOnMonday": {
@@ -1074,14 +1076,14 @@
 					"format": "date",
 					"title": "Date",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"endDate": {
 					"format": "date",
 					"title": "Date",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"comment": {
@@ -1126,27 +1128,27 @@
 				"signedDate": {
 					"format": "date",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"receivedDate": {
 					"format": "date",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"completedRegistrationDate": {
 					"format": "date",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"creditPreApprovedDate": {
 					"format": "date",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"creditFinalApprovedDate": {
 					"format": "date",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"cvrNumber": {
 					"title": "String",
@@ -1259,7 +1261,7 @@
 					"title": "Date",
 					"description": "Get all students school internships starting on or after this date",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"periodTo": {
@@ -1267,7 +1269,7 @@
 					"title": "Date",
 					"description": "Get all students school internships ending on or before this date",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"schoolCode": {
@@ -1280,8 +1282,8 @@
 			},
 			"additionalProperties": false,
 			"example": {
-				"periodFrom": "2024-06-20",
-				"periodTo": "2024-06-20",
+				"periodFrom": "2024-07-03",
+				"periodTo": "2024-07-03",
 				"schoolCode": "string"
 			}
 		},
@@ -1356,7 +1358,7 @@
 					"title": "Date",
 					"description": "Get all students school internships starting on or after this date",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"periodTo": {
@@ -1364,7 +1366,7 @@
 					"title": "Date",
 					"description": "Get all students school internships ending on or before this date",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"schoolCode": {
@@ -1377,8 +1379,8 @@
 			},
 			"additionalProperties": false,
 			"example": {
-				"periodFrom": "2024-06-20",
-				"periodTo": "2024-06-20",
+				"periodFrom": "2024-07-03",
+				"periodTo": "2024-07-03",
 				"schoolCode": "string"
 			}
 		},
@@ -1471,7 +1473,7 @@
 					"title": "Date",
 					"description": "Start date of the internship period",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"endDate": {
@@ -1479,7 +1481,7 @@
 					"title": "Date",
 					"description": "End date of the internship period",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"insertedAt": {
@@ -1533,7 +1535,7 @@
 					"title": "Date",
 					"description": "Start date of the internship period",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"endDate": {
@@ -1541,7 +1543,7 @@
 					"title": "Date",
 					"description": "End date of the internship period",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"insertedAt": {
@@ -1589,7 +1591,7 @@
 					"title": "Date",
 					"description": "Start date of internship",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"endDate": {
@@ -1597,7 +1599,7 @@
 					"title": "Date",
 					"description": "End date for internship",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"placeOfInternshipName": {
@@ -1658,7 +1660,7 @@
 					"title": "Date",
 					"description": "Get all students school internships absence starting on or after this date",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"periodTo": {
@@ -1666,7 +1668,7 @@
 					"title": "Date",
 					"description": "Get all students school internships absence ending on or before this date",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"schoolCode": {
@@ -1679,8 +1681,8 @@
 			},
 			"additionalProperties": false,
 			"example": {
-				"periodFrom": "2024-06-20",
-				"periodTo": "2024-06-20",
+				"periodFrom": "2024-07-03",
+				"periodTo": "2024-07-03",
 				"schoolCode": "string"
 			}
 		},
@@ -1737,7 +1739,7 @@
 					"format": "date",
 					"title": "Date",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"durationInMinutes": {

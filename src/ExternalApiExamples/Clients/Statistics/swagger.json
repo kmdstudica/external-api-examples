@@ -248,8 +248,8 @@
 				"plagiarismScore": {
 					"format": "int32",
 					"description": "Plagiarism score (0 - 100)",
-					"maximum": 100,
-					"minimum": 0,
+					"maximum": 100.0,
+					"minimum": 0.0,
 					"type": "integer"
 				},
 				"assignmentUrl": {

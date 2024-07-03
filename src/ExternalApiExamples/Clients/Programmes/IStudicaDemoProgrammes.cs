@@ -196,54 +196,14 @@ namespace Kmd.Studica.Programmes.Client
         ISubjectCoursesExternal SubjectCoursesExternal { get; }
 
         /// <summary>
-        /// Gets the IAddEducationalProgrammeSessionsExternal.
+        /// Gets the IAddExtracurricularSessionsExternal.
         /// </summary>
-        IAddEducationalProgrammeSessionsExternal AddEducationalProgrammeSessionsExternal { get; }
+        IAddExtracurricularSessionsExternal AddExtracurricularSessionsExternal { get; }
 
         /// <summary>
-        /// Gets the IAddMeetingSessionsExternal.
+        /// Gets the IEditExtracurricularSessionExternal.
         /// </summary>
-        IAddMeetingSessionsExternal AddMeetingSessionsExternal { get; }
-
-        /// <summary>
-        /// Gets the IAddOtherSessionsExternal.
-        /// </summary>
-        IAddOtherSessionsExternal AddOtherSessionsExternal { get; }
-
-        /// <summary>
-        /// Gets the IAddPrivateAbsenceSessionsExternal.
-        /// </summary>
-        IAddPrivateAbsenceSessionsExternal AddPrivateAbsenceSessionsExternal { get; }
-
-        /// <summary>
-        /// Gets the IAddSocialSessionsExternal.
-        /// </summary>
-        IAddSocialSessionsExternal AddSocialSessionsExternal { get; }
-
-        /// <summary>
-        /// Gets the IEditEducationalProgrammeSessionExternal.
-        /// </summary>
-        IEditEducationalProgrammeSessionExternal EditEducationalProgrammeSessionExternal { get; }
-
-        /// <summary>
-        /// Gets the IEditMeetingSessionExternal.
-        /// </summary>
-        IEditMeetingSessionExternal EditMeetingSessionExternal { get; }
-
-        /// <summary>
-        /// Gets the IEditOtherSessionExternal.
-        /// </summary>
-        IEditOtherSessionExternal EditOtherSessionExternal { get; }
-
-        /// <summary>
-        /// Gets the IEditPrivateAbsenceSessionExternal.
-        /// </summary>
-        IEditPrivateAbsenceSessionExternal EditPrivateAbsenceSessionExternal { get; }
-
-        /// <summary>
-        /// Gets the IEditSocialSessionExternal.
-        /// </summary>
-        IEditSocialSessionExternal EditSocialSessionExternal { get; }
+        IEditExtracurricularSessionExternal EditExtracurricularSessionExternal { get; }
 
         /// <summary>
         /// _AbsenceRegistrationsExternal_Post

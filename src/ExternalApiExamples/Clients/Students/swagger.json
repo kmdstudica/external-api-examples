@@ -45,8 +45,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 2147483647,
-						"minimum": 1
+						"maximum": 2147483647.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "PageSize",
@@ -55,8 +55,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 1000,
-						"minimum": 1
+						"maximum": 1000.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "InlineCount",
@@ -145,9 +145,9 @@
 												"educationName": "string",
 												"coesa": "string",
 												"educationVersion": "string",
-												"studyStartDate": "2024-06-20",
-												"studyExpectedCompletionDate": "2024-06-20",
-												"studyEndDate": "2024-06-20",
+												"studyStartDate": "2024-07-03",
+												"studyExpectedCompletionDate": "2024-07-03",
+												"studyEndDate": "2024-07-03",
 												"studyEndCauseId": "string",
 												"studyEndCauseCode": "string",
 												"studyEndCause": "string",
@@ -156,15 +156,15 @@
 													{
 														"id": "string",
 														"name": "string",
-														"validFrom": "2024-06-20",
-														"validTo": "2024-06-20"
+														"validFrom": "2024-07-03",
+														"validTo": "2024-07-03"
 													}
 												],
 												"specialisations": [
 													{
 														"name": "string",
-														"from": "2024-06-20",
-														"to": "2024-06-20"
+														"from": "2024-07-03",
+														"to": "2024-07-03"
 													}
 												]
 											}
@@ -259,9 +259,9 @@
 												"educationName": "string",
 												"coesa": "string",
 												"educationVersion": "string",
-												"studyStartDate": "2024-06-20",
-												"studyExpectedCompletionDate": "2024-06-20",
-												"studyEndDate": "2024-06-20",
+												"studyStartDate": "2024-07-03",
+												"studyExpectedCompletionDate": "2024-07-03",
+												"studyEndDate": "2024-07-03",
 												"studyEndCauseId": "string",
 												"studyEndCauseCode": "string",
 												"studyEndCause": "string",
@@ -270,15 +270,15 @@
 													{
 														"id": "string",
 														"name": "string",
-														"validFrom": "2024-06-20",
-														"validTo": "2024-06-20"
+														"validFrom": "2024-07-03",
+														"validTo": "2024-07-03"
 													}
 												],
 												"specialisations": [
 													{
 														"name": "string",
-														"from": "2024-06-20",
-														"to": "2024-06-20"
+														"from": "2024-07-03",
+														"to": "2024-07-03"
 													}
 												]
 											}
@@ -377,9 +377,9 @@
 											"educationName": "string",
 											"coesa": "string",
 											"educationVersion": "string",
-											"studyStartDate": "2024-06-20",
-											"studyExpectedCompletionDate": "2024-06-20",
-											"studyEndDate": "2024-06-20",
+											"studyStartDate": "2024-07-03",
+											"studyExpectedCompletionDate": "2024-07-03",
+											"studyEndDate": "2024-07-03",
 											"studyEndCauseId": "string",
 											"studyEndCauseCode": "string",
 											"studyEndCause": "string",
@@ -388,15 +388,15 @@
 												{
 													"id": "string",
 													"name": "string",
-													"validFrom": "2024-06-20",
-													"validTo": "2024-06-20"
+													"validFrom": "2024-07-03",
+													"validTo": "2024-07-03"
 												}
 											],
 											"specialisations": [
 												{
 													"name": "string",
-													"from": "2024-06-20",
-													"to": "2024-06-20"
+													"from": "2024-07-03",
+													"to": "2024-07-03"
 												}
 											]
 										}
@@ -424,6 +424,8 @@
 						"description": "A list of students to get marks for",
 						"required": true,
 						"type": "array",
+						"maxLength": 1000,
+						"minLength": 1,
 						"items": {
 							"format": "uuid",
 							"type": "string",
@@ -444,8 +446,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 2147483647,
-						"minimum": 1
+						"maximum": 2147483647.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "PageSize",
@@ -454,8 +456,8 @@
 						"required": true,
 						"type": "integer",
 						"format": "int32",
-						"maximum": 1000,
-						"minimum": 1
+						"maximum": 1000.0,
+						"minimum": 1.0
 					},
 					{
 						"name": "InlineCount",
@@ -496,11 +498,11 @@
 										"protectedSurname": "string",
 										"marks": [
 											{
-												"date": "2024-06-20",
+												"date": "2024-07-03",
 												"markCode": "string",
 												"markDesignation": "string",
 												"markValue": "string",
-												"averageMarkValue": 0,
+												"averageMarkValue": 0.0,
 												"markValueEcts": "string",
 												"creditText": "string",
 												"useOnExamPaper": true,
@@ -566,11 +568,11 @@
 										"protectedSurname": "string",
 										"marks": [
 											{
-												"date": "2024-06-20",
+												"date": "2024-07-03",
 												"markCode": "string",
 												"markDesignation": "string",
 												"markValue": "string",
-												"averageMarkValue": 0,
+												"averageMarkValue": 0.0,
 												"markValueEcts": "string",
 												"creditText": "string",
 												"useOnExamPaper": true,
@@ -643,15 +645,15 @@
 					"title": "Date",
 					"description": "Students must be active on the date or after this date\r\nThis parameter is required",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"pageNumber": {
 					"format": "int32",
 					"title": "Int32",
 					"description": "The number of the page to return (1 is the first page).",
-					"maximum": 2147483647,
-					"minimum": 1,
+					"maximum": 2147483647.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -659,8 +661,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Number of objects per page.",
-					"maximum": 1000,
-					"minimum": 1,
+					"maximum": 1000.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -681,7 +683,7 @@
 			},
 			"additionalProperties": false,
 			"example": {
-				"studentActiveOnOrAfterDate": "2024-06-20",
+				"studentActiveOnOrAfterDate": "2024-07-03",
 				"pageNumber": 0,
 				"pageSize": 0,
 				"inlineCount": true,
@@ -943,8 +945,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "The number of the page to return (1 is the first page).",
-					"maximum": 2147483647,
-					"minimum": 1,
+					"maximum": 2147483647.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -952,8 +954,8 @@
 					"format": "int32",
 					"title": "Int32",
 					"description": "Number of objects per page.",
-					"maximum": 1000,
-					"minimum": 1,
+					"maximum": 1000.0,
+					"minimum": 1.0,
 					"type": "integer",
 					"x-nullable": false
 				},
@@ -1146,7 +1148,7 @@
 					"format": "date",
 					"description": "Date for when mark has been given",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"markCode": {
 					"title": "String",
@@ -1269,20 +1271,20 @@
 					"title": "Date",
 					"description": "Study date of start.",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"studyExpectedCompletionDate": {
 					"format": "date",
 					"description": "Expected completion date of study.",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"studyEndDate": {
 					"format": "date",
 					"description": "Study end date",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				},
 				"studyEndCauseId": {
 					"format": "uuid",
@@ -1372,14 +1374,14 @@
 					"title": "Date",
 					"description": "Start of specialisation",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"to": {
 					"format": "date",
 					"description": "End of specialisation",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				}
 			},
 			"additionalProperties": false
@@ -1473,14 +1475,14 @@
 					"title": "Date",
 					"description": "The date from which the studenttype is valid",
 					"type": "string",
-					"example": "2024-06-20",
+					"example": "2024-07-03",
 					"x-nullable": false
 				},
 				"validTo": {
 					"format": "date",
 					"description": "The end date of the studenttype",
 					"type": "string",
-					"example": "2024-06-20"
+					"example": "2024-07-03"
 				}
 			},
 			"additionalProperties": false

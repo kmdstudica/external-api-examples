@@ -47,7 +47,8 @@ namespace Kmd.Studica.Programmes.Client
             /// filtering.
             /// </param>
             /// <param name='includeDeletedSubjectCourses'>
-            /// Should the response include deleted subject courses
+            /// Should the response include deleted subject courses.
+            /// If true, it will only return deleted subject courses.
             /// </param>
             /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
             /// Format - date-time (as date-time in RFC3339). Only get data inserted or
@@ -90,7 +91,8 @@ namespace Kmd.Studica.Programmes.Client
             /// filtering.
             /// </param>
             /// <param name='includeDeletedSubjectCourses'>
-            /// Should the response include deleted subject courses
+            /// Should the response include deleted subject courses.
+            /// If true, it will only return deleted subject courses.
             /// </param>
             /// <param name='onlyDataInsertedOrUpdatedOnOrAfter'>
             /// Format - date-time (as date-time in RFC3339). Only get data inserted or

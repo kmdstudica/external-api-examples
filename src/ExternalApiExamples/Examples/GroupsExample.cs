@@ -33,10 +33,17 @@ public class GroupsExample
             new GroupsExternalRequest
             {
                 // At least one parameter must be specified
-                GroupIds = null,
+                
+                // Either group ids
+                // GroupIds = new List<Guid>
+                // {
+                //     new Guid("")
+                // },
+                
+                // Alternatively, leave GroupIds empty and specify other parameters
                 GroupEntityTypes = new List<string>() { GroupEntityType.SubjectCourse },
-                IncludeDeletedGroups = false,
-                // GroupsActiveOnOrAfterDate = DateTime.Today,
+                IncludeDeletedGroups = true,
+                GroupsActiveOnOrAfterDate = DateTime.Today.AddMonths(-6),
                 SchoolCode = configuration.SchoolCode
             },
             customHeaders: new Dictionary<string, List<string>>
@@ -54,13 +61,5 @@ public class GroupsExample
     private static class GroupEntityType
     {
         public const string SubjectCourse = "SubjectCourse";
-    }
-    
-    public static class CourseStudentType
-    {
-        public const string Student = "Student";
-        public const string BridgingCourseStudent = "BridgingCourseStudent";
-        public const string Employee = "Employee";
-        public const string ExternalBoardingFacilityStudent = "ExternalBoardingFacilityStudent";
     }
 }

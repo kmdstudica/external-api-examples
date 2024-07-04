@@ -36,14 +36,14 @@ public class StatisticsExample
                     Deadline = DateTime.Now,
                     AssignmentId = Guid.NewGuid(),
                     AssignmentTitle = "Assignment Title",
-                    AssignmentType = "Assignment Type",
+                    AssignmentType = AssignmentType.TeacherCreatedGroup,
                     AssignmentUrl = "https://assignment.url",
                     ConnectedTopicTitle = "Connected Topic Title",
                     DeliveryTime = DateTime.Now,
                     Feedback = "Great job!",
                     FeedbackTime = DateTime.Now,
-                    Status = "Submitted",
-                    MarkScale = "SevenPointScale",
+                    Status = HandinStatus.Submitted,
+                    MarkScale = MarkScale.SevenPointScale,
                     MarkValue = "7",
                     PlagiarismScore = 100,
                     RejectedReason = null,
@@ -79,5 +79,28 @@ public class StatisticsExample
             {
                 { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
+    }
+
+    private static class AssignmentType
+    {
+        public const string Individual = "Individual";
+        public const string TeacherCreatedGroup = "TeacherCreatedGroup";
+        public const string StudentCreatedGroup  = "StudentCreatedGroup";
+        public const string DifferentTasksIndividual = "DifferentTasksIndividual";
+    }
+
+    private static class MarkScale
+    {
+        public const string PassedNotPassed = "PassedNotPassed";
+        public const string SevenPointScale = "SevenPointScale";
+        public const string PercentScale = "PercentScale";
+        public const string NoMarks = "NoMarks";
+    }
+
+    private static class HandinStatus
+    {
+        public const string NotSubmitted = "NotSubmitted";
+        public const string Submitted = "Submitted";
+        public const string Rejected = "Rejected";
     }
 }

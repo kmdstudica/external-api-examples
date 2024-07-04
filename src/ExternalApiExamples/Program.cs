@@ -87,6 +87,8 @@ namespace ExternalApiExamples
             // await new SessionsExample(tokenProvider, configuration).ExecuteSessionsById();
             // await new SessionsExample(tokenProvider, configuration).ExecuteAddSessionsToSubjectCourses();
             // await new SessionsExample(tokenProvider, configuration).ExecuteEditSubjectCourseSession();
+            // await new SessionsExample(tokenProvider, configuration).ExecuteAddExtracurricularSessions();
+            // await new SessionsExample(tokenProvider, configuration).ExecuteEditExtracurricularSessions();
             // await new SessionsExample(tokenProvider, configuration).ExecuteDeleteSessions();
             // await new AbsenceRegistrationsExample(tokenProvider, configuration).Execute();
             // await new AbsenceRegistrationsExample(tokenProvider, configuration).ExecuteRegisterAbsence();

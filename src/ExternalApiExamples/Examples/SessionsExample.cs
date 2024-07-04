@@ -105,13 +105,14 @@ public class SessionsExample
                         Guid.NewGuid(), // Room 1 
                         Guid.NewGuid() // Room 2
                     },
-                    SchoolHourEntryId = Guid.NewGuid(),
                     TeacherIds = new List<Guid>
                     {
                         Guid.NewGuid(), // Teacher 1
                         Guid.NewGuid() // Teacher 2
-                    }
+                    },
 
+                    SchoolHourEntryId = Guid.NewGuid()
+                    
                     // Custom time for session - do not use if using school hours, which is preferred
                     // Date = new DateTime(),
                     // StartTime = "08:00",
@@ -150,7 +151,7 @@ public class SessionsExample
             {
                 { configuration.ApiKeyName, new List<string> { configuration.StudicaExternalApiKey } }
             });
-        
+
         if (result.Response.IsSuccessStatusCode)
             Console.WriteLine("Sessions deleted");
         else
@@ -183,13 +184,14 @@ public class SessionsExample
                     Guid.NewGuid(), // Room 1 
                     Guid.NewGuid() // Room 2
                 },
-                SchoolHourEntryId = Guid.NewGuid(),
                 TeacherIds = new List<Guid>
                 {
                     Guid.NewGuid(), // Teacher 1
                     Guid.NewGuid() // Teacher 2
-                }
+                },
 
+                SchoolHourEntryId = Guid.NewGuid()
+                
                 // Custom time for session - do not use if using school hours, which is preferred
                 // Date = new DateTime(),
                 // StartTime = "08:00",
@@ -206,14 +208,9 @@ public class SessionsExample
             Console.WriteLine("Could not modify session");
     }
 
-    #region Not yet supported
-
-    public async Task ExecuteAddIndependentSession()
+    public async Task ExecuteAddExtracurricularSessions()
     {
-#pragma warning disable CS0162
-        throw new NotImplementedException("NOT YET SUPPORTED BY STUDICA");
-
-        Console.WriteLine("Add independent sessions example");
+        Console.WriteLine("Add extra curricular sessions example");
 
         using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
@@ -221,13 +218,14 @@ public class SessionsExample
             : new Uri(configuration.ProgrammesBaseUri);
 
         var sessionId = Guid.NewGuid();
-        var result = await programmesClient.AddIndependentSessionsExternal.PostWithHttpMessagesAsync(
-            new List<ExternalIndependentSessionDto>
+        var result = await programmesClient.AddExtracurricularSessionsExternal.PostWithHttpMessagesAsync(
+            new List<ExternalExtracurricularSessionDto>
             {
                 new()
                 {
                     SessionId = sessionId,
-                    Comment = "Independent session comment",
+                    Title = "Session title",
+                    Description = "Extra curricular session comment",
                     ExternalLessonId = sessionId.ToString(),
                     GroupIds = new List<Guid>
                     {
@@ -239,15 +237,23 @@ public class SessionsExample
                         Guid.NewGuid(), // Room 1 
                         Guid.NewGuid() // Room 2
                     },
-                    TeacherIds = new List<Guid>
+                    EmployeeIds = new List<Guid>
                     {
                         Guid.NewGuid(), // Teacher 1
                         Guid.NewGuid() // Teacher 2
                     },
-                    // Custom time for session - independent sessions do not have school hours
-                    Date = new DateTime(),
-                    StartTime = "08:00",
-                    EndTime = "08:45"
+
+                    SchoolHourEntryId = Guid.NewGuid(),
+                
+                    // Custom time for session - do not use if using school hours, which is preferred
+                    // Date = new DateTime(),
+                    // StartTime = "08:00",
+                    // EndTime = "08:45",
+                    
+                    IsMandatory = false,
+                    IsPrivate = false,
+                    SessionEntityType = SessionEntityType.Social,
+                    RecurrenceId = Guid.NewGuid() // Not yet used, but will be used for identifying recurring sessions in the future
                 }
             },
             schoolCode: configuration.SchoolCode,
@@ -260,17 +266,11 @@ public class SessionsExample
             Console.WriteLine("Sessions added");
         else
             Console.WriteLine("Could not add sessions");
-
-#pragma warning restore CS0162
     }
 
-    public async Task ExecuteEditIndependentSession()
+    public async Task ExecuteEditExtracurricularSessions()
     {
-#pragma warning disable CS0162
-
-        throw new NotImplementedException("NOT YET SUPPORTED BY STUDICA");
-
-        Console.WriteLine("Edit independent session example");
+        Console.WriteLine("Edit extra curricular sessions example");
 
         using var programmesClient = new StudicaDemoProgrammes(new TokenCredentials(tokenProvider));
         programmesClient.BaseUri = string.IsNullOrEmpty(configuration.ProgrammesBaseUri)
@@ -278,11 +278,12 @@ public class SessionsExample
             : new Uri(configuration.ProgrammesBaseUri);
 
         var sessionId = Guid.NewGuid();
-        var result = await programmesClient.EditIndependentSessionExternal.PostWithHttpMessagesAsync(
-            new EditIndependentSessionExternalCommand
+        var result = await programmesClient.EditExtracurricularSessionExternal.PostWithHttpMessagesAsync(
+            new EditExtracurricularSessionExternalCommand
             {
                 SessionId = sessionId,
-                Comment = "Independent session comment",
+                Title = "Session title",
+                Description = "Extra curricular session comment",
                 ExternalLessonId = sessionId.ToString(),
                 GroupIds = new List<Guid>
                 {
@@ -294,15 +295,21 @@ public class SessionsExample
                     Guid.NewGuid(), // Room 1 
                     Guid.NewGuid() // Room 2
                 },
-                TeacherIds = new List<Guid>
+                EmployeeIds = new List<Guid>
                 {
                     Guid.NewGuid(), // Teacher 1
                     Guid.NewGuid() // Teacher 2
                 },
-                // Custom time for session - independent sessions do not have school hours
-                Date = new DateTime(),
-                StartTime = "08:00",
-                EndTime = "08:45"
+                
+                SchoolHourEntryId = Guid.NewGuid(),
+                
+                // Custom time for session - do not use if using school hours, which is preferred
+                // Date = new DateTime(),
+                // StartTime = "08:00",
+                // EndTime = "08:45",
+
+                IsMandatory = false,
+                IsPrivate = false
             },
             customHeaders: new Dictionary<string, List<string>>
             {
@@ -313,9 +320,16 @@ public class SessionsExample
             Console.WriteLine("Session modified");
         else
             Console.WriteLine("Could not modify session");
-
-#pragma warning restore CS0162
     }
-
-    #endregion
+    
+    private static class SessionEntityType
+    {
+        public const string None = "None";
+        public const string SubjectCourse = "SubjectCourse";
+        public const string EducationalProgramme = "EducationalProgramme";
+        public const string PrivateAbsence = "PrivateAbsence";
+        public const string Meeting = "Meeting";
+        public const string Social = "Social";
+        public const string Other = "Other";
+    }
 }

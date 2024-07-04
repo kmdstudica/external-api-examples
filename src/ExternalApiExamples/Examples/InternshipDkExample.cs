@@ -9,12 +9,12 @@ namespace ExternalApiExamples;
 
 public class InternshipDkExample
 {
-    private readonly ITokenProvider _tokenProvider;
+    private readonly ITokenProvider tokenProvider;
     private readonly AppConfiguration configuration;
 
     public InternshipDkExample(ITokenProvider tokenProvider, AppConfiguration configuration)
     {
-        _tokenProvider = tokenProvider;
+        this.tokenProvider = tokenProvider;
         this.configuration = configuration;
     }
 
@@ -22,7 +22,7 @@ public class InternshipDkExample
     {
         Console.WriteLine("Get educational agreements example");
 
-        using var internshipDkClient = new StudicaDemoInternshipDK(new TokenCredentials(_tokenProvider));
+        using var internshipDkClient = new StudicaDemoInternshipDK(new TokenCredentials(tokenProvider));
         internshipDkClient.BaseUri = string.IsNullOrEmpty(configuration.InternshipDkBaseUri)
             ? new Uri("https://gateway.kmdlogic.io/studica/internship-dk/v1")
             : new Uri(configuration.InternshipDkBaseUri);

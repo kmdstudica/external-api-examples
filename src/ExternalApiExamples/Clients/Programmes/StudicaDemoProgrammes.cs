@@ -60,11 +60,6 @@ namespace Kmd.Studica.Programmes.Client
         public virtual IActivitiesExternal ActivitiesExternal { get; private set; }
 
         /// <summary>
-        /// Gets the IAddIndependentSessionsExternal.
-        /// </summary>
-        public virtual IAddIndependentSessionsExternal AddIndependentSessionsExternal { get; private set; }
-
-        /// <summary>
         /// Gets the IAddLessonsExternal.
         /// </summary>
         public virtual IAddLessonsExternal AddLessonsExternal { get; private set; }
@@ -113,11 +108,6 @@ namespace Kmd.Studica.Programmes.Client
         /// Gets the IDeleteSessionsExternal.
         /// </summary>
         public virtual IDeleteSessionsExternal DeleteSessionsExternal { get; private set; }
-
-        /// <summary>
-        /// Gets the IEditIndependentSessionExternal.
-        /// </summary>
-        public virtual IEditIndependentSessionExternal EditIndependentSessionExternal { get; private set; }
 
         /// <summary>
         /// Gets the IEditLessonExternal.
@@ -449,7 +439,6 @@ namespace Kmd.Studica.Programmes.Client
             ActiveBridgingCoursesExternal = new ActiveBridgingCoursesExternal(this);
             ActiveSubjectCoursesExternal = new ActiveSubjectCoursesExternal(this);
             ActivitiesExternal = new ActivitiesExternal(this);
-            AddIndependentSessionsExternal = new AddIndependentSessionsExternal(this);
             AddLessonsExternal = new AddLessonsExternal(this);
             AddSessionsToSubjectCoursesExternal = new AddSessionsToSubjectCoursesExternal(this);
             BulkAbsenceRegistrationsExternal = new BulkAbsenceRegistrationsExternal(this);
@@ -460,7 +449,6 @@ namespace Kmd.Studica.Programmes.Client
             DeleteLessonExternal = new DeleteLessonExternal(this);
             DeleteLessonsExternal = new DeleteLessonsExternal(this);
             DeleteSessionsExternal = new DeleteSessionsExternal(this);
-            EditIndependentSessionExternal = new EditIndependentSessionExternal(this);
             EditLessonExternal = new EditLessonExternal(this);
             EditSubjectCourseSessionExternal = new EditSubjectCourseSessionExternal(this);
             EducationalProgrammesExternal = new EducationalProgrammesExternal(this);

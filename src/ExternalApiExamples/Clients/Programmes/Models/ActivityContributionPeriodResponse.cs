@@ -32,7 +32,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the
         /// ActivityContributionPeriodResponse class.
         /// </summary>
-        /// <param name="studentId">Guid</param>
+        /// <param name="studentId">Id of student</param>
         /// <param name="countingPeriodNumber">Int32</param>
         /// <param name="startDate">Date</param>
         /// <param name="endDate">Date</param>
@@ -75,11 +75,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of student
         /// </summary>
-        /// <remarks>
-        /// Id of student
-        /// </remarks>
         [JsonProperty(PropertyName = "studentId")]
         public System.Guid StudentId { get; set; }
 
@@ -185,7 +182,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// The accounting CÃ˜SA number of the activity.
+        /// The accounting C????SA number of the activity.
         /// </remarks>
         [JsonProperty(PropertyName = "accountingCoesa")]
         public string AccountingCoesa { get; set; }

@@ -32,7 +32,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the StudentSchoolCourseParticipation
         /// class.
         /// </summary>
-        /// <param name="schoolCourseId">Guid</param>
+        /// <param name="schoolCourseId">Id of the school course referencing
+        /// the participation period</param>
         /// <param name="participationStartDate">Date</param>
         /// <param name="participationEndDate">Date</param>
         /// <param name="correctedDuration">Corrected duration of the
@@ -55,11 +56,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the school course referencing the participation
+        /// period
         /// </summary>
-        /// <remarks>
-        /// Id of the school course referencing the participation period
-        /// </remarks>
         [JsonProperty(PropertyName = "schoolCourseId")]
         public System.Guid SchoolCourseId { get; set; }
 

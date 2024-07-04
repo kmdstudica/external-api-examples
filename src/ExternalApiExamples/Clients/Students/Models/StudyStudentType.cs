@@ -27,7 +27,7 @@ namespace Kmd.Studica.Students.Client.Models
         /// <summary>
         /// Initializes a new instance of the StudyStudentType class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">The student type</param>
         /// <param name="validFrom">Date</param>
         /// <param name="name">String</param>
         /// <param name="validTo">The end date of the studenttype</param>
@@ -46,11 +46,8 @@ namespace Kmd.Studica.Students.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets the student type
         /// </summary>
-        /// <remarks>
-        /// The student type
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 

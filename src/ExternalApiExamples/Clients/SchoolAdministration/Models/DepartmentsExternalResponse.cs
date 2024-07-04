@@ -34,7 +34,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Initializes a new instance of the DepartmentsExternalResponse
         /// class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">Identifier of the department.</param>
         /// <param name="name">String</param>
         /// <param name="validFrom">Date</param>
         /// <param name="validTo">End date of being valid.</param>
@@ -72,11 +72,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets identifier of the department.
         /// </summary>
-        /// <remarks>
-        /// Identifier of the department.
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 

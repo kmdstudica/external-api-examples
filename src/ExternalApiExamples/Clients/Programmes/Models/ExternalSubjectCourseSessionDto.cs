@@ -31,7 +31,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the ExternalSubjectCourseSessionDto
         /// class.
         /// </summary>
-        /// <param name="sessionId">Guid</param>
+        /// <param name="sessionId">The id of the session.</param>
         /// <param name="groupIds">The groups which the session is assigned to.
         /// These groups must
         /// be related to subject courses.</param>
@@ -66,11 +66,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets the id of the session.
         /// </summary>
-        /// <remarks>
-        /// The id of the session.
-        /// </remarks>
         [JsonProperty(PropertyName = "sessionId")]
         public System.Guid SessionId { get; set; }
 

@@ -31,7 +31,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the BridgingCoursesExternalResponse
         /// class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">Identifier of the bridging course</param>
         /// <param name="startDate">Date</param>
         /// <param name="endDate">Date</param>
         /// <param name="isCancelled">Boolean</param>
@@ -88,11 +88,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets identifier of the bridging course
         /// </summary>
-        /// <remarks>
-        /// Identifier of the bridging course
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 

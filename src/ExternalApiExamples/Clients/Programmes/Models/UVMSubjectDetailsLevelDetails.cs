@@ -27,7 +27,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the UVMSubjectDetailsLevelDetails
         /// class.
         /// </summary>
-        /// <param name="levelId">Guid</param>
+        /// <param name="levelId">Unique identification of the level.</param>
         /// <param name="level">String</param>
         /// <param name="description">String</param>
         /// <param name="levelType">String</param>

@@ -33,7 +33,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// SchoolHoursPlanDetailsExternalResponseSchoolHourPlanDetailsSchoolHourEntry
         /// class.
         /// </summary>
-        /// <param name="schoolHourEntryId">Guid</param>
+        /// <param name="schoolHourEntryId">Id of the school hours
+        /// entry</param>
         /// <param name="entryType">SchoolHourEntryType</param>
         /// <param name="startTime">Time</param>
         /// <param name="endTime">Time</param>
@@ -57,11 +58,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the school hours entry
         /// </summary>
-        /// <remarks>
-        /// Id of the school hours entry
-        /// </remarks>
         [JsonProperty(PropertyName = "schoolHourEntryId")]
         public System.Guid SchoolHourEntryId { get; set; }
 

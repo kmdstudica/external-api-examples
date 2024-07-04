@@ -31,7 +31,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Initializes a new instance of the
         /// UpdateContactAndAccountInfoExternalCommand class.
         /// </summary>
-        /// <param name="employeeId">Guid</param>
+        /// <param name="employeeId">The ID of the employee.</param>
         /// <param name="addressLineClear">Boolean</param>
         /// <param name="careOfAddressClear">Boolean</param>
         /// <param name="cityClear">Boolean</param>
@@ -104,11 +104,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets the ID of the employee.
         /// </summary>
-        /// <remarks>
-        /// The ID of the employee.
-        /// </remarks>
         [JsonProperty(PropertyName = "employeeId")]
         public System.Guid EmployeeId { get; set; }
 

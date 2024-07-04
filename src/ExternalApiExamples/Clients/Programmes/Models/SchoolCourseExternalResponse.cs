@@ -34,13 +34,17 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the SchoolCourseExternalResponse
         /// class.
         /// </summary>
-        /// <param name="schoolCourseId">Guid</param>
+        /// <param name="schoolCourseId">Id of the school course</param>
         /// <param name="startDate">Date</param>
         /// <param name="endDate">Date</param>
-        /// <param name="dayCalendarId">Guid</param>
-        /// <param name="departmentId">Guid</param>
-        /// <param name="areaOfEducationId">Guid</param>
-        /// <param name="areaOfResponsibilityId">Guid</param>
+        /// <param name="dayCalendarId">Id of the day calendar assigned to the
+        /// school course</param>
+        /// <param name="departmentId">Id of the Studica department the school
+        /// course is assigned to</param>
+        /// <param name="areaOfEducationId">Id of the area of education the
+        /// school course is assigned to</param>
+        /// <param name="areaOfResponsibilityId">Id of the area of
+        /// responsibility the school course is assigned to</param>
         /// <param name="name">String</param>
         /// <param name="uvmDepartmentNumber">String</param>
         /// <param name="dsDepartmentNumber">String</param>
@@ -85,11 +89,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the school course
         /// </summary>
-        /// <remarks>
-        /// Id of the school course
-        /// </remarks>
         [JsonProperty(PropertyName = "schoolCourseId")]
         public System.Guid SchoolCourseId { get; set; }
 
@@ -147,38 +148,29 @@ namespace Kmd.Studica.Programmes.Client.Models
         public SchoolCourseExternalResponseSchoolPeriod SchoolPeriod { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the day calendar assigned to the school course
         /// </summary>
-        /// <remarks>
-        /// Id of the day calendar assigned to the school course
-        /// </remarks>
         [JsonProperty(PropertyName = "dayCalendarId")]
         public System.Guid DayCalendarId { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the Studica department the school course is
+        /// assigned to
         /// </summary>
-        /// <remarks>
-        /// Id of the Studica department the school course is assigned to
-        /// </remarks>
         [JsonProperty(PropertyName = "departmentId")]
         public System.Guid DepartmentId { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the area of education the school course is
+        /// assigned to
         /// </summary>
-        /// <remarks>
-        /// Id of the area of education the school course is assigned to
-        /// </remarks>
         [JsonProperty(PropertyName = "areaOfEducationId")]
         public System.Guid AreaOfEducationId { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the area of responsibility the school course is
+        /// assigned to
         /// </summary>
-        /// <remarks>
-        /// Id of the area of responsibility the school course is assigned to
-        /// </remarks>
         [JsonProperty(PropertyName = "areaOfResponsibilityId")]
         public System.Guid AreaOfResponsibilityId { get; set; }
 

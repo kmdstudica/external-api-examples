@@ -29,8 +29,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the
         /// StudentInternshipContributionPeriodDto class.
         /// </summary>
-        /// <param name="studentId">Guid</param>
-        /// <param name="schoolInternshipId">Guid</param>
         /// <param name="countingPeriodNumber">Int32</param>
         /// <param name="startDate">Date</param>
         /// <param name="endDate">Date</param>
@@ -59,13 +57,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
         /// </summary>
         [JsonProperty(PropertyName = "studentId")]
         public System.Guid StudentId { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
         /// </summary>
         [JsonProperty(PropertyName = "schoolInternshipId")]
         public System.Guid SchoolInternshipId { get; set; }

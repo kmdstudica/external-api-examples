@@ -29,7 +29,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the
         /// GroupsExternalResponseParticipationPeriodDto class.
         /// </summary>
-        /// <param name="participantId">Guid</param>
+        /// <param name="participantId">Id of the participant.</param>
         /// <param name="participantType">CourseStudentType</param>
         /// <param name="startDate">Date</param>
         /// <param name="endDate">Date</param>
@@ -48,11 +48,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the participant.
         /// </summary>
-        /// <remarks>
-        /// Id of the participant.
-        /// </remarks>
         [JsonProperty(PropertyName = "participantId")]
         public System.Guid ParticipantId { get; set; }
 

@@ -34,7 +34,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// class.
         /// </summary>
         /// <param name="ids">Identifiers of the lessons.</param>
-        /// <param name="subjectCourseId">Guid</param>
+        /// <param name="subjectCourseId">Identifier of the subject course this
+        /// lesson is deleted from.</param>
         /// <param name="schoolCode">String</param>
         public DeleteLessonsExternalCommand(IList<System.Guid> ids, System.Guid subjectCourseId, string schoolCode = default(string))
         {
@@ -56,11 +57,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         public IList<System.Guid> Ids { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets identifier of the subject course this lesson is
+        /// deleted from.
         /// </summary>
-        /// <remarks>
-        /// Identifier of the subject course this lesson is deleted from.
-        /// </remarks>
         [JsonProperty(PropertyName = "subjectCourseId")]
         public System.Guid SubjectCourseId { get; set; }
 

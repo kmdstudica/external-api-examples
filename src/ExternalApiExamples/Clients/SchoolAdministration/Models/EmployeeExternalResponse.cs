@@ -32,7 +32,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <summary>
         /// Initializes a new instance of the EmployeeExternalResponse class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">Gets employee identifier in Studica.</param>
         /// <param name="civilRegistrationNumber">String</param>
         /// <param name="protectedNameAndAddress">Boolean</param>
         /// <param name="lmsIndicator">Boolean</param>
@@ -112,11 +112,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
-        /// </summary>
-        /// <remarks>
         /// Gets employee identifier in Studica.
-        /// </remarks>
+        /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 

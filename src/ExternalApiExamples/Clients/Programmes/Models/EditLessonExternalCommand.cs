@@ -32,9 +32,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Initializes a new instance of the EditLessonExternalCommand class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">Identifier of the lesson.</param>
         /// <param name="date">Date</param>
-        /// <param name="subjectCourseId">Guid</param>
+        /// <param name="subjectCourseId">The Id of the subject course this
+        /// lesson is added to.</param>
         /// <param name="teacherIds">List of teacher' identifiers.</param>
         /// <param name="externalLessonId">String</param>
         /// <param name="roomId">Obsolete!
@@ -67,11 +68,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets identifier of the lesson.
         /// </summary>
-        /// <remarks>
-        /// Identifier of the lesson.
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
@@ -123,11 +121,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         public string EndTime { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets the Id of the subject course this lesson is added to.
         /// </summary>
-        /// <remarks>
-        /// The Id of the subject course this lesson is added to.
-        /// </remarks>
         [JsonProperty(PropertyName = "subjectCourseId")]
         public System.Guid SubjectCourseId { get; set; }
 

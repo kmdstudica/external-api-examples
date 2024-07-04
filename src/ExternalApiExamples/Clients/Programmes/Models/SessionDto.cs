@@ -29,7 +29,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Initializes a new instance of the SessionDto class.
         /// </summary>
-        /// <param name="sessionId">Guid</param>
+        /// <param name="sessionId">The id of the session.</param>
         /// <param name="sessionEntityType">SessionEntityType</param>
         /// <param name="title">String</param>
         /// <param name="isPrivate">Boolean</param>
@@ -87,11 +87,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets the id of the session.
         /// </summary>
-        /// <remarks>
-        /// The id of the session.
-        /// </remarks>
         [JsonProperty(PropertyName = "sessionId")]
         public System.Guid SessionId { get; set; }
 

@@ -13,12 +13,12 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for AddIndependentSessionsExternal.
+    /// Extension methods for AddExtracurricularSessionsExternal.
     /// </summary>
-    public static partial class AddIndependentSessionsExternalExtensions
+    public static partial class AddExtracurricularSessionsExternalExtensions
     {
             /// <summary>
-            /// AddIndependentSessionsExternal_Post
+            /// AddExtracurricularSessionsExternal_Post
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -29,13 +29,13 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='schoolCode'>
             /// String The school code for which to get data.
             /// </param>
-            public static void Post(this IAddIndependentSessionsExternal operations, IList<ExternalIndependentSessionDto> sessions, string schoolCode)
+            public static void Post(this IAddExtracurricularSessionsExternal operations, IList<ExternalExtracurricularSessionDto> sessions, string schoolCode)
             {
                 operations.PostAsync(sessions, schoolCode).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// AddIndependentSessionsExternal_Post
+            /// AddExtracurricularSessionsExternal_Post
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -49,7 +49,7 @@ namespace Kmd.Studica.Programmes.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task PostAsync(this IAddIndependentSessionsExternal operations, IList<ExternalIndependentSessionDto> sessions, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task PostAsync(this IAddExtracurricularSessionsExternal operations, IList<ExternalExtracurricularSessionDto> sessions, string schoolCode, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.PostWithHttpMessagesAsync(sessions, schoolCode, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }

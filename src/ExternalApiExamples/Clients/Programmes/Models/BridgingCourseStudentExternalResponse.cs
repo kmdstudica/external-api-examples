@@ -31,10 +31,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the
         /// BridgingCourseStudentExternalResponse class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">Student's identifier.</param>
         /// <param name="civilRegistrationNumber">String</param>
         /// <param name="protectedNameAndAddress">Boolean</param>
-        /// <param name="bridgingcourseId">Guid</param>
+        /// <param name="bridgingcourseId">Identifier of the Bridging Course
+        /// the student is linked to</param>
         /// <param name="educationVersion">Int32</param>
         /// <param name="givenName">String</param>
         /// <param name="surname">String</param>
@@ -79,11 +80,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets student's identifier.
         /// </summary>
-        /// <remarks>
-        /// Student's identifier.
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
@@ -188,11 +186,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         public string Email { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets identifier of the Bridging Course the student is
+        /// linked to
         /// </summary>
-        /// <remarks>
-        /// Identifier of the Bridging Course the student is linked to
-        /// </remarks>
         [JsonProperty(PropertyName = "bridgingcourseId")]
         public System.Guid BridgingcourseId { get; set; }
 

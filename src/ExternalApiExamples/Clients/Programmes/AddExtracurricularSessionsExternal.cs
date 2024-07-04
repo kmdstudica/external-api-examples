@@ -18,12 +18,12 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// EditIndependentSessionExternal operations.
+    /// AddExtracurricularSessionsExternal operations.
     /// </summary>
-    public partial class EditIndependentSessionExternal : IServiceOperations<StudicaDemoProgrammes>, IEditIndependentSessionExternal
+    public partial class AddExtracurricularSessionsExternal : IServiceOperations<StudicaDemoProgrammes>, IAddExtracurricularSessionsExternal
     {
         /// <summary>
-        /// Initializes a new instance of the EditIndependentSessionExternal class.
+        /// Initializes a new instance of the AddExtracurricularSessionsExternal class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -31,7 +31,7 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public EditIndependentSessionExternal(StudicaDemoProgrammes client)
+        public AddExtracurricularSessionsExternal(StudicaDemoProgrammes client)
         {
             if (client == null)
             {
@@ -46,9 +46,13 @@ namespace Kmd.Studica.Programmes.Client
         public StudicaDemoProgrammes Client { get; private set; }
 
         /// <summary>
-        /// EditIndependentSessionExternal_Post
+        /// AddExtracurricularSessionsExternal_Post
         /// </summary>
-        /// <param name='editIndependentSessionExternalCommand'>
+        /// <param name='sessions'>
+        /// New sessions to create.
+        /// </param>
+        /// <param name='schoolCode'>
+        /// String The school code for which to get data.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -59,14 +63,52 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostWithHttpMessagesAsync(EditIndependentSessionExternalCommand editIndependentSessionExternalCommand = default(EditIndependentSessionExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostWithHttpMessagesAsync(IList<ExternalExtracurricularSessionDto> sessions, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (editIndependentSessionExternalCommand != null)
+            if (sessions == null)
             {
-                editIndependentSessionExternalCommand.Validate();
+                throw new ValidationException(ValidationRules.CannotBeNull, "sessions");
+            }
+            if (sessions != null)
+            {
+                foreach (var element in sessions)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+            if (schoolCode == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "schoolCode");
+            }
+            if (schoolCode != null)
+            {
+                if (schoolCode.Length > 6)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "schoolCode", 6);
+                }
+                if (schoolCode.Length < 6)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "schoolCode", 6);
+                }
+            }
+            AddExtracurricularSessionsExternalCommand addExtracurricularSessionsExternalCommand = default(AddExtracurricularSessionsExternalCommand);
+            if (sessions != null || schoolCode != null)
+            {
+                addExtracurricularSessionsExternalCommand = new AddExtracurricularSessionsExternalCommand();
+                addExtracurricularSessionsExternalCommand.Sessions = sessions;
+                addExtracurricularSessionsExternalCommand.SchoolCode = schoolCode;
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -75,13 +117,13 @@ namespace Kmd.Studica.Programmes.Client
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("editIndependentSessionExternalCommand", editIndependentSessionExternalCommand);
+                tracingParameters.Add("addExtracurricularSessionsExternalCommand", addExtracurricularSessionsExternalCommand);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Post", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "EditIndependentSessionExternal").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "AddExtracurricularSessionsExternal").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -104,9 +146,9 @@ namespace Kmd.Studica.Programmes.Client
 
             // Serialize Request
             string _requestContent = null;
-            if(editIndependentSessionExternalCommand != null)
+            if(addExtracurricularSessionsExternalCommand != null)
             {
-                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(editIndependentSessionExternalCommand, Client.SerializationSettings);
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(addExtracurricularSessionsExternalCommand, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

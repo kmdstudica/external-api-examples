@@ -310,7 +310,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// The operations group for this extension method.
             /// </param>
             /// <param name='id'>
-            /// Guid
             /// </param>
             /// <param name='schoolCode'>
             /// String The school code for which to get data.
@@ -327,7 +326,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
             /// The operations group for this extension method.
             /// </param>
             /// <param name='id'>
-            /// Guid
             /// </param>
             /// <param name='schoolCode'>
             /// String The school code for which to get data.

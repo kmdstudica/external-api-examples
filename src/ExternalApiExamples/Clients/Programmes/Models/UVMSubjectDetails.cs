@@ -27,7 +27,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Initializes a new instance of the UVMSubjectDetails class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">Unique identification of subject course</param>
         /// <param name="canOverwriteDuration">Boolean</param>
         /// <param name="subject">String</param>
         /// <param name="description">String</param>
@@ -65,11 +65,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets unique identification of subject course
         /// </summary>
-        /// <remarks>
-        /// Unique identification of subject course
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 

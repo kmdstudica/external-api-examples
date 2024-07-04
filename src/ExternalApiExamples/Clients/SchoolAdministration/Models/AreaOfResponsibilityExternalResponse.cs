@@ -32,7 +32,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Initializes a new instance of the
         /// AreaOfResponsibilityExternalResponse class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">Identifier of the area of responsibility.</param>
         /// <param name="name">String</param>
         /// <param name="validFrom">Date</param>
         /// <param name="validTo">End date of the area of
@@ -61,11 +61,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets identifier of the area of responsibility.
         /// </summary>
-        /// <remarks>
-        /// Identifier of the area of responsibility.
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 

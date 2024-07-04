@@ -25,7 +25,6 @@ namespace Kmd.Studica.Students.Client.Models
         /// <summary>
         /// Initializes a new instance of the StudentGuardian class.
         /// </summary>
-        /// <param name="id">Guid</param>
         /// <param name="protectedNameAndAddress">Boolean</param>
         /// <param name="civilRegistrationNumber">String</param>
         /// <param name="role">The guardian's role towards the student.
@@ -70,7 +69,6 @@ namespace Kmd.Studica.Students.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }

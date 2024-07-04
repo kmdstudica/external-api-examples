@@ -32,7 +32,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Initializes a new instance of the AreaOfEducationExternalResponse
         /// class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">Identifier of the area of education.</param>
         /// <param name="name">String</param>
         /// <param name="validFrom">Date</param>
         /// <param name="validTo">End date of the area of education.</param>
@@ -44,7 +44,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// for this area of education</param>
         /// <param name="educationCoesaNumber">String</param>
         /// <param name="educationName">String</param>
-        /// <param name="educationVersion">CÃ˜SA education version</param>
+        /// <param name="educationVersion">C????SA education version</param>
         /// <param name="specialisation">String</param>
         /// <param name="insertedAt">When was area of education created</param>
         /// <param name="updatedAt">Last update of the area of
@@ -73,11 +73,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets identifier of the area of education.
         /// </summary>
-        /// <remarks>
-        /// Identifier of the area of education.
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
@@ -130,7 +127,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// CÃ˜SA number for the education this area covers
+        /// C????SA number for the education this area covers
         /// </remarks>
         [JsonProperty(PropertyName = "educationCoesaNumber")]
         public string EducationCoesaNumber { get; set; }
@@ -139,13 +136,13 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// Name of the CÃ˜SA education this area covers
+        /// Name of the C????SA education this area covers
         /// </remarks>
         [JsonProperty(PropertyName = "educationName")]
         public string EducationName { get; set; }
 
         /// <summary>
-        /// Gets or sets CÃ˜SA education version
+        /// Gets or sets C????SA education version
         /// </summary>
         [JsonProperty(PropertyName = "educationVersion")]
         public int? EducationVersion { get; set; }
@@ -154,7 +151,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// Name of the CÃ˜SA specialization of the education for this area
+        /// Name of the C????SA specialization of the education for this area
         /// </remarks>
         [JsonProperty(PropertyName = "specialisation")]
         public string Specialisation { get; set; }

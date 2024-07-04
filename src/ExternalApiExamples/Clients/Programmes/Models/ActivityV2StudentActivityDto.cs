@@ -29,8 +29,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the ActivityV2StudentActivityDto
         /// class.
         /// </summary>
-        /// <param name="activityEntityId">Guid</param>
-        /// <param name="studentId">Guid</param>
         public ActivityV2StudentActivityDto(System.Guid activityEntityId, System.Guid studentId, System.DateTime? countingPeriodStartDate = default(System.DateTime?), System.DateTime? countingPeriodEndDate = default(System.DateTime?), double? contribution = default(double?), double? remainingContribution = default(double?))
         {
             ActivityEntityId = activityEntityId;
@@ -48,13 +46,11 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
         /// </summary>
         [JsonProperty(PropertyName = "activityEntityId")]
         public System.Guid ActivityEntityId { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
         /// </summary>
         [JsonProperty(PropertyName = "studentId")]
         public System.Guid StudentId { get; set; }

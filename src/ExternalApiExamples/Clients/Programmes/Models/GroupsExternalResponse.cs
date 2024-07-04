@@ -29,10 +29,12 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Initializes a new instance of the GroupsExternalResponse class.
         /// </summary>
-        /// <param name="groupId">Guid</param>
+        /// <param name="groupId">The id of the group.</param>
         /// <param name="groupEntityType">GroupEntityType</param>
-        /// <param name="groupEntityId">Guid</param>
-        /// <param name="rootGroupId">Guid</param>
+        /// <param name="groupEntityId">Id of the root entity that this group
+        /// belongs to (owner)</param>
+        /// <param name="rootGroupId">Id of the root group in this
+        /// hierarchy</param>
         /// <param name="startDate">Date</param>
         /// <param name="endDate">Date</param>
         /// <param name="lmsIndicator">Boolean</param>
@@ -77,11 +79,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets the id of the group.
         /// </summary>
-        /// <remarks>
-        /// The id of the group.
-        /// </remarks>
         [JsonProperty(PropertyName = "groupId")]
         public System.Guid GroupId { get; set; }
 
@@ -97,20 +96,15 @@ namespace Kmd.Studica.Programmes.Client.Models
         public string GroupEntityType { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the root entity that this group belongs to
+        /// (owner)
         /// </summary>
-        /// <remarks>
-        /// Id of the root entity that this group belongs to (owner)
-        /// </remarks>
         [JsonProperty(PropertyName = "groupEntityId")]
         public System.Guid GroupEntityId { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the root group in this hierarchy
         /// </summary>
-        /// <remarks>
-        /// Id of the root group in this hierarchy
-        /// </remarks>
         [JsonProperty(PropertyName = "rootGroupId")]
         public System.Guid RootGroupId { get; set; }
 

@@ -14,45 +14,59 @@ namespace Kmd.Studica.Programmes.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// ExternalIndependentSessionDto
+    /// EditExtracurricularSessionExternalCommand
     /// </summary>
-    public partial class ExternalIndependentSessionDto
+    /// <remarks>
+    /// Edit an existing extracurricular session.
+    /// </remarks>
+    public partial class EditExtracurricularSessionExternalCommand
     {
         /// <summary>
-        /// Initializes a new instance of the ExternalIndependentSessionDto
-        /// class.
+        /// Initializes a new instance of the
+        /// EditExtracurricularSessionExternalCommand class.
         /// </summary>
-        public ExternalIndependentSessionDto()
+        public EditExtracurricularSessionExternalCommand()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ExternalIndependentSessionDto
-        /// class.
+        /// Initializes a new instance of the
+        /// EditExtracurricularSessionExternalCommand class.
         /// </summary>
-        /// <param name="sessionId">Guid</param>
+        /// <param name="sessionId">The id of the session.</param>
         /// <param name="groupIds">The groups which the session is assigned
         /// to.</param>
         /// <param name="roomIds">The Ids of the rooms where the session is
         /// conducted.</param>
-        /// <param name="teacherIds">List of teacher' identifiers.</param>
+        /// <param name="employeeIds">List of teacher' identifiers.</param>
         /// <param name="date">Date</param>
+        /// <param name="title">String</param>
+        /// <param name="isPrivate">Boolean</param>
+        /// <param name="isMandatory">Boolean</param>
+        /// <param name="schoolCode">String</param>
         /// <param name="externalLessonId">String</param>
         /// <param name="startTime">Start time of the session.</param>
         /// <param name="endTime">End time of the session.</param>
-        /// <param name="comment">String</param>
-        public ExternalIndependentSessionDto(System.Guid sessionId, IList<System.Guid> groupIds, IList<System.Guid> roomIds, IList<System.Guid> teacherIds, System.DateTime date, string externalLessonId = default(string), string startTime = default(string), string endTime = default(string), string comment = default(string))
+        /// <param name="schoolHourEntryId">The school hour entry which the
+        /// session is scheduled to.</param>
+        /// <param name="description">String</param>
+        public EditExtracurricularSessionExternalCommand(System.Guid sessionId, IList<System.Guid> groupIds, IList<System.Guid> roomIds, IList<System.Guid> employeeIds, System.DateTime date, string title, bool isPrivate, bool isMandatory, string schoolCode, string externalLessonId = default(string), string startTime = default(string), string endTime = default(string), System.Guid? schoolHourEntryId = default(System.Guid?), string description = default(string))
         {
             SessionId = sessionId;
             ExternalLessonId = externalLessonId;
             GroupIds = groupIds;
             RoomIds = roomIds;
-            TeacherIds = teacherIds;
+            EmployeeIds = employeeIds;
             Date = date;
             StartTime = startTime;
             EndTime = endTime;
-            Comment = comment;
+            SchoolHourEntryId = schoolHourEntryId;
+            Description = description;
+            Title = title;
+            IsPrivate = isPrivate;
+            IsMandatory = isMandatory;
+            SchoolCode = schoolCode;
             CustomInit();
         }
 
@@ -62,11 +76,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets the id of the session.
         /// </summary>
-        /// <remarks>
-        /// The id of the session.
-        /// </remarks>
         [JsonProperty(PropertyName = "sessionId")]
         public System.Guid SessionId { get; set; }
 
@@ -95,8 +106,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Gets or sets list of teacher' identifiers.
         /// </summary>
-        [JsonProperty(PropertyName = "teacherIds")]
-        public IList<System.Guid> TeacherIds { get; set; }
+        [JsonProperty(PropertyName = "employeeIds")]
+        public IList<System.Guid> EmployeeIds { get; set; }
 
         /// <summary>
         /// Gets or sets date
@@ -121,13 +132,56 @@ namespace Kmd.Studica.Programmes.Client.Models
         public string EndTime { get; set; }
 
         /// <summary>
+        /// Gets or sets the school hour entry which the session is scheduled
+        /// to.
+        /// </summary>
+        [JsonProperty(PropertyName = "schoolHourEntryId")]
+        public System.Guid? SchoolHourEntryId { get; set; }
+
+        /// <summary>
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// A comment about the session.
+        /// A description about the session.
         /// </remarks>
-        [JsonProperty(PropertyName = "comment")]
-        public string Comment { get; set; }
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The title of the session.
+        /// </remarks>
+        [JsonProperty(PropertyName = "title")]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// Gets or sets boolean
+        /// </summary>
+        /// <remarks>
+        /// Indicator to show if the session is private or not.
+        /// </remarks>
+        [JsonProperty(PropertyName = "isPrivate")]
+        public bool IsPrivate { get; set; }
+
+        /// <summary>
+        /// Gets or sets boolean
+        /// </summary>
+        /// <remarks>
+        /// Indicator to show if the session is mandatory or not.
+        /// </remarks>
+        [JsonProperty(PropertyName = "isMandatory")]
+        public bool IsMandatory { get; set; }
+
+        /// <summary>
+        /// Gets or sets string
+        /// </summary>
+        /// <remarks>
+        /// The school code for which to get data.
+        /// </remarks>
+        [JsonProperty(PropertyName = "schoolCode")]
+        public string SchoolCode { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -145,9 +199,17 @@ namespace Kmd.Studica.Programmes.Client.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "RoomIds");
             }
-            if (TeacherIds == null)
+            if (EmployeeIds == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "TeacherIds");
+                throw new ValidationException(ValidationRules.CannotBeNull, "EmployeeIds");
+            }
+            if (Title == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Title");
+            }
+            if (SchoolCode == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "SchoolCode");
             }
             if (ExternalLessonId != null)
             {
@@ -170,11 +232,33 @@ namespace Kmd.Studica.Programmes.Client.Models
                     throw new ValidationException(ValidationRules.Pattern, "EndTime", "([01]?[0-9]|2[0-3]):[0-5][0-9]");
                 }
             }
-            if (Comment != null)
+            if (Description != null)
             {
-                if (Comment.Length > 255)
+                if (Description.Length > 400)
                 {
-                    throw new ValidationException(ValidationRules.MaxLength, "Comment", 255);
+                    throw new ValidationException(ValidationRules.MaxLength, "Description", 400);
+                }
+            }
+            if (Title != null)
+            {
+                if (Title.Length > 30)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "Title", 30);
+                }
+                if (Title.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "Title", 1);
+                }
+            }
+            if (SchoolCode != null)
+            {
+                if (SchoolCode.Length > 6)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "SchoolCode", 6);
+                }
+                if (SchoolCode.Length < 6)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "SchoolCode", 6);
                 }
             }
         }

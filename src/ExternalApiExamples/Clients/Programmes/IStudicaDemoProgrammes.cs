@@ -61,11 +61,6 @@ namespace Kmd.Studica.Programmes.Client
         IActivitiesExternal ActivitiesExternal { get; }
 
         /// <summary>
-        /// Gets the IAddIndependentSessionsExternal.
-        /// </summary>
-        IAddIndependentSessionsExternal AddIndependentSessionsExternal { get; }
-
-        /// <summary>
         /// Gets the IAddLessonsExternal.
         /// </summary>
         IAddLessonsExternal AddLessonsExternal { get; }
@@ -114,11 +109,6 @@ namespace Kmd.Studica.Programmes.Client
         /// Gets the IDeleteSessionsExternal.
         /// </summary>
         IDeleteSessionsExternal DeleteSessionsExternal { get; }
-
-        /// <summary>
-        /// Gets the IEditIndependentSessionExternal.
-        /// </summary>
-        IEditIndependentSessionExternal EditIndependentSessionExternal { get; }
 
         /// <summary>
         /// Gets the IEditLessonExternal.

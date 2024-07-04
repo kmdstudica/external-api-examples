@@ -28,7 +28,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the RegisterAbsenceRegistrationDto
         /// class.
         /// </summary>
-        /// <param name="studentId">Guid</param>
+        /// <param name="studentId">The student to register absence
+        /// for.</param>
         /// <param name="status">AbsenceRegistrationStatus</param>
         /// <param name="minutes">Int32</param>
         /// <param name="approved">Boolean</param>
@@ -49,11 +50,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets the student to register absence for.
         /// </summary>
-        /// <remarks>
-        /// The student to register absence for.
-        /// </remarks>
         [JsonProperty(PropertyName = "studentId")]
         public System.Guid StudentId { get; set; }
 

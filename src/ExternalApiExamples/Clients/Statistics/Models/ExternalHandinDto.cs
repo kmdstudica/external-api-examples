@@ -28,10 +28,10 @@ namespace Kmd.Studica.Statistics.Client.Models
         /// <summary>
         /// Initializes a new instance of the ExternalHandinDto class.
         /// </summary>
-        /// <param name="handinId">Guid</param>
+        /// <param name="handinId">The ID of the handin</param>
         /// <param name="studentIds">ID of the student(s) that the handin
         /// relates to (Studica StudentId's)</param>
-        /// <param name="assignmentId">Guid</param>
+        /// <param name="assignmentId">ID of the assignment</param>
         /// <param name="assignmentTitle">String</param>
         /// <param name="assignmentType">AssignmentType</param>
         /// <param name="deadline">DateTime</param>
@@ -77,11 +77,8 @@ namespace Kmd.Studica.Statistics.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets the ID of the handin
         /// </summary>
-        /// <remarks>
-        /// The ID of the handin
-        /// </remarks>
         [JsonProperty(PropertyName = "handinId")]
         public System.Guid HandinId { get; set; }
 
@@ -93,11 +90,8 @@ namespace Kmd.Studica.Statistics.Client.Models
         public IList<System.Guid> StudentIds { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets ID of the assignment
         /// </summary>
-        /// <remarks>
-        /// ID of the assignment
-        /// </remarks>
         [JsonProperty(PropertyName = "assignmentId")]
         public System.Guid AssignmentId { get; set; }
 

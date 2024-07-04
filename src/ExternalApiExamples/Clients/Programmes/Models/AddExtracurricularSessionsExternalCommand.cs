@@ -13,29 +13,29 @@ namespace Kmd.Studica.Programmes.Client.Models
     using System.Linq;
 
     /// <summary>
-    /// AddIndependentSessionsExternalCommand
+    /// AddExtracurricularSessionsExternalCommand
     /// </summary>
     /// <remarks>
-    /// Add new independent sessions.
+    /// Add new extracurricular sessions.
     /// </remarks>
-    public partial class AddIndependentSessionsExternalCommand
+    public partial class AddExtracurricularSessionsExternalCommand
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// AddIndependentSessionsExternalCommand class.
+        /// AddExtracurricularSessionsExternalCommand class.
         /// </summary>
-        public AddIndependentSessionsExternalCommand()
+        public AddExtracurricularSessionsExternalCommand()
         {
             CustomInit();
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// AddIndependentSessionsExternalCommand class.
+        /// AddExtracurricularSessionsExternalCommand class.
         /// </summary>
         /// <param name="sessions">New sessions to create.</param>
         /// <param name="schoolCode">String</param>
-        public AddIndependentSessionsExternalCommand(IList<ExternalIndependentSessionDto> sessions, string schoolCode)
+        public AddExtracurricularSessionsExternalCommand(IList<ExternalExtracurricularSessionDto> sessions, string schoolCode)
         {
             Sessions = sessions;
             SchoolCode = schoolCode;
@@ -51,7 +51,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Gets or sets new sessions to create.
         /// </summary>
         [JsonProperty(PropertyName = "sessions")]
-        public IList<ExternalIndependentSessionDto> Sessions { get; set; }
+        public IList<ExternalExtracurricularSessionDto> Sessions { get; set; }
 
         /// <summary>
         /// Gets or sets string

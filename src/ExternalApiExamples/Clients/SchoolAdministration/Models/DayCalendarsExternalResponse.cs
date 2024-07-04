@@ -30,7 +30,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Initializes a new instance of the DayCalendarsExternalResponse
         /// class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">Identifier of the day calendar.</param>
         /// <param name="schoolDays">List of school days.</param>
         /// <param name="name">String</param>
         /// <param name="insertedAt">When was day calendar created</param>
@@ -51,11 +51,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets identifier of the day calendar.
         /// </summary>
-        /// <remarks>
-        /// Identifier of the day calendar.
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 

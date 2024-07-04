@@ -27,7 +27,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Initializes a new instance of the ActivityReportRowDto class.
         /// </summary>
-        /// <param name="id">Guid</param>
         /// <param name="institutionNumber">String</param>
         /// <param name="requestor">String</param>
         /// <param name="coesaVersion">String</param>
@@ -65,7 +64,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }

@@ -1659,7 +1659,6 @@ namespace Kmd.Studica.SchoolAdministration.Client
         /// _SchoolHoursPlanDetailsExternal_Post
         /// </summary>
         /// <param name='id'>
-        /// Guid
         /// </param>
         /// <param name='schoolCode'>
         /// String The school code for which to get data.

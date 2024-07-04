@@ -29,7 +29,8 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
         /// Initializes a new instance of the
         /// StudentInternshipsInternshipPeriodDto class.
         /// </summary>
-        /// <param name="writtenAgreementId">Guid</param>
+        /// <param name="writtenAgreementId">The written agreement the
+        /// internship period belongs to</param>
         /// <param name="schoolInternshipType">SchoolInternshipType</param>
         /// <param name="startDate">Date</param>
         /// <param name="endDate">Date</param>
@@ -53,11 +54,8 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets the written agreement the internship period belongs to
         /// </summary>
-        /// <remarks>
-        /// The written agreement the internship period belongs to
-        /// </remarks>
         [JsonProperty(PropertyName = "writtenAgreementId")]
         public System.Guid WrittenAgreementId { get; set; }
 

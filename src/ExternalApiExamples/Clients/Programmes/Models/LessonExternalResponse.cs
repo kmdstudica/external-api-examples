@@ -32,9 +32,10 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Initializes a new instance of the LessonExternalResponse class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">Unique identifier.</param>
         /// <param name="sessionEntityType">SessionEntityType</param>
-        /// <param name="subjectCourseId">Guid</param>
+        /// <param name="subjectCourseId">Reference to the subject course that
+        /// lesson is part of.</param>
         /// <param name="date">Date</param>
         /// <param name="title">String</param>
         /// <param name="isPrivate">Boolean</param>
@@ -99,11 +100,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets unique identifier.
         /// </summary>
-        /// <remarks>
-        /// Unique identifier.
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
@@ -130,11 +128,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         public string ExternalLessonId { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets reference to the subject course that lesson is part
+        /// of.
         /// </summary>
-        /// <remarks>
-        /// Reference to the subject course that lesson is part of.
-        /// </remarks>
         [JsonProperty(PropertyName = "subjectCourseId")]
         public System.Guid SubjectCourseId { get; set; }
 

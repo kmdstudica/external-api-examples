@@ -34,10 +34,11 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
         /// Initializes a new instance of the
         /// InternshipDepartmentsExternalResponse class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">The department id.</param>
         /// <param name="name">String</param>
         /// <param name="validFrom">Date</param>
-        /// <param name="dayCalendarId">Guid</param>
+        /// <param name="dayCalendarId">The id of the associated day
+        /// calendar.</param>
         /// <param name="uvmDepartmentNumber">String</param>
         /// <param name="workWeekHours">All associated work week hours.</param>
         /// <param name="validTo">The date which the department is active to,
@@ -68,11 +69,8 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets the department id.
         /// </summary>
-        /// <remarks>
-        /// The department id.
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
@@ -104,11 +102,8 @@ namespace Kmd.Studica.SchoolInternships.Client.Models
         public System.DateTime? ValidTo { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets the id of the associated day calendar.
         /// </summary>
-        /// <remarks>
-        /// The id of the associated day calendar.
-        /// </remarks>
         [JsonProperty(PropertyName = "dayCalendarId")]
         public System.Guid DayCalendarId { get; set; }
 

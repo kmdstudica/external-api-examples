@@ -31,7 +31,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// <summary>
         /// Initializes a new instance of the RoomExternalResponse class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">Id of the room.</param>
         /// <param name="designation">String</param>
         /// <param name="roomType">RoomType</param>
         /// <param name="useDsDepartmentAddress">Boolean</param>
@@ -74,11 +74,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the room.
         /// </summary>
-        /// <remarks>
-        /// Id of the room.
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 

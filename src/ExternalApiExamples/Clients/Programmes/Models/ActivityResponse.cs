@@ -32,8 +32,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Initializes a new instance of the ActivityResponse class.
         /// </summary>
-        /// <param name="activityId">Guid</param>
-        /// <param name="activityEntityId">Guid</param>
+        /// <param name="activityId">Id of the Activity</param>
+        /// <param name="activityEntityId">Id of the source for the
+        /// Activity</param>
         /// <param name="activityEntityType">ActivityExternalEntityType</param>
         /// <param name="name">String</param>
         /// <param name="startDate">Activity start date</param>
@@ -64,20 +65,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the Activity
         /// </summary>
-        /// <remarks>
-        /// Id of the Activity
-        /// </remarks>
         [JsonProperty(PropertyName = "activityId")]
         public System.Guid ActivityId { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the source for the Activity
         /// </summary>
-        /// <remarks>
-        /// Id of the source for the Activity
-        /// </remarks>
         [JsonProperty(PropertyName = "activityEntityId")]
         public System.Guid ActivityEntityId { get; set; }
 

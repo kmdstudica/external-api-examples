@@ -25,7 +25,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <summary>
         /// Initializes a new instance of the LevelDetails class.
         /// </summary>
-        /// <param name="levelId">Guid</param>
+        /// <param name="levelId">Unique identification of the level.</param>
         /// <param name="level">String</param>
         /// <param name="description">String</param>
         /// <param name="levelType">String</param>
@@ -44,11 +44,8 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets unique identification of the level.
         /// </summary>
-        /// <remarks>
-        /// Unique identification of the level.
-        /// </remarks>
         [JsonProperty(PropertyName = "levelId")]
         public System.Guid LevelId { get; set; }
 
@@ -78,7 +75,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// <remarks>
         /// The type of the level.
         /// TEGN = Characters, TAL = Numbers,
-        /// ERHVERV, FGU almen, FGU-tema, DelmÃ¥l.
+        /// ERHVERV, FGU almen, FGU-tema, Delm????l.
         /// </remarks>
         [JsonProperty(PropertyName = "levelType")]
         public string LevelType { get; set; }

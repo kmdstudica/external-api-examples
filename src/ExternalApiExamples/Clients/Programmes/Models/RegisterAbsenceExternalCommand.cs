@@ -33,8 +33,9 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the RegisterAbsenceExternalCommand
         /// class.
         /// </summary>
-        /// <param name="lessonId">Guid</param>
-        /// <param name="subjectCourseId">Guid</param>
+        /// <param name="lessonId">Id of lesson to register absence on.</param>
+        /// <param name="subjectCourseId">Id of the subject course the lesson
+        /// is part of.</param>
         /// <param name="absenceRegistered">Boolean</param>
         /// <param name="absenceRegistrations">The absence registrations on the
         /// lesson.</param>
@@ -55,20 +56,14 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of lesson to register absence on.
         /// </summary>
-        /// <remarks>
-        /// Id of lesson to register absence on.
-        /// </remarks>
         [JsonProperty(PropertyName = "lessonId")]
         public System.Guid LessonId { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the subject course the lesson is part of.
         /// </summary>
-        /// <remarks>
-        /// Id of the subject course the lesson is part of.
-        /// </remarks>
         [JsonProperty(PropertyName = "subjectCourseId")]
         public System.Guid SubjectCourseId { get; set; }
 

@@ -29,9 +29,11 @@ namespace Kmd.Studica.Students.Client.Models
         /// <summary>
         /// Initializes a new instance of the StudentStudy class.
         /// </summary>
-        /// <param name="id">Guid</param>
-        /// <param name="departmentId">Guid</param>
-        /// <param name="educationId">Guid</param>
+        /// <param name="id">The id of the study</param>
+        /// <param name="departmentId">Id of the department that student is
+        /// affiliated to.</param>
+        /// <param name="educationId">Id of the education (from UMO) that the
+        /// study is linked to</param>
         /// <param name="studyStartDate">Date</param>
         /// <param name="studentTypes">StudentTypes associated with the
         /// student.</param>
@@ -90,20 +92,14 @@ namespace Kmd.Studica.Students.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets the id of the study
         /// </summary>
-        /// <remarks>
-        /// The id of the study
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the department that student is affiliated to.
         /// </summary>
-        /// <remarks>
-        /// Id of the department that student is affiliated to.
-        /// </remarks>
         [JsonProperty(PropertyName = "departmentId")]
         public System.Guid DepartmentId { get; set; }
 
@@ -117,11 +113,9 @@ namespace Kmd.Studica.Students.Client.Models
         public string DsDepartmentNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the education (from UMO) that the study is
+        /// linked to
         /// </summary>
-        /// <remarks>
-        /// Id of the education (from UMO) that the study is linked to
-        /// </remarks>
         [JsonProperty(PropertyName = "educationId")]
         public System.Guid EducationId { get; set; }
 
@@ -138,7 +132,7 @@ namespace Kmd.Studica.Students.Client.Models
         /// Gets or sets string
         /// </summary>
         /// <remarks>
-        /// CÃ˜SA number of education from UMO
+        /// C????SA number of education from UMO
         /// </remarks>
         [JsonProperty(PropertyName = "coesa")]
         public string Coesa { get; set; }

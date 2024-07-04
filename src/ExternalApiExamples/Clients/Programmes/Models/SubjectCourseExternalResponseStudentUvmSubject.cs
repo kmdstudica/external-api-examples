@@ -26,7 +26,7 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the
         /// SubjectCourseExternalResponseStudentUvmSubject class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">Unique identification of subject course</param>
         /// <param name="canOverwriteDuration">Boolean</param>
         /// <param name="subject">String</param>
         /// <param name="description">String</param>

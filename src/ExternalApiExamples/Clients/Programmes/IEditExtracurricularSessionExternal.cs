@@ -14,18 +14,14 @@ namespace Kmd.Studica.Programmes.Client
     using System.Threading.Tasks;
 
     /// <summary>
-    /// AddIndependentSessionsExternal operations.
+    /// EditExtracurricularSessionExternal operations.
     /// </summary>
-    public partial interface IAddIndependentSessionsExternal
+    public partial interface IEditExtracurricularSessionExternal
     {
         /// <summary>
-        /// AddIndependentSessionsExternal_Post
+        /// EditExtracurricularSessionExternal_Post
         /// </summary>
-        /// <param name='sessions'>
-        /// New sessions to create.
-        /// </param>
-        /// <param name='schoolCode'>
-        /// String The school code for which to get data.
+        /// <param name='editExtracurricularSessionExternalCommand'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -36,9 +32,6 @@ namespace Kmd.Studica.Programmes.Client
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse> PostWithHttpMessagesAsync(IList<ExternalIndependentSessionDto> sessions, string schoolCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PostWithHttpMessagesAsync(EditExtracurricularSessionExternalCommand editExtracurricularSessionExternalCommand = default(EditExtracurricularSessionExternalCommand), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -29,7 +29,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         /// Initializes a new instance of the
         /// EducationalProgrammesExternalResponseStudentParticipation class.
         /// </summary>
-        /// <param name="studentId">Guid</param>
         /// <param name="usePeriodFromEducationalProgramme">Boolean</param>
         /// <param name="startDate">Date</param>
         /// <param name="endDate">Date</param>
@@ -48,7 +47,6 @@ namespace Kmd.Studica.Programmes.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
         /// </summary>
         [JsonProperty(PropertyName = "studentId")]
         public System.Guid StudentId { get; set; }

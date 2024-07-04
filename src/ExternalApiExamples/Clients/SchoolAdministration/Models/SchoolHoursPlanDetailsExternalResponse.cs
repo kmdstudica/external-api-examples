@@ -35,7 +35,7 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         /// Initializes a new instance of the
         /// SchoolHoursPlanDetailsExternalResponse class.
         /// </summary>
-        /// <param name="id">Guid</param>
+        /// <param name="id">Id of school hours plan</param>
         /// <param name="name">String</param>
         /// <param name="startTime">Time</param>
         /// <param name="lectureDurationInMinutes">Int32</param>
@@ -77,11 +77,8 @@ namespace Kmd.Studica.SchoolAdministration.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of school hours plan
         /// </summary>
-        /// <remarks>
-        /// Id of school hours plan
-        /// </remarks>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 

@@ -29,8 +29,8 @@ namespace Kmd.Studica.InternshipDk.Client.Models
         /// <summary>
         /// Initializes a new instance of the AgreementsExternalResponse class.
         /// </summary>
-        /// <param name="studentId">Guid</param>
-        /// <param name="agreementId">Guid</param>
+        /// <param name="studentId">Id of the student.</param>
+        /// <param name="agreementId">Id of the agreement.</param>
         /// <param name="educationVersion">Int32</param>
         /// <param name="educationStartDate">Date</param>
         /// <param name="agreementStartDate">Date</param>
@@ -128,20 +128,14 @@ namespace Kmd.Studica.InternshipDk.Client.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the student.
         /// </summary>
-        /// <remarks>
-        /// Id of the student.
-        /// </remarks>
         [JsonProperty(PropertyName = "studentId")]
         public System.Guid StudentId { get; set; }
 
         /// <summary>
-        /// Gets or sets guid
+        /// Gets or sets id of the agreement.
         /// </summary>
-        /// <remarks>
-        /// Id of the agreement.
-        /// </remarks>
         [JsonProperty(PropertyName = "agreementId")]
         public System.Guid AgreementId { get; set; }
 
